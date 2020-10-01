@@ -1,0 +1,25 @@
+set cursorline
+set expandtab
+set hidden
+set incsearch
+set mouse=a
+set number
+set relativenumber
+set shiftwidth=2
+set splitbelow
+set splitright
+set signcolumn=yes
+set tabstop=2
+let g:mapleader = ' '
+syntax on
+
+set t_Co=256
+
+" overflow column guide
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+execute "set colorcolumn=" . join(range(121,99999), ',')
+
+" use directory of open file as working directory
+" https://superuser.com/a/195191
+autocmd BufEnter * lcd %:p:h
+

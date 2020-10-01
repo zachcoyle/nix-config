@@ -1,0 +1,244 @@
+{ config, lib, pkgs, ... }:
+let
+
+  homebridgePkgs = pkgs.yarn2nix-moretea.mkYarnPackage {
+    name = "homebridgePkgs";
+    src = ./pkgs/node_packages/homebridgePkgs;
+    packageJSON = ./pkgs/node_packages/homebridgePkgs/package.json;
+    yarnLock = ./pkgs/node_packages/homebridgePkgs/yarn.lock;
+    publishBinsFor = [ "homebridge" ];
+  };
+
+in
+{
+
+  nixpkgs.overlays = [ ];
+
+  # Use a custom configuration.nix location.
+  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin-configuration.nix
+  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin-configuration.nix";
+
+  environment.variables.MACOSX_DEPLOYMENT_TARGET = "10.15";
+
+  system = {
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
+    };
+
+    defaults = {
+      dock = {
+        autohide = false;
+        dashboard-in-overlay = false;
+        mineffect = null; #"suck";
+        mouse-over-hilite-stack = true;
+        mru-spaces = false;
+        orientation = "left";
+        show-process-indicators = true;
+        show-recents = false;
+        showhidden = true;
+        tilesize = 12;
+      };
+
+      finder = {
+        _FXShowPosixPathInTitle = true;
+        AppleShowAllExtensions = true;
+        FXEnableExtensionChangeWarning = false;
+        QuitMenuItem = true;
+      };
+
+      trackpad = {
+        Clicking = true;
+        Dragging = true;
+        TrackpadRightClick = false;
+        TrackpadThreeFingerDrag = false;
+      };
+
+      NSGlobalDomain = {
+        "com.apple.swipescrolldirection" = true;
+        #AppleAccentColor = "Green";
+        AppleInterfaceStyle = "Dark";
+        AppleKeyboardUIMode = 3;
+        ApplePressAndHoldEnabled = true;
+        InitialKeyRepeat = 20;
+        KeyRepeat = 10;
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
+        PMPrintingExpandedStateForPrint = true;
+        PMPrintingExpandedStateForPrint2 = true;
+      };
+    };
+  };
+
+  fonts = {
+    enableFontDir = true;
+    fonts = with pkgs; [
+      fantasque-sans-mono
+      fira-code
+      iosevka
+      nerdfonts
+      open-dyslexic
+      open-sans
+      powerline-fonts
+      roboto-mono
+      source-code-pro
+    ];
+  };
+
+
+  environment.systemPackages = with pkgs; [
+    fstl
+    synergy
+    terminal-notifier
+    emacs
+    mpv
+    wireshark
+    alacritty
+    iterm2
+    # need to fix to make it show up in ~/Applications/Nix/
+    (vscode-with-extensions.override {
+      vscode = vscodium;
+      vscodeExtensions = with vscode-extensions;
+        [
+          vscode-extensions.bbenoist.Nix
+        ] ++ vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "gitlens";
+            publisher = "eamodio";
+            version = "10.2.1";
+            sha256 = "1bh6ws20yi757b4im5aa6zcjmsgdqxvr1rg86kfa638cd5ad1f97";
+          }
+          {
+            name = "insert-iso-timestamp";
+            publisher = "dpkshrma";
+            version = "0.0.1";
+            sha256 = "0jhfhybjsl6i3sq1d3q4ryz5lidjk82jzzgq6bbjwjlipj6vdan7";
+          }
+          {
+            name = "prettier-vscode";
+            publisher = "esbenp";
+            version = "5.0.0";
+            sha256 = "018n0632gp65b3qwww8ijyb149v8dvbhlys548wvjfax8926jm5j";
+          }
+          {
+            name = "pyright";
+            publisher = "ms-pyright";
+            version = "1.1.40";
+            sha256 = "1qgmi0pzimglvpky8bvskcxdgbgha2l9srilzsaqj0dlvavp0969";
+          }
+          {
+            name = "python";
+            publisher = "ms-python";
+            version = "2020.8.101144";
+            sha256 = "1ppsqs4lyxighqqia9195k2sgcv7455kzms49pmc4i3p9s3gcmny";
+          }
+          {
+            name = "uuid-generator";
+            publisher = "netcorext";
+            version = "0.0.4";
+            sha256 = "00r7jxl6b1gfxm78payi9mr49bcnkrzzc5wyvk5j1jarg2sqzbfh";
+          }
+          {
+            name = "vscode-neovim";
+            publisher = "asvetliakov";
+            version = "0.0.50";
+            sha256 = "1dhqqam6dqig7rp0ii6z4h97a154133mq3dmq1p1g5i4v4qykrl5";
+          }
+        ];
+    })
+  ];
+
+  programs.man.enable = true;
+
+  services.nix-daemon.enable = true;
+  nix.package = pkgs.nixUnstable;
+  nixpkgs.config.allowUnfree = true;
+  programs.nix-index.enable = false;
+
+  services.lorri = {
+    logFile = "/var/tmp/lorri.log";
+    enable = true;
+  };
+
+  services.redis.enable = true;
+
+
+  services.yabai = {
+    enable = true;
+    package = pkgs.yabai;
+    config = {
+      focus_follows_mouse = "off";
+      mouse_follows_focus = "on";
+      window_placement = "second_child";
+      window_opacity = "on";
+      active_window_opacity = 1.0;
+      normal_window_opacity = 0.9;
+      top_padding = 5;
+      bottom_padding = 5;
+      left_padding = 8;
+      right_padding = 5;
+      window_gap = 5;
+      layout = "bsp";
+    };
+  };
+
+  services.skhd = {
+    enable = true;
+    skhdConfig = builtins.readFile ./dotfiles/skhdrc;
+  };
+
+  programs.bash.enable = true;
+  programs.zsh.enable = true;
+
+  launchd =
+    {
+      agents = {
+        homebridge = {
+          command = "${homebridgePkgs}/bin/homebridge --user-storage-path /Users/zcoyle/.homebridge";
+          serviceConfig = {
+            Label = "homebridge";
+            UserName = "zcoyle";
+            KeepAlive = true;
+            StandardOutPath = "/var/tmp/homebridge.log";
+            StandardErrorPath = "/var/tmp/homebridge_error.log";
+          };
+        };
+      };
+    };
+
+
+  #TEMP WORKAROUND. See https://github.com/LnL7/nix-darwin/issues/139#issuecomment-666771621
+  system.activationScripts.applications.text = pkgs.lib.mkForce (
+    ''
+        echo "setting up ~/Applications/Nix..."
+        rm -rf ~/Applications/Nix
+        mkdir -p ~/Applications/Nix
+        chown zcoyle ~/Applications/Nix
+        find ${config.system.build.applications}/Applications -maxdepth 1 -type l | while read f; do
+          src="$(/usr/bin/stat -f%Y $f)"
+          appname="$(basename $src)"
+          osascript -e "tell app \"Finder\" to make alias file at POSIX file \"/Users/zcoyle/Applications/Nix/\" to POSIX file \"$src\" with properties {name: \"$appname\"}";
+      done
+    ''
+  );
+
+
+
+
+  #users.users.zcoyle.shell = pkgs.zsh;
+
+  # Used for backwards compatibility, please read the changelog before changing.
+  # $ darwin-rebuild changelog
+  system.stateVersion = 3;
+
+  # You should generally set this to the total number of logical cores in your system.
+  # $ sysctl -n hw.ncpu
+  nix.maxJobs = 8;
+  nix.buildCores = 8;
+
+}
