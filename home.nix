@@ -113,7 +113,7 @@ let
 
 in
 {
-  imports = if isNixOS then [ ./home-nixos.nix ] else [ ];
+  imports = [ ./env.nix ] ++ lib.optionals isNixOS [ ./home-nixos ];
 
   programs.home-manager.enable = true;
 
