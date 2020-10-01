@@ -147,6 +147,7 @@ in
     abduco
     apg
     bc
+    cachix
     ctags
     cups
     dvtm
