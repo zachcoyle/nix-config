@@ -139,7 +139,7 @@ in
       "editor.lineNumbers": "relative"
       "editor.cursorStyle": "block",
       "editor.fontLigatures": true,
-      "editor.fontFamily": "FiraCode Nerd Font
+      "editor.fontFamily": "FiraCode Nerd Font",
     }
   '';
 
