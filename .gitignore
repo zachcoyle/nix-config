@@ -3,3 +3,4 @@ result
 result/
 *.swp
 machine.nix
+env.nix
