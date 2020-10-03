@@ -186,6 +186,7 @@ in
     shellTools
   ] ++ lib.optionals isNixOS [
     android-studio
+    alacritty
     blender
     dwarf-fortress-packages.dwarf-fortress-full
     exfat
