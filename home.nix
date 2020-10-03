@@ -126,6 +126,11 @@ in
     darwin_enable_overlay
   ];
 
+
+  home.file.".config/alacritty/alacritty.yml".text =
+    builtins.readFile ./dotfiles/alacritty.yml;
+
+
   home.file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".text =
     builtins.readFile ./dotfiles/Profiles.json;
 
