@@ -12,7 +12,9 @@ let
 in
 {
 
-  nixpkgs.overlays = [ ];
+  nixpkgs.overlays = [
+    (import ./overlays/customPackages.nix)
+  ];
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin-configuration.nix
@@ -212,13 +214,13 @@ in
 
 
   #TEMP WORKAROUND. See https://github.com/LnL7/nix-darwin/issues/139#issuecomment-666771621
-  system.activationScripts.applications.text = pkgs.lib.mkForce (
-    ''
-      echo "setting up $HOME/Applications/Nix..."
-      rm "$HOME/Applications/Nix"
-      ln -s "${config.system.build.applications}/Applications" "$HOME/Applications/Nix"
-    ''
-  );
+  #system.activationScripts.applications.text = pkgs.lib.mkForce (
+  #  ''
+  #    echo "setting up $HOME/Applications/Nix..."
+  #    rm "$HOME/Applications/Nix"
+  #    ln -s "${config.system.build.applications}/Applications" "$HOME/Applications/Nix"
+  #  ''
+  #);
 
   networking = {
     knownNetworkServices = [
