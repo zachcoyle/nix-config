@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
 
   unpackPhase = ''
     /usr/sbin/pkgutil --expand $src mas_unpacked
-    bsdtar -xvf mas_unpacked/mas_components.pkg/Payload
+    bsdtar -xf mas_unpacked/mas_components.pkg/Payload
   '';
 
   buildPhase = "true";
@@ -31,5 +31,13 @@ stdenv.mkDerivation rec {
     install_name_tool -change @rpath/MasKit.framework/Versions/A/MasKit $out/Frameworks/MasKit.framework/Versions/A/MasKit $out/bin/mas
     install_name_tool -change @rpath/Commandant.framework/Commandant  $out/Frameworks/MasKit.framework/Versions/A/Frameworks/Commandant.framework/Versions/A/Commandant $out/bin/mas
   '';
+
+  meta = with lib; {
+    description = "Mac App Store command line interface";
+    homepage = "https://github.com/mas-cli/mas";
+    license = licenses.mit;
+    maintainers = with maintainers; [ zachcoyle ];
+    platforms = platforms.darwin;
+  };
 
 }
