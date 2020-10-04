@@ -1,7 +1,6 @@
 { pkgs
 , lib
 , stdenv
-, writeScriptBin
 }:
 
 stdenv.mkDerivation rec {
