@@ -96,7 +96,6 @@ in
     synergy
     terminal-notifier
     emacs
-    mpv
     wireshark
     alacritty
     iterm2
@@ -215,20 +214,25 @@ in
   #TEMP WORKAROUND. See https://github.com/LnL7/nix-darwin/issues/139#issuecomment-666771621
   system.activationScripts.applications.text = pkgs.lib.mkForce (
     ''
-        echo "setting up ~/Applications/Nix..."
-        rm -rf ~/Applications/Nix
-        mkdir -p ~/Applications/Nix
-        chown zcoyle ~/Applications/Nix
-        find ${config.system.build.applications}/Applications -maxdepth 1 -type l | while read f; do
-          src="$(/usr/bin/stat -f%Y $f)"
-          appname="$(basename $src)"
-          osascript -e "tell app \"Finder\" to make alias file at POSIX file \"/Users/zcoyle/Applications/Nix/\" to POSIX file \"$src\" with properties {name: \"$appname\"}";
-      done
+      echo "setting up $HOME/Applications/Nix..."
+      rm "$HOME/Applications/Nix"
+      ln -s "${config.system.build.applications}/Applications" "$HOME/Applications/Nix"
     ''
   );
 
-
-
+  networking = {
+    knownNetworkServices = [
+      "Wi-Fi"
+      "Bluetooth PAN"
+      "Thunderbolt Bridge"
+    ];
+    dns = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "2606:4700:4700::1111"
+      "2606:4700:4700::1001"
+    ];
+  };
 
   #users.users.zcoyle.shell = pkgs.zsh;
 
