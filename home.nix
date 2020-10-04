@@ -166,6 +166,7 @@ in
     lynx
     mdcat
     mpv
+    nixops
     teamocil
     tig
     units
