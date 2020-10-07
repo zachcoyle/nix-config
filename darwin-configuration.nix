@@ -39,6 +39,7 @@ in
 
   nixpkgs.overlays = [
     (import ./overlays/customPackages.nix)
+    (import ./overlays/darwin-enable.nix)
   ];
 
   # Use a custom configuration.nix location.
@@ -127,6 +128,7 @@ in
     alacritty
     iterm2
     mas
+    segno
     # need to fix to make it show up in ~/Applications/Nix/
     (vscode-with-extensions.override {
       vscode = vscodium;
@@ -264,6 +266,7 @@ in
 
   system.activationScripts.extraUserActivation.text = ''
     echo "setting up App Store applications..."
+    ${pkgs.mas}/bin/mas upgrade
     ${pkgs.mas}/bin/mas install ${lib.concatStringsSep " " appStoreApps}
   '';
 

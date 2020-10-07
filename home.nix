@@ -64,7 +64,7 @@ let
   buildTools = with pkgs; [
     fastlane
     just
-    python38Packages.poetry
+    python3Packages.poetry
     stack
   ];
 
@@ -73,8 +73,6 @@ let
   ];
 
   packageManagers = with pkgs; [
-    python38Packages.pip
-    python38Packages.virtualenv
     yarn
     niv
   ] ++ lib.optionals isDarwin [ cocoapods ];
@@ -126,13 +124,12 @@ in
     darwin_enable_overlay
   ];
 
-
   home.file.".config/alacritty/alacritty.yml".text =
     builtins.readFile ./dotfiles/alacritty.yml;
 
 
   home.file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".text =
-    builtins.readFile ./dotfiles/Profiles.json;
+    builtins.readFile ./dotfiles/iterm2/Profiles.json;
 
   home.file."Library/Application Support/VSCodium/User/settings.json".text = ''
     {
@@ -332,10 +329,7 @@ in
       resurrect
       gruvbox
     ];
-    extraConfig = ''
-      set -g mouse on
-      set-option -g status-position top
-    '';
+    extraConfig = builtins.readFile ./dotfiles/tmux.conf;
   };
 
   programs.neovim = {
@@ -345,233 +339,49 @@ in
 
     package = pkgs.neovim-nightly;
 
-    extraConfig = builtins.readFile ./dotfiles/init.vim;
+    extraConfig = builtins.readFile ./dotfiles/neovim/init.vim;
 
-    plugins = with pkgs.vimPlugins; [
-      auto-pairs
-      colorizer
-      conjure
-      {
-        plugin = ctrlp-vim;
-        config = "let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'";
-      }
-      deol-nvim
-      {
-        plugin = deoplete-nvim;
-        config = ''
-          let g:deoplete#enable_at_startup = 1
-          let g:deoplete#ignore_case = 1
-          let g:deoplete#ignorecase = 1
-          inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-        '';
-      }
-      {
-        plugin = direnv-vim;
-        config = ''
-          if exists("$EXTRA_VIM")
-            for path in split($EXTRA_VIM, ':')
-              exec "source ".path
-            endfor
-          endif
-        '';
-      }
-      editorconfig-vim
-      fugitive
-      {
-        plugin = gruvbox;
-        config = "autocmd vimenter * colorscheme gruvbox";
-      }
-      {
-        plugin = LanguageClient-neovim;
-        config = ''
-          let g:LanguageClient_serverCommands = {
-                \ 'c'               : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
-                \ 'clojure'         : ['clojure-lsp'],
-                \ 'cpp'             : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
-                \ 'dockerfile'      : ['docker-langserver', '--stdio'],
-                \ 'go'              : ['gopls'],
-                \ 'haskell'         : ['haskell-language-server', '--lsp'],
-                \ 'javascript'      : ['typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-                \ 'javascriptreact' : ['typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-                \ 'json'            : ['typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-                \ 'nix'             : ['rnix-lsp'],
-                \ 'objc'            : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
-                \ 'python'          : ['poetry', 'run', 'pyls'],
-                \ 'ruby'            : ['solargraph', 'stdio'],
-                \ 'rust'            : ['rls'],
-                \ 'sh'              : ['bash-language-server', 'start'],
-                \ 'swift'           : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
-                \ 'typescript'      : ['typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-                \ 'typescriptreact' : ['typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-                \ 'vim'             : ['vim-language-server', '--stdio'],
-                \ }
-
-          nmap <silent>K <Plug>(lcn-hover)
-          nmap <silent> gd <Plug>(lcn-definition)
-          nmap <silent> <F2> <Plug>(lcn-rename)
-          let g:LanguageClient_autoStart = 1
-        '';
-      }
-      {
-        plugin = neoformat;
-        config = ''
-          augroup fmt
-            autocmd!
-            autocmd BufWritePre * undojoin | Neoformat
-          augroup END
-
-          let g:neoformat_enabled_c = ['clangformat']
-          let g:neoformat_enabled_cpp = ['uncrustify']
-          let g:neoformat_enabled_go = ['gofumports', 'gofumpt']
-          let g:neoformat_enabled_graphql = ['prettier']
-          let g:neoformat_enabled_haskell = ['ormolu']
-          let g:neoformat_enabled_javascript = ['prettier', 'eslint_d']
-          let g:neoformat_enabled_javascriptreact = ['prettier', 'eslint_d']
-          let g:neoformat_enabled_json = ['prettier']
-          let g:neoformat_enabled_nix = ['nixpkgsfmt']
-          let g:neoformat_enabled_objc = ['uncrustify']
-          let g:neoformat_enabled_python = ['isort' , 'black']
-          let g:neoformat_enabled_ruby = ['rubocop']
-          let g:neoformat_enabled_rust = ['rustfmt']
-          let g:neoformat_enabled_typescript = ['prettier']
-          let g:neoformat_enabled_typescriptreact = ['prettier']
-          let g:neoformat_run_all_formatters = 1
-        '';
-      }
-      nerdtree-git-plugin
-      {
-        plugin = rainbow;
-        config = "let g:rainbow_active = 1";
-      }
-      {
-        plugin = scrollbar-nvim;
-        config = ''
-          augroup your_config_scrollbar_nvim
-              autocmd!
-              autocmd BufEnter    * silent! lua require('scrollbar').show()
-              autocmd BufLeave    * silent! lua require('scrollbar').clear()
-
-              autocmd CursorMoved * silent! lua require('scrollbar').show()
-              autocmd VimResized  * silent! lua require('scrollbar').show()
-
-              autocmd FocusGained * silent! lua require('scrollbar').show()
-              autocmd FocusLost   * silent! lua require('scrollbar').clear()
-          augroup end
-        '';
-      }
-      {
-        plugin = vim-startify;
-        config = ''
-          let g:startify_session_dir ='~/.config/nvim/session'
-          let g:startify_fortune_use_unicode = 1
-          let g:startify_lists = [
-                    \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-                    \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-                    \ { 'type': 'sessions',  'header': ['   Sessions']       },
-                    \ { 'type': 'files',     'header': ['   Files']            },
-                    \ ]
-          let g:startify_bookmarks = [
-                   \ {'n': '~/.config/nixpkgs'},
-                   \ ]
-        '';
-      }
-      surround
-      tabular
-      {
-        plugin = The_NERD_tree;
-        config = ''
-          if exists('g:vscode') " hide if inside vscode
-          else
-          autocmd vimenter * NERDTree
-          autocmd VimEnter * wincmd p
-          let NERDTreeMinimalUI = 1
-          let NERDTreeDirArrows = 1
-          let NERDTreeShowHidden=1
-          autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-          function! OnlyAndNerdtree()
-            let currentWindowID = win_getid()
-            windo if win_getid() != currentWindowID && &filetype != 'nerdtree' | close | endif
-          endfunction
-
-          function! IsNERDTreeOpen()
-            return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName != -1))
-          endfunction
-
-          function! SyncTree()
-            if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-              NERDTreeFind
-              wincmd p
-            endif
-          endfunction
-
-          autocmd BufEnter * call SyncTree()
-
-          command! Only call OnlyAndNerdtree()
-
-          endif
-        '';
-      }
-      undotree
-      {
-        plugin = vim-airline;
-        config = ''
-          let g:airline_powerline_fonts = 1
-          let g:airline#extensions#tabline#enabled = 1
-          let g:airline#extensions#tabline#buffers_label = ' buffers'
-          let g:airline#extensions#tabline#fnamemod = ':t'
-        '';
-      }
-      {
-        plugin = vim-airline-themes;
-        config = ''
-          "let g:airline_theme = 'angr'
-          "let g:airline_theme = 'gruvbox'
-        '';
-      }
-      {
-        plugin = vim-better-whitespace;
-        config = ''
-          let g:better_whitespace_enabled=1
-          let g:strip_whitespace_on_save=1
-        '';
-      }
-      {
-        plugin = vim-closetag;
-        config = ''
-          let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
-          let g:closetag_regions = {
-              \ 'javascript.jsx': 'jsxRegion',
-              \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-              \ }
-        '';
-      }
-      vim-commentary
-      vim-cursorword
-      vim-devicons
-      vim-dispatch
-      vim-fireplace
-      vim-gitbranch
-      {
-        plugin = vim-hardtime;
-        config = "let g:hardtime_default_on = 0";
-      }
-      vim-multiple-cursors
-      vim-nerdtree-syntax-highlight
-      vim-nerdtree-tabs
-      vim-polyglot
-      vim-repeat
-      vim-sensible
-      {
-        plugin = vim-signify;
-        config = ''
-          let g:signify_sign_add = ''
-          let g:signify_sign_change = ''
-          let g:signify_sign_delete = ''
-          let g:signify_sign_show_count = 0
-        '';
-      }
-      vim-which-key
-      vimspector
+    plugins = with pkgs.vimPlugins; with builtins; [
+      { plugin = auto-pairs; }
+      { plugin = colorizer; }
+      { plugin = conjure; }
+      { plugin = ctrlp-vim; config = readFile ./dotfiles/neovim/ctrlp-vim-config.vim; }
+      { plugin = deol-nvim; }
+      { plugin = deoplete-nvim; config = readFile ./dotfiles/neovim/deoplete-nvim-config.vim; }
+      { plugin = direnv-vim; config = readFile ./dotfiles/neovim/direnv-vim-config.vim; }
+      { plugin = editorconfig-vim; }
+      { plugin = fugitive; }
+      { plugin = gruvbox; config = readFile ./dotfiles/neovim/gruvbox-config.vim; }
+      { plugin = LanguageClient-neovim; config = readFile ./dotfiles/neovim/LanguageClient-neovim-config.vim; }
+      { plugin = neoformat; config = readFile ./dotfiles/neovim/neoformat-config.vim; }
+      { plugin = nerdtree-git-plugin; }
+      { plugin = rainbow; config = readFile ./dotfiles/neovim/rainbow-config.vim; }
+      { plugin = scrollbar-nvim; config = readFile ./dotfiles/neovim/scrollbar-nvim-config.vim; }
+      { plugin = surround; }
+      { plugin = tabular; }
+      { plugin = The_NERD_tree; config = readFile ./dotfiles/neovim/The_NERD_tree-config.vim; }
+      { plugin = undotree; }
+      { plugin = vim-airline-themes; config = readFile ./dotfiles/neovim/vim-airline-themes-config.vim; }
+      { plugin = vim-airline; config = readFile ./dotfiles/neovim/vim-airline-config.vim; }
+      { plugin = vim-better-whitespace; config = readFile ./dotfiles/neovim/vim-better-whitespace-config.vim; }
+      { plugin = vim-closetag; config = readFile ./dotfiles/neovim/vim-closetag-config.vim; }
+      { plugin = vim-commentary; }
+      { plugin = vim-cursorword; }
+      { plugin = vim-devicons; }
+      { plugin = vim-dispatch; }
+      { plugin = vim-fireplace; }
+      { plugin = vim-gitbranch; }
+      { plugin = vim-hardtime; config = readFile ./dotfiles/neovim/vim-hardtime-config.vim; }
+      { plugin = vim-multiple-cursors; }
+      { plugin = vim-nerdtree-syntax-highlight; }
+      { plugin = vim-nerdtree-tabs; }
+      { plugin = vim-polyglot; }
+      { plugin = vim-repeat; }
+      { plugin = vim-sensible; }
+      { plugin = vim-signify; config = readFile ./dotfiles/neovim/vim-signify-config.vim; }
+      { plugin = vim-startify; config = readFile ./dotfiles/neovim/vim-startify-config.vim; }
+      { plugin = vim-which-key; }
+      { plugin = vimspector; }
     ];
   };
 }
