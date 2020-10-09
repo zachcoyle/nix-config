@@ -81,6 +81,7 @@ let
     bat
     jump
     lf
+    neofetch
     parallel
     powerline-rs
     ranger
