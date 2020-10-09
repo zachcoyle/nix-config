@@ -27,5 +27,16 @@ in
       };
       meta.homepage = "https://github.com/Xuyuanp/scrollbar.nvim/";
     };
+
+    yanil = buildVimPluginFrom2Nix {
+      pname = "yanil";
+      version = "2020-10-09";
+      src = super.fetchFromGitHub {
+        owner = "Xuyuanp";
+        repo = "yanil";
+        rev = "b070337cd5b5488fa55444e62f285a2af8b0d321";
+        sha256 = "FlXoU9Xnk/kpsgK5gPkXRms1tayrNlZcmDXuh9hdYX0=";
+      };
+    };
   };
 }

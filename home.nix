@@ -385,6 +385,7 @@ in
       { plugin = vim-startify; config = readFile ./dotfiles/neovim/vim-startify-config.vim; }
       { plugin = vim-which-key; }
       { plugin = vimspector; }
+      { plugin = yanil; }
     ];
   };
 }
