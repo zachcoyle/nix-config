@@ -345,7 +345,7 @@ in
     plugins = with pkgs.vimPlugins; with builtins; [
       { plugin = auto-pairs; }
       { plugin = colorizer; }
-      { plugin = command-t; config = ./dotfiles/neovim/command-t-config.vim; }
+      { plugin = command-t; config = readFile ./dotfiles/neovim/command-t-config.vim; }
       { plugin = conjure; }
       { plugin = deol-nvim; }
       { plugin = deoplete-nvim; config = readFile ./dotfiles/neovim/deoplete-nvim-config.vim; }
