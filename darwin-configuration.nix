@@ -120,6 +120,7 @@ in
 
 
   environment.systemPackages = with pkgs; [
+    airdrop-cli
     fstl
     synergy
     terminal-notifier
@@ -129,6 +130,7 @@ in
     iterm2
     mas
     segno
+    xcodeproj
     # need to fix to make it show up in ~/Applications/Nix/
     (vscode-with-extensions.override {
       vscode = vscodium;

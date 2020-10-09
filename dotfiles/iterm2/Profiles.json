@@ -278,7 +278,7 @@
       },
       "Window Type": 0,
       "Background Image Location": "",
-      "Blur": false,
+      "Blur": true,
       "Scrollback Lines": 0,
       "Send Code When Idle": false,
       "Close Sessions On End": true,
@@ -513,7 +513,7 @@
         "Blue Component": 0,
         "Green Component": 0.592529296875
       },
-      "Transparency": 0,
+      "Transparency": 0.3,
       "Guid": "8E84B843-672B-4E80-A670-AA23BA073A34",
       "Custom Directory": "Recycle",
       "Ansi 0 Color": {

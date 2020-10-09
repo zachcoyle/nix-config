@@ -1,4 +1,5 @@
 set cursorline
+set cursorcolumn
 set expandtab
 set hidden
 set incsearch
@@ -23,3 +24,7 @@ execute "set colorcolumn=" . join(range(121,99999), ',')
 " https://superuser.com/a/195191
 autocmd BufEnter * lcd %:p:h
 
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l

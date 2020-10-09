@@ -25,3 +25,5 @@ nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_hoverPreview = 'Always'
+let g:LanguageClient_preferredMarkupKind = ['markdown', 'plaintext']

@@ -78,15 +78,16 @@ let
   ] ++ lib.optionals isDarwin [ cocoapods ];
 
   shellTools = with pkgs; [
-    powerline-rs
-    safe-rm
-    jump
-    ranger
     bat
+    jump
+    lf
+    parallel
+    powerline-rs
+    ranger
+    ripgrep
+    safe-rm
     stow
     tldr
-    parallel
-    ripgrep
     tmate
     tree
     zsh-completions #TODO
@@ -344,8 +345,8 @@ in
     plugins = with pkgs.vimPlugins; with builtins; [
       { plugin = auto-pairs; }
       { plugin = colorizer; }
+      { plugin = command-t; config = ./dotfiles/neovim/command-t-config.vim; }
       { plugin = conjure; }
-      { plugin = ctrlp-vim; config = readFile ./dotfiles/neovim/ctrlp-vim-config.vim; }
       { plugin = deol-nvim; }
       { plugin = deoplete-nvim; config = readFile ./dotfiles/neovim/deoplete-nvim-config.vim; }
       { plugin = direnv-vim; config = readFile ./dotfiles/neovim/direnv-vim-config.vim; }
@@ -353,6 +354,7 @@ in
       { plugin = fugitive; }
       { plugin = gruvbox; config = readFile ./dotfiles/neovim/gruvbox-config.vim; }
       { plugin = LanguageClient-neovim; config = readFile ./dotfiles/neovim/LanguageClient-neovim-config.vim; }
+      { plugin = lf-vim; }
       { plugin = neoformat; config = readFile ./dotfiles/neovim/neoformat-config.vim; }
       { plugin = nerdtree-git-plugin; }
       { plugin = rainbow; config = readFile ./dotfiles/neovim/rainbow-config.vim; }
