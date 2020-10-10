@@ -1,7 +1,10 @@
 if exists('g:vscode') " hide if inside vscode
 else
+
 autocmd vimenter * NERDTree
+
 autocmd VimEnter * wincmd p
+
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden=1

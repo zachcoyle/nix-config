@@ -28,14 +28,14 @@ in
       meta.homepage = "https://github.com/Xuyuanp/scrollbar.nvim/";
     };
 
-    yanil = buildVimPluginFrom2Nix {
-      pname = "yanil";
-      version = "2020-10-09";
+    vim-ripgrep = buildVimPluginFrom2Nix {
+      pname = "vim-ripgrep";
+      version = "2018-09-08";
       src = super.fetchFromGitHub {
-        owner = "Xuyuanp";
-        repo = "yanil";
-        rev = "b070337cd5b5488fa55444e62f285a2af8b0d321";
-        sha256 = "FlXoU9Xnk/kpsgK5gPkXRms1tayrNlZcmDXuh9hdYX0=";
+        owner = "jremmen";
+        repo = "vim-ripgrep";
+        rev = "ec87af6b69387abb3c4449ce8c4040d2d00d745e";
+        sha256 = "sFp57KGnMu3a7pTNPx3vNfuPhMhJqc22tHWBTF02xa8=";
       };
     };
   };

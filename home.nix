@@ -20,97 +20,6 @@ let
     publishBinsFor = [ "prettier" ];
   };
 
-
-  nodePkgs = with pkgs.nodePackages_latest; [
-    bash-language-server
-    dockerfile-language-server-nodejs
-    eslint
-    javascript-typescript-langserver
-    pyright
-    node2nix
-    typescript
-    typescript-language-server
-    vim-language-server
-  ];
-
-
-  languageServers = with pkgs; [
-    clojure-lsp
-    haskellPackages.haskell-language-server
-    rnix-lsp
-    rls
-    solargraph
-  ];
-
-  formatters = with pkgs; [
-    gofumpt
-    nixpkgs-fmt
-    ormolu
-    python3Packages.black
-    python3Packages.isort
-    prettierPkgs
-    rubocop
-    rustfmt
-    shfmt
-    uncrustify
-  ];
-
-  languages = with pkgs; [
-    nodejs-14_x
-    python38Full
-    ruby
-  ] ++ lib.optionals isNixOS [ swift ];
-
-  buildTools = with pkgs; [
-    fastlane
-    just
-    python3Packages.poetry
-    stack
-  ];
-
-  expressionGenerators = with pkgs; [
-    bundix
-  ];
-
-  packageManagers = with pkgs; [
-    yarn
-    niv
-  ] ++ lib.optionals isDarwin [ cocoapods ];
-
-  shellTools = with pkgs; [
-    bat
-    jump
-    lf
-    neofetch
-    parallel
-    powerline-rs
-    ranger
-    ripgrep
-    safe-rm
-    stow
-    tldr
-    tmate
-    tree
-    zsh-completions #TODO
-  ];
-
-  editors = with pkgs; [
-    bvi
-  ];
-
-  networkingTools = with pkgs; [
-    speedtest-cli
-    ipfs
-    nebula
-    autossh
-    wget
-  ];
-
-  dbClients = with pkgs; [
-    redis
-    mariadb
-  ];
-
 in
 {
   imports = [ ./env.nix ] ++ lib.optionals isNixOS [ ./programs-nixos.nix ];
@@ -150,43 +59,88 @@ in
   home.packages = with pkgs; [
     abduco
     apg
+    autossh
+    nodePackages_latest.bash-language-server
+    bat
     bc
+    bundix
+    bvi
     cachix
+    clojure-lsp
     ctags
     cups
+    nodePackages_latest.dockerfile-language-server-nodejs
     dvtm
     ed
+    nodePackages_latest.eslint
     exercism
+    fastlane
     fd
+    gofumpt
+    haskellPackages.haskell-language-server
     imagemagickBig
     imgcat
+    ipfs
+    nodePackages_latest.javascript-typescript-langserver
+    jump
+    just
+    lf
     loc
     lsd
     lynx
+    mariadb
     mdcat
     mpv
+    nebula
+    neofetch
+    niv
     nixops
+    nix-bundle
+    nixpkgs-fmt
+    nodePackages_latest.node2nix
+    nodejs-14_x
+    ormolu
+    parallel
+    powerline-rs
+    prettierPkgs
+    nodePackages_latest.pyright
+    python38Full
+    python3Packages.black
+    python3Packages.isort
+    python3Packages.poetry
+    ranger
+    redis
+    ripgrep
+    rls
+    rnix-lsp
+    rubocop
+    ruby
+    rustfmt
+    safe-rm
+    shfmt
+    solargraph
+    speedtest-cli
+    stack
+    stow
     teamocil
     tig
+    tldr
+    tmate
+    tree
+    nodePackages_latest.typescript
+    nodePackages_latest.typescript-language-server
+    uncrustify
     units
     unixODBC
+    nodePackages_latest.vim-language-server
     watchman
+    wget
+    yarn
     youtube-dl
-  ] ++ lib.flatten [
-    buildTools
-    dbClients
-    editors
-    expressionGenerators
-    formatters
-    languages
-    languageServers
-    networkingTools
-    nodePkgs
-    packageManagers
-    shellTools
+    zsh-completions #TODO
   ] ++ lib.optionals isNixOS [
-    android-studio
     alacritty
+    android-studio
     blender
     dwarf-fortress-packages.dwarf-fortress-full
     exfat
@@ -194,8 +148,10 @@ in
     kdenlive
     steam
     sublime
+    swift
     vocal
   ] ++ lib.optionals isDarwin [
+    cocoapods
     coreutils
     curl
     diffutils
@@ -340,7 +296,6 @@ in
     withNodeJs = true;
 
     package = pkgs.neovim-nightly;
-
     extraConfig = builtins.readFile ./dotfiles/neovim/init.vim;
 
     plugins = with pkgs.vimPlugins; with builtins; [
@@ -352,6 +307,7 @@ in
       { plugin = deoplete-nvim; config = readFile ./dotfiles/neovim/deoplete-nvim-config.vim; }
       { plugin = direnv-vim; config = readFile ./dotfiles/neovim/direnv-vim-config.vim; }
       { plugin = editorconfig-vim; }
+      { plugin = emmet-vim; }
       { plugin = fugitive; }
       { plugin = gruvbox; config = readFile ./dotfiles/neovim/gruvbox-config.vim; }
       { plugin = LanguageClient-neovim; config = readFile ./dotfiles/neovim/LanguageClient-neovim-config.vim; }
@@ -366,7 +322,6 @@ in
       { plugin = undotree; }
       { plugin = vim-airline-themes; config = readFile ./dotfiles/neovim/vim-airline-themes-config.vim; }
       { plugin = vim-airline; config = readFile ./dotfiles/neovim/vim-airline-config.vim; }
-      { plugin = vim-better-whitespace; config = readFile ./dotfiles/neovim/vim-better-whitespace-config.vim; }
       { plugin = vim-closetag; config = readFile ./dotfiles/neovim/vim-closetag-config.vim; }
       { plugin = vim-commentary; }
       { plugin = vim-cursorword; }
@@ -380,12 +335,13 @@ in
       { plugin = vim-nerdtree-tabs; }
       { plugin = vim-polyglot; }
       { plugin = vim-repeat; }
+      { plugin = vim-ripgrep; config = readFile ./dotfiles/neovim/vim-ripgrep-config.vim; }
       { plugin = vim-sensible; }
       { plugin = vim-signify; config = readFile ./dotfiles/neovim/vim-signify-config.vim; }
       { plugin = vim-startify; config = readFile ./dotfiles/neovim/vim-startify-config.vim; }
+      { plugin = vim-visual-multi; }
       { plugin = vim-which-key; }
       { plugin = vimspector; }
-      { plugin = yanil; }
     ];
   };
 }

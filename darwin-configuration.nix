@@ -1,37 +1,30 @@
 { config, lib, pkgs, ... }:
 let
-  homebridgePkgs = pkgs.yarn2nix-moretea.mkYarnPackage {
-    name = "homebridgePkgs";
-    src = ./pkgs/node_packages/homebridgePkgs;
-    packageJSON = ./pkgs/node_packages/homebridgePkgs/package.json;
-    yarnLock = ./pkgs/node_packages/homebridgePkgs/yarn.lock;
-    publishBinsFor = [ "homebridge" ];
-  };
 
   appStoreApps = [
-    "937984704" #   Amphetamine
-    "1037126344" #   Apple
-    "499233976" #   Cathode
-    "924726344" #   Deliveries
-    "640199958" #   Developer
-    "1377718068" #   Game
-    "682658836" #   GarageBand
-    "1436953057" #   Ghostery
-    "506189836" #   Harvest
-    "408981434" #   iMovie
-    "587512244" #   Kaleidoscope
-    "409183694" #   Keynote
-    "1480068668" #   Messenger
-    "409203825" #   Numbers
-    "409201541" #   Pages
-    "1289583905" #   Pixelmator
-    "422501241" #   Regex
-    "1035480615" #   Skeebus
-    "803453959" #   Slack
-    "423666302" #   Sonance
-    "1176895641" #   Spark
-    "586001240" #   SQLPro
-    "497799835" #   Xcode
+    "937984704" #  Amphetamine
+    "1037126344" # Apple
+    "499233976" #  Cathode
+    "924726344" #  Deliveries
+    "640199958" #  Developer
+    "1377718068" # Game
+    "682658836" #  GarageBand
+    "1436953057" # Ghostery
+    "506189836" #  Harvest
+    "408981434" #  iMovie
+    "587512244" #  Kaleidoscope
+    "409183694" #  Keynote
+    "1480068668" # Messenger
+    "409203825" #  Numbers
+    "409201541" #  Pages
+    "1289583905" # Pixelmator
+    "422501241" #  Regex
+    "1035480615" # Skeebus
+    "803453959" #  Slack
+    "423666302" #  Sonance
+    "1176895641" # Spark
+    "586001240" #  SQLPro
+    "497799835" #  Xcode
   ];
 
 in
@@ -226,21 +219,7 @@ in
   programs.bash.enable = true;
   programs.zsh.enable = true;
 
-  launchd =
-    {
-      agents = {
-        homebridge = {
-          command = "${homebridgePkgs}/bin/homebridge --user-storage-path /Users/zcoyle/.homebridge";
-          serviceConfig = {
-            Label = "homebridge";
-            UserName = "zcoyle";
-            KeepAlive = true;
-            StandardOutPath = "/var/tmp/homebridge.log";
-            StandardErrorPath = "/var/tmp/homebridge_error.log";
-          };
-        };
-      };
-    };
+  launchd = { };
 
 
   #TEMP WORKAROUND. See https://github.com/LnL7/nix-darwin/issues/139#issuecomment-666771621
