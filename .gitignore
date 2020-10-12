@@ -4,3 +4,4 @@ result/
 *.swp
 machine.nix
 env.nix
+node_modules/
