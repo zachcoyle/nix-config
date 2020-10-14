@@ -30,10 +30,7 @@ let
 in
 {
 
-  nixpkgs.overlays = [
-    (import ./overlays/customPackages.nix)
-    (import ./overlays/darwin-enable.nix)
-  ];
+  nixpkgs.overlays = [ (import ./overlays/customPackages.nix) ];
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin-configuration.nix

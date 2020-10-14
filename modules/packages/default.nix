@@ -9,8 +9,6 @@ let
   isDarwin = machine.operatingSystem == "Darwin";
   isNixOS = machine.operatingSystem == "NixOS";
 
-  darwin_enable_overlay = import ../.././overlays/darwin-enable.nix;
-  newpackages_overlay = import ../.././overlays/newpackages.nix;
   customPackages_overlay = import ../.././overlays/customPackages.nix;
 
   commonPackages = [
@@ -111,12 +109,7 @@ let
 
 in
 {
-  nixpkgs.overlays = [
-    customPackages_overlay
-  ]
-  ++ lib.optionals isDarwin [
-    darwin_enable_overlay
-  ];
+  nixpkgs.overlays = [ customPackages_overlay ];
 
   home.packages = commonPackages
     ++ lib.optionals isNixOS nixosPackages

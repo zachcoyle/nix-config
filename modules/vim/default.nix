@@ -17,17 +17,6 @@ let
     in
     {
       vimPlugins = super.vimPlugins // {
-        nerdtree-git-plugin = buildVimPluginFrom2Nix {
-          pname = "nerdtree-git-plugin";
-          version = "2020-09-25";
-          src = super.fetchFromGitHub {
-            owner = "Xuyuanp";
-            repo = "nerdtree-git-plugin";
-            rev = "85c4bed898d2d755a2a2ffbfc2433084ce107cdd";
-            sha256 = "RJk9eYlW5Avyv7lkmYS/skB2B17b/uVEQOWgCUYvGtU=";
-          };
-          meta.homepage = "https://github.com/Xuyuanp/nerdtree-git-plugin/";
-        };
 
         scrollbar-nvim = buildVimPluginFrom2Nix {
           pname = "scrollbar-nvim";
@@ -62,16 +51,68 @@ let
             sha256 = "XrxTskVHo12NM9boLd5ungoHkqfwvuLK/BXWfDhup/s=";
           };
         };
+
+        nvim-dap = buildVimPluginFrom2Nix {
+          pname = "nvim-dap";
+          version = "2020-10-09";
+          src = super.fetchFromGitHub {
+            owner = "mfussenegger";
+            repo = "nvim-dap";
+            rev = "aed68d514343428a622c3e6cc2a21e0b0e439cee";
+            sha256 = "yMLexjkXdWf7VDrBwgIe7z+KnXBU2UOeoHgtTd2joyY=";
+          };
+        };
+
+        nvim-dap-virtual-text = buildVimPluginFrom2Nix {
+          pname = "nvim-dap-virtual-text";
+          version = "2020-09-20";
+          src = super.fetchFromGitHub {
+            owner = "theHamsta";
+            repo = "nvim-dap-virtual-text";
+            rev = "251cebfa5cd41345dbf33db6d433c4ca7be38610";
+            sha256 = "cMrkcZJ65zFXo9lxQF9ItFEfY0APVfgSYxnZdhktyTQ=";
+          };
+        };
+
+        nvim-tree-lua = buildVimPluginFrom2Nix {
+          pname = "nvim-tree-lua";
+          version = "2020-09-12";
+          src = super.fetchFromGitHub {
+            #owner = "kyazdani42";
+            owner = "zachcoyle";
+            repo = "nvim-tree.lua";
+            #rev = "640d147d706aa33f096f5585176fd3c76303377b";
+            rev = "2360f2498813af9f3065140fcbfa7c7ebc4b5d82";
+            #sha256 = "ZeS8PmwgTAKpRQQ6VJs3gS9cchGpsl7IUu7xV/82w6E=";
+            sha256 = "udX5De9NIXvQG8xz1su3slF3vi+lLAGoOVolckHtLpo=";
+          };
+        };
+
+        nvim-web-devicons = buildVimPluginFrom2Nix {
+          pname = "nvim-web-devicons";
+          version = "2020-09-06";
+          src = super.fetchFromGitHub {
+            owner = "kyazdani42";
+            repo = "nvim-web-devicons";
+            rev = "d9eda5881725aac31bcdee98c9eac94f07516a83";
+            sha256 = "/MMwVHfm7fVJWH4SLo1JxcXP3tSbXTiC3OC2S3C+a3Y=";
+          };
+        };
+
       };
     };
 
-  prettierPkgs = pkgs.yarn2nix-moretea.mkYarnPackage {
+  prettierPkgs = yarn2nix-moretea.mkYarnPackage {
     name = "prettierPkgs";
-    src = ../.././pkgs/node_packages/prettierPkgs;
-    packageJSON = ../.././pkgs/node_packages/prettierPkgs/package.json;
-    yarnLock = ../.././pkgs/node_packages/prettierPkgs/yarn.lock;
+    src = ../../pkgs/node_packages/prettierPkgs;
+    packageJSON = ../../pkgs/node_packages/prettierPkgs/package.json;
+    yarnLock = ../../pkgs/node_packages/prettierPkgs/yarn.lock;
     publishBinsFor = [ "prettier" ];
   };
+
+  pyls = python3Packages.python-language-server.overrideAttrs (oldAttrs: {
+    doInstallCheck = false;
+  });
 
   formatters = [
     gofumpt
@@ -84,8 +125,6 @@ let
     rustfmt
     uncrustify
   ];
-
-  #TODO: update pyls when it's fixed
 
   lspConfig = ''
     let g:LanguageClient_serverCommands = {
@@ -100,7 +139,7 @@ let
           \ 'json'            : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'nix'             : ['${rnix-lsp}/bin/rnix-lsp'],
           \ 'objc'            : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
-          \ 'python'          : ['${poetry}/bin/poetry', 'run', 'pyls'],
+          \ 'python'          : ['${pyls}/bin/pyls'],
           \ 'ruby'            : ['${solargraph}/bin/solargraph', 'stdio'],
           \ 'rust'            : ['${rls}/bin/rls'],
           \ 'sh'              : ['${nodePackages_latest.bash-language-server}/bin/bash-language-server', 'start'],
@@ -109,6 +148,28 @@ let
           \ 'typescriptreact' : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'vim'             : ['${nodePackages_latest.vim-language-server}/bin/vim-language-server', '--stdio'],
           \ }
+  '';
+
+  dapConfig = ''
+    lua << EOF
+
+    local dap = require('dap')
+    dap.adapters.python = {
+      type = 'executable';
+      command = '${python3.withPackages (ps: [ ps.debugpy ])}/bin/python';
+      args = { '-m', 'debugpy.adapter' };
+    }
+    EOF
+
+    nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+    nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+    nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+    nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+    nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+    nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+    nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+    nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+    nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>
   '';
 
 in
@@ -144,12 +205,15 @@ in
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = lf-vim; }
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
-      { plugin = nerdtree-git-plugin; }
+      #{ plugin = nvim-dap-virtual-text; }
+      #{ plugin = nvim-dap; config = dapConfig; }
+      { plugin = nvim-tree-lua; config = readFile ./config/nvim-tree-lua-config.vim; }
+      { plugin = nvim-treesitter; }
+      { plugin = nvim-web-devicons; }
       { plugin = rainbow; config = readFile ./config/rainbow-config.vim; }
       { plugin = scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
       { plugin = surround; }
       { plugin = tabular; }
-      { plugin = The_NERD_tree; config = readFile ./config/The_NERD_tree-config.vim; }
       { plugin = undotree; }
       { plugin = vim-airline-themes; config = readFile ./config/vim-airline-themes-config.vim; }
       { plugin = vim-airline; config = readFile ./config/vim-airline-config.vim; }
@@ -162,9 +226,6 @@ in
       { plugin = vim-fireplace; }
       { plugin = vim-gitbranch; }
       { plugin = vim-hardtime; config = readFile ./config/vim-hardtime-config.vim; }
-      { plugin = vim-multiple-cursors; }
-      { plugin = vim-nerdtree-syntax-highlight; }
-      { plugin = vim-nerdtree-tabs; }
       { plugin = vim-polyglot; }
       { plugin = vim-repeat; }
       { plugin = vim-ripgrep; config = readFile ./config/vim-ripgrep-config.vim; }
