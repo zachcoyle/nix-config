@@ -76,26 +76,23 @@ let
 
         nvim-tree-lua = buildVimPluginFrom2Nix {
           pname = "nvim-tree-lua";
-          version = "2020-09-12";
+          version = "2020-10-14";
           src = super.fetchFromGitHub {
-            #owner = "kyazdani42";
-            owner = "zachcoyle";
+            owner = "kyazdani42";
             repo = "nvim-tree.lua";
-            #rev = "640d147d706aa33f096f5585176fd3c76303377b";
-            rev = "2360f2498813af9f3065140fcbfa7c7ebc4b5d82";
-            #sha256 = "ZeS8PmwgTAKpRQQ6VJs3gS9cchGpsl7IUu7xV/82w6E=";
+            rev = "47cd138808fe51346483f8800b44d9a6f4c95626";
             sha256 = "udX5De9NIXvQG8xz1su3slF3vi+lLAGoOVolckHtLpo=";
           };
         };
 
         nvim-web-devicons = buildVimPluginFrom2Nix {
           pname = "nvim-web-devicons";
-          version = "2020-09-06";
+          version = "2020-10-14";
           src = super.fetchFromGitHub {
             owner = "kyazdani42";
             repo = "nvim-web-devicons";
-            rev = "d9eda5881725aac31bcdee98c9eac94f07516a83";
-            sha256 = "/MMwVHfm7fVJWH4SLo1JxcXP3tSbXTiC3OC2S3C+a3Y=";
+            rev = "df7537b32ef6dcd100adcfcd921c614543997b88";
+            sha256 = "iJBwRk5Bz+QGGqxWNMTdY4Yy/P+sQkwXmRQAjJVrR64=";
           };
         };
 
