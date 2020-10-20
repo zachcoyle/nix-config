@@ -27,13 +27,14 @@ let
     exercism
     fastlane
     fd
-    gitAndTools.hub
-    gitAndTools.lab
-    gitAndTools.git-machete
     gitAndTools.gh
     gitAndTools.git-ignore
     gitAndTools.git-imerge
     gitAndTools.git-interactive-rebase-tool
+    gitAndTools.git-machete
+    gitAndTools.gitui
+    gitAndTools.hub
+    gitAndTools.lab
     imagemagickBig
     imgcat
     ipfs
