@@ -135,6 +135,7 @@ let
           \ 'javascript'      : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'javascriptreact' : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'json'            : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
+          \ 'lua'             : ['${lua53Packages.lua-lsp}/bin/lua-lsp'],
           \ 'nix'             : ['${rnix-lsp}/bin/rnix-lsp'],
           \ 'objc'            : ['${ccls}/bin/ccls'],
           \ 'python'          : ['${pyls}/bin/pyls'],

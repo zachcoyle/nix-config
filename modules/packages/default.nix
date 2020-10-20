@@ -35,6 +35,7 @@ let
     gitAndTools.gitui
     gitAndTools.hub
     gitAndTools.lab
+    gitAndTools.lefthook
     imagemagickBig
     imgcat
     ipfs

@@ -6,3 +6,35 @@ nmap <silent> <C-i> <Plug>(lcn-explain-error)
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_preferredMarkupKind = ['markdown', 'plaintext']
+
+let g:LanguageClient_diagnosticsDisplay =
+      \    {
+      \        1: {
+      \            "name": "Error",
+      \            "texthl": "ALEError",
+      \            "signText": "",
+      \            "signTexthl": "ALEErrorSign",
+      \            "virtualTexthl": "Error",
+      \        },
+      \        2: {
+      \            "name": "Warning",
+      \            "texthl": "ALEWarning",
+      \            "signText": "",
+      \            "signTexthl": "ALEWarningSign",
+      \            "virtualTexthl": "Todo",
+      \        },
+      \        3: {
+      \            "name": "Information",
+      \            "texthl": "ALEInfo",
+      \            "signText": "",
+      \            "signTexthl": "ALEInfoSign",
+      \            "virtualTexthl": "Todo",
+      \        },
+      \        4: {
+      \            "name": "Hint",
+      \            "texthl": "ALEInfo",
+      \            "signText": "",
+      \            "signTexthl": "ALEInfoSign",
+      \            "virtualTexthl": "Todo",
+      \        },
+      \    }
