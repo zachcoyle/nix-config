@@ -210,7 +210,7 @@ in
 
   services.skhd = {
     enable = true;
-    skhdConfig = builtins.readFile ./dotfiles/skhdrc;
+    skhdConfig = builtins.readFile ./modules/dotfiles/dotfiles/skhdrc;
   };
 
   programs.bash.enable = true;

@@ -120,14 +120,15 @@ let
     python3Packages.isort
     rubocop
     rustfmt
+    terraform
     uncrustify
   ];
 
   lspConfig = ''
     let g:LanguageClient_serverCommands = {
-          \ 'c'               : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
+          \ 'c'               : ['${ccls}/bin/ccls'],
           \ 'clojure'         : ['${clojure-lsp}/bin/clojure-lsp'],
-          \ 'cpp'             : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
+          \ 'cpp'             : ['${ccls}/bin/ccls'],
           \ 'dockerfile'      : ['${nodePackages_latest.dockerfile-language-server-nodejs}/bin/docker-langserver', '--stdio'],
           \ 'go'              : ['${gopls}/bin/gopls'],
           \ 'haskell'         : ['${haskellPackages.haskell-language-server}/bin/haskell-language-server', '--lsp'],
@@ -135,7 +136,7 @@ let
           \ 'javascriptreact' : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'json'            : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'nix'             : ['${rnix-lsp}/bin/rnix-lsp'],
-          \ 'objc'            : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
+          \ 'objc'            : ['${ccls}/bin/ccls'],
           \ 'python'          : ['${pyls}/bin/pyls'],
           \ 'ruby'            : ['${solargraph}/bin/solargraph', 'stdio'],
           \ 'rust'            : ['${rls}/bin/rls'],

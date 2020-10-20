@@ -17,6 +17,7 @@ let g:neoformat_enabled_python          = ['isort' , 'black']
 let g:neoformat_enabled_ruby            = ['rubocop']
 let g:neoformat_enabled_rust            = ['rustfmt']
 let g:neoformat_enabled_sh              = ['shfmt']
+let g:neoformat_enabled_terraform       = ['terraform']
 let g:neoformat_enabled_typescript      = ['prettier']
 let g:neoformat_enabled_typescriptreact = ['prettier']
 
