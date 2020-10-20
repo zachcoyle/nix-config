@@ -113,8 +113,10 @@ let
 
   formatters = [
     gofumpt
+    ktlint
     nixpkgs-fmt
     ormolu
+    #nodePackages_latest.prettier
     prettierPkgs
     python3Packages.black
     python3Packages.isort

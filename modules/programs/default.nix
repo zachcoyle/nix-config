@@ -29,15 +29,9 @@ in
     package = pkgs.gitAndTools.gitFull;
     delta = { enable = true; };
     extraConfig = {
-      pull = {
-        ff = "only";
-      };
-      fetch = {
-        prune = "true";
-      };
-      commit = {
-        gpgsign = "true";
-      };
+      pull = { ff = "only"; };
+      fetch = { prune = "true"; };
+      commit = { gpgsign = "true"; };
     };
   };
 
