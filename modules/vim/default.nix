@@ -195,8 +195,8 @@ in
     plugins = with pkgs.vimPlugins; with builtins; [
       { plugin = auto-pairs; }
       { plugin = colorizer; }
-      { plugin = command-t; config = readFile ./config/command-t-config.vim; }
       { plugin = conjure; }
+      { plugin = ctrlp-vim; config = readFile ./config/ctrlp-vim-config.vim; }
       { plugin = deol-nvim; }
       { plugin = deoplete-nvim; config = readFile ./config/deoplete-nvim-config.vim; }
       { plugin = direnv-vim; config = readFile ./config/direnv-vim-config.vim; }

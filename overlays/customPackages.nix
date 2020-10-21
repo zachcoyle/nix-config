@@ -5,5 +5,4 @@ self: super:
   segno = super.callPackage ../pkgs/segno_pkg/default.nix { };
   airdrop-cli = super.callPackage ../pkgs/airdrop-cli/default.nix { };
   xcodeproj = super.callPackage ../pkgs/xcodeproj/default.nix { };
-  pylsPkgs = super.callPackage ../pkgs/pylsPkgs/default.nix { };
 }
