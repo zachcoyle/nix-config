@@ -96,6 +96,17 @@ let
           };
         };
 
+        vim-dadbod-ui = buildVimPluginFrom2Nix {
+          pname = "vim-dadbod-ui";
+          version = "2020-10-12";
+          src = super.fetchFromGitHub {
+            owner = "kristijanhusak";
+            repo = "vim-dadbod-ui";
+            rev = "ed73c98c9c5f631f390b651e46e22c04d44420b3";
+            sha256 = "3rIlTIJ85FSGzjxyq1LWqpuywzdbnOkN2y81DVCQbcs=";
+          };
+        };
+
       };
     };
 
@@ -197,6 +208,8 @@ in
       { plugin = colorizer; }
       { plugin = conjure; }
       { plugin = ctrlp-vim; config = readFile ./config/ctrlp-vim-config.vim; }
+      { plugin = vim-dadbod; }
+      { plugin = vim-dadbod-ui; }
       { plugin = deol-nvim; }
       { plugin = deoplete-nvim; config = readFile ./config/deoplete-nvim-config.vim; }
       { plugin = direnv-vim; config = readFile ./config/direnv-vim-config.vim; }
