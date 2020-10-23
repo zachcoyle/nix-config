@@ -247,6 +247,7 @@ in
       { plugin = vim-sensible; }
       { plugin = vim-signify; config = readFile ./config/vim-signify-config.vim; }
       { plugin = vim-startify; config = readFile ./config/vim-startify-config.vim; }
+      { plugin = vim-tmux-navigator; }
       { plugin = vim-visual-multi; }
       { plugin = vim-which-key; }
       { plugin = vimspector; }

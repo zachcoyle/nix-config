@@ -11,7 +11,7 @@ set splitbelow
 set splitright
 set signcolumn=yes
 set tabstop=2
-let g:mapleader = ' '
+let g:mapleader = ';'
 syntax on
 
 set t_Co=256

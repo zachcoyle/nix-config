@@ -2,29 +2,33 @@
 let
 
   appStoreApps = [
-    "937984704" #  Amphetamine
-    "1037126344" # Apple
-    "499233976" #  Cathode
-    "924726344" #  Deliveries
-    "640199958" #  Developer
-    "1377718068" # Game
-    "682658836" #  GarageBand
-    "1436953057" # Ghostery
-    "506189836" #  Harvest
-    "408981434" #  iMovie
-    "587512244" #  Kaleidoscope
-    "409183694" #  Keynote
-    "1480068668" # Messenger
-    "409203825" #  Numbers
-    "409201541" #  Pages
-    "1289583905" # Pixelmator
-    "422501241" #  Regex
-    "1035480615" # Skeebus
-    "803453959" #  Slack
-    "423666302" #  Sonance
-    "1176895641" # Spark
-    "586001240" #  SQLPro
-    "497799835" #  Xcode
+    "499233976" #  Cathode        
+    "1480068668" #   Messenger      
+    "1289583905" #   Pixelmator     
+    "587512244" #  Kaleidoscope   
+    "640199958" #  Developer      
+    "409183694" #  Keynote        
+    "586001240" #  SQLPro         
+    "1436953057" #   Ghostery       
+    "1039600682" #   Hacker         
+    "937984704" #  Amphetamine    
+    "682658836" #  GarageBand     
+    "411643860" #  DaisyDisk      
+    "409203825" #  Numbers        
+    "497799835" #  Xcode          
+    "423666302" #  Sonance        
+    "409201541" #  Pages          
+    "422501241" #  Regex          
+    "506189836" #  Harvest        
+    "408981434" #  iMovie         
+    "1037126344" #   Apple          
+    "1035480615" #   Skeebus        
+    "803453959" #  Slack          
+    "1176895641" #   Spark          
+    "1397180934" #   Dark           
+    "452695239" #  QREncoder      
+    "924726344" #  Deliveries     
+    "957810159" #  Raindrop.io    
   ];
 
 in
@@ -244,7 +248,6 @@ in
 
   system.activationScripts.extraUserActivation.text = ''
     echo "setting up App Store applications..."
-    ${pkgs.mas}/bin/mas upgrade
     ${pkgs.mas}/bin/mas install ${lib.concatStringsSep " " appStoreApps}
   '';
 

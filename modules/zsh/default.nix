@@ -24,9 +24,10 @@
     newSession = true;
     tmuxp.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      sensible
-      resurrect
       gruvbox
+      resurrect
+      sensible
+      vim-tmux-navigator
     ];
     extraConfig = builtins.readFile ./config/tmux.conf;
   };
