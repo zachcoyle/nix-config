@@ -24,8 +24,10 @@
     newSession = true;
     tmuxp.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      gruvbox
-      resurrect
+      battery
+      nord
+      online-status
+      prefix-highlight
       sensible
       vim-tmux-navigator
     ];

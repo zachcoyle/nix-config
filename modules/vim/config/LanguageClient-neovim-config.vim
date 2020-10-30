@@ -33,7 +33,7 @@ let g:LanguageClient_diagnosticsDisplay =
       \        4: {
       \            "name": "Hint",
       \            "texthl": "ALEInfo",
-      \            "signText": "",
+      \            "signText": "",
       \            "signTexthl": "ALEInfoSign",
       \            "virtualTexthl": "Todo",
       \        },

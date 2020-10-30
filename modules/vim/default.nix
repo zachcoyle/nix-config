@@ -116,7 +116,7 @@ let
     ktlint
     nixpkgs-fmt
     ormolu
-    #nodePackages_latest.prettier
+    #nodePackages.prettier
     prettierPkgs
     python3Packages.black
     python3Packages.isort
@@ -131,12 +131,12 @@ let
           \ 'c'               : ['${ccls}/bin/ccls'],
           \ 'clojure'         : ['${clojure-lsp}/bin/clojure-lsp'],
           \ 'cpp'             : ['${ccls}/bin/ccls'],
-          \ 'dockerfile'      : ['${nodePackages_latest.dockerfile-language-server-nodejs}/bin/docker-langserver', '--stdio'],
+          \ 'dockerfile'      : ['${nodePackages.dockerfile-language-server-nodejs}/bin/docker-langserver', '--stdio'],
           \ 'go'              : ['${gopls}/bin/gopls'],
           \ 'haskell'         : ['${haskellPackages.haskell-language-server}/bin/haskell-language-server', '--lsp'],
-          \ 'javascript'      : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-          \ 'javascriptreact' : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-          \ 'json'            : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
+          \ 'javascript'      : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
+          \ 'javascriptreact' : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
+          \ 'json'            : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'kotlin'          : ['${nur.repos.zachcoyle.kotlin-language-server}/bin/kotlin-language-server'],
           \ 'lua'             : ['${lua53Packages.lua-lsp}/bin/lua-lsp'],
           \ 'nix'             : ['${rnix-lsp}/bin/rnix-lsp'],
@@ -144,11 +144,11 @@ let
           \ 'python'          : ['${pyls}/bin/pyls'],
           \ 'ruby'            : ['${solargraph}/bin/solargraph', 'stdio'],
           \ 'rust'            : ['${rls}/bin/rls'],
-          \ 'sh'              : ['${nodePackages_latest.bash-language-server}/bin/bash-language-server', 'start'],
+          \ 'sh'              : ['${nodePackages.bash-language-server}/bin/bash-language-server', 'start'],
           \ 'swift'           : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
-          \ 'typescript'      : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-          \ 'typescriptreact' : ['${nodePackages_latest.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
-          \ 'vim'             : ['${nodePackages_latest.vim-language-server}/bin/vim-language-server', '--stdio'],
+          \ 'typescript'      : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
+          \ 'typescriptreact' : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
+          \ 'vim'             : ['${nodePackages.vim-language-server}/bin/vim-language-server', '--stdio'],
           \ }
   '';
 

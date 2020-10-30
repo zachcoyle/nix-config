@@ -33,7 +33,7 @@ let
     gitAndTools.git-imerge
     gitAndTools.git-interactive-rebase-tool
     gitAndTools.git-machete
-    gitAndTools.gitui
+    #gitAndTools.gitui
     gitAndTools.hub
     gitAndTools.lab
     gitAndTools.lefthook
@@ -53,12 +53,12 @@ let
     neofetch
     niv
     nix-bundle
-    nixops
-    nodejs-14_x
-    nodePackages_latest.eslint
-    nodePackages_latest.node2nix
-    nodePackages_latest.pyright
-    nodePackages_latest.typescript
+    #nixops
+    nodejs-15_x
+    nodePackages.eslint
+    nodePackages.node2nix
+    nodePackages.pyright
+    nodePackages.typescript
     parallel
     powerline-rs
     python38Full
