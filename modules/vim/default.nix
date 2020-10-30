@@ -30,17 +30,6 @@ let
           meta.homepage = "https://github.com/Xuyuanp/scrollbar.nvim/";
         };
 
-        vim-ripgrep = buildVimPluginFrom2Nix {
-          pname = "vim-ripgrep";
-          version = "2018-09-08";
-          src = super.fetchFromGitHub {
-            owner = "jremmen";
-            repo = "vim-ripgrep";
-            rev = "ec87af6b69387abb3c4449ce8c4040d2d00d745e";
-            sha256 = "sFp57KGnMu3a7pTNPx3vNfuPhMhJqc22tHWBTF02xa8=";
-          };
-        };
-
         discord-nvim = buildVimPluginFrom2Nix {
           pname = "discord-nvim";
           version = "2019-12-29";
@@ -76,23 +65,23 @@ let
 
         nvim-tree-lua = buildVimPluginFrom2Nix {
           pname = "nvim-tree-lua";
-          version = "2020-10-14";
+          version = "2020-10-26";
           src = super.fetchFromGitHub {
             owner = "kyazdani42";
             repo = "nvim-tree.lua";
-            rev = "47cd138808fe51346483f8800b44d9a6f4c95626";
-            sha256 = "udX5De9NIXvQG8xz1su3slF3vi+lLAGoOVolckHtLpo=";
+            rev = "ebf6f2a21ab55f4a157fffa8a1b3ae9c414c1022";
+            sha256 = "Mp3pIhJ3lAZ7qks7JVmqNdiMkisufuRCNUjrAQufEB0=";
           };
         };
 
         nvim-web-devicons = buildVimPluginFrom2Nix {
           pname = "nvim-web-devicons";
-          version = "2020-10-14";
+          version = "2020-10-28";
           src = super.fetchFromGitHub {
             owner = "kyazdani42";
             repo = "nvim-web-devicons";
-            rev = "df7537b32ef6dcd100adcfcd921c614543997b88";
-            sha256 = "iJBwRk5Bz+QGGqxWNMTdY4Yy/P+sQkwXmRQAjJVrR64=";
+            rev = "23a9fbb6de546a4cb2e7d2fe2ff4e09e99b5fd2e";
+            sha256 = "42GQ/6Gpopu+SjBa8QA1xGbwK8E3At1Oq6mk8sGXU9o=";
           };
         };
 
@@ -207,7 +196,6 @@ in
       { plugin = auto-pairs; }
       { plugin = colorizer; }
       { plugin = conjure; }
-      { plugin = ctrlp-vim; config = readFile ./config/ctrlp-vim-config.vim; }
       { plugin = vim-dadbod; }
       { plugin = vim-dadbod-ui; }
       { plugin = deol-nvim; }
@@ -216,6 +204,7 @@ in
       { plugin = editorconfig-vim; }
       { plugin = emmet-vim; config = readFile ./config/emmet-vim-config.vim; }
       { plugin = fugitive; }
+      { plugin = fzf-vim; config = readFile ./config/fzf-vim-config.vim; }
       { plugin = gruvbox; config = readFile ./config/gruvbox-config.vim; }
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = lf-vim; }
@@ -243,7 +232,6 @@ in
       { plugin = vim-hardtime; config = readFile ./config/vim-hardtime-config.vim; }
       { plugin = vim-polyglot; }
       { plugin = vim-repeat; }
-      { plugin = vim-ripgrep; config = readFile ./config/vim-ripgrep-config.vim; }
       { plugin = vim-sensible; }
       { plugin = vim-signify; config = readFile ./config/vim-signify-config.vim; }
       { plugin = vim-startify; config = readFile ./config/vim-startify-config.vim; }

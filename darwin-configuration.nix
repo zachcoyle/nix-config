@@ -123,7 +123,6 @@ in
     alacritty
     iterm2
     mas
-    segno
     xcodeproj
     # need to fix to make it show up in ~/Applications/Nix/
     (vscode-with-extensions.override {
@@ -159,8 +158,8 @@ in
           {
             name = "python";
             publisher = "ms-python";
-            version = "2020.8.101144";
-            sha256 = "1ppsqs4lyxighqqia9195k2sgcv7455kzms49pmc4i3p9s3gcmny";
+            version = "2020.10.332292344";
+            sha256 = "qgr/WT9euPMQot+dzGZqm+5z8KYx3svOftC8tb60gzA=";
           }
           {
             name = "uuid-generator";
@@ -198,7 +197,7 @@ in
     package = pkgs.yabai;
     config = {
       focus_follows_mouse = "off";
-      mouse_follows_focus = "on";
+      mouse_follows_focus = "off";
       window_placement = "second_child";
       window_opacity = "on";
       active_window_opacity = 1.0;

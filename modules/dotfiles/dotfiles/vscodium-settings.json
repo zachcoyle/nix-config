@@ -1,4 +1,4 @@
 {
-    "vscode-neovim.neovimPath": "neovim",
-    "editor.formatOnSave": true
+  "vscode-neovim.neovimPath": "neovim",
+  "editor.formatOnSave": true
 }

@@ -19,6 +19,7 @@ let
     bc
     bundix
     bvi
+    byobu
     cachix
     ctags
     cups

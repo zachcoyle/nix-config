@@ -129,6 +129,13 @@ colors:
   #  cyan: "#8ec07c"
   #  white: "#ebdbb2"
 
+mouse:
+  hide_when_typing: true
+  url:
+    modifiers: Command
+
+background_opacity: 0.5
+
 key_bindings:
   - { key: W, mods: Command, chars: "\x02&" } # close tab (kill)
   - { key: T, mods: Command, chars: "\x02c" } # new tab
