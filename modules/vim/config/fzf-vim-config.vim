@@ -6,7 +6,7 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
-let $FZF_DEFAULT_COMMAND = 'fd'
+let $FZF_DEFAULT_COMMAND = 'fd -t f'
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
