@@ -30,39 +30,6 @@ let
           meta.homepage = "https://github.com/Xuyuanp/scrollbar.nvim/";
         };
 
-        discord-nvim = buildVimPluginFrom2Nix {
-          pname = "discord-nvim";
-          version = "2019-12-29";
-          src = super.fetchFromGitHub {
-            owner = "aurieh";
-            repo = "discord.nvim";
-            rev = "a9c4587359e0660051dbd099f93d161bca2b1e9a";
-            sha256 = "XrxTskVHo12NM9boLd5ungoHkqfwvuLK/BXWfDhup/s=";
-          };
-        };
-
-        nvim-dap = buildVimPluginFrom2Nix {
-          pname = "nvim-dap";
-          version = "2020-10-09";
-          src = super.fetchFromGitHub {
-            owner = "mfussenegger";
-            repo = "nvim-dap";
-            rev = "aed68d514343428a622c3e6cc2a21e0b0e439cee";
-            sha256 = "yMLexjkXdWf7VDrBwgIe7z+KnXBU2UOeoHgtTd2joyY=";
-          };
-        };
-
-        nvim-dap-virtual-text = buildVimPluginFrom2Nix {
-          pname = "nvim-dap-virtual-text";
-          version = "2020-09-20";
-          src = super.fetchFromGitHub {
-            owner = "theHamsta";
-            repo = "nvim-dap-virtual-text";
-            rev = "251cebfa5cd41345dbf33db6d433c4ca7be38610";
-            sha256 = "cMrkcZJ65zFXo9lxQF9ItFEfY0APVfgSYxnZdhktyTQ=";
-          };
-        };
-
         nvim-tree-lua = buildVimPluginFrom2Nix {
           pname = "nvim-tree-lua";
           version = "2020-10-26";
@@ -152,27 +119,6 @@ let
           \ }
   '';
 
-  dapConfig = ''
-    lua << EOF
-
-    local dap = require('dap')
-    dap.adapters.python = {
-      type = 'executable';
-      command = '${python3.withPackages (ps: [ ps.debugpy ])}/bin/python';
-      args = { '-m', 'debugpy.adapter' };
-    }
-    EOF
-
-    nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
-    nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-    nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
-    nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
-    nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
-    nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-    nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-    nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
-    nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>
-  '';
 
 in
 {
@@ -196,8 +142,6 @@ in
       { plugin = auto-pairs; }
       { plugin = colorizer; }
       { plugin = conjure; }
-      { plugin = vim-dadbod; }
-      { plugin = vim-dadbod-ui; }
       { plugin = deol-nvim; }
       { plugin = deoplete-nvim; config = readFile ./config/deoplete-nvim-config.vim; }
       { plugin = direnv-vim; config = readFile ./config/direnv-vim-config.vim; }
@@ -209,8 +153,6 @@ in
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = lf-vim; }
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
-      #{ plugin = nvim-dap-virtual-text; }
-      #{ plugin = nvim-dap; config = dapConfig; }
       { plugin = nvim-tree-lua; config = readFile ./config/nvim-tree-lua-config.vim; }
       { plugin = nvim-treesitter; }
       { plugin = nvim-web-devicons; }
@@ -224,9 +166,10 @@ in
       { plugin = vim-closetag; config = readFile ./config/vim-closetag-config.vim; }
       { plugin = vim-commentary; }
       { plugin = vim-cursorword; }
+      { plugin = vim-dadbod-ui; }
+      { plugin = vim-dadbod; }
       { plugin = vim-devicons; }
       { plugin = vim-dispatch; }
-      { plugin = vim-easymotion; }
       { plugin = vim-fireplace; }
       { plugin = vim-gitbranch; }
       { plugin = vim-hardtime; config = readFile ./config/vim-hardtime-config.vim; }
@@ -238,6 +181,7 @@ in
       { plugin = vim-tmux-navigator; }
       { plugin = vim-visual-multi; }
       { plugin = vim-which-key; }
+      { plugin = vimsence; config = readFile ./config/vimsence-config.vim; }
       { plugin = vimspector; }
     ];
   };

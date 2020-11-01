@@ -24,9 +24,7 @@
     newSession = true;
     tmuxp.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      battery
       nord
-      online-status
       prefix-highlight
       sensible
       vim-tmux-navigator
