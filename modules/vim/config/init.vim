@@ -14,6 +14,10 @@ set tabstop=2
 let g:mapleader = ';'
 syntax on
 
+"set nobackup
+"set nowritebackup
+"set noswapfile
+
 set t_Co=256
 
 " overflow column guide
@@ -25,5 +29,6 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
+"true color
 execute "set t_8f=\e[38;2;%lu;%lu;%lum"
 execute "set t_8b=\e[48;2;%lu;%lu;%lum"

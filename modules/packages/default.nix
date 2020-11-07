@@ -33,7 +33,6 @@ let
     gitAndTools.git-imerge
     gitAndTools.git-interactive-rebase-tool
     gitAndTools.git-machete
-    #gitAndTools.gitui
     gitAndTools.hub
     gitAndTools.lab
     gitAndTools.lefthook
@@ -73,6 +72,7 @@ let
     stack
     stow
     teamocil
+    terraform
     tig
     tldr
     tmate

@@ -30,36 +30,69 @@ let
           meta.homepage = "https://github.com/Xuyuanp/scrollbar.nvim/";
         };
 
+        nvim-dap = buildVimPluginFrom2Nix {
+          pname = "nvim-dap";
+          version = "2020-10-26";
+          src = super.fetchFromGitHub {
+            owner = "mfussenegger";
+            repo = "nvim-dap";
+            rev = "0f756f375407735a0e7c8b5282413fa240fa3637";
+            sha256 = "QI/fGbA2r66vjqmU4Mb6sAgC6IZGU1w+bOky+ge4h0E=";
+          };
+        };
+
+        nvim-dap-virtual-text = buildVimPluginFrom2Nix {
+          pname = "nvim-dap-virtual-text";
+          version = "2020-09-20";
+          src = super.fetchFromGitHub {
+            owner = "theHamsta";
+            repo = "nvim-dap-virtual-text";
+            rev = "251cebfa5cd41345dbf33db6d433c4ca7be38610";
+            sha256 = "cMrkcZJ65zFXo9lxQF9ItFEfY0APVfgSYxnZdhktyTQ=";
+          };
+        };
+
         nvim-tree-lua = buildVimPluginFrom2Nix {
           pname = "nvim-tree-lua";
-          version = "2020-10-26";
+          version = "2020-10-31";
           src = super.fetchFromGitHub {
             owner = "kyazdani42";
             repo = "nvim-tree.lua";
-            rev = "ebf6f2a21ab55f4a157fffa8a1b3ae9c414c1022";
-            sha256 = "Mp3pIhJ3lAZ7qks7JVmqNdiMkisufuRCNUjrAQufEB0=";
+            rev = "ef893b523d366a0dde44b61d9cb327f2bea65f1d";
+            sha256 = "5s2FGTrjenkJrWFTAePgXpknBWlzLQ+RM+rGWjD4mjw=";
+          };
+        };
+
+        nvim-treesitter = buildVimPluginFrom2Nix {
+          pname = "nvim-treesitter";
+          version = "2020-11-06";
+          src = super.fetchFromGitHub {
+            owner = "nvim-treesitter";
+            repo = "nvim-treesitter";
+            rev = "6900e5f704110e3dbaab844c81530e82f271f7da";
+            sha256 = "25d3EWGrV2WxTveVy860gn2Q8kfRn1z8RkfEYDOKwkA=";
           };
         };
 
         nvim-web-devicons = buildVimPluginFrom2Nix {
           pname = "nvim-web-devicons";
-          version = "2020-10-28";
+          version = "2020-11-01";
           src = super.fetchFromGitHub {
             owner = "kyazdani42";
             repo = "nvim-web-devicons";
-            rev = "23a9fbb6de546a4cb2e7d2fe2ff4e09e99b5fd2e";
-            sha256 = "42GQ/6Gpopu+SjBa8QA1xGbwK8E3At1Oq6mk8sGXU9o=";
+            rev = "078140d221ea59b41ec56f1683d1c54efcddfa6f";
+            sha256 = "qwboBB9F9BoR/EVXAlCtNnhVk+fd+2033cRBWAhS6/0=";
           };
         };
 
         vim-dadbod-ui = buildVimPluginFrom2Nix {
           pname = "vim-dadbod-ui";
-          version = "2020-10-12";
+          version = "2020-10-29";
           src = super.fetchFromGitHub {
             owner = "kristijanhusak";
             repo = "vim-dadbod-ui";
-            rev = "ed73c98c9c5f631f390b651e46e22c04d44420b3";
-            sha256 = "3rIlTIJ85FSGzjxyq1LWqpuywzdbnOkN2y81DVCQbcs=";
+            rev = "3f8f8563b123de8c6ed5d0ef4c997728c7455ea2";
+            sha256 = "LjbvHjdDELUQ7Ho9Ntiam/Hym63g1LOxPUKvQk7Q01E=";
           };
         };
 
@@ -82,6 +115,7 @@ let
     gofumpt
     ktlint
     nixpkgs-fmt
+    ocamlformat
     ormolu
     #nodePackages.prettier
     prettierPkgs
@@ -89,8 +123,13 @@ let
     python3Packages.isort
     rubocop
     rustfmt
+    scalafmt
     terraform
     uncrustify
+  ];
+
+  lsHelpers = [
+    ocamlPackages.merlin
   ];
 
   lspConfig = ''
@@ -108,9 +147,11 @@ let
           \ 'lua'             : ['${lua53Packages.lua-lsp}/bin/lua-lsp'],
           \ 'nix'             : ['${rnix-lsp}/bin/rnix-lsp'],
           \ 'objc'            : ['${ccls}/bin/ccls'],
+          \ 'ocaml'           : ['${nodePackages.ocaml-language-server}/bin/ocaml-language-server', '--stdio'],
           \ 'python'          : ['${pyls}/bin/pyls'],
           \ 'ruby'            : ['${solargraph}/bin/solargraph', 'stdio'],
-          \ 'rust'            : ['${rls}/bin/rls'],
+          \ 'rust'            : ['${rust-analyzer}/bin/rust-analyzer'],
+          \ 'scala'           : ['${metals}/bin/metals'],
           \ 'sh'              : ['${nodePackages.bash-language-server}/bin/bash-language-server', 'start'],
           \ 'swift'           : ['xcrun', '--toolchain', 'swift', 'sourcekit-lsp'],
           \ 'typescript'      : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
@@ -119,6 +160,53 @@ let
           \ }
   '';
 
+  nvimLSPConfig = ''
+    packadd nvim-lspconfig
+
+    lua << EOF
+    local nvim_lsp = require'nvim_lsp'
+
+    nvim_lsp.rnix.setup{
+      cmd = { '${rnix-lsp}/bin/rnix-lsp' }
+    }
+
+    nvim_lsp.tsserver.setup{
+      cmd = { '${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver' },
+      filetypes = { "json", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+    }
+
+    nvim_lsp.vimls.setup{
+      cmd = { '${nodePackages.vim-language-server}/bin/vim-language-server', '--stdio' }
+    }
+
+    EOF
+  '';
+
+  dapConfig = ''
+    packadd nvim-dap
+    lua << EOF
+
+    local dap = require('dap')
+    dap.adapters.python = {
+      type = 'executable',
+      command = '${python3.withPackages (ps: [ ps.debugpy ])}/bin/python',
+      args = { '-m', 'debugpy.adapter' }
+    }
+
+    dap.configurations.python = {
+      {
+        type = 'python',
+        request = 'launch',
+        name = "Launch File",
+        program = "''${file}",
+        pythonPath = function(adapter)
+          return '${python3}/bin/python'
+        end
+      }
+    }
+
+    EOF
+  '';
 
 in
 {
@@ -128,7 +216,7 @@ in
     vimPlugins_overlay
   ];
 
-  home.packages = formatters;
+  home.packages = formatters ++ lsHelpers;
 
   programs.neovim = {
     enable = true;
@@ -153,8 +241,11 @@ in
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = lf-vim; }
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
+      { plugin = nvim-dap; config = dapConfig + (readFile ./config/nvim-dap-config.vim); }
+      { plugin = nvim-dap-virtual-text; }
+      #{ plugin = nvim-lspconfig; config = nvimLSPConfig + (readFile ./config/nvim-lspconfig-config.vim); }
       { plugin = nvim-tree-lua; config = readFile ./config/nvim-tree-lua-config.vim; }
-      { plugin = nvim-treesitter; }
+      { plugin = nvim-treesitter; config = readFile ./config/nvim-treesitter-config.vim; }
       { plugin = nvim-web-devicons; }
       { plugin = rainbow; config = readFile ./config/rainbow-config.vim; }
       { plugin = scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
@@ -173,6 +264,7 @@ in
       { plugin = vim-fireplace; }
       { plugin = vim-gitbranch; }
       { plugin = vim-hardtime; config = readFile ./config/vim-hardtime-config.vim; }
+      { plugin = vim-nix; }
       { plugin = vim-polyglot; }
       { plugin = vim-repeat; }
       { plugin = vim-sensible; }

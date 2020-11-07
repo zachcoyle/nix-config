@@ -78,12 +78,12 @@ let
           version = "0.0.50";
           sha256 = "1dhqqam6dqig7rp0ii6z4h97a154133mq3dmq1p1g5i4v4qykrl5";
         }
-        {
-          name = "vsliveshare";
-          publisher = "ms-vsliveshare";
-          version = "1.0.3071";
-          sha256 = "8jhH2U/nwp2XqS55tVTAgnV+F+T+qcyvlxe1BtQPlf0=";
-        }
+        #{
+        #  name = "vsliveshare";
+        #  publisher = "ms-vsliveshare";
+        #  version = "1.0.3071";
+        #  sha256 = "8jhH2U/nwp2XqS55tVTAgnV+F+T+qcyvlxe1BtQPlf0=";
+        #}
         {
           name = "vscode-theme-gruvbox-minor";
           publisher = "adamsome";
@@ -187,8 +187,8 @@ in
     iterm2
     xcodeproj
     # need to fix to make it show up in ~/Applications/Nix/
-    (vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscode; }))
-    (vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscodium; }))
+    #(vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscode; }))
+    #(vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscodium; }))
   ];
 
   programs.man.enable = true;
@@ -216,7 +216,7 @@ in
       window_opacity = "on";
       active_window_opacity = 1.0;
       normal_window_opacity = 0.9;
-      top_padding = 5;
+      top_padding = 35;
       bottom_padding = 5;
       left_padding = 8;
       right_padding = 5;
