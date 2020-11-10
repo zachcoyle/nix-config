@@ -1,22 +1,29 @@
-{ pkgs
-, home
-, programs
-, ...
-}:
+{ pkgs, home, programs, ... }:
 
 with pkgs;
 let
   neovim_nightly_overlay = import (builtins.fetchTarball {
-    url = https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz;
+    url =
+      "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
   });
 
-  vimPlugins_overlay =
-    self: super:
+  vimPlugins_overlay = self: super:
     let
       inherit (super.vimUtils) buildVimPluginFrom2Nix;
     in
     {
       vimPlugins = super.vimPlugins // {
+
+        barbar-nvim = buildVimPluginFrom2Nix {
+          pname = "barbar-nvim";
+          version = "2020-11-07";
+          src = super.fetchFromGitHub {
+            owner = "romgrk";
+            repo = "barbar.nvim";
+            rev = "fd00b86193134b26e3830855698d5fdb70e20640";
+            sha256 = "PSGAj+0F2I0z6CYTc4FHqNxv1tvp390YGHaJ73CD5u4=";
+          };
+        };
 
         scrollbar-nvim = buildVimPluginFrom2Nix {
           pname = "scrollbar-nvim";
@@ -107,9 +114,8 @@ let
     publishBinsFor = [ "prettier" ];
   };
 
-  pyls = python3Packages.python-language-server.overrideAttrs (oldAttrs: {
-    doInstallCheck = false;
-  });
+  pyls = python3Packages.python-language-server.overrideAttrs
+    (oldAttrs: { doInstallCheck = false; });
 
   formatters = [
     gofumpt
@@ -128,9 +134,7 @@ let
     uncrustify
   ];
 
-  lsHelpers = [
-    ocamlPackages.merlin
-  ];
+  lsHelpers = [ ocamlPackages.merlin ];
 
   lspConfig = ''
     let g:LanguageClient_serverCommands = {
@@ -140,6 +144,7 @@ let
           \ 'dockerfile'      : ['${nodePackages.dockerfile-language-server-nodejs}/bin/docker-langserver', '--stdio'],
           \ 'go'              : ['${gopls}/bin/gopls'],
           \ 'haskell'         : ['${haskellPackages.haskell-language-server}/bin/haskell-language-server', '--lsp'],
+          \ 'java'            : ['${jdtls}/bin/jdt-language-server'],
           \ 'javascript'      : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'javascriptreact' : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'json'            : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
@@ -211,10 +216,7 @@ let
 in
 {
 
-  nixpkgs.overlays = [
-    neovim_nightly_overlay
-    vimPlugins_overlay
-  ];
+  nixpkgs.overlays = [ neovim_nightly_overlay vimPlugins_overlay ];
 
   home.packages = formatters ++ lsHelpers;
 
@@ -228,6 +230,7 @@ in
 
     plugins = with pkgs.vimPlugins; with builtins; [
       { plugin = auto-pairs; }
+      { plugin = barbar-nvim; }
       { plugin = colorizer; }
       { plugin = conjure; }
       { plugin = deol-nvim; }

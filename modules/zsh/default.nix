@@ -38,6 +38,7 @@
     enableAutosuggestions = true;
     defaultKeymap = "viins";
     autocd = true;
+
     shellAliases = {
       cat = "bat --theme TwoDark --paging never";
       ls = "lsd -F";
@@ -46,6 +47,7 @@
         "home-manager expire-generations `date --iso-8601`; nix-env -p /nix/var/nix/profiles/system --delete-generations old; nix-collect-garbage -d; nix-store --optimise";
       packageScripts = "jq .scripts package.json";
     };
+
     sessionVariables = {
       BROWSER = "firefox";
       EDITOR = "vim";
@@ -54,6 +56,7 @@
       DOTNET_CLI_TELEMETRY_OPTOUT = "true";
       REACT_TERMINAL = "iTerm";
     };
+
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -85,6 +88,7 @@
         "xcode"
         "yarn"
       ];
+
       extraConfig = ''
         source ${pkgs.jump}/share/zsh/site-functions/_jump
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme

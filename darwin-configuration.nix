@@ -33,9 +33,7 @@ let
   vscodeOverrides = {
 
     vscodeExtensions = with pkgs.vscode-extensions;
-      [
-        bbenoist.Nix
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      [ bbenoist.Nix ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "gitlens";
           publisher = "eamodio";

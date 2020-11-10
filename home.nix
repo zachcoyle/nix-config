@@ -1,5 +1,4 @@
-{ config, pkgs, lib, ... }:
-{
+{ config, pkgs, lib, ... }: {
   imports = [
     ./env.nix
     ./modules/dotfiles
