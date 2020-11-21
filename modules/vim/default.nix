@@ -2,6 +2,12 @@
 
 with pkgs;
 let
+  sources = import ../../nix/sources.nix;
+  nixpkgsMaster = import sources.nixpkgs {
+    overlays = [ vimPlugins_overlay ];
+    config = { };
+  };
+
   neovim_nightly_overlay = import (builtins.fetchTarball {
     url =
       "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
@@ -14,17 +20,6 @@ let
     {
       vimPlugins = super.vimPlugins // {
 
-        barbar-nvim = buildVimPluginFrom2Nix {
-          pname = "barbar-nvim";
-          version = "2020-11-07";
-          src = super.fetchFromGitHub {
-            owner = "romgrk";
-            repo = "barbar.nvim";
-            rev = "fd00b86193134b26e3830855698d5fdb70e20640";
-            sha256 = "PSGAj+0F2I0z6CYTc4FHqNxv1tvp390YGHaJ73CD5u4=";
-          };
-        };
-
         scrollbar-nvim = buildVimPluginFrom2Nix {
           pname = "scrollbar-nvim";
           version = "2020-09-28";
@@ -35,61 +30,6 @@ let
             sha256 = "Pmn1RHCYf3Ty0mL+5PshIXsF5heLb2TB2YT9VS85c4I=";
           };
           meta.homepage = "https://github.com/Xuyuanp/scrollbar.nvim/";
-        };
-
-        nvim-dap = buildVimPluginFrom2Nix {
-          pname = "nvim-dap";
-          version = "2020-10-26";
-          src = super.fetchFromGitHub {
-            owner = "mfussenegger";
-            repo = "nvim-dap";
-            rev = "0f756f375407735a0e7c8b5282413fa240fa3637";
-            sha256 = "QI/fGbA2r66vjqmU4Mb6sAgC6IZGU1w+bOky+ge4h0E=";
-          };
-        };
-
-        nvim-dap-virtual-text = buildVimPluginFrom2Nix {
-          pname = "nvim-dap-virtual-text";
-          version = "2020-09-20";
-          src = super.fetchFromGitHub {
-            owner = "theHamsta";
-            repo = "nvim-dap-virtual-text";
-            rev = "251cebfa5cd41345dbf33db6d433c4ca7be38610";
-            sha256 = "cMrkcZJ65zFXo9lxQF9ItFEfY0APVfgSYxnZdhktyTQ=";
-          };
-        };
-
-        nvim-tree-lua = buildVimPluginFrom2Nix {
-          pname = "nvim-tree-lua";
-          version = "2020-10-31";
-          src = super.fetchFromGitHub {
-            owner = "kyazdani42";
-            repo = "nvim-tree.lua";
-            rev = "ef893b523d366a0dde44b61d9cb327f2bea65f1d";
-            sha256 = "5s2FGTrjenkJrWFTAePgXpknBWlzLQ+RM+rGWjD4mjw=";
-          };
-        };
-
-        nvim-treesitter = buildVimPluginFrom2Nix {
-          pname = "nvim-treesitter";
-          version = "2020-11-06";
-          src = super.fetchFromGitHub {
-            owner = "nvim-treesitter";
-            repo = "nvim-treesitter";
-            rev = "6900e5f704110e3dbaab844c81530e82f271f7da";
-            sha256 = "25d3EWGrV2WxTveVy860gn2Q8kfRn1z8RkfEYDOKwkA=";
-          };
-        };
-
-        nvim-web-devicons = buildVimPluginFrom2Nix {
-          pname = "nvim-web-devicons";
-          version = "2020-11-01";
-          src = super.fetchFromGitHub {
-            owner = "kyazdani42";
-            repo = "nvim-web-devicons";
-            rev = "078140d221ea59b41ec56f1683d1c54efcddfa6f";
-            sha256 = "qwboBB9F9BoR/EVXAlCtNnhVk+fd+2033cRBWAhS6/0=";
-          };
         };
 
         vim-dadbod-ui = buildVimPluginFrom2Nix {
@@ -228,7 +168,7 @@ in
     package = pkgs.neovim-nightly;
     extraConfig = builtins.readFile ./config/init.vim;
 
-    plugins = with pkgs.vimPlugins; with builtins; [
+    plugins = with nixpkgsMaster.vimPlugins; with builtins; [
       { plugin = auto-pairs; }
       { plugin = barbar-nvim; }
       { plugin = colorizer; }
@@ -240,7 +180,7 @@ in
       { plugin = emmet-vim; config = readFile ./config/emmet-vim-config.vim; }
       { plugin = fugitive; }
       { plugin = fzf-vim; config = readFile ./config/fzf-vim-config.vim; }
-      { plugin = gruvbox; config = readFile ./config/gruvbox-config.vim; }
+      { plugin = gruvbox; config = readFile ./config/theme-config.vim; }
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = lf-vim; }
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }

@@ -1,5 +1,6 @@
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> gr <Plug>(lcn-references)
 nmap <silent> <F2> <Plug>(lcn-rename)
 nmap <silent> <C-i> <Plug>(lcn-explain-error)
 

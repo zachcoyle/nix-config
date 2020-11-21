@@ -48,8 +48,9 @@
       packageScripts = "jq .scripts package.json";
     };
 
+
     sessionVariables = {
-      BROWSER = "firefox";
+      BROWSER = "firefox developer edition";
       EDITOR = "vim";
       FASTLANE_OPT_OUT_USAGE = "YES";
       NIX_IGNORE_SYMLINK_STORE = "1";

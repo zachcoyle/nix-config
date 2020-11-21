@@ -5,3 +5,4 @@ result/
 machine.nix
 env.nix
 node_modules/
+.nvimlog

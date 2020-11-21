@@ -1,33 +1,33 @@
 { config, lib, pkgs, ... }:
 let
   appStoreApps = [
-    "499233976" #  Cathode        
-    "1480068668" #   Messenger      
-    "1289583905" #   Pixelmator     
-    "587512244" #  Kaleidoscope   
-    "640199958" #  Developer      
-    "409183694" #  Keynote        
-    "586001240" #  SQLPro         
-    "1436953057" #   Ghostery       
-    "1039600682" #   Hacker         
-    "937984704" #  Amphetamine    
-    "682658836" #  GarageBand     
-    "411643860" #  DaisyDisk      
-    "409203825" #  Numbers        
-    "497799835" #  Xcode          
-    "423666302" #  Sonance        
-    "409201541" #  Pages          
-    "422501241" #  Regex          
-    "506189836" #  Harvest        
-    "408981434" #  iMovie         
-    "1037126344" #   Apple          
-    "1035480615" #   Skeebus        
-    "803453959" #  Slack          
-    "1176895641" #   Spark          
-    "1397180934" #   Dark           
-    "452695239" #  QREncoder      
-    "924726344" #  Deliveries     
-    "957810159" #  Raindrop.io    
+    "1035480615" # Skeebus
+    "1037126344" # Apple
+    "1039600682" # Hacker
+    "1176895641" # Spark
+    "1289583905" # Pixelmator
+    "1397180934" # Dark
+    "1436953057" # Ghostery
+    "1480068668" # Messenger
+    "408981434" # iMovie
+    "409183694" # Keynote
+    "409201541" # Pages
+    "409203825" # Numbers
+    "411643860" # DaisyDisk
+    "422501241" # Regex
+    "423666302" # Sonance
+    "452695239" # QREncoder
+    "497799835" # Xcode
+    "499233976" # Cathode
+    "506189836" # Harvest
+    "586001240" # SQLPro
+    "587512244" # Kaleidoscope
+    "640199958" # Developer
+    "682658836" # GarageBand
+    "803453959" # Slack
+    "924726344" # Deliveries
+    "937984704" # Amphetamine
+    "957810159" # Raindrop.io
   ];
 
   vscodeOverrides = {
@@ -76,12 +76,6 @@ let
           version = "0.0.50";
           sha256 = "1dhqqam6dqig7rp0ii6z4h97a154133mq3dmq1p1g5i4v4qykrl5";
         }
-        #{
-        #  name = "vsliveshare";
-        #  publisher = "ms-vsliveshare";
-        #  version = "1.0.3071";
-        #  sha256 = "8jhH2U/nwp2XqS55tVTAgnV+F+T+qcyvlxe1BtQPlf0=";
-        #}
         {
           name = "vscode-theme-gruvbox-minor";
           publisher = "adamsome";
@@ -214,7 +208,7 @@ in
       window_opacity = "on";
       active_window_opacity = 1.0;
       normal_window_opacity = 0.9;
-      top_padding = 35;
+      top_padding = 5;
       bottom_padding = 5;
       left_padding = 8;
       right_padding = 5;
@@ -235,13 +229,13 @@ in
 
 
   #TEMP WORKAROUND. See https://github.com/LnL7/nix-darwin/issues/139#issuecomment-666771621
-  #system.activationScripts.applications.text = pkgs.lib.mkForce (
-  #  ''
-  #    echo "setting up $HOME/Applications/Nix..."
-  #    rm "$HOME/Applications/Nix"
-  #    ln -s "${config.system.build.applications}/Applications" "$HOME/Applications/Nix"
-  #  ''
-  #);
+  system.activationScripts.applications.text = pkgs.lib.mkForce (
+    ''
+      echo "setting up $HOME/Applications/Nix..."
+      rm "$HOME/Applications/Nix" || true
+      ln -s "${config.system.build.applications}/Applications" "$HOME/Applications/Nix"
+    ''
+  );
 
   networking = {
     knownNetworkServices = [
