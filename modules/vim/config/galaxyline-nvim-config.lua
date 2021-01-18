@@ -120,7 +120,7 @@ gls.left[8] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = checkwidth,
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.orange, colors.bg },
   }
 }
@@ -170,8 +170,16 @@ gls.left[15] = {
     provider = 'DiagnosticInfo',
     icon = '  ',
     highlight = {colors.blue,colors.section_bg},
+  }
+}
+gls.left[16] = {
+  DiagnosticHint = {
+    provider = 'DiagnosticHint',
+    icon = '  ',
+    highlight = {colors.blue,colors.section_bg},
     separator = ' ',
     separator_highlight = { colors.section_bg, colors.bg },
+
   }
 }
 
