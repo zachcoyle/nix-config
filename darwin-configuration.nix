@@ -107,12 +107,12 @@ in
       dock = {
         autohide = false;
         dashboard-in-overlay = false;
-        mineffect = null; #"suck";
+        mineffect = "suck";
         mouse-over-hilite-stack = true;
         mru-spaces = false;
         orientation = "left";
         show-process-indicators = true;
-        show-recents = false;
+        show-recents = true;
         showhidden = true;
         tilesize = 12;
       };

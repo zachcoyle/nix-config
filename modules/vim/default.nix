@@ -9,8 +9,7 @@ let
   };
 
   neovim_nightly_overlay = import (builtins.fetchTarball {
-    url =
-      "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
+    url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
   });
 
   vimPlugins_overlay = self: super:
@@ -19,6 +18,17 @@ let
     in
     {
       vimPlugins = super.vimPlugins // {
+
+        galaxyline-nvim = buildVimPluginFrom2Nix {
+          pname = "galaxyline-nvim";
+          version = "2021-01-17";
+          src = super.fetchFromGitHub {
+            owner = "glepnir";
+            repo = "galaxyline.nvim";
+            rev = "64d6b8e31459057ba4f9b03a977fce0d2cc3d748";
+            sha256 = "SuNo9aPxktdVZ9RtvlA7fN7w41hP26zuH9XW3fd7rPA=";
+          };
+        };
 
         scrollbar-nvim = buildVimPluginFrom2Nix {
           pname = "scrollbar-nvim";
@@ -153,6 +163,12 @@ let
     EOF
   '';
 
+  galaxyline-config = ''
+    lua << EOF
+      ${builtins.readFile ./config/galaxyline-nvim-config.lua}
+    EOF
+  '';
+
 in
 {
 
@@ -180,20 +196,21 @@ in
       { plugin = emmet-vim; config = readFile ./config/emmet-vim-config.vim; }
       { plugin = fugitive; }
       { plugin = fzf-vim; config = readFile ./config/fzf-vim-config.vim; }
+      { plugin = galaxyline-nvim; config = galaxyline-config; }
       { plugin = gruvbox; config = readFile ./config/theme-config.vim; }
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = lf-vim; }
-      {
-        plugin = lualine-nvim;
-        config = ''
-          lua << EOF
-            local lualine = require('lualine')
-            lualine.status()
-            lualine.theme = 'gruvbox'
-            lualine.extensions = { 'fzf' }
-          EOF
-        '';
-      }
+      #{
+      #  plugin = lualine-nvim;
+      #  config = ''
+      #    lua << EOF
+      #      local lualine = require('lualine')
+      #      lualine.status()
+      #      lualine.theme = 'gruvbox'
+      #      lualine.extensions = { 'fzf' }
+      #    EOF
+      #  '';
+      #}
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
       { plugin = nvim-dap; config = dapConfig + (readFile ./config/nvim-dap-config.vim); }
       { plugin = nvim-dap-virtual-text; }
