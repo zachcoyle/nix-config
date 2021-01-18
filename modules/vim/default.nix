@@ -200,44 +200,13 @@ in
       { plugin = gruvbox; config = readFile ./config/theme-config.vim; }
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = lf-vim; }
-      #{
-      #  plugin = lualine-nvim;
-      #  config = ''
-      #    lua << EOF
-      #      local lualine = require('lualine')
-      #      lualine.status()
-      #      lualine.theme = 'gruvbox'
-      #      lualine.extensions = { 'fzf' }
-      #    EOF
-      #  '';
-      #}
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
       { plugin = nvim-dap; config = dapConfig + (readFile ./config/nvim-dap-config.vim); }
       { plugin = nvim-dap-virtual-text; }
       #{ plugin = nvim-lspconfig; config = nvimLSPConfig + (readFile ./config/nvim-lspconfig-config.vim); }
       { plugin = nvim-tree-lua; config = readFile ./config/nvim-tree-lua-config.vim; }
       { plugin = nvim-treesitter; config = readFile ./config/nvim-treesitter-config.vim; }
-      {
-        plugin = nvim-treesitter-textobjects;
-        config = ''
-          lua <<EOF
-          require'nvim-treesitter.configs'.setup {
-            textobjects = {
-              select = {
-                enable = true,
-                keymaps = {
-                  -- You can use the capture groups defined in textobjects.scm
-                  ["af"] = "@function.outer",
-                  ["if"] = "@function.inner",
-                  ["ac"] = "@class.outer",
-                  ["ic"] = "@class.inner",
-                },
-              },
-            },
-          }
-          EOF
-        '';
-      }
+      { plugin = nvim-treesitter-textobjects; config = readFile ./config/nvim-treesitter-textobjects-config.vim; }
       { plugin = nvim-web-devicons; }
       { plugin = rainbow; config = readFile ./config/rainbow-config.vim; }
       { plugin = scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
