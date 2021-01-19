@@ -44,12 +44,12 @@ let
 
         vim-dadbod-ui = buildVimPluginFrom2Nix {
           pname = "vim-dadbod-ui";
-          version = "2020-10-29";
+          version = "2020-12-21";
           src = super.fetchFromGitHub {
             owner = "kristijanhusak";
             repo = "vim-dadbod-ui";
-            rev = "3f8f8563b123de8c6ed5d0ef4c997728c7455ea2";
-            sha256 = "LjbvHjdDELUQ7Ho9Ntiam/Hym63g1LOxPUKvQk7Q01E=";
+            rev = "2300f3ea0c1babaa5bc56187b1118e4c947b7bef";
+            sha256 = "6IFiNXcdWSmeatpW1vBsgL0cZbgU9bwJhgsSvvMAO8A=";
           };
         };
 

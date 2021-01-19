@@ -155,15 +155,11 @@ in
   fonts = {
     enableFontDir = true;
     fonts = with pkgs; [
-      fantasque-sans-mono
       fira-code
-      iosevka
       nerdfonts
       open-dyslexic
-      open-sans
       powerline-fonts
       roboto-mono
-      source-code-pro
     ];
   };
 
