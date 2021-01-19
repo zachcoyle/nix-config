@@ -8,11 +8,29 @@ function has_width_gt(cols)
   return vim.fn.winwidth(0) / 2 > cols
 end
 
+function diagnostic_counts(diagnostic_type)
+  local diagnostics = vim.api.nvim_call_function("LanguageClient#statusLineDiagnosticsCounts", {})
+  diagnostic_count = diagnostics[diagnostic_type]
+  
+  if (diagnostic_count == nil)
+  then 
+    return nil
+  end
+
+  if (diagnostic_count > 0)
+  then 
+    return diagnostic_count
+  else 
+    return nil
+  end
+
+end
 
 local gl = require('galaxyline')
 
+
 local gls = gl.section
-gl.short_line_list = { 'NvimTree', 'defx', 'packager', 'vista' }
+gl.short_line_list = { 'NvimTree', 'defx', 'packager', 'vista', 'zsh' }
 
 -- Colors
 local colors = {
@@ -141,9 +159,9 @@ gls.left[10] = {
 }
 gls.left[11] = {
   DiagnosticError = {
-    provider = 'DiagnosticError',
+    provider = function() return diagnostic_counts('E') end,
     icon = '  ',
-    highlight = {colors.red,colors.section_bg}
+    highlight = { colors.red, colors.section_bg }
   }
 }
 gls.left[12] = {
@@ -154,7 +172,7 @@ gls.left[12] = {
 }
 gls.left[13] = {
   DiagnosticWarn = {
-    provider = 'DiagnosticWarn',
+    provider = function() return diagnostic_counts('W') end,
     icon = '  ',
     highlight = {colors.orange,colors.section_bg},
   }
@@ -167,14 +185,14 @@ gls.left[14] = {
 }
 gls.left[15] = {
   DiagnosticInfo = {
-    provider = 'DiagnosticInfo',
+    provider = function() return diagnostic_counts('I') end,
     icon = '  ',
     highlight = {colors.blue,colors.section_bg},
   }
 }
 gls.left[16] = {
   DiagnosticHint = {
-    provider = 'DiagnosticHint',
+    provider = function() return diagnostic_counts('H') end,
     icon = '  ',
     highlight = {colors.blue,colors.section_bg},
     separator = ' ',
@@ -198,7 +216,15 @@ gls.right[2] = {
     highlight = { colors.fg, colors.section_bg },
     separator = ' | ',
     separator_highlight = { colors.bg, colors.section_bg },
-  },
+  }
+}
+gls.right[3] = {
+  LinePercent = {
+    provider = 'LinePercent',
+    highlight = { colors.fg, colors.section_bg },
+    separator = ' | ',
+    separator_highlight = { colors.bg, colors.section_bg },
+  }
 }
 
 -- Short status line

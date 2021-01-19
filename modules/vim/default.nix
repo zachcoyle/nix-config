@@ -189,7 +189,6 @@ in
       { plugin = barbar-nvim; }
       { plugin = colorizer; }
       { plugin = conjure; }
-      { plugin = deol-nvim; }
       { plugin = deoplete-nvim; config = readFile ./config/deoplete-nvim-config.vim; }
       { plugin = direnv-vim; config = readFile ./config/direnv-vim-config.vim; }
       { plugin = editorconfig-vim; }
@@ -199,20 +198,17 @@ in
       { plugin = galaxyline-nvim; config = galaxyline-config; }
       { plugin = gruvbox; config = readFile ./config/theme-config.vim; }
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
-      { plugin = lf-vim; }
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
-      { plugin = nvim-dap; config = dapConfig + (readFile ./config/nvim-dap-config.vim); }
       { plugin = nvim-dap-virtual-text; }
+      { plugin = nvim-dap; config = dapConfig + (readFile ./config/nvim-dap-config.vim); }
       #{ plugin = nvim-lspconfig; config = nvimLSPConfig + (readFile ./config/nvim-lspconfig-config.vim); }
       { plugin = nvim-tree-lua; config = readFile ./config/nvim-tree-lua-config.vim; }
-      { plugin = nvim-treesitter; config = readFile ./config/nvim-treesitter-config.vim; }
       { plugin = nvim-treesitter-textobjects; config = readFile ./config/nvim-treesitter-textobjects-config.vim; }
+      { plugin = nvim-treesitter; config = readFile ./config/nvim-treesitter-config.vim; }
       { plugin = nvim-web-devicons; }
-      { plugin = rainbow; config = readFile ./config/rainbow-config.vim; }
       { plugin = scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
       { plugin = surround; }
       { plugin = tabular; }
-      { plugin = undotree; }
       { plugin = vim-closetag; config = readFile ./config/vim-closetag-config.vim; }
       { plugin = vim-commentary; }
       { plugin = vim-cursorword; }
@@ -220,21 +216,12 @@ in
       { plugin = vim-dadbod; }
       { plugin = vim-devicons; }
       { plugin = vim-dispatch; }
-      { plugin = vim-fireplace; }
-      { plugin = vim-gitbranch; }
-      { plugin = vim-hardtime; config = readFile ./config/vim-hardtime-config.vim; }
-      { plugin = vimagit; }
-      { plugin = vim-nix; }
       { plugin = vim-polyglot; }
       { plugin = vim-repeat; }
       { plugin = vim-sensible; }
       { plugin = vim-signify; config = readFile ./config/vim-signify-config.vim; }
-      { plugin = vim-startify; config = readFile ./config/vim-startify-config.vim; }
       { plugin = vim-tmux-navigator; }
-      { plugin = vim-visual-multi; }
-      { plugin = vim-which-key; }
-      { plugin = vimsence; config = readFile ./config/vimsence-config.vim; }
-      { plugin = vimspector; }
+      { plugin = vimagit; }
     ];
   };
 }
