@@ -46,6 +46,7 @@
       yeet =
         "home-manager expire-generations `date --iso-8601`; nix-env -p /nix/var/nix/profiles/system --delete-generations old; nix-collect-garbage -d; nix-store --optimise";
       packageScripts = "jq .scripts package.json";
+      switch = "darwin-rebuild switch --flake ~/.config/nixpkgs && nix build ~/.config/nixpkgs#homeConfig --impure && ~/.config/nixpkgs/result/activate";
     };
 
 

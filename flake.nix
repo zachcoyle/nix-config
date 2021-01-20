@@ -9,6 +9,10 @@
     nur.url = "github:nix-community/NUR";
     devshell.url = "github:numtide/devshell";
 
+    galaxyline-nvim = { url = "github:glepnir/galaxyline.nvim"; flake = false; };
+    scrollbar-nvim = { url = "github:Xuyuanp/scrollbar.nvim"; flake = false; };
+    vim-dadbod-ui = { url = "github:kristijanhusak/vim-dadbod-ui"; flake = false; };
+
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,18 +28,47 @@
     { self
     , darwin
     , nixpkgs
+    , nixpkgsMaster
     , flake-utils
     , nur
     , home-manager
     , neovim-nightly-overlay
     , devshell
     , ...
-    }:
+    }@inputs:
     let
       overlays = [
         neovim-nightly-overlay.overlay
         nur.overlay
         devshell.overlay
+        (final: prev: {
+          bleedingEdge = nixpkgsMaster.legacyPackages.x86_64-darwin;
+          fzf = nixpkgsMaster.legacyPackages.x86_64-darwin.fzf;
+          zsh-powerlevel10k = nixpkgsMaster.legacyPackages.x86_64-darwin.zsh-powerlevel10k;
+        })
+        (final: prev:
+          let
+            inherit (prev.vimUtils) buildVimPluginFrom2Nix;
+          in
+          {
+            myVimPlugins = {
+              galaxyline-nvim = buildVimPluginFrom2Nix {
+                pname = "galaxyline-nvim";
+                version = "master";
+                src = inputs.galaxyline-nvim;
+              };
+              scrollbar-nvim = buildVimPluginFrom2Nix {
+                pname = "scrollbar-nvim";
+                version = "master";
+                src = inputs.scrollbar-nvim;
+              };
+              vim-dadbod-ui = buildVimPluginFrom2Nix {
+                pname = "vim-dadbod-ui";
+                version = "master";
+                src = inputs.vim-dadbod-ui;
+              };
+            };
+          })
       ];
     in
     {

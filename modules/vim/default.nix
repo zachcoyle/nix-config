@@ -2,57 +2,6 @@
 
 with pkgs;
 let
-  sources = import ../../nix/sources.nix;
-  nixpkgsMaster = import sources.nixpkgs {
-    overlays = [ vimPlugins_overlay ];
-    config = { };
-  };
-
-
-  vimPlugins_overlay = self: super:
-    let
-      inherit (super.vimUtils) buildVimPluginFrom2Nix;
-    in
-    {
-      vimPlugins = super.vimPlugins // {
-
-        galaxyline-nvim = buildVimPluginFrom2Nix {
-          pname = "galaxyline-nvim";
-          version = "2021-01-17";
-          src = super.fetchFromGitHub {
-            owner = "glepnir";
-            repo = "galaxyline.nvim";
-            rev = "64d6b8e31459057ba4f9b03a977fce0d2cc3d748";
-            sha256 = "SuNo9aPxktdVZ9RtvlA7fN7w41hP26zuH9XW3fd7rPA=";
-          };
-        };
-
-        scrollbar-nvim = buildVimPluginFrom2Nix {
-          pname = "scrollbar-nvim";
-          version = "2020-09-28";
-          src = super.fetchFromGitHub {
-            owner = "Xuyuanp";
-            repo = "scrollbar.nvim";
-            rev = "72a4174a47a89b7f89401fc66de0df95580fa48c";
-            sha256 = "Pmn1RHCYf3Ty0mL+5PshIXsF5heLb2TB2YT9VS85c4I=";
-          };
-          meta.homepage = "https://github.com/Xuyuanp/scrollbar.nvim/";
-        };
-
-        vim-dadbod-ui = buildVimPluginFrom2Nix {
-          pname = "vim-dadbod-ui";
-          version = "2020-12-21";
-          src = super.fetchFromGitHub {
-            owner = "kristijanhusak";
-            repo = "vim-dadbod-ui";
-            rev = "2300f3ea0c1babaa5bc56187b1118e4c947b7bef";
-            sha256 = "6IFiNXcdWSmeatpW1vBsgL0cZbgU9bwJhgsSvvMAO8A=";
-          };
-        };
-
-      };
-    };
-
   prettierPkgs = yarn2nix-moretea.mkYarnPackage {
     name = "prettierPkgs";
     src = ../../pkgs/node_packages/prettierPkgs;
@@ -168,9 +117,6 @@ let
 
 in
 {
-
-  nixpkgs.overlays = [ vimPlugins_overlay ];
-
   home.packages = formatters ++ lsHelpers;
 
   programs.neovim = {
@@ -181,7 +127,7 @@ in
     package = pkgs.neovim-nightly;
     extraConfig = builtins.readFile ./config/init.vim;
 
-    plugins = with nixpkgsMaster.vimPlugins; with builtins; [
+    plugins = with pkgs.bleedingEdge.vimPlugins; with builtins; [
       { plugin = auto-pairs; }
       { plugin = barbar-nvim; }
       { plugin = colorizer; }
@@ -192,7 +138,7 @@ in
       { plugin = emmet-vim; config = readFile ./config/emmet-vim-config.vim; }
       { plugin = fugitive; }
       { plugin = fzf-vim; config = readFile ./config/fzf-vim-config.vim; }
-      { plugin = galaxyline-nvim; config = galaxyline-config; }
+      { plugin = pkgs.myVimPlugins.galaxyline-nvim; config = galaxyline-config; }
       { plugin = gruvbox; config = readFile ./config/theme-config.vim; }
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
@@ -203,13 +149,13 @@ in
       { plugin = nvim-treesitter-textobjects; config = readFile ./config/nvim-treesitter-textobjects-config.vim; }
       { plugin = nvim-treesitter; config = readFile ./config/nvim-treesitter-config.vim; }
       { plugin = nvim-web-devicons; }
-      { plugin = scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
+      { plugin = pkgs.myVimPlugins.scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
       { plugin = surround; }
       { plugin = tabular; }
       { plugin = vim-closetag; config = readFile ./config/vim-closetag-config.vim; }
       { plugin = vim-commentary; }
       { plugin = vim-cursorword; }
-      { plugin = vim-dadbod-ui; }
+      { plugin = pkgs.myVimPlugins.vim-dadbod-ui; }
       { plugin = vim-dadbod; }
       { plugin = vim-devicons; }
       { plugin = vim-dispatch; }
