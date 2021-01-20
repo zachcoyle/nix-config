@@ -59,6 +59,7 @@ let
     nodePackages.pyright
     nodePackages.typescript
     parallel
+    pinentry
     powerline-rs
     python38Full
     python3Packages.poetry
