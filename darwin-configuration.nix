@@ -154,13 +154,7 @@ in
 
   fonts = {
     enableFontDir = true;
-    fonts = with pkgs; [
-      fira-code
-      nerdfonts
-      open-dyslexic
-      powerline-fonts
-      roboto-mono
-    ];
+    fonts = with pkgs; [ nerdfonts ];
   };
 
 

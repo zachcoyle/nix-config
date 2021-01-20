@@ -8,9 +8,6 @@ let
     config = { };
   };
 
-  neovim_nightly_overlay = import (builtins.fetchTarball {
-    url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
-  });
 
   vimPlugins_overlay = self: super:
     let
@@ -172,7 +169,7 @@ let
 in
 {
 
-  nixpkgs.overlays = [ neovim_nightly_overlay vimPlugins_overlay ];
+  nixpkgs.overlays = [ vimPlugins_overlay ];
 
   home.packages = formatters ++ lsHelpers;
 

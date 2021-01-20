@@ -121,7 +121,7 @@ gls.left[5] = {
 }
 gls.left[6] = {
   GitBranch = {
-    provider = 'GitBranch',
+    provider = { 'GitBranch', function() return ' ' end },
     condition = buffer_not_empty,
     highlight = {colors.fg,colors.bg},
   }
@@ -138,7 +138,7 @@ gls.left[8] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = checkwidth,
-    icon = ' ',
+    icon = '  ',
     highlight = { colors.orange, colors.bg },
   }
 }

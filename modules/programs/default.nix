@@ -4,17 +4,18 @@
 , ...
 }:
 let
-  machine = import ../../machine.nix;
-  isDarwin = machine.operatingSystem == "Darwin";
-  isNixOS = machine.operatingSystem == "NixOS";
+  #machine = import ../../machine.nix;
+  #isDarwin = machine.operatingSystem == "Darwin";
+  isDarwin = true;
+  #isNixOS = machine.operatingSystem == "NixOS";
+  isNixOS = false;
 
-  nixosPrograms = import ./nixos.nix;
-  darwinPrograms = import ./darwin.nix;
+  #nixosPrograms = import ./nixos.nix;
 in
 {
-  imports = [ ]
-    ++ lib.optional isNixOS nixosPrograms
-    ++ lib.optional isDarwin darwinPrograms;
+  #imports = [ ]
+  #  ++ lib.optional isNixOS nixosPrograms
+  #  ++ lib.optional isDarwin darwinPrograms;
 
   programs.home-manager.enable = true;
 

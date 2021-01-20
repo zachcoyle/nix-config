@@ -5,9 +5,9 @@
 }:
 with pkgs;
 let
-  machine = import ../../machine.nix;
-  isDarwin = machine.operatingSystem == "Darwin";
-  isNixOS = machine.operatingSystem == "NixOS";
+  #machine = import ../../machine.nix;
+  isDarwin = true; #machine.operatingSystem == "Darwin";
+  isNixOS = false; #machine.operatingSystem == "NixOS";
 
   customPackages_overlay = import ../.././overlays/customPackages.nix;
 
@@ -19,10 +19,10 @@ let
     bc
     bundix
     bvi
-    byobu
     cachix
     ctags
     cups
+    devshell.cli
     dvtm
     ed
     exercism
@@ -122,6 +122,6 @@ in
   nixpkgs.overlays = [ customPackages_overlay ];
 
   home.packages = commonPackages
-    ++ lib.optionals isNixOS nixosPackages
+    ##++ lib.optionals isNixOS nixosPackages
     ++ lib.optionals isDarwin darwinPackages;
 }
