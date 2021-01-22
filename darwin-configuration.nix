@@ -159,7 +159,6 @@ in
 
 
   environment.systemPackages = with pkgs; [
-    airdrop-cli
     fstl
     synergy
     terminal-notifier
@@ -167,7 +166,7 @@ in
     wireshark
     alacritty
     iterm2
-    xcodeproj
+    nur.repos.zachcoyle.xcodeproj
     # need to fix to make it show up in ~/Applications/Nix/
     #(vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscode; }))
     #(vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscodium; }))
@@ -198,11 +197,11 @@ in
       window_opacity = "on";
       active_window_opacity = 1.0;
       normal_window_opacity = 0.9;
-      top_padding = 5;
-      bottom_padding = 5;
-      left_padding = 8;
-      right_padding = 5;
-      window_gap = 5;
+      top_padding = 3;
+      bottom_padding = 3;
+      left_padding = 3;
+      right_padding = 3;
+      window_gap = 3;
       layout = "bsp";
     };
   };
@@ -216,16 +215,6 @@ in
   programs.zsh.enable = true;
 
   launchd = { };
-
-
-  #TEMP WORKAROUND. See https://github.com/LnL7/nix-darwin/issues/139#issuecomment-666771621
-  system.activationScripts.applications.text = pkgs.lib.mkForce (
-    ''
-      echo "setting up $HOME/Applications/Nix..."
-      rm "$HOME/Applications/Nix" || true
-      ln -s "${config.system.build.applications}/Applications" "$HOME/Applications/Nix"
-    ''
-  );
 
   networking = {
     knownNetworkServices = [
@@ -243,7 +232,7 @@ in
 
   system.activationScripts.extraUserActivation.text = ''
     echo "setting up App Store applications..."
-    ${pkgs.mas}/bin/mas install ${lib.concatStringsSep " " appStoreApps}
+    ${pkgs.nur.repos.zachcoyle.mas}/bin/mas install ${lib.concatStringsSep " " appStoreApps}
   '';
 
   #users.users.zcoyle.shell = pkgs.zsh;

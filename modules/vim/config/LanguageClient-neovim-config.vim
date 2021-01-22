@@ -1,6 +1,10 @@
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> gt <Plug>(lcn-type-definition)
 nmap <silent> gr <Plug>(lcn-references)
+nmap <silent> gi <Plug>(lcn-implementation)
+nmap <silent> gn <Plug>(lcn-diagnostics-next)
+nmap <silent> gb <Plug>(lcn-diagnostics-prev)
 nmap <silent> <F2> <Plug>(lcn-rename)
 nmap <silent> <C-i> <Plug>(lcn-explain-error)
 

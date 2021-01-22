@@ -58,6 +58,7 @@ let
           \ 'typescript'      : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'typescriptreact' : ['${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver'],
           \ 'vim'             : ['${nodePackages.vim-language-server}/bin/vim-language-server', '--stdio'],
+          \ 'yaml'            : ['${nodePackages.yaml-language-server}/bin/yaml-language-server', '--stdio'],
           \ }
   '';
 
@@ -115,6 +116,12 @@ let
     EOF
   '';
 
+  gitsignsConfig = ''
+    lua << EOF
+      ${builtins.readFile ./config/gitsigns-nvim-config.lua} 
+    EOF
+  '';
+
 in
 {
   home.packages = formatters ++ lsHelpers;
@@ -127,7 +134,7 @@ in
     package = pkgs.neovim-nightly;
     extraConfig = builtins.readFile ./config/init.vim;
 
-    plugins = with pkgs.bleedingEdge.vimPlugins; with builtins; [
+    plugins = with pkgs.bleedingEdge.vimPlugins; with pkgs.myVimPlugins; with builtins; [
       { plugin = auto-pairs; }
       { plugin = barbar-nvim; }
       { plugin = colorizer; }
@@ -138,7 +145,8 @@ in
       { plugin = emmet-vim; config = readFile ./config/emmet-vim-config.vim; }
       { plugin = fugitive; }
       { plugin = fzf-vim; config = readFile ./config/fzf-vim-config.vim; }
-      { plugin = pkgs.myVimPlugins.galaxyline-nvim; config = galaxyline-config; }
+      { plugin = galaxyline-nvim; config = galaxyline-config; }
+      { plugin = gitsigns-nvim; config = gitsignsConfig; }
       { plugin = gruvbox; config = readFile ./config/theme-config.vim; }
       { plugin = LanguageClient-neovim; config = (readFile ./config/LanguageClient-neovim-config.vim) + lspConfig; }
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
@@ -149,20 +157,20 @@ in
       { plugin = nvim-treesitter-textobjects; config = readFile ./config/nvim-treesitter-textobjects-config.vim; }
       { plugin = nvim-treesitter; config = readFile ./config/nvim-treesitter-config.vim; }
       { plugin = nvim-web-devicons; }
-      { plugin = pkgs.myVimPlugins.scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
+      { plugin = plenary-nvim; }
+      { plugin = scrollbar-nvim; config = readFile ./config/scrollbar-nvim-config.vim; }
       { plugin = surround; }
       { plugin = tabular; }
       { plugin = vim-closetag; config = readFile ./config/vim-closetag-config.vim; }
       { plugin = vim-commentary; }
       { plugin = vim-cursorword; }
-      { plugin = pkgs.myVimPlugins.vim-dadbod-ui; }
+      { plugin = vim-dadbod-ui; }
       { plugin = vim-dadbod; }
       { plugin = vim-devicons; }
       { plugin = vim-dispatch; }
       { plugin = vim-polyglot; }
       { plugin = vim-repeat; }
       { plugin = vim-sensible; }
-      { plugin = vim-signify; config = readFile ./config/vim-signify-config.vim; }
       { plugin = vim-tmux-navigator; }
       { plugin = vimagit; }
     ];
