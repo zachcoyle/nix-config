@@ -12,6 +12,9 @@
     galaxyline-nvim = { url = "github:glepnir/galaxyline.nvim"; flake = false; };
     scrollbar-nvim = { url = "github:Xuyuanp/scrollbar.nvim"; flake = false; };
     vim-dadbod-ui = { url = "github:kristijanhusak/vim-dadbod-ui"; flake = false; };
+    vim-prisma = { url = "github:pantharshit00/vim-prisma"; flake = false; };
+
+    rnix-lsp.url = "github:elkowar/rnix-lsp";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -45,6 +48,7 @@
           bleedingEdge = nixpkgsMaster.legacyPackages.x86_64-darwin;
           fzf = nixpkgsMaster.legacyPackages.x86_64-darwin.fzf;
           zsh-powerlevel10k = nixpkgsMaster.legacyPackages.x86_64-darwin.zsh-powerlevel10k;
+          rnix-lsp = inputs.rnix-lsp.defaultPackage;
         })
         (final: prev:
           let
@@ -66,6 +70,11 @@
                 pname = "vim-dadbod-ui";
                 version = "master";
                 src = inputs.vim-dadbod-ui;
+              };
+              vim-prisma = buildVimPluginFrom2Nix {
+                pname = "vim-prisma";
+                version = "master";
+                src = inputs.vim-prisma;
               };
             };
           })

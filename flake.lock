@@ -265,7 +265,8 @@
         "nixpkgsMaster": "nixpkgsMaster",
         "nur": "nur",
         "scrollbar-nvim": "scrollbar-nvim",
-        "vim-dadbod-ui": "vim-dadbod-ui"
+        "vim-dadbod-ui": "vim-dadbod-ui",
+        "vim-prisma": "vim-prisma"
       }
     },
     "scrollbar-nvim": {
@@ -297,6 +298,22 @@
       "original": {
         "owner": "kristijanhusak",
         "repo": "vim-dadbod-ui",
+        "type": "github"
+      }
+    },
+    "vim-prisma": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1586020114,
+        "narHash": "sha256-BsV+7Vwx137fpUmTI7j7KW/xui7R2bwdBis8cOwAgl0=",
+        "owner": "pantharshit00",
+        "repo": "vim-prisma",
+        "rev": "e91ac5011232e1bd8ea53204db8d01203d5d0f3c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pantharshit00",
+        "repo": "vim-prisma",
         "type": "github"
       }
     }

@@ -169,6 +169,7 @@ in
       { plugin = vim-devicons; }
       { plugin = vim-dispatch; }
       { plugin = vim-polyglot; }
+      { plugin = vim-prisma; }
       { plugin = vim-repeat; }
       { plugin = vim-sensible; }
       { plugin = vim-tmux-navigator; }
