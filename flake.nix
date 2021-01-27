@@ -14,7 +14,7 @@
     vim-dadbod-ui = { url = "github:kristijanhusak/vim-dadbod-ui"; flake = false; };
     vim-prisma = { url = "github:pantharshit00/vim-prisma"; flake = false; };
 
-    rnix-lsp.url = "github:elkowar/rnix-lsp";
+    rnix-lsp.url = "github:nix-community/rnix-lsp";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -40,15 +40,16 @@
     , ...
     }@inputs:
     let
+      system = "x86_64-darwin";
       overlays = [
         neovim-nightly-overlay.overlay
         nur.overlay
         devshell.overlay
         (final: prev: {
-          bleedingEdge = nixpkgsMaster.legacyPackages.x86_64-darwin;
-          fzf = nixpkgsMaster.legacyPackages.x86_64-darwin.fzf;
-          zsh-powerlevel10k = nixpkgsMaster.legacyPackages.x86_64-darwin.zsh-powerlevel10k;
-          rnix-lsp = inputs.rnix-lsp.defaultPackage;
+          bleedingEdge = nixpkgsMaster.legacyPackages."${system}";
+          fzf = nixpkgsMaster.legacyPackages."${system}".fzf;
+          zsh-powerlevel10k = nixpkgsMaster.legacyPackages."${system}".zsh-powerlevel10k;
+          rnix-lsp = inputs.rnix-lsp.defaultPackage."${system}";
         })
         (final: prev:
           let
@@ -80,7 +81,7 @@
           })
       ];
     in
-    {
+    rec {
       darwinConfigurations."Zachs-Macbook-Pro" = darwin.lib.darwinSystem {
         modules = [
           ./darwin-configuration.nix
@@ -94,11 +95,12 @@
             nixpkgs.overlays = overlays;
             imports = [ ./home.nix ];
           };
-          system = "x86_64-darwin";
-          homeDirectory = "/Users/zcoyle";
+          system = system;
+          homeDirectory = if system == "x86_64-darwin" then "/Users/zcoyle" else "/home/zcoyle";
           username = "zcoyle";
         };
       };
+
 
       homeConfig = self.homeConfigurations.homeConfig.activationPackage;
     };

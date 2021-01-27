@@ -24,7 +24,7 @@
     newSession = true;
     tmuxp.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      nord
+      gruvbox
       prefix-highlight
       sensible
       vim-tmux-navigator
