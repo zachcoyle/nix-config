@@ -16,6 +16,8 @@
 
     rnix-lsp.url = "github:nix-community/rnix-lsp";
 
+    alacritty-ligature = { url = "github:zenixls2/alacritty/ligature"; flake = false; };
+
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +52,15 @@
           fzf = nixpkgsMaster.legacyPackages."${system}".fzf;
           zsh-powerlevel10k = nixpkgsMaster.legacyPackages."${system}".zsh-powerlevel10k;
           rnix-lsp = inputs.rnix-lsp.defaultPackage."${system}";
+          alacritty = nixpkgs.legacyPackages.x86_64-darwin.alacritty.overrideAttrs (oldAttrs: rec {
+            src = inputs.alacritty-ligature;
+            name = "alacritty";
+            cargoDeps = oldAttrs.cargoDeps.overrideAttrs (nixpkgs.lib.const {
+              name = "${name}-vendor.tar.gz";
+              inherit src;
+              outputHash = "t6G7kjXoOIc0BmCSRYHOr4kzTQGIlsLy7eJuhlqSSvE=";
+            });
+          });
         })
         (final: prev:
           let
