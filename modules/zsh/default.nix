@@ -48,6 +48,7 @@
       packageScripts = "jq .scripts package.json";
       switch-darwin = "darwin-rebuild switch --flake ~/.config/nixpkgs && nix build ~/.config/nixpkgs#darwinHomeConfig --impure && ~/.config/nixpkgs/result/activate";
       switch-linux = "nix build ~/.config/nixpkgs#linuxHomeConfig --impure && ~/.config/nixpkgs/result/activate";
+      switch-nixos = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
     };
 
 

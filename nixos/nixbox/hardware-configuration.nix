@@ -8,6 +8,10 @@
   #  [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
   #  ];
 
+
+  #TODO: https://discourse.nixos.org/t/whats-the-rationale-behind-not-detected-nix/5403/2
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.kernelModules = [ "kvm-amd" ];

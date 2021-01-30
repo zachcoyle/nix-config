@@ -3,21 +3,24 @@
 , programs
 , ...
 }:
-let
-  #machine = import ../../machine.nix;
-  #isDarwin = machine.operatingSystem == "Darwin";
-  isDarwin = true;
-  #isNixOS = machine.operatingSystem == "NixOS";
-  isNixOS = false;
-
-  #nixosPrograms = import ./nixos.nix;
-in
+with pkgs;
 {
-  #imports = [ ]
-  #  ++ lib.optional isNixOS nixosPrograms
-  #  ++ lib.optional isDarwin darwinPrograms;
-
   programs.home-manager.enable = true;
+
+  programs.chromium = {
+    enable = (system == "x86_64-linux");
+    extensions = [
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "fmkadmapgofadopljbjfkapdkoienihi" # react devtools
+      "gcbommkclmclpchllfjekcdonpmejbdp" # https everywhere
+      "bappiabcodbpphnojdiaddhnilfnjmpm" # hackernews enhancement suite
+    ];
+  };
+
+  programs.firefox = {
+    enable = (system == "x86_64-linux");
+  };
+
 
   programs.htop = {
     enable = true;
@@ -27,7 +30,7 @@ in
     enable = true;
     userName = "Zach Coyle";
     userEmail = "zach.coyle@gmail.com";
-    package = pkgs.gitAndTools.gitFull;
+    package = gitAndTools.gitFull;
     delta = { enable = true; };
     extraConfig = {
       pull = { ff = "only"; };

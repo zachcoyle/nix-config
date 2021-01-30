@@ -56,6 +56,7 @@
     htop
     zsh
     nixops
+    clang
   ];
 
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
@@ -64,24 +65,24 @@
     enable = true;
     forwardX11 = true;
   };
-  
+
   networking.firewall.allowedTCPPorts = [
-    22    # ssh
-    2375  # docker
-    2376  # docker
+    22 # ssh
+    2375 # docker
+    2376 # docker
     27017 # mongodb
-    3000  # gitea
-    3306  # mariadb
-    3333  # hydra
-    3389  # xrdp
-    5342  # postgres
-    5601  # kibana
+    3000 # gitea
+    3306 # mariadb
+    #3333 # hydra
+    3389 # xrdp
+    5342 # postgres
+    5601 # kibana
     8080
     8081
     8082
     8200
     9091
-    9200  # elasticsearch
+    9200 # elasticsearch
     51929
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -114,11 +115,11 @@
   };
 
   services.compton = {
-    enable          = true;
-    fade            = true;
+    enable = true;
+    fade = true;
     inactiveOpacity = 0.9;
-    shadow          = true;
-    fadeDelta       = 4;
+    shadow = true;
+    fadeDelta = 4;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -151,9 +152,9 @@
 
   services.redis.enable = true;
   services.redis.openFirewall = true;
-  services.redis.extraConfig = ''
-    protected-mode no
-  '';
+  services.redis.settings = {
+    protected-mode = "no";
+  };
 
   services.mysql = {
     enable = true;
@@ -180,12 +181,12 @@
           "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
         };
       }
-      {
-        name = "hydra";
-        ensurePermissions = {
-          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
-        };
-      }
+      #{
+      #  name = "hydra";
+      #  ensurePermissions = {
+      #    "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
+      #  };
+      #}
     ];
   };
 
@@ -210,15 +211,15 @@
     extraConfig = "ui = true";
   };
 
-  services.hydra = {
-    enable = true;
-    hydraURL = "http://localhost:3333";
-    port = 3333;
-    listenHost = "*";
-    notificationSender = "hydra@localhost";
-    buildMachinesFiles = [];
-    useSubstitutes = true;
-  };
+  #services.hydra = {
+  #  enable = true;
+  #  hydraURL = "http://localhost:3333";
+  #  port = 3333;
+  #  listenHost = "*";
+  #  notificationSender = "hydra@localhost";
+  #  buildMachinesFiles = [ ];
+  #  useSubstitutes = true;
+  #};
 
   virtualisation.docker = {
     enable = true;
