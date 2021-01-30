@@ -124,6 +124,11 @@
           username = "zach";
         };
 
+        nixosConfigurations.nixbox = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./nixos/nixbox/configuration.nix ];
+        };
+
       };
 
       darwinHomeConfig = self.homeConfigurations.darwinHomeConfig.activationPackage;

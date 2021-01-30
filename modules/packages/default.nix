@@ -108,7 +108,7 @@ let
     kdenlive
     steam
     sublime
-    pkgs.bleedingEdge.swift
+    #swift
     vocal
   ];
 
