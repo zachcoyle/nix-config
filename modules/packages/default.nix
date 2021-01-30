@@ -1,14 +1,9 @@
 { lib
 , pkgs
-, home
 , ...
 }:
 with pkgs;
 let
-  #machine = import ../../machine.nix;
-  isDarwin = true; #machine.operatingSystem == "Darwin";
-  isNixOS = false; #machine.operatingSystem == "NixOS";
-
   customPackages_overlay = import ../.././overlays/customPackages.nix;
 
   commonPackages = [
@@ -103,7 +98,7 @@ let
     watch
   ];
 
-  nixosPackages = [
+  linuxPackages = [
     alacritty
     android-studio
     blender
@@ -123,6 +118,6 @@ in
   nixpkgs.overlays = [ customPackages_overlay ];
 
   home.packages = commonPackages
-    ##++ lib.optionals isNixOS nixosPackages
-    ++ lib.optionals isDarwin darwinPackages;
+    ++ lib.optionals (system == "x86_64-linux") linuxPackages
+    ++ lib.optionals (system == "x86_64-darwin") darwinPackages;
 }
