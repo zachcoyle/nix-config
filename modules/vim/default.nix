@@ -62,28 +62,6 @@ let
           \ }
   '';
 
-  nvimLSPConfig = ''
-    packadd nvim-lspconfig
-
-    lua << EOF
-    local nvim_lsp = require'nvim_lsp'
-
-    nvim_lsp.rnix.setup{
-      cmd = { '${rnix-lsp}/bin/rnix-lsp' }
-    }
-
-    nvim_lsp.tsserver.setup{
-      cmd = { '${nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio', '--tsserver-path', 'tsserver' },
-      filetypes = { "json", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
-    }
-
-    nvim_lsp.vimls.setup{
-      cmd = { '${nodePackages.vim-language-server}/bin/vim-language-server', '--stdio' }
-    }
-
-    EOF
-  '';
-
   dapConfig = ''
     packadd nvim-dap
     lua << EOF
@@ -152,8 +130,9 @@ in
       { plugin = neoformat; config = readFile ./config/neoformat-config.vim; }
       { plugin = nvim-dap-virtual-text; }
       { plugin = nvim-dap; config = dapConfig + (readFile ./config/nvim-dap-config.vim); }
-      #{ plugin = nvim-lspconfig; config = nvimLSPConfig + (readFile ./config/nvim-lspconfig-config.vim); }
       { plugin = nvim-tree-lua; config = readFile ./config/nvim-tree-lua-config.vim; }
+      { plugin = nvim-treesitter-context; }
+      { plugin = nvim-treesitter-refactor; }
       { plugin = nvim-treesitter-textobjects; config = readFile ./config/nvim-treesitter-textobjects-config.vim; }
       { plugin = nvim-treesitter; config = readFile ./config/nvim-treesitter-config.vim; }
       { plugin = nvim-web-devicons; }
