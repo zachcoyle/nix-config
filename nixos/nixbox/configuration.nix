@@ -73,7 +73,7 @@
     27017 # mongodb
     3000 # gitea
     3306 # mariadb
-    #3333 # hydra
+    # 3333 # hydra
     3389 # xrdp
     5342 # postgres
     5601 # kibana
