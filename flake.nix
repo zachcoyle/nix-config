@@ -22,7 +22,6 @@
     devshell.url = "github:numtide/devshell";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nyxt.url = "github:atlas-engineer/nyxt";
-    rnix-lsp.url = "github:nix-community/rnix-lsp";
 
     galaxyline-nvim = { url = "github:glepnir/galaxyline.nvim"; flake = false; };
     scrollbar-nvim = { url = "github:Xuyuanp/scrollbar.nvim"; flake = false; };
@@ -47,7 +46,6 @@
         bleedingEdge = nixpkgsMaster.legacyPackages."${system}";
         fzf = nixpkgsMaster.legacyPackages."${system}".fzf;
         zsh-powerlevel10k = nixpkgsMaster.legacyPackages."${system}".zsh-powerlevel10k;
-        rnix-lsp = inputs.rnix-lsp.defaultPackage."${system}";
         nyxt = inputs.nyxt.defaultPackage."${system}";
         alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
           src = inputs.alacritty-ligature;
