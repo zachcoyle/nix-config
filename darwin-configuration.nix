@@ -33,36 +33,21 @@ let
   vscodeOverrides = {
 
     vscodeExtensions = with pkgs.vscode-extensions;
-      [ bbenoist.Nix ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "gitlens";
-          publisher = "eamodio";
-          version = "10.2.1";
-          sha256 = "1bh6ws20yi757b4im5aa6zcjmsgdqxvr1rg86kfa638cd5ad1f97";
-        }
+      [
+        #ms-python.python
+        #ms-vsliveshare.vsliveshare
+        bbenoist.Nix
+        eamodio.gitlens
+        esbenp.prettier-vscode
+        graphql.vscode-graphql
+        jnoortheen.nix-ide
+        ms-python.vscode-pylance
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "insert-iso-timestamp";
           publisher = "dpkshrma";
           version = "0.0.1";
           sha256 = "0jhfhybjsl6i3sq1d3q4ryz5lidjk82jzzgq6bbjwjlipj6vdan7";
-        }
-        {
-          name = "prettier-vscode";
-          publisher = "esbenp";
-          version = "5.0.0";
-          sha256 = "018n0632gp65b3qwww8ijyb149v8dvbhlys548wvjfax8926jm5j";
-        }
-        {
-          name = "pyright";
-          publisher = "ms-pyright";
-          version = "1.1.40";
-          sha256 = "1qgmi0pzimglvpky8bvskcxdgbgha2l9srilzsaqj0dlvavp0969";
-        }
-        {
-          name = "python";
-          publisher = "ms-python";
-          version = "2020.10.332292344";
-          sha256 = "qgr/WT9euPMQot+dzGZqm+5z8KYx3svOftC8tb60gzA=";
         }
         {
           name = "uuid-generator";
@@ -73,8 +58,8 @@ let
         {
           name = "vscode-neovim";
           publisher = "asvetliakov";
-          version = "0.0.50";
-          sha256 = "1dhqqam6dqig7rp0ii6z4h97a154133mq3dmq1p1g5i4v4qykrl5";
+          version = "0.0.78";
+          sha256 = "dyXuMITHoLZBOYtLo4Jknf4TkeCysiNGQWkqxMPlfyg=";
         }
         {
           name = "vscode-theme-gruvbox-minor";
@@ -168,8 +153,8 @@ in
     iterm2
     nur.repos.zachcoyle.xcodeproj
     # need to fix to make it show up in ~/Applications/Nix/
-    #(vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscode; }))
-    #(vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscodium; }))
+    (vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscode; }))
+    (vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscodium; }))
   ];
 
   programs.man.enable = true;

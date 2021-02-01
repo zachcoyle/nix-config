@@ -46,8 +46,10 @@
       yeet =
         "home-manager expire-generations `date --iso-8601`; nix-env -p /nix/var/nix/profiles/system --delete-generations old; nix-collect-garbage -d; nix-store --optimise";
       packageScripts = "jq .scripts package.json";
+
+      imanix = "manix \"\" | grep '^# ' | sed 's/^# \(.*\) (.*/\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       switch-darwin = "darwin-rebuild switch --flake ~/.config/nixpkgs && nix build ~/.config/nixpkgs#darwinHomeConfig --impure && ~/.config/nixpkgs/result/activate";
-      switch-linux = "nix build ~/.config/nixpkgs#linuxHomeConfig --impure && ~/.config/nixpkgs/result/activate";
+      switch-home = "nix build ~/.config/nixpkgs#linuxHomeConfig --impure && ~/.config/nixpkgs/result/activate";
       switch-nixos = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
     };
 
