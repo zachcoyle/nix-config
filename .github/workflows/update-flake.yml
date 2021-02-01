@@ -2,8 +2,8 @@ name: Update Flake
 
 on:
   schedule:
-    # every day at 8am UTC
-    - cron: "0 8 * * *"
+    # every day at 8:30am UTC
+    - cron: "30 8 * * *"
   workflow_dispatch:
 
 jobs:
