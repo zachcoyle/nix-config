@@ -45,6 +45,7 @@ let
     mpv
     nebula
     neofetch
+    neovim
     niv
     nix-bundle
     #nixops

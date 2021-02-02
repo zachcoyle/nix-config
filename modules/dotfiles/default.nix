@@ -15,7 +15,7 @@ let
     "editor.lineNumbers" = "relative";
     "telemetry.enableCrashReporter" = false;
     "telemetry.enableTelemetry" = false;
-    "vscode-neovim.neovimPath" = "${config.programs.neovim.finalPackage}/bin/nvim";
+    "vscode-neovim.neovimPath" = "${pkgs.neovim}/bin/nvim";
     "workbench.colorTheme" = "Gruvbox Minor Dark Medium";
   };
 

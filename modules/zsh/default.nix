@@ -43,6 +43,7 @@
       cat = "bat --theme TwoDark --paging never";
       ls = "lsd -F";
       rm = "safe-rm -iv";
+      vim = "nvim";
       yeet =
         "home-manager expire-generations `date --iso-8601`; nix-env -p /nix/var/nix/profiles/system --delete-generations old; nix-collect-garbage -d; nix-store --optimise";
       packageScripts = "jq .scripts package.json";

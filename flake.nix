@@ -20,8 +20,9 @@
 
     alacritty-ligature = { url = "github:zenixls2/alacritty/ligature"; flake = false; };
     devshell.url = "github:numtide/devshell";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nyxt.url = "github:atlas-engineer/nyxt";
+
+    neovim.url = "github:vi-tality/neovitality";
 
     galaxyline-nvim = { url = "github:glepnir/galaxyline.nvim"; flake = false; };
     scrollbar-nvim = { url = "github:Xuyuanp/scrollbar.nvim"; flake = false; };
@@ -37,7 +38,6 @@
     , flake-utils
     , nur
     , home-manager
-    , neovim-nightly-overlay
     , devshell
     , ...
     }@inputs:
@@ -47,6 +47,7 @@
         fzf = nixpkgsMaster.legacyPackages."${system}".fzf;
         zsh-powerlevel10k = nixpkgsMaster.legacyPackages."${system}".zsh-powerlevel10k;
         nyxt = inputs.nyxt.defaultPackage."${system}";
+        neovim = inputs.neovim.defaultPackage."${system}";
         alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
           src = inputs.alacritty-ligature;
           name = "alacritty";
@@ -59,38 +60,9 @@
       };
 
       overlays = system: [
-        neovim-nightly-overlay.overlay
         nur.overlay
         devshell.overlay
         (packagesOverlay system)
-        (final: prev:
-          let
-            inherit (prev.vimUtils) buildVimPluginFrom2Nix;
-          in
-          {
-            myVimPlugins = {
-              galaxyline-nvim = buildVimPluginFrom2Nix {
-                pname = "galaxyline-nvim";
-                version = "master";
-                src = inputs.galaxyline-nvim;
-              };
-              scrollbar-nvim = buildVimPluginFrom2Nix {
-                pname = "scrollbar-nvim";
-                version = "master";
-                src = inputs.scrollbar-nvim;
-              };
-              vim-dadbod-ui = buildVimPluginFrom2Nix {
-                pname = "vim-dadbod-ui";
-                version = "master";
-                src = inputs.vim-dadbod-ui;
-              };
-              vim-prisma = buildVimPluginFrom2Nix {
-                pname = "vim-prisma";
-                version = "master";
-                src = inputs.vim-prisma;
-              };
-            };
-          })
       ];
     in
     rec {
