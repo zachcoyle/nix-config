@@ -49,8 +49,8 @@
       packageScripts = "jq .scripts package.json";
 
       imanix = "manix \"\" | grep '^# ' | sed 's/^# \(.*\) (.*/\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
-      switch-darwin = "darwin-rebuild switch --flake ~/.config/nixpkgs && nix build ~/.config/nixpkgs#darwinHomeConfig --impure && ~/.config/nixpkgs/result/activate";
-      switch-home = "nix build ~/.config/nixpkgs#linuxHomeConfig --impure && ~/.config/nixpkgs/result/activate";
+      switch-darwin = "darwin-rebuild switch --flake ~/.config/nixpkgs && nix build ~/.config/nixpkgs#darwinHomeConfig && ~/.config/nixpkgs/result/activate";
+      switch-home = "nix build ~/.config/nixpkgs#linuxHomeConfig && ~/.config/nixpkgs/result/activate";
       switch-nixos = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
     };
 
