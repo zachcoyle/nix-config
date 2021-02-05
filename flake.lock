@@ -199,14 +199,15 @@
         "scrollbar-nvim": "scrollbar-nvim",
         "snippets-nvim": "snippets-nvim",
         "vim-dadbod-ui": "vim-dadbod-ui",
-        "vim-prisma": "vim-prisma"
+        "vim-prisma": "vim-prisma",
+        "vim-vsnip": "vim-vsnip"
       },
       "locked": {
-        "lastModified": 1612514099,
-        "narHash": "sha256-zl2uXzslrgX2OouzjFkd96MX0dRFCatggF6kRunUSKc=",
+        "lastModified": 1612514892,
+        "narHash": "sha256-ng03+hMu5O46I0VqGPyLTxY5CQBgdv5m2kr0PgxrEzw=",
         "owner": "vi-tality",
         "repo": "neovitality",
-        "rev": "5dee511d976adcc59fb859c714c38d99a16111b6",
+        "rev": "b1c1cebb46a1fa121b6a1cc8a8263b05a6befff6",
         "type": "github"
       },
       "original": {
@@ -511,6 +512,22 @@
       "original": {
         "owner": "pantharshit00",
         "repo": "vim-prisma",
+        "type": "github"
+      }
+    },
+    "vim-vsnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1612279083,
+        "narHash": "sha256-LGD3q8QXQrZk071HASf14RMYFB/ELjDyk38FrevM0DE=",
+        "owner": "hrsh7th",
+        "repo": "vim-vsnip",
+        "rev": "cacfe408e58f9b2cbc6ecd0f1135ff4810e42889",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "vim-vsnip",
         "type": "github"
       }
     }
