@@ -44,6 +44,18 @@ let
         ms-python.vscode-pylance
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
+          name = "python";
+          publisher = "ms-python";
+          version = "2021.1.502429796";
+          sha256 = "U2KvOftdDxg3nLDiuIRomap60YveSl7datTnh1K+Ozc=";
+        }
+        {
+          name = "jupyter";
+          publisher = "ms-toolsai";
+          version = "2020.12.414227025";
+          sha256 = "O9hFFpzcjInfy1pNtQkwhXA51kFp/aga8+JWjc+4Zf8=";
+        }
+        {
           name = "insert-iso-timestamp";
           publisher = "dpkshrma";
           version = "0.0.1";
@@ -139,7 +151,7 @@ in
 
   fonts = {
     enableFontDir = true;
-    fonts = with pkgs; [ nerdfonts ];
+    fonts = with pkgs; [ nerdfonts lato ];
   };
 
 

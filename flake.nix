@@ -3,7 +3,6 @@
 
   inputs = rec {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgsMaster.url = "github:nixos/nixpkgs/master";
     nur.url = "github:nix-community/NUR";
 
     darwin = {
@@ -34,7 +33,6 @@
     { self
     , darwin
     , nixpkgs
-    , nixpkgsMaster
     , flake-utils
     , nur
     , home-manager
@@ -43,9 +41,9 @@
     }@inputs:
     let
       packagesOverlay = system: final: prev: {
-        bleedingEdge = nixpkgsMaster.legacyPackages."${system}";
-        fzf = nixpkgsMaster.legacyPackages."${system}".fzf;
-        zsh-powerlevel10k = nixpkgsMaster.legacyPackages."${system}".zsh-powerlevel10k;
+        bleedingEdge = nixpkgs.legacyPackages."${system}";
+        fzf = nixpkgs.legacyPackages."${system}".fzf;
+        zsh-powerlevel10k = nixpkgs.legacyPackages."${system}".zsh-powerlevel10k;
         nyxt = inputs.nyxt.defaultPackage."${system}";
         neovim = inputs.neovim.defaultPackage."${system}";
         #alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {

@@ -77,8 +77,6 @@
     27017 # mongodb
     3000 # gitea
     3306 # mariadb
-    # 3333 # hydra
-    3389 # xrdp
     5342 # postgres
     5601 # kibana
     8080
@@ -94,11 +92,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  services.xrdp = {
-    enable = true;
-    defaultWindowManager = "${pkgs.xfce4-14.xfce4-session}/bin/xfce4-session";
-  };
-
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -112,10 +105,15 @@
 
     # Enable touchpad support.
     #libinput.enable = true;
-    desktopManager = {
-      #xfce.enable = true;
-      pantheon.enable = true;
+    windowManager = {
+      dwm = {
+        enable = true;
+      };
     };
+  };
+
+  services.dwm-status = {
+    enable = true;
   };
 
   services.compton = {
@@ -185,12 +183,6 @@
           "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
         };
       }
-      #{
-      #  name = "hydra";
-      #  ensurePermissions = {
-      #    "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
-      #  };
-      #}
     ];
   };
 
@@ -214,16 +206,6 @@
     address = "0.0.0.0:8200";
     extraConfig = "ui = true";
   };
-
-  #services.hydra = {
-  #  enable = true;
-  #  hydraURL = "http://localhost:3333";
-  #  port = 3333;
-  #  listenHost = "*";
-  #  notificationSender = "hydra@localhost";
-  #  buildMachinesFiles = [ ];
-  #  useSubstitutes = true;
-  #};
 
   virtualisation.docker = {
     enable = true;

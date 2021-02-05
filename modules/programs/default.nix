@@ -33,6 +33,7 @@ with pkgs;
     package = gitAndTools.gitFull;
     delta = { enable = true; };
     extraConfig = {
+      init = { defaultBranch = "master"; };
       pull = { ff = "only"; };
       fetch = { prune = "true"; };
       commit = { gpgsign = "true"; };
