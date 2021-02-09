@@ -9,6 +9,7 @@
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+    enableNixDirenvIntegration = true;
     stdlib = builtins.readFile ./config/direnvrc;
   };
 

@@ -22,11 +22,6 @@
     nyxt.url = "github:atlas-engineer/nyxt";
 
     neovim.url = "github:vi-tality/neovitality";
-
-    galaxyline-nvim = { url = "github:glepnir/galaxyline.nvim"; flake = false; };
-    scrollbar-nvim = { url = "github:Xuyuanp/scrollbar.nvim"; flake = false; };
-    vim-dadbod-ui = { url = "github:kristijanhusak/vim-dadbod-ui"; flake = false; };
-    vim-prisma = { url = "github:pantharshit00/vim-prisma"; flake = false; };
   };
 
   outputs =
@@ -101,5 +96,6 @@
 
       darwinHomeConfig = self.homeConfigurations.darwinHomeConfig.activationPackage;
       linuxHomeConfig = self.homeConfigurations.linuxHomeConfig.activationPackage;
+
     };
 }
