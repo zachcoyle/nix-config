@@ -30,7 +30,7 @@ let
     "957810159" # Raindrop.io
   ];
 
-  vscodeOverrides = {
+  vscodeOptions = {
 
     vscodeExtensions = with pkgs.vscode-extensions;
       [
@@ -164,9 +164,9 @@ in
     alacritty
     iterm2
     nur.repos.zachcoyle.xcodeproj
-    # need to fix to make it show up in ~/Applications/Nix/
-    (vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscode; }))
-    (vscode-with-extensions.override (vscodeOverrides // { vscode = pkgs.vscodium; }))
+
+    (vscode-with-extensions.override (vscodeOptions // { vscode = pkgs.vscode; }))
+    (vscode-with-extensions.override (vscodeOptions // { vscode = pkgs.vscodium; }))
   ];
 
   programs.man.enable = true;
