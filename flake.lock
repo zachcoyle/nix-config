@@ -358,11 +358,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1612902023,
-        "narHash": "sha256-2GaWhnE2zWjucQzL0wCWXMxG81HHvf/eZVUCJkImyuQ=",
+        "lastModified": 1612969947,
+        "narHash": "sha256-0P6mPQ++Auz2YO01aVL6Vg+7vSQKRnmgROfPWMynN3w=",
         "owner": "atlas-engineer",
         "repo": "nyxt",
-        "rev": "c60e0c7632d7c7410f824d4dcca331ac4323f28c",
+        "rev": "0f0f9341f3b1551817a20be133b38c2f67826fef",
         "type": "github"
       },
       "original": {
