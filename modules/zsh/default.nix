@@ -33,6 +33,18 @@
     extraConfig = builtins.readFile ./config/tmux.conf;
   };
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      nix_shell = {
+        symbol = " ";
+      };
+      git_status = {
+        modified = "";
+      };
+    };
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -100,8 +112,6 @@
       extraConfig = ''
         source ${pkgs.jump}/share/zsh/site-functions/_jump
         source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
-
-        eval "$(${pkgs.starship}/bin/starship init zsh)"
       '';
     };
 

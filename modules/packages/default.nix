@@ -68,7 +68,7 @@ let
     stack
     stow
     teamocil
-    terraform
+    terraform_0_14
     tig
     tldr
     tmate
