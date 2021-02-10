@@ -38,7 +38,6 @@
       packagesOverlay = system: final: prev: {
         bleedingEdge = nixpkgs.legacyPackages."${system}";
         fzf = nixpkgs.legacyPackages."${system}".fzf;
-        zsh-powerlevel10k = nixpkgs.legacyPackages."${system}".zsh-powerlevel10k;
         nyxt = inputs.nyxt.defaultPackage."${system}";
         neovim = inputs.neovim.defaultPackage."${system}";
         #alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
