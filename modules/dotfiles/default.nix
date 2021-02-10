@@ -21,12 +21,12 @@ let
 
 in
 {
-  home.file.".config/alacritty/alacritty.yml".text =
-    builtins.readFile ./dotfiles/alacritty.yml;
 
-  home.file."Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".text =
-    builtins.readFile ./dotfiles/iterm2/Profiles.json;
+  home.file = with builtins; {
+    ".config/alacritty/alacritty.yml".text = readFile ./dotfiles/alacritty.yml;
+    "Library/Application Support/iTerm2/DynamicProfiles/Profiles.json".text = readFile ./dotfiles/iterm2/Profiles.json;
+    "Library/Application Support/VSCodium/User/settings.json".text = toJSON vscodeSettings;
+    "Library/Application Support/Code/User/settings.json".text = toJSON vscodeSettings;
+  };
 
-  home.file."Library/Application Support/VSCodium/User/settings.json".text = builtins.toJSON vscodeSettings;
-  home.file."Library/Application Support/Code/User/settings.json".text = builtins.toJSON vscodeSettings;
 }
