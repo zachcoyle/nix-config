@@ -17,7 +17,6 @@ let
     cachix
     ctags
     cups
-    devshell.cli
     dvtm
     ed
     exercism

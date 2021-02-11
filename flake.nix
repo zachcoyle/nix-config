@@ -17,8 +17,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    #alacritty-ligature = { url = "github:zenixls2/alacritty/ligature"; flake = false; };
-    devshell.url = "github:numtide/devshell";
+    alacritty-ligature = { url = "github:zenixls2/alacritty/ligature"; flake = false; };
     nyxt.url = "github:atlas-engineer/nyxt";
 
     neovim.url = "github:vi-tality/neovitality";
@@ -31,7 +30,6 @@
     , flake-utils
     , nur
     , home-manager
-    , devshell
     , ...
     }@inputs:
     let
@@ -40,20 +38,20 @@
         fzf = nixpkgs.legacyPackages."${system}".fzf;
         nyxt = inputs.nyxt.defaultPackage."${system}";
         neovim = inputs.neovim.defaultPackage."${system}";
-        #alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
-        #  src = inputs.alacritty-ligature;
-        #  name = "alacritty";
-        #  cargoDeps = oldAttrs.cargoDeps.overrideAttrs (nixpkgs.lib.const {
-        #    name = "${name}-vendor.tar.gz";
-        #    inherit src;
-        #    outputHash = "t6G7kjXoOIc0BmCSRYHOr4kzTQGIlsLy7eJuhlqSSvE=";
-        #  });
-        #});
+        alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
+          src = inputs.alacritty-ligature;
+          name = "alacritty";
+          cargoDeps = oldAttrs.cargoDeps.overrideAttrs (nixpkgs.lib.const {
+            name = "${name}-vendor.tar.gz";
+            inherit src;
+            outputHash = "FC3+9wjk/Samq2T/I/DXzGdV9/8puGI0OlJhG6o3rcg=";
+          });
+        });
+
       };
 
       overlays = system: [
         nur.overlay
-        devshell.overlay
         (packagesOverlay system)
       ];
     in
