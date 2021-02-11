@@ -2,7 +2,7 @@
   description = "";
 
   inputs = rec {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     nur.url = "github:nix-community/NUR";
 
     darwin = {
