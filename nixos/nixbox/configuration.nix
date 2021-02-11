@@ -7,7 +7,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  fonts.fonts = with pkgs; [ nerdfonts ];
+  fonts.fonts = import ../../fonts.nix { inherit pkgs; };
 
   nix = {
     package = pkgs.nixFlakes;

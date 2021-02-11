@@ -151,7 +151,7 @@ in
 
   fonts = {
     enableFontDir = true;
-    fonts = with pkgs; [ nerdfonts lato ];
+    fonts = import ./fonts.nix { inherit pkgs; };
   };
 
 
