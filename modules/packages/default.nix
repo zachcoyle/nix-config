@@ -7,12 +7,9 @@ let
   customPackages_overlay = import ../.././overlays/customPackages.nix;
 
   commonPackages = [
-    abduco
     apg
-    autossh
     bat
     bc
-    bundix
     bvi
     cachix
     ctags
@@ -101,6 +98,7 @@ let
     alacritty
     android-studio
     blender
+    bviplus
     dwarf-fortress-packages.dwarf-fortress-full
     exfat
     inkscape

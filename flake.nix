@@ -38,15 +38,15 @@
         fzf = nixpkgs.legacyPackages."${system}".fzf;
         nyxt = inputs.nyxt.defaultPackage."${system}";
         neovim = inputs.neovim.defaultPackage."${system}";
-        alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
-          src = inputs.alacritty-ligature;
-          name = "alacritty";
-          cargoDeps = oldAttrs.cargoDeps.overrideAttrs (nixpkgs.lib.const {
-            name = "${name}-vendor.tar.gz";
-            inherit src;
-            outputHash = "FC3+9wjk/Samq2T/I/DXzGdV9/8puGI0OlJhG6o3rcg=";
-          });
-        });
+        #alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
+        #  src = inputs.alacritty-ligature;
+        #  name = "alacritty";
+        #  cargoDeps = oldAttrs.cargoDeps.overrideAttrs (nixpkgs.lib.const {
+        #    name = "${name}-vendor.tar.gz";
+        #    inherit src;
+        #    outputHash = "FC3+9wjk/Samq2T/I/DXzGdV9/8puGI0OlJhG6o3rcg=";
+        #  });
+        #});
 
       };
 

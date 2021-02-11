@@ -156,16 +156,14 @@ in
 
 
   environment.systemPackages = with pkgs; [
-    fstl
-    synergy
-    terminal-notifier
-    emacs
-    wireshark
     alacritty
+    emacs
     iterm2
     nur.repos.zachcoyle.xcodeproj
+    synergy
+    terminal-notifier
 
-    (vscode-with-extensions.override (vscodeOptions // { vscode = pkgs.vscode; }))
+    #(vscode-with-extensions.override (vscodeOptions // { vscode = pkgs.vscode; }))
     (vscode-with-extensions.override (vscodeOptions // { vscode = pkgs.vscodium; }))
   ];
 

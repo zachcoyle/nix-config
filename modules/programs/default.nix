@@ -21,6 +21,18 @@ with pkgs;
     enable = (system == "x86_64-linux");
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "gruvbox";
+      paging = "never";
+    };
+
+    themes = {
+      gruvbox = "";
+    };
+
+  };
 
   programs.htop = {
     enable = true;
