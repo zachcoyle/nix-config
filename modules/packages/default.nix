@@ -27,6 +27,7 @@ let
     gitAndTools.hub
     gitAndTools.lab
     gitAndTools.lefthook
+    gpeek
     imagemagickBig
     imgcat
     ipfs
@@ -109,6 +110,15 @@ let
     vocal
   ];
 
+  gpeek = writeScriptBin "gpeek" ''
+    (
+    cd /tmp
+    git clone --depth 1 $@ || true
+    reponame=$(basename $@)
+    $EDITOR $reponame
+    rm -rf $reponame
+    )
+  '';
 
 in
 {

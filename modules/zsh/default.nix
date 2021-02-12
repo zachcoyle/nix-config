@@ -40,7 +40,22 @@
         symbol = " ";
       };
       git_status = {
-        modified = "";
+        modified = "  ";
+      };
+      character = {
+        vicmd_symbol = "[Normal ❮](bold green)";
+      };
+      python = {
+        symbol = " ";
+      };
+      swift = {
+        symbol = "ﯣ ";
+      };
+      nodejs = {
+        symbol = " ";
+      };
+      package = {
+        symbol = " ";
       };
     };
   };
@@ -70,7 +85,7 @@
 
     sessionVariables = {
       BROWSER = "firefox developer edition";
-      EDITOR = "vim";
+      EDITOR = "${pkgs.neovim}/bin/nvim";
       FASTLANE_OPT_OUT_USAGE = "YES";
       NIX_IGNORE_SYMLINK_STORE = "1";
       DOTNET_CLI_TELEMETRY_OPTOUT = "true";
