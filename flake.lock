@@ -38,6 +38,21 @@
         "type": "github"
       }
     },
+    "emacs-overlay": {
+      "locked": {
+        "lastModified": 1613076622,
+        "narHash": "sha256-+7W18rh3c9hAlXvr1CZJdMIObFO4KzWKUjBUAfzvebU=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "72277c12eb58c9d56c4f12db803fd9e8d78f336a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1610051610,
@@ -60,6 +75,21 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1609246779,
+        "narHash": "sha256-eq6ZXE/VWo3EMC65jmIT6H/rrUc9UWOWVujkzav025k=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "08c7ad4a0844adc4a7f9f5bb3beae482e789afa4",
         "type": "github"
       },
       "original": {
@@ -207,11 +237,11 @@
         "vim-vsnip": "vim-vsnip"
       },
       "locked": {
-        "lastModified": 1613037376,
-        "narHash": "sha256-f54bM+lG0MwX2gngVOd6J7/NJEzfvN1sTn5ElI8X+Xs=",
+        "lastModified": 1613089473,
+        "narHash": "sha256-bwvzX3iRzKrZUVorRxp/D4IVbMdx0aKbu3woxhfkooI=",
         "owner": "vi-tality",
         "repo": "neovitality",
-        "rev": "6e8574188e4c094927b9c3362102383911445fb6",
+        "rev": "a45713772be490a14e53f70d8decaa8333a64309",
         "type": "github"
       },
       "original": {
@@ -263,16 +293,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1613060329,
-        "narHash": "sha256-rvWgqcaASmQcuzYUugsZjezSLvvaDbj4tKywqlnAOew=",
+        "lastModified": 1613039270,
+        "narHash": "sha256-vSu4h07hlEWQ+gwyR0tm/xk31+N90pBumZ8gsZM87rM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8868d8faad83987478045a5aeb62a43407569499",
+        "rev": "3155a9e966ab674f8f228ae0d0f8b7f2de8a3bd5",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "master",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -293,6 +323,19 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1609079092,
+        "narHash": "sha256-KhyKfxBHtZlAgudpZ0EJVzeuqROjKfVOwj8j0cuhU50=",
+        "path": "/nix/store/5pmay8rdvgw5ml1xi6189xhdbygc850k-source",
+        "rev": "2f47650c2f28d87f86ab807b8a339c684d91ec56",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
     "nur": {
       "locked": {
         "lastModified": 1613016954,
@@ -310,11 +353,11 @@
     },
     "nur_2": {
       "locked": {
-        "lastModified": 1613059180,
-        "narHash": "sha256-5JwWhzBg4iNqmvXAQjiatnkfEby20Q3qyB7ZV13l9N8=",
+        "lastModified": 1613086435,
+        "narHash": "sha256-cT8b7HclEgJWD4epXEYht0X5lwtxQcjVPjC3b2xc8Rs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "eb717b5d1955cfe665361d2bcf2134cf98d3a608",
+        "rev": "60c654d253b3e7fc3b2405f3bec8fd45b1de7862",
         "type": "github"
       },
       "original": {
@@ -377,12 +420,33 @@
       "inputs": {
         "alacritty-ligature": "alacritty-ligature",
         "darwin": "darwin",
+        "emacs-overlay": "emacs-overlay",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur_2",
-        "nyxt": "nyxt"
+        "nyxt": "nyxt",
+        "rust-overlay": "rust-overlay"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1613010291,
+        "narHash": "sha256-XP49O7uiP3x+zmPNET5Xr6MiPOHK3NqCXvtDiJWdEO4=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "cd78d1d14049c19119710012ed8c2358091c3950",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "scrollbar-nvim": {

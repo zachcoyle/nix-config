@@ -2,25 +2,28 @@
   description = "";
 
   inputs = rec {
-    nixpkgs.url = "github:nixos/nixpkgs/master";
-    nur.url = "github:nix-community/NUR";
+    nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
+    nur.url = github:nix-community/NUR;
 
     darwin = {
-      url = "github:lnl7/nix-darwin/master";
+      url = github:lnl7/nix-darwin/master;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = github:nix-community/home-manager/master;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.url = github:numtide/flake-utils;
 
-    alacritty-ligature = { url = "github:zenixls2/alacritty/ligature"; flake = false; };
-    nyxt.url = "github:atlas-engineer/nyxt";
+    rust-overlay.url = github:oxalica/rust-overlay;
+    emacs-overlay.url = github:nix-community/emacs-overlay;
 
-    neovim.url = "github:vi-tality/neovitality";
+    alacritty-ligature = { url = github:zenixls2/alacritty/ligature; flake = false; };
+    nyxt.url = github:atlas-engineer/nyxt;
+
+    neovim.url = github:vi-tality/neovitality;
   };
 
   outputs =
@@ -30,6 +33,8 @@
     , flake-utils
     , nur
     , home-manager
+    , rust-overlay
+    , emacs-overlay
     , ...
     }@inputs:
     let
@@ -51,6 +56,8 @@
       };
 
       overlays = system: [
+        rust-overlay.overlay
+        emacs-overlay.overlay
         nur.overlay
         (packagesOverlay system)
       ];
