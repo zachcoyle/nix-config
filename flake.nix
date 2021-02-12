@@ -39,10 +39,10 @@
     }@inputs:
     let
       packagesOverlay = system: final: prev: {
-        bleedingEdge = nixpkgs.legacyPackages."${system}";
-        fzf = nixpkgs.legacyPackages."${system}".fzf;
-        nyxt = inputs.nyxt.defaultPackage."${system}";
-        neovim = inputs.neovim.defaultPackage."${system}";
+        bleedingEdge = nixpkgs.legacyPackages.${system};
+        fzf = nixpkgs.legacyPackages.${system}.fzf;
+        nyxt = inputs.nyxt.defaultPackage.${system};
+        neovim = inputs.neovim.defaultPackage.${system};
         #alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
         #  src = inputs.alacritty-ligature;
         #  name = "alacritty";
