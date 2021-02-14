@@ -40,11 +40,11 @@
     },
     "emacs-overlay": {
       "locked": {
-        "lastModified": 1613133104,
-        "narHash": "sha256-sPCvB5Fr8Cwpk+tYAGIcc0Vnpmy2mKVmNjgSD8BG++k=",
+        "lastModified": 1613291299,
+        "narHash": "sha256-Oe3HENVqLgqgsiay7BOSYwZSAO8xnUhm9aTwGGfSs2I=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "ee268d7ce7a1f659be7136f82014feaa4b832dfc",
+        "rev": "ce1f79544017521991c40e1b7506e0d6df8ea16b",
         "type": "github"
       },
       "original": {
@@ -150,11 +150,11 @@
     "gruvbox": {
       "flake": false,
       "locked": {
-        "lastModified": 1610902889,
-        "narHash": "sha256-eYQx7lZZbNE3mMRgiyl8nZSN8i9vHB9mWg7gDlnZm1M=",
+        "lastModified": 1613245958,
+        "narHash": "sha256-nWSgx8o0W77DiCbUyKlM1P2Y87aqn2aa96cQF+mNhxA=",
         "owner": "gruvbox-community",
         "repo": "gruvbox",
-        "rev": "c73e63203f76ab8e39b2b05369c0a8877a981435",
+        "rev": "8b29832551088fd7ecc1241c2576c8cf89f0842c",
         "type": "github"
       },
       "original": {
@@ -256,11 +256,11 @@
         "vim-vsnip": "vim-vsnip"
       },
       "locked": {
-        "lastModified": 1613205384,
-        "narHash": "sha256-gfGGo2R9k+sjrb07OmIN1Ane3jKwKe6F6NDYV6n1ypk=",
+        "lastModified": 1613291667,
+        "narHash": "sha256-GbcEHUj9yGlfSfCzSNzTkAmveSAezhaklrvEzuDStdQ=",
         "owner": "vi-tality",
         "repo": "neovitality",
-        "rev": "87d6690228aca9869fdfce2b32e09a1c96776c3b",
+        "rev": "75fd3510709993cc9fe8b27ee53c70f5be0a6b86",
         "type": "github"
       },
       "original": {
@@ -280,11 +280,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1613101058,
-        "narHash": "sha256-ig/8Ftl0evuENPYTaFg7BSWJaWwoojXMnsmyrWL31z0=",
+        "lastModified": 1613235636,
+        "narHash": "sha256-yFJn77lfkydmjNjTtvk+2M6hhECCAGnWXyHG33QP3Es=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "52397aaa0d1e2d4ce1320c73761cf316fc608ffb",
+        "rev": "5ad32885d461e8ace052397b251f25fae24189a3",
         "type": "github"
       },
       "original": {
@@ -385,11 +385,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1613189604,
-        "narHash": "sha256-XMt0B3ALPpDZTjo9QgQVf2r1FzOfIKyisc3Sq/yVtZU=",
+        "lastModified": 1613267647,
+        "narHash": "sha256-36el0HcqtDD6y4ptjVogDWM2HtOv8tZccHr4qmRkWfY=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3e7a1ad1cdba1bcb704e63e9a58671585d593b97",
+        "rev": "7e0e20efdaaa5868c07e9d1cb84fd086a2d1c6bd",
         "type": "github"
       },
       "original": {
@@ -400,11 +400,11 @@
     },
     "nur_2": {
       "locked": {
-        "lastModified": 1613189604,
-        "narHash": "sha256-XMt0B3ALPpDZTjo9QgQVf2r1FzOfIKyisc3Sq/yVtZU=",
+        "lastModified": 1613267647,
+        "narHash": "sha256-36el0HcqtDD6y4ptjVogDWM2HtOv8tZccHr4qmRkWfY=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3e7a1ad1cdba1bcb704e63e9a58671585d593b97",
+        "rev": "7e0e20efdaaa5868c07e9d1cb84fd086a2d1c6bd",
         "type": "github"
       },
       "original": {
@@ -416,11 +416,11 @@
     "nvim-compe": {
       "flake": false,
       "locked": {
-        "lastModified": 1613151233,
-        "narHash": "sha256-xEY3LcFmZ12/JWWD98fReJJVEDv26KKm+bEKcIx1ICc=",
+        "lastModified": 1613232789,
+        "narHash": "sha256-c4vlXDBXE5IjGnhfk+Iy9WuxdbR/ksNCU1O5ofvrsno=",
         "owner": "hrsh7th",
         "repo": "nvim-compe",
-        "rev": "75f629a3ec2b1c097e882c0ca62dc80dedd0f289",
+        "rev": "3a7fd02ab5c82d6fac68112a70f7375fd776c03a",
         "type": "github"
       },
       "original": {
@@ -503,11 +503,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1613183087,
-        "narHash": "sha256-0M3bvL1P8/Iet8cjmA/kVdT2j4xxlO1nXP1SWIH8wyI=",
+        "lastModified": 1613269568,
+        "narHash": "sha256-HoafDOLbIUVhSQy+VNzMSsjomhd7x7C17cfDbSZ3/tc=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "86adca0acced4861f6908df3712fa86724081152",
+        "rev": "c1e3713cbf9bde0971fad90605465aacc36a9a05",
         "type": "github"
       },
       "original": {
