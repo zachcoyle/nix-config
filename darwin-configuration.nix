@@ -170,9 +170,9 @@ in
   programs.man.enable = true;
 
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nixUnstable;
+  users.nix.configureBuildUsers = true;
+  nix.package = pkgs.nixFlakes;
   nixpkgs.config.allowUnfree = true;
-  programs.nix-index.enable = false;
 
   services.lorri = {
     logFile = "/var/tmp/lorri.log";
@@ -230,7 +230,7 @@ in
     ${pkgs.nur.repos.zachcoyle.mas}/bin/mas install ${lib.concatStringsSep " " appStoreApps}
   '';
 
-  #users.users.zcoyle.shell = pkgs.zsh;
+  # users.users.zcoyle.shell = pkgs.zsh;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

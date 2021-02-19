@@ -35,7 +35,6 @@ let
     just
     lf
     loc
-    lsd
     lynx
     mariadb
     mdcat
@@ -45,7 +44,6 @@ let
     neovim
     niv
     nix-bundle
-    #nixops
     nodejs-15_x
     nodePackages.eslint
     nodePackages.node2nix
@@ -76,6 +74,11 @@ let
     yarn
     youtube-dl
     zsh-completions #TODO
+    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+      enableDwarfTherapist = false;
+      enableIntro = false;
+      enableFPS = false;
+    })
   ];
 
   darwinPackages = [
@@ -100,7 +103,6 @@ let
     android-studio
     blender
     bviplus
-    dwarf-fortress-packages.dwarf-fortress-full
     exfat
     inkscape
     kdenlive

@@ -25,9 +25,11 @@
     newSession = true;
     tmuxp.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      gruvbox
+      # gruvbox
+      power-theme
       prefix-highlight
       sensible
+      tmux-fzf
       vim-tmux-navigator
     ];
     extraConfig = builtins.readFile ./config/tmux.conf;
@@ -69,7 +71,6 @@
 
     shellAliases = {
       cat = "bat --theme TwoDark --paging never";
-      ls = "lsd -F";
       rm = "safe-rm -iv";
       vim = "nvim";
       yeet =
