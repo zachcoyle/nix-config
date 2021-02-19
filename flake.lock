@@ -210,11 +210,11 @@
         "vim-vsnip": "vim-vsnip"
       },
       "locked": {
-        "lastModified": 1613745684,
-        "narHash": "sha256-RfLqeLT7Jov+UBnb9HBzV3epgEXE+z7cZaGE5wcYiLE=",
+        "lastModified": 1613746376,
+        "narHash": "sha256-I19qth6QKu4Rdg+X7b1yRKo9ikq11OfEb7OGtHeXDDo=",
         "owner": "vi-tality",
         "repo": "neovitality",
-        "rev": "deae20668cf8f04cc7308d39dae7958b8a6be979",
+        "rev": "104e4e25f47bf819bb6505c7cbb58a1c6adea90f",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1613736261,
-        "narHash": "sha256-upzQ5+ZPab2rhIERL4qg20ZAlAHb5srjDaJ16P3hxuI=",
+        "lastModified": 1613746149,
+        "narHash": "sha256-Hz22PX9/p1/q/Ds4CE6tbZN9Juwk4h5Ge+9Uywx6u+8=",
         "owner": "atlas-engineer",
         "repo": "nyxt",
-        "rev": "76b47ae4cc14d0b0e795f993a6c3f587e71c55d7",
+        "rev": "82525ba9db1b2461bebabbd207aacf0e38cecaa8",
         "type": "github"
       },
       "original": {
