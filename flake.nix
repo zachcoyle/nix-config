@@ -63,7 +63,9 @@
       darwinConfigurations."Zachs-Macbook-Pro" = darwin.lib.darwinSystem {
         modules = [
           ./darwin-configuration.nix
-          { nixpkgs.overlays = (overlays "x86_64-darwin"); }
+          {
+            nixpkgs.overlays = (overlays "x86_64-darwin");
+          }
         ];
       };
 
@@ -72,6 +74,9 @@
           configuration = { pkgs, ... }: {
             nixpkgs.overlays = (overlays "x86_64-darwin");
             nixpkgs.config.allowUnfree = true;
+            nixpkgs.config.permittedInsecurePackages = [
+              "go-1.14.15"
+            ];
             imports = [ ./home.nix ];
           };
           system = "x86_64-darwin";
@@ -82,6 +87,9 @@
         linuxHomeConfig = home-manager.lib.homeManagerConfiguration {
           configuration = { pkgs, ... }: {
             nixpkgs.overlays = (overlays "x86_64-linux");
+            nixpkgs.config.permittedInsecurePackages = [
+              "go-1.14.15"
+            ];
             imports = [ ./home.nix ];
           };
           system = "x86_64-linux";
