@@ -108,6 +108,10 @@
 
     xkbOptions = "caps:escape";
 
+    config = ''
+      X11Forwarding yes
+    '';
+
     # Enable touchpad support.
     #libinput.enable = true;
     windowManager = {
