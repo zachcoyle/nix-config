@@ -10,7 +10,7 @@
   fonts.fonts = import ../../fonts.nix { inherit pkgs; };
 
   nix = {
-    package = pkgs.nix;
+    package = pkgs.nixpkgs-20-09-for-nix.nix;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

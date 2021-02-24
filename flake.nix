@@ -2,8 +2,9 @@
   description = "";
 
   inputs = rec {
-    nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
-    nix.url = github:nixos/nix;
+    nixpkgs.url = github:nixos/nixpkgs/master;
+    nixpkgs-20-09-for-nix.url = github:nixos/nixpkgs/nixos-20.09;
+    nix.url = github:nixos/nix/master;
     flake-utils.url = github:numtide/flake-utils;
     naersk.url = github:nmattia/naersk;
     neovide = { url = github:/Kethku/neovide; flake = false; };
@@ -43,6 +44,8 @@
           naersk-lib = inputs.naersk.lib."${system}";
         in
         {
+          nixpkgs-20-09-for-nix =
+            (import inputs.nixpkgs-20-09-for-nix { inherit system; overlays = [ inputs.nix.overlay ]; });
           nyxt = inputs.nyxt.defaultPackage.${system};
           neovim = inputs.neovim.defaultPackage.${system};
           #nixMaster = inputs.nix.defaultPackage.${system};
@@ -62,10 +65,8 @@
           # });
 
         };
-
       overlays = system: [
         nur.overlay
-        inputs.nix.overlay
         (packagesOverlay system)
       ];
     in
@@ -114,7 +115,12 @@
 
       nixosConfigurations.nixbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./nixos/nixbox/configuration.nix ];
+        modules = [
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = (overlays "x86_64-linux");
+          })
+          ./nixos/nixbox/configuration.nix
+        ];
       };
 
       darwinHomeConfig = self.homeConfigurations.darwinHomeConfig.activationPackage;
