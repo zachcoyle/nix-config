@@ -3,7 +3,10 @@
 
   inputs = rec {
     nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
+    nix.url = github:nixos/nix;
     flake-utils.url = github:numtide/flake-utils;
+    naersk.url = github:nmattia/naersk;
+    neovide = { url = github:/Kethku/neovide; flake = false; };
     neovim.url = github:vi-tality/neovitality;
     nur.url = github:nix-community/NUR;
     nyxt.url = github:atlas-engineer/nyxt;
@@ -37,10 +40,16 @@
             inherit system;
             nixpkgs.config.allowUnfree = true;
           };
+          naersk-lib = inputs.naersk.lib."${system}";
         in
         {
           nyxt = inputs.nyxt.defaultPackage.${system};
           neovim = inputs.neovim.defaultPackage.${system};
+          #nixMaster = inputs.nix.defaultPackage.${system};
+          neovide = naersk-lib.buildPackage {
+            pname = "neovide";
+            root = inputs.neovide;
+          };
 
           # alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
           #   src = inputs.alacritty-ligature;
@@ -56,6 +65,7 @@
 
       overlays = system: [
         nur.overlay
+        inputs.nix.overlay
         (packagesOverlay system)
       ];
     in

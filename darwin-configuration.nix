@@ -171,13 +171,13 @@ in
 
   services.nix-daemon.enable = true;
   users.nix.configureBuildUsers = true;
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nix;
   nixpkgs.config.allowUnfree = true;
 
-  services.lorri = {
-    logFile = "/var/tmp/lorri.log";
-    enable = true;
-  };
+  #services.lorri = {
+  #  logFile = "/var/tmp/lorri.log";
+  #  enable = true;
+  #};
 
   services.redis.enable = true;
 
