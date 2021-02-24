@@ -88,6 +88,8 @@
           configuration = { pkgs, ... }: {
             nixpkgs.overlays = (overlays "x86_64-linux");
             nixpkgs.config.allowUnfree = true;
+            nixpkgs.config.hardware.opengl.driSupport32Bit = true;
+            nixpkgs.config.hardware.pulseAudio.support32Bit = true;
             nixpkgs.config.permittedInsecurePackages = [
               "go-1.14.15"
             ];
