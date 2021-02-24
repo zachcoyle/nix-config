@@ -171,7 +171,7 @@ in
 
   services.nix-daemon.enable = true;
   users.nix.configureBuildUsers = true;
-  nix.package = pkgs.nix;
+  nix.package = pkgs.nixFlakes;
   nixpkgs.config.allowUnfree = true;
 
   #services.lorri = {
