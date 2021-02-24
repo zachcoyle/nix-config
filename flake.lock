@@ -210,11 +210,11 @@
         "vim-vsnip": "vim-vsnip"
       },
       "locked": {
-        "lastModified": 1614069374,
-        "narHash": "sha256-5Uz9T75nr3ttOEuQrvAMxc0iHeU0e14SyatFA6CVP2s=",
+        "lastModified": 1614134824,
+        "narHash": "sha256-WTO4z6MDhwLWkP6jyrlNbXRELULrmXFg55UOIEnvvqU=",
         "owner": "vi-tality",
         "repo": "neovitality",
-        "rev": "c9453f282ef9cf99d6be900f4f00704a2fd7d9ff",
+        "rev": "50eac6a762bb80f2c079484fdb9f9687b5ae59c7",
         "type": "github"
       },
       "original": {
