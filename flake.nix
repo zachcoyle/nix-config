@@ -87,6 +87,7 @@
         linuxHomeConfig = home-manager.lib.homeManagerConfiguration {
           configuration = { pkgs, ... }: {
             nixpkgs.overlays = (overlays "x86_64-linux");
+            nixpkgs.config.allowUnfree = true;
             nixpkgs.config.permittedInsecurePackages = [
               "go-1.14.15"
             ];
@@ -106,6 +107,5 @@
 
       darwinHomeConfig = self.homeConfigurations.darwinHomeConfig.activationPackage;
       linuxHomeConfig = self.homeConfigurations.linuxHomeConfig.activationPackage;
-
     };
 }

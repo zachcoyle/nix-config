@@ -44,9 +44,6 @@
       git_status = {
         modified = "  ";
       };
-      character = {
-        vicmd_symbol = "[Normal ❮](bold green)";
-      };
       python = {
         symbol = " ";
       };
