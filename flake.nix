@@ -123,6 +123,16 @@
         ];
       };
 
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = (overlays "x86_64-linux");
+          })
+          ./nixos/nixos/configuration.nix
+        ];
+      };
+
       darwinHomeConfig = self.homeConfigurations.darwinHomeConfig.activationPackage;
       linuxHomeConfig = self.homeConfigurations.linuxHomeConfig.activationPackage;
     };

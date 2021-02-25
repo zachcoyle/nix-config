@@ -74,11 +74,11 @@ let
     yarn
     youtube-dl
     zsh-completions #TODO
-    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
-      enableDwarfTherapist = false;
-      enableIntro = false;
-      enableFPS = false;
-    })
+    #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+    #  enableDwarfTherapist = false;
+    #  enableIntro = false;
+    #  enableFPS = false;
+    #})
   ];
 
   darwinPackages = [
@@ -99,17 +99,17 @@ let
   ];
 
   linuxPackages = [
-    alacritty
-    android-studio
-    blender
+    #alacritty
+    #android-studio
+    #blender
     bviplus
     exfat
-    inkscape
-    kdenlive
-    steam
-    sublime
+    #inkscape
+    #kdenlive
+    #steam
+    #sublime
     #swift
-    vocal
+    #vocal
   ];
 
   gpeek = writeScriptBin "gpeek" ''
