@@ -72,6 +72,7 @@
       vim = "nvim";
       yeet =
         "home-manager expire-generations `date --iso-8601`; nix-env -p /nix/var/nix/profiles/system --delete-generations old; nix-collect-garbage -d; nix-store --optimise";
+      yeet-docker = "docker system prune --all --force --volumes";
       packageScripts = "jq .scripts package.json";
 
       imanix = "manix \"\" | grep '^# ' | sed 's/^# \(.*\) (.*/\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
