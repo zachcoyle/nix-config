@@ -7,7 +7,6 @@
     nix.url = github:nixos/nix/master;
     flake-utils.url = github:numtide/flake-utils;
     naersk.url = github:nmattia/naersk;
-    neovide = { url = github:/Kethku/neovide; flake = false; };
     neovim.url = github:vi-tality/neovitality;
     nur.url = github:nix-community/NUR;
     nyxt.url = github:atlas-engineer/nyxt;
@@ -48,11 +47,6 @@
             (import inputs.nixpkgs-20-09-for-nix { inherit system; overlays = [ inputs.nix.overlay ]; });
           nyxt = inputs.nyxt.defaultPackage.${system};
           neovim = inputs.neovim.defaultPackage.${system};
-          #nixMaster = inputs.nix.defaultPackage.${system};
-          neovide = naersk-lib.buildPackage {
-            pname = "neovide";
-            root = inputs.neovide;
-          };
 
           # alacritty = nixpkgs.legacyPackages."${system}".alacritty.overrideAttrs (oldAttrs: rec {
           #   src = inputs.alacritty-ligature;
