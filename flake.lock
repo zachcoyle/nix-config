@@ -274,11 +274,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1614600738,
-        "narHash": "sha256-tQu2FB8SK/OogngHtHK5ua/Q210veC7418lnzP5wO74=",
+        "lastModified": 1614699499,
+        "narHash": "sha256-o03NKhzPvM2l8m2p2az+ou+lqqk1tWHGQMWbzWq+ug4=",
         "owner": "nixos",
         "repo": "nix",
-        "rev": "e64cf8e0a330590ef200359b91f98332e46791c7",
+        "rev": "1b2f5786d1bab73d40dc2c24f29cbdce057c6fe2",
         "type": "github"
       },
       "original": {
@@ -290,11 +290,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1614674569,
-        "narHash": "sha256-thhTmM4SA70KKgk6OtSFRi5DWStqgEsDL7cp2tqKJ6s=",
-        "owner": "NixOS",
+        "lastModified": 1614704906,
+        "narHash": "sha256-WOX2GhsuguN6SidC2vYstlSvAChNhgbMKMiI1ukYGNw=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "80308388cd77ee58823c9b6f24b46892cd359145",
+        "rev": "6040ffb45f78c66ecedcbcb82fed58bacec71198",
         "type": "github"
       },
       "original": {
@@ -379,11 +379,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1614674569,
-        "narHash": "sha256-thhTmM4SA70KKgk6OtSFRi5DWStqgEsDL7cp2tqKJ6s=",
+        "lastModified": 1614704906,
+        "narHash": "sha256-WOX2GhsuguN6SidC2vYstlSvAChNhgbMKMiI1ukYGNw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "80308388cd77ee58823c9b6f24b46892cd359145",
+        "rev": "6040ffb45f78c66ecedcbcb82fed58bacec71198",
         "type": "github"
       },
       "original": {
@@ -426,11 +426,11 @@
     },
     "nur_2": {
       "locked": {
-        "lastModified": 1614671051,
-        "narHash": "sha256-o1ebR59AQ3L18e+9kh2580ZgZtNbHsI97AEG523COyw=",
+        "lastModified": 1614703306,
+        "narHash": "sha256-tO35zMf1NV6egvvpsWKfFs8/f+Zj+tMJSnXVm85IQ2w=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "7b7b234e257b273410267d6b8bc36cfd48f6edad",
+        "rev": "72c908195da2298a7bd4fc6a68ee99b3ca22d761",
         "type": "github"
       },
       "original": {
@@ -509,11 +509,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1614625786,
-        "narHash": "sha256-vW4o36wd8tpmMsGeozeFEU8kWmGPj6pZK7UiPY7nfek=",
+        "lastModified": 1614703031,
+        "narHash": "sha256-BoDHJjNRk5pGT2776ohNq4KOt0Ma5tY3JuRPEK08jgo=",
         "owner": "atlas-engineer",
         "repo": "nyxt",
-        "rev": "882a4f2715367003fd4e2df5a3ba4c911fc592ef",
+        "rev": "58b898a33ab7f02aae01794e04ff66ea50a3de05",
         "type": "github"
       },
       "original": {
