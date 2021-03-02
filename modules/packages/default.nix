@@ -74,11 +74,6 @@ let
     yarn
     youtube-dl
     zsh-completions #TODO
-    #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
-    #  enableDwarfTherapist = false;
-    #  enableIntro = false;
-    #  enableFPS = false;
-    #})
   ];
 
   darwinPackages = [
@@ -96,6 +91,11 @@ let
     openssl
     patch
     watch
+    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+      enableDwarfTherapist = false;
+      enableIntro = true;
+      enableFPS = true;
+    })
   ];
 
   linuxPackages = [
