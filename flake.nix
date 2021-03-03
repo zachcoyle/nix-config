@@ -7,7 +7,7 @@
     nix.url = github:nixos/nix/master;
     flake-utils.url = github:numtide/flake-utils;
     naersk.url = github:nmattia/naersk;
-    neovim.url = github:vi-tality/neovitality;
+    neovim.url = github:vi-tality/neovitality/lsp-capabilities;
     nur.url = github:nix-community/NUR;
     nyxt.url = github:atlas-engineer/nyxt;
     #alacritty-ligature = { url = github:zenixls2/alacritty/ligature; flake = false; };

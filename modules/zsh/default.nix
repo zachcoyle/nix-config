@@ -25,8 +25,8 @@
     newSession = true;
     tmuxp.enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      # gruvbox
-      power-theme
+      #power-theme
+      gruvbox
       prefix-highlight
       sensible
       tmux-fzf
