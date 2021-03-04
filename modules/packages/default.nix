@@ -4,7 +4,6 @@
 }:
 with pkgs;
 let
-  customPackages_overlay = import ../.././overlays/customPackages.nix;
 
   commonPackages = [
     apg
@@ -124,8 +123,6 @@ let
 
 in
 {
-  nixpkgs.overlays = [ customPackages_overlay ];
-
   home.packages = commonPackages
     ++ lib.optionals (system == "x86_64-linux") linuxPackages
     ++ lib.optionals (system == "x86_64-darwin") darwinPackages;
