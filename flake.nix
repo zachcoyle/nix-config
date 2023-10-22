@@ -13,12 +13,22 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ pkgs.vim
+        with pkgs; [
+          neovim
+          python3
+          poetry
+          alacritty
+          nodejs_20
+          nodePackages_latest.pnpm
+          podman
+          podman-tui
+          qemu
+          swift-format
         ];
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
-      # nix.package = pkgs.nix;
+      nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
