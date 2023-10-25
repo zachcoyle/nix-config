@@ -67,10 +67,12 @@
 
       # Expose the package set, including overlays, for convenience.
       darwinPackages = self.darwinConfigurations."Zacharys-MacBook-Pro".pkgs;
-
-      formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.alejandra;
     }
-    // flake-utils.lib.eachDefaultSystem (system: {
+    // flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      formatter = pkgs.alejandra;
+
       checks = {
         pre-commit-check = pre-commit-hooks.lib.${system}.run {
           src = ./.;
@@ -80,7 +82,8 @@
           };
         };
       };
-      devShell = nixpkgs.legacyPackages.${system}.mkShell {
+
+      devShell = pkgs.mkShell {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
       };
     });
