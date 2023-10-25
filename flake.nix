@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = github:nix-community/home-manager;
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
@@ -18,9 +18,9 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim.url = github:neovim/neovim?dir=contrib;
+    neovim.url = "github:neovim/neovim?dir=contrib";
     alacritty-theme = {
-      url = github:alacritty/alacritty-theme;
+      url = "github:alacritty/alacritty-theme";
       flake = false;
     };
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
@@ -38,8 +38,7 @@
     flake-utils,
     pre-commit-hooks,
     ...
-  }: let
-  in
+  }:
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#Zacharys-MacBook-Pro
@@ -77,6 +76,7 @@
           src = ./.;
           hooks = {
             alejandra.enable = true;
+            statix.enable = true;
           };
         };
       };
