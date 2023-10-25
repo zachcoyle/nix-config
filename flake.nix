@@ -19,49 +19,26 @@
     nixpkgs,
     home-manager,
   }: let
-    configuration = {pkgs, ...}: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; [
-        neovim
-        python3
-        poetry
-        alacritty
-        nodejs_20
-        nodePackages_latest.pnpm
-        podman
-        podman-tui
-        qemu
-        swift-format
-        alejandra
-      ];
-
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
-      nix.package = pkgs.nix;
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true; # default shell on catalina
-      # programs.fish.enable = true;
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 4;
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "x86_64-darwin";
-    };
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Zacharys-MacBook-Pro
     darwinConfigurations."Zacharys-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      modules = [configuration];
+      modules = [
+        ./configuration.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.zcoyle = import ./home.nix;
+
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
+        }
+        {
+          # Set Git commit hash for darwin-version.
+          system.configurationRevision = self.rev or self.dirtyRev or null;
+        }
+      ];
     };
 
     # Expose the package set, including overlays, for convenience.
