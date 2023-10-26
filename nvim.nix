@@ -3,6 +3,7 @@
   enable = true;
 
   options = {
+    number = true;
     relativenumber = true;
     foldlevel = 20;
   };
@@ -24,6 +25,10 @@
       key = "<c-l>";
       action = "<c-w>l";
     }
+    # {
+    #   key = "<c-n>";
+    #   action = ":noh<cr>";
+    # }
   ];
 
   colorschemes = {
@@ -34,7 +39,6 @@
   plugins = {
     barbar.enable = true;
     barbecue.enable = true;
-    chadtree.enable = true;
     cmp-nvim-lsp.enable = true;
     cmp-nvim-lsp-document-symbol.enable = true;
     cmp-nvim-lsp-signature-help.enable = true;
@@ -73,7 +77,10 @@
         yamlls.enable = true;
       };
     };
-    lsp-format.enable = true;
+    lsp-format.enable = false;
+    # TODO: write neoformat module
+    noice.enable = true;
+    notify.enable = true;
     nix.enable = true;
     nvim-cmp = {
       enable = true;
@@ -100,16 +107,40 @@
         };
       };
     };
+    nvim-lightbulb.enable = true;
     rainbow-delimiters.enable = true;
     surround.enable = true;
     telescope = {
       enable = true;
       keymaps = {
-        "<C-p>" = {
+        "<c-p>" = {
           action = "git_files";
           desc = "Telescope Git Files";
         };
+        "<c-_>" = {
+          action = "live_grep";
+          desc = "Telescope Live Grep";
+        };
       };
+      extensions = {
+        file_browser = {
+          enable = true;
+          hidden = true;
+          hijackNetrw = true;
+        };
+        frecency.enable = true;
+        fzf-native.enable = true;
+        media_files.enable = true;
+        # project-nvim.enable = true;
+        # undo.enable = true;
+      };
+    };
+    tmux-navigator.enable = true;
+    todo-comments.enable = true;
+    toggleterm = {
+      enable = true;
+      winbar.enabled = true;
+      openMapping = "<c-f>";
     };
     treesitter = {
       ## TODO: configure fully
@@ -125,6 +156,12 @@
     };
     trouble.enable = true;
     ts-autotag.enable = true;
+    undotree.enable = true;
+    vim-matchup = {
+      enable = true;
+      enableSurround = true;
+      treesitterIntegration.enable = true;
+    };
     which-key = {
       enable = true;
     };

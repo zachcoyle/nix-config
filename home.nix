@@ -24,6 +24,7 @@
     swift-format
     alejandra
     jq
+    ripgrep
   ];
 
   programs.alacritty = {
