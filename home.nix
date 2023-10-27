@@ -55,7 +55,7 @@
     keyScheme = "vim";
   };
 
-  programs.nixvim = import ./nvim.nix;
+  programs.nixvim = import ./nvim.nix {inherit (pkgs) vimPlugins;};
 
   programs.zsh = {
     enable = true;

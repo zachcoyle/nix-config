@@ -1,6 +1,19 @@
-{
-  # editorConfig.enable = true;
+{vimPlugins}: {
   enable = true;
+
+  # editorConfig.enable = true;
+
+  extraPlugins = with vimPlugins; [
+    # TODO: write formatter module
+    # neoformat
+    formatter-nvim
+    nvim-autopairs # TODO: integrates w/ treesitter & Look @ writing module for this
+    # ultimate-autopair-nvim # TODO: Not in nixpkgs yet
+  ];
+
+  extraConfigLua = ''
+    require("nvim-autopairs").setup {}
+  '';
 
   options = {
     mouse = "a";
@@ -109,7 +122,6 @@
     };
     lsp-format.enable = false;
     luasnip.enable = true;
-    # TODO: write neoformat module
     noice.enable = true;
     notify.enable = true;
     nix.enable = true;
@@ -152,6 +164,7 @@
     telescope = {
       enable = true;
       keymaps = {
+        # TODO:
         "<c-p>" = {
           action = "git_files";
           desc = "Telescope Git Files";
@@ -174,7 +187,7 @@
         frecency.enable = true;
         fzf-native.enable = true;
         media_files.enable = true;
-        # project-nvim.enable = true;
+        # project-nvim.enable = true; # TODO: this is busted
         undo.enable = true;
       };
     };
@@ -200,6 +213,7 @@
     };
     trouble.enable = true;
     ts-autotag.enable = true;
+    ts-context-commentstring.enable = true;
     vim-matchup = {
       enable = true;
       enableSurround = true;
