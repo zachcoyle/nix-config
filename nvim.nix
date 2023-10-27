@@ -3,9 +3,15 @@
   enable = true;
 
   options = {
+    mouse = "a";
     number = true;
     relativenumber = true;
     foldlevel = 20;
+  };
+
+  globals = {
+    # mapleader = "<Space>"; # TODO: invesitage why this isn't working
+    mapleader = ",";
   };
 
   keymaps = [
@@ -25,10 +31,13 @@
       key = "<c-l>";
       action = "<c-w>l";
     }
-    # {
-    #   key = "<c-n>";
-    #   action = ":noh<cr>";
-    # }
+    {
+      key = "<leader>n";
+      action = ":noh<cr>";
+      options = {
+        silent = true;
+      };
+    }
   ];
 
   colorschemes = {
@@ -36,6 +45,7 @@
       enable = true;
     };
   };
+
   plugins = {
     barbar.enable = true;
     barbecue.enable = true;
@@ -48,6 +58,7 @@
     comment-nvim.enable = true;
     cursorline.enable = true;
     dap.enable = true; ## TODO: configure fully
+    fugitive.enable = true;
     gitblame = {
       enable = true;
       delay = 600;
@@ -57,27 +68,49 @@
       enable = true;
       theme = "gruvbox";
     };
+    harpoon = {
+      enable = true;
+      enableTelescope = true;
+      ## TODO: configure fully
+    };
+    hmts.enable = true;
     lsp = {
       enable = true;
+      keymaps = {
+        diagnostic = {
+          "<leader>j" = "goto_next";
+          "<leader>k" = "goto_prev";
+        };
+        lspBuf = {
+          K = "hover";
+          gD = "references";
+          gd = "definition";
+          gi = "implementation";
+          gt = "type_definition";
+        };
+      };
       servers = {
         bashls.enable = true;
         cssls.enable = true;
-        denols.enable = true;
+        # denols.enable = true;
         eslint.enable = true;
         gopls.enable = true;
         html.enable = true;
         jsonls.enable = true;
+        kotlin-language-server.enable = true;
         lua-ls.enable = true;
         nixd.enable = true;
         pyright.enable = true;
         rust-analyzer.enable = true;
         sourcekit.enable = true;
         tsserver.enable = true;
+        # volar.enable = true;
         vuels.enable = true;
         yamlls.enable = true;
       };
     };
     lsp-format.enable = false;
+    luasnip.enable = true;
     # TODO: write neoformat module
     noice.enable = true;
     notify.enable = true;
@@ -106,6 +139,14 @@
           modes = ["i" "s"];
         };
       };
+      sources = [
+        # TODO: this should be handled automatically by the module system...
+        {name = "nvim_lsp";}
+        {name = "tabnine";}
+        {name = "luasnip";}
+        {name = "path";}
+        {name = "buffer";}
+      ];
     };
     nvim-lightbulb.enable = true;
     rainbow-delimiters.enable = true;
@@ -132,7 +173,7 @@
         fzf-native.enable = true;
         media_files.enable = true;
         # project-nvim.enable = true;
-        # undo.enable = true;
+        undo.enable = true;
       };
     };
     tmux-navigator.enable = true;
@@ -156,7 +197,6 @@
     };
     trouble.enable = true;
     ts-autotag.enable = true;
-    undotree.enable = true;
     vim-matchup = {
       enable = true;
       enableSurround = true;
