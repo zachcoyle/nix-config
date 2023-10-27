@@ -10,8 +10,7 @@
   };
 
   globals = {
-    # mapleader = "<Space>"; # TODO: invesitage why this isn't working
-    mapleader = ",";
+    mapleader = " ";
   };
 
   keymaps = [
@@ -83,7 +82,6 @@
         };
         lspBuf = {
           K = "hover";
-          gD = "references";
           gd = "definition";
           gi = "implementation";
           gt = "type_definition";
@@ -162,6 +160,10 @@
           action = "live_grep";
           desc = "Telescope Live Grep";
         };
+        "gr" = {
+          action = "lsp_references";
+          desc = "Telescope LSP References";
+        };
       };
       extensions = {
         file_browser = {
@@ -180,6 +182,7 @@
     todo-comments.enable = true;
     toggleterm = {
       enable = true;
+      direction = "float";
       winbar.enabled = true;
       openMapping = "<c-f>";
     };
