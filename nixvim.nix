@@ -122,6 +122,13 @@
     };
     lsp-format.enable = false;
     luasnip.enable = true;
+    neogit = {
+      enable = true;
+      autoRefresh = true;
+      # integrations.diffView = true;
+      mappings = {
+      };
+    };
     noice.enable = true;
     notify.enable = true;
     nix.enable = true;
@@ -176,6 +183,14 @@
         "gr" = {
           action = "lsp_references";
           desc = "Telescope LSP References";
+        };
+        "<leader>tb" = {
+          action = "buffers";
+          desc = "Telescope Buffers";
+        };
+        "<leader>ts" = {
+          action = "treesitter";
+          desc = "Telescope treesitter";
         };
       };
       extensions = {

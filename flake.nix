@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-23-05-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +38,7 @@
     neovim,
     flake-utils,
     pre-commit-hooks,
+    nixpkgs-23-05-darwin,
     ...
   }:
     {
@@ -44,14 +46,16 @@
       # $ darwin-rebuild build --flake .#Zacharys-MacBook-Pro
       darwinConfigurations."Zacharys-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         modules = [
-          ./configuration.nix
+          ./darwin.nix
           home-manager.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.zcoyle = import ./home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit alacritty-theme nixvim;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.zcoyle = import ./home.nix;
+              extraSpecialArgs = {
+                inherit alacritty-theme nixvim;
+              };
             };
           }
           {
@@ -60,6 +64,10 @@
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
               neovim.overlay
+              (final: prev: {
+                # Currently broken on unstable
+                inherit (nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
+              })
             ];
           }
         ];
