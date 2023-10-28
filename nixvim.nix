@@ -16,6 +16,7 @@ in {
     # TODO: write nixvim formatter module
     conform-nvim
     nvim-autopairs
+    telescope-ui-select-nvim
   ];
 
   extraConfigLua = ''
@@ -30,6 +31,15 @@ in {
         ${(lib.concatStringsSep "," (lib.mapAttrsToList fmt_table formatters))}
       }
     })
+
+    require("telescope").setup {
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown { }
+        }
+      }
+    }
+    require("telescope").load_extension("ui-select")
   '';
 
   options = {
@@ -37,6 +47,7 @@ in {
     number = true;
     relativenumber = true;
     foldlevel = 20;
+    guifont = "FiraCode Nerd Font:h12";
   };
 
   globals = {
@@ -66,6 +77,10 @@ in {
       options = {
         silent = true;
       };
+    }
+    {
+      key = "<leader>a";
+      action = ":lua vim.lsp.buf.code_action()<cr>";
     }
   ];
 
@@ -105,6 +120,24 @@ in {
     hmts.enable = true;
     lsp = {
       enable = true;
+      preConfig = ''
+        vim.fn.sign_define(
+          "DiagnosticSignError",
+          { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" }
+        )
+        vim.fn.sign_define(
+          "DiagnosticSignWarn",
+          { texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn" }
+        )
+        vim.fn.sign_define(
+          "DiagnosticSignHint",
+          { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" }
+        )
+        vim.fn.sign_define(
+          "DiagnosticSignInfo",
+          { texthl = "DiagnosticSignInfo", text = "", numhl = "DiagnosticSignInfo" }
+        )
+      '';
       keymaps = {
         diagnostic = {
           "<leader>j" = "goto_next";
@@ -120,7 +153,6 @@ in {
       servers = {
         bashls.enable = true;
         cssls.enable = true;
-        # denols.enable = true;
         eslint.enable = true;
         gopls.enable = true;
         html.enable = true;
@@ -137,7 +169,6 @@ in {
         yamlls.enable = true;
       };
     };
-    lsp-format.enable = false;
     luasnip.enable = true;
     neogit = {
       enable = true;
@@ -182,7 +213,12 @@ in {
         {name = "buffer";}
       ];
     };
-    nvim-lightbulb.enable = true;
+    nvim-lightbulb = {
+      enable = true;
+      autocmd.enabled = true;
+      virtualText.enabled = true;
+      sign.enabled = false;
+    };
     rainbow-delimiters.enable = true;
     surround.enable = true;
     telescope = {
