@@ -29,7 +29,6 @@ in {
         poetry
         python3
         qemu
-        ripgrep
         swift-format
       ]
       ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
@@ -78,6 +77,8 @@ in {
       delta.enable = true;
     };
 
+    lazygit.enable = true;
+
     lsd = {
       enable = true;
       enableAliases = true;
@@ -91,6 +92,8 @@ in {
     };
 
     nixvim = import ./nixvim.nix {inherit pkgs lib;};
+
+    ripgrep.enable = true;
 
     starship = {
       enable = true;
