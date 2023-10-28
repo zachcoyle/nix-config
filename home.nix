@@ -59,6 +59,11 @@
 
     bottom.enable = true;
 
+    dircolors = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     direnv = {
       enable = true;
       enableZshIntegration = true;
@@ -108,13 +113,16 @@
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
+      enableVteIntegration = true;
       syntaxHighlighting.enable = true;
       defaultKeymap = "viins";
       autocd = true;
 
       oh-my-zsh = {
         enable = true;
-        plugins = [];
+        plugins = [
+          "vi-mode"
+        ];
       };
 
       shellAliases = {
