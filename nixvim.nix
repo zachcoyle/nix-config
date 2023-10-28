@@ -127,7 +127,7 @@ in {
         jsonls.enable = true;
         kotlin-language-server.enable = true;
         lua-ls.enable = true;
-        nixd.enable = true;
+        nil_ls.enable = true;
         pyright.enable = true;
         rust-analyzer.enable = true;
         sourcekit.enable = true;
