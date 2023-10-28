@@ -1,18 +1,35 @@
-{vimPlugins}: {
+{
+  pkgs,
+  lib,
+}: let
+  inherit (pkgs) vimPlugins;
+  formatters = import ./formatters.nix {inherit pkgs;};
+  fmt_table = name: value: ''
+    ${name} = {${lib.concatStringsSep "," (map (x: "\"" + x.name + "\"") value)}}
+  '';
+in {
   enable = true;
 
   # editorConfig.enable = true;
 
   extraPlugins = with vimPlugins; [
-    # TODO: write formatter module
-    # neoformat
-    formatter-nvim
-    nvim-autopairs # TODO: integrates w/ treesitter & Look @ writing module for this
-    # ultimate-autopair-nvim # TODO: Not in nixpkgs yet
+    # TODO: write nixvim formatter module
+    conform-nvim
+    nvim-autopairs
   ];
 
   extraConfigLua = ''
     require("nvim-autopairs").setup {}
+
+    require("conform").setup({
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+      formatters_by_ft = {
+        ${(lib.concatStringsSep "," (lib.mapAttrsToList fmt_table formatters))}
+      }
+    })
   '';
 
   options = {

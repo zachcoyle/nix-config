@@ -1,10 +1,13 @@
 {
-  config,
-  pkgs,
   alacritty-theme,
+  config,
+  lib,
   nixvim,
+  pkgs,
   ...
-}: {
+}: let
+  formatters = import ./formatters.nix {inherit pkgs;};
+in {
   imports = [
     nixvim.homeManagerModules.nixvim
   ];
@@ -12,21 +15,24 @@
   home = {
     username = "zcoyle";
     stateVersion = "23.05";
-    packages = with pkgs; [
-      python3
-      poetry
-      nodejs_20
-      nodePackages_latest.pnpm
-      podman
-      podman-tui
-      qemu
-      swift-format
-      alejandra
-      jq
-      ripgrep
-      neovide
-      moreutils
-    ];
+    packages = with pkgs;
+      [
+        alejandra
+        jq
+        just
+        moreutils
+        neovide
+        nodejs_20
+        nodePackages_latest.pnpm
+        podman
+        podman-tui
+        poetry
+        python3
+        qemu
+        ripgrep
+        swift-format
+      ]
+      ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
   };
 
   programs = {
@@ -59,11 +65,6 @@
 
     bottom.enable = true;
 
-    dircolors = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
     direnv = {
       enable = true;
       enableZshIntegration = true;
@@ -89,7 +90,7 @@
       keyScheme = "vim";
     };
 
-    nixvim = import ./nixvim.nix {inherit (pkgs) vimPlugins;};
+    nixvim = import ./nixvim.nix {inherit pkgs lib;};
 
     starship = {
       enable = true;
