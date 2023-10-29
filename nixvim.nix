@@ -16,12 +16,15 @@ in {
     # TODO: write nixvim formatter module
     conform-nvim
     nvim-autopairs
+    statuscol-nvim
     telescope-ui-select-nvim
+    tint-nvim
   ];
 
   extraConfigLua = ''
+    --------------------------------------
     require("nvim-autopairs").setup {}
-
+    --------------------------------------
     require("conform").setup({
       format_on_save = {
         timeout_ms = 500,
@@ -31,7 +34,7 @@ in {
         ${(lib.concatStringsSep "," (lib.mapAttrsToList fmt_table formatters))}
       }
     })
-
+    --------------------------------------
     require("telescope").setup {
       extensions = {
         ["ui-select"] = {
@@ -40,14 +43,37 @@ in {
       }
     }
     require("telescope").load_extension("ui-select")
+    --------------------------------------
+    -- ufo
+    -- TODO: figure out whether can move to options below
+    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+    --------------------------------------
+    local builtin = require("statuscol.builtin")
+    require("statuscol").setup({
+      relculright = true,
+      segments = {
+        { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+        { text = { "%s" }, click = "v:lua.ScSa" },
+        { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+      },
+    })
+    --------------------------------------
+    require("tint").setup()
   '';
 
   options = {
     mouse = "a";
     number = true;
     relativenumber = true;
-    foldlevel = 20;
-    guifont = "FiraCode Nerd Font:h12";
+    clipboard = "unnamedplus";
+
+    foldcolumn = "1";
+    foldlevel = 99;
+    foldlevelstart = 99;
+    foldenable = true;
+    signcolumn = "auto:5";
+
+    guifont = "FiraCode Nerd Font:h14";
   };
 
   globals = {
@@ -82,6 +108,22 @@ in {
       key = "<leader>a";
       action = ":lua vim.lsp.buf.code_action()<cr>";
     }
+    {
+      key = "zR";
+      action = ":lua require('ufo').openAllFolds()<cr>";
+    }
+    {
+      key = "zM";
+      action = ":lua require('ufo').closeAllFolds()<cr>";
+    }
+    {
+      key = "zr";
+      action = ":lua require('ufo').openFoldsExceptKinds()<cr>";
+    }
+    {
+      key = "zm";
+      action = ":lua require('ufo').closeFoldsWith()<cr>";
+    }
   ];
 
   colorschemes = {
@@ -107,7 +149,17 @@ in {
       enable = true;
       delay = 600;
     };
-    gitsigns.enable = true;
+    gitsigns = {
+      enable = true;
+      signs = {
+        add.text = "";
+        change.text = "";
+        changedelete.text = "";
+        delete.text = "";
+        topdelete.text = "";
+        untracked.text = "";
+      };
+    };
     lualine = {
       enable = true;
       theme = "gruvbox";
@@ -218,6 +270,15 @@ in {
       autocmd.enabled = true;
       virtualText.enabled = true;
       sign.enabled = false;
+    };
+    nvim-ufo = {
+      enable = true;
+      enableGetFoldVirtText = true;
+      providerSelector = ''
+        function(bufnr, filetype, buftype)
+            return {'treesitter', 'indent'}
+        end
+      '';
     };
     rainbow-delimiters.enable = true;
     surround.enable = true;

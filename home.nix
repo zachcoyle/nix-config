@@ -1,6 +1,5 @@
 {
   alacritty-theme,
-  config,
   lib,
   nixvim,
   pkgs,
@@ -20,6 +19,7 @@ in {
         alejandra
         jq
         just
+        coreutils-full
         moreutils
         neovide
         nodejs_20
