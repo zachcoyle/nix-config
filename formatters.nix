@@ -7,13 +7,21 @@
   ];
   python = [
     {
-      name = "isort";
-      pkg = pkgs.isort;
+      name = "ruff_fix";
+      pkg = pkgs.ruff;
     }
     {
-      name = "black";
-      pkg = pkgs.black;
+      name = "ruff_format";
+      pkg = pkgs.ruff;
     }
+    # {
+    #   name = "isort";
+    #   pkg = pkgs.isort;
+    # }
+    # {
+    #   name = "black";
+    #   pkg = pkgs.black;
+    # }
   ];
   javascript = [
     {

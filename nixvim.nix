@@ -9,13 +9,13 @@
   '';
 in {
   enable = true;
-
   # editorConfig.enable = true;
-
   extraPlugins = with vimPlugins; [
-    # TODO: write nixvim formatter module
+    # TODO: watch for https://github.com/nix-community/nixvim/pull/667 to merge
     conform-nvim
+    friendly-snippets
     nvim-autopairs
+    nvim-treesitter-textobjects # TODO: needs module
     statuscol-nvim
     telescope-ui-select-nvim
     tint-nvim
@@ -23,25 +23,15 @@ in {
 
   extraConfigLua = ''
     --------------------------------------
-    require("nvim-autopairs").setup {}
+    require("nvim-autopairs").setup({})
     --------------------------------------
-    require("conform").setup({
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-      formatters_by_ft = {
-        ${(lib.concatStringsSep "," (lib.mapAttrsToList fmt_table formatters))}
-      }
-    })
-    --------------------------------------
-    require("telescope").setup {
+    require("telescope").setup({
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown { }
-        }
-      }
-    }
+          require("telescope.themes").get_dropdown({}),
+        },
+      },
+    })
     require("telescope").load_extension("ui-select")
     --------------------------------------
     -- ufo
@@ -59,6 +49,17 @@ in {
     })
     --------------------------------------
     require("tint").setup()
+    --------------------------------------
+    require("conform").setup({
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+      formatters_by_ft = {
+        ${(lib.concatStringsSep "," (lib.mapAttrsToList fmt_table formatters))}
+      }
+    })
+    --------------------------------------
   '';
 
   options = {
@@ -100,29 +101,32 @@ in {
     {
       key = "<leader>n";
       action = ":noh<cr>";
-      options = {
-        silent = true;
-      };
+      options.silent = true;
     }
     {
       key = "<leader>a";
       action = ":lua vim.lsp.buf.code_action()<cr>";
+      options.silent = true;
     }
     {
       key = "zR";
       action = ":lua require('ufo').openAllFolds()<cr>";
+      options.silent = true;
     }
     {
       key = "zM";
       action = ":lua require('ufo').closeAllFolds()<cr>";
+      options.silent = true;
     }
     {
       key = "zr";
       action = ":lua require('ufo').openFoldsExceptKinds()<cr>";
+      options.silent = true;
     }
     {
       key = "zm";
       action = ":lua require('ufo').closeFoldsWith()<cr>";
+      options.silent = true;
     }
   ];
 
@@ -148,7 +152,10 @@ in {
       signs.dapBreakpoint.text = "";
       extensions = {
         dap-go.enable = true;
-        dap-python.enable = true;
+        dap-python = {
+          enable = true;
+          adapterPythonPath = "python";
+        };
         dap-ui.enable = true;
         dap-virtual-text.enable = true;
       };
@@ -169,6 +176,22 @@ in {
         untracked.text = "";
       };
     };
+    indent-blankline = {
+      enable = true;
+      indent = {
+        # TODO: revisit this on a rainy day. I'd like this to match rainbow-delimiters, but muted
+        # highlight = [
+        #   "GruvboxRed"
+        #   "GruvboxYellow"
+        #   "GruvboxBlue"
+        #   "GruvboxOrange"
+        #   "GruvboxGreen"
+        #   "GruvboxPurple"
+        #   "GruvboxAqua"
+        # ];
+      };
+    };
+    leap.enable = true;
     lualine = {
       enable = true;
       theme = "gruvbox";
@@ -223,6 +246,7 @@ in {
         nil_ls.enable = true;
         pyright.enable = true;
         rust-analyzer.enable = true;
+        ruff-lsp.enable = true;
         sourcekit.enable = true;
         tsserver.enable = true;
         # volar.enable = true;
@@ -230,7 +254,10 @@ in {
         yamlls.enable = true;
       };
     };
-    luasnip.enable = true;
+    luasnip = {
+      enable = true;
+      fromVscode = [{}];
+    };
     neogit = {
       enable = true;
       autoRefresh = true;
@@ -249,6 +276,11 @@ in {
         "<Tab>" = {
           action = ''
             function(fallback)
+              local luasnip = require("luasnip")
+              local check_backspace = function()
+                local col = vim.fn.col "." - 1
+                  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+                end
               if cmp.visible() then
                 cmp.select_next_item()
               elseif luasnip.expandable() then
@@ -299,7 +331,7 @@ in {
           action = "git_files";
           desc = "Telescope Git Files";
         };
-        "<c-_>" = {
+        "<c-->" = {
           action = "live_grep";
           desc = "Telescope Live Grep";
         };
@@ -338,7 +370,6 @@ in {
       openMapping = "<c-f>";
     };
     treesitter = {
-      ## TODO: configure fully
       enable = true;
       ensureInstalled = "all";
       folding = true;
