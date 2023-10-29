@@ -128,6 +128,16 @@ in {
       action = ":lua require('ufo').closeFoldsWith()<cr>";
       options.silent = true;
     }
+    {
+      key = "<leader>dc";
+      action = ":DapContinue<cr>";
+      options.silent = true;
+    }
+    {
+      key = "<leader>dt";
+      action = ":lua require('dapui').toggle()<cr>";
+      options.silent = true;
+    }
   ];
 
   colorschemes = {
