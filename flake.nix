@@ -12,6 +12,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nixvim = {
       url = "github:nix-community/nixvim";
       # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
@@ -30,15 +31,16 @@
 
   outputs = {
     self,
-    nix-darwin,
     nixpkgs,
-    home-manager,
     alacritty-theme,
-    nixvim,
-    neovim,
     flake-utils,
-    pre-commit-hooks,
+    home-manager,
+    neovim,
+    nix-darwin,
+    nix-doom-emacs,
     nixpkgs-23-05-darwin,
+    nixvim,
+    pre-commit-hooks,
     ...
   }:
     {
@@ -54,7 +56,7 @@
               useUserPackages = true;
               users.zcoyle = import ./home.nix;
               extraSpecialArgs = {
-                inherit alacritty-theme nixvim;
+                inherit nixvim nix-doom-emacs alacritty-theme;
               };
             };
           }

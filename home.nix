@@ -1,16 +1,17 @@
 {
-  alacritty-theme,
-  lib,
-  nixvim,
   pkgs,
+  lib,
+  alacritty-theme,
+  nixvim,
+  nix-doom-emacs,
   ...
 }: let
   formatters = import ./formatters.nix {inherit pkgs;};
 in {
   imports = [
     nixvim.homeManagerModules.nixvim
+    nix-doom-emacs.hmModule
   ];
-
   home = {
     username = "zcoyle";
     stateVersion = "23.05";
@@ -68,6 +69,11 @@ in {
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
+    };
+
+    doom-emacs = {
+      enable = true;
+      doomPrivateDir = ./doom.d; # Directory containing your config.el, init.el and packages.el files
     };
 
     git = {
