@@ -228,7 +228,7 @@ in {
           "<leader>k" = "goto_prev";
         };
         lspBuf = {
-          K = "hover";
+          K = "hover"; # TODO on a rainy day, add mouse hover
           gd = "definition";
           gi = "implementation";
           gt = "type_definition";
