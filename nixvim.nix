@@ -143,7 +143,16 @@ in {
     cmp-tabnine.enable = true;
     comment-nvim.enable = true;
     cursorline.enable = true;
-    dap.enable = true; ## TODO: configure fully
+    dap = {
+      enable = true;
+      signs.dapBreakpoint.text = "";
+      extensions = {
+        dap-go.enable = true;
+        dap-python.enable = true;
+        dap-ui.enable = true;
+        dap-virtual-text.enable = true;
+      };
+    };
     fugitive.enable = true;
     gitblame = {
       enable = true;
