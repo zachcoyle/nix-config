@@ -169,6 +169,59 @@ in {
         dap-ui.enable = true;
         dap-virtual-text.enable = true;
       };
+      adapters = {
+        executables = {
+          php = {
+            command = "${pkgs.nodejs}/bin/node";
+            args = ["${pkgs.vscode-marketplace.xdebug.php-debug}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js"];
+          };
+        };
+      };
+      configurations = {
+        php = [
+          {
+            name = "Listen for Xdebug";
+            type = "php";
+            request = "launch";
+            port = 9003;
+            log = true;
+          }
+          {
+            name = "Launch currently open script";
+            type = "php";
+            request = "launch";
+            program = ''''${file}'';
+            cwd = ''''${fileDirname}'';
+            port = 0;
+            runtimeArgs = ["-dxdebug.start_with_request=yes"];
+            env = {
+              XDEBUG_MODE = "debug,develop";
+              XDEBUG_CONFIG = ''client_port=''${port}'';
+            };
+            ignoreExceptions = ["IgnoreException"];
+          }
+          {
+            name = "Launch Built-in web server";
+            type = "php";
+            request = "launch";
+            runtimeArgs = [
+              "-dxdebug.mode=debug"
+              "-dxdebug.start_with_request=yes"
+              ''-dxdebug.client_port=''${port}''
+              "-S"
+              "localhost:0"
+            ];
+            program = "";
+            cwd = "''\${workspaceRoot}";
+            port = 0;
+            serverReadyAction = {
+              pattern = "Development Server \\(http://localhost:([0-9]+)\\) started";
+              uriFormat = "http://localhost:%s";
+              action = "openExternally";
+            };
+          }
+        ];
+      };
     };
     fugitive.enable = true;
     gitblame = {

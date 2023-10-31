@@ -27,9 +27,10 @@
     };
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     flake-utils.url = "github:numtide/flake-utils";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     alacritty-theme,
@@ -41,6 +42,7 @@
     nixpkgs-23-05-darwin,
     nixvim,
     pre-commit-hooks,
+    nix-vscode-extensions,
     ...
   }:
     {
@@ -66,6 +68,7 @@
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
               neovim.overlay
+              nix-vscode-extensions.overlays.default
               (final: prev: {
                 # Currently broken on unstable
                 inherit (nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;

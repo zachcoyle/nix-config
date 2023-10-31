@@ -32,6 +32,12 @@ in {
         qemu
         swift-format
         cachix
+        # TODO: revisit this, only really need xdebug at the moment
+        (php.withExtensions ({
+          enabled,
+          all,
+        }:
+          enabled ++ [all.xdebug]))
       ]
       ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
   };
