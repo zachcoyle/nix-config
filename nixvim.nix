@@ -92,6 +92,8 @@ in {
     number = true;
     relativenumber = true;
     clipboard = "unnamedplus";
+    undofile = true;
+    undodir = ["/Users/zcoyle/.config/nvim/.undo//"]; # TODO: xdg parameterize
 
     foldcolumn = "1";
     foldlevel = 99;
@@ -166,6 +168,11 @@ in {
     {
       key = "<leader>rr";
       action = ":lua require('refactoring').select_refactor()<cr>";
+      options.silent = true;
+    }
+    {
+      key = "<leader>tu";
+      action = ":lua require('telescope').extensions.undo.undo()<cr>";
       options.silent = true;
     }
   ];
@@ -412,7 +419,7 @@ in {
       initOptions = {
         bundles = [
           # TODO: don't rely on hardcoded path...it will eventually break
-          "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.44.0.jar"
+          "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.44.0.jar"
         ];
       };
     };
