@@ -31,6 +31,7 @@ in {
         python3
         qemu
         swift-format
+        cachix
       ]
       ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
   };
@@ -133,6 +134,10 @@ in {
         plugins = [
           "vi-mode"
         ];
+      };
+
+      sessionVariables = {
+        EDITOR = "nvim";
       };
 
       shellAliases = {

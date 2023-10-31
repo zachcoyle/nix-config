@@ -135,7 +135,7 @@ in {
     }
     {
       key = "<leader>dt";
-      action = ":lua require('dapui').toggle()<cr>";
+      action = ":lua if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle()<cr>";
       options.silent = true;
     }
   ];
@@ -250,10 +250,12 @@ in {
         eslint.enable = true;
         gopls.enable = true;
         html.enable = true;
+        intelephense.enable = true;
         jsonls.enable = true;
         kotlin-language-server.enable = true;
         lua-ls.enable = true;
         nil_ls.enable = true;
+        phpactor.enable = true;
         pyright.enable = true;
         rust-analyzer.enable = true;
         ruff-lsp.enable = true;
@@ -315,6 +317,17 @@ in {
         {name = "path";}
         {name = "buffer";}
       ];
+    };
+    nvim-jdtls = {
+      enable = true;
+      data = "/Users/zcoyle/.cache/jdtls/workspace/"; # TODO: xdg parameterize
+      configuration = "/Users/zcoyle/.cache/jdtls/config/"; # TODO: xdg parameterize
+      initOptions = {
+        bundles = [
+          # TODO: don't rely on hardcoded path...it will eventually break
+          "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.44.0.jar"
+        ];
+      };
     };
     nvim-lightbulb = {
       enable = true;
