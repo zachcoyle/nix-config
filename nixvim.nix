@@ -9,7 +9,15 @@
   '';
 in {
   enable = true;
+
   # editorConfig.enable = true;
+
+  extraPackages = with pkgs;
+    [
+      tabnine
+    ]
+    ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
+
   extraPlugins = with vimPlugins; [
     # TODO: watch for https://github.com/nix-community/nixvim/pull/667 to merge
     conform-nvim
@@ -60,6 +68,23 @@ in {
       }
     })
     --------------------------------------
+    require("telescope").load_extension("refactoring")
+    --------------------------------------
+    local tabnine = require('cmp_tabnine.config')
+
+    tabnine:setup({
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+        run_on_every_keystroke = true,
+        snippet_placeholder = '..',
+        ignored_file_types = {
+          -- default is not to ignored_file_types
+          -- uncomment to ignore in lua:
+          -- lua = trouble
+        },
+        show_prediction_strength = true
+    })
   '';
 
   options = {
@@ -138,6 +163,11 @@ in {
       action = ":lua if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle()<cr>";
       options.silent = true;
     }
+    {
+      key = "<leader>rr";
+      action = ":lua require('refactoring').select_refactor()<cr>";
+      options.silent = true;
+    }
   ];
 
   colorschemes = {
@@ -159,7 +189,7 @@ in {
     cursorline.enable = true;
     dap = {
       enable = true;
-      signs.dapBreakpoint.text = "";
+      signs.dapBreakpoint.text = "";
       extensions = {
         dap-go.enable = true;
         dap-python = {
@@ -323,6 +353,7 @@ in {
       enable = true;
       fromVscode = [{}];
     };
+    lspkind.enable = true;
     neogit = {
       enable = true;
       autoRefresh = true;
@@ -365,7 +396,10 @@ in {
       sources = [
         # TODO: this should be handled automatically by the module system...
         {name = "nvim_lsp";}
-        {name = "tabnine";}
+        {name = "nvim_lsp_signature_help";}
+        {name = "nvim_lsp_document_symbol";}
+        {name = "nvim_lua";}
+        {name = "cmp_tabnine";}
         {name = "luasnip";}
         {name = "path";}
         {name = "buffer";}
@@ -398,6 +432,10 @@ in {
       '';
     };
     rainbow-delimiters.enable = true;
+    refactoring = {
+      # TODO:
+      enable = true;
+    };
     surround.enable = true;
     telescope = {
       enable = true;
@@ -408,6 +446,10 @@ in {
           desc = "Telescope Git Files";
         };
         "<c-->" = {
+          action = "live_grep";
+          desc = "Telescope Live Grep";
+        };
+        "<c-_>" = {
           action = "live_grep";
           desc = "Telescope Live Grep";
         };

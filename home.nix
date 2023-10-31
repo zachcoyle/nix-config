@@ -5,9 +5,7 @@
   nixvim,
   nix-doom-emacs,
   ...
-}: let
-  formatters = import ./formatters.nix {inherit pkgs;};
-in {
+}: {
   imports = [
     nixvim.homeManagerModules.nixvim
     nix-doom-emacs.hmModule
@@ -15,31 +13,29 @@ in {
   home = {
     username = "zcoyle";
     stateVersion = "23.05";
-    packages = with pkgs;
-      [
-        alejandra
-        jq
-        just
-        coreutils-full
-        moreutils
-        neovide
-        nodejs_20
-        nodePackages_latest.pnpm
-        podman
-        podman-tui
-        poetry
-        python3
-        qemu
-        swift-format
-        cachix
-        # TODO: revisit this, only really need xdebug at the moment
-        (php.withExtensions ({
-          enabled,
-          all,
-        }:
-          enabled ++ [all.xdebug]))
-      ]
-      ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
+    packages = with pkgs; [
+      alejandra
+      jq
+      just
+      coreutils-full
+      moreutils
+      neovide
+      nodejs_20
+      nodePackages_latest.pnpm
+      podman
+      podman-tui
+      poetry
+      python3
+      qemu
+      swift-format
+      cachix
+      # TODO: revisit this, only really need xdebug at the moment
+      (php.withExtensions ({
+        enabled,
+        all,
+      }:
+        enabled ++ [all.xdebug]))
+    ];
   };
 
   programs = {
