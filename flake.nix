@@ -30,7 +30,7 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     alacritty-theme,
@@ -69,7 +69,7 @@
             nixpkgs.overlays = [
               neovim.overlay
               nix-vscode-extensions.overlays.default
-              (final: prev: {
+              (_: _: {
                 # Currently broken on unstable
                 inherit (nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
               })
@@ -92,6 +92,8 @@
           hooks = {
             alejandra.enable = true;
             statix.enable = true;
+            nil.enable = true;
+            deadnix.enable = true;
           };
         };
       };

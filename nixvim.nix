@@ -429,6 +429,9 @@ in {
           enable = true;
           hidden = true;
           hijackNetrw = true;
+          autoDepth = true;
+          depth = null;
+          selectBuffer = true;
         };
         frecency.enable = true;
         fzf-native.enable = true;
