@@ -763,7 +763,7 @@ in {
                 query = "@class.outer";
                 desc = "Next class start";
               };
-              "o" = "@loop.*";
+              # "o" = "@loop.*"; # I use o too much to bind this. gotta come up with a different binding
               "]s" = {
                 query = "@scope";
                 query_group = "locals";
