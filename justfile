@@ -1,11 +1,11 @@
 host := `hostname -s`
-configurations := if os() == "macos" { "darwinConfigurations" } else { "nixosConfigurations" }
+configurationTypeForOS := if os() == "macos" { "darwinConfigurations" } else { "nixosConfigurations" }
 
 fmt:
   nix fmt
 
 build:
-  nix build .#{{configurations}}.{{host}}.system
+  nix build .#{{configurationTypeForOS}}.{{host}}.system
 
 switch:
   darwin-rebuild switch --flake .
