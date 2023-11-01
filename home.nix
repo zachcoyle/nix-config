@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  alacritty-theme,
   nixvim,
   nix-doom-emacs,
   ...
@@ -46,7 +45,7 @@
           #   action = "CreateNewTab";
           # }
         ];
-        import = ["${alacritty-theme}/themes/gruvbox_dark.yaml"];
+        import = ["${pkgs.alacritty-theme}/gruvbox_dark.yaml"];
       };
     };
 

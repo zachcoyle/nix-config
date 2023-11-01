@@ -20,11 +20,6 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim.url = "github:neovim/neovim?dir=contrib";
-    alacritty-theme = {
-      url = "github:alacritty/alacritty-theme";
-      flake = false;
-    };
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     flake-utils.url = "github:numtide/flake-utils";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -33,10 +28,8 @@
   outputs = {
     self,
     nixpkgs,
-    alacritty-theme,
     flake-utils,
     home-manager,
-    neovim,
     nix-darwin,
     nix-doom-emacs,
     nixpkgs-23-05-darwin,
@@ -58,7 +51,7 @@
               useUserPackages = true;
               users.zcoyle = import ./home.nix;
               extraSpecialArgs = {
-                inherit nixvim nix-doom-emacs alacritty-theme;
+                inherit nixvim nix-doom-emacs;
               };
             };
           }
@@ -67,7 +60,6 @@
             system.configurationRevision = self.rev or self.dirtyRev or null;
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
-              neovim.overlay
               nix-vscode-extensions.overlays.default
               (_: _: {
                 # Currently broken on unstable
