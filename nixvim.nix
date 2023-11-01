@@ -249,7 +249,7 @@ in {
       options.silent = true;
     }
     {
-      key = "<leader>a";
+      key = "<leader>ca";
       action = "vim.lsp.buf.code_action";
       options.silent = true;
       lua = true;
@@ -318,6 +318,48 @@ in {
       action = "require('dap.ui.widgets').hover";
       options.silent = true;
       lua = true;
+    }
+    {
+      key = ";";
+      action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
+      options.silent = true;
+      lua = true;
+      # TODO: modes nxo
+    }
+    {
+      key = ",";
+      action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
+      options.silent = true;
+      lua = true;
+      # TODO: modes nxo
+    }
+    {
+      key = "f";
+      action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
+      options.silent = true;
+      lua = true;
+      # TODO: modes nxo
+    }
+    {
+      key = "F";
+      action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
+      options.silent = true;
+      lua = true;
+      # TODO: modes nxo
+    }
+    {
+      key = "t";
+      action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
+      options.silent = true;
+      lua = true;
+      # TODO: modes nxo
+    }
+    {
+      key = "T";
+      action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
+      options.silent = true;
+      lua = true;
+      # TODO: modes nxo
     }
   ];
 
@@ -676,6 +718,89 @@ in {
       ensureInstalled = "all";
       folding = true;
       nixvimInjections = true;
+      # hacky, as I stated above, this needs to be moved to nixvim
+      moduleConfig = {
+        textobjects = {
+          select = {
+            enable = true;
+            lookahead = true;
+            keymaps = {
+              "af" = "@function.outer";
+              "if" = "@function.inner";
+              "ac" = "@class.outer";
+              "ic" = {
+                query = "@class.inner";
+                desc = "Select inner part of a class region";
+              };
+              "as" = {
+                query = "@scope";
+                query_group = "locals";
+                desc = "Select language scope";
+              };
+            };
+            selection_modes = {
+              "@parameter.outer" = "v";
+              "@function.outer" = "V";
+              "@class.outer" = "<c-v>";
+            };
+            include_surrounding_whitespace = true;
+          };
+          swap = {
+            enable = true;
+            swap_next = {
+              "<leader>a" = "@parameter.inner";
+            };
+            swap_previous = {
+              "<leader>A" = "@parameter.inner";
+            };
+          };
+          move = {
+            enable = true;
+            set_jumps = true;
+            goto_next_start = {
+              "]m" = "@function.outer";
+              "]]" = {
+                query = "@class.outer";
+                desc = "Next class start";
+              };
+              "o" = "@loop.*";
+              "]s" = {
+                query = "@scope";
+                query_group = "locals";
+                desc = "Next scope";
+              };
+              "]z" = {
+                query = "@fold";
+                query_group = "folds";
+                desc = "Next fold";
+              };
+            };
+            goto_next_end = {
+              "]M" = "@function.outer";
+              "[[" = "@class.outer";
+            };
+            goto_previous_end = {
+              "[M" = "@function.outer";
+              "[]" = "@class.outer";
+            };
+            goto_next = {
+              "]d" = "@conditional.outer";
+            };
+            goto_previous = {
+              "[d" = "@conditional.outer";
+            };
+          };
+          lsp_interop = {
+            enable = true;
+            border = "none";
+            floating_preview_opts = {};
+            peek_definition_code = {
+              "<leader>df" = "@function.outer";
+              "<leader>dF" = "@class.outer";
+            };
+          };
+        };
+      };
     };
     # treesitter-context.enable = true;
     treesitter-refactor = {
