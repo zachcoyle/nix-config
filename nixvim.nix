@@ -3,7 +3,122 @@
   lib,
 }: let
   inherit (pkgs) vimPlugins;
-  formatters = import ./formatters.nix {inherit pkgs;};
+  formatters = {
+    lua = [
+      {
+        name = "stylua";
+        pkg = pkgs.stylua;
+      }
+    ];
+    python = [
+      {
+        name = "ruff_fix";
+        pkg = pkgs.ruff;
+      }
+      {
+        name = "ruff_format";
+        pkg = pkgs.ruff;
+      }
+    ];
+    javascript = [
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    javascriptreact = [
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    typescript = [
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    typescriptreact = [
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    json = [
+      {
+        name = "fixjson";
+        pkg = pkgs.nodePackages.fixjson;
+      }
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    css = [
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    graphql = [
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    vue = [
+      {
+        name = "prettierd";
+        pkg = pkgs.prettierd;
+      }
+    ];
+    swift = [
+      {
+        name = "swift_format";
+        pkg = pkgs.swift-format;
+      }
+    ];
+    nix = [
+      {
+        name = "alejandra";
+        pkg = pkgs.alejandra;
+      }
+    ];
+    rust = [
+      {
+        name = "rustfmt";
+        pkg = pkgs.rustfmt;
+      }
+    ];
+    go = [
+      {
+        name = "gofumpt";
+        pkg = pkgs.gofumpt;
+      }
+    ];
+    just = [
+      {
+        name = "just";
+        pkg = pkgs.just;
+      }
+    ];
+    ktlint = [
+      {
+        name = "ktlint";
+        pkg = pkgs.ktlint;
+      }
+    ];
+    yaml = [
+      {
+        name = "yamlfix";
+        pkg = pkgs.yamlfix;
+      }
+      {
+        name = "yamlfmt";
+        pkg = pkgs.yamlfmt;
+      }
+    ];
+  };
   fmt_table = name: value: ''
     ${name} = {${lib.concatStringsSep "," (map (x: "\"" + x.name + "\"") value)}}
   '';
@@ -15,6 +130,9 @@ in {
   extraPackages = with pkgs;
     [
       tabnine
+      rustc
+      cargo
+      lldb
     ]
     ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
 
@@ -132,28 +250,33 @@ in {
     }
     {
       key = "<leader>a";
-      action = ":lua vim.lsp.buf.code_action()<cr>";
+      action = "vim.lsp.buf.code_action";
       options.silent = true;
+      lua = true;
     }
     {
       key = "zR";
-      action = ":lua require('ufo').openAllFolds()<cr>";
+      action = "require('ufo').openAllFolds";
       options.silent = true;
+      lua = true;
     }
     {
       key = "zM";
-      action = ":lua require('ufo').closeAllFolds()<cr>";
+      action = "require('ufo').closeAllFolds";
       options.silent = true;
+      lua = true;
     }
     {
       key = "zr";
-      action = ":lua require('ufo').openFoldsExceptKinds()<cr>";
+      action = "require('ufo').openFoldsExceptKinds";
       options.silent = true;
+      lua = true;
     }
     {
       key = "zm";
-      action = ":lua require('ufo').closeFoldsWith()<cr>";
+      action = "require('ufo').closeFoldsWith";
       options.silent = true;
+      lua = true;
     }
     {
       key = "<leader>dc";
@@ -162,18 +285,39 @@ in {
     }
     {
       key = "<leader>dt";
-      action = ":lua if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle()<cr>";
+      action = "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
       options.silent = true;
+      lua = true;
     }
     {
       key = "<leader>rr";
-      action = ":lua require('refactoring').select_refactor()<cr>";
+      action = "require('refactoring').select_refactor";
       options.silent = true;
+      lua = true;
     }
     {
       key = "<leader>tu";
-      action = ":lua require('telescope').extensions.undo.undo()<cr>";
+      action = "require('telescope').extensions.undo.undo";
       options.silent = true;
+      lua = true;
+    }
+    {
+      key = "<leader>rK";
+      action = "require('rust-tools').hover_actions.hover_actions";
+      options.silent = false;
+      lua = true;
+    }
+    {
+      key = "<leader>ra";
+      action = "require('rust-tools').code_action_group.code_action_group";
+      options.silent = false;
+      lua = true;
+    }
+    {
+      key = "<leader>di";
+      action = "require('dap.ui.widgets').hover";
+      options.silent = true;
+      lua = true;
     }
   ];
 
@@ -193,6 +337,7 @@ in {
     cmp-path.enable = true;
     cmp-tabnine.enable = true;
     comment-nvim.enable = true;
+    crates-nvim.enable = true;
     cursorline.enable = true;
     dap = {
       enable = true;
@@ -211,6 +356,25 @@ in {
           php = {
             command = "${pkgs.nodejs}/bin/node";
             args = ["${pkgs.vscode-marketplace.xdebug.php-debug}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js"];
+          };
+          rust = {
+            adapter = {
+              command = "${pkgs.lldb}/bin/lldb-vscode";
+            };
+          };
+        };
+        servers = {
+          rust = with {base_path = "${pkgs.vscode-marketplace.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";}; {
+            # figuring this out was a living nightmare.
+            # See: https://github.com/simrat39/rust-tools.nvim/wiki/Debugging
+            # and: https://github.com/simrat39/rust-tools.nvim/blob/0cc8adab23117783a0292a0c8a2fbed1005dc645/lua/rust-tools/dap.lua#L8
+            # command = "${pkgs.lldb}/bin/lldb-vscode";
+            port = "\${port}";
+            host = "127.0.0.1";
+            executable = {
+              command = "${base_path}/adapter/codelldb";
+              args = ["--liblldb" "${base_path}/lldb/lib/liblldb.dylib" "--port" "\${port}"];
+            };
           };
         };
       };
@@ -347,7 +511,7 @@ in {
         nil_ls.enable = true;
         phpactor.enable = true;
         pyright.enable = true;
-        rust-analyzer.enable = true;
+        # rust-analyzer.enable = true;
         ruff-lsp.enable = true;
         sourcekit.enable = true;
         tsserver.enable = true;
@@ -442,6 +606,16 @@ in {
     refactoring = {
       # TODO:
       enable = true;
+    };
+    rust-tools = {
+      enable = true;
+      server = {
+        files = {
+          excludeDirs = [
+            ".direnv"
+          ];
+        };
+      };
     };
     surround.enable = true;
     telescope = {
