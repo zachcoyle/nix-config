@@ -473,6 +473,10 @@ in {
       };
     };
     fugitive.enable = true;
+    git-worktree = {
+      enable = true;
+      enableTelescope = true;
+    };
     gitblame = {
       enable = true;
       delay = 600;
