@@ -1,4 +1,5 @@
 host := `hostname -s`
+user := `whoami`
 configurationTypeForOS := if os() == "macos" { "darwinConfigurations" } else { "nixosConfigurations" }
 
 fmt:
@@ -7,6 +8,7 @@ fmt:
 build:
   nix build .#{{configurationTypeForOS}}.{{host}}.system
 
+alias s := switch
 switch:
   darwin-rebuild switch --flake .
 
@@ -21,3 +23,7 @@ update_modules:
 
 update_all:
   nix flake lock --recreate-lock-file --commit-lock-file
+
+enableDeveloperMode:
+  sudo /usr/sbin/DevToolsSecurity --enable
+  sudo dscl . append /Groups/_developer GroupMembership {{user}}

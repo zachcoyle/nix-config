@@ -2,8 +2,8 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    neovim
     git
+    neovim
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -11,7 +11,11 @@
   nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    trusted-users = ["zcoyle"];
+    auto-optimise-store = true;
+  };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
@@ -31,6 +35,10 @@
     fonts = with pkgs; [
       fira-code-nerdfont
     ];
+  };
+
+  security = {
+    pam.enableSudoTouchIdAuth = true;
   };
 
   system = {

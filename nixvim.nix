@@ -730,7 +730,6 @@ in {
             # figuring this out thus far has been a living nightmare.
             # See: https://github.com/simrat39/rust-tools.nvim/wiki/Debugging
             # and: https://github.com/simrat39/rust-tools.nvim/blob/0cc8adab23117783a0292a0c8a2fbed1005dc645/lua/rust-tools/dap.lua#L8
-            # command = "${pkgs.lldb}/bin/lldb-vscode";
             type = "server";
             port = "\${port}";
             host = "127.0.0.1";
