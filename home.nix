@@ -14,7 +14,6 @@
     username = "zcoyle";
     stateVersion = "23.05";
     packages = with pkgs; [
-      alejandra
       jq
       just
       coreutils-full
@@ -29,7 +28,6 @@
       qemu
       swift-format
       cachix
-      # TODO: revisit this, only really need xdebug at the moment
     ];
   };
 

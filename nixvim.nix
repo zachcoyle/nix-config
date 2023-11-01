@@ -129,7 +129,11 @@ in {
 
   extraPackages = with pkgs;
     [
+      fd
+      ripgrep
+
       tabnine
+
       rustc
       cargo
       lldb
@@ -167,7 +171,7 @@ in {
     --------------------------------------
     -- ufo
     -- TODO: figure out whether can move to options below
-    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
     --------------------------------------
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -235,134 +239,204 @@ in {
     {
       key = "<c-h>";
       action = "<c-w>h>";
+      options.desc = "West";
     }
     {
       key = "<c-j>";
       action = "<c-w>j";
+      options.desc = "South";
     }
     {
       key = "<c-k>";
       action = "<c-w>k";
+      options.desc = "North";
     }
     {
       key = "<c-l>";
       action = "<c-w>l";
+      options.desc = "East";
     }
     {
-      key = "<leader>n";
+      key = "<leader>ch";
       action = ":noh<cr>";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "Clear Highlights";
+      };
     }
     {
       key = "<leader>ca";
       action = "vim.lsp.buf.code_action";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "Code Actions";
+      };
       lua = true;
     }
     {
       key = "zR";
       action = "require('ufo').openAllFolds";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "UFO Open All Folds";
+      };
       lua = true;
     }
     {
       key = "zM";
       action = "require('ufo').closeAllFolds";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "UFO Close All Folds";
+      };
       lua = true;
     }
     {
       key = "zr";
       action = "require('ufo').openFoldsExceptKinds";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "UFO Open Folds Except Kinds";
+      };
       lua = true;
     }
     {
       key = "zm";
       action = "require('ufo').closeFoldsWith";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "Close Folds With";
+      };
       lua = true;
     }
     {
       key = "<leader>dc";
       action = ":DapContinue<cr>";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "DAP Continue";
+      };
     }
     {
       key = "<leader>dt";
       action = "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "DAPUI Toggle";
+      };
       lua = true;
     }
     {
-      key = "<leader>rr";
+      key = "<leader>tr";
       action = "require('refactoring').select_refactor";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "Telescope Refactor";
+      };
       lua = true;
     }
     {
       key = "<leader>tu";
       action = "require('telescope').extensions.undo.undo";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "Telescope Undo";
+      };
+      lua = true;
+    }
+    {
+      key = "<leader>tf";
+      action = "require('telescope').extensions.file_browser.file_browser";
+      options = {
+        silent = true;
+        desc = "Telecope File Browser";
+      };
       lua = true;
     }
     {
       key = "<leader>rK";
       action = "require('rust-tools').hover_actions.hover_actions";
-      options.silent = false;
+      options = {
+        silent = false;
+        desc = "Hover (Rust)";
+      };
       lua = true;
     }
     {
-      key = "<leader>ra";
+      key = "<leader>rca";
       action = "require('rust-tools').code_action_group.code_action_group";
-      options.silent = false;
+      options = {
+        silent = false;
+        desc = "Code Actions (Rust)";
+      };
       lua = true;
     }
     {
       key = "<leader>di";
       action = "require('dap.ui.widgets').hover";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "DAPUI Hover/Inspect";
+      };
       lua = true;
     }
     {
       key = ";";
       action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "Repeat Last Move Next";
+      };
       lua = true;
       # TODO: modes nxo
     }
     {
       key = ",";
       action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "Repeat Last Move Previous";
+      };
       lua = true;
       # TODO: modes nxo
     }
     {
       key = "f";
       action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "fancy f";
+      };
       lua = true;
       # TODO: modes nxo
     }
     {
       key = "F";
       action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "fancy F";
+      };
       lua = true;
       # TODO: modes nxo
     }
     {
       key = "t";
       action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "fancy t";
+      };
       lua = true;
       # TODO: modes nxo
     }
     {
       key = "T";
       action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
-      options.silent = true;
+      options = {
+        silent = true;
+        desc = "fancy T";
+      };
       lua = true;
       # TODO: modes nxo
     }
@@ -403,26 +477,6 @@ in {
           php = {
             command = "${pkgs.nodejs}/bin/node";
             args = ["${pkgs.vscode-marketplace.xdebug.php-debug}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js"];
-          };
-          rust = {
-            adapter = {
-              command = "${pkgs.lldb}/bin/lldb-vscode";
-            };
-          };
-        };
-        servers = {
-          rust = with {base_path = "${pkgs.vscode-marketplace.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";}; {
-            # FIXME:
-            # figuring this out thus far has been a living nightmare.
-            # See: https://github.com/simrat39/rust-tools.nvim/wiki/Debugging
-            # and: https://github.com/simrat39/rust-tools.nvim/blob/0cc8adab23117783a0292a0c8a2fbed1005dc645/lua/rust-tools/dap.lua#L8
-            # command = "${pkgs.lldb}/bin/lldb-vscode";
-            port = "\${port}";
-            host = "127.0.0.1";
-            executable = {
-              command = "${base_path}/adapter/codelldb";
-              args = ["--liblldb" "${base_path}/lldb/lib/liblldb.dylib" "--port" "\${port}"];
-            };
           };
         };
       };
@@ -661,11 +715,30 @@ in {
     };
     rust-tools = {
       enable = true;
+      hoverActions.autoFocus = true;
       server = {
         files = {
           excludeDirs = [
             ".direnv"
           ];
+        };
+      };
+      extraOptions = {
+        dap = {
+          adapter = with {base_path = "${pkgs.vscode-marketplace.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";}; {
+            # FIXME:
+            # figuring this out thus far has been a living nightmare.
+            # See: https://github.com/simrat39/rust-tools.nvim/wiki/Debugging
+            # and: https://github.com/simrat39/rust-tools.nvim/blob/0cc8adab23117783a0292a0c8a2fbed1005dc645/lua/rust-tools/dap.lua#L8
+            # command = "${pkgs.lldb}/bin/lldb-vscode";
+            type = "server";
+            port = "\${port}";
+            host = "127.0.0.1";
+            executable = {
+              command = "${base_path}/adapter/codelldb";
+              args = ["--liblldb" "${base_path}/lldb/lib/liblldb.dylib" "--port" "\${port}"];
+            };
+          };
         };
       };
     };
@@ -694,15 +767,15 @@ in {
           action = "buffers";
           desc = "Telescope Buffers";
         };
-        "<leader>ts" = {
+        "<leader>tt" = {
           action = "treesitter";
-          desc = "Telescope treesitter";
+          desc = "Telescope Treesitter";
         };
       };
       extensions = {
         file_browser = {
           enable = true;
-          hidden = true;
+          hidden = false;
           hijackNetrw = true;
           autoDepth = true;
           depth = null;
