@@ -84,12 +84,14 @@ fn - h : yabai -m window --focus west
 fn - j : yabai -m window --focus south
 fn - k : yabai -m window --focus north
 fn - l : yabai -m window --focus east
+fn - r : yabai -m space --rotate 90
 
 # swap window
-fn + 0x3A - h : yabai -m window --swap west
-fn + 0x3A - j : yabai -m window --swap south
-fn + 0x3A - k : yabai -m window --swap north
-fn + 0x3A - l : yabai -m window --swap east
+fn + shift - h : yabai -m window --swap west
+fn + shift - j : yabai -m window --swap south
+fn + shift - k : yabai -m window --swap north
+fn + shift - l : yabai -m window --swap east
+
 
 # move window
 shift + cmd - h : yabai -m window --warp west
