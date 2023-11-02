@@ -22,6 +22,7 @@
     };
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     flake-utils.url = "github:numtide/flake-utils";
+    # https://github.com/nix-community/nix-vscode-extensions/issues/47
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 

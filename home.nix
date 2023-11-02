@@ -13,9 +13,11 @@
     username = "zcoyle";
     stateVersion = "23.05";
     packages = with pkgs; [
+      alejandra
+      cachix
+      coreutils-full
       jq
       just
-      coreutils-full
       moreutils
       neovide
       nodejs_20
@@ -26,7 +28,6 @@
       python3
       qemu
       swift-format
-      cachix
     ];
   };
 
@@ -136,7 +137,6 @@
 
       shellAliases = {
         j = "z";
-        # TODO: check to see if nixvim provides this
         vi = "nvim";
         vim = "nvim";
         cat = "bat";

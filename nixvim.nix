@@ -154,6 +154,7 @@ in {
     statuscol-nvim
     telescope-ui-select-nvim
     tint-nvim
+    # TODO: https://github.com/IndianBoy42/tree-sitter-just
   ];
 
   extraConfigLua = ''
@@ -168,10 +169,6 @@ in {
       },
     })
     require("telescope").load_extension("ui-select")
-    --------------------------------------
-    -- ufo
-    -- TODO: figure out whether can move to options below
-    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
     --------------------------------------
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -212,6 +209,7 @@ in {
         },
         show_prediction_strength = true
     })
+    --------------------------------------
   '';
 
   options = {
@@ -227,6 +225,13 @@ in {
     foldlevelstart = 99;
     foldenable = true;
     signcolumn = "auto:5";
+    fillchars = {
+      eob = " ";
+      fold = " ";
+      foldopen = "";
+      foldsep = " ";
+      foldclose = "";
+    };
 
     guifont = "FiraCode Nerd Font:h14";
   };
@@ -327,6 +332,14 @@ in {
       lua = true;
     }
     {
+      key = "<leader>th";
+      action = ":Telescope harpoon marks<cr>";
+      options = {
+        silent = true;
+        desc = "Telescope Harpoon Marks";
+      };
+    }
+    {
       key = "<leader>tr";
       action = "require('refactoring').select_refactor";
       options = {
@@ -351,6 +364,34 @@ in {
         silent = true;
         desc = "Telecope File Browser";
       };
+      lua = true;
+    }
+    {
+      key = "<leader>td";
+      action = ":TodoTelescope<cr>";
+      options = {
+        silent = true;
+        desc = "Telescope Todos";
+      };
+    }
+    {
+      key = "]t";
+      action = "require('todo-comments').jump_next";
+      options = {
+        silent = true;
+        desc = "Jump to Next TODO";
+      };
+      mode = "n";
+      lua = true;
+    }
+    {
+      key = "[t";
+      action = "require('todo-comments').jump_prev";
+      options = {
+        silent = true;
+        desc = "Jump to Previous TODO";
+      };
+      mode = "n";
       lua = true;
     }
     {
@@ -388,7 +429,7 @@ in {
         desc = "Repeat Last Move Next";
       };
       lua = true;
-      # TODO: modes nxo
+      mode = ["n" "x" "o"];
     }
     {
       key = ",";
@@ -398,7 +439,7 @@ in {
         desc = "Repeat Last Move Previous";
       };
       lua = true;
-      # TODO: modes nxo
+      mode = ["n" "x" "o"];
     }
     {
       key = "f";
@@ -408,7 +449,7 @@ in {
         desc = "fancy f";
       };
       lua = true;
-      # TODO: modes nxo
+      mode = ["n" "x" "o"];
     }
     {
       key = "F";
@@ -418,7 +459,7 @@ in {
         desc = "fancy F";
       };
       lua = true;
-      # TODO: modes nxo
+      mode = ["n" "x" "o"];
     }
     {
       key = "t";
@@ -428,7 +469,7 @@ in {
         desc = "fancy t";
       };
       lua = true;
-      # TODO: modes nxo
+      mode = ["n" "x" "o"];
     }
     {
       key = "T";
@@ -438,7 +479,7 @@ in {
         desc = "fancy T";
       };
       lua = true;
-      # TODO: modes nxo
+      mode = ["n" "x" "o"];
     }
   ];
 
@@ -526,6 +567,9 @@ in {
         ];
       };
     };
+    emmet = {
+      enable = true;
+    };
     fugitive.enable = true;
     git-worktree = {
       enable = true;
@@ -546,21 +590,7 @@ in {
         untracked.text = "";
       };
     };
-    indent-blankline = {
-      enable = true;
-      indent = {
-        # TODO: revisit this on a rainy day. I'd like this to match rainbow-delimiters, but muted
-        # highlight = [
-        #   "GruvboxRed"
-        #   "GruvboxYellow"
-        #   "GruvboxBlue"
-        #   "GruvboxOrange"
-        #   "GruvboxGreen"
-        #   "GruvboxPurple"
-        #   "GruvboxAqua"
-        # ];
-      };
-    };
+    indent-blankline.enable = true;
     leap.enable = true;
     lualine = {
       enable = true;
@@ -569,7 +599,25 @@ in {
     harpoon = {
       enable = true;
       enableTelescope = true;
-      ## TODO: configure fully
+      # this can do a lot more, basically using it as glorified marks
+      # FIXME: these keymaps arent working
+      keymaps = {
+        addFile = "<leader>hh";
+        navFile = {
+          # "1" = "<C-j>";
+          # "2" = "<C-k>";
+          # "3" = "<C-l>";
+          # "4" = "<C-m>";
+        };
+        navNext = "<leader>hn";
+        navPrev = "<leader>hp";
+        gotoTerminal = {
+          # "1" = "<C-j>";
+          # "2" = "<C-k>";
+          # "3" = "<C-l>";
+          # "4" = "<C-m>";
+        };
+      };
     };
     hmts.enable = true;
     lsp = {
@@ -598,7 +646,7 @@ in {
           "<leader>k" = "goto_prev";
         };
         lspBuf = {
-          K = "hover"; # TODO on a rainy day, add mouse hover
+          K = "hover"; # TODO on a rainy day, research mouse hover
           gd = "definition";
           gi = "implementation";
           gt = "type_definition";
@@ -671,7 +719,7 @@ in {
         };
       };
       sources = [
-        # TODO: this should be handled automatically by the module system...
+        # INFO: this should be handled automatically by the module system...
         {name = "nvim_lsp";}
         {name = "nvim_lsp_signature_help";}
         {name = "nvim_lsp_document_symbol";}
@@ -688,7 +736,7 @@ in {
       configuration = "/Users/zcoyle/.cache/jdtls/config/"; # TODO: xdg parameterize
       initOptions = {
         bundles = [
-          # TODO: don't rely on hardcoded path...it will eventually break
+          # FIXME: find better way to ascertain path
           "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.44.0.jar"
         ];
       };
@@ -709,10 +757,7 @@ in {
       '';
     };
     rainbow-delimiters.enable = true;
-    refactoring = {
-      # TODO:
-      enable = true;
-    };
+    refactoring.enable = true;
     rust-tools = {
       enable = true;
       hoverActions.autoFocus = true;
@@ -745,7 +790,6 @@ in {
     telescope = {
       enable = true;
       keymaps = {
-        # TODO:
         "<c-p>" = {
           action = "git_files";
           desc = "Telescope Git Files";
