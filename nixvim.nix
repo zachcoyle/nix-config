@@ -209,7 +209,7 @@ in {
         },
         show_prediction_strength = true
     })
-    --------------------------------------
+
   '';
 
   options = {
@@ -233,7 +233,7 @@ in {
       foldclose = "";
     };
 
-    guifont = "FiraCode Nerd Font:h14";
+    guifont = "FiraCode Nerd Font:h13";
   };
 
   globals = {

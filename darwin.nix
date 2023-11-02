@@ -33,18 +33,25 @@
   services = {
     yabai = {
       enable = true;
-      enableScriptingAddition = false; # INFO: SIP must be disabled for this to work
+      ##############
+      # INFO: SIP must be disabled for enableScriptingAddition to work
+      # some yabai features are silently unavailable with it turned off
+      # https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
+      enableScriptingAddition = true;
+      ##############
       config = {
-        # TODO:
-        focus_follows_mouse = "autoraise";
+        focus_follows_mouse = "off";
         mouse_follows_focus = "off";
         window_placement = "second_child";
-        window_opacity = "off";
-        top_padding = 36;
-        bottom_padding = 10;
-        left_padding = 10;
-        right_padding = 10;
-        window_gap = 10;
+        window_opacity = "on";
+        active_window_opacity = 1.0;
+        normal_window_opacity = 0.9;
+        top_padding = 3;
+        bottom_padding = 3;
+        left_padding = 3;
+        right_padding = 3;
+        window_gap = 3;
+        layout = "bsp";
       };
       extraConfig = ''
       '';

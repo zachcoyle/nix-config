@@ -24,6 +24,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     # INFO: https://github.com/nix-community/nix-vscode-extensions/issues/47
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
   outputs = {
@@ -37,6 +38,7 @@
     nixvim,
     pre-commit-hooks,
     nix-vscode-extensions,
+    nixpkgs-firefox-darwin,
     ...
   }:
     {
@@ -61,6 +63,7 @@
             system.configurationRevision = self.rev or self.dirtyRev or null;
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
+              nixpkgs-firefox-darwin.overlay
               nix-vscode-extensions.overlays.default
               (_: _: {
                 # Currently broken on unstable

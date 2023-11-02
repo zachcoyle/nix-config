@@ -76,14 +76,26 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
+# quickly reload config
+fn + shift - q : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"; skhd --reload
+
 # focus window
-alt - h : yabai -m window --focus west
+fn - h : yabai -m window --focus west
+fn - j : yabai -m window --focus south
+fn - k : yabai -m window --focus north
+fn - l : yabai -m window --focus east
 
-# swap managed window
-shift + alt - h : yabai -m window --swap north
+# swap window
+fn + 0x3A - h : yabai -m window --swap west
+fn + 0x3A - j : yabai -m window --swap south
+fn + 0x3A - k : yabai -m window --swap north
+fn + 0x3A - l : yabai -m window --swap east
 
-# move managed window
-shift + cmd - h : yabai -m window --warp east
+# move window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
 
 # balance size of windows
 shift + alt - 0 : yabai -m space --balance

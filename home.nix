@@ -38,7 +38,7 @@
       settings = {
         decorations_theme_variant = "Dark";
         font.normal.family = "FiraCode Nerd Font";
-        font.size = 12.0;
+        font.size = 13.0;
         key_bindings = [
           # TODO: enable when next version releases
           # {
@@ -72,6 +72,10 @@
       enable = true;
       doomPrivateDir = ./doom.d;
     };
+
+    # firefox = {
+    #   enable = true;
+    # };
 
     git = {
       enable = true;
