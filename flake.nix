@@ -40,39 +40,42 @@
     nix-vscode-extensions,
     nixpkgs-firefox-darwin,
     ...
-  }:
+  }: let
+    base_darwin_config = {
+      modules = [
+        ./darwin.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.zcoyle = import ./home.nix;
+            extraSpecialArgs = {
+              inherit nixvim nix-doom-emacs;
+            };
+          };
+        }
+        {
+          # Set Git commit hash for darwin-version.
+          system.configurationRevision = self.rev or self.dirtyRev or null;
+          nixpkgs.config.allowUnfree = true;
+          nixpkgs.overlays = [
+            nixpkgs-firefox-darwin.overlay
+            nix-vscode-extensions.overlays.default
+            (_: _: {
+              # Currently broken on unstable
+              inherit (nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
+            })
+          ];
+        }
+      ];
+    };
+  in
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#Zacharys-MacBook-Pro
-      darwinConfigurations."Zacharys-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-        modules = [
-          ./darwin.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.zcoyle = import ./home.nix;
-              extraSpecialArgs = {
-                inherit nixvim nix-doom-emacs;
-              };
-            };
-          }
-          {
-            # Set Git commit hash for darwin-version.
-            system.configurationRevision = self.rev or self.dirtyRev or null;
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays = [
-              nixpkgs-firefox-darwin.overlay
-              nix-vscode-extensions.overlays.default
-              (_: _: {
-                # Currently broken on unstable
-                inherit (nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
-              })
-            ];
-          }
-        ];
-      };
+      darwinConfigurations."Zacharys-MacBook-Pro" = nix-darwin.lib.darwinSystem base_darwin_config;
+      darwinConfigurations."Zachs-Macbook-Pro" = nix-darwin.lib.darwinSystem base_darwin_config;
 
       # Expose the package set, including overlays, for convenience.
       darwinPackages = self.darwinConfigurations."Zacharys-MacBook-Pro".pkgs;

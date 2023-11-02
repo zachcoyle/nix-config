@@ -43,3 +43,15 @@ update_all:
 #enableDeveloperMode:
 #  sudo /usr/sbin/DevToolsSecurity --enable
 #  sudo dscl . append /Groups/_developer GroupMembership {{user}}
+
+# delete all generations older than one week
+delete_old_generations:
+  nix-env --delete-generations 7d
+
+alias d := delete_old_generations
+
+# nix-collect-garbage
+collect_garbage:
+  nohup nix-collect-garbage > /dev/null 2>&1&
+
+alias gc := collect_garbage
