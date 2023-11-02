@@ -27,6 +27,7 @@
       poetry
       python3
       qemu
+      ripgrep
       swift-format
     ];
   };
@@ -94,8 +95,6 @@
     };
 
     nixvim = import ./nixvim.nix {inherit pkgs lib;};
-
-    ripgrep.enable = true;
 
     starship = {
       enable = true;
