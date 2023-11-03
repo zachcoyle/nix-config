@@ -125,7 +125,7 @@
 in {
   enable = true;
 
-  # editorConfig.enable = true;
+  editorconfig.enable = true;
 
   extraPackages = with pkgs;
     [
@@ -194,22 +194,6 @@ in {
     --------------------------------------
     require("telescope").load_extension("refactoring")
     --------------------------------------
-    local tabnine = require('cmp_tabnine.config')
-
-    tabnine:setup({
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-        run_on_every_keystroke = true,
-        snippet_placeholder = '..',
-        ignored_file_types = {
-          -- default is not to ignored_file_types
-          -- uncomment to ignore in lua:
-          -- lua = trouble
-        },
-        show_prediction_strength = true
-    })
-
   '';
 
   options = {
@@ -218,7 +202,8 @@ in {
     relativenumber = true;
     clipboard = "unnamedplus";
     undofile = true;
-    undodir = ["/Users/zcoyle/.config/nvim/.undo//"]; # TODO: xdg parameterize
+    undodir = ["/Users/zcoyle/.config/nvim/.undo//"]; # TODO: xdg
+    exrc = true; # (.exrc, .nvimrc, .nvim.lua)
 
     foldcolumn = "1";
     foldlevel = 99;
@@ -497,7 +482,22 @@ in {
     cmp-nvim-lsp-signature-help.enable = true;
     cmp-nvim-lua.enable = true;
     cmp-path.enable = true;
-    cmp-tabnine.enable = true;
+    cmp-tabnine = {
+      enable = true;
+      extraOptions = {
+        max_lines = 1000;
+        max_num_results = 20;
+        sort = true;
+        run_on_every_keystroke = true;
+        snippet_placeholder = "..";
+        ignored_file_types = {
+          # -- default is not to ignored_file_types
+          # -- uncomment to ignore in lua:
+          # -- lua = trouble
+        };
+        show_prediction_strength = true;
+      };
+    };
     comment-nvim.enable = true;
     crates-nvim.enable = true;
     cursorline.enable = true;
@@ -732,8 +732,8 @@ in {
     };
     nvim-jdtls = {
       enable = true;
-      data = "/Users/zcoyle/.cache/jdtls/workspace/"; # TODO: xdg parameterize
-      configuration = "/Users/zcoyle/.cache/jdtls/config/"; # TODO: xdg parameterize
+      data = "/Users/zcoyle/.cache/jdtls/workspace/"; # TODO: xdg
+      configuration = "/Users/zcoyle/.cache/jdtls/config/"; # TODO: xdg
       initOptions = {
         bundles = [
           # FIXME: find better way to ascertain path
@@ -844,7 +844,7 @@ in {
       ensureInstalled = "all";
       folding = true;
       nixvimInjections = true;
-      # hacky, as I stated above, this needs to be moved to nixvim
+      # TODO: as I stated above, this needs to be moved to nixvim
       moduleConfig = {
         textobjects = {
           select = {
@@ -928,7 +928,7 @@ in {
         };
       };
     };
-    # treesitter-context.enable = true;
+    treesitter-context.enable = true;
     treesitter-refactor = {
       enable = true;
       highlightDefinitions.enable = true;

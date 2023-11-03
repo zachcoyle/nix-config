@@ -8,13 +8,28 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
 
-  # Necessary for using flakes on this system.
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-    trusted-users = ["zcoyle"];
-    auto-optimise-store = true;
+  nix = {
+    package = pkgs.nix;
+    gc = {
+      automatic = true;
+      interval = {
+        Weekday = 0;
+      };
+      options = "-d";
+    };
+    linux-builder = {
+      enable = true;
+      maxJobs = 4;
+      modules = [
+        # extra nixos modules for builder
+      ];
+    };
+    settings = {
+      experimental-features = "nix-command flakes";
+      trusted-users = ["zcoyle"];
+      auto-optimise-store = true;
+    };
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.

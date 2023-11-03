@@ -41,6 +41,6 @@ update_all:
   nix flake lock --recreate-lock-file --commit-lock-file
 
 collect_garbage:
-  nohup sudo nix store gc > /dev/null 2>&1&
+  nohup sudo nix-collect-garbage -d > /dev/null 2>&1&
 
 alias gc := collect_garbage
