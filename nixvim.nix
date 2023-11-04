@@ -590,7 +590,7 @@
     neogit = {
       enable = true;
       autoRefresh = true;
-      integrations.diffView = true;
+      integrations.diffview = true;
       integrations.telescope = true;
       mappings = {
       };
