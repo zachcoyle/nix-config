@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
 }: let
   inherit (pkgs) vimPlugins;
   formatters = {
@@ -202,7 +203,7 @@ in {
     relativenumber = true;
     clipboard = "unnamedplus";
     undofile = true;
-    undodir = ["/Users/zcoyle/.config/nvim/.undo//"]; # TODO: xdg
+    undodir = ["${config.xdg.configHome}nvim/.undo//"];
     exrc = true; # (.exrc, .nvimrc, .nvim.lua)
 
     foldcolumn = "1";
@@ -689,6 +690,20 @@ in {
     noice.enable = true;
     notify.enable = true;
     nix.enable = true;
+    nvim-colorizer = {
+      enable = true;
+      userDefaultOptions = {
+        css = true;
+        hsl_fn = true;
+        names = true;
+        RGB = true;
+        rgb_fn = true;
+        RRGGBB = true;
+        AARRGGBB = true;
+        RRGGBBAA = true;
+        virtualtext = "virtualtext";
+      };
+    };
     nvim-cmp = {
       enable = true;
       completion.autocomplete = ["TextChanged"];
@@ -732,8 +747,8 @@ in {
     };
     nvim-jdtls = {
       enable = true;
-      data = "/Users/zcoyle/.cache/jdtls/workspace/"; # TODO: xdg
-      configuration = "/Users/zcoyle/.cache/jdtls/config/"; # TODO: xdg
+      data = "${config.xdg.cacheHome}jdtls/workspace/";
+      configuration = "${config.xdg.cacheHome}jdtls/config/";
       initOptions = {
         bundles = [
           # FIXME: find better way to ascertain path

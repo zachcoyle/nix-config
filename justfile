@@ -18,12 +18,13 @@ alias b := build
 
 # Build configuration for current host and switch 
 switch:
-  {{ nixosRebuildCommand }} switch --flake .
+  git add .
+  {{ nixosRebuildCommand }} switch --flake . --show-trace
 alias s := switch
 
 # Updates the lockfile entry for INPUT and commmits
 update INPUT:
-  nix flake lock --update-input {{INPUT}} --commit-lock-file
+  nix flake lock --update-input {{INPUT}} --commit-lock-file --show-trace
 alias u := update
 
 # Updates module inputs on separate commits aka things less likely to break stuff lol

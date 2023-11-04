@@ -3,6 +3,7 @@
   lib,
   nixvim,
   nix-doom-emacs,
+  config,
   ...
 }: {
   imports = [
@@ -30,7 +31,17 @@
       ripgrep
       swift-format
     ];
+    file = {
+      # TODO: VSCode stuff
+    };
   };
+
+  # xdg.configFile = {
+  #   "sketchybar/plugins" = {
+  #     recursive = true;
+  #     source = ./config/sketchybar/plugins;
+  #   };
+  # };
 
   programs = {
     alacritty = {
@@ -70,7 +81,7 @@
 
     doom-emacs = {
       enable = true;
-      doomPrivateDir = ./doom.d;
+      doomPrivateDir = ./config/doom.d;
     };
 
     # firefox = {
@@ -98,7 +109,7 @@
       keyScheme = "vim";
     };
 
-    nixvim = import ./nixvim.nix {inherit pkgs lib;};
+    nixvim = import ./nixvim.nix {inherit pkgs lib config;};
 
     starship = {
       enable = true;

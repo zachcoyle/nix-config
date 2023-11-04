@@ -13,14 +13,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    beautysh.url = "github:lovesegfault/beautysh";
     nixvim = {
-      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+      # INFO: If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
       # url = "github:nix-community/nixvim/nixos-23.05";
       url = "github:nix-community/nixvim";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
         pre-commit-hooks.follows = "pre-commit-hooks";
+        beautysh.follows = "beautysh";
       };
     };
     pre-commit-hooks = {
