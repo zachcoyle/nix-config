@@ -350,6 +350,16 @@
       lua = true;
       mode = ["n" "x" "o"];
     }
+    {
+      key = "<leader>go";
+      action = "require('neogit').open";
+      options = {
+        silent = true;
+        desc = "Open Neogit";
+      };
+      lua = true;
+      mode = ["n"];
+    }
   ];
 
   colorschemes = {
@@ -476,6 +486,7 @@
         ];
       };
     };
+    diffview.enable = true;
     emmet = {
       enable = true;
     };
@@ -591,8 +602,6 @@
       enable = true;
       autoRefresh = true;
       integrations.diffview = true;
-      mappings = {
-      };
     };
     noice.enable = true;
     notify.enable = true;
