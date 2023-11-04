@@ -591,7 +591,6 @@
       enable = true;
       autoRefresh = true;
       integrations.diffview = true;
-      integrations.telescope = true;
       mappings = {
       };
     };
