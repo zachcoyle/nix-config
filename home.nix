@@ -35,13 +35,6 @@
     };
   };
 
-  # xdg.configFile = {
-  #   "sketchybar/plugins" = {
-  #     recursive = true;
-  #     source = ./config/sketchybar/plugins;
-  #   };
-  # };
-
   programs = {
     alacritty = {
       enable = true;
@@ -80,7 +73,7 @@
 
     doom-emacs = {
       enable = true;
-      doomPrivateDir = ./config/doom.d;
+      doomPrivateDir = ./dots/doom.d;
     };
 
     # firefox = {

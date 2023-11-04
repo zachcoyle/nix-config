@@ -49,7 +49,7 @@
     sketchybar = import ./sketchybar.nix {inherit pkgs;};
     skhd = {
       enable = true;
-      skhdConfig = builtins.readFile ./config/skhdrc;
+      skhdConfig = builtins.readFile ./dots/skhdrc;
     };
     yabai = {
       enable = true;
