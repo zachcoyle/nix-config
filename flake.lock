@@ -538,16 +538,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1699070167,
+        "lastModified": 1699089411,
         "narHash": "sha256-IhhzLIQW/cKQQfkQ7B7urgAzQiPHlLKgMeJbSBV02F8=",
-        "owner": "zachcoyle",
+        "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "d56f2487011566fbd2c8fe3fa4e2f536688fd677",
+        "rev": "1aecd4c2035b46c49b7f4548e0255b986d59410f",
         "type": "github"
       },
       "original": {
-        "owner": "zachcoyle",
-        "ref": "harpoon-keybind-fix",
+        "owner": "nix-community",
         "repo": "nixvim",
         "type": "github"
       }
