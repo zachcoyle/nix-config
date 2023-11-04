@@ -1,9 +1,9 @@
-name: cache
+name: cachix
 on:
   pull_request:
   push:
 jobs:
-  tests:
+  cachix:
     runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
