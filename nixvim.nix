@@ -1,140 +1,21 @@
 {
   pkgs,
-  lib,
   config,
-}: let
-  inherit (pkgs) vimPlugins;
-  formatters = {
-    lua = [
-      {
-        name = "stylua";
-        pkg = pkgs.stylua;
-      }
-    ];
-    python = [
-      {
-        name = "ruff_fix";
-        pkg = pkgs.ruff;
-      }
-      {
-        name = "ruff_format";
-        pkg = pkgs.ruff;
-      }
-    ];
-    javascript = [
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    javascriptreact = [
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    typescript = [
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    typescriptreact = [
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    json = [
-      {
-        name = "fixjson";
-        pkg = pkgs.nodePackages.fixjson;
-      }
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    css = [
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    graphql = [
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    vue = [
-      {
-        name = "prettierd";
-        pkg = pkgs.prettierd;
-      }
-    ];
-    swift = [
-      {
-        name = "swift_format";
-        pkg = pkgs.swift-format;
-      }
-    ];
-    nix = [
-      {
-        name = "alejandra";
-        pkg = pkgs.alejandra;
-      }
-    ];
-    rust = [
-      {
-        name = "rustfmt";
-        pkg = pkgs.rustfmt;
-      }
-    ];
-    go = [
-      {
-        name = "gofumpt";
-        pkg = pkgs.gofumpt;
-      }
-    ];
-    just = [
-      {
-        name = "just";
-        pkg = pkgs.just;
-      }
-    ];
-    ktlint = [
-      {
-        name = "ktlint";
-        pkg = pkgs.ktlint;
-      }
-    ];
-    yaml = [
-      {
-        name = "yamlfix";
-        pkg = pkgs.yamlfix;
-      }
-      {
-        name = "yamlfmt";
-        pkg = pkgs.yamlfmt;
-      }
-    ];
-  };
-  fmt_table = name: value: ''
-    ${name} = {${lib.concatStringsSep "," (map (x: "\"" + x.name + "\"") value)}}
-  '';
-in {
+}: {
   enable = true;
 
   editorconfig.enable = true;
 
   extraPackages = with pkgs;
     [
+      # util
       fd
+      lazygit
       ripgrep
-
       tabnine
-
+    ]
+    ++ [
+      # dap
       rustc
       cargo
       lldb
@@ -144,11 +25,23 @@ in {
       }:
         enabled ++ [all.xdebug]))
     ]
-    ++ (map (x: x.pkg) (lib.flatten (lib.attrValues formatters)));
+    ++ [
+      # formatters
+      codespell
+      gofumpt
+      just
+      ktlint
+      nodePackages.fixjson
+      prettierd
+      ruff
+      rustfmt
+      stylua
+      swift-format
+      yamlfix
+      yamlfmt
+    ];
 
-  extraPlugins = with vimPlugins; [
-    # TODO: watch for https://github.com/nix-community/nixvim/pull/667 to merge
-    conform-nvim
+  extraPlugins = with pkgs.vimPlugins; [
     friendly-snippets
     nvim-autopairs
     nvim-treesitter-textobjects # TODO: needs module
@@ -182,16 +75,6 @@ in {
     })
     --------------------------------------
     require("tint").setup()
-    --------------------------------------
-    require("conform").setup({
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-      formatters_by_ft = {
-        ${(lib.concatStringsSep "," (lib.mapAttrsToList fmt_table formatters))}
-      }
-    })
     --------------------------------------
     require("telescope").load_extension("refactoring")
     --------------------------------------
@@ -487,7 +370,7 @@ in {
       enable = true;
       extraOptions = {
         max_lines = 1000;
-        max_num_results = 20;
+        max_num_results = 2;
         sort = true;
         run_on_every_keystroke = true;
         snippet_placeholder = "..";
@@ -500,6 +383,31 @@ in {
       };
     };
     comment-nvim.enable = true;
+    conform-nvim = {
+      enable = true;
+      formatOnSave = {};
+      formattersByFt = {
+        "*" = ["codespell" "injected"];
+        "_" = ["trim_whitespace"];
+        css = [["prettierd" "prettier"]];
+        go = ["gofumpt"];
+        graphql = [["prettierd" "prettier"]];
+        javascript = [["prettierd" "prettier"]];
+        javascriptreact = [["prettierd" "prettier"]];
+        json = ["fix_json" ["prettierd" "prettier"]];
+        just = ["just"];
+        kotlin = ["ktlint"];
+        lua = ["stylua"];
+        nix = ["alejandra"];
+        python = ["ruff_fix" "ruff_format"];
+        rust = ["rustfmt"];
+        swift = ["swift_format"];
+        typescript = [["prettierd" "prettier"]];
+        typescriptreact = [["prettierd" "prettier"]];
+        vue = [["prettierd" "prettier"]];
+        yaml = ["yamlfix" "yamlfmt"];
+      };
+    };
     crates-nvim.enable = true;
     cursorline.enable = true;
     dap = {
@@ -535,8 +443,8 @@ in {
             name = "Launch currently open script";
             type = "php";
             request = "launch";
-            program = ''''${file}'';
-            cwd = ''''${fileDirname}'';
+            program = "\${file}";
+            cwd = "\${fileDirname}";
             port = 0;
             runtimeArgs = ["-dxdebug.start_with_request=yes"];
             env = {
@@ -552,7 +460,7 @@ in {
             runtimeArgs = [
               "-dxdebug.mode=debug"
               "-dxdebug.start_with_request=yes"
-              ''-dxdebug.client_port=''${port}''
+              "-dxdebug.client_port=\${port}"
               "-S"
               "localhost:0"
             ];
@@ -600,8 +508,7 @@ in {
     harpoon = {
       enable = true;
       enableTelescope = true;
-      # this can do a lot more, basically using it as glorified marks
-      # FIXME: these keymaps arent working
+      # this can do a lot more, basically using it as glorified marks rn
       keymaps = {
         addFile = "<leader>hh";
         navFile = {
@@ -612,6 +519,7 @@ in {
         };
         navNext = "<leader>hn";
         navPrev = "<leader>hp";
+        cmdToggleQuickMenu = "<leader>hd";
         gotoTerminal = {
           # "1" = "<C-j>";
           # "2" = "<C-k>";
@@ -707,6 +615,7 @@ in {
     nvim-cmp = {
       enable = true;
       completion.autocomplete = ["TextChanged"];
+      snippet.expand = "luasnip";
       mapping = {
         "<CR>" = "cmp.mapping.confirm({ select = true })";
         "<Tab>" = {
@@ -733,6 +642,7 @@ in {
           modes = ["i" "s"];
         };
       };
+      autoEnableSources = true;
       sources = [
         # INFO: this should be handled automatically by the module system...
         {name = "nvim_lsp";}
@@ -943,7 +853,6 @@ in {
         };
       };
     };
-    treesitter-context.enable = true;
     treesitter-refactor = {
       enable = true;
       highlightDefinitions.enable = true;
