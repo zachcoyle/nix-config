@@ -39,7 +39,7 @@ update_modules:
 
 # Update all inputs
 update_all:
-  nix flake lock --recreate-lock-file --commit-lock-file
+  nix flake update --commit-lock-file
 
 collect_garbage:
   nohup sudo nix-collect-garbage -d > /dev/null 2>&1&
