@@ -43,6 +43,13 @@
     };
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    neovim = {
+      url = "github:neovim/neovim/eadedfd?dir=contrib";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -58,6 +65,7 @@
     nix-vscode-extensions,
     nixpkgs-firefox-darwin,
     flake-parts,
+    neovim,
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -81,6 +89,7 @@
               system.configurationRevision = self.rev or self.dirtyRev or null;
               nixpkgs.config.allowUnfree = true;
               nixpkgs.overlays = [
+                neovim.overlay
                 nixpkgs-firefox-darwin.overlay
                 nix-vscode-extensions.overlays.default
                 (_: _: {

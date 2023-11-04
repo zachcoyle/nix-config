@@ -325,6 +325,32 @@
         "type": "github"
       }
     },
+    "neovim": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "contrib",
+        "lastModified": 1697612973,
+        "narHash": "sha256-b5nTKAKpZaI8BkIpZnezidJjFZR6yViCzS9R2xOw/HY=",
+        "owner": "neovim",
+        "repo": "neovim",
+        "rev": "eadedfd9084c338a9162ef3706756bda443d6559",
+        "type": "github"
+      },
+      "original": {
+        "dir": "contrib",
+        "owner": "neovim",
+        "ref": "eadedfd",
+        "repo": "neovim",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -756,6 +782,7 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "neovim": "neovim",
         "nix-darwin": "nix-darwin",
         "nix-doom-emacs": "nix-doom-emacs",
         "nix-vscode-extensions": "nix-vscode-extensions",
