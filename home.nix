@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   nixvim,
   nix-doom-emacs,
   config,
@@ -109,7 +108,7 @@
       keyScheme = "vim";
     };
 
-    nixvim = import ./nixvim.nix {inherit pkgs lib config;};
+    nixvim = import ./nixvim.nix {inherit pkgs config;};
 
     starship = {
       enable = true;
