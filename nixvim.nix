@@ -479,7 +479,6 @@
     emmet = {
       enable = true;
     };
-    fugitive.enable = true;
     git-worktree = {
       enable = true;
       enableTelescope = true;
@@ -591,7 +590,8 @@
     neogit = {
       enable = true;
       autoRefresh = true;
-      # integrations.diffView = true;
+      integrations.diffView = true;
+      integrations.telescope = true;
       mappings = {
       };
     };
