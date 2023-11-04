@@ -29,6 +29,12 @@
       experimental-features = "nix-command flakes";
       trusted-users = ["zcoyle"];
       auto-optimise-store = true;
+      substituters = [
+        "https://zachcoyle.cachix.org"
+      ];
+      trusted-public-keys = [
+        "zachcoyle.cachix.org-1:Zgr8u70LueWgpbSPM4E8JqxpQcGISxivplq1I9qogGg="
+      ];
     };
   };
 
