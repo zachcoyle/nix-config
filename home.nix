@@ -146,6 +146,7 @@
         vi = "nvim";
         vim = "nvim";
         cat = "bat";
+        tree = "lsd --tree";
       };
     };
   };
