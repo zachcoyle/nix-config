@@ -54,7 +54,6 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    flake-utils,
     home-manager,
     nix-darwin,
     nix-doom-emacs,
@@ -68,8 +67,10 @@
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
-      flake = let
-        base_darwin_config = {
+      flake = {
+        # Build darwin flake using:
+        # $ darwin-rebuild build --flake .#Zacharys-MacBook-Pro
+        darwinConfigurations."Zacharys-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           modules = [
             ./darwin.nix
             home-manager.darwinModules.home-manager
@@ -82,8 +83,6 @@
                   inherit nixvim nix-doom-emacs;
                 };
               };
-            }
-            {
               # Set Git commit hash for darwin-version.
               system.configurationRevision = self.rev or self.dirtyRev or null;
               nixpkgs.config.allowUnfree = true;
@@ -99,37 +98,54 @@
             }
           ];
         };
-      in
-        {
-          # Build darwin flake using:
-          # $ darwin-rebuild build --flake .#Zacharys-MacBook-Pro
-          darwinConfigurations."Zacharys-MacBook-Pro" = nix-darwin.lib.darwinSystem base_darwin_config;
-          darwinConfigurations."Zachs-Macbook-Pro" = nix-darwin.lib.darwinSystem base_darwin_config;
-
-          # Expose the package set, including overlays, for convenience.
-          darwinPackages = self.darwinConfigurations."Zacharys-MacBook-Pro".pkgs;
-        }
-        // flake-utils.lib.eachDefaultSystem (system: let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in {
-          formatter = pkgs.alejandra;
-
-          checks = {
-            pre-commit-check = pre-commit-hooks.lib.${system}.run {
-              src = ./.;
-              hooks = {
-                alejandra.enable = true;
-                statix.enable = true;
-                nil.enable = true;
-                deadnix.enable = true;
+        darwinConfigurations."Zachs-Macbook-Pro" = nix-darwin.lib.darwinSystem {
+          modules = [
+            ./darwin.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.zcoyle = import ./home.nix;
+                extraSpecialArgs = {
+                  inherit nixvim nix-doom-emacs;
+                };
               };
+              # Set Git commit hash for darwin-version.
+              system.configurationRevision = self.rev or self.dirtyRev or null;
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.overlays = [
+                inputs.neovim-nightly-overlay.overlay
+                nixpkgs-firefox-darwin.overlay
+                nix-vscode-extensions.overlays.default
+                (_: _: {
+                  # Currently broken on unstable
+                  inherit (nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
+                })
+              ];
+            }
+          ];
+        };
+
+        # Expose the package set, including overlays, for convenience.
+        darwinPackages = self.darwinConfigurations."Zacharys-MacBook-Pro".pkgs;
+        formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.alejandra;
+
+        checks.x86_64-darwin = {
+          pre-commit-check = pre-commit-hooks.lib.x86_64-darwin.run {
+            src = ./.;
+            hooks = {
+              alejandra.enable = true;
+              statix.enable = true;
+              nil.enable = true;
+              deadnix.enable = true;
             };
           };
-
-          devShell = pkgs.mkShell {
-            inherit (self.checks.${system}.pre-commit-check) shellHook;
-          };
-        });
+        };
+        devShell.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.mkShell {
+          inherit (self.checks.x86_64-darwin.pre-commit-check) shellHook;
+        };
+      };
       systems = [
         "x86_64-darwin"
       ];
