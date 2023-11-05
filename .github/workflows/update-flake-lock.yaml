@@ -5,7 +5,8 @@ on:
     - cron: 0 0 * * * # runs weekly on Sunday at 00:00
 jobs:
   lockfile:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: macos-13
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
