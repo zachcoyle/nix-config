@@ -5,43 +5,51 @@ nixosRebuildCommand := if os() == "macos" { "darwin-rebuild" } else { "sudo nixo
 
 # just -l
 default:
-  just -l
+    just -l
 
 # formats repo
 fmt:
-  nix fmt
+    nix fmt
 
 # builds config
 build:
-  nix build .#{{configurationTypeForOS}}.{{host}}.system
+    nix build .#{{ configurationTypeForOS }}.{{ host }}.system
+
 alias b := build
 
-# Build configuration for current host and switch 
+# Build configuration for current host and switch
 switch:
-  git add .
-  {{ nixosRebuildCommand }} switch --flake . --show-trace
+    git add .
+    {{ nixosRebuildCommand }} switch --flake . --show-trace
+
 alias s := switch
 
-# Updates the lockfile entry for INPUT and commmits
+# Updates the lockfile entry for INPUT and commits
 update INPUT:
-  nix flake lock --update-input {{INPUT}} --commit-lock-file --show-trace
+    nix flake lock --update-input {{ INPUT }} --commit-lock-file --show-trace
+
 alias u := update
 
 # Updates module inputs on separate commits aka things less likely to break stuff lol
 update_modules:
-  just u home-manager
-  just u nix-dariwin
-  just u nix-doom-emacs
-  just u nixvim
-  just u pre-commit-hooks
-  just u flake-utils
-  just u nix-vscode-extensions
+    just u home-manager
+    just u nix-dariwin
+    just u nix-doom-emacs
+    just u nixvim
+    just u pre-commit-hooks
+    just u flake-utils
+    just u nix-vscode-extensions
 
 # Update all inputs
 update_all:
-  nix flake update --commit-lock-file
+    nix flake update --commit-lock-file
 
 collect_garbage:
-  nohup sudo nix-collect-garbage -d > /dev/null 2>&1&
+    nohup sudo nix-collect-garbage -d > /dev/null 2>&1&
 
 alias gc := collect_garbage
+
+check:
+    nix flake check
+
+alias c := check
