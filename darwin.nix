@@ -31,9 +31,11 @@
       auto-optimise-store = true;
       substituters = [
         "https://zachcoyle.cachix.org"
+        "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
         "zachcoyle.cachix.org-1:Zgr8u70LueWgpbSPM4E8JqxpQcGISxivplq1I9qogGg="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
   };
