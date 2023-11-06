@@ -10,7 +10,7 @@
     color ? "0x15ffffff",
     defaults ? {},
   }: let
-    _defaults =
+    defaults' =
       pkgs.lib.recursiveUpdate {
         padding_left = "5";
         padding_right = "5";
@@ -45,16 +45,16 @@
                      padding_right=${padding_right} \
                      color=${color}
 
-    sketchybar --default icon.font="${_defaults.icon.font.name}:${_defaults.icon.font.weight}:${_defaults.icon.font.size}" \
-                         icon.color="${_defaults.icon.color}" \
-                         label.font="${_defaults.label.font.name}:${_defaults.label.font.weight}:${_defaults.label.font.size}" \
-                         label.color="${_defaults.label.color}" \
-                         padding_left=${_defaults.padding_left} \
-                         padding_right=${_defaults.padding_right} \
-                         label.padding_left=${_defaults.label.padding_left} \
-                         label.padding_right=${_defaults.label.padding_right} \
-                         icon.padding_left=${_defaults.icon.padding_left} \
-                         icon.padding_right=${_defaults.icon.padding_right}
+    sketchybar --default icon.font="${defaults'.icon.font.name}:${defaults'.icon.font.weight}:${defaults'.icon.font.size}" \
+                         icon.color="${defaults'.icon.color}" \
+                         label.font="${defaults'.label.font.name}:${defaults'.label.font.weight}:${defaults'.label.font.size}" \
+                         label.color="${defaults'.label.color}" \
+                         padding_left=${defaults'.padding_left} \
+                         padding_right=${defaults'.padding_right} \
+                         label.padding_left=${defaults'.label.padding_left} \
+                         label.padding_right=${defaults'.label.padding_right} \
+                         icon.padding_left=${defaults'.icon.padding_left} \
+                         icon.padding_right=${defaults'.icon.padding_right}
 
   '';
   createItem = {
@@ -72,7 +72,7 @@
     update_freq ? null,
     script ? null,
   }: let
-    _background =
+    background' =
       pkgs.lib.recursiveUpdate {
         color = null;
         corner_radius = null;
@@ -122,22 +122,22 @@
       else "update_freq=${update_freq}"
     } \
     ${
-      if _background.color == null
+      if background'.color == null
       then ""
-      else "background.color=${_background.color}"
+      else "background.color=${background'.color}"
     } \
     ${
-      if _background.corner_radius == null
+      if background'.corner_radius == null
       then ""
-      else "background.corner_radius=${_background.corner_radius}"
+      else "background.corner_radius=${background'.corner_radius}"
     } \
     ${
-      if _background.height == null
+      if background'.height == null
       then ""
-      else "background.height=${_background.height}"
+      else "background.height=${background'.height}"
     } \
     ${
-      if _background.drawing == null
+      if background'.drawing == null
       then "background.drawing=off"
       else ""
     } \
