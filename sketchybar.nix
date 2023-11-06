@@ -58,8 +58,12 @@
 
   '';
   createItem = {
+    itemType ? "item",
+    space ? null,
     name,
     side,
+    background ? {},
+    click_script ? null,
     icon ? null,
     label ? null,
     padding_left ? null,
@@ -67,9 +71,22 @@
     subscriptions ? null,
     update_freq ? null,
     script ? null,
-  }: ''
-    sketchybar --add item ${name} ${side} \
+  }: let
+    _background =
+      pkgs.lib.recursiveUpdate {
+        color = null;
+        corner_radius = null;
+        height = null;
+        drawing = null;
+      }
+      background;
+  in ''
+    sketchybar --add ${itemType} ${name} ${side} \
     --set ${name} ${
+      if space == null
+      then ""
+      else "space=${space}"
+    } ${
       if icon == null
       then "icon.drawing=off"
       else "icon=${icon}"
@@ -103,6 +120,31 @@
       if update_freq == null
       then ""
       else "update_freq=${update_freq}"
+    } \
+    ${
+      if _background.color == null
+      then ""
+      else "background.color=${_background.color}"
+    } \
+    ${
+      if _background.corner_radius == null
+      then ""
+      else "background.corner_radius=${_background.corner_radius}"
+    } \
+    ${
+      if _background.height == null
+      then ""
+      else "background.height=${_background.height}"
+    } \
+    ${
+      if _background.drawing == null
+      then "background.drawing=off"
+      else ""
+    } \
+    ${
+      if click_script == null
+      then ""
+      else ''click_script="${click_script}"''
     }
   '';
   bars = [
@@ -121,102 +163,120 @@
       };
     })
   ];
-  items = [
-    (createItem {
-      name = "space_separator";
-      side = "left";
-      icon = "";
-      padding_left = "10";
-      padding_right = "10";
-    })
-    (createItem rec {
-      name = "front_app";
-      side = "left";
-      label = "";
-      subscriptions = ["front_app_switched"];
-      script = pkgs.writeScriptBin "${name}.sh" ''
-        if [ "$SENDER" = "front_app_switched" ]; then
-          sketchybar --set $NAME label="$INFO"
-        fi
-      '';
-    })
-    (createItem rec {
-      name = "clock";
-      side = "right";
-      update_freq = "10";
-      label = "";
-      icon = "";
-      script = pkgs.writeScriptBin "${name}.sh" ''
-        sketchybar --set $NAME label="$(date '+%d/%m %H:%M')"
-      '';
-    })
-    (createItem rec {
-      name = "battery";
-      side = "right";
-      update_freq = "120";
-      label = "";
-      icon = "";
-      script = pkgs.writeScriptBin "${name}.sh" ''
-        PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
-        CHARGING=$(pmset -g batt | grep 'AC Power')
+  items =
+    (builtins.map (n:
+      createItem rec {
+        itemType = "space";
+        space = n;
+        name = "space.${n}";
+        icon = n;
+        side = "left";
+        background = {
+          color = "0x44ffffff";
+          corner_radius = "5";
+          height = "20";
+          drawing = "off";
+        };
+        # label.drawing = "off";
+        script = pkgs.writeScriptBin "${name}.sh" ''
+          sketchybar --set $NAME background.drawing=$SELECTED
+        '';
+        click_script = "yabai -m space --focus ${n}";
+      }) ["1" "2" "3" "4" "5" "6" "7" "8" "9" "10"])
+    ++ [
+      (createItem {
+        name = "space_separator";
+        side = "left";
+        icon = "";
+        padding_left = "10";
+        padding_right = "10";
+      })
+      (createItem rec {
+        name = "front_app";
+        side = "left";
+        label = "";
+        subscriptions = ["front_app_switched"];
+        script = pkgs.writeScriptBin "${name}.sh" ''
+          if [ "$SENDER" = "front_app_switched" ]; then
+            sketchybar --set $NAME label="$INFO"
+          fi
+        '';
+      })
+      (createItem rec {
+        name = "clock";
+        side = "right";
+        update_freq = "10";
+        label = "";
+        icon = "";
+        script = pkgs.writeScriptBin "${name}.sh" ''
+          sketchybar --set $NAME label="$(date '+%d/%m %H:%M')"
+        '';
+      })
+      (createItem rec {
+        name = "battery";
+        side = "right";
+        update_freq = "120";
+        label = "";
+        icon = "";
+        script = pkgs.writeScriptBin "${name}.sh" ''
+          PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
+          CHARGING=$(pmset -g batt | grep 'AC Power')
 
-        if [ $PERCENTAGE = "" ]; then
-          exit 0
-        fi
+          if [ $PERCENTAGE = "" ]; then
+            exit 0
+          fi
 
-        case ''${PERCENTAGE} in
-          9[0-9]|100) ICON=""
-          ;;
-          [6-8][0-9]) ICON=""
-          ;;
-          [3-5][0-9]) ICON=""
-          ;;
-          [1-2][0-9]) ICON=""
-          ;;
-          *) ICON=""
-        esac
-
-        if [[ $CHARGING != "" ]]; then
-          ICON=""
-        fi
-
-        # The item invoking this script (name $NAME) will get its icon and label
-        # updated with the current battery status
-        sketchybar --set $NAME icon="$ICON" label="''${PERCENTAGE}%"
-      '';
-    })
-    (createItem rec {
-      name = "volume";
-      side = "right";
-      icon = "";
-      label = "";
-      subscriptions = ["volume_change"];
-      script = pkgs.writeScriptBin "${name}.sh" ''
-        if [ "$SENDER" = "volume_change" ]; then
-          VOLUME=$INFO
-
-          case $VOLUME in
-            [6-9][0-9]|100) ICON="󰕾"
+          case ''${PERCENTAGE} in
+            9[0-9]|100) ICON=""
             ;;
-            [3-5][0-9]) ICON="󰖀"
+            [6-8][0-9]) ICON=""
             ;;
-            [1-9]|[1-2][0-9]) ICON="󰕿"
+            [3-5][0-9]) ICON=""
             ;;
-            *) ICON="󰖁"
+            [1-2][0-9]) ICON=""
+            ;;
+            *) ICON=""
           esac
 
-          sketchybar --set $NAME icon="$ICON" label="$VOLUME%"
-        fi
-      '';
-    })
-  ];
+          if [[ $CHARGING != "" ]]; then
+            ICON=""
+          fi
+
+          # The item invoking this script (name $NAME) will get its icon and label
+          # updated with the current battery status
+          sketchybar --set $NAME icon="$ICON" label="''${PERCENTAGE}%"
+        '';
+      })
+      (createItem rec {
+        name = "volume";
+        side = "right";
+        icon = "";
+        label = "";
+        subscriptions = ["volume_change"];
+        script = pkgs.writeScriptBin "${name}.sh" ''
+          if [ "$SENDER" = "volume_change" ]; then
+            VOLUME=$INFO
+
+            case $VOLUME in
+              [6-9][0-9]|100) ICON="󰕾"
+              ;;
+              [3-5][0-9]) ICON="󰖀"
+              ;;
+              [1-9]|[1-2][0-9]) ICON="󰕿"
+              ;;
+              *) ICON="󰖁"
+            esac
+
+            sketchybar --set $NAME icon="$ICON" label="$VOLUME%"
+          fi
+        '';
+      })
+    ];
 in {
   enable = true;
   extraPackages = [];
   config = ''
     ${builtins.concatStringsSep "\n" bars}
-
-    SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
     ${builtins.concatStringsSep "\n" items}
 
