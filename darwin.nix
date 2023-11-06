@@ -1,23 +1,5 @@
 {pkgs, ...}: {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    git
-    neovim
-  ];
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
   nix = {
-    package = pkgs.nix;
-    gc = {
-      automatic = true;
-      interval = {
-        Weekday = 0;
-      };
-      options = "-d";
-    };
     linux-builder = {
       enable = true;
       maxJobs = 4;
@@ -25,24 +7,7 @@
         # extra nixos modules for builder
       ];
     };
-    settings = {
-      experimental-features = "nix-command flakes";
-      trusted-users = ["zcoyle"];
-      auto-optimise-store = true;
-      substituters = [
-        "https://zachcoyle.cachix.org"
-        "https://nix-community.cachix.org"
-      ];
-      trusted-public-keys = [
-        "zachcoyle.cachix.org-1:Zgr8u70LueWgpbSPM4E8JqxpQcGISxivplq1I9qogGg="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-    };
   };
-
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true; # default shell on catalina
-  # programs.fish.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
@@ -86,13 +51,7 @@
     };
   };
 
-  fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      fira-code-nerdfont
-      nerdfonts
-    ];
-  };
+  programs.zsh.enable = true;
 
   security = {
     pam.enableSudoTouchIdAuth = true;
