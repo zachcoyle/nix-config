@@ -1,5 +1,5 @@
 {pkgs}: let
-  gruvbox_colors = import ./colors.nix;
+  theme_colors = import ./colors.nix;
   createBar = {
     height ? "32",
     blur_radius ? "30",
@@ -150,15 +150,15 @@
   bars = [
     (createBar {
       defaults = {
-        color = gruvbox_colors.bg;
+        color = theme_colors.bg;
         label = {
           font = {
             name = "Ubuntu Nerd Font";
           };
-          color = gruvbox_colors.fg;
+          color = theme_colors.fg;
         };
         icon = {
-          color = gruvbox_colors.fg;
+          color = theme_colors.fg;
         };
       };
     })
@@ -172,7 +172,7 @@
         icon = n;
         side = "left";
         background = {
-          color = "0x44ffffff";
+          color = theme_colors.bg_hard;
           corner_radius = "5";
           height = "20";
           drawing = "off";

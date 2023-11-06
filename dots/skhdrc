@@ -36,7 +36,7 @@
 #   command      = command is executed through '$SHELL -c' and
 #                  follows valid shell syntax. if the $SHELL environment
 #                  variable is not set, it will default to '/bin/bash'.
-#                  when bash is used, the ';' delimeter can be specified
+#                  when bash is used, the ';' delimiter can be specified
 #                  to chain commands.
 #
 #                  to allow a command to extend into multiple lines,
@@ -62,7 +62,7 @@
 #   command   = command is executed through '$SHELL -c' and
 #               follows valid shell syntax. if the $SHELL environment
 #               variable is not set, it will default to '/bin/bash'.
-#               when bash is used, the ';' delimeter can be specified
+#               when bash is used, the ';' delimiter can be specified
 #               to chain commands.
 #
 #               to allow a command to extend into multiple lines,
@@ -84,7 +84,7 @@ fn - h : yabai -m window --focus west
 fn - j : yabai -m window --focus south
 fn - k : yabai -m window --focus north
 fn - l : yabai -m window --focus east
-fn - r : yabai -m space --rotate 90
+# fn + ctrl - r : yabai -m space --rotate 90
 
 # swap window
 fn + shift - h : yabai -m window --swap west

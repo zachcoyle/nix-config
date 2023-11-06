@@ -143,7 +143,16 @@
       action = "vim.lsp.buf.code_action";
       options = {
         silent = true;
-        desc = "Code Actions";
+        desc = "LSP Code Actions";
+      };
+      lua = true;
+    }
+    {
+      key = "<leader>rn";
+      action = "vim.lsp.buf.rename";
+      options = {
+        silent = true;
+        desc = "LSP Rename";
       };
       lua = true;
     }
