@@ -24,6 +24,7 @@
       nodePackages_latest.pnpm
       podman
       podman-tui
+      buildah
       poetry
       python3
       qemu
