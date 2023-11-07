@@ -50,6 +50,7 @@
     statuscol-nvim
     telescope-ui-select-nvim
     tint-nvim
+    neorepl-nvim
   ];
 
   extraConfigLua = ''
