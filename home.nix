@@ -86,6 +86,7 @@
       userEmail = "zach.coyle@gmail.com";
       userName = "Zach Coyle";
       delta.enable = true;
+      # difftastic.enable = true;
     };
 
     lazygit.enable = true;

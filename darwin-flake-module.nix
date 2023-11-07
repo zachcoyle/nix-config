@@ -12,7 +12,8 @@
         system.configurationRevision = self.rev or self.dirtyRef or null;
         nixpkgs.config.allowUnfree = true;
         nixpkgs.overlays = [
-          inputs.neovim-nightly-overlay.overlay
+          # FIXME: Not the best place for these overlays to live
+          # inputs.neovim-nightly-overlay.overlay
           inputs.nixpkgs-firefox-darwin.overlay
           inputs.nix-vscode-extensions.overlays.default
           (_: _: {

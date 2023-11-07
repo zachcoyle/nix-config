@@ -3,6 +3,7 @@
   config,
 }: {
   enable = true;
+  enableMan = true;
 
   editorconfig.enable = true;
 
@@ -42,13 +43,13 @@
     ];
 
   extraPlugins = with pkgs.vimPlugins; [
+    # TODO: https://github.com/IndianBoy42/tree-sitter-just
     friendly-snippets
     nvim-autopairs
     nvim-treesitter-textobjects # TODO: needs module
     statuscol-nvim
     telescope-ui-select-nvim
     tint-nvim
-    # TODO: https://github.com/IndianBoy42/tree-sitter-just
   ];
 
   extraConfigLua = ''
@@ -273,6 +274,7 @@
       lua = true;
     }
     {
+      # TODO Combine with K
       key = "<leader>rK";
       action = "require('rust-tools').hover_actions.hover_actions";
       options = {
@@ -282,6 +284,7 @@
       lua = true;
     }
     {
+      # TODO: combine with <leader>ca
       key = "<leader>rca";
       action = "require('rust-tools').code_action_group.code_action_group";
       options = {
@@ -578,6 +581,7 @@
           gd = "definition";
           gi = "implementation";
           gt = "type_definition";
+          gs = "signature_help";
         };
       };
       servers = {
@@ -618,13 +622,13 @@
     nvim-colorizer = {
       enable = true;
       userDefaultOptions = {
+        AARRGGBB = true;
         css = true;
         hsl_fn = true;
         names = true;
         RGB = true;
         rgb_fn = true;
         RRGGBB = true;
-        AARRGGBB = true;
         RRGGBBAA = true;
         virtualtext = "virtualtext";
       };
@@ -674,12 +678,13 @@
     };
     nvim-jdtls = {
       enable = true;
-      data = "${config.xdg.cacheHome}jdtls/workspace/";
-      configuration = "${config.xdg.cacheHome}jdtls/config/";
+      data = "${config.xdg.cacheHome}/jdtls/workspace/";
+      configuration = "${config.xdg.cacheHome}/jdtls/config";
       initOptions = {
         bundles = [
           # FIXME: find better way to ascertain path
-          "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.44.0.jar"
+          # actually really fix this it's already busted once
+          "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.50.0.jar"
         ];
       };
     };
