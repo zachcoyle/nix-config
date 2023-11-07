@@ -587,6 +587,7 @@
       };
       servers = {
         bashls.enable = true;
+        csharp-ls.enable = pkgs.stdenv.isLinux;
         cssls.enable = true;
         eslint.enable = true;
         gopls.enable = true;
@@ -598,11 +599,10 @@
         nil_ls.enable = true;
         phpactor.enable = true;
         pyright.enable = true;
-        # rust-analyzer.enable = true;
         ruff-lsp.enable = true;
         sourcekit.enable = true;
         tsserver.enable = true;
-        # volar.enable = true;
+        volar.enable = true;
         vuels.enable = true;
         yamlls.enable = true;
       };
