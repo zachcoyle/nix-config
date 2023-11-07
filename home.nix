@@ -31,6 +31,9 @@
       qemu
       ripgrep
       swift-format
+      nix-melt
+      nix-top
+      manix
     ];
     file = {
       # TODO: VSCode stuff
