@@ -94,8 +94,8 @@
           vue-js-devtools
           wayback-machine
         ];
+        settings = {};
       };
-      settings = {};
     };
 
     git = {
