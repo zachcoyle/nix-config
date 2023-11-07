@@ -33,11 +33,11 @@
     ];
   };
 in {
-  flake = {
+  flake = rec {
     darwinConfigurations = {
       Zachs-Macbook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
       Zacharys-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
-      darwinPackages = self.darwinConfigurations."Zacharys-MacBook-Pro".pkgs;
     };
+    darwinPackages = darwinConfigurations."Zacharys-MacBook-Pro".pkgs;
   };
 }

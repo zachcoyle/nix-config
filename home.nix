@@ -23,6 +23,7 @@
       nodejs_20
       nodePackages_latest.pnpm
       podman
+      podman-compose
       podman-tui
       buildah
       poetry
