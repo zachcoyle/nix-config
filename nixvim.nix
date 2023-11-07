@@ -682,11 +682,12 @@
       data = "${config.xdg.cacheHome}/jdtls/workspace/";
       configuration = "${config.xdg.cacheHome}/jdtls/config";
       initOptions = {
-        bundles = [
-          # FIXME: find better way to ascertain path
-          # actually really fix this it's already busted once
-          "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.50.0.jar"
-        ];
+        bundles = let
+          base_path = "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug";
+          package_json = builtins.fromJSON (builtins.readFile "${base_path}/package.json");
+          jar_paths = builtins.map (e: "${base_path}/${e}") package_json.contributes.javaExtensions;
+        in
+          jar_paths;
       };
     };
     nvim-lightbulb = {
