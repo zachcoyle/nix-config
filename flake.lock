@@ -785,6 +785,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1699369563,
+        "narHash": "sha256-D26nwjyjgIa+ydPInZ3MLnozz9eGMquW+lwIGVXVHWY=",
+        "owner": "nix-community",
+        "repo": "nur",
+        "rev": "68fed7a7ca52c1fdd9df51192eba707d2b73fc42",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "ob-racket": {
       "flake": false,
       "locked": {
@@ -947,6 +962,7 @@
         "nixpkgs-23-05-darwin": "nixpkgs-23-05-darwin",
         "nixpkgs-firefox-darwin": "nixpkgs-firefox-darwin",
         "nixvim": "nixvim",
+        "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks"
       }
     },

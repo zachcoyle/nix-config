@@ -42,6 +42,8 @@
       };
     };
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
+    # INFO: only including nur for firefox extensions
+    nur.url = "github:nix-community/nur";
     flake-parts.url = "github:hercules-ci/flake-parts";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";

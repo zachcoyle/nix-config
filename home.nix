@@ -81,9 +81,22 @@
       doomPrivateDir = ./dots/doom.d;
     };
 
-    # firefox = {
-    #   enable = true;
-    # };
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-bin;
+      profiles.zcoyle = {
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          firenvim
+          gruvbox-dark-theme
+          react-devtools
+          reduxdevtools
+          ublock-origin
+          vue-js-devtools
+          wayback-machine
+        ];
+      };
+      settings = {};
+    };
 
     git = {
       enable = true;
