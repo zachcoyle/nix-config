@@ -14,26 +14,27 @@
     stateVersion = "23.05";
     packages = with pkgs; [
       alejandra
+      buildah
       cachix
       coreutils-full
       jq
       just
+      manix
       moreutils
       neovide
+      nix-melt
+      nix-top
       nodejs_20
       nodePackages_latest.pnpm
       podman
       podman-compose
       podman-tui
-      buildah
       poetry
+      process-compose
       python3
       qemu
       ripgrep
       swift-format
-      nix-melt
-      nix-top
-      manix
     ];
     file = {
       # TODO: VSCode stuff
@@ -127,6 +128,8 @@
       enableZshIntegration = true;
       settings = {};
     };
+
+    vscode = import ./vscode.nix {inherit pkgs;};
 
     zellij = {
       enable = true;
