@@ -7,9 +7,6 @@
 
   extensions = with pkgs.open-vsx; [
     bbenoist.nix
-    zeshuaro.vscode-python-poetry
-    ms-python.python
-    yomitosh.livegrep
     charliermarsh.ruff
     codezombiech.gitignore
     dbaeumer.vscode-eslint
@@ -22,14 +19,14 @@
     kamadorueda.alejandra
     kokakiwi.vscode-just
     mkhl.direnv
+    ms-python.python
     oderwat.indent-rainbow
     rust-lang.rust-analyzer
     vadimcn.vscode-lldb
     vknabel.vscode-apple-swift-format
     vscodevim.vim
-    vue.vscode-typescript-vue-plugin
+    vue.volar
     xdebug.php-debug
-    zeshuaro.vscode-python-poetry
   ];
 
   userSettings = {
