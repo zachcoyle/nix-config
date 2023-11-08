@@ -3,9 +3,12 @@
     linux-builder = {
       enable = true;
       maxJobs = 4;
-      modules = [
-        # extra nixos modules for builder
-      ];
+      config = _: {
+        # insert nixos config here
+        # networking = {
+        #   hostname = "";
+        # };
+      };
     };
   };
 
