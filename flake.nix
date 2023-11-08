@@ -8,6 +8,7 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    darwin-modules.url = "github:zachcoyle/darwin-modules";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,15 +29,14 @@
     };
     devshell = {
       url = "github:numtide/devshell";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
 
     # overlays
@@ -72,12 +72,10 @@
     };
     nur.url = "github:nix-community/nur";
 
-    # dep management
+    # just for dep management
     flake-utils = {
       url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
     };
-    systems.url = "github:nix-systems/default"; # might swap this out
     flake-compat.url = "github:edolstra/flake-compat";
   };
 

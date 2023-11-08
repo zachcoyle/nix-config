@@ -7,6 +7,7 @@
     modules = [
       ./common-system.nix
       ./darwin.nix
+      inputs.darwin-modules.darwinModule
       inputs.home-manager.darwinModules.home-manager
       {
         system.configurationRevision = self.rev or self.dirtyRef or null;

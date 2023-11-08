@@ -93,7 +93,7 @@
 
       NSGlobalDomain = {
         "com.apple.swipescrolldirection" = true;
-        # AppleAccentColor = "Green";
+        AppleAccentColor = "Green";
         AppleInterfaceStyle = "Dark";
         AppleKeyboardUIMode = 3;
         ApplePressAndHoldEnabled = true;
