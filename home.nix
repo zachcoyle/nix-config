@@ -18,6 +18,7 @@
       cachix
       coreutils-full
       ghq
+      git-get
       gitkraken
       gitnr
       jq
