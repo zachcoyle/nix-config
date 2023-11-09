@@ -16,6 +16,7 @@
       alejandra
       buildah
       cachix
+      comma
       coreutils-full
       ghq
       git-get
