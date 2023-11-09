@@ -166,6 +166,7 @@
 
       sessionVariables = {
         EDITOR = "nvim";
+        GITGET_ROOT = "~/Developer";
       };
 
       shellAliases = {
@@ -174,6 +175,7 @@
         vim = "nvim";
         cat = "bat";
         tree = "lsd --tree";
+        repos = "lsd --tree --depth 3 ~/Developer";
       };
     };
   };
