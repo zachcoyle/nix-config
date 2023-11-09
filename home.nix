@@ -17,6 +17,9 @@
       buildah
       cachix
       coreutils-full
+      ghq
+      gitkraken
+      gitnr
       jq
       just
       manix
