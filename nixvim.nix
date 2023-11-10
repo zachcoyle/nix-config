@@ -86,6 +86,7 @@
     mouse = "a";
     number = true;
     relativenumber = true;
+    wrap = false;
     clipboard = "unnamedplus";
     undofile = true;
     undodir = ["${config.xdg.configHome}nvim/.undo//"];
