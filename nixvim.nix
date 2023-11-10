@@ -25,6 +25,7 @@
         all,
       }:
         enabled ++ [all.xdebug]))
+      vscode-extensions.vadimcn.vscode-lldb.adapter
     ]
     ++ [
       # formatters
@@ -51,6 +52,7 @@
     telescope-ui-select-nvim
     tint-nvim
     neorepl-nvim
+    rustaceanvim
   ];
 
   extraConfigLua = ''
@@ -79,6 +81,8 @@
     require("tint").setup()
     --------------------------------------
     require("telescope").load_extension("refactoring")
+    --------------------------------------
+    require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
     --------------------------------------
   '';
 
@@ -143,7 +147,15 @@
     }
     {
       key = "<leader>ca";
-      action = "vim.lsp.buf.code_action";
+      action = ''
+        function()
+        if vim.bo.buftype == "rust"
+        then
+          vim.cmd.RustLsp('codeAction')
+        else
+          vim.lsp.buf.code_action()
+        end
+      '';
       options = {
         silent = true;
         desc = "LSP Code Actions";
@@ -276,22 +288,19 @@
       lua = true;
     }
     {
-      # TODO Combine with K
-      key = "<leader>rK";
-      action = "require('rust-tools').hover_actions.hover_actions";
+      key = "K";
+      action = ''
+        function()
+          if vim.bo.buftype == "rust"
+          then
+            vim.cmd.RustLsp { 'hover', 'actions' }
+          else
+            vim.lsp.buf.hover()
+        end
+      '';
       options = {
         silent = false;
-        desc = "Hover (Rust)";
-      };
-      lua = true;
-    }
-    {
-      # TODO: combine with <leader>ca
-      key = "<leader>rca";
-      action = "require('rust-tools').code_action_group.code_action_group";
-      options = {
-        silent = false;
-        desc = "Code Actions (Rust)";
+        desc = "LSP Hover";
       };
       lua = true;
     }
@@ -398,11 +407,7 @@
         sort = true;
         run_on_every_keystroke = true;
         snippet_placeholder = "..";
-        ignored_file_types = {
-          # -- default is not to ignored_file_types
-          # -- uncomment to ignore in lua:
-          # -- lua = trouble
-        };
+        ignored_file_types = {};
         show_prediction_strength = true;
       };
     };
@@ -579,7 +584,7 @@
           "<leader>k" = "goto_prev";
         };
         lspBuf = {
-          K = "hover"; # TODO on a rainy day, research mouse hover
+          # K = "hover"; # TODO on a rainy day, research mouse hover
           gd = "definition";
           gi = "implementation";
           gt = "type_definition";
@@ -708,34 +713,6 @@
     };
     rainbow-delimiters.enable = true;
     refactoring.enable = true;
-    rust-tools = {
-      enable = true;
-      hoverActions.autoFocus = true;
-      server = {
-        files = {
-          excludeDirs = [
-            ".direnv"
-          ];
-        };
-      };
-      extraOptions = {
-        dap = {
-          adapter = with {base_path = "${pkgs.vscode-marketplace.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";}; {
-            # FIXME:
-            # figuring this out thus far has been a living nightmare.
-            # See: https://github.com/simrat39/rust-tools.nvim/wiki/Debugging
-            # and: https://github.com/simrat39/rust-tools.nvim/blob/0cc8adab23117783a0292a0c8a2fbed1005dc645/lua/rust-tools/dap.lua#L8
-            type = "server";
-            port = "\${port}";
-            host = "127.0.0.1";
-            executable = {
-              command = "${base_path}/adapter/codelldb";
-              args = ["--liblldb" "${base_path}/lldb/lib/liblldb.dylib" "--port" "\${port}"];
-            };
-          };
-        };
-      };
-    };
     surround.enable = true;
     telescope = {
       enable = true;

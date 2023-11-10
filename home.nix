@@ -42,9 +42,7 @@
       ripgrep
       swift-format
     ];
-    file = {
-      # TODO: VSCode stuff
-    };
+    file = {};
   };
 
   programs = {
@@ -109,8 +107,7 @@
       enable = true;
       userEmail = "zach.coyle@gmail.com";
       userName = "Zach Coyle";
-      delta.enable = true;
-      # difftastic.enable = true;
+      difftastic.enable = true;
     };
 
     lazygit.enable = true;

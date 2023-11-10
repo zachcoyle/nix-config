@@ -45,7 +45,7 @@
     };
     diffEditor.ignoreTrimWhitespace = false;
     lldb = {
-      # FIXME:
+      # FIXME: hardcoded path
       library = "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB";
       launch.expressions = "native";
     };
