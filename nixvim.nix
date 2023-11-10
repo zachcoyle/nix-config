@@ -96,7 +96,7 @@
     foldlevel = 99;
     foldlevelstart = 99;
     foldenable = true;
-    signcolumn = "auto:5";
+    signcolumn = "yes:2";
     fillchars = {
       eob = " ";
       fold = " ";
