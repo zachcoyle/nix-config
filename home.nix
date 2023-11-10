@@ -25,6 +25,7 @@
       jq
       just
       manix
+      mdcat
       moreutils
       neovide
       nix-melt
