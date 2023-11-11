@@ -1,7 +1,11 @@
 {
   pkgs,
   config,
-}: {
+}: let
+  extension_path = "${pkgs.vscode-marketplace.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";
+  codelldb_path = "${extension_path}/adapter/codelldb";
+  liblldb_path = "${extension_path}/lldb/lib/liblldb.dylib"; # TODO: .so for linux
+in {
   enable = true;
   enableMan = true;
 
@@ -55,52 +59,47 @@
   ];
 
   extraConfigLua = ''
-        --------------------------------------
-        require("nvim-autopairs").setup({})
-        --------------------------------------
-        require("telescope").setup({
-          extensions = {
-            ["ui-select"] = {
-              require("telescope.themes").get_dropdown({}),
-            },
-          },
-        })
-        require("telescope").load_extension("ui-select")
-        --------------------------------------
-        local builtin = require("statuscol.builtin")
-        require("statuscol").setup({
-          relculright = true,
-          segments = {
-            { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-            { text = { "%s" }, click = "v:lua.ScSa" },
-            { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-          },
-        })
-        --------------------------------------
-        require("tint").setup()
-        --------------------------------------
-        require("telescope").load_extension("refactoring")
-        --------------------------------------
-        require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
-        --------------------------------------
-    local extension_path = "${pkgs.vscode-marketplace.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/"
-    local codelldb_path = extension_path .. "adapter/codelldb"
-    local liblldb_path = extension_path .. "lldb/lib/liblldb"
-    local this_os = vim.uv.os_uname().sysname
-    local liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
-
+    --------------------------------------
+    require("nvim-autopairs").setup({})
+    --------------------------------------
+    require("telescope").setup({
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({}),
+        },
+      },
+    })
+    require("telescope").load_extension("ui-select")
+    --------------------------------------
+    local builtin = require("statuscol.builtin")
+    require("statuscol").setup({
+      relculright = true,
+      segments = {
+        { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+        { text = { "%s" }, click = "v:lua.ScSa" },
+        { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+      },
+    })
+    --------------------------------------
+    require("tint").setup()
+    --------------------------------------
+    require("telescope").load_extension("refactoring")
+    --------------------------------------
+    -- require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
+    --------------------------------------
     vim.g.rustaceanvim = {
       server = {
         settings = {
-          ["rust-analyzer"] = {
+          ['rust-analyzer'] = {
             files = {
-              excludeDirs = { ".direnv" },
+              excludeDirs = {".direnv"},
+              watcherExclude = {".direnv"},
             },
           },
         },
       },
       dap = {
-        adapter = require("rustaceanvim.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+        adapter = require("rustaceanvim.dap").get_codelldb_adapter("${codelldb_path}", "${liblldb_path}"),
       },
     }
     --------------------------------------

@@ -1281,11 +1281,11 @@
         "pre-commit-hooks": "pre-commit-hooks_3"
       },
       "locked": {
-        "lastModified": 1699712954,
-        "narHash": "sha256-Ch6UfciWBpDMh1MJ65FrHevK5xNJ0XlC21e72QhpxdM=",
+        "lastModified": 1699718959,
+        "narHash": "sha256-Uti2l/wJ9BOZV5rfN3QcXEXYZU4MS3na6WrhuywL0B0=",
         "owner": "mrcjkb",
         "repo": "rustaceanvim",
-        "rev": "bbcee2077903bb1160d24ffdbe077f227ad90bdf",
+        "rev": "e3e0dc2ce1ba669ca8d8f367d76193829fe22192",
         "type": "github"
       },
       "original": {
