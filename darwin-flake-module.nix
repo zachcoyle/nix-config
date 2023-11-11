@@ -20,6 +20,7 @@
           inputs.nur.overlay
           (_: _: {
             # Currently broken on unstable
+            rustaceanvim = inputs.rustaceanvim.packages.x86_64-darwin.default;
             inherit (inputs.nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
           })
         ];

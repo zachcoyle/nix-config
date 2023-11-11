@@ -40,6 +40,7 @@
     };
 
     # overlays
+    rustaceanvim.url = "github:mrcjkb/rustaceanvim";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
