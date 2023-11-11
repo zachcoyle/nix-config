@@ -171,7 +171,16 @@ in {
     }
     {
       key = "<leader>ca";
-      action = "vim.lsp.buf.code_action";
+      action = ''
+        function()
+          if vim.bo.buftype == "rust"
+          then
+            vim.cmd.RustLsp('codeAction')
+          else
+            vim.lsp.buf.code_action()
+          end
+        end
+      '';
       options = {
         silent = true;
         desc = "LSP Code Actions";
