@@ -22,6 +22,8 @@ in {
     ++ [
       # dap
       rustc
+      # INFO: watch for this pr https://github.com/NixOS/nixpkgs/pull/264887
+      # pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
       cargo
       lldb
       (php.withExtensions ({
@@ -87,20 +89,23 @@ in {
     --------------------------------------
     -- require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
     --------------------------------------
+    -- INFO: watch for this pr https://github.com/NixOS/nixpkgs/pull/264887
     vim.g.rustaceanvim = {
       server = {
-        settings = {
+        settings = function()
+        return {
           ['rust-analyzer'] = {
             files = {
               excludeDirs = {".direnv"},
               watcherExclude = {".direnv"},
             },
           },
-        },
+        }
+        end
       },
-      dap = {
-        adapter = require("rustaceanvim.dap").get_codelldb_adapter("${codelldb_path}", "${liblldb_path}"),
-      },
+      -- dap = {
+      --   adapter = require("rustaceanvim.dap").get_codelldb_adapter("${codelldb_path}", "${liblldb_path}"),
+      -- },
     }
     --------------------------------------
   '';
