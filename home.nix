@@ -13,6 +13,7 @@
     username = "zcoyle";
     stateVersion = "23.05";
     packages = with pkgs; [
+      act
       asciinema
       alejandra
       buildah
@@ -41,6 +42,7 @@
       python3
       qemu
       ripgrep
+      scc
       swift-format
     ];
     file = {};
