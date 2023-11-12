@@ -111,7 +111,7 @@
         };
 
         devshells.default = {
-          name = "system flake";
+          name = "system-flake";
           env = [];
           devshell.startup.pre-commit-hooks.text = ''
             ${config.pre-commit.installationScript}
