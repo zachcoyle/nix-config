@@ -34,12 +34,12 @@ in {
     ]
     ++ [
       # formatters
+      biome
       codespell
       gofumpt
       just
       ktlint
       nodePackages.fixjson
-      prettierd
       ruff
       rustfmt
       stylua
@@ -444,12 +444,12 @@ in {
       formattersByFt = {
         "*" = ["codespell" "injected"];
         "_" = ["trim_whitespace"];
-        css = [["prettierd" "prettier"]];
+        css = ["biome"];
         go = ["gofumpt"];
-        graphql = [["prettierd" "prettier"]];
-        javascript = [["prettierd" "prettier"]];
-        javascriptreact = [["prettierd" "prettier"]];
-        json = ["fix_json" ["prettierd" "prettier"]];
+        graphql = ["biome"];
+        javascript = ["biome"];
+        javascriptreact = ["biome"];
+        json = ["fix_json" "biome"];
         just = ["just"];
         kotlin = ["ktlint"];
         lua = ["stylua"];
@@ -457,9 +457,9 @@ in {
         python = ["ruff_fix" "ruff_format"];
         rust = ["rustfmt"];
         swift = ["swift_format"];
-        typescript = [["prettierd" "prettier"]];
-        typescriptreact = [["prettierd" "prettier"]];
-        vue = [["prettierd" "prettier"]];
+        typescript = ["biome"];
+        typescriptreact = ["biome"];
+        vue = ["biome"];
         yaml = ["yamlfix" "yamlfmt"];
       };
     };
