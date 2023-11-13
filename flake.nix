@@ -47,7 +47,10 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         flake-compat.follows = "flake-compat";
-        hercules-ci-effects.inputs.flake-parts.follows = "flake-parts";
+        hercules-ci-effects = {
+          inputs.flake-parts.follows = "flake-parts";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
       };
     };
     nix-doom-emacs = {
