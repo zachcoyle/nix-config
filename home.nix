@@ -20,6 +20,10 @@
       cachix
       comma
       coreutils-full
+      (dwarf-fortress-packages.dwarf-fortress-full.override {
+        enableStoneSense = false;
+        enableDwarfTherapist = false;
+      })
       ghq
       git-get
       gitkraken
