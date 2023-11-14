@@ -35,6 +35,7 @@ in {
     ++ [
       # formatters
       biome
+      prettierd
       codespell
       gofumpt
       just
@@ -444,12 +445,12 @@ in {
       formattersByFt = {
         "*" = ["codespell" "injected"];
         "_" = ["trim_whitespace"];
-        css = ["biome"];
+        css = ["prettierd"];
         go = ["gofumpt"];
-        graphql = ["biome"];
-        javascript = ["biome"];
-        javascriptreact = ["biome"];
-        json = ["fix_json" "biome"];
+        graphql = ["prettierd"];
+        javascript = ["prettierd"];
+        javascriptreact = ["prettierd"];
+        json = ["fix_json" "prettierd"];
         just = ["just"];
         kotlin = ["ktlint"];
         lua = ["stylua"];
@@ -457,9 +458,9 @@ in {
         python = ["ruff_fix" "ruff_format"];
         rust = ["rustfmt"];
         swift = ["swift_format"];
-        typescript = ["biome"];
-        typescriptreact = ["biome"];
-        vue = ["biome"];
+        typescript = ["prettierd"];
+        typescriptreact = ["prettierd"];
+        vue = ["prettierd"];
         yaml = ["yamlfix" "yamlfmt"];
       };
     };
@@ -619,6 +620,7 @@ in {
       };
       servers = {
         bashls.enable = true;
+        # biome.enable = true;
         csharp-ls.enable = pkgs.stdenv.isLinux;
         cssls.enable = true;
         eslint.enable = true;
