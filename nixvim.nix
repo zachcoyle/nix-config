@@ -620,7 +620,7 @@ in {
       };
       servers = {
         bashls.enable = true;
-        # biome.enable = true;
+        biome.enable = true;
         csharp-ls.enable = pkgs.stdenv.isLinux;
         cssls.enable = true;
         eslint.enable = true;

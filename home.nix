@@ -36,8 +36,6 @@
       neovide
       nix-melt
       nix-top
-      nodejs_20
-      nodePackages_latest.pnpm
       podman
       podman-compose
       podman-tui
