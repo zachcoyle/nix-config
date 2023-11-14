@@ -294,6 +294,14 @@ in {
       };
     }
     {
+      key = "<leader>tp";
+      action = ":Telescope projects<cr>";
+      options = {
+        silent = true;
+        desc = "Telescope Projects";
+      };
+    }
+    {
       key = "]t";
       action = "require('todo-comments').jump_next";
       options = {
@@ -739,6 +747,7 @@ in {
         end
       '';
     };
+    project-nvim.enable = true;
     rainbow-delimiters.enable = true;
     refactoring.enable = true;
     surround.enable = true;
@@ -782,7 +791,7 @@ in {
         frecency.enable = true;
         fzf-native.enable = true;
         media_files.enable = true;
-        # project-nvim.enable = true; # TODO: this is busted
+        project-nvim.enable = true;
         undo.enable = true;
       };
     };
