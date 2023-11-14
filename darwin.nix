@@ -23,10 +23,14 @@
 
   services = {
     sketchybar = import ./sketchybar.nix {inherit pkgs;};
+
     skhd = {
       enable = true;
       skhdConfig = builtins.readFile ./dots/skhdrc;
     };
+
+    tailscale.enable = true;
+
     yabai = {
       enable = true;
       ##############
