@@ -28,6 +28,7 @@
       git-get
       gitkraken
       gitnr
+      hurl
       jq
       just
       manix
@@ -36,6 +37,7 @@
       neovide
       nix-melt
       nix-top
+      opentofu
       podman
       podman-compose
       podman-tui
@@ -139,6 +141,16 @@
 
     tmux = {
       enable = true;
+      aggressiveResize = true;
+      mouse = true;
+      keyMode = "vi";
+      prefix = "C-b";
+      plugins = with pkgs.tmuxPlugins; [
+        {plugin = sensible;}
+        {plugin = battery;}
+        {plugin = gruvbox;}
+        {plugin = mode-indicator;}
+      ];
     };
 
     vscode = import ./vscode.nix {inherit pkgs;};
