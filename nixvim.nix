@@ -41,6 +41,7 @@ in {
       just
       ktlint
       nodePackages.fixjson
+      nodePackages.sql-formatter
       ruff
       rustfmt
       stylua
@@ -466,6 +467,7 @@ in {
         python = ["ruff_fix" "ruff_format"];
         rust = ["rustfmt"];
         swift = ["swift_format"];
+        sql = ["sql_formatter"];
         typescript = ["prettierd"];
         typescriptreact = ["prettierd"];
         vue = ["prettierd"];
