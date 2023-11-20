@@ -636,7 +636,7 @@ in {
         eslint.enable = true;
         gopls.enable = true;
         html.enable = true;
-        intelephense.enable = true;
+        # intelephense.enable = true;
         jsonls.enable = true;
         kotlin-language-server.enable = true;
         lua-ls.enable = true;
