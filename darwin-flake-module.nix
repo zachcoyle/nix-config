@@ -15,6 +15,7 @@
         nixpkgs.overlays = [
           # FIXME: Not the best place for these overlays to live
           # inputs.neovim-nightly-overlay.overlay
+          inputs.telescope-just.overlays.default
           inputs.nixpkgs-firefox-darwin.overlay
           inputs.nix-vscode-extensions.overlays.default
           inputs.nur.overlay

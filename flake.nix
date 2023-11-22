@@ -40,6 +40,7 @@
     };
 
     # overlays
+    telescope-just.url = "github:zachcoyle/telescope-just";
     rustaceanvim.url = "github:mrcjkb/rustaceanvim";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";

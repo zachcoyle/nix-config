@@ -60,6 +60,7 @@ in {
     tint-nvim
     neorepl-nvim
     pkgs.rustaceanvim
+    telescope_just
   ];
 
   extraConfigLua = ''
@@ -301,6 +302,11 @@ in {
         silent = true;
         desc = "Telescope Projects";
       };
+    }
+    {
+      key = "<leader>tj";
+      action = "require('just').just";
+      lua = true;
     }
     {
       key = "]t";
