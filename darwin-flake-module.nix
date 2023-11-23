@@ -39,7 +39,7 @@
 in {
   flake = rec {
     darwinConfigurations = {
-      Zachs-Macbook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
+      Zachs-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
       Zacharys-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
     };
     darwinPackages = darwinConfigurations."Zacharys-MacBook-Pro".pkgs;
