@@ -71,11 +71,20 @@
     };
 
     defaults = {
+      ActivityMonitor = {
+        ShowCategory = 100;
+        IconType = 6;
+      };
+
+      CustomUserPreferences = {};
+
       dock = {
         autohide = false;
         dashboard-in-overlay = false;
         mineffect = "suck";
         mouse-over-hilite-stack = true;
+        magnification = true;
+        largesize = 128;
         mru-spaces = false;
         orientation = "left";
         show-process-indicators = true;
@@ -88,14 +97,10 @@
         _FXShowPosixPathInTitle = true;
         AppleShowAllExtensions = true;
         FXEnableExtensionChangeWarning = false;
+        FXPreferredViewStyle = "clmv";
+        ShowPathbar = true;
+        ShowStatusBar = true;
         QuitMenuItem = true;
-      };
-
-      trackpad = {
-        Clicking = true;
-        Dragging = true;
-        TrackpadRightClick = false;
-        TrackpadThreeFingerDrag = false;
       };
 
       NSGlobalDomain = {
@@ -115,6 +120,20 @@
         NSNavPanelExpandedStateForSaveMode2 = true;
         PMPrintingExpandedStateForPrint = true;
         PMPrintingExpandedStateForPrint2 = true;
+      };
+
+      screencapture.location = "/Users/zcoyle/Pictures/Screenshots/";
+
+      trackpad = {
+        Clicking = true;
+        Dragging = true;
+        TrackpadRightClick = false;
+        TrackpadThreeFingerDrag = false;
+      };
+
+      universalaccess = {
+        closeViewScrollWheelToggle = true;
+        closeViewZoomFollowsFocus = true;
       };
     };
   };
