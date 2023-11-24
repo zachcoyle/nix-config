@@ -21,6 +21,10 @@
 
   users.users.zcoyle.home = "/Users/zcoyle/";
 
+  environment.systemPackages = with pkgs; [
+    dockutil
+  ];
+
   services = {
     sketchybar = import ./sketchybar.nix {inherit pkgs;};
 
@@ -88,7 +92,7 @@
         mru-spaces = false;
         orientation = "left";
         show-process-indicators = true;
-        show-recents = true;
+        show-recents = false;
         showhidden = true;
         tilesize = 12;
       };

@@ -26,7 +26,6 @@
       })
       ghq
       git-get
-      gitkraken
       gitnr
       hurl
       jq
@@ -48,6 +47,7 @@
       ripgrep
       scc
       swift-format
+      tealdeer
     ];
     file = {};
   };

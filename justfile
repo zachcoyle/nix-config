@@ -53,3 +53,6 @@ check:
     nix flake check
 
 alias c := check
+
+dock:
+  sh ./dock.sh

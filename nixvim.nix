@@ -35,6 +35,7 @@ in {
     ++ [
       # formatters
       biome
+      beautysh
       prettierd
       codespell
       gofumpt
@@ -473,6 +474,7 @@ in {
         python = ["ruff_fix" "ruff_format"];
         rust = ["rustfmt"];
         swift = ["swift_format"];
+        sh = ["beautysh"];
         sql = ["sql_formatter"];
         typescript = ["prettierd"];
         typescriptreact = ["prettierd"];
