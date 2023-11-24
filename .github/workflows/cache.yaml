@@ -16,4 +16,4 @@ jobs:
           name: zachcoyle
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - run: nix build .#darwinConfigurations.Zacharys-MacBook-Pro.system --show-trace
-      - run: nix build .#darwinConfigurations.Zachs-Macbook-Pro.system --show-trace
+      - run: nix build .#darwinConfigurations.Zachs-MacBook-Pro.system --show-trace
