@@ -33,7 +33,7 @@
       skhdConfig = builtins.readFile ./dots/skhdrc;
     };
 
-    tailscale.enable = true;
+    # tailscale.enable = true;
 
     yabai = {
       enable = true;

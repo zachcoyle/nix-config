@@ -337,7 +337,7 @@ in {
           then
             vim.cmd.RustLsp { 'hover', 'actions' }
           else
-            vim.lsp.buf.hover()
+            vim.cmd[[ Lspsaga hover_doc ]]
           end
         end
       '';
@@ -664,6 +664,7 @@ in {
       fromVscode = [{}];
     };
     lspkind.enable = true;
+    lspsaga.enable = true;
     neogit = {
       enable = true;
       autoRefresh = true;
