@@ -55,7 +55,6 @@ in {
     # TODO: https://github.com/IndianBoy42/tree-sitter-just
     friendly-snippets
     nvim-autopairs
-    nvim-treesitter-textobjects # TODO: needs module
     statuscol-nvim
     telescope-ui-select-nvim
     tint-nvim
@@ -819,93 +818,92 @@ in {
       ensureInstalled = "all";
       folding = true;
       nixvimInjections = true;
-      # TODO: as I stated above, this needs to be moved to nixvim
-      moduleConfig = {
-        textobjects = {
-          select = {
-            enable = true;
-            lookahead = true;
-            keymaps = {
-              "af" = "@function.outer";
-              "if" = "@function.inner";
-              "ac" = "@class.outer";
-              "ic" = {
-                query = "@class.inner";
-                desc = "Select inner part of a class region";
-              };
-              "as" = {
-                query = "@scope";
-                query_group = "locals";
-                desc = "Select language scope";
-              };
-            };
-            selection_modes = {
-              "@parameter.outer" = "v";
-              "@function.outer" = "V";
-              "@class.outer" = "<c-v>";
-            };
-            include_surrounding_whitespace = true;
-          };
-          swap = {
-            enable = true;
-            swap_next = {
-              "<leader>a" = "@parameter.inner";
-            };
-            swap_previous = {
-              "<leader>A" = "@parameter.inner";
-            };
-          };
-          move = {
-            enable = true;
-            set_jumps = true;
-            goto_next_start = {
-              "]m" = "@function.outer";
-              "]]" = {
-                query = "@class.outer";
-                desc = "Next class start";
-              };
-              # "o" = "@loop.*"; # I use o too much to bind this. gotta come up with a different binding
-              "]s" = {
-                query = "@scope";
-                query_group = "locals";
-                desc = "Next scope";
-              };
-              "]z" = {
-                query = "@fold";
-                query_group = "folds";
-                desc = "Next fold";
-              };
-            };
-            goto_next_end = {
-              "]M" = "@function.outer";
-              "[[" = "@class.outer";
-            };
-            goto_previous_end = {
-              "[M" = "@function.outer";
-              "[]" = "@class.outer";
-            };
-            goto_next = {
-              "]d" = "@conditional.outer";
-            };
-            goto_previous = {
-              "[d" = "@conditional.outer";
-            };
-          };
-          lsp_interop = {
-            enable = true;
-            border = "none";
-            floating_preview_opts = {};
-            peek_definition_code = {
-              "<leader>df" = "@function.outer";
-              "<leader>dF" = "@class.outer";
-            };
-          };
-        };
-      };
+      moduleConfig = {};
     };
     treesitter-refactor = {
       enable = true;
       highlightDefinitions.enable = true;
+    };
+    treesitter-textobjects = {
+      enable = true;
+      lspInterop = {
+        enable = true;
+        border = "double";
+        floatingPreviewOpts = {};
+        peekDefinitionCode = {
+          "<leader>df" = "@function.outer";
+          "<leader>dF" = "@class.outer";
+        };
+      };
+      move = {
+        enable = true;
+        setJumps = true;
+        gotoNextStart = {
+          "]m" = "@function.outer";
+          "]]" = {
+            query = "@class.outer";
+            desc = "Next class start";
+          };
+          # "o" = "@loop.*"; # I use o too much to bind this. gotta come up with a different binding
+          "]s" = {
+            query = "@scope";
+            queryGroup = "locals";
+            desc = "Next scope";
+          };
+          "]z" = {
+            query = "@fold";
+            queryGroup = "folds";
+            desc = "Next fold";
+          };
+        };
+        gotoNextEnd = {
+          "]M" = "@function.outer";
+          "[[" = "@class.outer";
+        };
+        gotoPreviousEnd = {
+          "[M" = "@function.outer";
+          "[]" = "@class.outer";
+        };
+        gotoNext = {
+          "]d" = "@conditional.outer";
+        };
+        gotoPrevious = {
+          "[d" = "@conditional.outer";
+        };
+      };
+      select = {
+        enable = true;
+        lookahead = true;
+        includeSurroundingWhitespace = true;
+        keymaps = {
+          "af" = "@function.outer";
+          "if" = "@function.inner";
+          "ac" = "@class.outer";
+          "ic" = {
+            query = "@class.inner";
+            desc = "Select inner part of a class region";
+          };
+          "as" = {
+            query = "@scope";
+            queryGroup = "locals";
+            desc = "Select language scope";
+          };
+        };
+        selectionModes = {
+          "@parameter.outer" = "v";
+          "@function.outer" = "V";
+          "@class.outer" = "<c-v>";
+        };
+      };
+      swap = {
+        enable = true;
+        swapNext = {
+          "<leader>a" = "@parameter.inner";
+        };
+        swapPrevious = {
+          "<leader>A" = "@parameter.inner";
+        };
+      };
     };
     trouble.enable = true;
     ts-autotag.enable = true;
