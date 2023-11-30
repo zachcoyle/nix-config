@@ -7,7 +7,7 @@
   liblldb_path = "${extension_path}/lldb/lib/liblldb.dylib"; # TODO: .so for linux
 in {
   enable = true;
-  enableMan = true;
+  enableMan = false;
 
   editorconfig.enable = true;
 
