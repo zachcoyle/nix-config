@@ -663,7 +663,14 @@ in {
       fromVscode = [{}];
     };
     lspkind.enable = true;
-    lspsaga.enable = true;
+    lspsaga = {
+      enable = true;
+      extraOptions = {
+        symbol_in_winbar = {
+          enable = false;
+        };
+      };
+    };
     neogit = {
       enable = true;
       autoRefresh = true;
