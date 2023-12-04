@@ -579,7 +579,7 @@ in {
       theme = "gruvbox";
     };
     harpoon = {
-      enable = true;
+      enable = false;
       enableTelescope = true;
       # this can do a lot more, basically using it as glorified marks rn
       keymaps = {
