@@ -20,6 +20,7 @@
       cachix
       comma
       coreutils-full
+      dasel
       (dwarf-fortress-packages.dwarf-fortress-full.override {
         enableStoneSense = false;
         enableDwarfTherapist = false;
