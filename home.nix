@@ -44,10 +44,12 @@
       process-compose
       python3
       qemu
+      quicktype
       ripgrep
       scc
       swift-format
       tealdeer
+      yq
     ];
     file = {};
   };
