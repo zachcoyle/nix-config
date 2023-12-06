@@ -49,6 +49,7 @@
       ripgrep
       scc
       swift-format
+      sword
       tealdeer
       yq
     ];
@@ -115,6 +116,7 @@
 
     git = {
       enable = true;
+      package = pkgs.gitSVN;
       userEmail = "zach.coyle@gmail.com";
       userName = "Zach Coyle";
       difftastic.enable = true;
