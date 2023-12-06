@@ -20,6 +20,7 @@
       cachix
       comma
       coreutils-full
+      dasel
       (dwarf-fortress-packages.dwarf-fortress-full.override {
         enableStoneSense = false;
         enableDwarfTherapist = false;
@@ -44,10 +45,13 @@
       process-compose
       python3
       qemu
+      quicktype
       ripgrep
       scc
       swift-format
+      sword
       tealdeer
+      yq
     ];
     file = {};
   };
@@ -112,6 +116,7 @@
 
     git = {
       enable = true;
+      package = pkgs.gitSVN;
       userEmail = "zach.coyle@gmail.com";
       userName = "Zach Coyle";
       difftastic.enable = true;
