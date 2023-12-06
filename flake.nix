@@ -41,6 +41,13 @@
 
     # overlays
     telescope-just.url = "github:zachcoyle/telescope-just";
+    sword-flake = {
+      url = "github:zachcoyle/sword-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     rustaceanvim.url = "github:mrcjkb/rustaceanvim";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
