@@ -93,7 +93,7 @@
     };
 
     doom-emacs = {
-      enable = true;
+      enable = false;
       doomPrivateDir = ./dots/doom.d;
     };
 
