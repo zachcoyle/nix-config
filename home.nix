@@ -38,6 +38,7 @@
       nix-melt
       nix-top
       opentofu
+      pijul
       podman
       podman-compose
       podman-tui
