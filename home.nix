@@ -52,6 +52,7 @@
       swift-format
       sword
       tealdeer
+      visidata
       yq
     ];
     file = {};
