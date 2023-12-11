@@ -53,6 +53,7 @@
       sword
       tealdeer
       visidata
+      xsv
       yq
     ];
     file = {};
