@@ -26,6 +26,7 @@
         enableStoneSense = false;
         enableDwarfTherapist = false;
       })
+      fd
       ghq
       git-get
       gitnr
