@@ -851,7 +851,7 @@ in {
             query = "@class.outer";
             desc = "Next class start";
           };
-          # "o" = "@loop.*"; # I use o too much to bind this. gotta come up with a different binding
+          "<leader>o" = "@loop.*";
           "]s" = {
             query = "@scope";
             queryGroup = "locals";
@@ -883,6 +883,8 @@ in {
         lookahead = true;
         includeSurroundingWhitespace = true;
         keymaps = {
+          "ao" = "@loop.outer";
+          "io" = "@loop.inner";
           "af" = "@function.outer";
           "if" = "@function.inner";
           "ac" = "@class.outer";
