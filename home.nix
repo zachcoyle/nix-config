@@ -21,6 +21,7 @@
       comma
       coreutils-full
       dasel
+      dos2unix
       dsq
       (dwarf-fortress-packages.dwarf-fortress-full.override {
         enableStoneSense = false;
@@ -55,6 +56,7 @@
       sword
       tealdeer
       visidata
+      wget
       xsv
       yq
     ];
