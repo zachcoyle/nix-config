@@ -30,6 +30,7 @@
       fd
       ghq
       git-get
+      git-lfs
       gitnr
       hurl
       jq
