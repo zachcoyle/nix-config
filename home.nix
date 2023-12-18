@@ -21,6 +21,7 @@
       comma
       coreutils-full
       dasel
+      dos2unix
       dsq
       (dwarf-fortress-packages.dwarf-fortress-full.override {
         enableStoneSense = false;
@@ -29,6 +30,7 @@
       fd
       ghq
       git-get
+      git-lfs
       gitnr
       hurl
       jq
@@ -51,10 +53,12 @@
       quicktype
       ripgrep
       scc
+      sqlite3
       swift-format
       sword
       tealdeer
       visidata
+      wget
       xsv
       yq
     ];
