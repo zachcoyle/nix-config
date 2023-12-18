@@ -53,6 +53,7 @@
       quicktype
       ripgrep
       scc
+      sqlite3
       swift-format
       sword
       tealdeer
