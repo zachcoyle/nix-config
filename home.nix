@@ -16,7 +16,7 @@
       act
       asciinema
       alejandra
-      buildah
+      # buildah
       cachix
       comma
       coreutils-full
