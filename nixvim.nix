@@ -61,6 +61,7 @@ in {
     neorepl-nvim
     pkgs.rustaceanvim
     telescope_just
+    sg-nvim
   ];
 
   extraConfigLua = ''
@@ -109,6 +110,10 @@ in {
       -- dap = {
       --   adapter = require("rustaceanvim.dap").get_codelldb_adapter("${codelldb_path}", "${liblldb_path}"),
       -- },
+    }
+    --------------------------------------
+    require("sg").setup {
+      enable_cody = true
     }
     --------------------------------------
   '';

@@ -40,6 +40,7 @@
     };
 
     # overlays
+    sg-nvim.url = "github:sourcegraph/sg.nvim";
     telescope-just.url = "github:zachcoyle/telescope-just";
     sword-flake = {
       url = "github:zachcoyle/sword-flake";
