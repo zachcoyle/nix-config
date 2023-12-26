@@ -30,7 +30,6 @@
       fd
       ghq
       git-get
-      git-lfs
       gitnr
       hurl
       jq
@@ -142,6 +141,7 @@
       userEmail = "zach.coyle@gmail.com";
       userName = "Zach Coyle";
       difftastic.enable = true;
+      lfs.enable = true;
     };
 
     lazygit.enable = true;
