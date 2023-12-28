@@ -26,7 +26,7 @@
   ];
 
   services = {
-    sketchybar = import ./sketchybar.nix {inherit pkgs;};
+    # sketchybar = import ./sketchybar.nix {inherit pkgs;};
 
     skhd = {
       enable = true;
