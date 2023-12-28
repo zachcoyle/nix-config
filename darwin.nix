@@ -50,7 +50,7 @@
         window_opacity = "on";
         active_window_opacity = 1.0;
         normal_window_opacity = 0.9;
-        top_padding = 34;
+        top_padding = 3;
         bottom_padding = 3;
         left_padding = 3;
         right_padding = 3;
