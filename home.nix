@@ -56,6 +56,7 @@
       swift-format
       sword
       tealdeer
+      util-linux
       visidata
       wget
       xsv
