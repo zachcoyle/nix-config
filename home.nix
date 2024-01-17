@@ -69,18 +69,21 @@
     alacritty = {
       enable = true;
       settings = {
-        decorations_theme_variant = "Dark";
+        window = {
+          decorations_theme_variant = "Dark";
+          blur = true;
+          opacity = 0.8;
+        };
         font.normal.family = "FiraCode Nerd Font";
         font.size = 13.0;
-        key_bindings = [
-          # TODO: enable when next version releases
-          # {
-          #   key = "T";
-          #   mods = "Command";
-          #   action = "CreateNewTab";
-          # }
+        keyboard.bindings = [
+          {
+            key = "T";
+            mods = "Command";
+            action = "CreateNewTab";
+          }
         ];
-        import = ["${pkgs.alacritty-theme}/gruvbox_dark.yaml"];
+        import = ["${pkgs.alacritty-theme}/gruvbox_dark.toml"];
       };
     };
 
