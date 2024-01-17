@@ -18,7 +18,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         pre-commit-hooks.follows = "pre-commit-hooks";
-        flake-utils.follows = "flake-utils";
       };
     };
 

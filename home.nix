@@ -45,7 +45,7 @@
       podman
       podman-compose
       podman-tui
-      poetry
+      # poetry
       process-compose
       python3
       qemu

@@ -47,7 +47,7 @@ in {
       rustfmt
       stylua
       swift-format
-      yamlfix
+      # yamlfix
       yamlfmt
     ];
 
