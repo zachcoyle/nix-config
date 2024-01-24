@@ -21,6 +21,11 @@
       };
     };
 
+    apple-firmware = {
+      url = "github:AdityaGarg8/Apple-Firmware";
+      flake = false;
+    };
+
     # flake modules
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -97,6 +102,17 @@
       systems = [
         "x86_64-darwin"
       ];
+
+      flake = {
+        nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+          ];
+        };
+      };
 
       perSystem = {
         config,
