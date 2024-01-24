@@ -13,36 +13,40 @@
     "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/apple/t2"
   ];
   # MacBookPro16,1
-  #hardware.firmware = [
-  #     (pkgs.stdenvNoCC.mkDerivation {
-  #     name = "brcm-firmware";
-  #     buildCommand= ''
-  #     dir="$out/lib/firmware"
-  #     mkdir -p "$dir"
-  #     cp -r ${./files/firmware}/* "$dir"
-  #     '';
-  #     })
-  #];
+  hardware.enableAllFirmware = true;
+  hardware.firmware = [
+    (pkgs.stdenvNoCC.mkDerivation {
+      name = "brcm-firmware";
+      buildCommand = ''
+               dir="$out/lib/firmware"
+               mkdir -p "$dir"
+        echo "********"
+        echo "********"
+        echo "********"
+        echo "$dir"
+        echo "${builtins.fetchGit {url = "https://github.com/AdityaGarg8/Apple-Firmware";}}"
+        echo "********"
+        echo "********"
+
+               cp -r ${builtins.fetchGit {url = "https://github.com/AdityaGarg8/Apple-Firmware";}}/lib/firmware/brcm/* "$dir"
+      '';
+    })
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = ["wl"];
   boot.extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
-  boot.blacklistedKernelModules = ["b43" "bcma"];
-  nixpkgs.config.allowUnfree = true;
-  hardware.firmware = [
-    (pkgs.stdenvNoCC.mkDerivation {
-      name = "bcrm-firmware";
-      buildCommand = ''
-        dir="$out/lib/firmware"
-        mkdir -p "$dir"
-        cp -r ${inputs.apple-firmware}/lib/firmware/bcrm/* "$dir"
-      '';
-    })
+  boot.blacklistedKernelModules = [
+    "b43"
+    "bcma"
+    "ssb"
+    "brcmfmac"
   ];
+  nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "aleph";
+  # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -95,6 +99,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    iwd
     wget
     git
     firefox
@@ -102,6 +107,8 @@
     ifuse
     dmidecode
     lshw
+    nyxt
+    alejandra
   ];
 
   services.usbmuxd = {
@@ -140,8 +147,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
-  #  programs.autorandr = {
-  #    enable = true;
-  #  };
 }
