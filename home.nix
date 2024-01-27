@@ -29,23 +29,39 @@
       exec-once = copyq --start-server
       exec-once = swww init
       bind = SUPER, F, exec, firefox
+      bind = SUPER, N, exec, nyxt
       bind = SUPER, A, exec, alacritty
       bind = SUPER, W, killactive
       bind = SUPER, T, togglefloating
+
 
       bind = SUPER, 1, workspace, 1
       bind = SUPER, 2, workspace, 2
       bind = SUPER, 3, workspace, 3
       bind = SUPER, 4, workspace, 4
 
+      bind = SUPER, K, exec, kickoff
+
       bind = , XF86AudioRaiseVolume, exec, volumectl -u up
+      bind = , XF86AudioLowerVolume, exec, volumectl -u down
+      bind = , XF86AudioMute, exec, volumectl toggle-mute
+
+      bind = , XF86MonBrightnessUp, exec, lightctl up
+      bind = , XF86MonBrightnessDown, exec, lightctl down
+
+      bind = , XF86AudioPrev, exec, playerctl previous
+      bind = , XF86AudioPlay, exec, playerctl play-pause
+      bind = , XF86AudioNext, exec, playerctl next
+
+      bind = , XF86KbdBrightnessUp, exec, brightnessctl -d ":white:kbd_backlight" s 10%+
+      bind = , XF86KbdBrightnessDown, exec, brightnessctl -d ":white:kbd_backlight" s 10%-
     '';
     settings = {
       decoration = {
         "col.shadow" = "rgba(00000099)";
         active_opacity = 1.0;
         drop_shadow = true;
-        inactive_opacity = 0.4;
+        inactive_opacity = 0.8;
         rounding = 10;
         shadow_offset = "0 5";
         dim_inactive = true;
@@ -78,6 +94,9 @@
           layer = "top";
           position = "top";
           height = 30;
+          modules-left = [
+            "custom/logo"
+          ];
           modules-right = [
             "pulseaudio/slider"
             "bluetooth"
@@ -85,6 +104,10 @@
             "battery"
             "clock"
           ];
+          "custom/logo" = {
+            format = "launch";
+            on-click = "kickoff";
+          };
         };
       };
       style = ''
@@ -102,7 +125,7 @@
           opacity = 0.8;
         };
         font.normal.family = "FiraCode Nerd Font";
-        font.size = 12.0;
+        font.size = 10.0;
         keyboard.bindings = lib.optionals (pkgs.system == "x86_64-darwin") [
           {
             key = "T";
@@ -256,6 +279,9 @@
         repos = "lsd --tree --depth 3 ~/Developer";
       };
     };
+    mpv = {
+      enable = true;
+    };
   };
 
   imports = [
@@ -288,6 +314,7 @@
         hurl
         jq
         just
+        killall
         manix
         mdcat
         moreutils
@@ -317,12 +344,14 @@
         yq
       ]
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
-        copyq
-        libsForQt5.dolphin
-        libsForQt5.dolphin-plugins
-        avizo
-        swww
         # wayland-random-wallpaper
+        avizo
+        brightnessctl
+        copyq
+        cosmic-files
+        kickoff
+        playerctl
+        swww
         unzip
       ];
     file = {};

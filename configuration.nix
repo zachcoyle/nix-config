@@ -37,6 +37,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = true;
     kernelModules = ["wl"];
     extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
     blacklistedKernelModules = [
