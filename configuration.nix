@@ -5,45 +5,47 @@
   config,
   pkgs,
   inputs,
+  system,
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/apple/t2"
+    inputs.nixos-hardware.nixosModules.apple-t2
   ];
-  # MacBookPro16,1
-  hardware.enableAllFirmware = true;
-  hardware.firmware = [
-    (pkgs.stdenvNoCC.mkDerivation {
-      name = "brcm-firmware";
-      buildCommand = ''
-               dir="$out/lib/firmware"
-               mkdir -p "$dir"
-        echo "********"
-        echo "********"
-        echo "********"
-        echo "$dir"
-        echo "${builtins.fetchGit {url = "https://github.com/AdityaGarg8/Apple-Firmware";}}"
-        echo "********"
-        echo "********"
+  hardware = {
+    # MacBookPro16,1
+    enableAllFirmware = true;
+    firmware = [
+      (pkgs.stdenvNoCC.mkDerivation {
+        name = "brcm-firmware";
+        buildCommand = ''
+          dir="$out/lib/firmware"
+          mkdir -p "$dir"
+          cp -r ${inputs.apple-firmware}/lib/firmware/* "$dir"
+        '';
+      })
+    ];
 
-               cp -r ${builtins.fetchGit {url = "https://github.com/AdityaGarg8/Apple-Firmware";}}/lib/firmware/brcm/* "$dir"
-      '';
-    })
-  ];
+    #services.xserver.videoDrivers = ["amdgpu-pro"];
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+  };
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = ["wl"];
-  boot.extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
-  boot.blacklistedKernelModules = [
-    "b43"
-    "bcma"
-    "ssb"
-    "brcmfmac"
-  ];
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelModules = ["wl"];
+    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
+    blacklistedKernelModules = [
+      #"b43"
+      #"bcma"
+      #"ssb"
+      "brcmfmac"
+    ];
+  };
   nixpkgs.config.allowUnfree = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
@@ -60,39 +62,64 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
+  services = {
+    xserver = {
+      # console = {
+      #   font = "Lat2-Terminus16";
+      #   keyMap = "us";
+      #   useXkbConfig = true; # use xkbOptions in tty.
+      # };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+      # Enable the X11 windowing system.
+      enable = true;
+      displayManager = {
+        sddm = {
+          enable = true;
+          enableHidpi = true;
+          sugarCandyNix = {
+            enable = true;
+            settings = {
+              # Background = lib.cleanSource
+              ScreenWidth = 1920;
+              ScreenHeight = 1080;
+              FormPosition = "left";
+              HaveFormBackground = true;
+              PartialBlur = true;
+            };
+          };
+        };
+      };
+      layout = "us";
 
-  # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+    };
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      audio.enable = true;
+      pulse.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      jack.enable = true;
+    };
 
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+    usbmuxd = {
+      enable = true;
+      package = pkgs.usbmuxd2;
+    };
+  };
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zcoyle = {
     isNormalUser = true;
     extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
-    packages = with pkgs; [
-    ];
+    packages = with pkgs; [];
   };
 
   # List packages installed in system profile. To search, run:
@@ -101,6 +128,7 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     iwd
     wget
+    alacritty
     git
     firefox
     libimobiledevice
@@ -109,12 +137,14 @@
     lshw
     nyxt
     alejandra
+    neofetch
+    #xdg-desktop-portal-hyperland
+    pciutils
+    linuxKernel.packages.linux_zen.broadcom_sta
   ];
-
-  services.usbmuxd = {
-    enable = true;
-    package = pkgs.usbmuxd2;
-  };
+  programs.hyprland.enable = true;
+  programs.zsh.enable = true;
+  users.users.zcoyle.shell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -147,4 +177,15 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+  environment.etc = {
+    "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=1";
+    "xdg/gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=1
+    '';
+    "xdg/gtk-4.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
 }
