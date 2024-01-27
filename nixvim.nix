@@ -34,6 +34,7 @@ in {
     ]
     ++ [
       # formatters
+      alejandra
       biome
       beautysh
       prettierd
@@ -785,6 +786,10 @@ in {
           desc = "Telescope Live Grep";
         };
         "<c-_>" = {
+          action = "live_grep";
+          desc = "Telescope Live Grep";
+        };
+        "<leader>ts" = {
           action = "live_grep";
           desc = "Telescope Live Grep";
         };

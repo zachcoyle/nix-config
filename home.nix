@@ -1,71 +1,98 @@
 {
   pkgs,
+  lib,
   nixvim,
   nix-doom-emacs,
   config,
   ...
 }: {
-  imports = [
-    nixvim.homeManagerModules.nixvim
-    nix-doom-emacs.hmModule
-  ];
-  home = {
-    username = "zcoyle";
-    stateVersion = "24.05";
-    packages = with pkgs; [
-      act
-      asciinema
-      alejandra
-      # buildah
-      cachix
-      comma
-      coreutils-full
-      dasel
-      dos2unix
-      dsq
-      (dwarf-fortress-packages.dwarf-fortress-full.override {
-        enableStoneSense = false;
-        enableDwarfTherapist = false;
-      })
-      fd
-      ghq
-      git-get
-      gitnr
-      hurl
-      jq
-      just
-      manix
-      mdcat
-      moreutils
-      neovide
-      nix-melt
-      nix-top
-      opentofu
-      pijul
-      podman
-      podman-compose
-      podman-tui
-      # poetry
-      process-compose
-      python3
-      qemu
-      quicktype
-      ripgrep
-      scc
-      sqlite
-      swift-format
-      sword
-      tealdeer
-      util-linux
-      visidata
-      wget
-      xsv
-      yq
-    ];
-    file = {};
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "Bibata-Modern-Ice";
+    size = 24;
+    package = pkgs.bibata-cursors;
   };
 
+  # gtk= {
+  #   enable = true;
+  #     cursorTheme = {
+  #       size = 32;
+  #     };
+  #   }
+
+  services.avizo.enable = true;
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = ''
+      exec-once = copyq --start-server
+      exec-once = swww init
+      bind = SUPER, F, exec, firefox
+      bind = SUPER, A, exec, alacritty
+      bind = SUPER, W, killactive
+      bind = SUPER, T, togglefloating
+
+      bind = SUPER, 1, workspace, 1
+      bind = SUPER, 2, workspace, 2
+      bind = SUPER, 3, workspace, 3
+      bind = SUPER, 4, workspace, 4
+
+      bind = , XF86AudioRaiseVolume, exec, volumectl -u up
+    '';
+    settings = {
+      decoration = {
+        "col.shadow" = "rgba(00000099)";
+        active_opacity = 1.0;
+        drop_shadow = true;
+        inactive_opacity = 0.4;
+        rounding = 10;
+        shadow_offset = "0 5";
+        dim_inactive = true;
+      };
+      input = {
+        kb_options = "caps:swapescape";
+        touchpad = {
+          natural_scroll = true;
+          disable_while_typing = true;
+          clickfinger_behavior = true;
+          tap-to-click = true;
+          drag_lock = true;
+          tap-and-drag = true;
+        };
+      };
+      "$mod" = "SUPER";
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
+      ];
+    };
+    xwayland.enable = true;
+  };
   programs = {
+    waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 30;
+          modules-right = [
+            "pulseaudio/slider"
+            "bluetooth"
+            "network"
+            "battery"
+            "clock"
+          ];
+        };
+      };
+      style = ''
+      '';
+      systemd.enable = true;
+    };
+    wlogout.enable = true;
+
     alacritty = {
       enable = true;
       settings = {
@@ -75,8 +102,8 @@
           opacity = 0.8;
         };
         font.normal.family = "FiraCode Nerd Font";
-        font.size = 13.0;
-        keyboard.bindings = [
+        font.size = 12.0;
+        keyboard.bindings = lib.optionals (pkgs.system == "x86_64-darwin") [
           {
             key = "T";
             mods = "Command";
@@ -122,22 +149,22 @@
       doomPrivateDir = ./dots/doom.d;
     };
 
-    # firefox = {
-    #   enable = true;
-    #   package = pkgs.firefox-bin;
-    #   profiles.zcoyle = {
-    #     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-    #       firenvim
-    #       gruvbox-dark-theme
-    #       react-devtools
-    #       reduxdevtools
-    #       ublock-origin
-    #       vue-js-devtools
-    #       wayback-machine
-    #     ];
-    #     settings = {};
-    #   };
-    # };
+    firefox = {
+      enable = pkgs.system == "x86_64-linux";
+      #package = pkgs.firefox-bin;
+      profiles.zcoyle = {
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          firenvim
+          gruvbox-dark-theme
+          react-devtools
+          reduxdevtools
+          ublock-origin
+          vue-js-devtools
+          wayback-machine
+        ];
+        settings = {};
+      };
+    };
 
     git = {
       enable = true;
@@ -217,6 +244,7 @@
       sessionVariables = {
         EDITOR = "nvim";
         GITGET_ROOT = "~/Developer";
+        XCURSOR_SIZE = 24;
       };
 
       shellAliases = {
@@ -228,5 +256,75 @@
         repos = "lsd --tree --depth 3 ~/Developer";
       };
     };
+  };
+
+  imports = [
+    nixvim.homeManagerModules.nixvim
+    nix-doom-emacs.hmModule
+  ];
+  home = {
+    username = "zcoyle";
+    stateVersion = "24.05";
+    packages = with pkgs;
+      [
+        act
+        asciinema
+        alejandra
+        buildah
+        cachix
+        comma
+        coreutils-full
+        dasel
+        dos2unix
+        dsq
+        (dwarf-fortress-packages.dwarf-fortress-full.override {
+          enableStoneSense = pkgs.system == "x86_64-linux";
+          enableDwarfTherapist = pkgs.system == "x86_64-linux";
+        })
+        fd
+        ghq
+        git-get
+        gitnr
+        hurl
+        jq
+        just
+        manix
+        mdcat
+        moreutils
+        neovide
+        nix-melt
+        nix-top
+        opentofu
+        pijul
+        podman
+        podman-compose
+        podman-tui
+        poetry
+        process-compose
+        python3
+        qemu
+        quicktype
+        ripgrep
+        scc
+        sqlite
+        swift-format
+        sword
+        tealdeer
+        util-linux
+        visidata
+        wget
+        xsv
+        yq
+      ]
+      ++ lib.optionals (pkgs.system == "x86_64-linux") [
+        copyq
+        libsForQt5.dolphin
+        libsForQt5.dolphin-plugins
+        avizo
+        swww
+        # wayland-random-wallpaper
+        unzip
+      ];
+    file = {};
   };
 }
