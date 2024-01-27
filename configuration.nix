@@ -43,7 +43,7 @@
       #"b43"
       #"bcma"
       #"ssb"
-      "brcmfmac"
+      # "brcmfmac"
     ];
   };
   nixpkgs.config.allowUnfree = true;
