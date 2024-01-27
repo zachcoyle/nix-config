@@ -8,13 +8,13 @@
 
   nix = {
     package = pkgs.nix;
-    gc = {
-      automatic = true;
-      #interval = {
-      #  Weekday = 0;
-      #};
-      options = "-d";
-    };
+    #gc = {
+    #  automatic = true;
+    #  #interval = {
+    #  #  Weekday = 0;
+    #  #};
+    #  options = "-d";
+    #};
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = ["zcoyle"];
