@@ -14,13 +14,6 @@
     package = pkgs.bibata-cursors;
   };
 
-  # gtk= {
-  #   enable = true;
-  #     cursorTheme = {
-  #       size = 32;
-  #     };
-  #   }
-
   services.avizo.enable = true;
 
   wayland.windowManager.hyprland = {
@@ -28,19 +21,20 @@
     extraConfig = ''
       exec-once = copyq --start-server
       exec-once = swww init
+      exec-once = swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1`
+
       bind = SUPER, F, exec, firefox
       bind = SUPER, N, exec, nyxt
       bind = SUPER, A, exec, alacritty
       bind = SUPER, W, killactive
       bind = SUPER, T, togglefloating
-
+      bind = SUPER, P, exec, swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1` --transition-type center
+      bind = SUPER, SPACE, exec, wofi --show=run
 
       bind = SUPER, 1, workspace, 1
       bind = SUPER, 2, workspace, 2
       bind = SUPER, 3, workspace, 3
       bind = SUPER, 4, workspace, 4
-
-      bind = SUPER, K, exec, kickoff
 
       bind = , XF86AudioRaiseVolume, exec, volumectl -u up
       bind = , XF86AudioLowerVolume, exec, volumectl -u down
@@ -55,6 +49,30 @@
 
       bind = , XF86KbdBrightnessUp, exec, brightnessctl -d ":white:kbd_backlight" s 10%+
       bind = , XF86KbdBrightnessDown, exec, brightnessctl -d ":white:kbd_backlight" s 10%-
+
+      bind = SUPER, H, movefocus, l
+      bind = SUPER, J, movefocus, d
+      bind = SUPER, K, movefocus, u
+      bind = SUPER, L, movefocus, r
+
+      bind = SUPERSHIFT, H, swapwindow, l
+      bind = SUPERSHIFT, J, swapwindow, d
+      bind = SUPERSHIFT, K, swapwindow, u
+      bind = SUPERSHIFT, L, swapwindow, r
+
+      bind = SUPERALT, H, resizeactive, 10
+      bind = SUPERALT, J, resizeactive, 10
+      bind = SUPERALT, K, resizeactive, 10
+      bind = SUPERALT, L, resizeactive, 10
+
+      bind = SUPERALT, 1, movetoworkspacesilent, 1
+      bind = SUPERALT, 2, movetoworkspacesilent, 2
+      bind = SUPERALT, 3, movetoworkspacesilent, 3
+      bind = SUPERALT, 4, movetoworkspacesilent, 4
+
+      bind = SUPER, TAB, cyclenext
+      bind = SUPERSHIFT, TAB, cyclenext, prev
+
     '';
     settings = {
       decoration = {
@@ -65,6 +83,10 @@
         rounding = 10;
         shadow_offset = "0 5";
         dim_inactive = true;
+      };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 4;
       };
       input = {
         kb_options = "caps:swapescape";
@@ -87,6 +109,11 @@
     xwayland.enable = true;
   };
   programs = {
+    wofi = {
+      enable = true;
+      settings = {};
+      style = builtins.readFile ./wofi.css;
+    };
     waybar = {
       enable = true;
       settings = {
@@ -97,6 +124,9 @@
           modules-left = [
             "custom/logo"
           ];
+          modules-center = [
+            "hyprland/workspaces"
+          ];
           modules-right = [
             "pulseaudio/slider"
             "bluetooth"
@@ -105,13 +135,12 @@
             "clock"
           ];
           "custom/logo" = {
-            format = "launch";
-            on-click = "kickoff";
+            format = "";
+            on-click = "wofi --show=run";
           };
         };
       };
-      style = ''
-      '';
+      style = builtins.readFile ./waybar.css;
       systemd.enable = true;
     };
     wlogout.enable = true;
@@ -352,7 +381,9 @@
         kickoff
         playerctl
         swww
+        ulauncher
         unzip
+        wl-clipboard
       ];
     file = {};
   };
