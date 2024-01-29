@@ -96,6 +96,7 @@
       };
       input = {
         kb_options = "caps:swapescape";
+        natural_scroll = true;
         touchpad = {
           natural_scroll = true;
           disable_while_typing = true;
