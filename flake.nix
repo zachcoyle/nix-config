@@ -111,11 +111,11 @@
       ];
 
       flake = {
-      nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+        nixosConfigurations.nixos-desktop = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
           modules = [
-            ./hosts/desktop/configuration.nix
+            ./hosts/nixos-desktop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             ./common-system.nix
             inputs.sddm-sugar-candy-nix.nixosModules.default
@@ -146,8 +146,7 @@
               };
             }
           ];
-
-      };
+        };
         nixosConfigurations.nixos-laptop = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
