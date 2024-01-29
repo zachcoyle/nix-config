@@ -184,7 +184,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
   environment.etc = {
     "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=1";
     "xdg/gtk-3.0/settings.ini".text = ''
