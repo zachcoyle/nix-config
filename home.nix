@@ -129,7 +129,7 @@
     wofi = {
       enable = true;
       settings = {};
-      style = builtins.readFile ./wofi.css;
+      style = builtins.readFile ./dots/wofi.css;
     };
     waybar = {
       enable = true;
@@ -157,7 +157,7 @@
           };
         };
       };
-      style = builtins.readFile ./waybar.css;
+      style = builtins.readFile ./dots/waybar.css;
       systemd.enable = true;
     };
     wlogout.enable = true;
