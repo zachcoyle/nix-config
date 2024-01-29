@@ -127,31 +127,46 @@
       "networkmanager"
       "input"
     ];
-    packages = with pkgs; [];
+    packages = [];
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    iwd
-    wget
-    alacritty
-    git
-    firefox
-    libimobiledevice
-    ifuse
-    dmidecode
-    lshw
-    nyxt
-    alejandra
-    neofetch
-    #xdg-desktop-portal-hyperland
-    pciutils
-    linuxKernel.packages.linux_zen.broadcom_sta
-  ];
-  programs.hyprland.enable = true;
-  programs.zsh.enable = true;
+  environment = {
+    # List packages installed in system profile. To search, run:
+    # $ nix search wget
+    sessionVariables.NIXOS_OZONE_WL = "1";
+    systemPackages = with pkgs; [
+      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      iwd
+      wget
+      alacritty
+      git
+      firefox
+      libimobiledevice
+      ifuse
+      dmidecode
+      lshw
+      nyxt
+      alejandra
+      neofetch
+      #xdg-desktop-portal-hyperland
+      pciutils
+      linuxKernel.packages.linux_zen.broadcom_sta
+    ]; # Did you read the comment?
+    etc = {
+      "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=1";
+      "xdg/gtk-3.0/settings.ini".text = ''
+        [Settings]
+        gtk-application-prefer-dark-theme=1
+      '';
+      "xdg/gtk-4.0/settings.ini".text = ''
+        [Settings]
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+  programs = {
+    hyprland.enable = true;
+    zsh.enable = true;
+  };
   users.users.zcoyle.shell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -184,16 +199,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-  environment.etc = {
-    "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=1";
-    "xdg/gtk-3.0/settings.ini".text = ''
-      [Settings]
-      gtk-application-prefer-dark-theme=1
-    '';
-    "xdg/gtk-4.0/settings.ini".text = ''
-      [Settings]
-      gtk-application-prefer-dark-theme=1
-    '';
-  };
+  system.stateVersion = "24.05";
 }
