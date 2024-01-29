@@ -119,7 +119,14 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zcoyle = {
     isNormalUser = true;
-    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "disk"
+      "networkmanager"
+      "input"
+    ];
     packages = with pkgs; [];
   };
 
