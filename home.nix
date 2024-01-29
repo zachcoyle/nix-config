@@ -399,6 +399,7 @@
         brightnessctl
         copyq
         cosmic-files
+        foliate
         kickoff
         playerctl
         swww
