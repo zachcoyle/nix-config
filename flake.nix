@@ -32,11 +32,6 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # flake modules
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -116,16 +111,52 @@
       ];
 
       flake = {
-        nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
           modules = [
-            ./configuration.nix
+            ./hosts/desktop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             ./common-system.nix
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
-              environment.systemPackages = [inputs.anyrun.packages.x86_64-linux.anyrun];
+              nixpkgs.overlays = [
+                inputs.sddm-sugar-candy-nix.overlays.default
+                inputs.telescope-just.overlays.default
+                inputs.sword-flake.overlays.default
+                inputs.nixpkgs-firefox-darwin.overlay
+                inputs.nix-vscode-extensions.overlays.default
+                inputs.nur.overlay
+                (_: _: {
+                  # Currently broken on unstable
+                  rustaceanvim = inputs.rustaceanvim.packages.x86_64-linux.default;
+                  sg-nvim = inputs.sg-nvim.legacyPackages.x86_64-linux.sg-nvimsg-nvim;
+                  #inherit (inputs.nixpkgs-23-05-nixos.legacyPackages.x86_64-linux) neovide;
+                })
+              ];
+            }
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.zcoyle = import ./home.nix;
+                extraSpecialArgs = {
+                  inherit (inputs) nixvim nix-doom-emacs;
+                };
+              };
+            }
+          ];
+
+      };
+        nixosConfigurations.nixos-laptop = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/nixos-laptop/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            ./common-system.nix
+            inputs.sddm-sugar-candy-nix.nixosModules.default
+            {
               nixpkgs.overlays = [
                 inputs.sddm-sugar-candy-nix.overlays.default
                 inputs.telescope-just.overlays.default

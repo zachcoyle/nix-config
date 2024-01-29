@@ -1,120 +1,140 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# and in the NixOS manual (accessible by running `nixos-help`).
 {
   config,
-  inputs,
   pkgs,
+  inputs,
+  system,
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+  hardware = {
+    # MacBookPro16,1
+    enableAllFirmware = true;
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+    #services.xserver.videoDrivers = ["amdgpu-pro"];
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+  };
 
-  networking.hostName = "desktop"; # Define your hostname.
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = true;
+    kernelModules = ["wl"];
+    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
+    blacklistedKernelModules = [
+      #"b43"
+      #"bcma"
+      #"ssb"
+      # "brcmfmac"
+    ];
+  };
+  nixpkgs.config.allowUnfree = true;
+
+  # networking.hostName = "nixos"; # Define your hostname.
+  # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+
+  # Set your time zone.
+  time.timeZone = "America/Indiana/Indianapolis";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/Indiana/Indianapolis";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  services = {
+    xserver = {
+      # console = {
+      #   font = "Lat2-Terminus16";
+      #   keyMap = "us";
+      #   useXkbConfig = true; # use xkbOptions in tty.
+      # };
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+      # Enable the X11 windowing system.
+      enable = true;
+      displayManager = {
+        sddm = {
+          enable = true;
+          enableHidpi = true;
+          sugarCandyNix = {
+            enable = true;
+            settings = {
+              # Background = lib.cleanSource
+              ScreenWidth = 1920;
+              ScreenHeight = 1080;
+              FormPosition = "left";
+              HaveFormBackground = true;
+              PartialBlur = true;
+            };
+          };
+        };
+      };
+      layout = "us";
+
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+    };
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      audio.enable = true;
+      pulse.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      jack.enable = true;
+    };
+
+    usbmuxd = {
+      enable = true;
+      package = pkgs.usbmuxd2;
+    };
   };
 
-  # # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  #
-  # # Enable the XFCE Desktop Environment.
-  # services.xserver.displayManager.lightdm.enable = true;
-  # services.xserver.desktopManager.xfce.enable = true;
-  #
-  # # Configure keymap in X11
-  # services.xserver = {
-  #   layout = "us";
-  #   xkbVariant = "";
-  # };
-
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };
-
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xwayland.enable = true;
-  };
-  hardware.opengl.enable = true;
-  # hardware.nvidia.modesetting.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
+  # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zcoyle = {
     isNormalUser = true;
-    description = "Zach";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-      neovim
-      git
-    ];
-    shell = pkgs.zsh;
+    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
+    packages = with pkgs; [];
   };
-  programs.zsh.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    iwd
+    wget
+    alacritty
     git
-    #  wget
+    firefox
+    libimobiledevice
+    ifuse
+    dmidecode
+    lshw
+    nyxt
+    alejandra
+    neofetch
+    #xdg-desktop-portal-hyperland
+    pciutils
+    linuxKernel.packages.linux_zen.broadcom_sta
   ];
+  programs.hyprland.enable = true;
+  programs.zsh.enable = true;
+  users.users.zcoyle.shell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -135,11 +155,27 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  # system.copySystemConfiguration = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # on your system were taken. It's perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+  environment.etc = {
+    "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=1";
+    "xdg/gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=1
+    '';
+    "xdg/gtk-4.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
 }
