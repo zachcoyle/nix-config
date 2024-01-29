@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "apple-firmware": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704355732,
+        "narHash": "sha256-wZ053yRN9qhDHpyyu3m9Cmy08BTrBzeyqvLfAU6Mfj0=",
+        "owner": "AdityaGarg8",
+        "repo": "Apple-Firmware",
+        "rev": "99045b10508d76abc7b25e7c2836caf84af340a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AdityaGarg8",
+        "repo": "Apple-Firmware",
+        "type": "github"
+      }
+    },
     "crane": {
       "flake": false,
       "locked": {
@@ -1088,6 +1104,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1706085157,
+        "narHash": "sha256-0pTbYwn9qubaZLtuN0Ouj0neEfrir1wSNyH8gL1BzB0=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "e756ff62c2e9db4f7c197bc1849a02024a7bfb2e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1706312816,
@@ -1656,6 +1687,7 @@
     },
     "root": {
       "inputs": {
+        "apple-firmware": "apple-firmware",
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
         "flake-compat": "flake-compat",
@@ -1666,6 +1698,7 @@
         "nix-darwin": "nix-darwin",
         "nix-doom-emacs": "nix-doom-emacs",
         "nix-vscode-extensions": "nix-vscode-extensions",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-23-05-darwin": "nixpkgs-23-05-darwin",
         "nixpkgs-firefox-darwin": "nixpkgs-firefox-darwin",
@@ -1673,6 +1706,7 @@
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
         "rustaceanvim": "rustaceanvim",
+        "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sg-nvim": "sg-nvim",
         "sword-flake": "sword-flake",
         "telescope-just": "telescope-just"
@@ -1749,6 +1783,26 @@
         "owner": "mrcjkb",
         "repo": "rustaceanvim",
         "type": "github"
+      }
+    },
+    "sddm-sugar-candy-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1706143305,
+        "narHash": "sha256-TaxTvZGyM+EZle5dD7hle6+eBaoc04nUqHAmR5iObgQ=",
+        "owner": "Zhaith-Izaliel",
+        "repo": "sddm-sugar-candy-nix",
+        "rev": "c69dde4c10c4d82e84750bc3b070fce6c07e5615",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "Zhaith-Izaliel",
+        "repo": "sddm-sugar-candy-nix",
+        "type": "gitlab"
       }
     },
     "sg-nvim": {

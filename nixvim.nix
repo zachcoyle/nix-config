@@ -34,6 +34,7 @@ in {
     ]
     ++ [
       # formatters
+      alejandra
       biome
       beautysh
       prettierd
@@ -141,7 +142,7 @@ in {
       foldclose = "";
     };
 
-    guifont = "FiraCode Nerd Font:h13";
+    guifont = "FiraCode Nerd Font:h10";
   };
 
   globals = {
@@ -785,6 +786,10 @@ in {
           desc = "Telescope Live Grep";
         };
         "<c-_>" = {
+          action = "live_grep";
+          desc = "Telescope Live Grep";
+        };
+        "<leader>ts" = {
           action = "live_grep";
           desc = "Telescope Live Grep";
         };

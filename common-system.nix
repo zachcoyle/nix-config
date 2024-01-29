@@ -4,17 +4,17 @@
     neovim
   ];
 
-  services.nix-daemon.enable = true;
+  #services.nix-daemon.enable = true;
 
   nix = {
     package = pkgs.nix;
-    gc = {
-      automatic = true;
-      interval = {
-        Weekday = 0;
-      };
-      options = "-d";
-    };
+    #gc = {
+    #  automatic = true;
+    #  #interval = {
+    #  #  Weekday = 0;
+    #  #};
+    #  options = "-d";
+    #};
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = ["zcoyle"];
@@ -32,10 +32,10 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
-      fira
+    packages = with pkgs; [
+      #fira
       fira-code-nerdfont
-      nerdfonts
+      #nerdfonts
     ];
   };
 }
