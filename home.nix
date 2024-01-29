@@ -35,6 +35,12 @@
       bind = SUPER, 2, workspace, 2
       bind = SUPER, 3, workspace, 3
       bind = SUPER, 4, workspace, 4
+      bind = SUPER, 5, workspace, 5
+      bind = SUPER, 6, workspace, 6
+      bind = SUPER, 7, workspace, 7
+      bind = SUPER, 8, workspace, 8
+      bind = SUPER, 9, workspace, 9
+      bind = SUPER, 0, workspace, 10
 
       bind = , XF86AudioRaiseVolume, exec, volumectl -u up
       bind = , XF86AudioLowerVolume, exec, volumectl -u down
@@ -109,6 +115,16 @@
     xwayland.enable = true;
   };
   programs = {
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-vkcapture
+        obs-source-switcher
+        obs-shaderfilter
+        obs-move-transition
+      ];
+    };
     wofi = {
       enable = true;
       settings = {};
@@ -200,6 +216,8 @@
       enable = false;
       doomPrivateDir = ./dots/doom.d;
     };
+
+    chromium.enable = true;
 
     firefox = {
       enable = pkgs.system == "x86_64-linux";
@@ -311,6 +329,7 @@
     mpv = {
       enable = true;
     };
+    zathura.enable = true;
   };
 
   imports = [
@@ -384,6 +403,7 @@
         ulauncher
         unzip
         wl-clipboard
+        vimiv-qt
       ];
     file = {};
   };

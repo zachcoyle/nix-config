@@ -142,7 +142,7 @@ in {
       foldclose = "";
     };
 
-    guifont = "FiraCode Nerd Font:h13";
+    guifont = "FiraCode Nerd Font:h10";
   };
 
   globals = {
