@@ -394,7 +394,6 @@
         zstd
       ]
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
-        # wayland-random-wallpaper
         avizo
         brightnessctl
         copyq
@@ -404,8 +403,9 @@
         swww
         ulauncher
         unzip
-        wl-clipboard
         vimiv-qt
+        waypipe
+        wl-clipboard
       ];
     file = {};
   };
