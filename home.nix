@@ -347,6 +347,7 @@
         alejandra
         buildah
         cachix
+        calibre
         comma
         coreutils-full
         dasel
