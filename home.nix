@@ -403,6 +403,7 @@
         copyq
         cosmic-files
         foliate
+        kdenlive
         kickoff
         libreoffice
         playerctl
