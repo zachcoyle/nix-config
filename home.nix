@@ -23,6 +23,10 @@
       exec-once = swww init
       exec-once = swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1`
 
+      layerrule = blur, waybar
+      layerrule = blur, wofi
+      layerrule = blur, alacritty
+
       bind = SUPER, F, exec, firefox
       bind = SUPER, N, exec, nyxt
       bind = SUPER, A, exec, alacritty
@@ -139,21 +143,20 @@
           position = "top";
           height = 30;
           modules-left = [
-            "custom/logo"
+            "hyprland/window"
           ];
           modules-center = [
             "hyprland/workspaces"
           ];
           modules-right = [
-            "pulseaudio/slider"
+            "pulseaudio"
             "bluetooth"
             "network"
             "battery"
             "clock"
           ];
-          "custom/logo" = {
-            format = "";
-            on-click = "wofi --show=run";
+          "hyprland/window" = {
+            icon = true;
           };
         };
       };
