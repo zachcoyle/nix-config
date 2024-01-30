@@ -404,6 +404,7 @@
         cosmic-files
         foliate
         kickoff
+        libreoffice
         playerctl
         swww
         ulauncher
