@@ -115,7 +115,7 @@
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
           modules = [
-            ./hosts/nixos-desktop/configuration.nix
+            ./hosts/nixos/nixos-desktop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             ./common-system.nix
             inputs.sddm-sugar-candy-nix.nixosModules.default
@@ -141,7 +141,7 @@
                 useUserPackages = true;
                 users.zcoyle = import ./home.nix;
                 extraSpecialArgs = {
-                  inherit (inputs) nixvim nix-doom-emacs;
+                  inherit (inputs) nixvim nix-doom-emacs hyprdots;
                 };
               };
             }
@@ -151,7 +151,7 @@
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
           modules = [
-            ./hosts/nixos-laptop/configuration.nix
+            ./hosts/nixos/nixos-laptop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             ./common-system.nix
             inputs.sddm-sugar-candy-nix.nixosModules.default
