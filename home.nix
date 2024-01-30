@@ -3,13 +3,14 @@
   lib,
   nixvim,
   nix-doom-emacs,
+  hyprdots,
   config,
   ...
 }: {
   home.pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
     gtk.enable = true;
     x11.enable = true;
-    name = "Bibata-Modern-Ice";
+    name = "Bibata-Modern-Classic";
     size = 24;
     package = pkgs.bibata-cursors;
   };
