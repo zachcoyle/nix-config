@@ -1,20 +1,27 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  fonts = with pkgs; [
+    #fira
+    fira-code-nerdfont
+    #nerdfonts
+  ];
+in {
   environment.systemPackages = with pkgs; [
     git
     neovim
   ];
 
-  #services.nix-daemon.enable = true;
-
   nix = {
     package = pkgs.nix;
-    #gc = {
-    #  automatic = true;
-    #  #interval = {
-    #  #  Weekday = 0;
-    #  #};
-    #  options = "-d";
-    #};
+    gc =
+      {
+        automatic = true;
+        options = "-d";
+      }
+      // (
+        if pkgs.system == "x86_64-linux"
+        then {dates = "weekly";}
+        else {interval.Weekday = 0;}
+      );
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = ["zcoyle"];
@@ -30,12 +37,13 @@
     };
   };
 
-  fonts = {
-    fontDir.enable = true;
-    packages = with pkgs; [
-      #fira
-      fira-code-nerdfont
-      #nerdfonts
-    ];
-  };
+  fonts =
+    {
+      fontDir.enable = true;
+    }
+    // (
+      if pkgs.system == "x86_64-linux"
+      then {packages = fonts;}
+      else {inherit fonts;}
+    );
 }

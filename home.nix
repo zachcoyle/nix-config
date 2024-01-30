@@ -6,7 +6,7 @@
   config,
   ...
 }: {
-  home.pointerCursor = {
+  home.pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
     gtk.enable = true;
     x11.enable = true;
     name = "Bibata-Modern-Ice";
@@ -14,10 +14,10 @@
     package = pkgs.bibata-cursors;
   };
 
-  services.avizo.enable = true;
+  services.avizo.enable = pkgs.system == "x86_64-linux";
 
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = pkgs.system == "x86_64-linux";
     extraConfig = ''
       exec-once = copyq --start-server
       exec-once = swww init
@@ -117,7 +117,7 @@
   };
   programs = {
     obs-studio = {
-      enable = true;
+      enable = pkgs.system == "x86_64-linux";
       plugins = with pkgs.obs-studio-plugins; [
         wlrobs
         obs-vkcapture
@@ -127,12 +127,12 @@
       ];
     };
     wofi = {
-      enable = true;
+      enable = pkgs.system == "x86_64-linux";
       settings = {};
       style = builtins.readFile ./dots/wofi.css;
     };
     waybar = {
-      enable = true;
+      enable = pkgs.system == "x86_64-linux";
       settings = {
         mainBar = {
           layer = "top";
@@ -160,7 +160,7 @@
       style = builtins.readFile ./dots/waybar.css;
       systemd.enable = true;
     };
-    wlogout.enable = true;
+    wlogout.enable = pkgs.system == "x86_64-linux";
 
     alacritty = {
       enable = true;
@@ -218,7 +218,7 @@
       doomPrivateDir = ./dots/doom.d;
     };
 
-    chromium.enable = true;
+    chromium.enable = pkgs.system == "x86_64-linux";
 
     firefox = {
       enable = pkgs.system == "x86_64-linux";
@@ -345,9 +345,7 @@
         act
         asciinema
         alejandra
-        buildah
         cachix
-        calibre
         comma
         coreutils-full
         dasel
@@ -397,6 +395,8 @@
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
         avizo
         brightnessctl
+        buildah
+        calibre
         copyq
         cosmic-files
         foliate
