@@ -34,7 +34,6 @@ alias u := update
 update_modules:
     just u home-manager
     just u nix-dariwin
-    just u nix-doom-emacs
     just u nixvim
     just u pre-commit-hooks
     just u flake-utils

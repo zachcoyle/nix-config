@@ -32,7 +32,7 @@
           useUserPackages = true;
           users.zcoyle = import ./home.nix;
           extraSpecialArgs = {
-            inherit (inputs) nixvim nix-doom-emacs;
+            inherit (inputs) nixvim;
           };
         };
       }

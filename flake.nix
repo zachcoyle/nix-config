@@ -18,6 +18,20 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         pre-commit-hooks.follows = "pre-commit-hooks";
+        flake-parts.follows = "flake-parts";
+        home-manager.follows = "home-manager";
+        nix-darwin.follows = "nix-darwin";
+      };
+    };
+
+    systems-linux.url = "github:nix-systems/default-linux";
+    systems-darwin.url = "github:nix-systems/default-darwin";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
       };
     };
 
@@ -40,18 +54,33 @@
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        flake-compat.follows = "flake-compat";
       };
     };
 
     # overlays
-    sg-nvim.url = "github:sourcegraph/sg.nvim";
-    telescope-just.url = "github:zachcoyle/telescope-just";
+    sg-nvim = {
+      url = "github:sourcegraph/sg.nvim";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    telescope-just = {
+      url = "github:zachcoyle/telescope-just";
+      inputs = {
+        devshell.follows = "devshell";
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     sword-flake = {
       url = "github:zachcoyle/sword-flake";
       inputs = {
@@ -59,20 +88,19 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    rustaceanvim.url = "github:mrcjkb/rustaceanvim";
+    rustaceanvim = {
+      url = "github:mrcjkb/rustaceanvim";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        pre-commit-hooks.follows = "pre-commit-hooks";
+      };
+    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
         flake-compat.follows = "flake-compat";
       };
     };
@@ -105,10 +133,11 @@
         inputs.pre-commit-hooks.flakeModule
         (import ./darwin-flake-module.nix)
       ];
-      systems = [
-        "x86_64-darwin"
-        "x86_64-linux"
-      ];
+      systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
+      # [
+      #   "x86_64-darwin"
+      #   "x86_64-linux"
+      # ];
 
       flake = {
         nixosConfigurations.nixos-desktop = inputs.nixpkgs.lib.nixosSystem {
@@ -141,7 +170,7 @@
                 useUserPackages = true;
                 users.zcoyle = import ./home.nix;
                 extraSpecialArgs = {
-                  inherit (inputs) nixvim nix-doom-emacs hyprdots;
+                  inherit (inputs) nixvim;
                 };
               };
             }
@@ -157,6 +186,7 @@
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
               nixpkgs.overlays = [
+                inputs.hyprland.overlays.default
                 inputs.sddm-sugar-candy-nix.overlays.default
                 inputs.telescope-just.overlays.default
                 inputs.sword-flake.overlays.default
@@ -177,7 +207,7 @@
                 useUserPackages = true;
                 users.zcoyle = import ./home.nix;
                 extraSpecialArgs = {
-                  inherit (inputs) nixvim nix-doom-emacs;
+                  inherit (inputs) nixvim;
                 };
               };
             }

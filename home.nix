@@ -2,8 +2,6 @@
   pkgs,
   lib,
   nixvim,
-  nix-doom-emacs,
-  hyprdots,
   config,
   ...
 }: {
@@ -217,11 +215,6 @@
       '';
     };
 
-    doom-emacs = {
-      enable = false;
-      doomPrivateDir = ./dots/doom.d;
-    };
-
     chromium.enable = pkgs.system == "x86_64-linux";
 
     firefox = {
@@ -339,7 +332,6 @@
 
   imports = [
     nixvim.homeManagerModules.nixvim
-    nix-doom-emacs.hmModule
   ];
   home = {
     username = "zcoyle";
