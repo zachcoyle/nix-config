@@ -6,7 +6,7 @@
   ...
 }: {
   gtk = {
-    cursorTheme = {
+    cursorTheme = lib.mkIf (pkgs.system == "x86_64-linux") {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 24;
