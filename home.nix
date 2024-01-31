@@ -389,6 +389,7 @@
         zstd
       ]
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
+        android-studio
         avizo
         brightnessctl
         buildah
