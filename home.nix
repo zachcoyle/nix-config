@@ -5,8 +5,8 @@
   config,
   ...
 }: {
-  gtk = {
-    cursorTheme = lib.mkIf (pkgs.system == "x86_64-linux") {
+  gtk = lib.mkIf (pkgs.system == "x86_64-linux") {
+    cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 24;
@@ -127,6 +127,17 @@
     xwayland.enable = true;
   };
   programs = {
+    swaylock = {
+      enable = pkgs.system == "x86_64-linux";
+      settings = {
+        color = "808080";
+        font-size = 24;
+        indicator-idle-visible = false;
+        indicator-radius = 100;
+        line-color = "ffffff";
+        show-failed-attempts = true;
+      };
+    };
     obs-studio = {
       enable = pkgs.system == "x86_64-linux";
       plugins = with pkgs.obs-studio-plugins; [
