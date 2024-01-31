@@ -5,6 +5,13 @@
   config,
   ...
 }: {
+  gtk = {
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
+  };
   home.pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
     gtk.enable = true;
     x11.enable = true;
@@ -162,6 +169,7 @@
       style = builtins.readFile ./dots/waybar.css;
       systemd.enable = true;
     };
+
     wlogout.enable = pkgs.system == "x86_64-linux";
 
     alacritty = {
