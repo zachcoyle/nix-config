@@ -88,14 +88,25 @@
         flake-utils.follows = "flake-utils";
       };
     };
+    neorocks = {
+      url = "github:nvim-neorocks/neorocks";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+        pre-commit-hooks.follows = "pre-commit-hooks";
+      };
+    };
     rustaceanvim = {
       url = "github:mrcjkb/rustaceanvim";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         pre-commit-hooks.follows = "pre-commit-hooks";
+        neorocks.follows = "neorocks";
       };
     };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
@@ -126,20 +137,56 @@
     flake-compat.url = "github:edolstra/flake-compat";
   };
 
-  outputs = inputs:
+  outputs = inputs @ {self, ...}:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.devshell.flakeModule
         inputs.pre-commit-hooks.flakeModule
-        (import ./darwin-flake-module.nix)
       ];
-      systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
-      # [
-      #   "x86_64-darwin"
-      #   "x86_64-linux"
-      # ];
 
-      flake = {
+      systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
+
+      flake = let
+        common_darwin_config = {
+          modules = [
+            ./common-system.nix
+            ./darwin.nix
+            inputs.darwin-modules.darwinModule
+            inputs.home-manager.darwinModules.home-manager
+            {
+              system.configurationRevision = self.rev or self.dirtyRef or null;
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.overlays = [
+                # FIXME: Not the best place for these overlays to live
+                # inputs.neovim-nightly-overlay.overlay
+                inputs.telescope-just.overlays.default
+                inputs.sword-flake.overlays.default
+                inputs.nixpkgs-firefox-darwin.overlay
+                inputs.nix-vscode-extensions.overlays.default
+                inputs.nur.overlay
+                (_: _: {
+                  # Currently broken on unstable
+                  rustaceanvim = inputs.rustaceanvim.packages.x86_64-darwin.default;
+                  sg-nvim = inputs.sg-nvim.legacyPackages.x86_64-darwin.sg-nvimsg-nvim;
+                  inherit (inputs.nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
+                })
+              ];
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.zcoyle = import ./home.nix;
+                extraSpecialArgs = {
+                  inherit (inputs) nixvim;
+                };
+              };
+            }
+          ];
+        };
+      in rec {
+        darwinConfigurations = {
+          Zachs-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
+          Zacharys-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
+        };
         nixosConfigurations.nixos-desktop = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
@@ -150,6 +197,7 @@
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
               nixpkgs.overlays = [
+                inputs.neovim-nightly-overlay.overlay
                 inputs.sddm-sugar-candy-nix.overlays.default
                 inputs.telescope-just.overlays.default
                 inputs.sword-flake.overlays.default
@@ -157,10 +205,8 @@
                 inputs.nix-vscode-extensions.overlays.default
                 inputs.nur.overlay
                 (_: _: {
-                  # Currently broken on unstable
                   rustaceanvim = inputs.rustaceanvim.packages.x86_64-linux.default;
                   sg-nvim = inputs.sg-nvim.legacyPackages.x86_64-linux.sg-nvimsg-nvim;
-                  #inherit (inputs.nixpkgs-23-05-nixos.legacyPackages.x86_64-linux) neovide;
                 })
               ];
             }
@@ -186,6 +232,7 @@
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
               nixpkgs.overlays = [
+                inputs.neovim-nightly-overlay.overlay
                 inputs.hyprland.overlays.default
                 inputs.sddm-sugar-candy-nix.overlays.default
                 inputs.telescope-just.overlays.default
@@ -194,10 +241,8 @@
                 inputs.nix-vscode-extensions.overlays.default
                 inputs.nur.overlay
                 (_: _: {
-                  # Currently broken on unstable
                   rustaceanvim = inputs.rustaceanvim.packages.x86_64-linux.default;
                   sg-nvim = inputs.sg-nvim.legacyPackages.x86_64-linux.sg-nvimsg-nvim;
-                  #inherit (inputs.nixpkgs-23-05-nixos.legacyPackages.x86_64-linux) neovide;
                 })
               ];
             }
