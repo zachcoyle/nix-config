@@ -57,6 +57,6 @@ dock:
   sh ./dock.sh
 
 cachix:
-  nix build .#darwinConfigurations.Zacharys-MacBook-Pro.system --json \
+  nix build .#{{ configurationTypeForOS }}.{{ host }}.system --json \
     | jq -r '.[].outputs | to_entries[].value' \
     | cachix push zachcoyle
