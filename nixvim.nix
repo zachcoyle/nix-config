@@ -758,8 +758,10 @@ in {
     nvim-lightbulb = {
       enable = true;
       autocmd.enabled = true;
+      float.enabled = false;
       virtualText.enabled = true;
       sign.enabled = false;
+      statusText.enabled = false;
     };
     nvim-ufo = {
       enable = true;

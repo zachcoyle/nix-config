@@ -129,6 +129,7 @@
   programs = {
     swaylock = {
       enable = pkgs.system == "x86_64-linux";
+      package = pkgs.swaylock-effects;
       settings = {
         color = "808080";
         font-size = 24;
