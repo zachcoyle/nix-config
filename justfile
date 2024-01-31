@@ -20,7 +20,7 @@ alias b := build
 # Build configuration for current host and switch
 switch:
     git add .
-    {{ nixosRebuildCommand }} switch --flake . --show-trace
+    {{ nixosRebuildCommand }} switch --flake . --show-trace -L
 
 alias s := switch
 

@@ -105,7 +105,8 @@
         workspace_swipe_fingers = 4;
       };
       input = {
-        kb_options = "caps:swapescape";
+        # https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
+        kb_options = "caps:escape";
         natural_scroll = true;
         touchpad = {
           natural_scroll = true;
