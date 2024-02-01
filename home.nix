@@ -128,8 +128,19 @@
         wl-clipboard
       ];
   };
-
-  services.avizo.enable = pkgs.system == "x86_64-linux";
+  services = {
+    avizo.enable = pkgs.system == "x86_64-linux";
+    dunst = {
+      enable = pkgs.system == "x86_64-linux";
+      iconTheme = {
+        package = pkgs.gruvbox-plus-icons;
+        name = "GruvboxPlus";
+      };
+      settings = {
+        # TODO
+      };
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = pkgs.system == "x86_64-linux";
@@ -239,6 +250,10 @@
     xwayland.enable = true;
   };
   programs = {
+    eww = {
+      enable = pkgs.system == "x86_64-linux";
+      configDir = ./dots/eww;
+    };
     swaylock = {
       enable = pkgs.system == "x86_64-linux";
       package = pkgs.swaylock-effects;
