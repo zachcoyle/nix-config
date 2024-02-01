@@ -67,6 +67,7 @@ in {
   ];
 
   extraConfigLua = ''
+    vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
     --------------------------------------
     require("nvim-autopairs").setup({})
     --------------------------------------
