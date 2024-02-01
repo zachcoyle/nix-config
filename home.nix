@@ -118,6 +118,7 @@
         gnome.nautilus
         kdenlive
         kickoff
+        libnotify
         libreoffice
         playerctl
         swww

@@ -63,6 +63,7 @@ in {
     pkgs.rustaceanvim
     telescope_just
     sg-nvim
+    yuck-vim
   ];
 
   extraConfigLua = ''
