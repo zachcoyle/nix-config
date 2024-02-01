@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -67,7 +68,7 @@
           sugarCandyNix = {
             enable = true;
             settings = {
-              # Background = lib.cleanSource
+              Background = lib.cleanSource ./dots/sddm-background.jpg;
               ScreenWidth = 1920;
               ScreenHeight = 1080;
               FormPosition = "left";
@@ -166,14 +167,19 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
   environment.etc = {
-    "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=1";
+    "xdg/gtk-2.0/gtkrc".text = ''
+      gtk-application-prefer-dark-theme=1
+      gtk-cursor-theme=Bibata-Modern-Classic
+    '';
     "xdg/gtk-3.0/settings.ini".text = ''
       [Settings]
       gtk-application-prefer-dark-theme=1
+      gtk-cursor-theme=Bibata-Modern-Classic
     '';
     "xdg/gtk-4.0/settings.ini".text = ''
       [Settings]
       gtk-application-prefer-dark-theme=1
+      gtk-cursor-theme=Bibata-Modern-Classic
     '';
   };
 }

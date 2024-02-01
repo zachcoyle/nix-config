@@ -81,7 +81,7 @@
           sugarCandyNix = {
             enable = true;
             settings = {
-              # Background = lib.cleanSource
+              #Background = ;
               ScreenWidth = 1920;
               ScreenHeight = 1080;
               FormPosition = "left";
@@ -152,17 +152,6 @@
       pciutils
       linuxKernel.packages.linux_zen.broadcom_sta
     ]; # Did you read the comment?
-    etc = {
-      "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=1";
-      "xdg/gtk-3.0/settings.ini".text = ''
-        [Settings]
-        gtk-application-prefer-dark-theme=1
-      '';
-      "xdg/gtk-4.0/settings.ini".text = ''
-        [Settings]
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
   };
   programs = {
     hyprland.enable = true;

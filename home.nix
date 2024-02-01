@@ -5,19 +5,128 @@
   config,
   ...
 }: {
+  qt = lib.mkIf (pkgs.system == "x86_64-linux") {
+    enable = true;
+    platformTheme = "gtk";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
   gtk = lib.mkIf (pkgs.system == "x86_64-linux") {
+    enable = true;
     cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 24;
     };
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3";
+    };
+    iconTheme = {
+      package = pkgs.gruvbox-plus-icons;
+      name = "GruvboxPlus";
+    };
+    gtk2.extraConfig = ''
+      gtk-decoration-layout = appmenu:none
+    '';
+    gtk3 = {
+      extraCss = builtins.readFile ./dots/gtk.css;
+      extraConfig = {
+        gtk-decoration-layout = "appmenu:none";
+      };
+    };
+    gtk4 = {
+      extraCss = builtins.readFile ./dots/gtk.css;
+      extraConfig = {
+        gtk-decoration-layout = "appmenu:none";
+      };
+    };
   };
-  home.pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-    package = pkgs.bibata-cursors;
+  home = {
+    pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
+      gtk.enable = true;
+      x11.enable = true;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+      package = pkgs.bibata-cursors;
+    };
+
+    username = "zcoyle";
+    stateVersion = "24.05";
+    packages = with pkgs;
+      [
+        act
+        asciinema
+        alejandra
+        cachix
+        comma
+        coreutils-full
+        dasel
+        dos2unix
+        dsq
+        (dwarf-fortress-packages.dwarf-fortress-full.override {
+          enableStoneSense = pkgs.system == "x86_64-linux";
+          enableDwarfTherapist = pkgs.system == "x86_64-linux";
+        })
+        fd
+        ghq
+        git-get
+        gitnr
+        hurl
+        jq
+        just
+        killall
+        manix
+        mdcat
+        moreutils
+        neovide
+        nix-melt
+        nix-top
+        opentofu
+        pijul
+        podman
+        podman-compose
+        podman-tui
+        poetry
+        process-compose
+        python3
+        qemu
+        quicktype
+        ripgrep
+        scc
+        sqlite
+        swift-format
+        sword
+        tealdeer
+        util-linux
+        visidata
+        wget
+        xsv
+        yq
+        zstd
+      ]
+      ++ lib.optionals (pkgs.system == "x86_64-linux") [
+        android-studio
+        avizo
+        brightnessctl
+        buildah
+        calibre
+        copyq
+        foliate
+        gnome.nautilus
+        kdenlive
+        kickoff
+        libreoffice
+        playerctl
+        swww
+        ulauncher
+        unzip
+        vimiv-qt
+        waypipe
+        wl-clipboard
+      ];
   };
 
   services.avizo.enable = pkgs.system == "x86_64-linux";
@@ -28,6 +137,7 @@
       exec-once = copyq --start-server
       exec-once = swww init
       exec-once = swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1`
+      exec-once = hyprctl setcursor Bibata-Modern-Classic 24
 
       layerrule = blur, waybar
       layerrule = blur, wofi
@@ -40,6 +150,8 @@
       bind = SUPER, T, togglefloating
       bind = SUPER, P, exec, swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1` --transition-type center
       bind = SUPER, SPACE, exec, wofi --show=run
+      bind=SUPER_SHIFT,S,movetoworkspace,special
+      bind=SUPER,S,togglespecialworkspace,
 
       bind = SUPER, 1, workspace, 1
       bind = SUPER, 2, workspace, 2
@@ -354,81 +466,4 @@
   imports = [
     nixvim.homeManagerModules.nixvim
   ];
-  home = {
-    username = "zcoyle";
-    stateVersion = "24.05";
-    packages = with pkgs;
-      [
-        act
-        asciinema
-        alejandra
-        cachix
-        comma
-        coreutils-full
-        dasel
-        dos2unix
-        dsq
-        (dwarf-fortress-packages.dwarf-fortress-full.override {
-          enableStoneSense = pkgs.system == "x86_64-linux";
-          enableDwarfTherapist = pkgs.system == "x86_64-linux";
-        })
-        fd
-        ghq
-        git-get
-        gitnr
-        hurl
-        jq
-        just
-        killall
-        manix
-        mdcat
-        moreutils
-        neovide
-        nix-melt
-        nix-top
-        opentofu
-        pijul
-        podman
-        podman-compose
-        podman-tui
-        poetry
-        process-compose
-        python3
-        qemu
-        quicktype
-        ripgrep
-        scc
-        sqlite
-        swift-format
-        sword
-        tealdeer
-        util-linux
-        visidata
-        wget
-        xsv
-        yq
-        zstd
-      ]
-      ++ lib.optionals (pkgs.system == "x86_64-linux") [
-        android-studio
-        avizo
-        brightnessctl
-        buildah
-        calibre
-        copyq
-        cosmic-files
-        foliate
-        kdenlive
-        kickoff
-        libreoffice
-        playerctl
-        swww
-        ulauncher
-        unzip
-        vimiv-qt
-        waypipe
-        wl-clipboard
-      ];
-    file = {};
-  };
 }
