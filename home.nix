@@ -162,8 +162,8 @@
       bind = SUPER, T, togglefloating
       bind = SUPER, P, exec, swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1` --transition-type center
       bind = SUPER, SPACE, exec, wofi --show=run
-      bind=SUPER_SHIFT,S,movetoworkspace,special
-      bind=SUPER,S,togglespecialworkspace,
+      bind = SUPER_SHIFT, S, movetoworkspace, special
+      bind = SUPER, S, togglespecialworkspace,
 
       bind = SUPER, 1, workspace, 1
       bind = SUPER, 2, workspace, 2
@@ -175,6 +175,8 @@
       bind = SUPER, 8, workspace, 8
       bind = SUPER, 9, workspace, 9
       bind = SUPER, 0, workspace, 10
+
+      bind = SUPER_SHIFT, 4, exec, grim -g "$(slurp)"
 
       bind = , XF86AudioRaiseVolume, exec, volumectl -u up
       bind = , XF86AudioLowerVolume, exec, volumectl -u down
@@ -320,16 +322,40 @@
           decorations_theme_variant = "Dark";
           blur = true;
           opacity = 0.8;
+          padding = {
+            x = 4;
+            y = 0;
+          };
         };
-        font.normal.family = "FiraCode Nerd Font";
-        font.size = 10.0;
-        keyboard.bindings = lib.optionals (pkgs.system == "x86_64-darwin") [
-          {
-            key = "T";
-            mods = "Command";
-            action = "CreateNewTab";
-          }
-        ];
+        font = {
+          normal.family = "FiraCode Nerd Font";
+          size = 10.0;
+        };
+        keyboard.bindings =
+          [
+            {
+              key = "V";
+              mods = "Super";
+              action = "Paste";
+            }
+            {
+              key = "C";
+              mods = "Super";
+              action = "Copy";
+            }
+            {
+              key = "V";
+              mods = "Control";
+              action = "Paste";
+            }
+          ]
+          ++ lib.optionals (pkgs.system == "x86_64-darwin") [
+            {
+              key = "T";
+              mods = "Command";
+              action = "CreateNewTab";
+            }
+          ];
         import = ["${pkgs.alacritty-theme}/gruvbox_dark.toml"];
       };
     };
