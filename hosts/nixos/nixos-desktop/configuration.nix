@@ -170,16 +170,19 @@
     "xdg/gtk-2.0/gtkrc".text = ''
       gtk-application-prefer-dark-theme=1
       gtk-cursor-theme=Bibata-Modern-Classic
+      gtk-font-name="FiraCode Nerd Font"
     '';
     "xdg/gtk-3.0/settings.ini".text = ''
       [Settings]
       gtk-application-prefer-dark-theme=1
       gtk-cursor-theme=Bibata-Modern-Classic
+      gtk-font-name="FiraCode Nerd Font"
     '';
     "xdg/gtk-4.0/settings.ini".text = ''
       [Settings]
       gtk-application-prefer-dark-theme=1
       gtk-cursor-theme=Bibata-Modern-Classic
+      gtk-font-name="FiraCode Nerd Font"
     '';
   };
 }

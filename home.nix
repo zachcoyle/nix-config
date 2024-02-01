@@ -110,16 +110,19 @@
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
         android-studio
         avizo
+        blueman
         brightnessctl
         buildah
         calibre
         copyq
         foliate
         gnome.nautilus
+        inkscape
         kdenlive
         kickoff
         libnotify
         libreoffice
+        pavucontrol
         playerctl
         swww
         ulauncher

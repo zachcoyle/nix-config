@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 0px;
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "FiraCode Nerd Font";
   font-weight: bold;
   font-size: 11px;
   min-height: 0;
@@ -50,6 +50,9 @@ tooltip {
   border-radius: 20px;
 }
 
+#cpu,
+#memory,
+#disk,
 #custom-power_profile,
 #custom-weather,
 #window,
