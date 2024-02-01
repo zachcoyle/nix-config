@@ -284,34 +284,8 @@
       settings = {};
       style = builtins.readFile ./dots/wofi.css;
     };
-    waybar = {
-      enable = pkgs.system == "x86_64-linux";
-      settings = {
-        mainBar = {
-          layer = "top";
-          position = "top";
-          height = 30;
-          modules-left = [
-            "hyprland/window"
-          ];
-          modules-center = [
-            "hyprland/workspaces"
-          ];
-          modules-right = [
-            "pulseaudio"
-            "bluetooth"
-            "network"
-            "battery"
-            "clock"
-          ];
-          "hyprland/window" = {
-            icon = true;
-          };
-        };
-      };
-      style = builtins.readFile ./dots/waybar.css;
-      systemd.enable = true;
-    };
+
+    waybar = import ./users/zcoyle/by-app/waybar {inherit pkgs;};
 
     wlogout.enable = pkgs.system == "x86_64-linux";
 
@@ -331,6 +305,7 @@
           normal.family = "FiraCode Nerd Font";
           size = 10.0;
         };
+        mouse.hide_when_typing = true;
         keyboard.bindings =
           [
             {
@@ -432,7 +407,7 @@
       keyScheme = "vim";
     };
 
-    nixvim = import ./nixvim.nix {inherit pkgs config;};
+    nixvim = import ./users/zcoyle/by-app/nixvim.nix {inherit pkgs config;};
 
     starship = {
       enable = true;
@@ -454,7 +429,7 @@
       ];
     };
 
-    vscode = import ./vscode.nix {inherit pkgs;};
+    vscode = import ./users/zcoyle/by-app/vscode.nix {inherit pkgs;};
 
     zellij = {
       enable = true;
