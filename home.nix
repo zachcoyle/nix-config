@@ -16,8 +16,16 @@
   gtk = lib.mkIf (pkgs.system == "x86_64-linux") {
     enable = true;
     cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      package = pkgs.stdenvNoCC.mkDerivation {
+        pname = "bibata-cursors-gruvbox";
+        version = "unstable";
+        src = ./.;
+        installPhase = ''
+          mkdir -p $out/share/icons
+          cp -r ./Bibata-Modern-Gruvbox $out/share/icons
+        '';
+      };
+      name = "Bibata-Modern-Gruvbox";
       size = 24;
     };
     theme = {
@@ -76,7 +84,7 @@
     pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
       gtk.enable = true;
       x11.enable = true;
-      name = "Bibata-Modern-Classic";
+      name = "Bibata-Modern-Gruvbox";
       size = 24;
       package = pkgs.bibata-cursors;
     };
@@ -186,7 +194,7 @@
       exec-once = copyq --start-server
       exec-once = swww init
       exec-once = swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1`
-      exec-once = hyprctl setcursor Bibata-Modern-Classic 24
+      exec-once = hyprctl setcursor Bibata-Modern-Gruvbox 24
 
       layerrule = blur, waybar
       layerrule = blur, wofi
