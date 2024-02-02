@@ -123,6 +123,7 @@
         jq
         just
         killall
+        lsix
         manix
         mdcat
         moreutils
