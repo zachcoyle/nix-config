@@ -68,7 +68,7 @@
           sugarCandyNix = {
             enable = true;
             settings = {
-              Background = lib.cleanSource ./dots/sddm-background.jpg;
+              Background = lib.cleanSource ../../../dots/sddm-background.jpg;
               ScreenWidth = 1920;
               ScreenHeight = 1080;
               FormPosition = "left";
