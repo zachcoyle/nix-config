@@ -20,15 +20,14 @@ void main() {
     // Simulate slight vertical jitter
     float jitter = 0.002 * sin(gl_FragCoord.x * 0.1);
 
-    // Add subtle color shifts
+    // Add subtle color shifts and pump up the gruvbox aesthetic
     vec4 pixColor = texture2D(tex, v_texcoord);
+    pixColor.rgb += vec3(0.05, 0.03, 0.02); // Adjust for warm tones
+    pixColor.rgb *= vec3(1.2, 1.1, 1.0); // Adjust for contrast
     pixColor.r = twirlyChromaticAberration;
     pixColor.rgb += noise;
     pixColor.rgb -= scanlineIntensity;
     pixColor.rgb += jitter;
-    pixColor.r *= 0.98; // Slightly decrease red color
-    pixColor.g *= 0.99; // Slightly decrease green color
-    pixColor.b *= 0.98; // Slightly decrease blue color
 
     gl_FragColor = pixColor;
 }
