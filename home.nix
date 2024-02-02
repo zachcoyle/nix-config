@@ -38,17 +38,26 @@
     };
     gtk2.extraConfig = ''
       gtk-decoration-layout = appmenu:none
+      gtk-application-prefer-dark-theme=1
+      gtk-cursor-theme=Bibata-Modern-Gruvbox
+      gtk-font-name="FiraCode Nerd Font"
     '';
     gtk3 = {
       extraCss = builtins.readFile ./dots/gtk.css;
       extraConfig = {
         gtk-decoration-layout = "appmenu:none";
+        gtk-application-prefer-dark-theme = 1;
+        gtk-cursor-theme = "Bibata-Modern-Gruvbox";
+        gtk-font-name = "FiraCode Nerd Font";
       };
     };
     gtk4 = {
       extraCss = builtins.readFile ./dots/gtk.css;
       extraConfig = {
         gtk-decoration-layout = "appmenu:none";
+        gtk-application-prefer-dark-theme = 1;
+        gtk-cursor-theme = "Bibata-Modern-Gruvbox";
+        gtk-font-name = "FiraCode Nerd Font";
       };
     };
   };
@@ -204,14 +213,15 @@
       layerrule = blur, alacritty
 
       bind = SUPER, F, exec, firefox
-      bind = SUPER, N, exec, nyxt
       bind = SUPER, A, exec, alacritty
       bind = SUPER, Q, killactive
       bind = SUPER, T, togglefloating
       bind = SUPER, P, exec, swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1` --transition-type center
       bind = SUPER, SPACE, exec, wofi --show=run
-      bind = SUPER_SHIFT, S, movetoworkspace, special
-      bind = SUPER, S, togglespecialworkspace,
+
+      workspace = special:scratchpad, on-created-empty:alacritty
+      bind = SUPER_SHIFT, S, movetoworkspace, special:scratchpad
+      bind = SUPER, S, togglespecialworkspace, special:scratchpad
 
       bind = SUPER, 1, workspace, 1
       bind = SUPER, 2, workspace, 2
@@ -250,12 +260,16 @@
       bind = SUPERSHIFT, K, swapwindow, u
       bind = SUPERSHIFT, L, swapwindow, r
 
-      # bind = SUPER, equals, resizeactive, 10 -10
-      # bind = SUPER, plus, resizeactive, -10 10
       bind = ALT, L, resizeactive, 10 0
       bind = ALT, H, resizeactive, -10 0
       bind = ALT, K, resizeactive, 0 -10
       bind = ALT, J, resizeactive, 0 10
+
+      bind = SUPERALT, L, movetoworkspacesilent, +1
+      bind = SUPERALT, H, movetoworkspacesilent, -1
+
+      bind = SUPER, N, workspace, +1
+      bind = SUPER, B, workspace, -1
 
       bind = SUPERALT, 1, movetoworkspacesilent, 1
       bind = SUPERALT, 2, movetoworkspacesilent, 2
