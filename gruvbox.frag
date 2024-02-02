@@ -22,12 +22,16 @@ void main() {
 
     // Add subtle color shifts and pump up the gruvbox aesthetic
     vec4 pixColor = texture2D(tex, v_texcoord);
-    pixColor.rgb += vec3(0.05, 0.03, 0.02); // Adjust for warm tones
+    pixColor.rgb += vec3(0.03, 0.015, 0.01); // Adjust for warm tones (more orangey-browney)
     pixColor.rgb *= vec3(1.2, 1.1, 1.0); // Adjust for contrast
     pixColor.r = twirlyChromaticAberration;
     pixColor.rgb += noise;
     pixColor.rgb -= scanlineIntensity;
     pixColor.rgb += jitter;
+
+    // Adjust the green and blue components for a better Gruvbox color
+    pixColor.g = clamp(pixColor.g + 0.02, 0.0, 1.0);
+    pixColor.b = clamp(pixColor.b - 0.02, 0.0, 1.0);
 
     gl_FragColor = pixColor;
 }
