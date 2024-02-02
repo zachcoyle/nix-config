@@ -39,6 +39,15 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    base16.url = "github:SenchoPens/base16.nix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        base16.follows = "base16";
+      };
+    };
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
