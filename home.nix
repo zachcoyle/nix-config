@@ -19,10 +19,10 @@
       package = pkgs.stdenvNoCC.mkDerivation {
         pname = "bibata-cursors-gruvbox";
         version = "unstable";
-        src = ./.;
+        src = ./Bibata-Modern-Gruvbox;
         installPhase = ''
           mkdir -p $out/share/icons
-          cp -r ./Bibata-Modern-Gruvbox $out/share/icons
+          cp -r . $out/share/icons/Bibata-Modern-Gruvbox
         '';
       };
       name = "Bibata-Modern-Gruvbox";
@@ -165,6 +165,7 @@
         playerctl
         slurp
         swww
+        ueberzugpp
         ulauncher
         unzip
         vimiv-qt
@@ -191,6 +192,8 @@
   wayland.windowManager.hyprland = {
     enable = pkgs.system == "x86_64-linux";
     extraConfig = ''
+      # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
+
       exec-once = copyq --start-server
       exec-once = swww init
       exec-once = swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1`
@@ -247,10 +250,12 @@
       bind = SUPERSHIFT, K, swapwindow, u
       bind = SUPERSHIFT, L, swapwindow, r
 
-      bind = SUPERALT, H, resizeactive, 10
-      bind = SUPERALT, J, resizeactive, 10
-      bind = SUPERALT, K, resizeactive, 10
-      bind = SUPERALT, L, resizeactive, 10
+      # bind = SUPER, equals, resizeactive, 10 -10
+      # bind = SUPER, plus, resizeactive, -10 10
+      bind = ALT, L, resizeactive, 10 0
+      bind = ALT, H, resizeactive, -10 0
+      bind = ALT, K, resizeactive, 0 -10
+      bind = ALT, J, resizeactive, 0 10
 
       bind = SUPERALT, 1, movetoworkspacesilent, 1
       bind = SUPERALT, 2, movetoworkspacesilent, 2
@@ -484,6 +489,11 @@
     };
 
     vscode = import ./users/zcoyle/by-app/vscode.nix {inherit pkgs;};
+
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     zellij = {
       enable = true;
