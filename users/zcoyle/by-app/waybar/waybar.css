@@ -50,6 +50,7 @@ tooltip {
   border-radius: 20px;
 }
 
+#custom-nixos,
 #cpu,
 #memory,
 #disk,

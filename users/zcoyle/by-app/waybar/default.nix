@@ -6,6 +6,7 @@
       layer = "top";
       position = "top";
       height = 30;
+      margin = "4";
 
       modules-left = [
         "hyprland/window"
@@ -39,8 +40,8 @@
           critical = 15;
         };
         format = "{icon}   {capacity}%";
-        "format-charging" = "  {capacity}%";
-        "format-plugged" = "  {capacity}%";
+        "format-charging" = "󱐋 {capacity}%";
+        "format-plugged" = " {capacity}%";
         "format-alt" = "{icon}  {time}";
         # "format-good" = ""; # An empty format will hide the module
         # "format-full" = "";
@@ -105,12 +106,12 @@
 
       network = {
         format = "{ifname}";
-        format-wifi = "   {signalStrength}%";
-        format-ethernet = "  {ipaddr}";
+        format-wifi = " {signalStrength}%";
+        format-ethernet = "󰈀 {ipaddr}";
         format-disconnected = "Not connected"; #An empty format will hide the module.
-        tooltip-format = " {ifname} via {gwaddri}";
-        tooltip-format-wifi = "   {essid} ({signalStrength}%)";
-        tooltip-format-ethernet = "  {ifname} ({ipaddr}/{cidr})";
+        tooltip-format = " {ifname} via {gwaddri}";
+        tooltip-format-wifi = " {essid} ({signalStrength}%)";
+        tooltip-format-ethernet = "󰈀 {ifname} ({ipaddr}/{cidr})";
         tooltip-format-disconnected = "Disconnected";
         max-length = 50;
         on-click = "alacritty -e nmtui";

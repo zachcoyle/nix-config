@@ -127,12 +127,17 @@
     nyxt
     alejandra
     neofetch
-    #xdg-desktop-portal-hyperland
     pciutils
     linuxKernel.packages.linux_zen.broadcom_sta
   ];
-  programs.hyprland.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    };
+    zsh.enable = true;
+  };
   users.users.zcoyle.shell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are

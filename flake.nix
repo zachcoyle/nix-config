@@ -149,28 +149,20 @@
       flake = let
         common_darwin_config = {
           modules = [
+            ./hosts/darwin/overlays.nix
+            ./hosts/common-overlays.nix
             ./common-system.nix
             ./darwin.nix
             inputs.darwin-modules.darwinModule
             inputs.home-manager.darwinModules.home-manager
             {
               system.configurationRevision = self.rev or self.dirtyRef or null;
-              nixpkgs.config.allowUnfree = true;
-              nixpkgs.overlays = [
-                # FIXME: Not the best place for these overlays to live
-                # inputs.neovim-nightly-overlay.overlay
-                inputs.telescope-just.overlays.default
-                inputs.sword-flake.overlays.default
-                inputs.nixpkgs-firefox-darwin.overlay
-                inputs.nix-vscode-extensions.overlays.default
-                inputs.nur.overlay
-                (_: _: {
-                  # Currently broken on unstable
-                  rustaceanvim = inputs.rustaceanvim.packages.x86_64-darwin.default;
-                  sg-nvim = inputs.sg-nvim.legacyPackages.x86_64-darwin.sg-nvimsg-nvim;
-                  inherit (inputs.nixpkgs-23-05-darwin.legacyPackages.x86_64-darwin) neovide;
-                })
-              ];
+              nixpkgs = {
+                config = {
+                  allowUnfree = true;
+                  # cudaSupport = true;
+                };
+              };
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -182,7 +174,7 @@
             }
           ];
         };
-      in rec {
+      in {
         darwinConfigurations = {
           Zachs-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
           Zacharys-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
@@ -191,24 +183,18 @@
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
           modules = [
+            ./hosts/nixos/overlays.nix
+            ./hosts/common-overlays.nix
+            ./common-system.nix
             ./hosts/nixos/nixos-desktop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            ./common-system.nix
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
-              nixpkgs.overlays = [
-                #inputs.neovim-nightly-overlay.overlay
-                inputs.sddm-sugar-candy-nix.overlays.default
-                inputs.telescope-just.overlays.default
-                inputs.sword-flake.overlays.default
-                inputs.nixpkgs-firefox-darwin.overlay
-                inputs.nix-vscode-extensions.overlays.default
-                inputs.nur.overlay
-                (_: _: {
-                  rustaceanvim = inputs.rustaceanvim.packages.x86_64-linux.default;
-                  sg-nvim = inputs.sg-nvim.legacyPackages.x86_64-linux.sg-nvimsg-nvim;
-                })
-              ];
+              nixpkgs = {
+                config = {
+                  # cudaSupport = true;
+                };
+              };
             }
             {
               home-manager = {
@@ -226,25 +212,18 @@
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
           modules = [
+            ./hosts/nixos/overlays.nix
+            ./hosts/common-overlays.nix
+            ./common-system.nix
             ./hosts/nixos/nixos-laptop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            ./common-system.nix
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
-              nixpkgs.overlays = [
-                #inputs.neovim-nightly-overlay.overlay
-                inputs.hyprland.overlays.default
-                inputs.sddm-sugar-candy-nix.overlays.default
-                inputs.telescope-just.overlays.default
-                inputs.sword-flake.overlays.default
-                inputs.nixpkgs-firefox-darwin.overlay
-                inputs.nix-vscode-extensions.overlays.default
-                inputs.nur.overlay
-                (_: _: {
-                  rustaceanvim = inputs.rustaceanvim.packages.x86_64-linux.default;
-                  sg-nvim = inputs.sg-nvim.legacyPackages.x86_64-linux.sg-nvimsg-nvim;
-                })
-              ];
+              nixpkgs = {
+                config = {
+                  # cudaSupport = true;
+                };
+              };
             }
             {
               home-manager = {

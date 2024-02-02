@@ -44,6 +44,34 @@
       };
     };
   };
+
+  xdg = lib.mkIf (pkgs.system == "x86_64-linux") {
+    enable = true;
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        # "mimetype1" = ["foo1.desktop" "foo2.desktop" "foo3.desktop"];
+        # "mimetype2" = "foo4.desktop";
+      };
+      defaultApplications = {
+        # "mimetype1" = ["default1.desktop" "default2.desktop"];
+      };
+    };
+    portal = {
+      enable = true;
+      config = {
+        # TODO:
+        # portals.conf(5)
+        XDG_CURRENT_DESKTOP = "Hyprland";
+      };
+      xdgOpenUsePortal = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-hyprland
+      ];
+    };
+  };
+
   home = {
     pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
       gtk.enable = true;
@@ -84,6 +112,7 @@
         neovide
         nix-melt
         nix-top
+        ollama
         opentofu
         pijul
         podman
@@ -111,12 +140,14 @@
         android-studio
         avizo
         blueman
+        bottles
         brightnessctl
         buildah
         calibre
         copyq
         foliate
         gnome.nautilus
+        grim
         inkscape
         kdenlive
         kickoff
@@ -124,6 +155,7 @@
         libreoffice
         pavucontrol
         playerctl
+        slurp
         swww
         ulauncher
         unzip
@@ -132,8 +164,10 @@
         wl-clipboard
       ];
   };
+
   services = {
     avizo.enable = pkgs.system == "x86_64-linux";
+    batsignal.enable = pkgs.system == "x86_64-linux";
     dunst = {
       enable = pkgs.system == "x86_64-linux";
       iconTheme = {
@@ -141,7 +175,7 @@
         name = "GruvboxPlus";
       };
       settings = {
-        # TODO
+        # TODO:
       };
     };
   };
@@ -161,7 +195,7 @@
       bind = SUPER, F, exec, firefox
       bind = SUPER, N, exec, nyxt
       bind = SUPER, A, exec, alacritty
-      bind = SUPER, W, killactive
+      bind = SUPER, Q, killactive
       bind = SUPER, T, togglefloating
       bind = SUPER, P, exec, swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1` --transition-type center
       bind = SUPER, SPACE, exec, wofi --show=run
@@ -214,12 +248,26 @@
       bind = SUPERALT, 2, movetoworkspacesilent, 2
       bind = SUPERALT, 3, movetoworkspacesilent, 3
       bind = SUPERALT, 4, movetoworkspacesilent, 4
+      bind = SUPERALT, 5, movetoworkspacesilent, 5
+      bind = SUPERALT, 6, movetoworkspacesilent, 6
+      bind = SUPERALT, 7, movetoworkspacesilent, 7
+      bind = SUPERALT, 8, movetoworkspacesilent, 8
+      bind = SUPERALT, 9, movetoworkspacesilent, 9
+      bind = SUPERALT, 0, movetoworkspacesilent, 10
 
       bind = SUPER, TAB, cyclenext
       bind = SUPERSHIFT, TAB, cyclenext, prev
 
+      bind = SUPER, period, layoutmsg, orientationnext
+      bind = SUPER, comma, layoutmsg, orientationprev
+
+      bind = SUPER, D, exec, hyprctl keyword general:layout "dwindle"
+      bind = SUPER, M, exec, hyprctl keyword general:layout "master"
     '';
     settings = {
+      general = {
+        layout = "master";
+      };
       decoration = {
         "col.shadow" = "rgba(00000099)";
         active_opacity = 1.0;
@@ -234,7 +282,7 @@
         workspace_swipe_fingers = 4;
       };
       input = {
-        # https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
+        # INFO: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
         kb_options = "caps:escape";
         natural_scroll = true;
         touchpad = {
@@ -320,11 +368,6 @@
               key = "C";
               mods = "Super";
               action = "Copy";
-            }
-            {
-              key = "V";
-              mods = "Control";
-              action = "Paste";
             }
           ]
           ++ lib.optionals (pkgs.system == "x86_64-darwin") [

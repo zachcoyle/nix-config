@@ -67,6 +67,10 @@ in {
   ];
 
   extraConfigLua = ''
+    vim.cmd [[
+      aunmenu PopUp.How-to\ disable\ mouse
+      aunmenu PopUp.-1-
+    ]]
     --------------------------------------
     require("nvim-autopairs").setup({})
     --------------------------------------
