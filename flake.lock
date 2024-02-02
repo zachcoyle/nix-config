@@ -452,6 +452,26 @@
         "type": "github"
       }
     },
+    "hycov": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ]
+      },
+      "locked": {
+        "lastModified": 1706697179,
+        "narHash": "sha256-PmjBRO+yi63O4geyaGj88Q3Vsryxr7kuu3U/kYSfyd8=",
+        "owner": "DreamMaoMao",
+        "repo": "hycov",
+        "rev": "171800deb10b568aa8a01b58a1677c3d0dd6ffa7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DreamMaoMao",
+        "repo": "hycov",
+        "type": "github"
+      }
+    },
     "hyprland": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
@@ -1058,6 +1078,7 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "hycov": "hycov",
         "hyprland": "hyprland",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-darwin": "nix-darwin",

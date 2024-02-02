@@ -34,6 +34,10 @@
         systems.follows = "systems-linux";
       };
     };
+    hycov = {
+      url = "github:DreamMaoMao/hycov";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
@@ -202,7 +206,7 @@
                 useUserPackages = true;
                 users.zcoyle = import ./home.nix;
                 extraSpecialArgs = {
-                  inherit (inputs) nixvim;
+                  inherit (inputs) nixvim hycov;
                 };
               };
             }
@@ -231,7 +235,7 @@
                 useUserPackages = true;
                 users.zcoyle = import ./home.nix;
                 extraSpecialArgs = {
-                  inherit (inputs) nixvim;
+                  inherit (inputs) nixvim hycov;
                 };
               };
             }

@@ -2,6 +2,7 @@
   pkgs,
   lib,
   nixvim,
+  hycov,
   config,
   ...
 }: {
@@ -157,13 +158,17 @@
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
         android-studio
         avizo
+        blender
         blueman
         bottles
         brightnessctl
         buildah
         calibre
         copyq
+        cura
         foliate
+        freecad
+        godot3
         gnome.nautilus
         grim
         inkscape
@@ -201,6 +206,9 @@
 
   wayland.windowManager.hyprland = {
     enable = pkgs.system == "x86_64-linux";
+    plugins = [
+      hycov.packages.${pkgs.system}.hycov
+    ];
     extraConfig = ''
       # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
 
@@ -291,10 +299,24 @@
 
       bind = SUPER, D, exec, hyprctl keyword general:layout "dwindle"
       bind = SUPER, M, exec, hyprctl keyword general:layout "master"
+
+      #### Plugin bindings ####
+
+      bind = ALT, tab, hycov:toggleoverview
+      bind = ALT, left, hycov:movefocus, l
+      bind = ALT, right, hycov:movefocus, r
+      bind = ALT, up, hycov:movefocus, u
+      bind = ALT, down, hycov:movefocus, d
     '';
     settings = {
       general = {
         layout = "master";
+      };
+      plugin = {
+        hycov = {
+          # TODO: bottom left corner is a hot corner until hyprland supports more gesture config
+          # enable_hotarea = 1;
+        };
       };
       decoration = {
         "col.shadow" = "rgba(00000099)";
@@ -304,6 +326,8 @@
         rounding = 10;
         shadow_offset = "0 5";
         dim_inactive = true;
+        # screen_shader = builtins.toString ./crt.frag;
+        screen_shader = builtins.toString ./gruvbox.frag;
       };
       gestures = {
         workspace_swipe = true;
