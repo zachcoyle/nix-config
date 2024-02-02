@@ -327,7 +327,7 @@
         shadow_offset = "0 5";
         dim_inactive = true;
         # screen_shader = builtins.toString ./crt.frag;
-        screen_shader = builtins.toString ./gruvbox.frag;
+        # screen_shader = builtins.toString ./gruvbox.frag;
       };
       gestures = {
         workspace_swipe = true;
