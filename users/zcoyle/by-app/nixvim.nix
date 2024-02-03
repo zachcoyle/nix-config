@@ -439,9 +439,9 @@ in {
   ];
 
   colorschemes = {
-    gruvbox = {
-      enable = true;
-    };
+    # gruvbox = {
+    #   enable = true;
+    # };
   };
 
   plugins = {

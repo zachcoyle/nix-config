@@ -6,10 +6,9 @@
       layer = "top";
       position = "top";
       height = 30;
-      margin = "4";
 
       modules-left = [
-        "tray"
+        "custom/logo"
         "hyprland/window"
       ];
 
@@ -22,14 +21,24 @@
         "memory"
         "disk"
         "pulseaudio"
-        "bluetooth"
+        # "bluetooth" # TODO:
         "network"
         "battery"
         "clock"
+        "custom/spacer"
+        "tray"
       ];
 
       "hyprland/window" = {
         icon = true;
+      };
+
+      "custom/logo" = {
+        format = "  ";
+      };
+
+      "custom/spacer" = {
+        format = " ";
       };
 
       battery = {
@@ -39,48 +48,48 @@
           critical = 15;
         };
         format = "{icon}   {capacity}%";
-        "format-charging" = "󱐋 {capacity}%";
-        "format-plugged" = " {capacity}%";
-        "format-alt" = "{icon}  {time}";
-        # "format-good" = ""; # An empty format will hide the module
-        # "format-full" = "";
-        "format-icons" = ["" "" "" "" ""];
+        format-charging = "󱐋 {capacity}%";
+        format-plugged = " {capacity}%";
+        format-alt = "{icon}  {time}";
+        # format-good = ""; # An empty format will hide the module
+        # format-full = "";
+        format-icons = ["" "" "" "" ""];
       };
 
       bluetooth = {
-        "format-disabled" = "";
-        "format-off" = "";
+        format-disabled = "";
+        format-off = "";
         interval = 30;
-        "on-click" = "blueman-manager";
+        on-click = "blueman-manager";
       };
 
       clock = {
         timezone = "America/Indiana/Indianapolis";
         format = "{:%I:%M}";
-        "format-alt" = "{:%Y-%m-%d %I:%M}";
-        "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        format-alt = "{:%Y-%m-%d %I:%M}";
+        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       };
 
       cpu = {
         format = "󰻠 {usage}% ";
-        "on-click" = "alacritty -e btm";
+        on-click = "alacritty -e btm";
       };
 
       disk = {
         interval = 30;
         format = "󰋊 {percentage_used}% ";
         path = "/";
-        "on-click" = "alacritty -e btm";
+        on-click = "alacritty -e btm";
       };
 
       memory = {
         format = "󰍛 {}% ";
-        "on-click" = "alacritty -e btm";
+        on-click = "alacritty -e btm";
       };
 
       network = {
         format = "{ifname}";
-        format-wifi = " {signalStrength}%";
+        format-wifi = "  {signalStrength}%";
         format-ethernet = "󰈀 {ipaddr}";
         format-disconnected = "Not connected"; #An empty format will hide the module.
         tooltip-format = " {ifname} via {gwaddri}";
@@ -118,7 +127,7 @@
     };
   };
 
-  style = builtins.readFile ./waybar.css;
+  # style = builtins.readFile ./waybar.css;
 
   systemd.enable = true;
 }

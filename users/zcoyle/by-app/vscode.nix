@@ -15,7 +15,7 @@
     esbenp.prettier-vscode
     evgeniypeshkov.syntax-highlighter
     gruntfuggly.todo-tree
-    jdinhlife.gruvbox
+    # jdinhlife.gruvbox
     kamadorueda.alejandra
     kokakiwi.vscode-just
     mkhl.direnv
@@ -69,7 +69,7 @@
     vscode-neovim.neovimPath = "${pkgs.neovim}/bin/nvim";
     workbench = {
       editor.empty.hint = "hidden";
-      colorTheme = "Gruvbox Dark Hard";
+      # colorTheme = "Gruvbox Dark Hard";
       startupEditor = "none";
     };
   };

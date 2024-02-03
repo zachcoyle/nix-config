@@ -6,10 +6,11 @@
   config,
   ...
 }: {
-  stylix = {
-    image = ./dots/sddm-background.jpg;
-    polarity = "dark";
-  };
+  # stylix = {
+  #   image = ./wallpapers/platform.jpg;
+  #   polarity = "dark";
+  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  # };
 
   qt = lib.mkIf (pkgs.system == "x86_64-linux") {
     enable = true;
@@ -21,50 +22,18 @@
   };
   gtk = lib.mkIf (pkgs.system == "x86_64-linux") {
     enable = true;
-    cursorTheme = {
-      package = pkgs.stdenvNoCC.mkDerivation {
-        pname = "bibata-cursors-gruvbox";
-        version = "unstable";
-        src = ./Bibata-Modern-Gruvbox;
-        installPhase = ''
-          mkdir -p $out/share/icons
-          cp -r . $out/share/icons/Bibata-Modern-Gruvbox
-        '';
-      };
-      name = "Bibata-Modern-Gruvbox";
-      size = 24;
+    gtk2.extraConfig = ''
+      gtk-decoration-layout=
+    '';
+    gtk3.extraConfig = {
+      gtk-decoration-layout = "";
     };
-    theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
+    gtk4.extraConfig = {
+      gtk-decoration-layout = "";
     };
     iconTheme = {
       package = pkgs.gruvbox-plus-icons;
       name = "GruvboxPlus";
-    };
-    gtk2.extraConfig = ''
-      gtk-decoration-layout = appmenu:none
-      gtk-application-prefer-dark-theme=1
-      gtk-cursor-theme=Bibata-Modern-Gruvbox
-      gtk-font-name="FiraCode Nerd Font"
-    '';
-    gtk3 = {
-      extraCss = builtins.readFile ./dots/gtk.css;
-      extraConfig = {
-        gtk-decoration-layout = "appmenu:none";
-        gtk-application-prefer-dark-theme = 1;
-        gtk-cursor-theme = "Bibata-Modern-Gruvbox";
-        gtk-font-name = "FiraCode Nerd Font";
-      };
-    };
-    gtk4 = {
-      extraCss = builtins.readFile ./dots/gtk.css;
-      extraConfig = {
-        gtk-decoration-layout = "appmenu:none";
-        gtk-application-prefer-dark-theme = 1;
-        gtk-cursor-theme = "Bibata-Modern-Gruvbox";
-        gtk-font-name = "FiraCode Nerd Font";
-      };
     };
   };
 
@@ -96,13 +65,13 @@
   };
 
   home = {
-    pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
-      gtk.enable = true;
-      x11.enable = true;
-      name = "Bibata-Modern-Gruvbox";
-      size = 24;
-      package = pkgs.bibata-cursors;
-    };
+    # pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
+    #   gtk.enable = true;
+    #   x11.enable = true;
+    #   name = "Bibata-Modern-Gruvbox";
+    #   size = 24;
+    #   package = pkgs.bibata-cursors;
+    # };
 
     username = "zcoyle";
     stateVersion = "24.05";
@@ -197,16 +166,26 @@
   services = {
     avizo.enable = pkgs.system == "x86_64-linux";
     batsignal.enable = pkgs.system == "x86_64-linux";
-    dunst = {
-      enable = pkgs.system == "x86_64-linux";
-      iconTheme = {
-        package = pkgs.gruvbox-plus-icons;
-        name = "GruvboxPlus";
-      };
-      settings = {
-        # TODO:
-      };
+    mako = {
+      enable = true;
+      borderRadius = 10;
+      defaultTimeout = 2000;
+      # groupBy = TODO:
+      # iconPath = TODO:
+      # font = TODO:
+      layer = "overlay";
+      # sort = TODO:
     };
+    # dunst = {
+    #   enable = pkgs.system == "x86_64-linux";
+    #   iconTheme = {
+    #     package = pkgs.gruvbox-plus-icons;
+    #     name = "GruvboxPlus";
+    #   };
+    #   settings = {
+    #     # TODO:
+    #   };
+    # };
   };
 
   wayland.windowManager.hyprland = {
@@ -220,7 +199,7 @@
       exec-once = copyq --start-server
       exec-once = swww init
       exec-once = swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1`
-      exec-once = hyprctl setcursor Bibata-Modern-Gruvbox 24
+      # exec-once = hyprctl setcursor Bibata-Modern-Gruvbox 24
 
       layerrule = blur, waybar
       layerrule = blur, wofi
@@ -324,7 +303,7 @@
         };
       };
       decoration = {
-        "col.shadow" = "rgba(00000099)";
+        # "col.shadow" = "rgba(00000099)";
         active_opacity = 1.0;
         drop_shadow = true;
         inactive_opacity = 0.8;
@@ -369,7 +348,7 @@
       enable = pkgs.system == "x86_64-linux";
       package = pkgs.swaylock-effects;
       settings = {
-        color = "808080";
+        # color = "808080";
         font-size = 24;
         indicator-idle-visible = false;
         indicator-radius = 100;
@@ -390,7 +369,7 @@
     wofi = {
       enable = pkgs.system == "x86_64-linux";
       settings = {};
-      style = builtins.readFile ./dots/wofi.css;
+      # style = builtins.readFile ./dots/wofi.css;
     };
 
     waybar = import ./users/zcoyle/by-app/waybar {inherit pkgs;};
@@ -403,15 +382,14 @@
         window = {
           decorations_theme_variant = "Dark";
           blur = true;
-          opacity = 0.8;
           padding = {
             x = 4;
             y = 0;
           };
         };
         font = {
-          normal.family = "FiraCode Nerd Font";
-          size = 10.0;
+          # normal.family = "FiraCode Nerd Font";
+          # size = 10.0;
         };
         mouse.hide_when_typing = true;
         keyboard.bindings =
@@ -434,7 +412,7 @@
               action = "CreateNewTab";
             }
           ];
-        import = ["${pkgs.alacritty-theme}/gruvbox_dark.toml"];
+        # import = ["${pkgs.alacritty-theme}/gruvbox_dark.toml"];
       };
     };
 
@@ -442,7 +420,7 @@
       enable = true;
       config = {
         pager = "less -FR";
-        theme = "gruvbox-dark";
+        # theme = "gruvbox-dark";
       };
       extraPackages = with pkgs.bat-extras; [batdiff batman batgrep batwatch];
     };
@@ -472,11 +450,10 @@
 
     firefox = {
       enable = pkgs.system == "x86_64-linux";
-      #package = pkgs.firefox-bin;
       profiles.zcoyle = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           firenvim
-          gruvbox-dark-theme
+          # gruvbox-dark-theme
           react-devtools
           reduxdevtools
           ublock-origin
@@ -527,7 +504,7 @@
       plugins = with pkgs.tmuxPlugins; [
         {plugin = sensible;}
         {plugin = battery;}
-        {plugin = gruvbox;}
+        # {plugin = gruvbox;}
         {plugin = mode-indicator;}
       ];
     };
@@ -539,12 +516,7 @@
       enableZshIntegration = true;
     };
 
-    zellij = {
-      enable = true;
-      settings = {
-        theme = "gruvbox-dark";
-      };
-    };
+    zellij.enable = true;
 
     zoxide = {
       enable = true;
