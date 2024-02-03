@@ -137,6 +137,7 @@
         inkscape
         kdenlive
         kickoff
+        krita
         libnotify
         libreoffice
         pavucontrol
@@ -165,16 +166,6 @@
       layer = "overlay";
       # sort = TODO:
     };
-    # dunst = {
-    #   enable = pkgs.system == "x86_64-linux";
-    #   iconTheme = {
-    #     package = pkgs.gruvbox-plus-icons;
-    #     name = "GruvboxPlus";
-    #   };
-    #   settings = {
-    #     # TODO:
-    #   };
-    # };
   };
 
   wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov;};
@@ -189,7 +180,6 @@
       enable = pkgs.system == "x86_64-linux";
       package = pkgs.swaylock-effects;
       settings = {
-        # color = "808080";
         font-size = 24;
         indicator-idle-visible = false;
         indicator-radius = 100;

@@ -34,7 +34,7 @@
       };
 
       "custom/logo" = {
-        format = "   ";
+        format = "  ";
         on-right-click = "swaylock";
       };
 
@@ -102,7 +102,7 @@
       };
 
       pulseaudio = {
-        # "scroll-step"= 1; # %, can be a float
+        scroll-step = -1; # %, can be a float
         format = "{icon} {volume}%";
         format-bluetooth = "{volume}% {icon} {format_source}";
         format-bluetooth-muted = " {icon} {format_source}";
@@ -120,15 +120,16 @@
         };
         on-click = "pavucontrol";
       };
-
-      # tray = {
-      #   # "icon-size"= 21;
-      #   spacing = 10;
-      # };
     };
   };
 
   # style = builtins.readFile ./waybar.css;
+  style = ''
+    #custom-logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  '';
 
   systemd.enable = true;
 }
