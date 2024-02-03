@@ -122,6 +122,14 @@ in {
       enable_cody = true
     }
     --------------------------------------
+    if vim.fn.exists('g:neovide') then
+        vim.g.neovide_transparency = 0.8
+        vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag}";
+    else
+      vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+      vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
+      vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
+    end
   '';
 
   options = {
