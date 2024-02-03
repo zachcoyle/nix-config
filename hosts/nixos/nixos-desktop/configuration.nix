@@ -7,6 +7,9 @@
   lib,
   ...
 }: {
+  stylix = {
+    image = ../../../wallpapers/platform.jpg;
+  };
   imports = [
     ./hardware-configuration.nix
   ];
