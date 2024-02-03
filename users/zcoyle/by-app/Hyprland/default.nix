@@ -25,7 +25,7 @@ in {
     bind = SUPER, A, exec, alacritty
     bind = SUPER, Q, killactive
     bind = SUPER, T, togglefloating
-    bind = SUPER, P, exec, swww img ${wallpaper}`ls ${wallpaper} | shuf -n 1` --transition-type center
+    bind = SUPER, P, exec, swww img ${wallpaper}/`ls ${wallpaper} | shuf -n 1` --transition-type center
     bind = SUPER, SPACE, exec, wofi --show=run
 
     workspace = special:scratchpad, on-created-empty:alacritty
