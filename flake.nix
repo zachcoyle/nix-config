@@ -168,6 +168,7 @@
             ./darwin.nix
             inputs.darwin-modules.darwinModule
             inputs.home-manager.darwinModules.home-manager
+            inputs.stylix.darwinModules.stylix
             {
               system.configurationRevision = self.rev or self.dirtyRef or null;
               nixpkgs = {
@@ -202,6 +203,7 @@
             ./hosts/nixos/nixos-desktop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.sddm-sugar-candy-nix.nixosModules.default
+            inputs.stylix.nixosModules.stylix
             {
               nixpkgs = {
                 config = {
@@ -231,6 +233,7 @@
             ./hosts/nixos/nixos-laptop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.sddm-sugar-candy-nix.nixosModules.default
+            inputs.stylix.nixosModules.stylix
             {
               nixpkgs = {
                 config = {

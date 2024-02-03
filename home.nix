@@ -6,6 +6,11 @@
   config,
   ...
 }: {
+  stylix = {
+    image = ./dots/sddm-background.jpg;
+    polarity = "dark";
+  };
+
   qt = lib.mkIf (pkgs.system == "x86_64-linux") {
     enable = true;
     platformTheme = "gtk";
