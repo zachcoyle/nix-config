@@ -2,7 +2,9 @@
   pkgs,
   hycov,
   ...
-}: {
+}: let
+  wallpaper = ../../../../wallpapers;
+in {
   enable = pkgs.system == "x86_64-linux";
   plugins = [
     hycov.packages.${pkgs.system}.hycov
@@ -12,7 +14,7 @@
 
     exec-once = copyq --start-server
     exec-once = swww init
-    exec-once = swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1`
+    exec-once = swww img ${wallpaper}`ls ${wallpaper} | shuf -n 1`}
     # exec-once = hyprctl setcursor Bibata-Modern-Gruvbox 24
 
     layerrule = blur, waybar
@@ -23,7 +25,7 @@
     bind = SUPER, A, exec, alacritty
     bind = SUPER, Q, killactive
     bind = SUPER, T, togglefloating
-    bind = SUPER, P, exec, swww img ~/Pictures/wallpaper/`ls ~/Pictures/wallpaper | shuf -n 1` --transition-type center
+    bind = SUPER, P, exec, swww img ${wallpaper}`ls ${wallpaper} | shuf -n 1` --transition-type center
     bind = SUPER, SPACE, exec, wofi --show=run
 
     workspace = special:scratchpad, on-created-empty:alacritty
