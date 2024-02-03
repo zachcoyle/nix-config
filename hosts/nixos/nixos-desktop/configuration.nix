@@ -7,9 +7,6 @@
   lib,
   ...
 }: {
-  stylix = {
-    image = ../../../wallpapers/platform.jpg;
-  };
   imports = [
     ./hardware-configuration.nix
   ];
@@ -198,4 +195,5 @@
   #     gtk-font-name="FiraCode Nerd Font"
   #   '';
   # };
+  stylix = import ../../../stylix.nix {inherit pkgs;};
 }
