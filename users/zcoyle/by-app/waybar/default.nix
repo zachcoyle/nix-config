@@ -35,6 +35,7 @@
 
       "custom/logo" = {
         format = "  ";
+        on-click = "swaylock";
         on-right-click = "swaylock";
       };
 
