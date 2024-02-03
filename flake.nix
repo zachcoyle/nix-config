@@ -234,13 +234,20 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sddm-sugar-candy-nix.nixosModules.default
             inputs.stylix.nixosModules.stylix
-            {
-              nixpkgs = {
-                config = {
-                  # cudaSupport = true;
+            (
+              {lib, ...}: {
+                nixpkgs = {
+                  config = {
+                    allowUnfreePredicate = pkg:
+                      builtins.elem (lib.getName pkg) [
+                        "steam"
+                        "steam-original"
+                        "steam-run"
+                      ];
+                  };
                 };
-              };
-            }
+              }
+            )
             {
               home-manager = {
                 useGlobalPkgs = true;

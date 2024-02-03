@@ -189,6 +189,7 @@
       enable = pkgs.system == "x86_64-linux";
       configDir = ./dots/eww;
     };
+
     swaylock = {
       enable = pkgs.system == "x86_64-linux";
       package = pkgs.swaylock-effects;

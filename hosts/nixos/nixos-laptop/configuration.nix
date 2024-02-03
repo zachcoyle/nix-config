@@ -30,6 +30,8 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = [pkgs.amdvlk];
+      extraPackages32 = [pkgs.driversi686Linux.amdvlk];
     };
   };
 
@@ -154,7 +156,14 @@
   };
   programs = {
     hyprland.enable = true;
+
     zsh.enable = true;
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
   };
   users.users.zcoyle.shell = pkgs.zsh;
 
