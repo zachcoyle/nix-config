@@ -62,14 +62,6 @@
   };
 
   home = {
-    # pointerCursor = lib.mkIf (pkgs.system == "x86_64-linux") {
-    #   gtk.enable = true;
-    #   x11.enable = true;
-    #   name = "Bibata-Modern-Gruvbox";
-    #   size = 24;
-    #   package = pkgs.bibata-cursors;
-    # };
-
     username = "zcoyle";
     stateVersion = "24.05";
     packages = with pkgs;

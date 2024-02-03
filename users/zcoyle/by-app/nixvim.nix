@@ -67,10 +67,8 @@ in {
   ];
 
   extraConfigLua = ''
-    vim.cmd [[
-      aunmenu PopUp.How-to\ disable\ mouse
-      aunmenu PopUp.-1-
-    ]]
+    vim.cmd [[ aunmenu PopUp.How-to\ disable\ mouse ]]
+    vim.cmd [[ aunmenu PopUp.-1- ]]
     --------------------------------------
     require("nvim-autopairs").setup({})
     --------------------------------------
@@ -113,18 +111,21 @@ in {
         }
         end
       },
-      -- dap = {
-      --   adapter = require("rustaceanvim.dap").get_codelldb_adapter("${codelldb_path}", "${liblldb_path}"),
+      --  dap = {
+      --    adapter = require("rustaceanvim.dap").get_codelldb_adapter("${codelldb_path}", "${liblldb_path}"),
       -- },
     }
+
     --------------------------------------
+
     require("sg").setup {
       enable_cody = true
     }
+
     --------------------------------------
-    if vim.fn.exists('g:neovide') then
+    if vim.fn.exists('g:neovide') ~= 0 then
         vim.g.neovide_transparency = 0.8
-        vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag}";
+        vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag}"
     else
       vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
       vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
@@ -684,6 +685,11 @@ in {
     lspkind.enable = true;
     lspsaga = {
       enable = true;
+      lightbulb = {
+        enable = true;
+        sign = true;
+        virtualText = false;
+      };
       extraOptions = {
         symbol_in_winbar = {
           enable = false;
@@ -767,14 +773,6 @@ in {
         in
           jar_paths;
       };
-    };
-    nvim-lightbulb = {
-      enable = true;
-      autocmd.enabled = true;
-      float.enabled = false;
-      virtualText.enabled = true;
-      sign.enabled = false;
-      statusText.enabled = false;
     };
     nvim-ufo = {
       enable = true;

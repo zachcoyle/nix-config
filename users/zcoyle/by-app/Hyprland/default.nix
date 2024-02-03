@@ -44,6 +44,7 @@ in {
     bind = SUPER, 0, workspace, 10
 
     bind = SUPER_SHIFT, 4, exec, grim -g "$(slurp)"
+    bind = SUPER_SHIFT, 3, exec, grim
 
     bind = , XF86AudioRaiseVolume, exec, volumectl -u up
     bind = , XF86AudioLowerVolume, exec, volumectl -u down
