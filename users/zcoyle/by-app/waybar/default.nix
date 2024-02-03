@@ -34,7 +34,8 @@
       };
 
       "custom/logo" = {
-        format = "  ";
+        format = "   ";
+        on-right-click = "swaylock";
       };
 
       "custom/spacer" = {

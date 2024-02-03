@@ -246,6 +246,7 @@
     };
     targets = {
       nixvim = {
+        enable = false;
         transparent_bg = {
           main = true;
           sign_column = true;

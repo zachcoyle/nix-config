@@ -6,6 +6,9 @@
   config,
   ...
 }: {
+  stylix = {
+    targets.nixvim.enable = false;
+  };
   qt = lib.mkIf (pkgs.system == "x86_64-linux") {
     enable = true;
     platformTheme = "gtk";
