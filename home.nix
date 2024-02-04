@@ -5,7 +5,12 @@
   hycov,
   config,
   ...
-}: {
+}: let
+  # base16 styleguide:
+  # https://github.com/chriskempson/base16/blob/main/styling.md
+  colorsWithHashtag = config.lib.stylix.colors.withHashtag;
+  tomlFormat = pkgs.formats.toml {};
+in {
   stylix = {
     targets.nixvim.enable = false;
   };
@@ -153,6 +158,50 @@
         wl-clipboard
         yofi
       ];
+
+    file = {
+      ".config/yofi/blacklist".text = ''
+      '';
+      ".config/yofi/yofi.config".source = tomlFormat.generate "yofi.config" {
+        # TODO: theme w/ stylix
+        width = 400;
+        height = 512;
+        force_window = false;
+        corner_radius = "10";
+        font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
+        font_size = 24;
+        bg_color = colorsWithHashtag.base00;
+        bg_border_color = colorsWithHashtag.base04;
+        bg_border_width = 4.0;
+        font_color = colorsWithHashtag.base04;
+        # scale = 2;
+        term = "alacritty -e";
+        input_text = {
+          font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
+          font_color = colorsWithHashtag.base01;
+          bg_color = colorsWithHashtag.base04;
+          margin = "5";
+          padding = "1.7 -4";
+          corner_radius = "10";
+        };
+        list_items = {
+          font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
+          font_color = colorsWithHashtag.base04;
+          selected_font_color = colorsWithHashtag.base0B;
+          match_color = colorsWithHashtag.base0F;
+          margin = "5 10";
+          hide_actions = true;
+          action_left_margin = 60;
+          item_spacing = 2;
+          icon_spacing = 5;
+        };
+        icon = {
+          size = 16;
+          theme = "Adwaita";
+          # fallback_icon_path = "";
+        };
+      };
+    };
   };
 
   services = {
