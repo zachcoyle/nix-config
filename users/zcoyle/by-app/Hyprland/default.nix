@@ -16,6 +16,7 @@ in {
     exec-once = swww init
     exec-once = swww img ${wallpaperDir}`ls ${wallpaperDir} | shuf -n 1`}
     # exec-once = hyprctl setcursor Bibata-Modern-Gruvbox 24
+    exec-once = waybar
 
     layerrule = blur, waybar
     layerrule = blur, yofi
