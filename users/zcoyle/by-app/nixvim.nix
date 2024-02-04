@@ -12,15 +12,15 @@ in {
   editorconfig.enable = true;
 
   extraPackages = with pkgs;
+  # utility
     [
-      # utility
       fd
       lazygit
       ripgrep
       tabnine
     ]
+    # dap
     ++ [
-      # dap
       rustc
       # INFO: watch for this pr https://github.com/NixOS/nixpkgs/pull/264887
       # TODO: it's merged - need to fix this config
@@ -33,8 +33,8 @@ in {
       }:
         enabled ++ [all.xdebug]))
     ]
+    # formatters
     ++ [
-      # formatters
       alejandra
       biome
       beautysh
@@ -61,7 +61,7 @@ in {
     telescope-ui-select-nvim
     tint-nvim
     neorepl-nvim
-    pkgs.rustaceanvim
+    rustaceanvim
     telescope_just
     sg-nvim
     yuck-vim
@@ -102,14 +102,14 @@ in {
     vim.g.rustaceanvim = {
       server = {
         settings = function()
-        return {
-          ['rust-analyzer'] = {
-            files = {
-              excludeDirs = {".direnv"},
-              watcherExclude = {".direnv"},
+          return {
+            ['rust-analyzer'] = {
+              files = {
+                excludeDirs = {".direnv"},
+                watcherExclude = {".direnv"},
+              },
             },
-          },
-        }
+          }
         end
       },
       --  dap = {
