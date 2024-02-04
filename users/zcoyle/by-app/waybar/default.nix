@@ -41,6 +41,7 @@
         format = "   ";
         on-click = "wlogout";
         on-right-click = "swaylock";
+        tooltip = false;
       };
 
       "custom/spacer" = {
