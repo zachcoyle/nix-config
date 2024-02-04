@@ -246,7 +246,7 @@ in {
         advanced-scene-switcher
         input-overlay
         obs-3d-effect
-        obs-backgroundremoval
+        # obs-backgroundremoval # build failing
         obs-command-source
         obs-composite-blur
         obs-move-transition
