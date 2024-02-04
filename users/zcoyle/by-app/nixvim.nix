@@ -445,6 +445,14 @@ in {
       lua = true;
       mode = ["n"];
     }
+    {
+      key = "<leader>nb";
+      action = ":Navbuddy<cr>";
+      options = {
+        silent = true;
+        desc = "Open Navbuddy";
+      };
+    }
   ];
 
   colorschemes = {
@@ -455,7 +463,7 @@ in {
 
   plugins = {
     barbar.enable = true;
-    barbecue.enable = true;
+    # barbecue.enable = true;
     cmp-nvim-lsp.enable = true;
     cmp-nvim-lsp-document-symbol.enable = true;
     cmp-nvim-lsp-signature-help.enable = true;
@@ -695,6 +703,17 @@ in {
           enable = false;
         };
       };
+    };
+    navbuddy = {
+      enable = true;
+      lsp.autoAttach = true;
+    };
+    navic = {
+      enable = true;
+      click = true;
+      highlight = true;
+      lazyUpdateContext = false;
+      lsp.autoAttach = true;
     };
     neogit = {
       enable = true;
