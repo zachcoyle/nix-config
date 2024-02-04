@@ -259,7 +259,7 @@ in {
       ];
     };
 
-    waybar = import ./users/zcoyle/by-app/waybar {inherit pkgs config;};
+    waybar = import ./users/zcoyle/by-app/waybar.nix {inherit pkgs config;};
 
     wlogout = {
       # TODO: Styling

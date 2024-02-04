@@ -129,7 +129,6 @@
     };
   };
 
-  # style = builtins.readFile ./waybar.css;
   style = ''
     #custom-logo {
       font-weight: bold;
@@ -137,6 +136,4 @@
       color: ${config.lib.stylix.colors.withHashtag.base0D};
     }
   '';
-
-  # systemd.enable = true;
 }
