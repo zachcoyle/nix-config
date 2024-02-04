@@ -1277,7 +1277,8 @@
         "sword-flake": "sword-flake",
         "systems-darwin": "systems-darwin",
         "systems-linux": "systems-linux",
-        "telescope-just": "telescope-just"
+        "telescope-just": "telescope-just",
+        "yofi": "yofi"
       }
     },
     "rust-overlay": {
@@ -1693,6 +1694,29 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "yofi": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1702939607,
+        "narHash": "sha256-nPIt1JIQ3g6lBE7+qI8gV1cmJ+uA55aAzho2dGOIFik=",
+        "owner": "l4l",
+        "repo": "yofi",
+        "rev": "c0ca3365a702e7a2852a801ca357df5eb87d0cf9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "l4l",
+        "repo": "yofi",
         "type": "github"
       }
     }

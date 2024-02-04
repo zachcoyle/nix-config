@@ -67,8 +67,8 @@
     packages = with pkgs;
       [
         act
-        asciinema
         alejandra
+        asciinema
         cachix
         comma
         coreutils-full
@@ -131,9 +131,10 @@
         cura
         foliate
         freecad
-        godot3
         gnome.nautilus
+        godot3
         grim
+        imagemagick
         inkscape
         kdenlive
         kickoff
@@ -150,6 +151,7 @@
         vimiv-qt
         waypipe
         wl-clipboard
+        yofi
       ];
   };
 
@@ -197,11 +199,6 @@
         obs-move-transition
       ];
     };
-    wofi = {
-      enable = pkgs.system == "x86_64-linux";
-      settings = {};
-      # style = builtins.readFile ./dots/wofi.css;
-    };
 
     waybar = import ./users/zcoyle/by-app/waybar {inherit pkgs;};
 
@@ -246,10 +243,10 @@
       profiles.zcoyle = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           firenvim
-          # gruvbox-dark-theme
           react-devtools
           reduxdevtools
           ublock-origin
+          vimium
           vue-js-devtools
           wayback-machine
         ];

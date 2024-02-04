@@ -128,6 +128,13 @@
         flake-compat.follows = "flake-compat";
       };
     };
+    yofi = {
+      url = "github:l4l/yofi";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {

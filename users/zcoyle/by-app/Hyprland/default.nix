@@ -18,7 +18,7 @@ in {
     # exec-once = hyprctl setcursor Bibata-Modern-Gruvbox 24
 
     layerrule = blur, waybar
-    layerrule = blur, wofi
+    layerrule = blur, yofi
     layerrule = blur, alacritty
 
     bind = SUPER, F, exec, firefox
@@ -26,7 +26,7 @@ in {
     bind = SUPER, Q, killactive
     bind = SUPER, T, togglefloating
     bind = SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-type center
-    bind = SUPER, SPACE, exec, wofi --show=run
+    bind = SUPER, SPACE, exec, yofi
 
     workspace = special:scratchpad, on-created-empty:alacritty
     bind = SUPER_SHIFT, S, movetoworkspace, special:scratchpad
