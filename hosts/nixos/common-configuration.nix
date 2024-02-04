@@ -122,6 +122,8 @@
     };
 
     openssh.enable = true;
+
+    ollama.enable = true;
   };
 
   stylix = import ../../stylix.nix {inherit pkgs;};

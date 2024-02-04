@@ -463,7 +463,7 @@ in {
 
   plugins = {
     barbar.enable = true;
-    # barbecue.enable = true;
+    barbecue.enable = true;
     cmp-nvim-lsp.enable = true;
     cmp-nvim-lsp-document-symbol.enable = true;
     cmp-nvim-lsp-signature-help.enable = true;
@@ -708,20 +708,17 @@ in {
       enable = true;
       lsp.autoAttach = true;
     };
-    navic = {
-      enable = true;
-      click = true;
-      highlight = true;
-      lazyUpdateContext = false;
-      lsp.autoAttach = true;
-    };
     neogit = {
       enable = true;
       autoRefresh = true;
       integrations.diffview = true;
     };
     noice.enable = true;
-    notify.enable = true;
+    notify = {
+      enable = true;
+      # to fix nvim-notify constantly complaining
+      backgroundColour = "#000000";
+    };
     nix.enable = true;
     nvim-colorizer = {
       enable = true;
@@ -801,6 +798,17 @@ in {
             return {'treesitter', 'indent'}
         end
       '';
+    };
+    ollama = {
+      # TODO: configure this
+      enable = true;
+      # defaults:
+      model = "mistral";
+      url = "http://127.0.0.1:11434";
+      # action = "display";
+      # action.fn = ''
+      # '';
+      # action.opts.stream = false;
     };
     project-nvim.enable = true;
     rainbow-delimiters.enable = true;
