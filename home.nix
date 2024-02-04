@@ -146,6 +146,7 @@ in {
         krita
         libnotify
         libreoffice
+        libsForQt5.plasma-systemmonitor
         pavucontrol
         playerctl
         slurp
@@ -241,11 +242,20 @@ in {
     obs-studio = {
       enable = pkgs.system == "x86_64-linux";
       plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-vkcapture
-        obs-source-switcher
-        obs-shaderfilter
+        # obs-xdg-portal # might need to be packaged
+        advanced-scene-switcher
+        input-overlay
+        obs-3d-effect
+        obs-backgroundremoval
+        obs-command-source
+        obs-composite-blur
         obs-move-transition
+        obs-mute-filter
+        obs-pipewire-audio-capture
+        obs-shaderfilter
+        obs-source-switcher
+        obs-vkcapture
+        wlrobs
       ];
     };
 
