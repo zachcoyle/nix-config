@@ -39,7 +39,7 @@
 
       "custom/logo" = {
         format = "   ";
-        on-click = "swaylock";
+        on-click = "wlogout";
         on-right-click = "swaylock";
       };
 
