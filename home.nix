@@ -261,7 +261,50 @@ in {
 
     waybar = import ./users/zcoyle/by-app/waybar {inherit pkgs config;};
 
-    wlogout.enable = pkgs.system == "x86_64-linux";
+    wlogout = {
+      # TODO: Styling
+      enable = pkgs.system == "x86_64-linux";
+      layout = [
+        {
+          label = "lock";
+          action = "swaylock";
+          text = "Lock";
+          keybind = "l";
+        }
+        {
+          label = "logout";
+          action = "hyprctl dispatch exit";
+          text = "Logout";
+          keybind = "o";
+        }
+        {
+          # TODO: command and binding
+          label = "suspend";
+          action = "";
+          text = "Suspend";
+          keybind = "";
+        }
+        {
+          # TODO: command and binding
+          label = "hibernate";
+          action = "";
+          text = "Hibernate";
+          keybind = "";
+        }
+        {
+          label = "shutdown";
+          action = "systemctl poweroff";
+          text = "Shutdown";
+          keybind = "s";
+        }
+        {
+          label = "reboot";
+          action = "systemctl reboot";
+          text = "Reboot";
+          keybind = "r";
+        }
+      ];
+    };
 
     alacritty = import ./users/zcoyle/by-app/alacritty.nix {inherit pkgs lib;};
 

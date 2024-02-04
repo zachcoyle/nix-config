@@ -22,6 +22,10 @@ in {
     layerrule = blur, yofi
     layerrule = blur, alacritty
 
+    windowrule = float, wlogout
+    windowrule = noanim, wlogout
+    windowrule = fullscreen, wlogout
+
     bind = SUPER, F, exec, firefox
     bind = SUPER, A, exec, alacritty
     bind = SUPER, Q, killactive
