@@ -3,7 +3,7 @@
   hycov,
   ...
 }: let
-  wallpaper = ../../../../wallpapers;
+  wallpaperDir = ../../../../wallpapers;
 in {
   enable = pkgs.system == "x86_64-linux";
   plugins = [
@@ -14,7 +14,7 @@ in {
 
     exec-once = copyq --start-server
     exec-once = swww init
-    exec-once = swww img ${wallpaper}`ls ${wallpaper} | shuf -n 1`}
+    exec-once = swww img ${wallpaperDir}`ls ${wallpaperDir} | shuf -n 1`}
     # exec-once = hyprctl setcursor Bibata-Modern-Gruvbox 24
 
     layerrule = blur, waybar
@@ -25,7 +25,7 @@ in {
     bind = SUPER, A, exec, alacritty
     bind = SUPER, Q, killactive
     bind = SUPER, T, togglefloating
-    bind = SUPER, P, exec, swww img ${wallpaper}/`ls ${wallpaper} | shuf -n 1` --transition-type center
+    bind = SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-type center
     bind = SUPER, SPACE, exec, wofi --show=run
 
     workspace = special:scratchpad, on-created-empty:alacritty
@@ -97,6 +97,7 @@ in {
 
     bind = SUPER, period, layoutmsg, orientationnext
     bind = SUPER, comma, layoutmsg, orientationprev
+    bind = SUPERSHIFT, semicolon, exec, swaylock
 
     bind = SUPER, D, exec, hyprctl keyword general:layout "dwindle"
     bind = SUPER, M, exec, hyprctl keyword general:layout "master"
