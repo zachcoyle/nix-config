@@ -11,8 +11,13 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [pkgs.amdvlk];
-      extraPackages32 = [pkgs.driversi686Linux.amdvlk];
+      extraPackages = with pkgs; [
+        amdvlk
+        rocmPackages.clr.icd
+      ];
+      extraPackages32 = with pkgs; [
+        pkgs.driversi686Linux.amdvlk
+      ];
     };
   };
 

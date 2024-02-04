@@ -13,7 +13,7 @@ in {
 
   extraPackages = with pkgs;
     [
-      # util
+      # utility
       fd
       lazygit
       ripgrep
@@ -23,6 +23,7 @@ in {
       # dap
       rustc
       # INFO: watch for this pr https://github.com/NixOS/nixpkgs/pull/264887
+      # TODO: it's merged - need to fix this config
       # pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
       cargo
       lldb
@@ -819,12 +820,13 @@ in {
       # TODO: configure this
       enable = true;
       # defaults:
-      model = "mistral";
+      # model = "mistral";
+      model = "deepseek-coder:6.7b";
       url = "http://127.0.0.1:11434";
       # action = "display";
       # action.fn = ''
       # '';
-      # action.opts.stream = false;
+      action.opts.stream = true;
     };
     project-nvim.enable = true;
     rainbow-delimiters.enable = true;

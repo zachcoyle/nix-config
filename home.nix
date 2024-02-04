@@ -259,7 +259,7 @@ in {
       ];
     };
 
-    waybar = import ./users/zcoyle/by-app/waybar {inherit pkgs;};
+    waybar = import ./users/zcoyle/by-app/waybar {inherit pkgs config;};
 
     wlogout.enable = pkgs.system == "x86_64-linux";
 

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   enable = pkgs.system == "x86_64-linux";
 
   settings = {
@@ -34,7 +38,7 @@
       };
 
       "custom/logo" = {
-        format = "  ";
+        format = "   ";
         on-click = "swaylock";
         on-right-click = "swaylock";
       };
@@ -129,6 +133,7 @@
     #custom-logo {
       font-weight: bold;
       font-size: 20px;
+      color: ${config.lib.stylix.colors.withHashtag.base0D};
     }
   '';
 

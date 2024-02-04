@@ -182,7 +182,6 @@
               nixpkgs = {
                 config = {
                   allowUnfree = true;
-                  # cudaSupport = true;
                 };
               };
               home-manager = {
