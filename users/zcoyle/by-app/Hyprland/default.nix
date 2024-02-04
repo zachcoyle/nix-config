@@ -71,10 +71,10 @@ in {
     bind = SUPERSHIFT, K, swapwindow, u
     bind = SUPERSHIFT, L, swapwindow, r
 
-    bind = ALT, L, resizeactive, 10 0
-    bind = ALT, H, resizeactive, -10 0
-    bind = ALT, K, resizeactive, 0 -10
-    bind = ALT, J, resizeactive, 0 10
+    bind = ALT, L, resizeactive, 20 0
+    bind = ALT, H, resizeactive, -20 0
+    bind = ALT, K, resizeactive, 0 -20
+    bind = ALT, J, resizeactive, 0 20
 
     bind = SUPERALT, L, movetoworkspacesilent, +1
     bind = SUPERALT, H, movetoworkspacesilent, -1
