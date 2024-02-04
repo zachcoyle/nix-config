@@ -24,6 +24,7 @@ in {
     bind = SUPER, F, exec, firefox
     bind = SUPER, A, exec, alacritty
     bind = SUPER, Q, killactive
+    bind = SUPER, Y, fullscreen, 0
     bind = SUPER, T, togglefloating
     bind = SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-type center
     bind = SUPER, SPACE, exec, yofi
