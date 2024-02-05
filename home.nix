@@ -25,13 +25,17 @@ in {
   gtk = lib.mkIf (pkgs.system == "x86_64-linux") {
     enable = true;
     gtk2.extraConfig = ''
-      gtk-decoration-layout=
+      gtk-decoration-layout=:menu,appmenu
     '';
     gtk3.extraConfig = {
-      gtk-decoration-layout = "";
+      gtk-decoration-layout = ''
+        gtk-decoration-layout=:menu,appmenu
+      '';
     };
     gtk4.extraConfig = {
-      gtk-decoration-layout = "";
+      gtk-decoration-layout = ''
+        gtk-decoration-layout=:menu,appmenu
+      '';
     };
     iconTheme = {
       package = pkgs.gruvbox-plus-icons;
@@ -314,7 +318,12 @@ in {
         pager = "less -FR";
         # theme = "gruvbox-dark";
       };
-      extraPackages = with pkgs.bat-extras; [batdiff batman batgrep batwatch];
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        batgrep
+        batwatch
+      ];
     };
 
     bottom.enable = true;

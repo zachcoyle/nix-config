@@ -106,8 +106,16 @@
 
       xkb.layout = "us";
 
-      # touchpad support
-      libinput.enable = true;
+      libinput = {
+        # touchpad support
+        enable = true;
+        touchpad = {
+          disableWhileTyping = true;
+          # TODO: adjust later
+          # accelSpeed = "-0.5";
+          # accelProfile = "adaptive"; # or "flat"
+        };
+      };
     };
     printing.enable = true;
     pipewire = {

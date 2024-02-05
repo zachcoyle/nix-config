@@ -21,6 +21,7 @@ in {
     layerrule = blur, waybar
     layerrule = blur, yofi
     layerrule = blur, alacritty
+    layerrule = blur, wlogout
 
     windowrule = float, wlogout
     windowrule = noanim, wlogout
