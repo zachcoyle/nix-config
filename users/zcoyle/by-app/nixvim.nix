@@ -820,8 +820,7 @@ in {
       # TODO: configure this
       enable = true;
       # defaults:
-      # model = "mistral";
-      model = "deepseek-coder:6.7b";
+      model = "mistral";
       url = "http://127.0.0.1:11434";
       # action = "display";
       # action.fn = ''
