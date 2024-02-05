@@ -103,7 +103,6 @@ in {
         neovide
         nix-melt
         nix-top
-        ollama
         opentofu
         pijul
         podman
@@ -151,6 +150,7 @@ in {
         libnotify
         libreoffice
         libsForQt5.plasma-systemmonitor
+        ollama # Broken on darwin
         pavucontrol
         playerctl
         slurp
@@ -213,7 +213,7 @@ in {
     avizo.enable = pkgs.system == "x86_64-linux";
     batsignal.enable = pkgs.system == "x86_64-linux";
     mako = {
-      enable = true;
+      enable = pkgs.system == "x86_64-linux";
       borderRadius = 10;
       defaultTimeout = 2000;
       # groupBy = TODO:

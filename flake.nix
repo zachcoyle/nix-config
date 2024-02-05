@@ -169,6 +169,7 @@
 
       flake = let
         common_darwin_config = {
+          specialArgs = {inherit inputs;};
           modules = [
             ./hosts/darwin/overlays.nix
             ./hosts/common-overlays.nix

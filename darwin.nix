@@ -14,6 +14,9 @@
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
+
+  stylix = import ./stylix.nix {inherit pkgs;};
+
   system.stateVersion = 4;
 
   # The platform the configuration will be used on.
