@@ -825,7 +825,7 @@ in {
       # action = "display";
       # action.fn = ''
       # '';
-      action.opts.stream = true;
+      # action.opts.stream = true;
     };
     project-nvim.enable = true;
     rainbow-delimiters.enable = true;
