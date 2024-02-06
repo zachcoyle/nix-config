@@ -212,13 +212,23 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sddm-sugar-candy-nix.nixosModules.default
             inputs.stylix.nixosModules.stylix
-            {
-              nixpkgs = {
-                config = {
-                  rocmSupport = true;
+            (
+              {lib, ...}: {
+                nixpkgs = {
+                  config = {
+                    rocmSupport = true;
+                    allowUnfreePredicate = pkg:
+                      builtins.elem (lib.getName pkg) [
+                        "dwarf-fortress"
+                        # "spotify"
+                        "steam"
+                        "steam-original"
+                        "steam-run"
+                      ];
+                  };
                 };
-              };
-            }
+              }
+            )
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -242,19 +252,15 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sddm-sugar-candy-nix.nixosModules.default
             inputs.stylix.nixosModules.stylix
-            {
-              nixpkgs = {
-                config = {
-                  rocmSupport = true;
-                };
-              };
-            }
             (
               {lib, ...}: {
                 nixpkgs = {
                   config = {
+                    rocmSupport = true;
                     allowUnfreePredicate = pkg:
                       builtins.elem (lib.getName pkg) [
+                        "dwarf-fortress"
+                        # "spotify"
                         "steam"
                         "steam-original"
                         "steam-run"
