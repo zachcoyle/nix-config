@@ -12,11 +12,25 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
+        # gpu go brrr
         amdvlk
+        libva
+        libvdpau-va-gl
+        rocm-opencl-icd
+        rocm-opencl-runtime
+        rocmPackages.clr
         rocmPackages.clr.icd
+        rocmPackages.hipblas
+        rocmPackages.rocblas
+        rocmPackages.rocm-comgr
+        rocmPackages.rocm-runtime
+        rocmPackages.rocm-smi
+        rocmPackages.rocsolver
+        rocmPackages.rocsparse
+        vaapiVdpau
       ];
       extraPackages32 = with pkgs; [
-        pkgs.driversi686Linux.amdvlk
+        driversi686Linux.amdvlk
       ];
     };
   };
