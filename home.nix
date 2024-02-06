@@ -110,6 +110,7 @@ in {
         podman-compose
         podman-tui
         poetry
+        prqlc
         process-compose
         python3
         qemu
