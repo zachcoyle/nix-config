@@ -212,8 +212,7 @@ in {
         };
         icon = {
           size = 16;
-          theme = "Adwaita";
-          # fallback_icon_path = "";
+          fallback_icon_path = "/run/current-system/sw/share/icons";
         };
       };
     };
@@ -318,6 +317,51 @@ in {
           keybind = "r";
         }
       ];
+      style = ''
+        window {
+          background: "${colorsWithHashtag.base00}";
+        }
+        button {
+          background: "${colorsWithHashtag.base01}";
+          color: "${colorsWithHashtag.base05}";
+          opacity: 1.0;
+          border-style: solid;
+          border-width: 2px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 25%;
+          border-color: "${colorsWithHashtag.base05}";
+        }
+        button:focus, button:active, button:hover {
+          background-color: "${colorsWithHashtag.base02}";
+          color: "${colorsWithHashtag.base05}";
+          opacity: 1.0;
+        }
+
+        #lock {
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png"), url("${pkgs.wlogout}/share/wlogout/icons/lock.png"));
+        }
+
+        #logout {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"), url("${pkgs.wlogout}/share/wlogout/icons/logout.png"));
+        }
+
+        #suspend {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"), url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"));
+        }
+
+        #hibernate {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png"), url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png"));
+        }
+
+        #shutdown {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"), url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
+        }
+
+        #reboot {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"), url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
+        }
+      '';
     };
 
     alacritty = import ./users/zcoyle/by-app/alacritty.nix {inherit pkgs lib;};
