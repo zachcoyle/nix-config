@@ -216,7 +216,8 @@
               {lib, ...}: {
                 nixpkgs = {
                   config = {
-                    rocmSupport = true;
+                    # enable when ollama updates
+                    rocmSupport = false;
                     allowUnfreePredicate = pkg:
                       builtins.elem (lib.getName pkg) [
                         "dwarf-fortress"
@@ -256,7 +257,8 @@
               {lib, ...}: {
                 nixpkgs = {
                   config = {
-                    rocmSupport = true;
+                    # enable when ollama updates
+                    rocmSupport = false;
                     allowUnfreePredicate = pkg:
                       builtins.elem (lib.getName pkg) [
                         "dwarf-fortress"

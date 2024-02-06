@@ -150,7 +150,16 @@ in {
         libnotify
         libreoffice
         libsForQt5.plasma-systemmonitor
-        ollama # Broken on darwin
+        (
+          builtins.trace ''
+
+            OLLAMA VERSION ${ollama.version}
+
+            turn on rocm when ${ollama.version} == 0.1.23
+
+          ''
+          ollama
+        ) # Broken on darwin
         pavucontrol
         playerctl
         slurp
