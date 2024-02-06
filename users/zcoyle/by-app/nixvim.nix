@@ -1,11 +1,7 @@
 {
   pkgs,
   config,
-}: let
-  extension_path = "${pkgs.vscode-marketplace.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";
-  codelldb_path = "${extension_path}/adapter/codelldb";
-  liblldb_path = "${extension_path}/lldb/lib/liblldb.dylib"; # TODO: .so for linux
-in {
+}: {
   enable = true;
   enableMan = false;
 
@@ -24,7 +20,7 @@ in {
       rustc
       # INFO: watch for this pr https://github.com/NixOS/nixpkgs/pull/264887
       # TODO: it's merged - need to fix this config
-      # pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
+      pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
       cargo
       lldb
       (php.withExtensions ({
@@ -112,9 +108,6 @@ in {
           }
         end
       },
-      --  dap = {
-      --    adapter = require("rustaceanvim.dap").get_codelldb_adapter("${codelldb_path}", "${liblldb_path}"),
-      -- },
     }
 
     --------------------------------------
