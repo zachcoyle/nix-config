@@ -21,6 +21,9 @@
       ];
 
       modules-right = [
+        "custom/terminal"
+        "custom/firefox"
+        "custom/ollama"
         "cpu"
         "memory"
         "disk"
@@ -37,10 +40,28 @@
         icon = true;
       };
 
+      "custom/terminal" = {
+        format = "  ";
+        on-click = "alacritty";
+        tooltip = false;
+      };
+
+      "custom/firefox" = {
+        format = " 󰈹 ";
+        on-click = "firefox";
+        tooltip = false;
+      };
+
       "custom/logo" = {
         format = "   ";
         on-click = "wlogout";
         on-right-click = "swaylock";
+        tooltip = false;
+      };
+
+      "custom/ollama" = {
+        format = " 🦙 ";
+        on-click = "alacritty -e oterm";
         tooltip = false;
       };
 
@@ -130,6 +151,9 @@
   };
 
   style = ''
+    #custom-terminal,
+    #custom-firefox,
+    #custom-ollama,
     #custom-logo {
       font-weight: bold;
       font-size: 20px;
