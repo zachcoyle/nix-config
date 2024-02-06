@@ -404,7 +404,7 @@ in {
       keyScheme = "vim";
     };
 
-    nixvim = import ./users/zcoyle/by-app/nixvim.nix {inherit pkgs config;};
+    nixvim = import ./users/zcoyle/by-app/neovim {inherit pkgs config;};
 
     starship = {
       enable = true;
