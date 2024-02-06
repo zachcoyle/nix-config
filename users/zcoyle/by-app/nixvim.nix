@@ -14,6 +14,7 @@
       lazygit
       ripgrep
       tabnine
+      rust-analyzer
     ]
     # dap
     ++ [
@@ -48,16 +49,12 @@
     ];
 
   extraPlugins = with pkgs.vimPlugins; [
-    # TODO: https://github.com/IndianBoy42/tree-sitter-just
-    friendly-snippets
-    nvim-autopairs
-    statuscol-nvim
-    telescope-ui-select-nvim
-    tint-nvim
     neorepl-nvim
-    rustaceanvim
-    telescope_just
+    nvim-autopairs
     sg-nvim
+    statuscol-nvim
+    telescope_just
+    tint-nvim
     yuck-vim
   ];
 
@@ -66,15 +63,6 @@
     vim.cmd [[ aunmenu PopUp.-1- ]]
     --------------------------------------
     require("nvim-autopairs").setup({})
-    --------------------------------------
-    require("telescope").setup({
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({}),
-        },
-      },
-    })
-    require("telescope").load_extension("ui-select")
     --------------------------------------
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -90,30 +78,9 @@
     --------------------------------------
     require("telescope").load_extension("refactoring")
     --------------------------------------
-    -- require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
-    --------------------------------------
-    -- INFO: watch for this pr https://github.com/NixOS/nixpkgs/pull/264887
-    vim.g.rustaceanvim = {
-      server = {
-        settings = function()
-          return {
-            ['rust-analyzer'] = {
-              files = {
-                excludeDirs = {".direnv"},
-                watcherExclude = {".direnv"},
-              },
-            },
-          }
-        end
-      },
-    }
-
-    --------------------------------------
-
     require("sg").setup {
       enable_cody = true
     }
-
     --------------------------------------
     if vim.fn.exists('g:neovide') ~= 0 then
         vim.g.neovide_transparency = 0.8
@@ -127,6 +94,7 @@
 
   options = {
     mouse = "a";
+    mousemoveevent = true;
     number = true;
     relativenumber = true;
     wrap = false;
@@ -134,7 +102,6 @@
     undofile = true;
     undodir = ["${config.xdg.configHome}nvim/.undo//"];
     exrc = true; # (.exrc, .nvimrc, .nvim.lua)
-
     foldcolumn = "1";
     foldlevel = 99;
     foldlevelstart = 99;
@@ -147,7 +114,6 @@
       foldsep = " ";
       foldclose = "";
     };
-
     guifont = "FiraCode Nerd Font:h10";
   };
 
@@ -188,7 +154,7 @@
       key = "<leader>ca";
       action = ''
         function()
-          if vim.bo.buftype == "rust"
+          if vim.bo.filetype == "rust"
           then
             vim.cmd.RustLsp('codeAction')
           else
@@ -344,7 +310,7 @@
       key = "K";
       action = ''
         function()
-          if vim.bo.buftype == "rust"
+          if vim.bo.filetype == "rust"
           then
             vim.cmd.RustLsp { 'hover', 'actions' }
           else
@@ -589,6 +555,7 @@
     emmet = {
       enable = true;
     };
+    friendly-snippets.enable = true;
     git-worktree = {
       enable = true;
       enableTelescope = true;
@@ -808,19 +775,24 @@
       '';
     };
     ollama = {
-      # TODO: configure this
       enable = true;
-      # defaults:
       model = "mistral";
       url = "http://127.0.0.1:11434";
-      # action = "display";
-      # action.fn = ''
-      # '';
-      # action.opts.stream = true;
     };
     project-nvim.enable = true;
     rainbow-delimiters.enable = true;
     refactoring.enable = true;
+    rustaceanvim = {
+      enable = true;
+      extraOptions = {
+        rust-analyzer = {
+          files = {
+            excludeDirs = [".direnv"];
+            watcherExclude = [".direnv"];
+          };
+        };
+      };
+    };
     surround.enable = true;
     telescope = {
       enable = true;
@@ -867,6 +839,7 @@
         fzf-native.enable = true;
         media_files.enable = true;
         project-nvim.enable = true;
+        ui-select.enable = true;
         undo.enable = true;
       };
     };
