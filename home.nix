@@ -104,6 +104,7 @@ in {
         nix-melt
         nix-top
         opentofu
+        oterm
         pijul
         podman
         podman-compose
