@@ -21,6 +21,7 @@
       ];
 
       modules-right = [
+        "custom/neovide"
         "custom/terminal"
         "custom/firefox"
         "custom/ollama"
@@ -38,6 +39,12 @@
 
       "hyprland/window" = {
         icon = true;
+      };
+
+      "custom/neovide" = {
+        format = "  ";
+        on-click = "neovide";
+        tooltip = false;
       };
 
       "custom/terminal" = {
@@ -151,6 +158,7 @@
   };
 
   style = ''
+    #custom-neovide,
     #custom-terminal,
     #custom-firefox,
     #custom-ollama,
