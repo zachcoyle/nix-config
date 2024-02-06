@@ -18,8 +18,6 @@
     # dap
     ++ [
       rustc
-      # INFO: watch for this pr https://github.com/NixOS/nixpkgs/pull/264887
-      # TODO: it's merged - need to fix this config
       pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
       cargo
       lldb
