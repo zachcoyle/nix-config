@@ -215,7 +215,7 @@
             {
               nixpkgs = {
                 config = {
-                  # cudaSupport = true;
+                  rocmSupport = true;
                 };
               };
             }
@@ -242,6 +242,13 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.sddm-sugar-candy-nix.nixosModules.default
             inputs.stylix.nixosModules.stylix
+            {
+              nixpkgs = {
+                config = {
+                  rocmSupport = true;
+                };
+              };
+            }
             (
               {lib, ...}: {
                 nixpkgs = {
