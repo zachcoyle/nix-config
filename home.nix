@@ -356,6 +356,7 @@ in {
           firenvim
           react-devtools
           reduxdevtools
+          stylus
           ublock-origin
           vimium
           vue-js-devtools
