@@ -387,6 +387,11 @@ in {
 
     lazygit.enable = true;
 
+    gitui = {
+      enable = true;
+      keyConfig = builtins.readFile ./dots/gitui_key_config.ron;
+    };
+
     lsd = {
       enable = true;
       enableAliases = true;
