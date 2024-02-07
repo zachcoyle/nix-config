@@ -118,6 +118,7 @@ in {
         ripgrep
         scc
         sqlite
+        sqlitebrowser
         swift-format
         sword
         tealdeer
