@@ -209,6 +209,7 @@
     servers = {
       bashls.enable = true;
       biome.enable = true;
+      ccls.enable = true;
       csharp-ls.enable = pkgs.stdenv.isLinux;
       cssls.enable = true;
       eslint.enable = true;
@@ -219,10 +220,11 @@
       kotlin-language-server.enable = true;
       lua-ls.enable = true;
       nil_ls.enable = true;
+      nixd.enable = true;
       phpactor.enable = true;
       pyright.enable = true;
       ruff-lsp.enable = true;
-      sourcekit.enable = true;
+      sourcekit.enable = pkgs.stdenv.isDarwin;
       tsserver.enable = true;
       volar.enable = true;
       vuels.enable = true;
@@ -345,6 +347,9 @@
     enable = true;
     model = "mistral";
     url = "http://127.0.0.1:11434";
+    extraOptions = {
+      stream = true;
+    };
   };
   project-nvim.enable = true;
   rainbow-delimiters.enable = true;

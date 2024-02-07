@@ -18,7 +18,7 @@ in {
         options = "-d";
       }
       // (
-        if pkgs.system == "x86_64-linux"
+        if pkgs.stdenv.isLinux
         then {dates = "weekly";}
         else {interval.Weekday = 0;}
       );
@@ -44,7 +44,7 @@ in {
       fontDir.enable = true;
     }
     // (
-      if pkgs.system == "x86_64-linux"
+      if pkgs.stdenv.isLinux
       then {packages = fonts;}
       else {inherit fonts;}
     );

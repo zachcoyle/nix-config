@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  enable = pkgs.system == "x86_64-linux";
+  enable = pkgs.stdenv.isLinux;
 
   settings = {
     mainBar = {

@@ -34,6 +34,10 @@
         systems.follows = "systems-linux";
       };
     };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     hycov = {
       url = "github:DreamMaoMao/hycov";
       inputs.hyprland.follows = "hyprland";
@@ -236,7 +240,7 @@
                 useUserPackages = true;
                 users.zcoyle = import ./home.nix;
                 extraSpecialArgs = {
-                  inherit (inputs) nixvim hycov;
+                  inherit (inputs) nixvim hycov hyprland-plugins;
                 };
               };
             }
@@ -277,7 +281,7 @@
                 useUserPackages = true;
                 users.zcoyle = import ./home.nix;
                 extraSpecialArgs = {
-                  inherit (inputs) nixvim hycov;
+                  inherit (inputs) nixvim hycov hyprland-plugins;
                 };
               };
             }

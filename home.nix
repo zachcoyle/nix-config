@@ -3,6 +3,7 @@
   lib,
   nixvim,
   hycov,
+  hyprland-plugins,
   config,
   ...
 }: let
@@ -14,7 +15,7 @@ in {
   stylix = {
     targets.nixvim.enable = false;
   };
-  qt = lib.mkIf (pkgs.system == "x86_64-linux") {
+  qt = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     platformTheme = "gtk";
     style = {
@@ -22,7 +23,7 @@ in {
       package = pkgs.adwaita-qt;
     };
   };
-  gtk = lib.mkIf (pkgs.system == "x86_64-linux") {
+  gtk = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     gtk2.extraConfig = ''
       gtk-decoration-layout=:menu,appmenu
@@ -43,7 +44,7 @@ in {
     };
   };
 
-  xdg = lib.mkIf (pkgs.system == "x86_64-linux") {
+  xdg = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     mime.enable = true;
     mimeApps = {
@@ -85,8 +86,8 @@ in {
         dos2unix
         dsq
         (dwarf-fortress-packages.dwarf-fortress-full.override {
-          enableStoneSense = pkgs.system == "x86_64-linux";
-          enableDwarfTherapist = pkgs.system == "x86_64-linux";
+          enableStoneSense = pkgs.stdenv.isLinux;
+          enableDwarfTherapist = pkgs.stdenv.isLinux;
         })
         fd
         ghq
@@ -129,7 +130,7 @@ in {
         yq
         zstd
       ]
-      ++ lib.optionals (pkgs.system == "x86_64-linux") [
+      ++ lib.optionals pkgs.stdenv.isLinux [
         android-studio
         blender
         blueman
@@ -218,10 +219,10 @@ in {
   };
 
   services = {
-    avizo.enable = pkgs.system == "x86_64-linux";
-    batsignal.enable = pkgs.system == "x86_64-linux";
+    avizo.enable = pkgs.stdenv.isLinux;
+    batsignal.enable = pkgs.stdenv.isLinux;
     mako = {
-      enable = pkgs.system == "x86_64-linux";
+      enable = pkgs.stdenv.isLinux;
       borderRadius = 10;
       defaultTimeout = 2000;
       # groupBy = TODO:
@@ -232,16 +233,16 @@ in {
     };
   };
 
-  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov;};
+  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov hyprland-plugins;};
 
   programs = {
     eww = {
-      enable = pkgs.system == "x86_64-linux";
+      enable = pkgs.stdenv.isLinux;
       configDir = ./dots/eww;
     };
 
     swaylock = {
-      enable = pkgs.system == "x86_64-linux";
+      enable = pkgs.stdenv.isLinux;
       package = pkgs.swaylock-effects;
       settings = {
         font-size = 24;
@@ -252,7 +253,7 @@ in {
       };
     };
     obs-studio = {
-      enable = pkgs.system == "x86_64-linux";
+      enable = pkgs.stdenv.isLinux;
       plugins = with pkgs.obs-studio-plugins; [
         # advanced-scene-switcher
         # obs-backgroundremoval
@@ -275,7 +276,7 @@ in {
 
     wlogout = {
       # TODO: Styling
-      enable = pkgs.system == "x86_64-linux";
+      enable = pkgs.stdenv.isLinux;
       layout = [
         {
           label = "lock";
@@ -355,10 +356,10 @@ in {
       '';
     };
 
-    chromium.enable = pkgs.system == "x86_64-linux";
+    chromium.enable = pkgs.stdenv.isLinux;
 
     firefox = {
-      enable = pkgs.system == "x86_64-linux";
+      enable = pkgs.stdenv.isLinux;
       profiles.zcoyle = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           firenvim
