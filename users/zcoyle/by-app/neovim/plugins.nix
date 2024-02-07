@@ -5,6 +5,7 @@
 }: {
   barbar.enable = true;
   barbecue.enable = true;
+  cmp-emoji.enable = true;
   cmp-nvim-lsp.enable = true;
   cmp-nvim-lsp-document-symbol.enable = true;
   cmp-nvim-lsp-signature-help.enable = true;
@@ -258,7 +259,6 @@
   noice.enable = true;
   notify = {
     enable = true;
-    # to fix nvim-notify constantly complaining
     backgroundColour = "#000000";
   };
   nix.enable = true;
@@ -308,7 +308,6 @@
     };
     autoEnableSources = true;
     sources = [
-      # INFO: this should be handled automatically by the module system...
       {name = "nvim_lsp";}
       {name = "nvim_lsp_signature_help";}
       {name = "nvim_lsp_document_symbol";}
@@ -317,6 +316,7 @@
       {name = "luasnip";}
       {name = "path";}
       {name = "buffer";}
+      {name = "emoji";}
     ];
   };
   nvim-jdtls = {
@@ -350,6 +350,7 @@
   rainbow-delimiters.enable = true;
   refactoring.enable = true;
   rustaceanvim = {
+    # TODO: dap still not working right
     enable = true;
     extraOptions = {
       rust-analyzer = {

@@ -42,7 +42,7 @@
     yabai = {
       enable = true;
       ##############
-      # INFO: SIP must be disabled for enableScriptingAddition to work
+      # NOTE: SIP must be disabled for enableScriptingAddition to work
       # some yabai features are silently unavailable with it turned off
       # https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
       enableScriptingAddition = true;

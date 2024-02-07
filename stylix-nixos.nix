@@ -3,7 +3,6 @@
     name = "Bibata-Modern-Gruvbox";
     size = 24;
     package = pkgs.stdenvNoCC.mkDerivation {
-      # TODO: package this properly
       pname = "bibata-cursors-gruvbox";
       version = "unstable";
       src = ./Bibata-Modern-Gruvbox.tar.xz;

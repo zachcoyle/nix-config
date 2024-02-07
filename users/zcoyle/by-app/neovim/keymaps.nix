@@ -28,17 +28,17 @@
     };
   }
   {
+    key = "<leader>rca";
+    action = "function() vim.cmd.RustLsp('codeAction') end";
+    options = {
+      silent = true;
+      desc = "RustLSP Code Actions";
+    };
+    lua = true;
+  }
+  {
     key = "<leader>ca";
-    action = ''
-      function()
-        if vim.bo.filetype == "rust"
-        then
-          vim.cmd.RustLsp('codeAction')
-        else
-          vim.lsp.buf.code_action()
-        end
-      end
-    '';
+    action = "vim.lsp.buf.code_action";
     options = {
       silent = true;
       desc = "LSP Code Actions";
@@ -184,17 +184,17 @@
     lua = true;
   }
   {
+    key = "<leader>rk";
+    action = "function() vim.cmd.RustLsp { 'hover', 'actions' } end";
+    options = {
+      silent = false;
+      desc = "RustLSP Hover";
+    };
+    lua = true;
+  }
+  {
     key = "K";
-    action = ''
-      function()
-        if vim.bo.filetype == "rust"
-        then
-          vim.cmd.RustLsp { 'hover', 'actions' }
-        else
-          vim.cmd[[ Lspsaga hover_doc ]]
-        end
-      end
-    '';
+    action = "function() vim.cmd[[ Lspsaga hover_doc ]] end";
     options = {
       silent = false;
       desc = "LSP Hover";

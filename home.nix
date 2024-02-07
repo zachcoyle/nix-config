@@ -130,7 +130,6 @@ in {
       ]
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
         android-studio
-        avizo
         blender
         blueman
         bottles
@@ -179,7 +178,6 @@ in {
       ".config/yofi/blacklist".text = ''
       '';
       ".config/yofi/yofi.config".source = tomlFormat.generate "yofi.config" {
-        # TODO: theme w/ stylix
         width = 400;
         height = 512;
         force_window = false;
@@ -190,7 +188,6 @@ in {
         bg_border_color = colorsWithHashtag.base04;
         bg_border_width = 4.0;
         font_color = colorsWithHashtag.base04;
-        # scale = 2;
         term = "alacritty -e";
         input_text = {
           font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
@@ -227,7 +224,7 @@ in {
       borderRadius = 10;
       defaultTimeout = 2000;
       # groupBy = TODO:
-      # iconPath = TODO:
+      iconPath = "/run/current-system/sw/share/icons";
       # font = TODO:
       layer = "overlay";
       # sort = TODO:

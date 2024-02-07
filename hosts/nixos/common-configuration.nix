@@ -125,9 +125,6 @@
         enable = true;
         touchpad = {
           disableWhileTyping = true;
-          # TODO: adjust later
-          # accelSpeed = "-0.5";
-          # accelProfile = "adaptive"; # or "flat"
         };
       };
     };

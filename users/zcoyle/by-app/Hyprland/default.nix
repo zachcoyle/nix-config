@@ -21,6 +21,7 @@ in {
     layerrule = blur, yofi
     layerrule = blur, alacritty
     layerrule = blur, wlogout
+    layerrule = blur, avizo
 
     windowrule = float, wlogout
     windowrule = noanim, wlogout
@@ -142,7 +143,7 @@ in {
       workspace_swipe_fingers = 4;
     };
     input = {
-      # INFO: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
+      # NOTE: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
       kb_options = "caps:escape";
       natural_scroll = true;
       touchpad = {
