@@ -43,19 +43,19 @@
 
       "custom/neovide" = {
         format = "  ";
-        on-click = "neovide";
+        on-click = "neovide& disown";
         tooltip = false;
       };
 
       "custom/terminal" = {
         format = "  ";
-        on-click = "alacritty";
+        on-click = "alacritty& disown";
         tooltip = false;
       };
 
       "custom/firefox" = {
         format = " 󰈹 ";
-        on-click = "firefox";
+        on-click = "firefox& disown";
         tooltip = false;
       };
 
@@ -68,7 +68,7 @@
 
       "custom/ollama" = {
         format = " 🦙 ";
-        on-click = "alacritty -e oterm";
+        on-click = "alacritty -e oterm& disown";
         tooltip = false;
       };
 
@@ -107,19 +107,19 @@
 
       cpu = {
         format = "󰻠 {usage}% ";
-        on-click = "alacritty -e btm";
+        on-click = "alacritty -e btm& disown";
       };
 
       disk = {
         interval = 30;
         format = "󰋊 {percentage_used}% ";
         path = "/";
-        on-click = "alacritty -e btm";
+        on-click = "alacritty -e btm& disown";
       };
 
       memory = {
         format = "󰍛 {}% ";
-        on-click = "alacritty -e btm";
+        on-click = "alacritty -e btm& disown";
       };
 
       network = {
