@@ -144,6 +144,7 @@ in {
         gnome.nautilus
         godot3
         grim
+        hyprshade
         imagemagick
         inkscape
         kdenlive
