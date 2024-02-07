@@ -150,7 +150,6 @@ in {
         krita
         libnotify
         libreoffice
-        libsForQt5.plasma-systemmonitor
         (
           builtins.trace ''
 
