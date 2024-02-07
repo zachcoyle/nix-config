@@ -253,11 +253,11 @@ in {
     obs-studio = {
       enable = pkgs.system == "x86_64-linux";
       plugins = with pkgs.obs-studio-plugins; [
-        # obs-xdg-portal # might need to be packaged
-        advanced-scene-switcher
+        # advanced-scene-switcher
+        # obs-backgroundremoval
+        # obs-xdg-portal
         input-overlay
         obs-3d-effect
-        # obs-backgroundremoval # build failing
         obs-command-source
         obs-composite-blur
         obs-move-transition
