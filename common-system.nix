@@ -1,8 +1,8 @@
 {pkgs, ...}: let
   fonts = with pkgs; [
-    #fira
+    fira
     fira-code-nerdfont
-    #nerdfonts
+    nerdfonts
   ];
 in {
   environment.systemPackages = with pkgs; [
