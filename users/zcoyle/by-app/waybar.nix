@@ -21,6 +21,7 @@
       ];
 
       modules-right = [
+        "custom/neofetch"
         "custom/neovide"
         "custom/terminal"
         "custom/firefox"
@@ -39,6 +40,14 @@
 
       "hyprland/window" = {
         icon = true;
+      };
+
+      "custom/neofetch" = {
+        format = "  ";
+        on-click = "alacritty -e ${pkgs.writeScriptBin "pageneofetch.sh" ''
+          neofetch | less
+        ''}/bin/pageneofetch.sh";
+        tooltip = false;
       };
 
       "custom/neovide" = {
@@ -158,6 +167,7 @@
   };
 
   style = ''
+    #custom-neofetch,
     #custom-neovide,
     #custom-terminal,
     #custom-firefox,
