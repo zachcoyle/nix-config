@@ -1,7 +1,6 @@
 {
   pkgs,
   hycov,
-  # hyprland-plugins,
   ...
 }: let
   wallpaperDir = ../../../../wallpapers;
@@ -9,8 +8,6 @@ in {
   enable = pkgs.stdenv.isLinux;
   plugins = [
     hycov.packages.${pkgs.system}.hycov
-    # hyprland-plugins.packages.${pkgs.system}.hyprtrails
-    # hyprland-plugins.packages.${pkgs.system}.hyprbars
   ];
   extraConfig = ''
     # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
