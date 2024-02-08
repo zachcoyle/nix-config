@@ -5,6 +5,8 @@
   enable = true;
   enableMan = false;
 
+  luaLoader.enable = true;
+
   editorconfig.enable = true;
 
   extraPackages = with pkgs;
