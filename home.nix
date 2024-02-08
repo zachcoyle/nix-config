@@ -123,6 +123,7 @@ in {
         swift-format
         sword
         tealdeer
+        typioca
         util-linux
         visidata
         wget
