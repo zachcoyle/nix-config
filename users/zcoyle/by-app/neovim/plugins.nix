@@ -221,7 +221,7 @@
       kotlin-language-server.enable = true;
       lua-ls.enable = true;
       nil_ls.enable = true;
-      nixd.enable = true;
+      # nixd.enable = true;
       phpactor.enable = true;
       pyright.enable = true;
       ruff-lsp.enable = true;
@@ -409,7 +409,7 @@
         depth = null;
         selectBuffer = true;
       };
-      frecency.enable = true;
+      # frecency.enable = true;
       fzf-native.enable = true;
       media_files.enable = true;
       project-nvim.enable = true;

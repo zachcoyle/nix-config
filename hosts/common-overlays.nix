@@ -4,9 +4,11 @@
     inputs.nix-vscode-extensions.overlays.default
     inputs.nur.overlay
     inputs.rustaceanvim.overlays.default
+    inputs.nixneovimplugins.overlays.default
     (_: prev: {
       sg-nvim = inputs.sg-nvim.legacyPackages.${prev.system}.sg-nvimsg-nvim;
       yofi = inputs.yofi.packages.${prev.system}.default;
+      # vimPlugins = prev.vimPlugins // inputs.nixneovimplugins.vimExtraPlugins;
     })
   ];
 }

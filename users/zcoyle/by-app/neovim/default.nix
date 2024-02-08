@@ -48,7 +48,7 @@
       yamlfmt
     ];
 
-  extraPlugins = with pkgs.vimPlugins; [
+  extraPlugins = with (pkgs.vimPlugins // pkgs.vimExtraPlugins); [
     neorepl-nvim
     nvim-autopairs
     sg-nvim
