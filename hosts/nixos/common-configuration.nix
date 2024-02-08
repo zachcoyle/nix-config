@@ -45,7 +45,20 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  security.pam.services.swaylock = {};
+  security = {
+    pam.services.swaylock = {};
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          users = ["zcoyle"];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
+    };
+  };
+
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   time.timeZone = "America/Indiana/Indianapolis";
   i18n.defaultLocale = "en_US.UTF-8";
