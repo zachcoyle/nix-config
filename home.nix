@@ -180,8 +180,11 @@ in {
       ];
 
     file = {
+      ".local/share/neovide/neovide-settings.json".text = builtins.toJSON {};
+
       ".config/yofi/blacklist".text = ''
       '';
+
       ".config/yofi/yofi.config".source = tomlFormat.generate "yofi.config" {
         width = 400;
         height = 512;
