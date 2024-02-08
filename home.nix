@@ -167,7 +167,6 @@ in {
         ) # Broken on darwin
         pavucontrol
         playerctl
-        recapp
         slurp
         swww
         ueberzugpp
