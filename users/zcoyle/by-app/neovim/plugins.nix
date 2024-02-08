@@ -209,7 +209,8 @@
     servers = {
       bashls.enable = true;
       biome.enable = true;
-      ccls.enable = true;
+      # ccls.enable = true;
+      clangd.enable = true;
       csharp-ls.enable = pkgs.stdenv.isLinux;
       cssls.enable = true;
       eslint.enable = true;
