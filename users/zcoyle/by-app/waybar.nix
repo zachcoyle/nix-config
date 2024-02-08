@@ -22,6 +22,7 @@
 
       modules-right = [
         "custom/neofetch"
+        "custom/keyboard"
         "custom/neovide"
         "custom/terminal"
         "custom/firefox"
@@ -47,6 +48,12 @@
         on-click = "alacritty -e ${pkgs.writeScriptBin "pageneofetch.sh" ''
           neofetch | less
         ''}/bin/pageneofetch.sh";
+        tooltip = false;
+      };
+
+      "custom/keyboard" = {
+        format = " 󰌓 ";
+        on-click = "tecla& disown";
         tooltip = false;
       };
 
@@ -168,6 +175,7 @@
 
   style = ''
     #custom-neofetch,
+    #custom-keyboard,
     #custom-neovide,
     #custom-terminal,
     #custom-firefox,

@@ -143,9 +143,10 @@ in {
         cura
         foliate
         freecad
+        gnome-tecla
         gnome.gnome-calculator
-        gnome.nautilus
         gnome.gnome-system-monitor
+        gnome.nautilus
         godot3
         grim
         hyprshade
