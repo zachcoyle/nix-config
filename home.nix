@@ -142,7 +142,9 @@ in {
         cura
         foliate
         freecad
+        gnome.gnome-calculator
         gnome.nautilus
+        gnome.gnome-system-monitor
         godot3
         grim
         hyprshade
@@ -165,6 +167,7 @@ in {
         ) # Broken on darwin
         pavucontrol
         playerctl
+        recapp
         slurp
         swww
         ueberzugpp
