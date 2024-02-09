@@ -104,14 +104,15 @@
       dedicatedServer.openFirewall = true;
     };
   };
+
+  console = {
+    # font = "Lat2-Terminus16";
+    # keyMap = "us";
+    useXkbConfig = true; # use xkbOptions in tty.
+  };
+
   services = {
     xserver = {
-      # console = {
-      #   font = "Lat2-Terminus16";
-      #   keyMap = "us";
-      #   useXkbConfig = true; # use xkbOptions in tty.
-      # };
-
       enable = true;
       displayManager = {
         sddm = {
@@ -131,7 +132,11 @@
         };
       };
 
-      xkb.layout = "us";
+      xkb = {
+        layout = "us, us";
+        variant = ", colemak";
+        options = "caps:escape,grp:alt_space_togglecaps:escape,grp:alt_space_toggle";
+      };
 
       libinput = {
         # touchpad support
