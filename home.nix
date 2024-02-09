@@ -121,6 +121,7 @@ in {
         scc
         sqlite
         sqlitebrowser
+        sshfs
         swift-format
         sword
         tealdeer
