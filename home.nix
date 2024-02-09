@@ -134,7 +134,6 @@ in {
       ++ lib.optionals pkgs.stdenv.isLinux [
         android-studio
         blender
-        blueman
         bottles
         brightnessctl
         buildah

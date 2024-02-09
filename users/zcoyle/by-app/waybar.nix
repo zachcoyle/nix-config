@@ -32,7 +32,7 @@
         "memory"
         "disk"
         "pulseaudio"
-        # "bluetooth" # TODO:
+        "bluetooth"
         "network"
         "battery"
         "clock"

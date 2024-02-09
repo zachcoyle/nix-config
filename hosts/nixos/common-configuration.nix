@@ -7,6 +7,10 @@
   #services.xserver.videoDrivers = ["amdgpu-pro"];
   hardware = {
     enableAllFirmware = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
     opengl = {
       enable = true;
       driSupport = true;
@@ -112,6 +116,8 @@
   };
 
   services = {
+    blueman.enable = true;
+
     xserver = {
       enable = true;
       displayManager = {
