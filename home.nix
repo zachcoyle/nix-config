@@ -139,6 +139,7 @@ in {
         brightnessctl
         buildah
         calibre
+        cider
         copyq
         cura
         foliate
