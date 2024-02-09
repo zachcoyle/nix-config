@@ -89,6 +89,7 @@ in {
           enableStoneSense = pkgs.stdenv.isLinux;
           enableDwarfTherapist = pkgs.stdenv.isLinux;
         })
+        entr
         fd
         ghq
         git-get
