@@ -135,7 +135,7 @@
       xkb = {
         layout = "us, us";
         variant = ", colemak";
-        options = "caps:escape,grp:alt_space_togglecaps:escape,grp:alt_space_toggle";
+        options = "caps:escape,grp:alt_space_toggle,terminate:ctrl_alt_bksp";
       };
 
       libinput = {

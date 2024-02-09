@@ -13,6 +13,7 @@
 
       modules-left = [
         "custom/logo"
+        "hyprland/submap"
         "hyprland/window"
       ];
 
@@ -39,12 +40,21 @@
         "tray"
       ];
 
+      "hyprland/submap" = {
+        "format" = "✌🏻 {}";
+        "max-length" = 8;
+        "tooltip" = false;
+      };
+
       "hyprland/window" = {
         icon = true;
+        rewrite = {
+          "(.*) — Mozilla Firefox" = "$1";
+        };
       };
 
       "custom/neofetch" = {
-        format = "  ";
+        format = "  ";
         on-click = "alacritty -e ${pkgs.writeScriptBin "pageneofetch.sh" ''
           neofetch | less
         ''}/bin/pageneofetch.sh";
@@ -76,7 +86,7 @@
       };
 
       "custom/logo" = {
-        format = "   ";
+        format = "   ";
         on-click = "wlogout";
         on-right-click = "swaylock";
         tooltip = false;
