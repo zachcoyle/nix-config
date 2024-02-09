@@ -116,10 +116,13 @@ in {
     bind = ALT, right, hycov:movefocus, r
     bind = ALT, up, hycov:movefocus, u
     bind = ALT, down, hycov:movefocus, d
+
+    monitor=DP-1, preferred, auto, 1
+    monitor=DP-6, preferred, auto, 1
   '';
   settings = {
     general = {
-      layout = "master";
+      layout = "dwindle";
     };
     plugin = {
       hycov = {
