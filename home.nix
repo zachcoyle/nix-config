@@ -94,6 +94,7 @@ in {
         ghq
         git-get
         gitnr
+        hayabusa
         hurl
         jq
         just

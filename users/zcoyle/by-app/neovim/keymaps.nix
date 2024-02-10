@@ -143,6 +143,24 @@
     lua = true;
   }
   {
+    action = "require('just').just";
+    key = "<leader>tj";
+    lua = true;
+    options = {
+      silent = true;
+      desc = "Telescope Just";
+    };
+  }
+  {
+    key = "<leader>tl";
+    action = "require('trouble.providers.telescope').open_with_trouble";
+    lua = true;
+    options = {
+      silent = true;
+      desc = "Telescope Trouble";
+    };
+  }
+  {
     key = "<leader>td";
     action = ":TodoTelescope<cr>";
     options = {
@@ -157,11 +175,6 @@
       silent = true;
       desc = "Telescope Projects";
     };
-  }
-  {
-    key = "<leader>tj";
-    action = "require('just').just";
-    lua = true;
   }
   {
     key = "]t";

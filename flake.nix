@@ -247,11 +247,11 @@
                     rocmSupport = false;
                     allowUnfreePredicate = pkg:
                       builtins.elem (lib.getName pkg) [
-                        "dwarf-fortress"
-                        # "spotify"
-                        "steam"
-                        "steam-original"
-                        "steam-run"
+                        "dwarf-fortress" # proprietary
+                        "steam" # proprietary
+                        "steam-original" # proprietary
+                        "steam-run" # proprietary
+                        "hayabusa" # CCA NC ND 4.0
                       ];
                   };
                 };
@@ -288,11 +288,11 @@
                     rocmSupport = false;
                     allowUnfreePredicate = pkg:
                       builtins.elem (lib.getName pkg) [
-                        "dwarf-fortress"
-                        # "spotify"
-                        "steam"
-                        "steam-original"
-                        "steam-run"
+                        "dwarf-fortress" # proprietary
+                        "steam" # proprietary
+                        "steam-original" # proprietary
+                        "steam-run" # proprietary
+                        "hayabusa" # CCA NC ND 4.0
                       ];
                   };
                 };
