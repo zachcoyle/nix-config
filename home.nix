@@ -394,20 +394,19 @@ in {
         };
       };
 
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        firenvim
-        react-devtools
-        reduxdevtools
-        stylus
-        ublock-origin
-        vimium
-        vue-js-devtools
-        wayback-machine
-      ];
-
       profiles.zcoyle = {
         id = 0;
         name = "zcoyle";
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          firenvim
+          react-devtools
+          reduxdevtools
+          stylus
+          ublock-origin
+          vimium
+          vue-js-devtools
+          wayback-machine
+        ];
         search = {
           force = true;
           default = "DuckDuckGo";
@@ -443,25 +442,27 @@ in {
             "Bing".metaData.hidden = true;
             "eBay".metaData.hidden = true;
           };
-
-          settings = {
-            "general.smoothScroll" = true;
-          };
-
-          extraConfig = ''
-            user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-            user_pref("full-screen-api.ignore-widgets", true);
-            user_pref("media.ffmpeg.vaapi.enabled", true);
-            user_pref("media.rdd-vpx.enabled", true);
-          '';
-
-          userChrome = ''
-            .titlebar-buttonbox-container { display: none !important; }
-          '';
-
-          userContent = ''
-          '';
         };
+
+        settings = {
+          "general.smoothScroll" = true;
+        };
+
+        extraConfig = ''
+          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+          user_pref("full-screen-api.ignore-widgets", true);
+          user_pref("media.ffmpeg.vaapi.enabled", true);
+          user_pref("media.rdd-vpx.enabled", true);
+        '';
+
+        userChrome = ''
+          .titlebar-buttonbox-container {
+            display: none !important;
+          }
+        '';
+
+        userContent = ''
+        '';
       };
     };
 
