@@ -107,7 +107,7 @@ in {
         nix-melt
         nix-top
         opentofu
-        oterm
+        # oterm
         pijul
         podman
         podman-compose
@@ -248,7 +248,7 @@ in {
   programs = {
     eww = {
       enable = pkgs.stdenv.isLinux;
-      configDir = ./dots/eww;
+      configDir = ./users/zcoyle/by-app/eww;
     };
 
     swaylock = {
