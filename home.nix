@@ -248,6 +248,7 @@ in {
   programs = {
     eww = {
       enable = pkgs.stdenv.isLinux;
+      package = pkgs.eww-wayland;
       configDir = ./users/zcoyle/by-app/eww;
     };
 
