@@ -16,6 +16,7 @@ in {
     exec-once = swww init
     exec-once = swww img ${wallpaperDir}`ls ${wallpaperDir} | shuf -n 1`}
     exec-once = waybar
+    exec-once = libinput-gestures
 
     layerrule = blur, waybar
     layerrule = blur, yofi
@@ -142,6 +143,8 @@ in {
     gestures = {
       workspace_swipe = true;
       workspace_swipe_fingers = 4;
+      workspace_swipe_min_speed_to_force = 25;
+      workspace_swipe_cancel_ratio = 0.3;
     };
     input = {
       # NOTE: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee

@@ -158,6 +158,7 @@ in {
         kdenlive
         kickoff
         krita
+        libinput-gestures
         libnotify
         libreoffice
         (
@@ -180,6 +181,7 @@ in {
         vimiv-qt
         waypipe
         wl-clipboard
+        xdg-utils
         yofi
       ];
 
@@ -225,6 +227,8 @@ in {
           fallback_icon_path = "/run/current-system/sw/share/icons";
         };
       };
+
+      ".config/libinput-gestures.conf".source = ./dots/libinput-gestures.conf;
     };
   };
 
