@@ -3,6 +3,7 @@
     fira
     fira-code-nerdfont
     nerdfonts
+    noto-fonts
   ];
 in {
   environment.systemPackages = with pkgs; [
