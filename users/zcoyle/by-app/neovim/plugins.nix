@@ -370,6 +370,9 @@
   surround.enable = true;
   telescope = {
     enable = true;
+    defaults = {
+      layout_strategy = "flex";
+    };
     keymaps = {
       "<c-p>" = {
         action = "git_files";
