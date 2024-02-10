@@ -456,6 +456,7 @@ in {
           '';
 
           userChrome = ''
+            .titlebar-buttonbox-container { display: none !important; }
           '';
 
           userContent = ''
