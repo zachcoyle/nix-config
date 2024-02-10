@@ -281,6 +281,7 @@
   };
   nvim-cmp = {
     enable = true;
+    experimental = true;
     completion.autocomplete = ["TextChanged"];
     snippet.expand = "luasnip";
     mapping = {

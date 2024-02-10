@@ -58,6 +58,7 @@
     telescope_just
     tint-nvim
     yuck-vim
+    cmp-ai
   ];
 
   extraConfigLua = ''

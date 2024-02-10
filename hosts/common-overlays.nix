@@ -8,7 +8,11 @@
     (_: prev: {
       sg-nvim = inputs.sg-nvim.legacyPackages.${prev.system}.sg-nvimsg-nvim;
       yofi = inputs.yofi.packages.${prev.system}.default;
-      # vimPlugins = prev.vimPlugins // inputs.nixneovimplugins.vimExtraPlugins;
+      pkgs.vimPlugins.cmp-ai = prev.vimUtils.buildVimPluginFrom2Nix {
+        pname = "cmp-ai";
+        version = "unstable";
+        src = inputs.cmp-ai-src;
+      };
     })
   ];
 }
