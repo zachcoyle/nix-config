@@ -36,11 +36,6 @@
       };
     };
 
-    cmp-ai-src = {
-      url = "github:tzachar/cmp-ai";
-      flake = false;
-    };
-
     systems-linux.url = "github:nix-systems/default-linux";
     systems-darwin.url = "github:nix-systems/default-darwin";
 

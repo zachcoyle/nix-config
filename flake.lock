@@ -163,22 +163,6 @@
         "type": "github"
       }
     },
-    "cmp-ai-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1701855131,
-        "narHash": "sha256-xhvOyS8aOsG8gLqYzcYnhA5zejgvbGaYjzdJQPXQ4yg=",
-        "owner": "tzachar",
-        "repo": "cmp-ai",
-        "rev": "c198b45535a83348d1e3ddf6529367393d2dee1f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tzachar",
-        "repo": "cmp-ai",
-        "type": "github"
-      }
-    },
     "crane": {
       "flake": false,
       "locked": {
@@ -1357,7 +1341,6 @@
       "inputs": {
         "apple-firmware": "apple-firmware",
         "base16": "base16",
-        "cmp-ai-src": "cmp-ai-src",
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
         "flake-compat": "flake-compat",
