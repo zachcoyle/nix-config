@@ -251,12 +251,6 @@ in {
   wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov hyprland-plugins;};
 
   programs = {
-    eww = {
-      enable = pkgs.stdenv.isLinux;
-      package = pkgs.eww-wayland;
-      configDir = ./users/zcoyle/by-app/eww;
-    };
-
     swaylock = {
       enable = pkgs.stdenv.isLinux;
       package = pkgs.swaylock-effects;
