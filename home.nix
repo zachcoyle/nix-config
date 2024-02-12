@@ -1,335 +1,89 @@
 {
   pkgs,
   lib,
+  stdenv,
   nixvim,
-  hycov,
-  hyprland-plugins,
   config,
   ...
-}: let
-  # base16 styleguide:
-  # https://github.com/chriskempson/base16/blob/main/styling.md
-  colorsWithHashtag = config.lib.stylix.colors.withHashtag;
-  tomlFormat = pkgs.formats.toml {};
-in {
+}: {
+  # modules = [
+  #   ./home-linux.nix
+  # ];
+
   stylix = {
     targets.nixvim.enable = false;
-  };
-  qt = lib.mkIf pkgs.stdenv.isLinux {
-    enable = true;
-    platformTheme = "gtk";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
-  gtk = lib.mkIf pkgs.stdenv.isLinux {
-    enable = true;
-    gtk2.extraConfig = ''
-      gtk-decoration-layout=:menu,appmenu
-    '';
-    gtk3.extraConfig = {
-      gtk-decoration-layout = ''
-        gtk-decoration-layout=:menu,appmenu
-      '';
-    };
-    gtk4.extraConfig = {
-      gtk-decoration-layout = ''
-        gtk-decoration-layout=:menu,appmenu
-      '';
-    };
-    iconTheme = {
-      package = pkgs.gruvbox-plus-icons;
-      name = "GruvboxPlus";
-    };
-  };
-
-  xdg = lib.mkIf pkgs.stdenv.isLinux {
-    enable = true;
-    mime.enable = true;
-    mimeApps = {
-      enable = true;
-      associations.added = {
-        # "mimetype1" = ["foo1.desktop" "foo2.desktop" "foo3.desktop"];
-        # "mimetype2" = "foo4.desktop";
-      };
-      defaultApplications = {
-        # "mimetype1" = ["default1.desktop" "default2.desktop"];
-      };
-    };
-    portal = {
-      enable = true;
-      config = {
-        # TODO:
-        # portals.conf(5)
-        XDG_CURRENT_DESKTOP = "Hyprland";
-      };
-      xdgOpenUsePortal = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
-      ];
-    };
   };
 
   home = {
     username = "zcoyle";
     stateVersion = "24.05";
-    packages = with pkgs;
-      [
-        act
-        alejandra
-        asciinema
-        cachix
-        comma
-        coreutils-full
-        dasel
-        dos2unix
-        dsq
-        (dwarf-fortress-packages.dwarf-fortress-full.override {
-          enableStoneSense = pkgs.stdenv.isLinux;
-          enableDwarfTherapist = pkgs.stdenv.isLinux;
-        })
-        entr
-        fd
-        ghq
-        gimp
-        git-get
-        gitnr
-        hayabusa
-        hurl
-        jq
-        just
-        killall
-        lsix
-        manix
-        mdcat
-        moreutils
-        neovide
-        nix-melt
-        nix-top
-        opentofu
-        # oterm
-        pijul
-        podman
-        podman-compose
-        podman-tui
-        poetry
-        prqlc
-        process-compose
-        python3
-        qemu
-        quicktype
-        ripgrep
-        scc
-        sqlite
-        sqlitebrowser
-        sshfs
-        swift-format
-        sword
-        tealdeer
-        typioca
-        util-linux
-        visidata
-        wget
-        xsv
-        yq
-        zstd
-      ]
-      ++ lib.optionals pkgs.stdenv.isLinux [
-        android-studio
-        blender
-        bottles
-        brightnessctl
-        buildah
-        calibre
-        cider
-        copyq
-        cura
-        foliate
-        freecad
-        gnome-tecla
-        gnome.gnome-calculator
-        gnome.gnome-system-monitor
-        gnome.nautilus
-        godot3
-        grim
-        hyprshade
-        imagemagick
-        inkscape
-        kdenlive
-        kicad
-        kickoff
-        krita
-        libinput-gestures
-        libnotify
-        libreoffice
-        (
-          builtins.trace ''
-
-            OLLAMA VERSION ${ollama.version}
-            https://github.com/NixOS/nixpkgs/issues/280030
-            turn on rocm when ${ollama.version} == 0.1.23
-
-          ''
-          ollama
-        ) # Broken on darwin
-        pavucontrol
-        playerctl
-        slurp
-        swww
-        ueberzugpp
-        ulauncher
-        unzip
-        vimiv-qt
-        waypipe
-        wl-clipboard
-        xdg-utils
-        yofi
-      ];
+    packages = with pkgs; [
+      act
+      alejandra
+      asciinema
+      cachix
+      comma
+      coreutils-full
+      dasel
+      dos2unix
+      dsq
+      (dwarf-fortress-packages.dwarf-fortress-full.override {
+        enableStoneSense = pkgs.stdenv.isLinux;
+        enableDwarfTherapist = pkgs.stdenv.isLinux;
+      })
+      entr
+      fd
+      ghq
+      gimp
+      git-get
+      gitnr
+      hayabusa
+      hurl
+      jq
+      just
+      killall
+      lsix
+      manix
+      mdcat
+      moreutils
+      neovide
+      nix-melt
+      nix-top
+      opentofu
+      # oterm
+      pijul
+      podman
+      podman-compose
+      podman-tui
+      poetry
+      prqlc
+      process-compose
+      python3
+      qemu
+      quicktype
+      ripgrep
+      scc
+      sqlite
+      sqlitebrowser
+      sshfs
+      swift-format
+      sword
+      tealdeer
+      typioca
+      util-linux
+      visidata
+      wget
+      xsv
+      yq
+      zstd
+    ];
 
     file = {
       ".local/share/neovide/neovide-settings.json".text = builtins.toJSON {};
-
-      ".config/yofi/blacklist".text = ''
-      '';
-
-      ".config/yofi/yofi.config".source = tomlFormat.generate "yofi.config" {
-        width = 400;
-        height = 512;
-        force_window = false;
-        corner_radius = "10";
-        font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
-        font_size = 24;
-        bg_color = colorsWithHashtag.base00;
-        bg_border_color = colorsWithHashtag.base04;
-        bg_border_width = 4.0;
-        font_color = colorsWithHashtag.base04;
-        term = "alacritty -e";
-        input_text = {
-          font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
-          font_color = colorsWithHashtag.base01;
-          bg_color = colorsWithHashtag.base04;
-          margin = "5";
-          padding = "1.7 -4";
-          corner_radius = "10";
-        };
-        list_items = {
-          font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
-          font_color = colorsWithHashtag.base04;
-          selected_font_color = colorsWithHashtag.base0B;
-          match_color = colorsWithHashtag.base0F;
-          margin = "5 10";
-          hide_actions = true;
-          action_left_margin = 60;
-          item_spacing = 2;
-          icon_spacing = 5;
-        };
-        icon = {
-          size = 16;
-          fallback_icon_path = "/run/current-system/sw/share/icons";
-        };
-      };
-
-      ".config/libinput-gestures.conf".source = ./dots/libinput-gestures.conf;
     };
   };
-
-  services = {
-    avizo.enable = pkgs.stdenv.isLinux;
-    batsignal.enable = pkgs.stdenv.isLinux;
-    mako = {
-      enable = pkgs.stdenv.isLinux;
-      borderRadius = 10;
-      defaultTimeout = 2000;
-      # groupBy = TODO:
-      iconPath = "/run/current-system/sw/share/icons";
-      # font = TODO:
-      layer = "overlay";
-      # sort = TODO:
-    };
-  };
-
-  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov hyprland-plugins;};
 
   programs = {
-    swaylock = {
-      enable = pkgs.stdenv.isLinux;
-      package = pkgs.swaylock-effects;
-      settings = {
-        font-size = 24;
-        indicator-idle-visible = false;
-        indicator-radius = 100;
-        line-color = "ffffff";
-        show-failed-attempts = true;
-      };
-    };
-    obs-studio = {
-      enable = pkgs.stdenv.isLinux;
-      plugins = with pkgs.obs-studio-plugins; [
-        # advanced-scene-switcher
-        # obs-backgroundremoval
-        # obs-xdg-portal
-        input-overlay
-        obs-3d-effect
-        obs-command-source
-        obs-composite-blur
-        obs-move-transition
-        obs-mute-filter
-        obs-pipewire-audio-capture
-        obs-shaderfilter
-        obs-source-switcher
-        obs-vkcapture
-        wlrobs
-      ];
-    };
-
-    waybar = import ./users/zcoyle/by-app/waybar.nix {inherit pkgs config;};
-
-    wlogout = {
-      # TODO: Styling
-      enable = pkgs.stdenv.isLinux;
-      layout = [
-        {
-          label = "lock";
-          action = "swaylock";
-          text = "Lock";
-          keybind = "l";
-        }
-        {
-          label = "logout";
-          action = "hyprctl dispatch exit";
-          text = "Logout";
-          keybind = "o";
-        }
-        {
-          # TODO: command and binding
-          label = "suspend";
-          action = "";
-          text = "Suspend";
-          keybind = "";
-        }
-        {
-          # TODO: command and binding
-          label = "hibernate";
-          action = "";
-          text = "Hibernate";
-          keybind = "";
-        }
-        {
-          label = "shutdown";
-          action = "systemctl poweroff";
-          text = "Shutdown";
-          keybind = "s";
-        }
-        {
-          label = "reboot";
-          action = "systemctl reboot";
-          text = "Reboot";
-          keybind = "r";
-        }
-      ];
-    };
-
     alacritty = import ./users/zcoyle/by-app/alacritty.nix {inherit pkgs lib;};
 
     bat = {
@@ -347,6 +101,7 @@ in {
     };
 
     bottom.enable = true;
+    btop.enable = true;
 
     direnv = {
       enable = true;
@@ -365,100 +120,6 @@ in {
           PATH_add "$VENV"
         }
       '';
-    };
-
-    chromium.enable = pkgs.stdenv.isLinux;
-
-    firefox = {
-      enable = pkgs.stdenv.isLinux;
-      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-        extraPolicies = {
-          DisableFirefoxStudies = true;
-          DisablePocket = true;
-          NoDefaultBookmarks = true;
-          FirefoxHome = {
-            Search = true;
-            Pocket = false;
-            TopSites = false;
-            Highlights = false;
-          };
-          UserMessaging = {
-            ExtensionRecommendations = false;
-            SkipOnboarding = true;
-          };
-        };
-      };
-
-      profiles.zcoyle = {
-        id = 0;
-        name = "zcoyle";
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          firenvim
-          react-devtools
-          reduxdevtools
-          stylus
-          ublock-origin
-          vimium
-          vue-js-devtools
-          wayback-machine
-        ];
-        search = {
-          force = true;
-          default = "DuckDuckGo";
-          engines = {
-            "Nix Packages" = {
-              urls = [
-                {
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@np"];
-            };
-            "NixOS Wiki" = {
-              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
-              iconUpdateURL = "https://nixos.wiki/favicon.png";
-              updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = ["@nw"];
-            };
-            "Wikipedia (en)".metaData.alias = "@wiki";
-            "Google".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            "Bing".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
-          };
-        };
-
-        settings = {
-          "general.smoothScroll" = true;
-        };
-
-        extraConfig = ''
-          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-          user_pref("full-screen-api.ignore-widgets", true);
-          user_pref("media.ffmpeg.vaapi.enabled", true);
-          user_pref("media.rdd-vpx.enabled", true);
-        '';
-
-        userChrome = ''
-          .titlebar-buttonbox-container {
-            display: none !important;
-          }
-        '';
-
-        userContent = ''
-        '';
-      };
     };
 
     git = {
@@ -564,5 +225,6 @@ in {
 
   imports = [
     nixvim.homeManagerModules.nixvim
+    ./home-linux.nix
   ];
 }
