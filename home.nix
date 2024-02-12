@@ -79,6 +79,7 @@
     ];
 
     file = {
+      # INFO: this is just to prevent neovide from writing its own settings file
       ".local/share/neovide/neovide-settings.json".text = builtins.toJSON {};
     };
   };

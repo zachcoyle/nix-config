@@ -96,6 +96,7 @@ in
         libinput-gestures
         libnotify
         libreoffice
+        makemkv
         (
           builtins.trace ''
 
