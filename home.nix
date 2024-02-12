@@ -217,9 +217,8 @@
         repos = "lsd --tree --depth 3 ~/Developer";
       };
     };
-    mpv = {
-      enable = true;
-    };
+
+    mpv.enable = true;
     zathura.enable = true;
   };
 }

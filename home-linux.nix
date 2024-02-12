@@ -293,6 +293,7 @@ in
             vue-js-devtools
             wayback-machine
           ];
+
           search = {
             force = true;
             default = "DuckDuckGo";
@@ -339,6 +340,8 @@ in
             user_pref("full-screen-api.ignore-widgets", true);
             user_pref("media.ffmpeg.vaapi.enabled", true);
             user_pref("media.rdd-vpx.enabled", true);
+            user_pref("apz.overscroll.enabled", true);
+            user_pref("browser.shell.checkDefaultBrowser", false);
           '';
 
           userChrome = ''
