@@ -115,6 +115,7 @@ in
         ulauncher
         unzip
         vimiv-qt
+        vlc
         waypipe
         wl-clipboard
         xdg-utils
