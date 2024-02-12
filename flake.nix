@@ -225,8 +225,8 @@
         };
       in {
         darwinConfigurations = {
-          Zachs-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
-          Zacharys-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
+          mbp13 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
+          mbp15 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
         };
         nixosConfigurations.nixos-desktop = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
