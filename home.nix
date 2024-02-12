@@ -94,7 +94,7 @@ in {
         ghq
         git-get
         gitnr
-        hayabusa
+        # hayabusa
         hurl
         jq
         just
@@ -329,7 +329,7 @@ in {
       ];
     };
 
-    alacritty = import ./users/zcoyle/by-app/alacritty.nix {inherit pkgs lib;};
+    # alacritty = import ./users/zcoyle/by-app/alacritty.nix {inherit pkgs lib;};
 
     bat = {
       enable = true;

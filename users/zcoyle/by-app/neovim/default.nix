@@ -21,7 +21,7 @@
     # dap
     ++ [
       rustc
-      pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
+      # pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
       cargo
       lldb
       (php.withExtensions ({
