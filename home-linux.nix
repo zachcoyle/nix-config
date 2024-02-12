@@ -213,6 +213,12 @@ in
         ];
       };
 
+      eww = {
+        enable = true;
+        package = pkgs.eww-wayland;
+        configDir = ./users/zcoyle/by-app/eww;
+      };
+
       waybar = import ./users/zcoyle/by-app/waybar.nix {inherit pkgs config;};
 
       wlogout = {
