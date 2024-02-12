@@ -1,14 +1,14 @@
 {
   pkgs,
   lib,
-  stdenv,
   nixvim,
   config,
   ...
 }: {
-  # modules = [
-  #   ./home-linux.nix
-  # ];
+  imports = [
+    nixvim.homeManagerModules.nixvim
+    ./home-linux.nix
+  ];
 
   stylix = {
     targets.nixvim.enable = false;
@@ -222,9 +222,4 @@
     };
     zathura.enable = true;
   };
-
-  imports = [
-    nixvim.homeManagerModules.nixvim
-    ./home-linux.nix
-  ];
 }
