@@ -16,6 +16,9 @@ in {
     exec-once = swww init
     exec-once = swww img ${wallpaperDir}`ls ${wallpaperDir} | shuf -n 1`}
     exec-once = waybar
+    # TODO:
+    # exec-once = eww daemon
+    # exec-once = eww open topbar
     exec-once = libinput-gestures
 
     layerrule = blur, waybar
