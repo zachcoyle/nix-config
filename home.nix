@@ -50,7 +50,7 @@
       nix-melt
       nix-top
       opentofu
-      # oterm
+      oterm
       pijul
       podman
       podman-compose
