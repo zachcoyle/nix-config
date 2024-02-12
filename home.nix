@@ -92,6 +92,7 @@ in {
         entr
         fd
         ghq
+        gimp
         git-get
         gitnr
         hayabusa
