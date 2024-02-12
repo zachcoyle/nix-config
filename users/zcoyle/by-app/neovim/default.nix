@@ -123,6 +123,7 @@
     foldlevelstart = 99;
     foldenable = true;
     signcolumn = "yes:2";
+    scrolloff = 8;
     fillchars = {
       eob = " ";
       fold = " ";
