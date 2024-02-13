@@ -78,6 +78,8 @@ in
         cider
         copyq
         cura
+        darling
+        darling-dmg
         foliate
         freecad
         gnome-tecla
