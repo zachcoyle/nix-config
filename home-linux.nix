@@ -79,8 +79,8 @@ in
         cider
         copyq
         cura
-        darling
-        darling-dmg
+        # darling
+        # darling-dmg
         foliate
         freecad
         gnome-tecla
