@@ -71,6 +71,7 @@ in
       packages = with pkgs; [
         android-studio
         blender
+        blockattack
         bottles
         brightnessctl
         buildah
