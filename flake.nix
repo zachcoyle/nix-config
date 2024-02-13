@@ -287,7 +287,7 @@
               ./hosts/nixos/nixos-laptop/configuration.nix
               (
                 {lib, ...}: {
-                  networking.networkmanager.enable = lib.mkForce false;
+                  networking.wireless.enable = lib.mkForce false;
                 }
               )
             ];
