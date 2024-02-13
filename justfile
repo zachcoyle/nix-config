@@ -24,6 +24,9 @@ switch:
 
 alias s := switch
 
+iso:
+    nix build .#nixosConfigurations.live.config.system.build.isoImage
+
 # Updates the lockfile entry for INPUT and commits
 update INPUT:
     nix flake lock --update-input {{ INPUT }} --commit-lock-file --show-trace

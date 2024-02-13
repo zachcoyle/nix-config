@@ -195,6 +195,48 @@
       systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
 
       flake = let
+        common_nixos_config = {extraModules}: {
+          system = "x86_64-linux";
+          specialArgs = {inherit inputs;};
+          modules =
+            [
+              ./hosts/nixos/overlays.nix
+              ./hosts/common-overlays.nix
+              ./common-system.nix
+              inputs.home-manager.nixosModules.home-manager
+              inputs.sddm-sugar-candy-nix.nixosModules.default
+              inputs.stylix.nixosModules.stylix
+              (
+                {lib, ...}: {
+                  nixpkgs = {
+                    config = {
+                      # enable when ollama updates
+                      rocmSupport = false;
+                      allowUnfreePredicate = pkg:
+                        builtins.elem (lib.getName pkg) [
+                          "dwarf-fortress" # proprietary
+                          "steam" # proprietary
+                          "steam-original" # proprietary
+                          "steam-run" # proprietary
+                          "hayabusa" # CCA NC ND 4.0
+                        ];
+                    };
+                  };
+                }
+              )
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.zcoyle = import ./home.nix;
+                  extraSpecialArgs = {
+                    inherit (inputs) nixvim hycov hyprland-plugins;
+                  };
+                };
+              }
+            ]
+            ++ extraModules;
+        };
         common_darwin_config = {
           specialArgs = {inherit inputs;};
           modules = [
@@ -228,87 +270,23 @@
           mbp13 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
           mbp15 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
         };
-        nixosConfigurations.nixos-desktop = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/nixos/overlays.nix
-            ./hosts/common-overlays.nix
-            ./common-system.nix
-            ./hosts/nixos/nixos-desktop/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            inputs.sddm-sugar-candy-nix.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            (
-              {lib, ...}: {
-                nixpkgs = {
-                  config = {
-                    # enable when ollama updates
-                    rocmSupport = false;
-                    allowUnfreePredicate = pkg:
-                      builtins.elem (lib.getName pkg) [
-                        "dwarf-fortress" # proprietary
-                        "steam" # proprietary
-                        "steam-original" # proprietary
-                        "steam-run" # proprietary
-                        "hayabusa" # CCA NC ND 4.0
-                      ];
-                  };
-                };
-              }
-            )
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.zcoyle = import ./home.nix;
-                extraSpecialArgs = {
-                  inherit (inputs) nixvim hycov hyprland-plugins;
-                };
-              };
-            }
-          ];
-        };
-        nixosConfigurations.nixos-laptop = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/nixos/overlays.nix
-            ./hosts/common-overlays.nix
-            ./common-system.nix
-            ./hosts/nixos/nixos-laptop/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            inputs.sddm-sugar-candy-nix.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            (
-              {lib, ...}: {
-                nixpkgs = {
-                  config = {
-                    # enable when ollama updates
-                    rocmSupport = false;
-                    allowUnfreePredicate = pkg:
-                      builtins.elem (lib.getName pkg) [
-                        "dwarf-fortress" # proprietary
-                        "steam" # proprietary
-                        "steam-original" # proprietary
-                        "steam-run" # proprietary
-                        "hayabusa" # CCA NC ND 4.0
-                      ];
-                  };
-                };
-              }
-            )
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.zcoyle = import ./home.nix;
-                extraSpecialArgs = {
-                  inherit (inputs) nixvim hycov hyprland-plugins;
-                };
-              };
-            }
-          ];
+        nixosConfigurations = {
+          nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
+            extraModules = [
+              ./hosts/nixos/nixos-desktop/configuration.nix
+            ];
+          });
+          nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
+            extraModules = [
+              ./hosts/nixos/nixos-laptop/configuration.nix
+            ];
+          });
+          live = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
+            extraModules = [
+              "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+              ./hosts/nixos/nixos-laptop/configuration.nix
+            ];
+          });
         };
       };
 

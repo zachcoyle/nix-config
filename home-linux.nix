@@ -106,7 +106,7 @@ in
 
           ''
           ollama
-        ) # Broken on darwin
+        )
         pavucontrol
         playerctl
         slurp
