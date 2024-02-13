@@ -111,6 +111,7 @@ in
         )
         pavucontrol
         playerctl
+        retroarchFull
         slurp
         swww
         ueberzugpp
