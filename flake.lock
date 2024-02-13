@@ -606,6 +606,31 @@
         "type": "github"
       }
     },
+    "gomod2nix": {
+      "inputs": {
+        "flake-utils": [
+          "ollama-flake",
+          "utils"
+        ],
+        "nixpkgs": [
+          "ollama-flake",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1705314449,
+        "narHash": "sha256-yfQQ67dLejP0FLK76LKHbkzcQqNIrux6MFe32MMFGNQ=",
+        "owner": "tweag",
+        "repo": "gomod2nix",
+        "rev": "30e3c3a9ec4ac8453282ca7f67fca9e1da12c3e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tweag",
+        "repo": "gomod2nix",
+        "type": "github"
+      }
+    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -1103,6 +1128,27 @@
         "type": "github"
       }
     },
+    "nixpkgs-unfree": {
+      "inputs": {
+        "nixpkgs": [
+          "ollama-flake",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1701957584,
+        "narHash": "sha256-xEpFaRdrneHl3Xdyzp3emd4QVxML7AR3GC91wuWi0Ok=",
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "rev": "127b9b18583de04c6207c2a0e674abf64fc4a3b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1707393347,
@@ -1211,6 +1257,51 @@
       "original": {
         "owner": "nix-community",
         "repo": "nur",
+        "type": "github"
+      }
+    },
+    "ollama": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707357331,
+        "narHash": "sha256-GwZA1QUH8I8m2bGToIcMMaB5MBnioQP4+n1SauUJYP8=",
+        "ref": "refs/tags/v0.1.24",
+        "rev": "69f392c9b7ea7c5cc3d46c29774e37fdef51abd8",
+        "revCount": 1967,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/jmorganca/ollama"
+      },
+      "original": {
+        "ref": "refs/tags/v0.1.24",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/jmorganca/ollama"
+      }
+    },
+    "ollama-flake": {
+      "inputs": {
+        "gomod2nix": "gomod2nix",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-unfree": "nixpkgs-unfree",
+        "ollama": "ollama",
+        "utils": [
+          "flake-utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1707569792,
+        "narHash": "sha256-ThjsyFspI4MquANx2Mym1d6K16ey0qvSlk+FGbD4fX0=",
+        "owner": "abysssol",
+        "repo": "ollama-flake",
+        "rev": "615b52feeec783ae6b713ac20e4847e4ab496793",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abysssol",
+        "repo": "ollama-flake",
         "type": "github"
       }
     },
@@ -1360,6 +1451,7 @@
         "nixpkgs-firefox-darwin": "nixpkgs-firefox-darwin",
         "nixvim": "nixvim",
         "nur": "nur",
+        "ollama-flake": "ollama-flake",
         "pre-commit-hooks": "pre-commit-hooks",
         "rustaceanvim": "rustaceanvim",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",

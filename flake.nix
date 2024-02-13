@@ -52,6 +52,12 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    ollama-flake = {
+      url = "github:abysssol/ollama-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
+    };
+
     base16.url = "github:SenchoPens/base16.nix";
 
     stylix = {
@@ -243,8 +249,7 @@
               {lib, ...}: {
                 nixpkgs = {
                   config = {
-                    # enable when ollama updates
-                    rocmSupport = false;
+                    rocmSupport = true;
                     allowUnfreePredicate = pkg:
                       builtins.elem (lib.getName pkg) [
                         "dwarf-fortress" # proprietary
@@ -284,8 +289,7 @@
               {lib, ...}: {
                 nixpkgs = {
                   config = {
-                    # enable when ollama updates
-                    rocmSupport = false;
+                    rocmSupport = true;
                     allowUnfreePredicate = pkg:
                       builtins.elem (lib.getName pkg) [
                         "dwarf-fortress" # proprietary
