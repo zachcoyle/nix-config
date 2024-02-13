@@ -285,6 +285,11 @@
             extraModules = [
               "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
               ./hosts/nixos/nixos-laptop/configuration.nix
+              (
+                {lib, ...}: {
+                  networking.networkmanager.enable = lib.mkForce false;
+                }
+              )
             ];
           });
         };
