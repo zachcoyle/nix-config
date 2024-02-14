@@ -1422,11 +1422,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707812380,
-        "narHash": "sha256-aFgUtt/Ohv2etlbzJoXQcAhiXQ9RglgLk3fLcRudtcM=",
+        "lastModified": 1707917381,
+        "narHash": "sha256-qDcyJRoeTjVtwsODyYLRyX34dKbL8sU0qca1mroEvp0=",
         "owner": "mrcjkb",
         "repo": "rustaceanvim",
-        "rev": "1e956999e45cda8a65cef625c46102495b3eab40",
+        "rev": "0590281ad26c1b4637fcd5ae852e02b170426ff2",
         "type": "github"
       },
       "original": {
