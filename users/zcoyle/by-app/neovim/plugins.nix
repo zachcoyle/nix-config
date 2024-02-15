@@ -264,7 +264,7 @@
   noice.enable = true;
   notify = {
     enable = true;
-    backgroundColour = "#000000";
+    backgroundColour = config.lib.stylix.colors.withHashtag.base01;
   };
   nix.enable = true;
   nvim-colorizer = {
