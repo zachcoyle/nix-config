@@ -131,6 +131,7 @@
   gitblame = {
     enable = true;
     delay = 600;
+    virtualTextColumn = 80;
   };
   gitsigns = {
     enable = true;
