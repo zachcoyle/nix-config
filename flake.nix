@@ -218,7 +218,6 @@
                           "steam" # proprietary
                           "steam-original" # proprietary
                           "steam-run" # proprietary
-                          "hayabusa" # CCA NC ND 4.0
                         ];
                     };
                   };

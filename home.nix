@@ -37,7 +37,6 @@
       gimp
       git-get
       gitnr
-      hayabusa
       hurl
       jq
       just
