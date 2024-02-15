@@ -3,7 +3,7 @@
   hycov,
   ...
 }: let
-  wallpaperDir = ../../../../wallpapers;
+  wallpaperDir = ../../../../theme/wallpapers;
 in {
   enable = pkgs.stdenv.isLinux;
   plugins = [

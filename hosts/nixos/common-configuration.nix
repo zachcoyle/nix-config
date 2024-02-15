@@ -174,7 +174,9 @@
     ollama.enable = true;
   };
 
-  stylix = (import ../../stylix.nix {inherit pkgs;}) // (import ../../stylix-nixos.nix {inherit pkgs;});
+  stylix =
+    (import ../../theme/stylix.nix {inherit pkgs;})
+    // (import ../../theme/stylix-nixos.nix {inherit pkgs;});
 
   system.stateVersion = "24.05";
 
