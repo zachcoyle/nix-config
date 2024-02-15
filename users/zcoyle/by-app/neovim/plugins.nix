@@ -230,6 +230,7 @@
       volar.enable = true;
       vuels.enable = true;
       yamlls.enable = true;
+      zls.enable = true;
     };
   };
   luasnip = {
