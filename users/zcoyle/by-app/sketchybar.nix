@@ -1,5 +1,6 @@
 {pkgs}: let
-  theme_colors = import ./colors.nix;
+  # FIXME: read colors from stylix
+  # theme_colors = import ./colors.nix;
   createBar = {
     height ? "32",
     blur_radius ? "30",
@@ -150,15 +151,15 @@
   bars = [
     (createBar {
       defaults = {
-        color = theme_colors.bg;
+        # color = theme_colors.bg;
         label = {
           font = {
             name = "Ubuntu Nerd Font";
           };
-          color = theme_colors.fg;
+          # color = theme_colors.fg;
         };
         icon = {
-          color = theme_colors.fg;
+          # color = theme_colors.fg;
         };
       };
     })
@@ -172,7 +173,7 @@
         icon = n;
         side = "left";
         background = {
-          color = theme_colors.bg_hard;
+          # color = theme_colors.bg_hard;
           corner_radius = "5";
           height = "20";
           drawing = "off";
