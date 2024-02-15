@@ -35,6 +35,7 @@ in {
     bind = SUPER, A, exec, alacritty
     bind = SUPER, Q, killactive
     bind = SUPER, Y, fullscreen, 0
+    bind = SUPER, U, fakefullscreen, 0
     bind = SUPER, T, togglefloating
     bind = SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470 # 3072,1920
     bind = SUPER, SPACE, exec, yofi
