@@ -209,12 +209,12 @@
       };
 
       shellAliases = {
+        cat = "bat";
         j = "z";
+        repos = "lsd --tree --depth 3 ~/Developer";
+        tree = "lsd --tree";
         vi = "nvim";
         vim = "nvim";
-        cat = "bat";
-        tree = "lsd --tree";
-        repos = "lsd --tree --depth 3 ~/Developer";
       };
     };
 

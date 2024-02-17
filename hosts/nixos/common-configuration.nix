@@ -74,7 +74,6 @@
     # $ nix search wget
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
-      #xdg-desktop-portal-hyperland
       alacritty
       alejandra
       dmidecode

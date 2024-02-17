@@ -63,7 +63,7 @@ in
         };
         xdgOpenUsePortal = true;
         extraPortals = [
-          pkgs.xdg-desktop-portal-hyprland
+          pkgs.xdg-desktop-portal-gtk
         ];
       };
     };
@@ -71,7 +71,6 @@ in
       packages = with pkgs; [
         android-studio
         blender
-        blockattack
         bottles
         brightnessctl
         buildah
@@ -187,6 +186,14 @@ in
     wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov hyprland-plugins;};
 
     programs = {
+      rofi = {
+        enable = true;
+        package = pkgs.rofi-wayland;
+        cycle = true;
+        # font = "";
+        location = "center";
+        terminal = "${pkgs.alacritty}/bin/alacritty";
+      };
       swaylock = {
         enable = true;
         package = pkgs.swaylock-effects;

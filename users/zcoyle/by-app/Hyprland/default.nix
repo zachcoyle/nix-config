@@ -22,7 +22,7 @@ in {
     exec-once = libinput-gestures
 
     layerrule = blur, waybar
-    layerrule = blur, yofi
+    layerrule = blur, rofi
     layerrule = blur, alacritty
     layerrule = blur, wlogout
     layerrule = blur, avizo
@@ -39,7 +39,7 @@ in {
     bind = SUPER, T, togglefloating
     bind = SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470 # 3072,1920
     bind = SUPER, O, exec, swww clear
-    bind = SUPER, SPACE, exec, yofi
+    bind = SUPER, SPACE, exec, rofi #-show drun
 
     workspace = special:scratchpad, on-created-empty:alacritty
     bind = SUPER_SHIFT, S, movetoworkspace, special:scratchpad

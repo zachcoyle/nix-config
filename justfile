@@ -63,3 +63,8 @@ cachix:
   nix build .#{{ configurationTypeForOS }}.{{ host }}.system --json \
     | jq -r '.[].outputs | to_entries[].value' \
     | cachix push zachcoyle
+
+eww:
+  pkill -9 eww ; \
+  eww daemon -c ./users/zcoyle/by-app/eww && \
+  eww open topbar
