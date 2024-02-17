@@ -22,8 +22,7 @@ in {
     exec-once = libinput-gestures
 
     # INFO: https://github.com/NixOS/nixpkgs/issues/189851
-    exec systemctl --user import-environment PATH && \
-      systemctl --user restart xdg-desktop-portal.service
+    exec-once = systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
 
     layerrule = blur, waybar
     layerrule = blur, rofi
