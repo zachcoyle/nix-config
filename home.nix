@@ -203,6 +203,7 @@
       };
 
       sessionVariables = {
+        BROWSER = "firefox";
         EDITOR = "nvim";
         GITGET_ROOT = "~/Developer";
         XCURSOR_SIZE = 24;

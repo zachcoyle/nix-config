@@ -295,7 +295,7 @@ in
         ];
       };
 
-      chromium.enable = true;
+      # chromium.enable = true;
 
       firefox = {
         enable = true;
