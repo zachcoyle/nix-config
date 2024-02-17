@@ -35,6 +35,8 @@ in {
     windowrule = noanim, wlogout
     windowrule = fullscreen, wlogout
 
+    windowrule = opacity 1.0 override 1.0 override, title:^Picture-in-Picture$
+
     bind = SUPER, F, exec, firefox
     bind = SUPER, A, exec, alacritty
     bind = SUPER, Q, killactive
