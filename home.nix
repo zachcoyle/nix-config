@@ -73,6 +73,7 @@
       visidata
       wget
       xsv
+      youtube-dl
       yq
       zstd
     ];
