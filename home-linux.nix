@@ -408,5 +408,8 @@ in
           '';
         };
       };
+      zsh.shellAliases = {
+        open = "xdg-open";
+      };
     };
   }
