@@ -305,6 +305,7 @@ in
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
             firenvim
             react-devtools
+            reddit-enhancement-suite
             reduxdevtools
             stylus
             ublock-origin
