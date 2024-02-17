@@ -3,6 +3,9 @@
   config,
 }: {
   enable = true;
+
+  package = pkgs.neovim-nightly;
+
   enableMan = false;
 
   luaLoader.enable = true;
