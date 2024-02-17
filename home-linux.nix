@@ -190,9 +190,20 @@ in
         enable = true;
         package = pkgs.rofi-wayland;
         cycle = true;
-        # font = "";
         location = "center";
         terminal = "${pkgs.alacritty}/bin/alacritty";
+        theme = lib.mkForce "gruvbox-dark-hard";
+        plugins = with pkgs; [
+          rofi-emoji
+          rofi-calc
+        ];
+        extraConfig = {
+          modes = ["combi"];
+          combi-modes = [
+            "drun"
+            "emoji"
+          ];
+        };
       };
       swaylock = {
         enable = true;
