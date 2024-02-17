@@ -136,6 +136,7 @@
 
   globals = {
     mapleader = " ";
+    neovide_hide_mouse_when_typing = true;
   };
 
   keymaps = import ./keymaps.nix;
