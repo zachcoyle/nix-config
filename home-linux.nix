@@ -36,8 +36,9 @@ in
         '';
       };
       iconTheme = {
-        package = pkgs.gruvbox-plus-icons;
-        name = "GruvboxPlus";
+        # TODO: swap the icon theme out later
+        package = pkgs.gnome.adwaita-icon-theme;
+        name = "Adwaita";
       };
     };
 
