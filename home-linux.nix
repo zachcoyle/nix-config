@@ -121,6 +121,7 @@ in
         vimiv-qt
         vlc
         waypipe
+        wdisplays
         wl-clipboard
         xdg-utils
         yofi
