@@ -143,12 +143,11 @@
       };
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
+    neovim = {
+      url = "github:neovim/neovim?dir=contrib";
       inputs = {
-        flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
       };
     };
 

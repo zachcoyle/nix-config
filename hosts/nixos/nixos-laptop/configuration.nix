@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -10,7 +9,8 @@
     ../common-configuration.nix
   ];
   hardware = {
-    # for T2 MacBookPro16,1
+    apple-t2.enableAppleSetOsLoader = true;
+
     firmware = [
       (pkgs.stdenvNoCC.mkDerivation {
         name = "brcm-firmware";
@@ -21,10 +21,6 @@
         '';
       })
     ];
-  };
-
-  boot = {
-    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
   };
 
   networking.hostName = "nixos-laptop"; # Define your hostname.

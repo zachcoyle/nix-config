@@ -177,6 +177,9 @@ in {
       "$mod, mouse:273, resizewindow"
       "$mod ALT, mouse:272, resizewindow"
     ];
+    bindl = [
+      ", switch:Lid Switch, exec, swaylock"
+    ];
   };
   xwayland.enable = true;
 }

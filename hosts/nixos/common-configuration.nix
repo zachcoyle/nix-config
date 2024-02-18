@@ -16,7 +16,6 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        # gpu go brrr
         amdvlk
         libva
         libvdpau-va-gl
