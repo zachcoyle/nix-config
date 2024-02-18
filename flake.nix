@@ -1,5 +1,5 @@
 {
-  description = "Darwin system flake";
+  description = "nixos + darwin system flake";
 
   inputs = {
     # system
