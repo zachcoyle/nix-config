@@ -1,4 +1,4 @@
-name: cachix
+name: cachix-darwin
 on:
   pull_request:
   push:
