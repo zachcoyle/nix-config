@@ -263,7 +263,8 @@
   };
   noice.enable = true;
   notify = {
-    enable = true;
+    # FIXME: turned this off because it's broken on nvim nightly
+    enable = false;
     backgroundColour = config.lib.stylix.colors.withHashtag.base01;
   };
   nix.enable = true;
