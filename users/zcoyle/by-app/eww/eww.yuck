@@ -1,58 +1,50 @@
-(defwidget launcher [name icon]
+(defwidget launcher [command text]
   (button
+    :width 30
+    :height 26
+    :onclick command
     :class "launcher"
-    :onclick name
-    icon))
+    (label
+      :text text)))
 
-(defwidget launchers []
+(defwidget shortcuts []
   (box
+    :spacing 8
     (launcher
-      :name "firefox&"
-      :icon "󰈹")
+      :command "firefox&"
+      :text "󰈹")
     (launcher
-      :name "neovide&"
-      :icon "")
+      :command "alacritty --working-directory  ~&"
+      :text "")
     (launcher
-      :name "alacritty -e oterm&"
-      :icon "🦙")
+      :command "neovide&"
+      :text "")
     (launcher
-      :name "alacritty --working-directory ~&"
-      :icon "")))
+      :command "alacritty -e oterm&"
+      :text "🦙")))
 
-(defwidget themedbox []
-  (box :spacing 8
-       :orientation "horizontal"
-       :space-evenly true
-       :halign "start"
-       (children)))
-
-(defwidget hud []
-  (box
-    (box
-      :hexpand true)
-    (box
-      (launchers))
-    (box
-      (label
-        :text "yo"))))
+(defwidget power []
+  (button
+    :onclick "wlogout&"
+    (image
+      :path "./hyprland.png"
+      :image-width 24
+      :image-height 28)))
 
 (defwindow topbar
-           :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "0%"
-                               :width "100%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :exclusive true
-           :windowtype "dock"
-           :wm-ignore false
-  (hud))
-(defwindow topbar
-           :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "0%"
-                               :width "100%"
-                               :height "30px"
-                               :anchor "top center")
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "30px"
+                      :anchor "top center")
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :exclusive true
+  :windowtype "dock"
+  :wm-ignore false
+  (box
+    (power)
+    (box)
+    (box)
+    (shortcuts)))
