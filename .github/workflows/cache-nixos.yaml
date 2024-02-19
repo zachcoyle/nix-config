@@ -6,6 +6,8 @@ jobs:
   cachix:
     runs-on: ubuntu-latest
     steps:
+      - name: Clear space
+        run: "df -h \\\nsudo apt remove -y '^dotnet-.*' \\\nsudo apt remove -y '^llvm-.*' \\\nsudo apt remove -y '^mongodb-.*' \\\nsudo apt remove -y '^mysql-.*' \\\nsudo apt remove -y azure-cli google-chrome-stable firefox powershell mono-devel libgl1-mesa-dri \\\nsudo apt autoremove -y \\\nsudo apt clean \\\ndf -h \\\necho \"Removing large directories\" \\ \nsudo rm -rf /usr/share/dotnet/ \\\nsudo rm -rf /usr/local/graalvm/ \\\nsudo rm -rf /usr/local/.ghcup/ \\\nsudo rm -rf /usr/local/share/powershell \\\nsudo rm -rf /usr/local/share/chromium \\\nsudo rm -rf /usr/local/lib/android \\\nsudo rm -rf /usr/local/lib/node_modules \\\nsudo rm -rf /usr/local/share/boost \\\nsudo rm -rf \"$AGENT_TOOLSDIRECTORY\" \\ \ndf -h\n"
       - uses: actions/checkout@v4.1.1
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
