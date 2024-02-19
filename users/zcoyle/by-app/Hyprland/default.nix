@@ -1,14 +1,8 @@
-{
-  pkgs,
-  hycov,
-  ...
-}: let
+{pkgs, ...}: let
   wallpaperDir = ../../../../theme/wallpapers;
 in {
   enable = pkgs.stdenv.isLinux;
-  plugins = [
-    hycov.packages.${pkgs.system}.hycov
-  ];
+  plugins = [];
   extraConfig = ''
     # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
 
@@ -120,13 +114,6 @@ in {
     bind = SUPER, D, exec, hyprctl keyword general:layout "dwindle"
     bind = SUPER, M, exec, hyprctl keyword general:layout "master"
 
-    #### Plugin bindings ####
-
-    bind = ALT, tab, hycov:toggleoverview
-    bind = ALT, left, hycov:movefocus, l
-    bind = ALT, right, hycov:movefocus, r
-    bind = ALT, up, hycov:movefocus, u
-    bind = ALT, down, hycov:movefocus, d
 
     monitor=DP-1, preferred, auto, 1
     monitor=DP-6, preferred, auto, 1
@@ -134,12 +121,6 @@ in {
   settings = {
     general = {
       layout = "dwindle";
-    };
-    plugin = {
-      hycov = {
-        # TODO: bottom left corner is a hot corner until hyprland supports more gesture config
-        # enable_hotarea = 1;
-      };
     };
     decoration = {
       # "col.shadow" = "rgba(00000099)";
