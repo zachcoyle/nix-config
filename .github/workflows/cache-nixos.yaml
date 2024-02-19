@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: "df -h"
-      - run: "(sudo apt remove -y '^dotnet-.*'; exit 0);"
+      # - run: "(sudo apt remove -y '^dotnet-.*'; exit 0);"
       - run: "(sudo apt remove -y '^llvm-.*'; exit 0);"
       - run: "(sudo apt remove -y '^mongodb-.*'; exit 0);"
       - run: "(sudo apt remove -y '^mysql-.*'; exit 0);"
