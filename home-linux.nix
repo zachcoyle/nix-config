@@ -100,6 +100,7 @@ in
         libnotify
         libreoffice
         makemkv
+        nitch
         (
           builtins.trace ''
 
