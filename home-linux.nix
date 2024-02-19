@@ -415,6 +415,9 @@ in
             .titlebar-buttonbox-container {
               display: none !important;
             }
+            statuspanel[type="overLink"] .statuspanel-label {
+              display: none !important;
+            }
           '';
 
           userContent = ''
