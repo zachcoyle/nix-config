@@ -157,7 +157,9 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
-      settings = {};
+      # NOTE: the starship.toml was generated with `starship preset nerd-font-symbols -o ./starship.toml`
+      # that ought to be a derivation so that it auto updates
+      settings = {} // (builtins.fromTOML (builtins.readFile ./dots/starship.toml));
     };
 
     tmux = {
