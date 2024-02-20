@@ -24,7 +24,6 @@
     # dap
     ++ [
       rustc
-      pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
       cargo
       lldb
       (php.withExtensions ({
@@ -51,7 +50,10 @@
       swift-format
       # yamlfix
       yamlfmt
-    ];
+    ]
+    ++ (lib.optionals pkgs.stdenv.isLinux [
+      pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
+    ]);
 
   extraPlugins = with (pkgs.vimPlugins // pkgs.vimExtraPlugins); [
     neorepl-nvim
