@@ -22,6 +22,7 @@
       alejandra
       asciinema
       cachix
+      cool-retro-term
       comma
       coreutils-full
       dasel
