@@ -40,9 +40,9 @@ in {
     bind = SUPER, O, exec, swww clear
     bind = SUPER, SPACE, exec, rofi -show combi -show-icons
 
-    workspace = special:scratchpad, on-created-empty:alacritty
-    bind = SUPER_SHIFT, S, movetoworkspace, special:scratchpad
-    bind = SUPER, S, togglespecialworkspace, special:scratchpad
+    workspace = special:scratchpad, on-created-empty:alacritty&
+    bind = SUPER_SHIFT, S, movetoworkspace, scratchpad
+    bind = SUPER, S, togglespecialworkspace, scratchpad
 
     bind = SUPER, 1, workspace, 1
     bind = SUPER, 2, workspace, 2
@@ -115,8 +115,8 @@ in {
     bind = SUPER, M, exec, hyprctl keyword general:layout "master"
 
 
-    monitor=DP-1, preferred, auto, 1
-    monitor=DP-6, preferred, auto, 1
+    monitor = DP-1, preferred, auto, 1
+    monitor = DP-6, preferred, auto, 1
   '';
   settings = {
     general = {
