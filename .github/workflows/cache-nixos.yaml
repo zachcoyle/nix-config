@@ -6,30 +6,16 @@ jobs:
   cachix:
     runs-on: ubuntu-latest
     steps:
-      - run: "df -h"
-      # - run: "(sudo apt remove -y '^dotnet-.*'; exit 0);"
-      - run: "(sudo apt remove -y '^llvm-.*'; exit 0);"
-      - run: "(sudo apt remove -y '^mongodb-.*'; exit 0);"
-      - run: "(sudo apt remove -y '^mysql-.*'; exit 0);"
-      - run: "(sudo apt remove -y azure-cli google-chrome-stable firefox powershell mono-devel libgl1-mesa-dri; exit 0);"
-      - run: "(sudo apt autoremove -y; exit 0);"
-      - run: "(sudo apt clean; exit 0);"
-      - run: "df -h"
-      - run: "(echo \"Removing large directories\"; exit 0);"
-      - run: "(sudo rm -rf /usr/share/dotnet/; exit 0);"
-      - run: "(sudo rm -rf /usr/local/graalvm/; exit 0);"
-      - run: "(sudo rm -rf /usr/local/.ghcup/; exit 0);"
-      - run: "(sudo rm -rf /usr/local/share/powershell; exit 0);"
-      - run: "(sudo rm -rf /usr/local/share/chromium; exit 0);"
-      - run: "(sudo rm -rf /usr/local/lib/android; exit 0);"
-      - run: "(sudo rm -rf /usr/local/lib/node_modules; exit 0);"
-      - run: "(sudo rm -rf /usr/local/share/boost; exit 0);"
-      - run: "(sudo rm -rf \"$AGENT_TOOLSDIRECTORY\"; exit 0);"
-      - run: "df -h"
-      - uses: actions/checkout@v4.1.1
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: cachix/cachix-action@v14
         with:
           name: zachcoyle
