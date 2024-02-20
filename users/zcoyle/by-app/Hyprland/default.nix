@@ -120,8 +120,6 @@ in {
     bind = SUPER, D, exec, hyprctl keyword general:layout "dwindle"
     bind = SUPER, M, exec, hyprctl keyword general:layout "master"
 
-    #### Plugin bindings ####
-
     bind = ALT, tab, hycov:toggleoverview
     bind = ALT, left, hycov:movefocus, l
     bind = ALT, right, hycov:movefocus, r
@@ -135,12 +133,7 @@ in {
     general = {
       layout = "dwindle";
     };
-    plugin = {
-      hycov = {
-        # TODO: bottom left corner is a hot corner until hyprland supports more gesture config
-        # enable_hotarea = 1;
-      };
-    };
+    plugin = {};
     decoration = {
       # "col.shadow" = "rgba(00000099)";
       active_opacity = 1.0;
