@@ -242,7 +242,7 @@
             ./hosts/darwin/overlays.nix
             ./hosts/common-overlays.nix
             ./common-system.nix
-            ./darwin.nix
+            ./hosts/darwin/common-configuration.nix
             inputs.darwin-modules.darwinModule
             inputs.home-manager.darwinModules.home-manager
             inputs.stylix.darwinModules.stylix
