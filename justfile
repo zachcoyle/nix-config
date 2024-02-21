@@ -57,14 +57,14 @@ check:
 alias c := check
 
 dock:
-  sh ./dock.sh
+    sh ./users/zcoyle/dots/dock.sh
 
 cachix:
-  nix build .#{{ configurationTypeForOS }}.{{ host }}.system --json \
-    | jq -r '.[].outputs | to_entries[].value' \
-    | cachix push zachcoyle
+    nix build .#{{ configurationTypeForOS }}.{{ host }}.system --json \
+      | jq -r '.[].outputs | to_entries[].value' \
+      | cachix push zachcoyle
 
 eww:
-  pkill -9 eww ; \
-  eww daemon -c ./users/zcoyle/by-app/eww && \
-  eww open topbar
+    pkill -9 eww ; \
+    eww daemon -c ./users/zcoyle/by-app/eww && \
+    eww open topbar

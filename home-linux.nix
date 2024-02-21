@@ -128,7 +128,7 @@ in
       ];
 
       file = {
-        ".config/libinput-gestures.conf".source = ./dots/libinput-gestures.conf;
+        ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
         ".config/yofi/blacklist".text = ''
         '';
         ".config/yofi/yofi.config".source = tomlFormat.generate "yofi.config" {

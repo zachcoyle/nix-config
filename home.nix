@@ -138,7 +138,7 @@
 
     gitui = {
       enable = true;
-      keyConfig = builtins.readFile ./dots/gitui_key_config.ron;
+      keyConfig = builtins.readFile ./users/zcoyle/dots/gitui_key_config.ron;
     };
 
     lsd = {
@@ -160,7 +160,7 @@
       enableZshIntegration = true;
       # NOTE: the starship.toml was generated with `starship preset nerd-font-symbols -o ./starship.toml`
       # that ought to be a derivation so that it auto updates
-      settings = {} // (builtins.fromTOML (builtins.readFile ./dots/starship.toml));
+      settings = {} // (builtins.fromTOML (builtins.readFile ./users/zcoyle/dots/starship.toml));
     };
 
     tmux = {
