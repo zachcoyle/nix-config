@@ -210,14 +210,14 @@
                 {lib, ...}: {
                   nixpkgs = {
                     config = {
-                      # enable when ollama updates
+                      # TODO: enable when ollama updates
                       rocmSupport = false;
                       allowUnfreePredicate = pkg:
                         builtins.elem (lib.getName pkg) [
-                          "dwarf-fortress" # proprietary
-                          "steam" # proprietary
-                          "steam-original" # proprietary
-                          "steam-run" # proprietary
+                          "dwarf-fortress"
+                          "steam"
+                          "steam-original"
+                          "steam-run"
                         ];
                     };
                   };

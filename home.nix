@@ -46,6 +46,7 @@
       lsix
       manix
       mdcat
+      moar
       moreutils
       neovide
       nix-melt
