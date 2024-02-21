@@ -383,7 +383,7 @@
         action = "live_grep";
         desc = "Telescope Live Grep";
       };
-      "<c-_>" = {
+      "<c-/>" = {
         action = "live_grep";
         desc = "Telescope Live Grep";
       };
