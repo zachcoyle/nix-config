@@ -2,22 +2,34 @@
   {
     key = "<c-h>";
     action = "<c-w>h>";
-    options.desc = "West";
+    options = {
+      silent = true;
+      desc = "West";
+    };
   }
   {
     key = "<c-j>";
     action = "<c-w>j";
-    options.desc = "South";
+    options = {
+      silent = true;
+      desc = "South";
+    };
   }
   {
     key = "<c-k>";
     action = "<c-w>k";
-    options.desc = "North";
+    options = {
+      silent = true;
+      desc = "North";
+    };
   }
   {
     key = "<c-l>";
     action = "<c-w>l";
-    options.desc = "East";
+    options = {
+      silent = true;
+      desc = "East";
+    };
   }
   {
     key = "<leader>ch";

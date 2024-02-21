@@ -113,6 +113,23 @@
     })
   '';
 
+  extraConfigLuaPost =
+    if pkgs.system == "x86_64-linux"
+    then ''
+      vim.notify = function(msg, level, opts)
+        local log_level = {
+          [vim.log.levels.DEBUG] = 'low',
+          [vim.log.levels.ERROR] = 'critical',
+          [vim.log.levels.INFO] = 'normal',
+          [vim.log.levels.TRACE] = 'normal',
+          [vim.log.levels.WARN] = 'normal',
+        }
+        vim.system({'notify-send', msg, '-u', log_level[level], '-i', '${../../../../theme/neovim-mark.svg}'})
+      end
+    ''
+    else ''
+    '';
+
   options = {
     mouse = "a";
     mousemoveevent = true;

@@ -151,9 +151,8 @@
     theme = "gruvbox";
   };
   harpoon = {
-    enable = false;
+    enable = true;
     enableTelescope = true;
-    # this can do a lot more, basically using it as glorified marks rn
     keymaps = {
       addFile = "<leader>hh";
       navFile = {
@@ -261,11 +260,9 @@
     autoRefresh = true;
     integrations.diffview = true;
   };
-  noice.enable = true;
-  notify = {
-    # FIXME: turned this off because it's broken on nvim nightly
-    enable = false;
-    backgroundColour = config.lib.stylix.colors.withHashtag.base01;
+  noice = {
+    enable = true;
+    notify.enabled = false;
   };
   nix.enable = true;
   nvim-colorizer = {
