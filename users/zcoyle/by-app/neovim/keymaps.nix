@@ -40,15 +40,6 @@
     };
   }
   {
-    key = "<leader>rca";
-    action = "function() vim.cmd.RustLsp('codeAction') end";
-    options = {
-      silent = true;
-      desc = "RustLSP Code Actions";
-    };
-    lua = true;
-  }
-  {
     key = "<leader>ca";
     action = "vim.lsp.buf.code_action";
     options = {
@@ -206,15 +197,6 @@
       desc = "Jump to Previous TODO";
     };
     mode = "n";
-    lua = true;
-  }
-  {
-    key = "<leader>rk";
-    action = "function() vim.cmd.RustLsp { 'hover', 'actions' } end";
-    options = {
-      silent = false;
-      desc = "RustLSP Hover";
-    };
     lua = true;
   }
   {

@@ -13,27 +13,20 @@
   editorconfig.enable = true;
 
   extraPackages = with pkgs;
-  # utility
     [
+      # utility
       fd
       lazygit
       ripgrep
       tabnine
-      rust-analyzer
-    ]
-    # dap
-    ++ [
-      rustc
-      cargo
+      # dap
       lldb
       (php.withExtensions ({
         enabled,
         all,
       }:
         enabled ++ [all.xdebug]))
-    ]
-    # formatters
-    ++ [
+      # formatters
       alejandra
       biome
       beautysh
@@ -48,9 +41,10 @@
       rustfmt
       stylua
       swift-format
-      # yamlfix
+      yamlfix
       yamlfmt
     ]
+    # FIXME: this should also work on darwin
     ++ (lib.optionals pkgs.stdenv.isLinux [
       pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
     ]);
@@ -127,6 +121,7 @@
         vim.system({'notify-send', msg, '-u', log_level[level], '-i', '${../../../../theme/neovim-mark.svg}'})
       end
     ''
+    # TODO: darwin
     else ''
     '';
 

@@ -217,7 +217,7 @@
       gopls.enable = true;
       html.enable = true;
       # intelephense.enable = true;
-      # jsonls.enable = true;
+      jsonls.enable = true;
       kotlin-language-server.enable = true;
       lua-ls.enable = true;
       nil_ls.enable = true;
@@ -356,18 +356,6 @@
   project-nvim.enable = true;
   rainbow-delimiters.enable = true;
   refactoring.enable = true;
-  rustaceanvim = {
-    # TODO: dap still not working right
-    enable = true;
-    extraOptions = {
-      rust-analyzer = {
-        files = {
-          excludeDirs = [".direnv"];
-          watcherExclude = [".direnv"];
-        };
-      };
-    };
-  };
   surround.enable = true;
   telescope = {
     enable = true;
