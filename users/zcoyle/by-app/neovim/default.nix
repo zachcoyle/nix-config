@@ -41,7 +41,7 @@
       rustfmt
       stylua
       swift-format
-      yamlfix
+      # yamlfix
       yamlfmt
     ]
     # FIXME: this should also work on darwin
