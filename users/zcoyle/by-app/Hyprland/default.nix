@@ -64,19 +64,19 @@ in {
     bind = SUPER_SHIFT, 4, exec, grim -g "$(slurp)"
     bind = SUPER_SHIFT, 3, exec, grim
 
-    bind = , XF86AudioRaiseVolume, exec, volumectl -u up
-    bind = , XF86AudioLowerVolume, exec, volumectl -u down
-    bind = , XF86AudioMute, exec, volumectl toggle-mute
+    bindl = , XF86AudioRaiseVolume, exec, volumectl -u up
+    bindl = , XF86AudioLowerVolume, exec, volumectl -u down
+    bindl = , XF86AudioMute, exec, volumectl toggle-mute
 
-    bind = , XF86MonBrightnessUp, exec, lightctl up
-    bind = , XF86MonBrightnessDown, exec, lightctl down
+    bindl = , XF86MonBrightnessUp, exec, lightctl up
+    bindl = , XF86MonBrightnessDown, exec, lightctl down
 
-    bind = , XF86AudioPrev, exec, playerctl previous
-    bind = , XF86AudioPlay, exec, playerctl play-pause
-    bind = , XF86AudioNext, exec, playerctl next
+    bindl = , XF86AudioPrev, exec, playerctl previous
+    bindl = , XF86AudioPlay, exec, playerctl play-pause
+    bindl = , XF86AudioNext, exec, playerctl next
 
-    bind = , XF86KbdBrightnessUp, exec, brightnessctl -d ":white:kbd_backlight" s 10%+
-    bind = , XF86KbdBrightnessDown, exec, brightnessctl -d ":white:kbd_backlight" s 10%-
+    bindl = , XF86KbdBrightnessUp, exec, brightnessctl -d ":white:kbd_backlight" s 10%+
+    bindl = , XF86KbdBrightnessDown, exec, brightnessctl -d ":white:kbd_backlight" s 10%-
 
     bind = SUPER, H, movefocus, l
     bind = SUPER, J, movefocus, d
