@@ -82,6 +82,7 @@ in
         # darling-dmg
         foliate
         freecad
+        gitkraken
         gnome-tecla
         gnome.gnome-calculator
         gnome.gnome-system-monitor
