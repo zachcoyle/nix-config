@@ -100,16 +100,7 @@ in
         libreoffice
         makemkv
         nitch
-        (
-          builtins.trace ''
-
-            OLLAMA VERSION ${ollama.version}
-            https://github.com/NixOS/nixpkgs/issues/280030
-            turn on rocm when ${ollama.version} == 0.1.23
-
-          ''
-          ollama
-        )
+        ollama
         pavucontrol
         playerctl
         retroarchFull
