@@ -123,26 +123,6 @@
       };
     };
 
-    #neorocks = {
-    #  url = "github:nvim-neorocks/neorocks";
-    #  inputs = {
-    #    nixpkgs.follows = "nixpkgs";
-    #    flake-compat.follows = "flake-compat";
-    #    flake-utils.follows = "flake-utils";
-    #    pre-commit-hooks.follows = "pre-commit-hooks";
-    #  };
-    #};
-
-    rustaceanvim = {
-      url = "github:mrcjkb/rustaceanvim";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-        pre-commit-hooks.follows = "pre-commit-hooks";
-        #neorocks.follows = "neorocks";
-      };
-    };
-
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs = {
