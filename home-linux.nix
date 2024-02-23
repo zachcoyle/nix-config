@@ -70,6 +70,7 @@ in
     home = {
       packages = with pkgs; [
         android-studio
+        appimage-run
         blender
         bottles
         brightnessctl
