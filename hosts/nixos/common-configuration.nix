@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-  #services.xserver.videoDrivers = ["amdgpu-pro"];
   hardware = {
     enableAllFirmware = true;
     bluetooth = {
@@ -32,8 +31,8 @@
         rocmPackages.rocsparse
         vaapiVdpau
       ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
+      extraPackages32 = with pkgs.driversi686Linux; [
+        amdvlk
       ];
     };
   };
@@ -117,11 +116,12 @@
     blueman.enable = true;
 
     xserver = {
+      #videoDrivers = ["amdgpu-pro"];
       enable = true;
       displayManager = {
         sddm = {
           enable = true;
-          enableHidpi = true;
+          enableHidpi = config.networking.hostName == "nixos-laptop";
           sugarCandyNix = {
             enable = true;
             settings = {
@@ -143,7 +143,6 @@
       };
 
       libinput = {
-        # touchpad support
         enable = true;
         touchpad = {
           disableWhileTyping = true;
