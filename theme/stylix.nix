@@ -8,6 +8,8 @@
   # base16Scheme = "${pkgs.base16-schemes}/share/themes/greenscreen.yaml";
   # base16Scheme = "${pkgs.base16-schemes}/share/themes/tarot.yaml";
   # base16Scheme = "${pkgs.base16-schemes}/share/themes/woodland.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/sandcastle.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/selenized-dark.yaml";
   fonts = {
     serif = {
       package = pkgs.fira;
