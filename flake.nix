@@ -158,10 +158,7 @@
     nur.url = "github:nix-community/nur";
 
     # just for dep management
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
-
+    flake-utils.url = "github:numtide/flake-utils";
     flake-compat.url = "github:edolstra/flake-compat";
   };
 
