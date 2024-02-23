@@ -13,7 +13,10 @@
     };
     monospace = {
       package = pkgs.fira-code-nerdfont;
-      name = "Fira Code Nerd Font";
+      name =
+        if pkgs.stdenv.isDarwin
+        then "FiraCode Nerd Font"
+        else "Fira Code Nerd Font";
     };
     emoji = {
       package = pkgs.noto-fonts-emoji;
@@ -23,7 +26,10 @@
       applications = 12;
       desktop = 10;
       popups = 14;
-      terminal = 10;
+      terminal =
+        if pkgs.stdenv.isDarwin
+        then 13
+        else 10;
     };
   };
   targets = {
