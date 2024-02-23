@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   image = ./wallpapers/platform.jpg;
   polarity = "dark";
-  base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-estuary.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/marrakesh.yaml";
   fonts = {
     serif = {
       package = pkgs.fira;

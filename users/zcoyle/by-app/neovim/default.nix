@@ -158,11 +158,11 @@
 
   keymaps = import ./keymaps.nix;
 
-  colorschemes = {
-    gruvbox = {
-      enable = true;
-    };
-  };
+  # colorschemes = {
+  #   gruvbox = {
+  #     enable = true;
+  #   };
+  # };
 
   plugins = import ./plugins.nix {inherit pkgs config;};
 }

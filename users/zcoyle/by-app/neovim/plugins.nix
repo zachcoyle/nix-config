@@ -148,7 +148,7 @@
   leap.enable = true;
   lualine = {
     enable = true;
-    theme = "gruvbox";
+    # theme = "gruvbox";
   };
   harpoon = {
     enable = true;

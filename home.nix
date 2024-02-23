@@ -10,9 +10,9 @@
     ./home-linux.nix
   ];
 
-  stylix = {
-    targets.nixvim.enable = false;
-  };
+  # stylix = {
+  #   targets.nixvim.enable = false;
+  # };
 
   home = {
     username = "zcoyle";
