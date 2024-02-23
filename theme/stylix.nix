@@ -4,6 +4,10 @@
   # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-estuary.yaml";
   # base16Scheme = "${pkgs.base16-schemes}/share/themes/marrakesh.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/paraiso.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/greenscreen.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/tarot.yaml";
+  # base16Scheme = "${pkgs.base16-schemes}/share/themes/woodland.yaml";
   fonts = {
     serif = {
       package = pkgs.fira;
