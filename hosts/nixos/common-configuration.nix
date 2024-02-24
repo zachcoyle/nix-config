@@ -6,6 +6,7 @@
 }: {
   hardware = {
     enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
