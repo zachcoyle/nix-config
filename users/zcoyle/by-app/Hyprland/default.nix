@@ -20,6 +20,7 @@ in {
     # exec-once = eww daemon
     # exec-once = eww open topbar
     exec-once = libinput-gestures
+    exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
 
     # INFO: https://github.com/NixOS/nixpkgs/issues/189851
     exec-once = systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service

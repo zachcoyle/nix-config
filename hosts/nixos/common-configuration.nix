@@ -92,6 +92,8 @@
   };
 
   programs = {
+    geary.enable = true;
+
     hyprland = {
       enable = true;
       xwayland.enable = true;
