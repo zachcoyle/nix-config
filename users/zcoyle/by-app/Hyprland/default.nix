@@ -134,7 +134,14 @@ in {
     general = {
       layout = "dwindle";
     };
-    plugin = {};
+    plugin = {
+      hycov = {
+        # TODO: maybe turn this on while using a mouse
+        enable_hotarea = 0;
+        enable_gesture = 1;
+        swipe_fingers = 3;
+      };
+    };
     decoration = {
       # "col.shadow" = "rgba(00000099)";
       active_opacity = 1.0;
