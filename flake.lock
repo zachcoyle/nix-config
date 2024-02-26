@@ -1030,7 +1030,6 @@
     "root": {
       "inputs": {
         "apple-firmware": "apple-firmware",
-        "base16": "base16",
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
         "flake-compat": "flake-compat",
@@ -1143,9 +1142,7 @@
     },
     "stylix": {
       "inputs": {
-        "base16": [
-          "base16"
-        ],
+        "base16": "base16",
         "base16-alacritty": "base16-alacritty",
         "base16-alacritty-yaml": "base16-alacritty-yaml",
         "base16-fish": "base16-fish",
