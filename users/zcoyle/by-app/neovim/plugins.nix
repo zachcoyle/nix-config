@@ -51,6 +51,7 @@
       yaml = ["yamlfix" "yamlfmt"];
     };
   };
+  conjure.enable = true;
   crates-nvim.enable = true;
   cursorline.enable = true;
   dap = {
@@ -199,7 +200,6 @@
         "<leader>k" = "goto_prev";
       };
       lspBuf = {
-        # K = "hover"; # TODO on a rainy day, research mouse hover
         gd = "definition";
         gi = "implementation";
         gt = "type_definition";
