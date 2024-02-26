@@ -10,20 +10,7 @@ in {
     hycov.packages.${pkgs.system}.hycov
   ];
   extraConfig = ''
-    # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
 
-    exec-once = copyq --start-server
-    exec-once = swww init
-    exec-once = swww img ${wallpaperDir}`ls ${wallpaperDir} | shuf -n 1`}
-    exec-once = waybar
-    # TODO:
-    # exec-once = eww daemon
-    # exec-once = eww open topbar
-    exec-once = libinput-gestures
-    exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
-
-    # INFO: https://github.com/NixOS/nixpkgs/issues/189851
-    exec-once = systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
 
     layerrule = blur, waybar
     layerrule = blur, rofi
@@ -37,33 +24,6 @@ in {
 
     windowrule = opacity 1.0 override 1.0 override, title:^Picture-in-Picture$
 
-    bind = SUPER, F, exec, firefox
-    bind = SUPER, A, exec, alacritty
-    bind = SUPER, Q, killactive
-    bind = SUPER, Y, fullscreen, 0
-    bind = SUPER, U, fakefullscreen, 0
-    bind = SUPER, T, togglefloating
-    bind = SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470 # 3072,1920
-    bind = SUPER, O, exec, swww clear
-    bind = SUPER, SPACE, exec, rofi -show combi -show-icons
-
-    workspace = special:scratchpad, on-created-empty:alacritty&
-    bind = SUPER_SHIFT, S, movetoworkspace, scratchpad
-    bind = SUPER, S, togglespecialworkspace, scratchpad
-
-    bind = SUPER, 1, workspace, 1
-    bind = SUPER, 2, workspace, 2
-    bind = SUPER, 3, workspace, 3
-    bind = SUPER, 4, workspace, 4
-    bind = SUPER, 5, workspace, 5
-    bind = SUPER, 6, workspace, 6
-    bind = SUPER, 7, workspace, 7
-    bind = SUPER, 8, workspace, 8
-    bind = SUPER, 9, workspace, 9
-    bind = SUPER, 0, workspace, 10
-
-    bind = SUPER_SHIFT, 4, exec, grim -g "$(slurp)"
-    bind = SUPER_SHIFT, 3, exec, grim
 
     bindl = , XF86AudioRaiseVolume, exec, volumectl -u up
     bindl = , XF86AudioLowerVolume, exec, volumectl -u down
@@ -129,6 +89,8 @@ in {
 
     monitor = DP-1, preferred, auto, 1
     monitor = DP-6, preferred, auto, 1
+
+    env = NIXOS_OZONE_WL, 1
   '';
   settings = {
     general = {
@@ -172,7 +134,37 @@ in {
         tap-and-drag = true;
       };
     };
+
+    # INFO:
+    # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
+
     "$mod" = "SUPER";
+
+    bind = [
+      "SUPER, F, exec, firefox"
+      "SUPER, A, exec, alacritty"
+      "SUPER, Q, killactive"
+      "SUPER, Y, fullscreen, 0"
+      "SUPER, U, fakefullscreen, 0"
+      "SUPER, T, togglefloating"
+      "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470" # 3072,1920
+      "SUPER, O, exec, swww clear"
+      "SUPER, SPACE, exec, rofi -show combi -show-icons"
+      "SUPER, S, togglespecialworkspace, scratchpad"
+      "SUPER, 1, workspace, 1"
+      "SUPER, 2, workspace, 2"
+      "SUPER, 3, workspace, 3"
+      "SUPER, 4, workspace, 4"
+      "SUPER, 5, workspace, 5"
+      "SUPER, 6, workspace, 6"
+      "SUPER, 7, workspace, 7"
+      "SUPER, 8, workspace, 8"
+      "SUPER, 9, workspace, 9"
+      "SUPER, 0, workspace, 10"
+      "SUPER_SHIFT, 4, exec, grim -g \"$(slurp)\""
+      "SUPER_SHIFT, 3, exec, grim"
+    ];
+
     bindm = [
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"
@@ -180,6 +172,22 @@ in {
     ];
     bindl = [
       ", switch:Lid Switch, exec, swaylock"
+    ];
+    workspace = [
+      "special:scratchpad, on-created-empty:alacritty"
+    ];
+    exec-once = [
+      "copyq --start-server"
+      "swww init"
+      "swww img ${wallpaperDir}`ls ${wallpaperDir} | shuf -n 1`}"
+      "waybar"
+      # TODO:
+      # "eww daemon"
+      # "eww open topbar"
+      "libinput-gestures"
+      "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
+      # INFO: https://github.com/NixOS/nixpkgs/issues/189851
+      "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
     ];
   };
   xwayland.enable = true;
