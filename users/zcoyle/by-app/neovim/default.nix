@@ -35,6 +35,7 @@
       gofumpt
       just
       ktlint
+      mdformat
       nodePackages.fixjson
       nodePackages.sql-formatter
       ruff

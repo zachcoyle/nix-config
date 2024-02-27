@@ -39,6 +39,7 @@
       just = ["just"];
       kotlin = ["ktlint"];
       lua = ["stylua"];
+      md = ["mdformat"];
       nix = ["alejandra"];
       python = ["ruff_fix" "ruff_format"];
       rust = ["rustfmt"];
@@ -207,21 +208,22 @@
       };
     };
     servers = {
+      # ccls.enable = true;
+      # intelephense.enable = true;
+      # nixd.enable = true;
       bashls.enable = true;
       biome.enable = true;
-      # ccls.enable = true;
       clangd.enable = true;
       csharp-ls.enable = pkgs.stdenv.isLinux;
       cssls.enable = true;
       eslint.enable = true;
       gopls.enable = true;
       html.enable = true;
-      # intelephense.enable = true;
       jsonls.enable = true;
       kotlin-language-server.enable = true;
       lua-ls.enable = true;
+      marksman.enable = true;
       nil_ls.enable = true;
-      # nixd.enable = true;
       phpactor.enable = true;
       pyright.enable = true;
       ruff-lsp.enable = true;
