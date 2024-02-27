@@ -3,7 +3,7 @@
 
   inputs = {
     # system
-    nixpkgs.url = "github:NixOS/nixpkgs/48b75eb6e521f2303cb3cd53a94ec80021b422aa";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -18,7 +18,9 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      # https://github.com/nix-community/nixvim/pull/1163
+      # url = "github:nix-community/nixvim";
+      url = "github:traxys/nixvim/codesniffer";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         pre-commit-hooks.follows = "pre-commit-hooks";
