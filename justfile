@@ -59,7 +59,12 @@ alias c := check
 dock:
     sh ./users/zcoyle/dots/dock.sh
 
-cachix:
+cachix-nixos:
+    nix build -L .#nixosConfigurations.nixos-laptop.config.system.build.toplevel --json \
+      | jq -r '.[].outputs | to_entries[].value' \
+      | cachix push zachcoyle
+
+cachix-darwin:
     nix build .#{{ configurationTypeForOS }}.{{ host }}.system --json \
       | jq -r '.[].outputs | to_entries[].value' \
       | cachix push zachcoyle
