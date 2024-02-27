@@ -2,7 +2,7 @@
   description = "nixos + darwin system flake";
 
   inputs = {
-    # system
+    # https://nixpk.gs/pr-tracker.html?pr=285828
     nixpkgs.url = "github:NixOS/nixpkgs/48b75eb6e521f2303cb3cd53a94ec80021b422aa";
 
     nix-darwin = {
@@ -73,7 +73,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
-    # flake modules
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -94,7 +93,6 @@
       };
     };
 
-    # overlays
     sg-nvim = {
       url = "github:sourcegraph/sg.nvim";
       inputs = {
@@ -154,7 +152,6 @@
 
     nur.url = "github:nix-community/nur";
 
-    # just for dep management
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat.url = "github:edolstra/flake-compat";
   };
@@ -184,7 +181,6 @@
                 {lib, ...}: {
                   nixpkgs = {
                     config = {
-                      # TODO: enable when ollama updates
                       rocmSupport = true;
                       allowUnfreePredicate = pkg:
                         builtins.elem (lib.getName pkg) [
@@ -278,7 +274,6 @@
         pre-commit = {
           settings = {
             hooks = {
-              # codespell.enable = true;
               alejandra.enable = true;
               deadnix.enable = true;
               nil.enable = true;
