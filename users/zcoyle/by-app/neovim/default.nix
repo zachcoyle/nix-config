@@ -108,6 +108,18 @@
     })
   '';
 
+  extraConfigLuaPre = ''
+    local Terminal  = require('toggleterm.terminal').Terminal
+
+    local _gitui = Terminal:new({ cmd = "gitui", direction = "float", hidden = true })
+
+    function _gitui_toggle()
+      _gitui:toggle()
+    end
+
+    -- vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _gitui_toggle()<CR>", {noremap = true, silent = true})
+  '';
+
   extraConfigLuaPost =
     if pkgs.system == "x86_64-linux"
     then ''

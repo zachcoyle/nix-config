@@ -311,4 +311,14 @@
     };
     mode = ["n" "v"];
   }
+  {
+    key = "<c-g>";
+    action = "_gitui_toggle";
+    options = {
+      silent = true;
+      desc = "Open GitUI";
+    };
+    lua = true;
+    mode = ["n" "t"];
+  }
 ]
