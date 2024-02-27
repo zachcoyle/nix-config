@@ -239,7 +239,6 @@ in
 
       eww = {
         enable = true;
-        package = pkgs.eww-wayland;
         configDir = ./users/zcoyle/by-app/eww;
       };
 
@@ -393,6 +392,8 @@ in
 
           settings = {
             "general.smoothScroll" = true;
+            # disable alt key bringing up window menu
+            "ui.key.menuAccessKeyFocuses" = false;
           };
 
           extraConfig = ''

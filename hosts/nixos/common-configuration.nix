@@ -39,8 +39,15 @@
   };
 
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      systemd-boot = {
+        enable = true;
+        consoleMode = "auto";
+        configurationLimit = 120;
+        netbootxyz.enable = true;
+      };
+      efi.canTouchEfiVariables = true;
+    };
     plymouth.enable = true;
     kernelModules = ["wl"];
     extraModulePackages = [config.boot.kernelPackages.broadcom_sta];

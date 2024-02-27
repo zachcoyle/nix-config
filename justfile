@@ -64,6 +64,9 @@ cachix:
       | jq -r '.[].outputs | to_entries[].value' \
       | cachix push zachcoyle
 
+why INPUT:
+    nix why-depends .#nixosConfigurations.{{ host }}.config.system.build.toplevel .#nixosConfigurations.{{ host }}.pkgs.{{ INPUT }} --derivation
+
 eww:
     pkill -9 eww ; \
     eww daemon -c ./users/zcoyle/by-app/eww && \
