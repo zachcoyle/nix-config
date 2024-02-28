@@ -382,6 +382,12 @@ in
                 updateInterval = 24 * 60 * 60 * 1000;
                 definedAliases = ["@nw"];
               };
+              "Ollama" = {
+                urls = [{template = "https://ollama.com/search?q={searchTerms}";}];
+                iconUpdateURL = "https://ollama.com/public/icon-32x32.png";
+                updateInterval = 24 * 60 * 60 * 1000;
+                definedAliases = ["@ll"];
+              };
               "Wikipedia (en)".metaData.alias = "@wiki";
               "Google".metaData.hidden = true;
               "Amazon.com".metaData.hidden = true;
