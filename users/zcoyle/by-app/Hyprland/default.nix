@@ -179,7 +179,7 @@ in {
     exec-once = [
       "copyq --start-server"
       "swww init"
-      "swww img ${wallpaperDir}`ls ${wallpaperDir} | shuf -n 1`}"
+      "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
       "waybar"
       # TODO:
       # "eww daemon"
