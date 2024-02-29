@@ -138,31 +138,40 @@
     else ''
     '';
 
-  options = {
-    mouse = "a";
-    mousemoveevent = true;
-    number = true;
-    relativenumber = true;
-    wrap = false;
-    clipboard = "unnamedplus";
-    undofile = true;
-    undodir = ["${config.xdg.configHome}nvim/.undo//"];
-    exrc = true; # (.exrc, .nvimrc, .nvim.lua)
-    foldcolumn = "1";
-    foldlevel = 99;
-    foldlevelstart = 99;
-    foldenable = true;
-    signcolumn = "yes:2";
-    scrolloff = 4;
-    fillchars = {
-      eob = " ";
-      fold = " ";
-      foldopen = "";
-      foldsep = " ";
-      foldclose = "";
-    };
-    guifont = "FiraCode Nerd Font:h10";
-  };
+  options =
+    {
+      mouse = "a";
+      mousemoveevent = true;
+      number = true;
+      relativenumber = true;
+      wrap = false;
+      clipboard = "unnamedplus";
+      undofile = true;
+      undodir = ["${config.xdg.configHome}nvim/.undo//"];
+      exrc = true; # (.exrc, .nvimrc, .nvim.lua)
+      foldcolumn = "1";
+      foldlevel = 99;
+      foldlevelstart = 99;
+      foldenable = true;
+      signcolumn = "yes:2";
+      scrolloff = 4;
+      fillchars = {
+        eob = " ";
+        fold = " ";
+        foldopen = "";
+        foldsep = " ";
+        foldclose = "";
+      };
+    }
+    // (
+      if pkgs.stdenv.isDarwin
+      then {
+        guifont = "FiraCode Nerd Font:h13";
+      }
+      else {
+        guifont = "FiraCode Nerd Font:h10";
+      }
+    );
 
   globals = {
     mapleader = " ";
