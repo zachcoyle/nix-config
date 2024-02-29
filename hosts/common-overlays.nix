@@ -3,7 +3,6 @@
     inputs.telescope-just.overlays.default
     inputs.nix-vscode-extensions.overlays.default
     inputs.nur.overlay
-    inputs.nixneovimplugins.overlays.default
     inputs.neovim.overlay
     (_: prev: {
       sg-nvim = inputs.sg-nvim.legacyPackages.${prev.system}.sg-nvimsg-nvim;

@@ -28,14 +28,6 @@
       };
     };
 
-    nixneovimplugins = {
-      url = "github:NixNeovim/NixNeovimPlugins";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
     systems-linux.url = "github:nix-systems/default-linux";
     systems-darwin.url = "github:nix-systems/default-darwin";
 
