@@ -39,7 +39,6 @@
             action = "CreateNewTab";
           }
         ];
-      # import = ["${pkgs.alacritty-theme}/gruvbox_dark.toml"];
     }
     (
       if pkgs.stdenv.isDarwin
