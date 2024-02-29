@@ -133,19 +133,19 @@
 
       cpu = {
         format = "󰻠 {usage}% ";
-        on-click = "alacritty -e btm& disown";
+        on-click = "alacritty -e btop& disown";
       };
 
       disk = {
         interval = 30;
         format = "󰋊 {percentage_used}% ";
         path = "/";
-        on-click = "alacritty -e btm& disown";
+        on-click = "alacritty -e btop& disown";
       };
 
       memory = {
         format = "󰍛 {}% ";
-        on-click = "alacritty -e btm& disown";
+        on-click = "alacritty -e btop& disown";
       };
 
       network = {
