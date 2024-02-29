@@ -233,7 +233,7 @@ in {
       enableScriptingAddition = true;
       ##############
       config = {
-        focus_follows_mouse = "on";
+        focus_follows_mouse = "autoraise";
         mouse_follows_focus = "on";
         window_placement = "second_child";
         window_opacity = "on";
