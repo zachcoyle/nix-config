@@ -23,6 +23,7 @@ in {
     windowrule = fullscreen, wlogout
 
     windowrule = opacity 1.0 override 1.0 override, title:^Picture-in-Picture$
+    windowrule = nodim, title:^Picture-in-Picture$
 
 
     bindl = , XF86AudioRaiseVolume, exec, volumectl -u up
