@@ -233,18 +233,20 @@ in {
       enableScriptingAddition = true;
       ##############
       config = {
-        focus_follows_mouse = "autoraise";
-        mouse_follows_focus = "on";
-        window_placement = "second_child";
-        window_opacity = "on";
         active_window_opacity = 1.0;
-        normal_window_opacity = 0.8;
-        top_padding = 10;
         bottom_padding = 10;
-        left_padding = 10;
-        right_padding = 10;
-        window_gap = 10;
+        focus_follows_mouse = "autoraise";
         layout = "bsp";
+        left_padding = 10;
+        mouse_follows_focus = "on";
+        normal_window_opacity = 0.8;
+        right_padding = 10;
+        top_padding = 10;
+        window_animation_duration = 0.1;
+        window_animation_easing = "ease_out_circ";
+        window_gap = 10;
+        window_opacity = "on";
+        window_placement = "second_child";
       };
       extraConfig = ''
       '';
