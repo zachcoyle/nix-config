@@ -145,6 +145,14 @@
 
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat.url = "github:edolstra/flake-compat";
+
+    zls = {
+      url = "github:zigtools/zls";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs = inputs @ {self, ...}:

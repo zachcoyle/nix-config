@@ -7,6 +7,7 @@
     (_: prev: {
       sg-nvim = inputs.sg-nvim.legacyPackages.${prev.system}.sg-nvimsg-nvim;
       yofi = inputs.yofi.packages.${prev.system}.default;
+      inherit (inputs.zls.packages.${prev.system}) zls;
     })
   ];
 }
