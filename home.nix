@@ -48,6 +48,7 @@
       mdcat
       moar
       moreutils
+      neofetch
       neovide
       nix-melt
       nix-top
