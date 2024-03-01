@@ -142,8 +142,8 @@ in {
     "$mod" = "SUPER";
 
     bind = [
-      "SUPER, F, exec, firefox"
-      "SUPER, A, exec, alacritty"
+      "SUPER, B, exec, firefox"
+      "SUPER, Return, exec, alacritty"
       "SUPER, Q, killactive"
       "SUPER, Y, fullscreen, 0"
       "SUPER, U, fakefullscreen, 0"
