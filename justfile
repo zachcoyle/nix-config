@@ -27,25 +27,6 @@ alias s := switch
 iso:
     nix build .#nixosConfigurations.live.config.system.build.isoImage
 
-# Updates the lockfile entry for INPUT and commits
-update INPUT:
-    nix flake lock --update-input {{ INPUT }} --commit-lock-file --show-trace
-
-alias u := update
-
-# Updates module inputs on separate commits aka things less likely to break stuff lol
-update_modules:
-    just u home-manager
-    just u nix-dariwin
-    just u nixvim
-    just u pre-commit-hooks
-    just u flake-utils
-    just u nix-vscode-extensions
-
-# Update all inputs
-update_all:
-    nix flake update --commit-lock-file
-
 collect_garbage:
     sudo nix-collect-garbage -d #> /dev/null 2>&1&
 
