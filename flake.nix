@@ -165,6 +165,12 @@
       systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
 
       flake = let
+        registryModule = {
+          nix.registry = {
+            nixpkgs.flake = inputs.nixpkgs;
+            nur.flake = inputs.nur;
+          };
+        };
         common_nixos_config = {extraModules}: {
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
@@ -176,6 +182,7 @@
               inputs.home-manager.nixosModules.home-manager
               inputs.sddm-sugar-candy-nix.nixosModules.default
               inputs.stylix.nixosModules.stylix
+              registryModule
               (
                 {lib, ...}: {
                   nixpkgs = {
@@ -215,6 +222,7 @@
             inputs.darwin-modules.darwinModule
             inputs.home-manager.darwinModules.home-manager
             inputs.stylix.darwinModules.stylix
+            registryModule
             {
               system.configurationRevision = self.rev or self.dirtyRef or null;
               nixpkgs = {
