@@ -150,17 +150,18 @@ in {
 
     bindl = [
       ", switch:Lid Switch, exec, swaylock"
-
-      ", XF86AudioRaiseVolume, exec, volumectl -u up"
-      ", XF86AudioLowerVolume, exec, volumectl -u down"
-      ", XF86AudioMute, exec, volumectl toggle-mute"
-
-      ", XF86MonBrightnessUp, exec, lightctl up"
-      ", XF86MonBrightnessDown, exec, lightctl down"
-
       ", XF86AudioPrev, exec, playerctl previous"
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"
+      ", XF86AudioMute, exec, volumectl toggle-mute"
+    ];
+
+    bindle = [
+      ", XF86AudioRaiseVolume, exec, volumectl -u up"
+      ", XF86AudioLowerVolume, exec, volumectl -u down"
+
+      ", XF86MonBrightnessUp, exec, lightctl up"
+      ", XF86MonBrightnessDown, exec, lightctl down"
 
       ", XF86KbdBrightnessUp, exec, brightnessctl -d \":white:kbd_backlight\" s 10%+"
       ", XF86KbdBrightnessDown, exec, brightnessctl -d \":white:kbd_backlight\" s 10%-"
