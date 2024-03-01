@@ -52,7 +52,6 @@
       yaml = ["yamlfix" "yamlfmt"];
     };
   };
-  conjure.enable = true;
   crates-nvim.enable = true;
   cursorline.enable = true;
   dap = {
