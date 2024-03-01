@@ -120,7 +120,7 @@
         format-disabled = "";
         format-off = "";
         interval = 30;
-        on-click = "blueman-manager";
+        on-click = "overskride";
       };
 
       clock = {
