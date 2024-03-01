@@ -9,90 +9,14 @@ in {
   plugins = [
     hycov.packages.${pkgs.system}.hycov
   ];
+
   extraConfig = ''
-
-
-    layerrule = blur, waybar
-    layerrule = blur, yofi
-    layerrule = blur, alacritty
-    layerrule = blur, wlogout
-    layerrule = blur, avizo
-
-    windowrule = float, wlogout
-    windowrule = noanim, wlogout
-    windowrule = fullscreen, wlogout
-
-    windowrule = opacity 1.0 override 1.0 override, title:^Picture-in-Picture$
-    windowrule = nodim, title:^Picture-in-Picture$
-
-
-    bindl = , XF86AudioRaiseVolume, exec, volumectl -u up
-    bindl = , XF86AudioLowerVolume, exec, volumectl -u down
-    bindl = , XF86AudioMute, exec, volumectl toggle-mute
-
-    bindl = , XF86MonBrightnessUp, exec, lightctl up
-    bindl = , XF86MonBrightnessDown, exec, lightctl down
-
-    bindl = , XF86AudioPrev, exec, playerctl previous
-    bindl = , XF86AudioPlay, exec, playerctl play-pause
-    bindl = , XF86AudioNext, exec, playerctl next
-
-    bindl = , XF86KbdBrightnessUp, exec, brightnessctl -d ":white:kbd_backlight" s 10%+
-    bindl = , XF86KbdBrightnessDown, exec, brightnessctl -d ":white:kbd_backlight" s 10%-
-
-    bind = SUPER, H, movefocus, l
-    bind = SUPER, J, movefocus, d
-    bind = SUPER, K, movefocus, u
-    bind = SUPER, L, movefocus, r
-
-    bind = SUPERSHIFT, H, swapwindow, l
-    bind = SUPERSHIFT, J, swapwindow, d
-    bind = SUPERSHIFT, K, swapwindow, u
-    bind = SUPERSHIFT, L, swapwindow, r
-
-    binde = ALT, L, resizeactive, 10 0
-    binde = ALT, H, resizeactive, -10 0
-    binde = ALT, K, resizeactive, 0 -10
-    binde = ALT, J, resizeactive, 0 10
-
-    bind = SUPERALT, L, movetoworkspacesilent, +1
-    bind = SUPERALT, H, movetoworkspacesilent, -1
-
-    bind = SUPERALT, 1, movetoworkspacesilent, 1
-    bind = SUPERALT, 2, movetoworkspacesilent, 2
-    bind = SUPERALT, 3, movetoworkspacesilent, 3
-    bind = SUPERALT, 4, movetoworkspacesilent, 4
-    bind = SUPERALT, 5, movetoworkspacesilent, 5
-    bind = SUPERALT, 6, movetoworkspacesilent, 6
-    bind = SUPERALT, 7, movetoworkspacesilent, 7
-    bind = SUPERALT, 8, movetoworkspacesilent, 8
-    bind = SUPERALT, 9, movetoworkspacesilent, 9
-    bind = SUPERALT, 0, movetoworkspacesilent, 10
-
-    bind = SUPER, TAB, cyclenext
-    bind = SUPERSHIFT, TAB, cyclenext, prev
-
-    bind = SUPER, period, layoutmsg, orientationnext
-    bind = SUPER, comma, layoutmsg, orientationprev
-    bind = SUPERSHIFT, semicolon, exec, swaylock
-
-    bind = SUPER, D, exec, hyprctl keyword general:layout "dwindle"
-    bind = SUPER, M, exec, hyprctl keyword general:layout "master"
-
-    bind = ALT, tab, hycov:toggleoverview
-    bind = ALT, left, hycov:movefocus, l
-    bind = ALT, right, hycov:movefocus, r
-    bind = ALT, up, hycov:movefocus, u
-    bind = ALT, down, hycov:movefocus, d
-
-    monitor = DP-1, preferred, auto, 1
-    monitor = DP-6, preferred, auto, 1
-
-    env = NIXOS_OZONE_WL, 1
   '';
+
   settings = {
     general = {
       layout = "dwindle";
+      cursor_inactive_timeout = 5;
     };
     plugin = {
       hycov = {
@@ -103,7 +27,6 @@ in {
       };
     };
     decoration = {
-      # "col.shadow" = "rgba(00000099)";
       active_opacity = 1.0;
       drop_shadow = true;
       inactive_opacity = 0.8;
@@ -136,6 +59,15 @@ in {
     # INFO:
     # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
 
+    #  bind flags
+    # l -> locked, aka. works also when an input inhibitor (e.g. a lockscreen) is active.
+    # r -> release, will trigger on release of a key.
+    # e -> repeat, will repeat when held.
+    # n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
+    # m -> mouse, see below
+    # t -> transparent, cannot be shadowed by other binds.
+    # i -> ignore mods, will ignore modifiers.
+
     "$mod" = "SUPER";
 
     bind = [
@@ -161,6 +93,53 @@ in {
       "SUPER, 0, workspace, 10"
       "SUPER_SHIFT, 4, exec, grim -g \"$(slurp)\""
       "SUPER_SHIFT, 3, exec, grim"
+
+      "SUPERALT, L, movetoworkspacesilent, +1"
+      "SUPERALT, H, movetoworkspacesilent, -1"
+
+      "SUPERALT, 1, movetoworkspacesilent, 1"
+      "SUPERALT, 2, movetoworkspacesilent, 2"
+      "SUPERALT, 3, movetoworkspacesilent, 3"
+      "SUPERALT, 4, movetoworkspacesilent, 4"
+      "SUPERALT, 5, movetoworkspacesilent, 5"
+      "SUPERALT, 6, movetoworkspacesilent, 6"
+      "SUPERALT, 7, movetoworkspacesilent, 7"
+      "SUPERALT, 8, movetoworkspacesilent, 8"
+      "SUPERALT, 9, movetoworkspacesilent, 9"
+      "SUPERALT, 0, movetoworkspacesilent, 10"
+
+      "SUPER, TAB, cyclenext"
+      "SUPERSHIFT, TAB, cyclenext, prev"
+
+      "SUPER, period, layoutmsg, orientationnext"
+      "SUPER, comma, layoutmsg, orientationprev"
+      "SUPERSHIFT, semicolon, exec, swaylock"
+
+      "SUPER, D, exec, hyprctl keyword general:layout \"dwindle\""
+      "SUPER, M, exec, hyprctl keyword general:layout \"master\""
+
+      "ALT, tab, hycov:toggleoverview"
+      "ALT, left, hycov:movefocus, l"
+      "ALT, right, hycov:movefocus, r"
+      "ALT, up, hycov:movefocus, u"
+      "ALT, down, hycov:movefocus, d"
+
+      "SUPER, H, movefocus, l"
+      "SUPER, J, movefocus, d"
+      "SUPER, K, movefocus, u"
+      "SUPER, L, movefocus, r"
+
+      "SUPERSHIFT, H, swapwindow, l"
+      "SUPERSHIFT, J, swapwindow, d"
+      "SUPERSHIFT, K, swapwindow, u"
+      "SUPERSHIFT, L, swapwindow, r"
+    ];
+
+    binde = [
+      "ALT, L, resizeactive, 10 0"
+      "ALT, H, resizeactive, -10 0"
+      "ALT, K, resizeactive, 0 -10"
+      "ALT, J, resizeactive, 0 10"
     ];
 
     bindm = [
@@ -168,12 +147,50 @@ in {
       "$mod, mouse:273, resizewindow"
       "$mod ALT, mouse:272, resizewindow"
     ];
+
     bindl = [
       ", switch:Lid Switch, exec, swaylock"
+
+      ", XF86AudioRaiseVolume, exec, volumectl -u up"
+      ", XF86AudioLowerVolume, exec, volumectl -u down"
+      ", XF86AudioMute, exec, volumectl toggle-mute"
+
+      ", XF86MonBrightnessUp, exec, lightctl up"
+      ", XF86MonBrightnessDown, exec, lightctl down"
+
+      ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioNext, exec, playerctl next"
+
+      ", XF86KbdBrightnessUp, exec, brightnessctl -d \":white:kbd_backlight\" s 10%+"
+      ", XF86KbdBrightnessDown, exec, brightnessctl -d \":white:kbd_backlight\" s 10%-"
     ];
+
     workspace = [
       "special:scratchpad, on-created-empty:alacritty"
     ];
+
+    layerrule = [
+      "blur, waybar"
+      "blur, yofi"
+      "blur, alacritty"
+      "blur, wlogout"
+      "blur, avizo"
+    ];
+
+    windowrule = [
+      "float, wlogout"
+      "noanim, wlogout"
+      "fullscreen, wlogout"
+      "opacity 1.0 override 1.0 override, title:^Picture-in-Picture$"
+      "nodim, title:^Picture-in-Picture$"
+    ];
+
+    monitor = [
+      "DP-1, preferred, auto, 1"
+      "DP-6, preferred, auto, 1"
+    ];
+
     exec-once = [
       "copyq --start-server"
       "swww init"
@@ -186,6 +203,10 @@ in {
       "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
       # INFO: https://github.com/NixOS/nixpkgs/issues/189851
       "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+    ];
+
+    env = [
+      "NIXOS_OZONE_WL, 1"
     ];
   };
   xwayland.enable = true;
