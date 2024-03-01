@@ -58,9 +58,6 @@ in {
     bind = SUPERALT, L, movetoworkspacesilent, +1
     bind = SUPERALT, H, movetoworkspacesilent, -1
 
-    bind = SUPER, N, workspace, +1
-    bind = SUPER, B, workspace, -1
-
     bind = SUPERALT, 1, movetoworkspacesilent, 1
     bind = SUPERALT, 2, movetoworkspacesilent, 2
     bind = SUPERALT, 3, movetoworkspacesilent, 3
