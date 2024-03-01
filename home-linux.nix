@@ -69,6 +69,8 @@ in
     };
     home = {
       packages = with pkgs; [
+        # darling
+        # darling-dmg
         android-studio
         appimage-run
         blender
@@ -79,8 +81,6 @@ in
         cider
         copyq
         cura
-        # darling
-        # darling-dmg
         foliate
         freecad
         gitkraken
@@ -101,6 +101,7 @@ in
         libnotify
         libreoffice
         makemkv
+        networkmanagerapplet
         nitch
         ollama
         pavucontrol

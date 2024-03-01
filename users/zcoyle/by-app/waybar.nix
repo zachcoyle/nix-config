@@ -33,7 +33,6 @@
         "disk"
         "pulseaudio"
         "bluetooth"
-        "network"
         "battery"
         "clock"
         "custom/spacer"
@@ -146,19 +145,6 @@
       memory = {
         format = "󰍛 {}% ";
         on-click = "alacritty -e btop& disown";
-      };
-
-      network = {
-        format = "{ifname}";
-        format-wifi = "  {signalStrength}%";
-        format-ethernet = "󰈀 {ipaddr}";
-        format-disconnected = "Not connected"; #An empty format will hide the module.
-        tooltip-format = " {ifname} via {gwaddri}";
-        tooltip-format-wifi = " {essid} ({signalStrength}%)";
-        tooltip-format-ethernet = "󰈀 {ifname} ({ipaddr}/{cidr})";
-        tooltip-format-disconnected = "Disconnected";
-        max-length = 50;
-        on-click = "alacritty -e nmtui";
       };
 
       pulseaudio = {
