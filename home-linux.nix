@@ -104,13 +104,11 @@ in
         networkmanagerapplet
         nitch
         ollama
-        overskride
         pavucontrol
         playerctl
         retroarchFull
         slurp
         swww
-        udiskie
         ueberzugpp
         ulauncher
         unzip
