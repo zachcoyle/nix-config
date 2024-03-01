@@ -181,25 +181,6 @@ in
     wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov;};
 
     programs = {
-      rofi = {
-        enable = true;
-        package = pkgs.rofi-wayland;
-        cycle = true;
-        location = "center";
-        terminal = "${pkgs.alacritty}/bin/alacritty";
-        theme = lib.mkForce "gruvbox-dark-hard";
-        plugins = with pkgs; [
-          rofi-emoji
-          rofi-calc
-        ];
-        extraConfig = {
-          modes = ["combi"];
-          combi-modes = [
-            "drun"
-            "emoji"
-          ];
-        };
-      };
       swaylock = {
         enable = true;
         package = pkgs.swaylock-effects;

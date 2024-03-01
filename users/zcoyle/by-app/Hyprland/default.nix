@@ -13,7 +13,7 @@ in {
 
 
     layerrule = blur, waybar
-    layerrule = blur, rofi
+    layerrule = blur, yofi
     layerrule = blur, alacritty
     layerrule = blur, wlogout
     layerrule = blur, avizo
@@ -150,7 +150,7 @@ in {
       "SUPER, T, togglefloating"
       "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470" # 3072,1920
       "SUPER, O, exec, swww clear"
-      "SUPER, SPACE, exec, rofi -show combi -show-icons"
+      "SUPER, SPACE, exec, yofi"
       "SUPER, S, togglespecialworkspace, scratchpad"
       "SUPER, 1, workspace, 1"
       "SUPER, 2, workspace, 2"
