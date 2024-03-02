@@ -227,6 +227,13 @@
                   };
                 };
               }
+              {
+                home-manager.users.zcoyle.imports = [
+                  inputs.hyprlock.homeManagerModules.default
+                  inputs.hypridle.homeManagerModules.default
+                  ./home-linux.nix
+                ];
+              }
             ]
             ++ extraModules;
         };
