@@ -4,12 +4,12 @@
   base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   fonts = {
     serif = {
-      package = pkgs.noto-fonts;
-      name = "Noto Serif";
+      package = pkgs.fira;
+      name = "Fira Sans";
     };
     sansSerif = {
-      package = pkgs.noto-fonts;
-      name = "Noto Sans";
+      package = pkgs.fira;
+      name = "Fira Sans";
     };
     monospace = {
       package = pkgs.fira-code-nerdfont;
