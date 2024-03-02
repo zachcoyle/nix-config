@@ -310,8 +310,14 @@ in
 
           search = {
             force = true;
-            default = "DuckDuckGo";
+            default = "Brave";
             engines = {
+              Brave = {
+                urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
+                iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
+                updateInterval = 24 * 60 * 60 * 1000;
+                definedAliases = ["@b"];
+              };
               "Nix Packages" = {
                 urls = [
                   {
