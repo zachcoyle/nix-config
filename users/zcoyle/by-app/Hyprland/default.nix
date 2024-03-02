@@ -1,6 +1,7 @@
 {
   pkgs,
   hycov,
+  hyprland-plugins,
   ...
 }: let
   wallpaperDir = ../../../../theme/wallpapers;
@@ -8,6 +9,7 @@ in {
   enable = pkgs.stdenv.isLinux;
   plugins = [
     hycov.packages.${pkgs.system}.hycov
+    hyprland-plugins.packages.${pkgs.system}.hyprtrails
   ];
 
   extraConfig = ''
@@ -24,6 +26,10 @@ in {
         enable_hotarea = 0;
         enable_gesture = 1;
         swipe_fingers = 3;
+      };
+
+      hyprtrails = {
+        color = "rgba(ffaa00ff)";
       };
     };
     decoration = {

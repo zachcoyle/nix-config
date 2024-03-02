@@ -2,6 +2,7 @@
   pkgs,
   config,
   hycov,
+  hyprland-plugins,
   ...
 }: let
   # base16 styleguide:
@@ -184,7 +185,7 @@ in {
     };
   };
 
-  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov;};
+  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov hyprland-plugins;};
 
   programs = {
     hyprlock = {
