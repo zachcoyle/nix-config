@@ -177,14 +177,13 @@ in
         layer = "overlay";
         # sort = TODO:
       };
-    };
-
-    hypridle = {
-      enable = true;
-      lockCmd = "hyprlock";
-      # unlockCmd = "";
-      # afterSleepCmd = "";
-      beforeSleepCmd = "playerctl pause";
+      hypridle = {
+        enable = true;
+        lockCmd = "hyprlock";
+        # unlockCmd = "";
+        # afterSleepCmd = "";
+        beforeSleepCmd = "playerctl pause";
+      };
     };
 
     wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hycov;};
