@@ -39,6 +39,24 @@
       };
     };
 
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
+        # hyprlang.follows = "hyprlang";
+      };
+    };
+
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
+        # hyprlang.follows = "hyprlang";
+      };
+    };
+
     hycov = {
       url = "github:DreamMaoMao/hycov";
       inputs.hyprland.follows = "hyprland";
@@ -205,7 +223,7 @@
                   useUserPackages = true;
                   users.zcoyle = import ./home.nix;
                   extraSpecialArgs = {
-                    inherit (inputs) nixvim hycov;
+                    inherit (inputs) nixvim hycov hyprlock hypridle;
                   };
                 };
               }

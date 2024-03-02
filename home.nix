@@ -3,10 +3,14 @@
   lib,
   nixvim,
   config,
+  hyprlock,
+  hypridle,
   ...
 }: {
   imports = [
     nixvim.homeManagerModules.nixvim
+    hyprlock.homeManagerModules.default
+    hypridle.homeManagerModules.default
     ./home-linux.nix
   ];
 

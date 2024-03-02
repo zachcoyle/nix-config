@@ -113,7 +113,7 @@ in {
 
       "SUPER, period, layoutmsg, orientationnext"
       "SUPER, comma, layoutmsg, orientationprev"
-      "SUPERSHIFT, semicolon, exec, swaylock"
+      "SUPERSHIFT, semicolon, exec, hyprlock"
 
       "SUPER, D, exec, hyprctl keyword general:layout \"dwindle\""
       "SUPER, M, exec, hyprctl keyword general:layout \"master\""
@@ -149,7 +149,7 @@ in {
     ];
 
     bindl = [
-      ", switch:Lid Switch, exec, swaylock"
+      ", switch:Lid Switch, exec, hyprlock"
       ", XF86AudioPrev, exec, playerctl previous"
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"

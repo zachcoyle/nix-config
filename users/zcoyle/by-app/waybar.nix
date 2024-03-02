@@ -87,7 +87,7 @@
       "custom/logo" = {
         format = "   ";
         on-click = "wlogout";
-        on-right-click = "swaylock";
+        on-right-click = "hyprlock";
         tooltip = false;
       };
 

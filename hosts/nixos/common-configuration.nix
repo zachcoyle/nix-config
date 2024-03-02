@@ -56,7 +56,9 @@
   nixpkgs.config.allowUnfree = true;
 
   security = {
-    pam.services.swaylock = {};
+    pam.services = {
+      hyprlock = {};
+    };
     doas = {
       enable = true;
       extraRules = [
