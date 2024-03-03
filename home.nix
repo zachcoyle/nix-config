@@ -75,6 +75,7 @@
       util-linux
       visidata
       wget
+      wttrbar
       xsv
       youtube-dl
       yq

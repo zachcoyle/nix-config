@@ -22,12 +22,8 @@
       ];
 
       modules-right = [
-        "custom/neofetch"
-        "custom/keyboard"
-        "custom/neovide"
-        "custom/terminal"
-        "custom/firefox"
         "custom/ollama"
+        "custom/wttrbar"
         "cpu"
         "memory"
         "disk"
@@ -52,36 +48,12 @@
         };
       };
 
-      "custom/neofetch" = {
-        format = "  ";
-        on-click = "alacritty -e ${pkgs.writeScriptBin "pageneofetch.sh" ''
-          neofetch | less
-        ''}/bin/pageneofetch.sh";
-        tooltip = false;
-      };
-
-      "custom/keyboard" = {
-        format = " 󰌓 ";
-        on-click = "tecla& disown";
-        tooltip = false;
-      };
-
-      "custom/neovide" = {
-        format = "  ";
-        on-click = "neovide& disown";
-        tooltip = false;
-      };
-
-      "custom/terminal" = {
-        format = "  ";
-        on-click = "alacritty& disown";
-        tooltip = false;
-      };
-
-      "custom/firefox" = {
-        format = " 󰈹 ";
-        on-click = "firefox& disown";
-        tooltip = false;
+      "custom/wttrbar" = {
+        format = "{}°";
+        tooltip = true;
+        interval = 3600;
+        exec = "wttrbar --ampm --location 'Hartford City' --main-indicator temp_F --fahrenheit --custom-indicator '{ICON} {temp_F}'";
+        return-type = "json";
       };
 
       "custom/logo" = {
@@ -170,11 +142,6 @@
   };
 
   style = ''
-    #custom-neofetch,
-    #custom-keyboard,
-    #custom-neovide,
-    #custom-terminal,
-    #custom-firefox,
     #custom-ollama,
     #custom-logo {
       font-weight: bold;
