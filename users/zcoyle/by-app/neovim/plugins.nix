@@ -226,6 +226,25 @@
       phpactor.enable = true;
       pyright.enable = true;
       ruff-lsp.enable = true;
+      rust-analyzer = {
+        enable = true;
+        installRustc = true;
+        installCargo = true;
+        settings = {
+          cargo.features = "all";
+          files = {
+            excludeDirs = [".direnv" ".devenv"];
+          };
+          hover = {
+            documentation = {
+              enable = true;
+              keywords.enable = true;
+            };
+            links.enable = true;
+            memoryLayout.enable = true;
+          };
+        };
+      };
       sourcekit.enable = pkgs.stdenv.isDarwin;
       tsserver.enable = true;
       volar.enable = true;
@@ -258,8 +277,10 @@
   };
   neogit = {
     enable = true;
-    autoRefresh = true;
-    integrations.diffview = true;
+    settings = {
+      autoRefresh = true;
+      integrations.diffview = true;
+    };
   };
   noice = {
     enable = true;
