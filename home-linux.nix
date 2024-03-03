@@ -105,6 +105,7 @@ in {
       pavucontrol
       playerctl
       retroarchFull
+      showmethekey
       slurp
       swww
       ueberzugpp
