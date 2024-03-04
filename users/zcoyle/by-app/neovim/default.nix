@@ -108,7 +108,19 @@
       end,
     })
 
-    require('dropbar').setup()
+    local dropbar_sources = require('dropbar.sources')
+    local dropbar_utils = require('dropbar.utils')
+
+    require('dropbar').setup({
+      bar = {
+        sources = {
+          dropbar_utils.source.fallback({
+            dropbar_sources.lsp,
+            dropbar_sources.treesitter,
+          }),
+        },
+      },
+    })
   '';
 
   extraConfigLuaPre = ''
