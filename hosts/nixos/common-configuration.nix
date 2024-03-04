@@ -93,7 +93,7 @@
       linuxKernel.packages.linux_zen.broadcom_sta
       lshw
       neovim
-      nyxt
+      # nyxt
       pciutils
       wget
     ];
