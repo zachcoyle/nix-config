@@ -51,6 +51,7 @@
     ]);
 
   extraPlugins = with pkgs.vimPlugins; [
+    dropbar-nvim
     neorepl-nvim
     nvim-autopairs
     sg-nvim
@@ -106,6 +107,8 @@
         end
       end,
     })
+
+    require('dropbar').setup()
   '';
 
   extraConfigLuaPre = ''
@@ -116,8 +119,6 @@
     function _gitui_toggle()
       _gitui:toggle()
     end
-
-    -- vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _gitui_toggle()<CR>", {noremap = true, silent = true})
   '';
 
   extraConfigLuaPost =
@@ -176,6 +177,7 @@
   globals = {
     mapleader = " ";
     neovide_hide_mouse_when_typing = true;
+    neovide_unlink_border_highlights = true;
   };
 
   keymaps = import ./keymaps.nix;

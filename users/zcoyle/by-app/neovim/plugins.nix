@@ -4,7 +4,6 @@
   ...
 }: {
   barbar.enable = true;
-  barbecue.enable = true;
   cmp-emoji.enable = true;
   cmp-nvim-lsp.enable = true;
   cmp-nvim-lsp-document-symbol.enable = true;
