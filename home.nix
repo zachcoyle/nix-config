@@ -50,6 +50,7 @@
       neofetch
       neovide
       nix-melt
+      nix-output-monitor
       nix-top
       opentofu
       oterm
