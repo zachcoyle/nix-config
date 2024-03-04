@@ -1,14 +1,8 @@
-{
-  pkgs,
-  hycov,
-  ...
-}: let
+{pkgs, ...}: let
   wallpaperDir = ../../../../theme/wallpapers;
 in {
   enable = pkgs.stdenv.isLinux;
-  plugins = [
-    hycov.packages.${pkgs.system}.hycov
-  ];
+  plugins = [];
 
   extraConfig = ''
   '';
@@ -18,14 +12,7 @@ in {
       layout = "dwindle";
       cursor_inactive_timeout = 5;
     };
-    plugin = {
-      hycov = {
-        # TODO: maybe turn this on while using a mouse
-        enable_hotarea = 0;
-        enable_gesture = 1;
-        swipe_fingers = 3;
-      };
-    };
+    plugin = {};
     decoration = {
       active_opacity = 1.0;
       drop_shadow = true;
@@ -117,12 +104,6 @@ in {
 
       "SUPER, D, exec, hyprctl keyword general:layout \"dwindle\""
       "SUPER, M, exec, hyprctl keyword general:layout \"master\""
-
-      "ALT, tab, hycov:toggleoverview"
-      "ALT, left, hycov:movefocus, l"
-      "ALT, right, hycov:movefocus, r"
-      "ALT, up, hycov:movefocus, u"
-      "ALT, down, hycov:movefocus, d"
 
       "SUPER, H, movefocus, l"
       "SUPER, J, movefocus, d"

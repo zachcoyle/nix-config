@@ -57,11 +57,6 @@
       };
     };
 
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     stylix = {
       url = "github:danth/stylix";
       inputs = {
@@ -223,7 +218,7 @@
                   useUserPackages = true;
                   users.zcoyle = import ./home.nix;
                   extraSpecialArgs = {
-                    inherit (inputs) nixvim hycov hyprlock hypridle;
+                    inherit (inputs) nixvim hyprlock hypridle;
                   };
                 };
               }
