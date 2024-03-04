@@ -101,6 +101,7 @@ in {
       networkmanagerapplet
       nitch
       ollama
+      parted
       pavucontrol
       playerctl
       retroarchFull
