@@ -24,8 +24,11 @@ switch:
 
 alias s := switch
 
+t2iso:
+    nix build .#nixosConfigurations.live-t2.config.system.build.isoImage
+
 iso:
-    nix build .#nixosConfigurations.live.config.system.build.isoImage
+    nix build .#nixosConfigurations.live-non-t2.config.system.build.isoImage
 
 collect_garbage:
     sudo nix-collect-garbage -d #> /dev/null 2>&1&
