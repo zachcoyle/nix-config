@@ -51,7 +51,7 @@
       "custom/wttrbar" = {
         format = "{}°";
         tooltip = true;
-        interval = 3600;
+        interval = 600;
         exec = "wttrbar --ampm --location 'Hartford City' --main-indicator temp_F --fahrenheit --custom-indicator '{ICON} {temp_F}'";
         return-type = "json";
       };
