@@ -147,6 +147,7 @@
       };
     };
 
+    # https://github.com/NixOS/nixpkgs/issues/290611
     nixpkgs-23-05-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
 
     nixpkgs-firefox-darwin = {
