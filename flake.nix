@@ -179,12 +179,8 @@
       systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
 
       flake = let
-        registryModule = {
-          nix.registry = {
-            nixpkgs.flake = inputs.nixpkgs;
-            nur.flake = inputs.nur;
-          };
-        };
+        registryModule.nix.registry.nixpkgs.flake = inputs.nixpkgs;
+
         common_nixos_config = {extraModules}: {
           system = "x86_64-linux";
           specialArgs = {inherit inputs;};
