@@ -332,4 +332,29 @@ in {
       };
     };
   };
+
+  local.dock = {
+    enable = true;
+    dock.entries = [
+      {path = "/System/Applications/Utilities/Activity\ Monitor.app";}
+      {path = "/System/Applications/Safari.app";}
+      {path = "/System/Applications/Messages.app";}
+      {path = "/System/Applications/Mail.app";}
+      {path = "/System/Applications/Freeform.app";}
+      {path = "/System/Applications/Notes.app";}
+      {path = "/Applications/Xcode.app";}
+      {path = "${pkgs.alacritty}/Applications/Alacritty.app/";}
+      {path = "${pkgs.neovide}/bin/.neovide-wrapped";}
+      {
+        path = "/Applications";
+        section = "others";
+        options = "--sort name --view grid --display folder";
+      }
+      {
+        path = "~/Downloads";
+        section = "others";
+        options = "--sort name --view grid --display folder";
+      }
+    ];
+  };
 }
