@@ -177,7 +177,10 @@
 
     openssh.enable = true;
 
-    ollama.enable = true;
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+    };
   };
 
   stylix =
