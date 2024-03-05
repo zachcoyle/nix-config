@@ -239,6 +239,7 @@
             inputs.darwin-modules.darwinModule
             inputs.home-manager.darwinModules.home-manager
             inputs.stylix.darwinModules.stylix
+            ./modules/darwin/dock.nix
             registryModule
             {
               system.configurationRevision = self.rev or self.dirtyRef or null;

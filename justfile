@@ -40,9 +40,6 @@ check:
 
 alias c := check
 
-dock:
-    sh ./users/zcoyle/dots/dock.sh
-
 cachix-nixos:
     nix build -L .#nixosConfigurations.nixos-laptop.config.system.build.toplevel --json \
       | jq -r '.[].outputs | to_entries[].value' \
