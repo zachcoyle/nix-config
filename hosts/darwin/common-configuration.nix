@@ -335,9 +335,9 @@ in {
 
   local.dock = {
     enable = true;
-    dock.entries = [
+    entries = [
       {path = "/System/Applications/Utilities/Activity\ Monitor.app";}
-      {path = "/System/Applications/Safari.app";}
+      {path = "/Applications/Safari.app";}
       {path = "/System/Applications/Messages.app";}
       {path = "/System/Applications/Mail.app";}
       {path = "/System/Applications/Freeform.app";}
