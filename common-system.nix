@@ -16,7 +16,7 @@ in {
     gc =
       {
         automatic = true;
-        options = "-d";
+        options = "--delete-older-than 7d";
       }
       // (
         if pkgs.stdenv.isLinux
