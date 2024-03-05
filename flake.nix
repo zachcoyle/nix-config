@@ -319,15 +319,22 @@
 
         devshells.default = {
           name = "system-flake";
-          env = [];
+          env = [
+            {
+              name = "OCO_AI_PROVIDER";
+              value = "ollama";
+            }
+            {
+              name = "OCO_EMOJI";
+              value = true;
+            }
+          ];
           devshell.startup.pre-commit-hooks.text = ''
             ${config.pre-commit.installationScript}
           '';
           packages = with pkgs; [
             just
-            deadnix
             alejandra
-            statix
           ];
         };
       };
