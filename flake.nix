@@ -259,6 +259,7 @@
             }
           ];
         };
+        wallpaperDir = ./theme/wallpapers;
       in {
         darwinConfigurations = {
           mbp13 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
@@ -269,9 +270,18 @@
             extraModules = [
               ./hosts/nixos/nixos-desktop/configuration.nix
               {
-                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings.monitor = [
-                  "HDMI-A-1, 1920x1080@60, 0x0, 1"
-                ];
+                # TODO: host-specific home file
+                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings = {
+                  exec-once = [
+                    "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 1470,630"
+                  ];
+                  bind = [
+                    "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 1470,630"
+                  ];
+                  monitor = [
+                    "HDMI-A-1, 1920x1080@60, 0x0, 1"
+                  ];
+                };
               }
             ];
           });
@@ -279,10 +289,19 @@
             extraModules = [
               ./hosts/nixos/nixos-laptop/configuration.nix
               {
-                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings.monitor = [
-                  "DP-1, 3072x1920@60, 1920x540, 1"
-                  "DP-6, 1920x1080@60, 0x0, 1"
-                ];
+                # TODO: host-specific home file
+                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings = {
+                  exec-once = [
+                    "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
+                  ];
+                  bind = [
+                    "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
+                  ];
+                  monitor = [
+                    "DP-1, 3072x1920@60, 1920x540, 1"
+                    "DP-6, 1920x1080@60, 0x0, 1"
+                  ];
+                };
               }
             ];
           });

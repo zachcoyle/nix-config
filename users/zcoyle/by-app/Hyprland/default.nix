@@ -1,6 +1,4 @@
-{pkgs, ...}: let
-  wallpaperDir = ../../../../theme/wallpapers;
-in {
+{pkgs, ...}: {
   enable = pkgs.stdenv.isLinux;
   plugins = [];
 
@@ -64,7 +62,6 @@ in {
       "SUPER, Y, fullscreen, 0"
       "SUPER, U, fakefullscreen, 0"
       "SUPER, T, togglefloating"
-      "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470" # 3072,1920
       "SUPER, O, exec, swww clear"
       "SUPER, SPACE, exec, yofi"
       "SUPER, S, togglespecialworkspace, scratchpad"
@@ -171,7 +168,6 @@ in {
     exec-once = [
       "copyq --start-server"
       "swww init"
-      "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
       "waybar"
       # TODO:
       # "eww daemon"
