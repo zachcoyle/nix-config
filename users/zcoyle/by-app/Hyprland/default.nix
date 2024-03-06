@@ -168,11 +168,6 @@ in {
       "nodim, title:^Picture-in-Picture$"
     ];
 
-    monitor = [
-      "DP-1, preferred, auto, 1"
-      "DP-6, preferred, auto, 1"
-    ];
-
     exec-once = [
       "copyq --start-server"
       "swww init"
