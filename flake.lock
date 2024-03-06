@@ -240,6 +240,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1709682352,
+        "narHash": "sha256-71S/64RbyADT6FUVJq4WLiNbmcxFvgMsSihf/C2Hgno=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "ad5e8bd14df2e6bdb836582577dc163318617738",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "dream2nix": {
       "inputs": {
         "devshell": [
@@ -1135,6 +1155,7 @@
         "apple-firmware": "apple-firmware",
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
+        "disko": "disko",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
