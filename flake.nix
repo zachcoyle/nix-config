@@ -269,7 +269,7 @@
             extraModules = [
               ./hosts/nixos/nixos-desktop/configuration.nix
               {
-                home-manager.users.zcoyle.wayland.windowManager.hyprland.monitor = [
+                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings.monitor = [
                   "HDMI-A-1, 1920x1080@60, 0x0, 1"
                 ];
               }
@@ -279,7 +279,7 @@
             extraModules = [
               ./hosts/nixos/nixos-laptop/configuration.nix
               {
-                home-manager.users.zcoyle.wayland.windowManager.hyprland.monitor = [
+                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings.monitor = [
                   "DP-1, 3072x1920@60, 1920x540, 1"
                   "DP-6, 1920x1080@60, 0x0, 1"
                 ];
