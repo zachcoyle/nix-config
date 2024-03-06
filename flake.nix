@@ -280,9 +280,8 @@
               ./hosts/nixos/nixos-laptop/configuration.nix
               {
                 home-manager.users.zcoyle.wayland.windowManager.hyprland.monitor = [
-                  # TODO:
-                  "DP-1, preferred, auto, 1"
-                  "DP-6, preferred, auto, 1"
+                  "DP-1, 3072x1920@60, 1920x540, 1"
+                  "DP-6, 1920x1080@60, 0x0, 1"
                 ];
               }
             ];
