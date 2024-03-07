@@ -310,28 +310,6 @@
               }
             ];
           });
-          live-non-t2 = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
-            extraModules = [
-              "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix"
-              ./hosts/nixos/nixos-desktop/configuration.nix
-              (
-                {lib, ...}: {
-                  networking.wireless.enable = lib.mkForce false;
-                }
-              )
-            ];
-          });
-          live-t2 = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
-            extraModules = [
-              "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix"
-              ./hosts/nixos/nixos-laptop/configuration.nix
-              (
-                {lib, ...}: {
-                  networking.wireless.enable = lib.mkOverride 0 false;
-                }
-              )
-            ];
-          });
         };
       };
 
