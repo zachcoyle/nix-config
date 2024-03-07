@@ -300,49 +300,40 @@
       virtualtext = "virtualtext";
     };
   };
-  nvim-cmp = {
+  cmp = {
     enable = true;
-    completion.autocomplete = ["TextChanged"];
-    snippet.expand = "luasnip";
-    mapping = {
-      "<CR>" = "cmp.mapping.confirm({ select = true })";
-      "<Tab>" = {
-        action = ''
-          function(fallback)
-            local luasnip = require("luasnip")
-            local check_backspace = function()
-              local col = vim.fn.col "." - 1
-                return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-              end
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expandable() then
-              luasnip.expand()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            elseif check_backspace() then
-              fallback()
-            else
-              fallback()
-            end
-          end
-        '';
-        modes = ["i" "s"];
+    settings = {
+      snippet.expand = ''
+        function(args)
+          require('luasnip').lsp_expand(args.body)
+        end
+      '';
+      widow = {
+        completion.border = ["╔" "═" "╗" "║" "╝" "═" "╚" "║"];
+        documentation.border = ["╔" "═" "╗" "║" "╝" "═" "╚" "║"];
       };
+      mapping = {
+        "<C-Space>" = "cmp.mapping.complete()";
+        "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+        "<C-e>" = "cmp.mapping.close()";
+        "<C-f>" = "cmp.mapping.scroll_docs(4)";
+        "<CR>" = "cmp.mapping.confirm({ select = true })";
+        "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+        "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+      };
+      sources = [
+        {name = "nvim_lsp";}
+        {name = "nvim_lsp_signature_help";}
+        {name = "nvim_lsp_document_symbol";}
+        {name = "nvim_lua";}
+        {name = "cmp_tabnine";}
+        {name = "luasnip";}
+        {name = "path";}
+        {name = "buffer";}
+        {name = "emoji";}
+        {name = "cmp_ai";}
+      ];
     };
-    autoEnableSources = true;
-    sources = [
-      {name = "nvim_lsp";}
-      {name = "nvim_lsp_signature_help";}
-      {name = "nvim_lsp_document_symbol";}
-      {name = "nvim_lua";}
-      {name = "cmp_tabnine";}
-      {name = "luasnip";}
-      {name = "path";}
-      {name = "buffer";}
-      {name = "emoji";}
-      {name = "cmp_ai";}
-    ];
   };
   nvim-jdtls = {
     enable = true;
