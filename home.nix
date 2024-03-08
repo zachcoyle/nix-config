@@ -35,6 +35,7 @@
       fd
       ghq
       gimp
+      git-bug
       git-get
       gitnr
       gource
