@@ -294,7 +294,7 @@
             extraModules = [
               ./hosts/nixos/nixos-laptop/configuration.nix
               {
-                # TODO: host-specific home file
+                # TODO: find a better home for this
                 home-manager.users.zcoyle.wayland.windowManager.hyprland.settings = {
                   exec-once = [
                     "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 2622,1470"

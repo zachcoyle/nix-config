@@ -39,6 +39,7 @@
       git-get
       gitnr
       gource
+      html2text
       hurl
       jq
       just
@@ -65,6 +66,7 @@
       python3
       qemu
       quicktype
+      recode
       ripgrep
       scc
       sqlite
