@@ -73,6 +73,7 @@ in {
       blender
       bottles
       brightnessctl
+      bruno
       buildah
       calibre
       cider
