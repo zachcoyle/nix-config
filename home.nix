@@ -24,6 +24,7 @@
       cool-retro-term
       comma
       coreutils-full
+      curlFull
       dasel
       dos2unix
       dsq
