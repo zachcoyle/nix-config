@@ -20,6 +20,7 @@
       act
       alejandra
       asciinema
+      borders
       cachix
       cool-retro-term
       comma

@@ -757,6 +757,22 @@
         "type": "github"
       }
     },
+    "jankyborders": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710003982,
+        "narHash": "sha256-SXGgbKtuHnajRIYgH81qDpv1w0eAZQout8If3TLkDYM=",
+        "owner": "FelixKratz",
+        "repo": "jankyborders",
+        "rev": "e018fd34d6dd5c33d2d236815ab414c51bddb3a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "jankyborders",
+        "type": "github"
+      }
+    },
     "langref": {
       "flake": false,
       "locked": {
@@ -1163,6 +1179,7 @@
         "hypridle": "hypridle",
         "hyprland": "hyprland",
         "hyprlock": "hyprlock",
+        "jankyborders": "jankyborders",
         "neovim": "neovim",
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",

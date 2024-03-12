@@ -160,6 +160,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    jankyborders = {
+      url = "github:FelixKratz/jankyborders";
+      flake = false;
+    };
+
     nur.url = "github:nix-community/nur";
 
     flake-utils.url = "github:numtide/flake-utils";
