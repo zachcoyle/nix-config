@@ -1703,16 +1703,15 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1710344274,
+        "lastModified": 1710356110,
         "narHash": "sha256-dLYYHNiimcY5WMOnYs9zHVKdjqoPhdFhbEJa2h5hel0=",
-        "owner": "zachcoyle",
+        "owner": "l4l",
         "repo": "yofi",
-        "rev": "245a5dace1016f486461a5451ee14dce2c04d830",
+        "rev": "0d7af4653fa8f119a4aee0b7981edc88a6c7e892",
         "type": "github"
       },
       "original": {
-        "owner": "zachcoyle",
-        "ref": "update-flake",
+        "owner": "l4l",
         "repo": "yofi",
         "type": "github"
       }

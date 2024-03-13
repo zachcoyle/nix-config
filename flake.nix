@@ -132,8 +132,7 @@
       };
     };
 
-    # yofi.url = "github:l4l/yofi";
-    yofi.url = "github:zachcoyle/yofi/update-flake";
+    yofi.url = "github:l4l/yofi";
 
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
