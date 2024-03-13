@@ -1,6 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  hyprland-plugins,
+  ...
+}: {
   enable = pkgs.stdenv.isLinux;
-  plugins = [];
+  plugins = [
+    hyprland-plugins.packages.${pkgs.system}.hyprtrails
+  ];
 
   extraConfig = ''
   '';

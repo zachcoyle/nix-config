@@ -38,6 +38,11 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     hypridle = {
       url = "github:hyprwm/hypridle";
       inputs = {
@@ -209,7 +214,7 @@
                   useUserPackages = true;
                   users.zcoyle = import ./home.nix;
                   extraSpecialArgs = {
-                    inherit (inputs) nixvim hyprlock hypridle;
+                    inherit (inputs) nixvim hyprlock hypridle hyprland-plugins;
                   };
                 };
               }

@@ -682,6 +682,31 @@
         "type": "github"
       }
     },
+    "hyprland-plugins": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "systems": [
+          "hyprland-plugins",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1710281302,
+        "narHash": "sha256-Eo1Xi3WCc7rn43gxL0Fb1Wr1qjCLB0kTNr+at2a8yoA=",
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "34ade54e1be45210fb7e98d41a0990472d81cefe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "type": "github"
+      }
+    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -1259,6 +1284,7 @@
         "home-manager": "home-manager",
         "hypridle": "hypridle",
         "hyprland": "hyprland",
+        "hyprland-plugins": "hyprland-plugins",
         "hyprlock": "hyprlock",
         "neovim": "neovim",
         "nix-darwin": "nix-darwin",
