@@ -129,13 +129,8 @@
       };
     };
 
-    yofi = {
-      url = "github:l4l/yofi";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
+    # yofi.url = "github:l4l/yofi";
+    yofi.url = "github:zachcoyle/yofi/update-flake";
 
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
