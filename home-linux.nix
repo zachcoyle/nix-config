@@ -102,6 +102,7 @@ in {
       makemkv
       networkmanagerapplet
       nitch
+      nvtop-amd
       ollama
       parted
       pavucontrol
