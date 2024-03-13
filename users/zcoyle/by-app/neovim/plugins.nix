@@ -368,7 +368,10 @@
       stream = true;
     };
   };
-  project-nvim.enable = true;
+  project-nvim = {
+    enable = true;
+    enableTelescope = true;
+  };
   rainbow-delimiters.enable = true;
   refactoring.enable = true;
   surround.enable = true;
@@ -419,7 +422,6 @@
       # frecency.enable = true;
       fzf-native.enable = true;
       media_files.enable = true;
-      project-nvim.enable = true;
       ui-select.enable = true;
       undo.enable = true;
     };
