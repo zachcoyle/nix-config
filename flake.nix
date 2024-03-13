@@ -36,13 +36,7 @@
     systems-linux.url = "github:nix-systems/default-linux";
     systems-darwin.url = "github:nix-systems/default-darwin";
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems-linux";
-      };
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
 
     hypridle = {
       url = "github:hyprwm/hypridle";
