@@ -48,7 +48,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
-        # hyprlang.follows = "hyprlang";
       };
     };
 
@@ -57,7 +56,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
-        # hyprlang.follows = "hyprlang";
       };
     };
 
@@ -288,7 +286,7 @@
             extraModules = [
               ./hosts/nixos/nixos-laptop/configuration.nix
               {
-                # TODO: find a better home for this
+                # TODO: host-specific home file
                 home-manager.users.zcoyle.wayland.windowManager.hyprland.settings = {
                   exec-once = [
                     "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
