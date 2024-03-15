@@ -206,13 +206,9 @@
       };
     };
     servers = {
-      # ccls.enable = true;
-      # intelephense.enable = true;
-      # nixd.enable = true;
       bashls.enable = true;
       biome.enable = true;
       clangd.enable = true;
-      csharp-ls.enable = pkgs.stdenv.isLinux;
       cssls.enable = true;
       eslint.enable = true;
       gopls.enable = true;

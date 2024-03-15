@@ -72,7 +72,6 @@ in {
       android-studio
       appimage-run
       blender
-      bottles
       brightnessctl
       bruno
       buildah
