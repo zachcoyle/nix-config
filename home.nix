@@ -179,7 +179,6 @@
       plugins = with pkgs.tmuxPlugins; [
         {plugin = sensible;}
         {plugin = battery;}
-        # {plugin = gruvbox;}
         {plugin = mode-indicator;}
       ];
       extraConfig = ''
