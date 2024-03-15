@@ -6,6 +6,10 @@ jobs:
   cachix:
     runs-on: ubuntu-latest
     steps:
+      - name: Set Swap Space
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 0
       - name: Free Disk Space
         uses: jlumbroso/free-disk-space@main
         with:
