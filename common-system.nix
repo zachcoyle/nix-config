@@ -2,7 +2,6 @@
   fonts = with pkgs; [
     fira
     fira-code-nerdfont
-    nerdfonts
     noto-fonts
   ];
 in {
