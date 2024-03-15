@@ -50,7 +50,7 @@
       pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
     ]);
 
-  extraPlugins = with pkgs.vimPlugins; [
+  extraPlugins = with (pkgs.vimPlugins // pkgs.vimExtraPlugins); [
     dropbar-nvim
     neorepl-nvim
     nvim-autopairs
