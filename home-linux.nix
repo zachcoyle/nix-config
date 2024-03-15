@@ -105,7 +105,6 @@ in {
       parted
       pavucontrol
       playerctl
-      retroarchFull
       showmethekey
       slurp
       swww
