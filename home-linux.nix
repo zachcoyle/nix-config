@@ -93,7 +93,6 @@ in {
       imagemagick
       inkscape
       kdenlive
-      kicad
       kickoff
       krita
       libinput-gestures
