@@ -221,7 +221,7 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableVteIntegration = true;
       syntaxHighlighting.enable = true;
       defaultKeymap = "viins";
