@@ -4,6 +4,7 @@
   ...
 }: {
   enable = pkgs.stdenv.isLinux;
+
   plugins = [
     hyprland-plugins.packages.${pkgs.system}.hyprtrails
   ];
@@ -84,26 +85,24 @@
       "SUPER_SHIFT, 4, exec, grim -g \"$(slurp)\""
       "SUPER_SHIFT, 3, exec, grim"
 
-      "SUPERALT, L, movetoworkspacesilent, +1"
-      "SUPERALT, H, movetoworkspacesilent, -1"
-
-      "SUPERALT, 1, movetoworkspacesilent, 1"
-      "SUPERALT, 2, movetoworkspacesilent, 2"
-      "SUPERALT, 3, movetoworkspacesilent, 3"
-      "SUPERALT, 4, movetoworkspacesilent, 4"
-      "SUPERALT, 5, movetoworkspacesilent, 5"
-      "SUPERALT, 6, movetoworkspacesilent, 6"
-      "SUPERALT, 7, movetoworkspacesilent, 7"
-      "SUPERALT, 8, movetoworkspacesilent, 8"
-      "SUPERALT, 9, movetoworkspacesilent, 9"
-      "SUPERALT, 0, movetoworkspacesilent, 10"
+      "SUPER_ALT, 1, movetoworkspacesilent, 1"
+      "SUPER_ALT, 2, movetoworkspacesilent, 2"
+      "SUPER_ALT, 3, movetoworkspacesilent, 3"
+      "SUPER_ALT, 4, movetoworkspacesilent, 4"
+      "SUPER_ALT, 5, movetoworkspacesilent, 5"
+      "SUPER_ALT, 6, movetoworkspacesilent, 6"
+      "SUPER_ALT, 7, movetoworkspacesilent, 7"
+      "SUPER_ALT, 8, movetoworkspacesilent, 8"
+      "SUPER_ALT, 9, movetoworkspacesilent, 9"
+      "SUPER_ALT, 0, movetoworkspacesilent, 10"
+      "SUPER_ALT, S, movetoworkspacesilent, special:scratchpad"
 
       "SUPER, TAB, cyclenext"
-      "SUPERSHIFT, TAB, cyclenext, prev"
+      "SUPER_SHIFT, TAB, cyclenext, prev"
 
       "SUPER, period, layoutmsg, orientationnext"
       "SUPER, comma, layoutmsg, orientationprev"
-      "SUPERSHIFT, semicolon, exec, hyprlock"
+      "SUPER_SHIFT, semicolon, exec, hyprlock"
 
       "SUPER, D, exec, hyprctl keyword general:layout \"dwindle\""
       "SUPER, M, exec, hyprctl keyword general:layout \"master\""
@@ -113,10 +112,10 @@
       "SUPER, K, movefocus, u"
       "SUPER, L, movefocus, r"
 
-      "SUPERSHIFT, H, swapwindow, l"
-      "SUPERSHIFT, J, swapwindow, d"
-      "SUPERSHIFT, K, swapwindow, u"
-      "SUPERSHIFT, L, swapwindow, r"
+      "SUPER_SHIFT, H, swapwindow, l"
+      "SUPER_SHIFT, J, swapwindow, d"
+      "SUPER_SHIFT, K, swapwindow, u"
+      "SUPER_SHIFT, L, swapwindow, r"
     ];
 
     binde = [
@@ -189,5 +188,6 @@
       "NIXOS_OZONE_WL, 1"
     ];
   };
+
   xwayland.enable = true;
 }
