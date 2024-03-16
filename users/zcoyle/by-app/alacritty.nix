@@ -7,6 +7,7 @@
   settings =
     lib.recursiveUpdate {
       window = {
+        decorations = "None";
         decorations_theme_variant = "Dark";
         blur = true;
         padding = {
