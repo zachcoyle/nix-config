@@ -39,6 +39,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     dockutil
+    jankyborders
   ];
 
   services = {
@@ -249,6 +250,7 @@ in {
         window_placement = "second_child";
       };
       extraConfig = ''
+        borders&
       '';
     };
   };

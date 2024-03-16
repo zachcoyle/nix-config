@@ -90,6 +90,22 @@
     file = {
       # INFO: this is just to prevent neovide from writing its own settings file
       ".local/share/neovide/neovide-settings.json".text = builtins.toJSON {};
+      ".config/borders/bordersrc".text = ''
+        #!/bin/bash
+
+        options=(
+            style=round
+            width=6.0
+            hidpi=on
+            # TODO: grab these colors from stylix
+            active_color=0xffebdbb2
+            inactive_color=0xff282828
+            background_color=0x302c2e34
+            blur_radius=25
+        )
+
+        borders "''${options[@]}"
+      '';
     };
   };
 
