@@ -55,7 +55,6 @@
       nix-melt
       nix-output-monitor
       nix-top
-      nixfmt
       opentofu
       oterm
       pijul

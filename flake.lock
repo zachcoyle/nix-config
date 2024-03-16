@@ -991,26 +991,6 @@
         "type": "github"
       }
     },
-    "nixfmt": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1710520817,
-        "narHash": "sha256-g0MTMQZeRlKFQiKdEVc1IQ73nNeRwu0+GtUIvcm2NV4=",
-        "owner": "NixOS",
-        "repo": "nixfmt",
-        "rev": "136005fc3dd34ff0d6af9f8c57cd1d3d7d342537",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixfmt",
-        "type": "github"
-      }
-    },
     "nixneovimplugins": {
       "inputs": {
         "flake-utils": [
@@ -1380,7 +1360,6 @@
         "neovim": "neovim",
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
-        "nixfmt": "nixfmt",
         "nixneovimplugins": "nixneovimplugins",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
