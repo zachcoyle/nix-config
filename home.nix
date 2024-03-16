@@ -97,7 +97,6 @@
             style=round
             width=6.0
             hidpi=on
-            # TODO: grab these colors from stylix
             active_color=0xffebdbb2
             inactive_color=0xff282828
             background_color=0x302c2e34
