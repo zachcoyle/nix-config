@@ -3,6 +3,8 @@
     fira
     fira-code-nerdfont
     noto-fonts
+    ezra-sil
+    galatia-sil
   ];
 in {
   environment.systemPackages = with pkgs; [
