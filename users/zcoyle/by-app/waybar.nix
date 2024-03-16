@@ -22,7 +22,6 @@
       ];
 
       modules-right = [
-        "custom/ollama"
         "custom/wttrbar"
         "cpu"
         "memory"
@@ -60,12 +59,6 @@
         format = "   ";
         on-click = "wlogout";
         on-right-click = "hyprlock";
-        tooltip = false;
-      };
-
-      "custom/ollama" = {
-        format = " 🦙 ";
-        on-click = "alacritty -e oterm& disown";
         tooltip = false;
       };
 
@@ -142,7 +135,6 @@
   };
 
   style = ''
-    #custom-ollama,
     #custom-logo {
       font-weight: bold;
       font-size: 20px;
