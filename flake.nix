@@ -9,6 +9,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sketchyvim.url = "github:FelixKratz/SketchyVim";
+    sketchyvim.flake = false;
+
+    sketchybar.url = "github:FelixKratz/SketchyBar";
+    sketchybar.flake = false;
+
+    sbarlua.url = "github:FelixKratz/SbarLua";
+    sbarlua.flake = false;
+
+    jankyborders.url = "github:FelixKratz/JankyBorders";
+    jankyborders.flake = false;
+
     darwin-modules.url = "github:zachcoyle/darwin-modules";
 
     home-manager = {
