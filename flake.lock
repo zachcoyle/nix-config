@@ -846,22 +846,6 @@
         "type": "github"
       }
     },
-    "jankyborders": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1710574001,
-        "narHash": "sha256-X7mMErjfWDpfEBj3xP/kOnA27NfVs363nxG2yqpCnzQ=",
-        "owner": "FelixKratz",
-        "repo": "JankyBorders",
-        "rev": "ecd8a397b729e2e172fd8f9c42bb1705285360bf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "FelixKratz",
-        "repo": "JankyBorders",
-        "type": "github"
-      }
-    },
     "langref": {
       "flake": false,
       "locked": {
@@ -1374,7 +1358,6 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "hyprlock": "hyprlock",
-        "jankyborders": "jankyborders",
         "neovim": "neovim",
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
@@ -1386,11 +1369,8 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
-        "sbarlua": "sbarlua",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sg-nvim": "sg-nvim",
-        "sketchybar": "sketchybar",
-        "sketchyvim": "sketchyvim",
         "stylix": "stylix",
         "sword-flake": "sword-flake",
         "systems-darwin": "systems-darwin",
@@ -1432,22 +1412,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "sbarlua": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709104673,
-        "narHash": "sha256-C2tg1mypz/CdUmRJ4vloPckYfZrwHxc4v8hsEow4RZs=",
-        "owner": "FelixKratz",
-        "repo": "SbarLua",
-        "rev": "29395b1928835efa1b376d438216fbf39e0d0f83",
-        "type": "github"
-      },
-      "original": {
-        "owner": "FelixKratz",
-        "repo": "SbarLua",
         "type": "github"
       }
     },
@@ -1494,38 +1458,6 @@
       "original": {
         "owner": "sourcegraph",
         "repo": "sg.nvim",
-        "type": "github"
-      }
-    },
-    "sketchybar": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1710405912,
-        "narHash": "sha256-hTfQQjx6ai83zYFfccsz/KaoZUIj5Dfz4ENe59gS02E=",
-        "owner": "FelixKratz",
-        "repo": "SketchyBar",
-        "rev": "3946005f6b1f67357ed83ffc6e53eb9c6e867228",
-        "type": "github"
-      },
-      "original": {
-        "owner": "FelixKratz",
-        "repo": "SketchyBar",
-        "type": "github"
-      }
-    },
-    "sketchyvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1710574041,
-        "narHash": "sha256-zMBtkdINE9XraUoHsUvwxmipdXwOcY04iLm23D68jyo=",
-        "owner": "FelixKratz",
-        "repo": "SketchyVim",
-        "rev": "6d55a117820395abc07784c9cafd7229f12b1db1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "FelixKratz",
-        "repo": "SketchyVim",
         "type": "github"
       }
     },
