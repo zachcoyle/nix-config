@@ -345,9 +345,9 @@ in {
       {path = "/Applications/Xcode.app";}
       {path = "${pkgs.alacritty}/Applications/Alacritty.app";}
       {path = "/Applications/Fork.app";}
-      {path = "/System/Applications/System\ Settings.app";}
       {path = "/Applications/neovide.app";}
       {path = "/Applications/Logos.app";}
+      {path = "/System/Applications/System\ Settings.app";}
       {
         path = "/Applications";
         section = "others";
