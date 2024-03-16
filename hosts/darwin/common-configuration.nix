@@ -343,8 +343,11 @@ in {
       {path = "/System/Applications/Freeform.app";}
       {path = "/System/Applications/Notes.app";}
       {path = "/Applications/Xcode.app";}
-      {path = "${pkgs.alacritty}/Applications/Alacritty.app/";}
+      {path = "${pkgs.alacritty}/Applications/Alacritty.app";}
       {path = "/Applications/Fork.app";}
+      {path = "/System/Applications/System\ Settings.app";}
+      {path = "/Applications/neovide.app";}
+      {path = "/Applications/Logos.app";}
       {
         path = "/Applications";
         section = "others";
