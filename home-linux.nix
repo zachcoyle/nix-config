@@ -107,6 +107,7 @@ in {
       playerctl
       showmethekey
       slurp
+      swaynotificationcenter
       swww
       ueberzugpp
       ulauncher
@@ -166,16 +167,6 @@ in {
   services = {
     avizo.enable = true;
     batsignal.enable = true;
-    mako = {
-      enable = true;
-      borderRadius = 10;
-      defaultTimeout = 2000;
-      # groupBy = TODO:
-      iconPath = "/run/current-system/sw/share/icons";
-      # font = TODO:
-      layer = "overlay";
-      # sort = TODO:
-    };
     hypridle = {
       enable = true;
       lockCmd = "hyprlock";
