@@ -81,7 +81,7 @@ in {
       cosmic-files
       cura
       foliate
-      freecad
+      # freecad
       gnome-tecla
       gnome.gnome-calculator
       gnome.gnome-system-monitor
