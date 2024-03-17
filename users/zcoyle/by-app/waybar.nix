@@ -30,9 +30,7 @@
         "bluetooth"
         "battery"
         "clock"
-        "custom/spacer"
         "custom/notification"
-        "custom/spacer"
         "tray"
       ];
 
@@ -62,10 +60,6 @@
         on-click = "wlogout";
         on-right-click = "hyprlock";
         tooltip = false;
-      };
-
-      "custom/spacer" = {
-        format = " ";
       };
 
       "custom/notification" = {
