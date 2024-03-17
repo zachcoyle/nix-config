@@ -71,7 +71,11 @@
     };
   };
 
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking = {
+    networkmanager.enable = true;
+    nameservers = ["1.1.1.1" "1.0.0.1"];
+  };
+
   time.timeZone = "America/Indiana/Indianapolis";
   i18n.defaultLocale = "en_US.UTF-8";
 
