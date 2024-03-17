@@ -31,8 +31,9 @@
         "battery"
         "clock"
         "custom/spacer"
-        "tray"
         "custom/notification"
+        "custom/spacer"
+        "tray"
       ];
 
       "hyprland/submap" = {
