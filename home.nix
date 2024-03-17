@@ -418,6 +418,7 @@ in {
         tree = "lsd --tree";
         vi = "nvim";
         vim = "nvim";
+        gl = "git log --one-line --graph | head -n 50";
       };
     };
 
