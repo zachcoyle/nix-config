@@ -107,6 +107,7 @@ in {
       playerctl
       showmethekey
       slurp
+      snapshot
       swaynotificationcenter
       swww
       ueberzugpp
