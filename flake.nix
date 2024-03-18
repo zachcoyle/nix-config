@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/4008381882569ab4773f2ba0d7b7bbde8f665672";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -134,7 +133,7 @@
     };
 
     neovim = {
-      url = "github:neovim/neovim/9f59415243adcf70c02bc056ed755859456b20e8?dir=contrib";
+      url = "github:neovim/neovim?dir=contrib";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
