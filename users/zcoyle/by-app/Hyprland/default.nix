@@ -69,7 +69,7 @@
       "SUPER, Y, fullscreen, 0"
       "SUPER, U, fakefullscreen, 0"
       "SUPER, T, togglefloating"
-      "SUPER, O, exec, swww clear"
+      "SUPER, O, toggleopaque"
       "SUPER, SPACE, exec, yofi"
       "SUPER, S, togglespecialworkspace, scratchpad"
       "SUPER, 1, workspace, 1"
