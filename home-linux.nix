@@ -69,6 +69,7 @@ in {
     packages = with pkgs; [
       # darling
       # darling-dmg
+      ags
       android-studio
       appimage-run
       blender
