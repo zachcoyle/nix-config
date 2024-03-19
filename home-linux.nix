@@ -134,7 +134,7 @@ in {
         font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
         font_size = 24;
         bg_color = colorsWithHashtag.base00;
-        bg_border_color = colorsWithHashtag.base04;
+        bg_border_color = colorsWithHashtag.base0A;
         bg_border_width = 4.0;
         font_color = colorsWithHashtag.base04;
         term = "alacritty -e";
