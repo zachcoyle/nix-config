@@ -133,7 +133,7 @@ in {
         corner_radius = "10";
         font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
         font_size = 24;
-        bg_color = colorsWithHashtag.base00;
+        bg_color = "${colorsWithHashtag.base00}BD";
         bg_border_color = colorsWithHashtag.base0A;
         bg_border_width = 4.0;
         font_color = colorsWithHashtag.base04;
@@ -141,9 +141,9 @@ in {
         input_text = {
           font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
           font_color = colorsWithHashtag.base01;
-          bg_color = colorsWithHashtag.base04;
-          margin = "5";
-          padding = "1.7 -4";
+          bg_color = "${colorsWithHashtag.base04}BD";
+          margin = "10";
+          padding = "4 0";
           corner_radius = "10";
         };
         list_items = {
@@ -151,14 +151,14 @@ in {
           font_color = colorsWithHashtag.base04;
           selected_font_color = colorsWithHashtag.base0B;
           match_color = colorsWithHashtag.base0F;
-          margin = "5 10";
+          margin = "12 10";
           hide_actions = true;
           action_left_margin = 60;
-          item_spacing = 2;
+          item_spacing = 8;
           icon_spacing = 5;
         };
         icon = {
-          size = 16;
+          size = 32;
           fallback_icon_path = "/run/current-system/sw/share/icons";
         };
       };
