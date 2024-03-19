@@ -144,7 +144,7 @@
           [vim.log.levels.TRACE] = 'normal',
           [vim.log.levels.WARN] = 'normal',
         }
-        vim.system({'notify-send', msg, '-u', log_level[level], '-i', '${../../../../theme/neovim-mark.svg}'})
+        vim.system({'notify-send', msg, '-u', log_level[level], '-e', '-i', '${../../../../theme/neovim-mark.svg}'})
       end
     ''
     # TODO: darwin

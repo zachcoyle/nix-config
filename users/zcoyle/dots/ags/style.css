@@ -1,0 +1,39 @@
+window {
+  background-color: transparent;
+  font-family: "Fira Sans";
+  font-size: 14px;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.focusedWindowInfo {
+}
+
+.left {
+  /* margin-left: 10px; */
+}
+
+.focusedWindowTitle {
+  font-weight: bold;
+  text-shadow:
+    -1px 0 black,
+    0 1px black,
+    1px 0 black,
+    0 -1px black;
+}
+
+.hyprlandLogo {
+  color: #458588;
+  font-size: 20px;
+  text-shadow:
+    -1px 0 black,
+    0 1px black,
+    1px 0 black,
+    0 -1px black;
+}
+
+.hyprlandButton {
+  background-color: transparent;
+  /* background-color: #689d6a; */
+}
