@@ -7,33 +7,63 @@ window {
   padding-right: 8px;
 }
 
-.focusedWindowInfo {
-}
-
-.left {
-  /* margin-left: 10px; */
+.shadow {
+  text-shadow:
+    -1px 0 1px black,
+    0 1px 1px black,
+    1px 0 1px black,
+    0 -1px 1px black,
+    -2px 0 2px black,
+    0 2px 2px black,
+    2px 0 2px black,
+    0 -2px 2px black;
 }
 
 .focusedWindowTitle {
-  font-weight: bold;
-  text-shadow:
-    -1px 0 black,
-    0 1px black,
-    1px 0 black,
-    0 -1px black;
+  font-weight: 900;
 }
 
 .hyprlandLogo {
   color: #458588;
   font-size: 20px;
+}
+
+.hyprlandButton:not(:hover) {
   text-shadow:
-    -1px 0 black,
-    0 1px black,
-    1px 0 black,
-    0 -1px black;
+    -1px 0 1px black,
+    0 1px 1px black,
+    1px 0 1px black,
+    0 -1px 1px black,
+    -2px 0 2px black,
+    0 2px 2px black,
+    2px 0 2px black,
+    0 -2px 2px black;
+}
+
+.hyprlandButton:hover {
+  text-shadow:
+    -1px 0 1px black,
+    0 1px 1px black,
+    1px 0 1px black,
+    0 -1px 1px black,
+    -2px 0 2px #689d6a,
+    0 2px 2px #689d6a,
+    2px 0 2px #689d6a,
+    0 -2px 2px #689d6a;
 }
 
 .hyprlandButton {
   background-color: transparent;
-  /* background-color: #689d6a; */
+}
+
+.workspaceButton {
+  background-color: transparent;
+}
+
+.workspaceButton:hover {
+  background-color: rgba(40, 40, 40, 0.4);
+}
+
+.workspaceButtonFocused {
+  background-color: rgba(40, 40, 40, 0.4);
 }
