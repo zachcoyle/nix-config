@@ -1,6 +1,28 @@
 const audio = await Service.import("audio");
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
+// const systemtray = await Service.import("systemtray");
+
+const date = Variable("", {
+  poll: [1000, 'date "+%H:%M:%S %b %e."'],
+});
+
+// const SysTray = () => {
+//   const items = systemtray.bind("items").as((items) =>
+//     items.map((item) =>
+//       Widget.Button({
+//         child: Widget.Icon({ icon: item.bind("icon") }),
+//         on_primary_click: (_, event) => item.activate(event),
+//         on_secondary_click: (_, event) => item.openMenu(event),
+//         tooltip_markup: item.bind("tooltip_markup"),
+//       }),
+//     ),
+//   );
+//
+//   return Widget.Box({
+//     children: items,
+//   });
+// };
 
 const HyprlandButton = Widget.Button({
   className: "hyprlandButton",
@@ -19,6 +41,7 @@ const FocusedWindowIcon = Widget.Icon({
 
 const FocusedWindowTitle = Widget.Label({
   classNames: ["focusedWindowTitle", "shadow"],
+  truncate: "end",
   label: hyprland.active.client
     .bind("title")
     .as((title) => title.replace(" — Mozilla Firefox", "")),
@@ -60,20 +83,38 @@ const Workspaces = () => {
   });
 };
 
+const notificationCount = Variable(0, {
+  listen: [["swaync-client", "-swb", "-sw"], (out) => JSON.parse(out)],
+});
+
+const getNotificationLabel = ({ text, alt }) => {
+  if (alt === "dnd-none") {
+    return "";
+  }
+
+  switch (text) {
+    case "0":
+      return "";
+    default:
+      return "🔔";
+  }
+};
+
 const Notifications = Widget.Button({
   className: "",
-  child: Widget.Label({ label: "" }),
+  child: Widget.Label({
+    className: "shadow",
+    label: notificationCount.bind().as(getNotificationLabel),
+  }),
   onClicked: () => Utils.execAsync("swaync-client -t -sw"),
   onSecondaryClick: () => Utils.execAsync("swaync-client -d -sw"),
 });
 
-const BatteryProgress = Widget.CircularProgress({
-  child: Widget.Icon({
-    icon: battery.bind("icon_name"),
-  }),
-  visible: battery.bind("available"),
-  value: battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0)),
-  class_name: battery.bind("charging").as((ch) => (ch ? "charging" : "")),
+const CPU = Widget.CircularProgress({});
+
+const Date = Widget.Label({
+  className: "shadow",
+  label: date.bind(),
 });
 
 const Left = Widget.Box({
@@ -91,11 +132,13 @@ const Middle = Widget.Box({
   children: [Workspaces()],
 });
 
+// needs battery, time, cpu, weather, [wifi & bluetooth or tray]
+
 const Right = Widget.Box({
   className: "middle",
   spacing: 10,
   homogeneous: false,
-  children: [BatteryProgress, Notifications],
+  children: [Widget.Box({ hexpand: true }), Notifications],
 });
 
 const Bar = Widget.Window({

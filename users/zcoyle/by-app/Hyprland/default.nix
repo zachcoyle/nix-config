@@ -155,7 +155,8 @@
     ];
 
     layerrule = [
-      "blur, waybar"
+      # "blur, waybar"
+      "blur, ags"
       "blur, yofi"
       "blur, alacritty"
       "blur, wlogout"
@@ -173,7 +174,7 @@
     exec-once = [
       "copyq --start-server"
       "swww init"
-      "waybar"
+      # "waybar"
       # TODO:
       # "eww daemon"
       # "eww open topbar"
