@@ -220,6 +220,11 @@ in {
           key = "p";
           command = "yabai -m window --toggle sticky --toggle pip";
         }
+        {
+          mods = ["cmd"];
+          key = "return";
+          command = "alacritty";
+        }
       ]);
     };
 
@@ -335,11 +340,23 @@ in {
     };
   };
 
+  # INFO: This mitigates firefox balking about read-only ini
+  # https://github.com/nix-community/home-manager/issues/3323#issuecomment-1280055087
+  launchd.agents.FirefoxEnv = {
+    serviceConfig.ProgramArguments = [
+      "/bin/sh"
+      "-c"
+      "launchctl setenv MOZ_LEGACY_PROFILES 1; launchctl setenv MOZ_ALLOW_DOWNGRADE 1"
+    ];
+    serviceConfig.RunAtLoad = true;
+  };
+
   local.dock = {
     enable = true;
     entries = [
       {path = "/System/Applications/Utilities/Activity\ Monitor.app";}
       {path = "/Applications/Safari.app";}
+      {path = "${pkgs.firefox-bin}/Applications/Firefox.app";}
       {path = "/System/Applications/Messages.app";}
       {path = "/System/Applications/Mail.app";}
       {path = "/System/Applications/Freeform.app";}

@@ -157,14 +157,11 @@ in {
       '';
     };
 
-    firefox = {
-      enable = true;
-      package =
-        pkgs.wrapFirefox (
-          if pkgs.stdenv.isDarwin
-          then pkgs.firefox-bin
-          else pkgs.firefox-unwrapped
-        ) {
+    firefox = let
+      darwin-package = pkgs.firefox-bin;
+      linux-package =
+        pkgs.wrapFirefox pkgs.firefox-unwrapped
+        {
           extraPolicies = {
             DisableFirefoxStudies = true;
             DisablePocket = true;
@@ -181,6 +178,12 @@ in {
             };
           };
         };
+    in {
+      enable = true;
+      package =
+        if pkgs.stdenv.isDarwin
+        then darwin-package
+        else linux-package;
 
       profiles.zcoyle = {
         id = 0;
