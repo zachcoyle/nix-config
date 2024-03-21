@@ -3,10 +3,11 @@
 $gruvbox-bg: #282828;
 $gruvbox-aqua: #689d6a;
 $gruvbox-blue: #458588;
+$gruvbox-yellow: #d79921;
 $button-default-background: transparent;
 $bar-font: "Fira Sans";
 
-@mixin shadow($outline: black, $glow: black) {
+@mixin shadow($outline: $gruvbox-bg, $glow: $gruvbox-bg) {
   text-shadow:
     -1px 0 1px $outline,
     0 1px 1px $outline,
@@ -57,12 +58,13 @@ window {
 }
 
 .hyprlandButton:hover {
-  @include shadow($outline: $gruvbox-bg, $glow: $gruvbox-aqua);
+  @include shadow($glow: $gruvbox-aqua);
 }
 
 .workspaceButton {
   background-color: transparent;
   @include shadow;
+  @include poster;
 }
 
 .workspaceButton:hover {
@@ -71,6 +73,15 @@ window {
 
 .workspaceButtonFocused {
   @include active;
-  text-decoration: underline;
+  text-decoration-line: underline;
   @include shadow;
+}
+
+.notificationLabel {
+  @include shadow;
+  @include icon;
+}
+
+.notificationButton {
+  background-color: transparent;
 }

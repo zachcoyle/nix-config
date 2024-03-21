@@ -33,14 +33,14 @@ const HyprlandButton = Widget.Button({
   onClicked: () => Utils.execAsync("wlogout"),
 });
 
-const FocusedWindowIcon = Widget.Icon({
-  className: "focusedWindowIcon",
+const ActiveClientIcon = Widget.Icon({
+  className: "activeClientIcon",
   icon: hyprland.active.client.bind("class"),
   size: 24,
 });
 
-const FocusedWindowTitle = Widget.Label({
-  classNames: ["focusedWindowTitle", "shadow"],
+const ActiveClientTitle = Widget.Label({
+  classNames: ["activeClientTitle", "shadow"],
   truncate: "end",
   label: hyprland.active.client
     .bind("title")
@@ -48,12 +48,12 @@ const FocusedWindowTitle = Widget.Label({
   visible: hyprland.active.client.bind("address").as((addr) => !!addr),
 });
 
-const FocusedWindowInfo = Widget.Box({
-  className: "focusedWindowInfo",
+const ActiveClientInfo = Widget.Box({
+  className: "activeClientInfo",
   spacing: 10,
   homogeneous: false,
   vertical: false,
-  children: [FocusedWindowIcon, FocusedWindowTitle],
+  children: [ActiveClientIcon, ActiveClientTitle],
 });
 
 const Workspaces = () => {
@@ -101,9 +101,9 @@ const getNotificationLabel = ({ text, alt }) => {
 };
 
 const Notifications = Widget.Button({
-  className: "",
+  className: "notificationButton",
   child: Widget.Label({
-    className: "shadow",
+    className: "notificationLabel",
     label: notificationCount.bind().as(getNotificationLabel),
   }),
   onClicked: () => Utils.execAsync("swaync-client -t -sw"),
@@ -122,7 +122,7 @@ const Left = Widget.Box({
   spacing: 10,
   homogeneous: false,
   vertical: false,
-  children: [HyprlandButton, FocusedWindowInfo],
+  children: [HyprlandButton, ActiveClientInfo],
 });
 
 const Middle = Widget.Box({

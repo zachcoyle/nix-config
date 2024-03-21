@@ -7,20 +7,12 @@ window {
   padding-right: 8px;
 }
 
-.shadow {
-  text-shadow:
-    -1px 0 1px black,
-    0 1px 1px black,
-    1px 0 1px black,
-    0 -1px 1px black,
-    -2px 0 2px black,
-    0 2px 2px black,
-    2px 0 2px black,
-    0 -2px 2px black;
+.activeClientTitle {
+  font-weight: 900;
 }
 
-.focusedWindowTitle {
-  font-weight: 900;
+.hyprlandButton {
+  background-color: transparent;
 }
 
 .hyprlandLogo {
@@ -29,44 +21,17 @@ window {
 }
 
 .hyprlandButton:not(:hover) {
-  text-shadow:
-    -1px 0 1px black,
-    0 1px 1px black,
-    1px 0 1px black,
-    0 -1px 1px black,
-    -2px 0 2px black,
-    0 2px 2px black,
-    2px 0 2px black,
-    0 -2px 2px black;
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
 }
 
 .hyprlandButton:hover {
-  text-shadow:
-    -1px 0 1px black,
-    0 1px 1px black,
-    1px 0 1px black,
-    0 -1px 1px black,
-    -2px 0 2px #689d6a,
-    0 2px 2px #689d6a,
-    2px 0 2px #689d6a,
-    0 -2px 2px #689d6a;
-}
-
-.hyprlandButton {
-  background-color: transparent;
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #689d6a, 0 2px 2px #689d6a, 2px 0 2px #689d6a, 0 -2px 2px #689d6a;
 }
 
 .workspaceButton {
   background-color: transparent;
-  text-shadow:
-    -1px 0 1px black,
-    0 1px 1px black,
-    1px 0 1px black,
-    0 -1px 1px black,
-    -2px 0 2px black,
-    0 2px 2px black,
-    2px 0 2px black,
-    0 -2px 2px black;
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
 }
 
 .workspaceButton:hover {
@@ -75,14 +40,15 @@ window {
 
 .workspaceButtonFocused {
   background-color: rgba(40, 40, 40, 0.4);
-  text-decoration: underline;
-  text-shadow:
-    -1px 0 1px black,
-    0 1px 1px black,
-    1px 0 1px black,
-    0 -1px 1px black,
-    -2px 0 2px black,
-    0 2px 2px black,
-    2px 0 2px black,
-    0 -2px 2px black;
+  text-decoration-line: underline;
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+}
+
+.notificationLabel {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-size: 20px;
+}
+
+.notificationButton {
+  background-color: transparent;
 }
