@@ -277,6 +277,16 @@
       integrations.diffview = true;
     };
   };
+  neotest = {
+    enable = true;
+    adapters = {
+      bash.enable = true;
+      jest.enable = true;
+      python.enable = true;
+      rust.enable = true;
+      zig.enable = true;
+    };
+  };
   noice = {
     enable = true;
     notify.enabled = false;
