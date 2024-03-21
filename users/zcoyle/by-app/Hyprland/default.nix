@@ -174,7 +174,7 @@
     exec-once = [
       "copyq --start-server"
       "swww init"
-      # "waybar"
+      "ags"
       # TODO:
       # "eww daemon"
       # "eww open topbar"
