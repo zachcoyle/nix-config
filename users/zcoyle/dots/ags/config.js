@@ -4,7 +4,7 @@ const battery = await Service.import("battery");
 // const systemtray = await Service.import("systemtray");
 
 const date = Variable("", {
-  poll: [1000, 'date "+%H:%M:%S %b %e."'],
+  poll: [1000, 'date "+%I:%M %a %b %e"'],
 });
 
 // const SysTray = () => {
@@ -40,7 +40,7 @@ const ActiveClientIcon = Widget.Icon({
 });
 
 const ActiveClientTitle = Widget.Label({
-  classNames: ["activeClientTitle", "shadow"],
+  className: "activeClientTitle",
   truncate: "end",
   label: hyprland.active.client
     .bind("title")
@@ -64,10 +64,13 @@ const Workspaces = () => {
       .map(({ id }) =>
         Widget.Button({
           on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-          child: Widget.Label(`${id}`),
-          class_name: activeId.as((i) =>
-            i === id ? "workspaceButtonFocused" : "workspaceButton",
-          ),
+          child: Widget.Label({
+            className: activeId.as((i) =>
+              i === id ? "workspaceLabelFocused" : "workspaceLabel",
+            ),
+            label: `${id}`,
+          }),
+          className: "workspaceButton",
         }),
       ),
   );
@@ -112,8 +115,28 @@ const Notifications = Widget.Button({
 
 const CPU = Widget.CircularProgress({});
 
+function BatteryLabel() {
+  const value = battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0));
+  const icon = battery
+    .bind("percent")
+    .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
+
+  return Widget.Box({
+    class_name: "battery",
+    visible: battery.bind("available"),
+    children: [
+      Widget.Icon({ icon }),
+      Widget.LevelBar({
+        widthRequest: 140,
+        vpack: "center",
+        value,
+      }),
+    ],
+  });
+}
+
 const Date = Widget.Label({
-  className: "shadow",
+  className: "date",
   label: date.bind(),
 });
 
@@ -132,13 +155,18 @@ const Middle = Widget.Box({
   children: [Workspaces()],
 });
 
-// needs battery, time, cpu, weather, [wifi & bluetooth or tray]
+// needs battery, cpu, weather, [wifi & bluetooth or tray]
 
 const Right = Widget.Box({
   className: "middle",
   spacing: 10,
   homogeneous: false,
-  children: [Widget.Box({ hexpand: true }), Notifications],
+  children: [
+    Widget.Box({ hexpand: true }),
+    Date,
+    BatteryLabel(),
+    Notifications,
+  ],
 });
 
 const Bar = Widget.Window({

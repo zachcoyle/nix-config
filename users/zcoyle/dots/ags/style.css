@@ -9,6 +9,15 @@ window {
 
 .activeClientTitle {
   font-weight: 900;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
 }
 
 .hyprlandButton {
@@ -21,34 +30,100 @@ window {
 }
 
 .hyprlandButton:not(:hover) {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
 }
 
 .hyprlandButton:hover {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #689d6a, 0 2px 2px #689d6a, 2px 0 2px #689d6a, 0 -2px 2px #689d6a;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #689d6a,
+    0 2px 2px #689d6a,
+    2px 0 2px #689d6a,
+    0 -2px 2px #689d6a;
 }
 
 .workspaceButton {
   background-color: transparent;
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+}
+
+.workspaceLabel {
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
-.workspaceButton:hover {
-  background-color: rgba(40, 40, 40, 0.4);
+.workspaceLabel:hover {
+  font-style: italic;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #665c54,
+    0 2px 2px #665c54,
+    2px 0 2px #665c54,
+    0 -2px 2px #665c54;
 }
 
-.workspaceButtonFocused {
-  background-color: rgba(40, 40, 40, 0.4);
-  text-decoration-line: underline;
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+.workspaceLabelFocused {
+  font-style: italic;
+  font-weight: 900;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #665c54,
+    0 2px 2px #665c54,
+    2px 0 2px #665c54,
+    0 -2px 2px #665c54;
 }
 
 .notificationLabel {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-size: 20px;
+  color: #d79921;
 }
 
 .notificationButton {
   background-color: transparent;
+}
+
+.date {
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
+  font-weight: 900;
 }

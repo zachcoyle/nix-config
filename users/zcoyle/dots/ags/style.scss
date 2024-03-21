@@ -1,6 +1,7 @@
 @use "sass:color";
 
 $gruvbox-bg: #282828;
+$gruvbox-bg3: #665c54;
 $gruvbox-aqua: #689d6a;
 $gruvbox-blue: #458588;
 $gruvbox-yellow: #d79921;
@@ -31,6 +32,11 @@ $bar-font: "Fira Sans";
   background-color: color.adjust($gruvbox-bg, $alpha: -0.6);
 }
 
+@mixin underline() {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
 window {
   background-color: transparent;
   font-family: $bar-font;
@@ -42,6 +48,7 @@ window {
 
 .activeClientTitle {
   @include poster;
+  @include shadow;
 }
 
 .hyprlandButton {
@@ -63,25 +70,35 @@ window {
 
 .workspaceButton {
   background-color: transparent;
+}
+
+.workspaceLabel {
   @include shadow;
   @include poster;
 }
 
-.workspaceButton:hover {
-  @include active;
+.workspaceLabel:hover {
+  font-style: italic;
+  @include shadow($glow: $gruvbox-bg3);
 }
 
-.workspaceButtonFocused {
-  @include active;
-  text-decoration-line: underline;
-  @include shadow;
+.workspaceLabelFocused {
+  font-style: italic;
+  @include poster;
+  @include shadow($glow: $gruvbox-bg3);
 }
 
 .notificationLabel {
   @include shadow;
   @include icon;
+  color: $gruvbox-yellow;
 }
 
 .notificationButton {
   background-color: transparent;
+}
+
+.date {
+  @include shadow;
+  @include poster;
 }

@@ -337,6 +337,7 @@
             ${config.pre-commit.installationScript}
           '';
           packages = with pkgs; [
+            dart-sass
             just
             deadnix
             alejandra
