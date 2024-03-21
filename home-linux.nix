@@ -121,6 +121,7 @@ in {
       snapshot
       swaynotificationcenter
       swww
+      udiskie
       ueberzugpp
       ulauncher
       unzip

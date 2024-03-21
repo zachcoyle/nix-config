@@ -175,15 +175,13 @@
       "copyq --start-server"
       "swww init"
       "ags"
-      # TODO:
-      # "eww daemon"
-      # "eww open topbar"
       "libinput-gestures"
       "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
       # INFO: https://github.com/NixOS/nixpkgs/issues/189851
       "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
       "nm-applet"
       "swaync"
+      "udiskie -a -n"
     ];
 
     env = [
