@@ -5,6 +5,8 @@ $gruvbox-bg3: #665c54;
 $gruvbox-aqua: #689d6a;
 $gruvbox-blue: #458588;
 $gruvbox-yellow: #d79921;
+$gruvbox-green: #98971a;
+$gruvbox-red: #cc241d;
 $button-default-background: transparent;
 $bar-font: "Fira Sans";
 
@@ -104,6 +106,39 @@ window {
 }
 
 .date {
+  @include shadow;
+  @include poster;
+}
+
+.batteryIconLabel {
+  @include shadow;
+  @include poster;
+}
+
+.batteryPercentabeLabel {
+  @include shadow;
+  @include poster;
+}
+
+.batteryHigh {
+  color: $gruvbox-green;
+}
+
+.batteryMedium {
+  color: $gruvbox-yellow;
+}
+
+.batteryLow {
+  color: $gruvbox-red;
+}
+
+.batteryChargingLabel {
+  color: $gruvbox-yellow;
+  @include shadow;
+  @include poster;
+}
+
+.batteryPercentageLabel {
   @include shadow;
   @include poster;
 }

@@ -115,28 +115,52 @@ const Notifications = Widget.Button({
 
 const CPU = Widget.CircularProgress({});
 
+const getBatteryLabel = (percentage) => {
+  return `${Math.round(percentage)}%`;
+};
+
+const getBatteryClassName = (charging) => {
+  return "";
+};
+
+const getBatteryIcon = (percentage) => {
+  if (percentage > 95) {
+    return " "; // green
+  }
+  if (percentage > 75) {
+    return " "; // green
+  }
+  if (percentage > 45) {
+    return " "; // yellow
+  }
+  if (percentage > 25) {
+    return " "; // red
+  }
+  return " "; // red
+};
+
 function BatteryLabel() {
-  const value = battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0));
-  const icon = battery
-    .bind("percent")
-    .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
+  const label = battery.bind("percent").as(getBatteryLabel);
+  const icon = battery.bind("percent").as(getBatteryIcon);
+  const className = battery.bind("percent").as(getBatteryClassName);
+  const isCharging = battery.bind("charging").as((isCharging) => isCharging);
 
   return Widget.Box({
+    spacing: 4,
+    className: className,
     children: [
       Widget.Label({
-        label: `🔋${battery.bind("percent")}`,
+        className: "batteryChargingLabel",
+        label: "󱐋",
+        visible: isCharging,
       }),
-    ],
-  });
-  return Widget.Box({
-    class_name: "battery",
-    visible: battery.bind("available"),
-    children: [
-      Widget.Icon({ icon }),
-      Widget.LevelBar({
-        widthRequest: 140,
-        vpack: "center",
-        value,
+      Widget.Label({
+        className: "batteryIconLabel",
+        label: icon,
+      }),
+      Widget.Label({
+        className: "batteryPercentageLabel",
+        label: label,
       }),
     ],
   });

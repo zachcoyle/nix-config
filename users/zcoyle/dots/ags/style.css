@@ -68,3 +68,36 @@ window {
   text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
   font-weight: 900;
 }
+
+.batteryIconLabel {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+}
+
+.batteryPercentabeLabel {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+}
+
+.batteryHigh {
+  color: #98971a;
+}
+
+.batteryMedium {
+  color: #d79921;
+}
+
+.batteryLow {
+  color: #cc241d;
+}
+
+.batteryChargingLabel {
+  color: #d79921;
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+}
+
+.batteryPercentageLabel {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+}

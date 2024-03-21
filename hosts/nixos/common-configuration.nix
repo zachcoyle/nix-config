@@ -184,6 +184,8 @@
       enable = false;
       acceleration = "rocm";
     };
+
+    upower.enable = true;
   };
 
   stylix =
