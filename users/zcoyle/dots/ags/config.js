@@ -122,6 +122,13 @@ function BatteryLabel() {
     .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
 
   return Widget.Box({
+    children: [
+      Widget.Label({
+        label: `🔋${battery.bind("percent")}`,
+      }),
+    ],
+  });
+  return Widget.Box({
     class_name: "battery",
     visible: battery.bind("available"),
     children: [

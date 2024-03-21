@@ -72,6 +72,11 @@ window {
   background-color: transparent;
 }
 
+.workspaceButton:hover {
+  font-style: italic;
+  @include shadow($glow: $gruvbox-bg3);
+}
+
 .workspaceLabel {
   @include shadow;
   @include poster;
