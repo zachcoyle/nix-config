@@ -100,6 +100,7 @@ in {
       grim
       hyprshade
       imagemagick
+      imv
       inkscape
       kdenlive
       kickoff
@@ -123,7 +124,6 @@ in {
       ueberzugpp
       ulauncher
       unzip
-      vimiv-qt
       vlc
       waypipe
       wdisplays
