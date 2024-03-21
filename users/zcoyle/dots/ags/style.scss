@@ -1,0 +1,76 @@
+@use "sass:color";
+
+$gruvbox-bg: #282828;
+$gruvbox-aqua: #689d6a;
+$gruvbox-blue: #458588;
+$button-default-background: transparent;
+$bar-font: "Fira Sans";
+
+@mixin shadow($outline: black, $glow: black) {
+  text-shadow:
+    -1px 0 1px $outline,
+    0 1px 1px $outline,
+    1px 0 1px $outline,
+    0 -1px 1px $outline,
+    -2px 0 2px $glow,
+    0 2px 2px $glow,
+    2px 0 2px $glow,
+    0 -2px 2px $glow;
+}
+
+@mixin icon() {
+  font-size: 20px;
+}
+
+@mixin poster() {
+  font-weight: 900;
+}
+
+@mixin active() {
+  background-color: color.adjust($gruvbox-bg, $alpha: -0.6);
+}
+
+window {
+  background-color: transparent;
+  font-family: $bar-font;
+  font-size: 14px;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.activeClientTitle {
+  @include poster;
+}
+
+.hyprlandButton {
+  background-color: $button-default-background;
+}
+
+.hyprlandLogo {
+  color: $gruvbox-blue;
+  @include icon;
+}
+
+.hyprlandButton:not(:hover) {
+  @include shadow;
+}
+
+.hyprlandButton:hover {
+  @include shadow($outline: $gruvbox-bg, $glow: $gruvbox-aqua);
+}
+
+.workspaceButton {
+  background-color: transparent;
+  @include shadow;
+}
+
+.workspaceButton:hover {
+  @include active;
+}
+
+.workspaceButtonFocused {
+  @include active;
+  text-decoration: underline;
+  @include shadow;
+}

@@ -55,9 +55,17 @@ in {
     portal = {
       enable = true;
       config = {
-        # TODO:
+        # INFO:
         # portals.conf(5)
-        XDG_CURRENT_DESKTOP = "Hyprland";
+        Hyprland = {
+          default = [
+            "Hyprland"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.Secret" = [
+            "gnome-keyring"
+          ];
+        };
       };
       xdgOpenUsePortal = true;
       extraPortals = [
@@ -85,6 +93,7 @@ in {
       freecad
       gnome-tecla
       gnome.gnome-calculator
+      gnome.gnome-keyring
       gnome.gnome-system-monitor
       gnome.nautilus
       godot3
