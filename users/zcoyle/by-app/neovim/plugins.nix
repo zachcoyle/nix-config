@@ -25,6 +25,7 @@
   comment-nvim.enable = true;
   conform-nvim = {
     enable = true;
+    extraOptions = {timeout_ms = 1000;};
     formatOnSave = {};
     formattersByFt = {
       "*" = ["codespell" "injected"];

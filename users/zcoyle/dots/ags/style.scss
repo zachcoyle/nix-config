@@ -143,3 +143,25 @@ window {
   @include shadow;
   @include poster;
 }
+
+.cpuIcon {
+  @include shadow;
+  @include poster;
+  @include icon;
+}
+
+.cpu {
+  @include shadow;
+  @include poster;
+}
+
+.ramIcon {
+  @include shadow;
+  @include poster;
+  @include icon;
+}
+
+.ram {
+  @include shadow;
+  @include poster;
+}

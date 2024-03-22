@@ -7,6 +7,75 @@ const date = Variable("", {
   poll: [1000, 'date "+%I:%M %a %b %e"'],
 });
 
+const divide = ([total, free]) => free / total;
+
+const cpu = Variable(0, {
+  poll: [
+    2000,
+    "top -b -n 1",
+    (out) =>
+      divide([
+        100,
+        out
+          .split("\n")
+          .find((line) => line.includes("Cpu(s)"))
+          .split(/\s+/)[1]
+          .replace(",", "."),
+      ]),
+  ],
+});
+
+const ram = Variable(0, {
+  poll: [
+    2000,
+    "free",
+    (out) =>
+      divide(
+        out
+          .split("\n")
+          .find((line) => line.includes("Mem:"))
+          .split(/\s+/)
+          .splice(1, 2),
+      ),
+  ],
+});
+
+const CPUStats = Widget.Box({
+  spacing: 0,
+  children: [
+    Widget.Label({
+      className: "cpuIcon",
+      label: "󰻠 ",
+    }),
+    Widget.Label({
+      className: "cpu",
+      label: cpu.bind().as((x) => Math.round(x).toString()),
+    }),
+    Widget.Label({
+      className: "cpu",
+      label: "%",
+    }),
+  ],
+});
+
+const RAMStats = Widget.Box({
+  spacing: 0,
+  children: [
+    Widget.Label({
+      className: "ramIcon",
+      label: "󰍛 ",
+    }),
+    Widget.Label({
+      className: "ram",
+      label: ram.bind().as((x) => Math.round(x).toString()),
+    }),
+    Widget.Label({
+      className: "ram",
+      label: "%",
+    }),
+  ],
+});
+
 // const SysTray = () => {
 //   const items = systemtray.bind("items").as((items) =>
 //     items.map((item) =>
@@ -113,41 +182,33 @@ const Notifications = Widget.Button({
   onSecondaryClick: () => Utils.execAsync("swaync-client -d -sw"),
 });
 
-const CPU = Widget.CircularProgress({});
-
 const getBatteryLabel = (percentage) => {
   return `${Math.round(percentage)}%`;
 };
 
-const getBatteryClassName = (charging) => {
-  return "";
-};
-
 const getBatteryIcon = (percentage) => {
   if (percentage > 95) {
-    return " "; // green
+    return " ";
   }
   if (percentage > 75) {
-    return " "; // green
+    return " ";
   }
   if (percentage > 45) {
-    return " "; // yellow
+    return " ";
   }
   if (percentage > 25) {
-    return " "; // red
+    return " ";
   }
-  return " "; // red
+  return " ";
 };
 
 function BatteryLabel() {
   const label = battery.bind("percent").as(getBatteryLabel);
   const icon = battery.bind("percent").as(getBatteryIcon);
-  const className = battery.bind("percent").as(getBatteryClassName);
   const isCharging = battery.bind("charging").as((isCharging) => isCharging);
 
   return Widget.Box({
     spacing: 4,
-    className: className,
     children: [
       Widget.Label({
         className: "batteryChargingLabel",
@@ -186,7 +247,7 @@ const Middle = Widget.Box({
   children: [Workspaces()],
 });
 
-// needs battery, cpu, weather, [wifi & bluetooth or tray]
+// needs weather, [wifi & bluetooth or tray]
 
 const Right = Widget.Box({
   className: "middle",
@@ -194,8 +255,10 @@ const Right = Widget.Box({
   homogeneous: false,
   children: [
     Widget.Box({ hexpand: true }),
-    Date,
+    CPUStats,
+    RAMStats,
     BatteryLabel(),
+    Date,
     Notifications,
   ],
 });
