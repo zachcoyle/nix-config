@@ -14,14 +14,11 @@ const cpu = Variable(0, {
     2000,
     "top -b -n 1",
     (out) =>
-      divide([
-        100,
-        out
-          .split("\n")
-          .find((line) => line.includes("Cpu(s)"))
-          .split(/\s+/)[1]
-          .replace(",", "."),
-      ]),
+      out
+        .split("\n")
+        .find((line) => line.includes("Cpu(s)"))
+        .split(/\s+/)[1]
+        .replace(",", "."),
   ],
 });
 
@@ -67,7 +64,7 @@ const RAMStats = Widget.Box({
     }),
     Widget.Label({
       className: "ram",
-      label: ram.bind().as((x) => Math.round(x).toString()),
+      label: ram.bind().as((x) => Math.round(x * 100).toString()),
     }),
     Widget.Label({
       className: "ram",
