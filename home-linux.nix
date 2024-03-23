@@ -116,6 +116,7 @@ in {
       parted
       pavucontrol
       playerctl
+      pyprland
       showmethekey
       slurp
       snapshot
@@ -138,6 +139,17 @@ in {
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/yofi/blacklist".text = ''
       '';
+      ".config/hypr/pyprland.toml".source = tomlFormat.generate "pyprland.toml" {
+        pyprland = {
+          plugins = [
+            "expose"
+            "magnify"
+          ];
+        };
+        expose = {
+          include_special = false;
+        };
+      };
       ".config/yofi/yofi.config".source = tomlFormat.generate "yofi.config" {
         width = 400;
         height = 512;

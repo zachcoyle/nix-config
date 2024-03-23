@@ -181,7 +181,7 @@
     openssh.enable = true;
 
     ollama = {
-      enable = false;
+      enable = true;
       acceleration = "rocm";
     };
 
