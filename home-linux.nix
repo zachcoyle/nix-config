@@ -87,7 +87,6 @@ in {
       calibre
       cider
       copyq
-      cosmic-files
       cura
       foliate
       freecad
