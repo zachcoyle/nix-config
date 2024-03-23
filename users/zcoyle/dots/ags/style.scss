@@ -165,9 +165,3 @@ window {
   @include shadow;
   @include poster;
 }
-
-.percent {
-  @include shadow;
-  @include poster;
-  z-index: -1;
-}

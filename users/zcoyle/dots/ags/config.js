@@ -38,37 +38,29 @@ const ram = Variable(0, {
 });
 
 const CPUStats = Widget.Box({
-  spacing: 0,
+  spacing: 2,
   children: [
     Widget.Label({
       className: "cpuIcon",
-      label: "󰻠 ",
+      label: "󰻠",
     }),
     Widget.Label({
       className: "cpu",
-      label: cpu.bind().as((x) => Math.round(x).toString()),
-    }),
-    Widget.Label({
-      className: "cpu",
-      label: "%",
+      label: cpu.bind().as((x) => Math.round(x).toString() + "%"),
     }),
   ],
 });
 
 const RAMStats = Widget.Box({
-  spacing: 0,
+  spacing: 2,
   children: [
     Widget.Label({
       className: "ramIcon",
-      label: "󰍛 ",
+      label: "󰍛",
     }),
     Widget.Label({
       className: "ram",
-      label: ram.bind().as((x) => Math.round(x * 100).toString()),
-    }),
-    Widget.Label({
-      className: "ram",
-      label: "%",
+      label: ram.bind().as((x) => Math.round(x * 100).toString() + "%"),
     }),
   ],
 });
