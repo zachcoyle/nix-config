@@ -38,7 +38,7 @@ const ram = Variable(0, {
 });
 
 const CPUStats = Widget.Box({
-  spacing: 2,
+  spacing: 4,
   children: [
     Widget.Label({
       className: "cpuIcon",
@@ -52,7 +52,7 @@ const CPUStats = Widget.Box({
 });
 
 const RAMStats = Widget.Box({
-  spacing: 2,
+  spacing: 4,
   children: [
     Widget.Label({
       className: "ramIcon",
