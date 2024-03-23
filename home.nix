@@ -412,6 +412,7 @@ in {
       };
 
       sessionVariables = {
+        TERMINAL = "alacritty";
         BROWSER = "firefox";
         EDITOR = "nvim";
         GITGET_ROOT = "~/Developer";

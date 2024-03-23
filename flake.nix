@@ -218,6 +218,11 @@
         gitignore.follows = "gitignore";
       };
     };
+
+    sbarlua = {
+      url = "github:FelixKratz/SbarLua";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {self, ...}:

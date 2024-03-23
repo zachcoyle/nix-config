@@ -1191,6 +1191,7 @@
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks": "pre-commit-hooks",
         "pyprland": "pyprland",
+        "sbarlua": "sbarlua",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sg-nvim": "sg-nvim",
         "stylix": "stylix",
@@ -1235,6 +1236,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sbarlua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709104673,
+        "narHash": "sha256-C2tg1mypz/CdUmRJ4vloPckYfZrwHxc4v8hsEow4RZs=",
+        "owner": "FelixKratz",
+        "repo": "SbarLua",
+        "rev": "29395b1928835efa1b376d438216fbf39e0d0f83",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "SbarLua",
         "type": "github"
       }
     },

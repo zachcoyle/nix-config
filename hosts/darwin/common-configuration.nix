@@ -44,7 +44,6 @@ in {
 
   services = {
     nix-daemon.enable = true;
-
     skhd = {
       enable = true;
       # TODO: make these consistent with hyprland
@@ -246,7 +245,7 @@ in {
         mouse_follows_focus = "on";
         normal_window_opacity = 0.8;
         right_padding = 10;
-        top_padding = 10;
+        top_padding = 42;
         window_animation_duration = 0.1;
         window_animation_easing = "ease_out_circ";
         window_gap = 10;
