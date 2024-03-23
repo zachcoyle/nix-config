@@ -61,7 +61,7 @@ in {
       nix-output-monitor
       nix-top
       opentofu
-      oterm
+      # oterm
       pijul
       podman
       podman-compose
