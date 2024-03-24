@@ -335,12 +335,15 @@ in {
 
     nixvim = import ./users/zcoyle/by-app/neovim {inherit pkgs config;};
 
-    starship = {
+    starship = let
+      nerdfontPreset = pkgs.runCommand "nerdfont.toml" {} ''
+        mkdir $out
+        ${pkgs.starship}/bin/starship preset nerd-font-symbols -o $out/nerdfont.toml
+      '';
+    in {
       enable = true;
       enableZshIntegration = true;
-      # NOTE: the starship.toml was generated with `starship preset nerd-font-symbols -o ./starship.toml`
-      # that ought to be a derivation so that it auto updates
-      settings = {} // (builtins.fromTOML (builtins.readFile ./users/zcoyle/dots/starship.toml));
+      settings = {} // (builtins.fromTOML (builtins.readFile "${nerdfontPreset}/nerdfont.toml"));
     };
 
     tmux = {
