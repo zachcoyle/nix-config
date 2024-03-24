@@ -65,6 +65,9 @@ in {
           "org.freedesktop.impl.portal.Secret" = [
             "gnome-keyring"
           ];
+          "org.freedesktop.portal.OpenURI.OpenDirectory" = [
+            "nautilus"
+          ];
         };
       };
       xdgOpenUsePortal = true;
