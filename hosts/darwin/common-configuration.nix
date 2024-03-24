@@ -44,7 +44,6 @@ in {
 
   services = {
     nix-daemon.enable = true;
-    # sketchybar = import ./sketchybar.nix {inherit pkgs;};
 
     skhd = {
       enable = true;
