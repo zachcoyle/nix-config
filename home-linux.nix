@@ -44,12 +44,14 @@ in {
     mime.enable = true;
     mimeApps = {
       enable = true;
-      associations.added = {
-        # "mimetype1" = ["foo1.desktop" "foo2.desktop" "foo3.desktop"];
-        # "mimetype2" = "foo4.desktop";
+      associations = {
+        added = {};
+        removed = {
+          "inode/directory" = ["codium.desktop"];
+        };
       };
       defaultApplications = {
-        # "mimetype1" = ["default1.desktop" "default2.desktop"];
+        "inode/directory" = "nautilus.desktop";
       };
     };
     portal = {
@@ -64,9 +66,6 @@ in {
           ];
           "org.freedesktop.impl.portal.Secret" = [
             "gnome-keyring"
-          ];
-          "org.freedesktop.portal.OpenURI.OpenDirectory" = [
-            "nautilus"
           ];
         };
       };
