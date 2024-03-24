@@ -76,6 +76,7 @@ in {
       recode
       ripgrep
       scc
+      sketchybar
       sqlite
       sqlitebrowser
       sshfs
@@ -112,6 +113,44 @@ in {
           )
 
           borders "''${options[@]}"
+        '';
+
+        ".config/sketchybar/sketchybarrc".executable = true;
+        ".config/sketchybar/sketchybarrc".text = ''
+          #!${pkgs.lua5_4}/bin/lua
+
+          package.cpath = package.cpath .. ";${pkgs.sbarlua}/?.so"
+          sbar = require("sketchybar")
+          sbar.begin_config()
+
+          sbar.bar({
+            topmost = "window",
+            height = 40,
+            color = 0xFF00FF00,
+            padding_right = 2,
+            padding_left = 2,
+          })
+
+          sbar.add("item", {
+            icon = {
+              font = { size = 16.0 },
+              string = "";
+              padding_right = 8,
+              padding_left = 8,
+            },
+            label = { drawing = false },
+            background = {
+              color = 0xFF00FF00,
+              border_color = 0x00000000,
+              border_width = 1
+            },
+            padding_left = 1,
+            padding_right = 1,
+            click_script = "say hello",
+          })
+
+          sbar.hotload(true)
+          sbar.event_loop()
         '';
       }
       else {

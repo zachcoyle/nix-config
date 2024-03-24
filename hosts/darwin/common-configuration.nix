@@ -254,6 +254,7 @@ in {
       };
       extraConfig = ''
         borders&
+        sketchybar&
       '';
     };
   };

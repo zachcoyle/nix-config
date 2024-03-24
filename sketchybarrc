@@ -1,0 +1,52 @@
+#!/nix/store/gi8acxv619p85h4s2s8yl874hj66k8ig-lua-5.4.6/bin/lua
+
+package.cpath = package.cpath .. ";/nix/store/61sdvzb8zqylx9f3qsj4b65rlymxvz4z-sbarlua-unstable/?.so"
+sbar = require("sketchybar")
+sbar.begin_config()
+
+sbar.bar({
+  topmost = "window",
+  height = 80,
+  color = 0xFF00FF00,
+  padding_right = 2,
+  padding_left = 2,
+})
+
+sbar.add("item", {
+  icon = {
+    font = { size = 16.0 },
+    string = "",
+    padding_right = 8,
+    padding_left = 8,
+  },
+  label = { drawing = false },
+  background = {
+    color = 0xFF00FF00,
+    border_color = 0x00000000,
+    border_width = 1,
+  },
+  padding_left = 1,
+  padding_right = 1,
+  click_script = "say hello",
+})
+
+sbar.add("item", {
+  icon = {
+    font = { size = 16.0 },
+    string = "",
+    padding_right = 8,
+    padding_left = 8,
+  },
+  label = { drawing = false },
+  background = {
+    color = 0xFF00FF00,
+    border_color = 0x00000000,
+    border_width = 1,
+  },
+  padding_left = 1,
+  padding_right = 1,
+  click_script = "say hello",
+})
+
+sbar.hotload(true)
+sbar.event_loop()
