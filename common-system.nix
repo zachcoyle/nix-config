@@ -5,6 +5,7 @@
     noto-fonts
     ezra-sil
     galatia-sil
+    nerdfonts
   ];
 in {
   environment.systemPackages = with pkgs; [
