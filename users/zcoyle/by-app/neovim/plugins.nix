@@ -22,7 +22,7 @@
       show_prediction_strength = true;
     };
   };
-  comment-nvim.enable = true;
+  comment.enable = true;
   conform-nvim = {
     enable = true;
     extraOptions = {timeout_ms = 1000;};
