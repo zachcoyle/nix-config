@@ -1,0 +1,40 @@
+window {
+  background-color: rgba(40, 40, 40, 0.4);
+}
+
+button {
+  background-color: transparent;
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+}
+
+button:not(:hover) {
+  font-size: 92px;
+}
+
+button:hover {
+  font-size: 144px;
+}
+
+#lock {
+  color: #d79921;
+}
+
+#logout {
+  color: #689d6a;
+}
+
+#suspend {
+  color: #b16286;
+}
+
+#hibernate {
+  color: #458588;
+}
+
+#shutdown {
+  color: #cc241d;
+}
+
+#reboot {
+  color: #98971a;
+}

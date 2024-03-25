@@ -250,45 +250,46 @@ in {
     waybar = import ./users/zcoyle/by-app/waybar.nix {inherit pkgs config;};
 
     wlogout = {
-      # TODO: Styling
       enable = true;
+      style = ./users/zcoyle/dots/wlogout.css;
       layout = [
         {
           label = "lock";
           action = "hyprlock";
-          text = "Lock";
+          text = "󰌾";
+          # text = "Lock";
           keybind = "l";
         }
         {
           label = "logout";
           action = "hyprctl dispatch exit";
-          text = "Logout";
+          text = "󰍃";
           keybind = "o";
         }
         {
           # TODO: command and binding
           label = "suspend";
-          action = "";
-          text = "Suspend";
-          keybind = "";
+          # action = "";
+          text = "󰏤";
+          # keybind = "";
         }
         {
           # TODO: command and binding
           label = "hibernate";
-          action = "";
-          text = "Hibernate";
-          keybind = "";
+          # action = "";
+          text = "";
+          # keybind = "";
         }
         {
           label = "shutdown";
           action = "systemctl poweroff";
-          text = "Shutdown";
+          text = "";
           keybind = "s";
         }
         {
           label = "reboot";
           action = "systemctl reboot";
-          text = "Reboot";
+          text = "";
           keybind = "r";
         }
       ];
