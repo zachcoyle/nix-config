@@ -1,0 +1,7 @@
+#!/nix/store/gi8acxv619p85h4s2s8yl874hj66k8ig-lua-5.4.6/bin/lua
+
+package.cpath = package.cpath .. ";/nix/store/61sdvzb8zqylx9f3qsj4b65rlymxvz4z-sbarlua-unstable/?.so"
+
+-- Load the sketchybar-package and prepare the helper binaries
+require("helpers")
+require("init")
