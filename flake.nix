@@ -39,6 +39,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        poetry2nix.follows = "poetry2nix";
       };
     };
 
@@ -46,7 +47,13 @@
     systems-darwin.url = "github:nix-systems/default-darwin";
     systems-default.url = "github:nix-systems/default";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
+      };
+    };
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -71,7 +78,11 @@
 
     pyprland = {
       url = "github:hyprland-community/pyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
+        poetry2nix.follows = "poetry2nix";
+      };
     };
 
     stylix = {
@@ -180,6 +191,13 @@
 
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat.url = "github:edolstra/flake-compat";
+    poetry2nix = {
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        systems.follows = "systems-default";
+      };
+    };
 
     zls = {
       url = "github:zigtools/zls";
