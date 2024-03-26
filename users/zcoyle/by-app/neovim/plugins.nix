@@ -136,13 +136,15 @@
   };
   gitsigns = {
     enable = true;
-    signs = {
-      add.text = "";
-      change.text = "";
-      changedelete.text = "";
-      delete.text = "";
-      topdelete.text = "";
-      untracked.text = "";
+    settings = {
+      signs = {
+        add.text = "";
+        change.text = "";
+        changedelete.text = "";
+        delete.text = "";
+        topdelete.text = "";
+        untracked.text = "";
+      };
     };
   };
   indent-blankline.enable = true;
