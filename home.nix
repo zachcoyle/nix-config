@@ -25,6 +25,7 @@ in {
       act
       alejandra
       asciinema
+      baobab
       cachix
       cool-retro-term
       comma
