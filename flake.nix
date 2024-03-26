@@ -25,6 +25,7 @@
       url = "github:nix-community/nixvim";
       inputs = {
         nixpkgs.follows = "nixpkgs";
+        devshell.follows = "devshell";
         pre-commit-hooks.follows = "pre-commit-hooks";
         flake-parts.follows = "flake-parts";
         home-manager.follows = "home-manager";
@@ -43,6 +44,7 @@
 
     systems-linux.url = "github:nix-systems/default-linux";
     systems-darwin.url = "github:nix-systems/default-darwin";
+    systems-default.url = "github:nix-systems/default";
 
     hyprland.url = "github:hyprwm/Hyprland";
 
@@ -77,6 +79,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+        flake-compat.follows = "flake-compat";
       };
     };
 
@@ -97,6 +100,8 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    gitignore.url = "github:hercules-ci/gitignore.nix";
+
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -109,6 +114,7 @@
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
         flake-compat.follows = "flake-compat";
+        gitignore.follows = "gitignore";
       };
     };
 
@@ -145,7 +151,13 @@
       };
     };
 
-    yofi.url = "github:l4l/yofi";
+    yofi = {
+      url = "github:l4l/yofi";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
 
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
@@ -174,6 +186,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        gitignore.follows = "gitignore";
       };
     };
   };
