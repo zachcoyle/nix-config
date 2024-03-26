@@ -111,12 +111,17 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    gitignore.url = "github:hercules-ci/gitignore.nix";
+    gitignore = {
+      url = "github:hercules-ci/gitignore.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     devshell = {
       url = "github:numtide/devshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
 
     pre-commit-hooks = {
@@ -132,8 +137,9 @@
     sg-nvim = {
       url = "github:sourcegraph/sg.nvim";
       inputs = {
-        flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        pre-commit-nix.follows = "pre-commit-hooks";
       };
     };
 
