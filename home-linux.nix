@@ -79,7 +79,7 @@ in {
     packages = with pkgs; [
       # darling
       # darling-dmg
-      ags
+      # ags
       android-studio
       appimage-run
       blender
@@ -136,7 +136,7 @@ in {
     ];
 
     file = {
-      ".config/ags".source = ./users/zcoyle/dots/ags;
+      # ".config/ags".source = ./users/zcoyle/dots/ags;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/yofi/blacklist".text = ''
       '';
@@ -205,6 +205,13 @@ in {
   wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hyprland-plugins;};
 
   programs = {
+    ags = {
+      enable = true;
+      package = pkgs.ags;
+      configDir = ./users/zcoyle/dots/ags;
+      extraPackages = [];
+    };
+
     hyprlock = {
       enable = true;
       backgrounds = [
