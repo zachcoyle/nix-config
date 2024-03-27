@@ -197,5 +197,5 @@ window {
 }
 
 .volume {
-  background-color: transparent;
+  @include collapsedButton;
 }
