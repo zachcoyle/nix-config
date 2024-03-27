@@ -55,14 +55,13 @@ window {
   padding-right: 8px;
 }
 
-
 .activeClientTitle {
   @include poster;
   @include shadow;
 }
 
 .hyprlandButton {
-  background-color: $button-default-background;
+  @include collapsedButton;
 }
 
 .hyprlandLogo {
