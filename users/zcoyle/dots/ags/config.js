@@ -1,10 +1,60 @@
 const audio = await Service.import("audio");
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
+const network = await Service.import("network");
 // const systemtray = await Service.import("systemtray");
+
+const WifiIndicator = () =>
+  Widget.Box({
+    spacing: 8,
+    children: [
+      Widget.Icon({
+        icon: network.wifi.bind("icon_name"),
+      }),
+      Widget.Label({
+        label: network.wifi.bind("ssid").as((ssid) => ssid || "Unknown"),
+      }),
+    ],
+  });
+
+const WiredIndicator = () =>
+  Widget.Icon({
+    icon: network.wired.bind("icon_name"),
+  });
+
+const NetworkIndicator = () =>
+  Widget.Stack({
+    className: "network",
+    items: [
+      ["wifi", WifiIndicator()],
+      ["wired", WiredIndicator()],
+    ],
+    shown: network.bind("primary").as((p) => p || "wifi"),
+  });
 
 const date = Variable("", {
   poll: [1000, 'date "+%I:%M %a %b %e"'],
+});
+
+const safelyParseWeatherJson = (/** @type {string} */ x) => {
+  try {
+    return JSON.parse(x);
+  } catch (e) {
+    return { text: "" };
+  }
+};
+
+const wthr = Variable("", {
+  poll: [
+    300000,
+    "wttrbar --ampm --location 'Hartford City' --main-indicator temp_F --fahrenheit --custom-indicator '{ICON} {temp_F}'",
+    (w) => safelyParseWeatherJson(w).text + "°",
+  ],
+});
+
+const Weather = Widget.Label({
+  className: "weather",
+  label: wthr.bind(),
 });
 
 const divide = ([total, free]) => free / total;
@@ -38,7 +88,7 @@ const ram = Variable(0, {
 });
 
 const CPUStats = Widget.Box({
-  spacing: 6,
+  spacing: 8,
   children: [
     Widget.Label({
       className: "cpuIcon",
@@ -52,7 +102,7 @@ const CPUStats = Widget.Box({
 });
 
 const RAMStats = Widget.Box({
-  spacing: 6,
+  spacing: 8,
   children: [
     Widget.Label({
       className: "ramIcon",
@@ -157,7 +207,7 @@ const getNotificationLabel = ({ text, alt }) => {
     case "0":
       return "";
     default:
-      return "🔔";
+      return "󰅸";
   }
 };
 
@@ -171,11 +221,11 @@ const Notifications = Widget.Button({
   onSecondaryClick: () => Utils.execAsync("swaync-client -d -sw"),
 });
 
-const getBatteryLabel = (percentage) => {
+const getBatteryLabel = (/** @type {number} */ percentage) => {
   return `${Math.round(percentage)}%`;
 };
 
-const getBatteryIcon = (percentage) => {
+const getBatteryIcon = (/** @type {number} */ percentage) => {
   if (percentage > 95) {
     return " ";
   }
@@ -236,7 +286,7 @@ const Middle = Widget.Box({
   children: [Workspaces()],
 });
 
-// needs weather, [wifi & bluetooth or tray]
+// needs [bluetooth / tray]
 
 const Right = Widget.Box({
   className: "middle",
@@ -244,8 +294,10 @@ const Right = Widget.Box({
   homogeneous: false,
   children: [
     Widget.Box({ hexpand: true }),
+    Weather,
     CPUStats,
     RAMStats,
+    NetworkIndicator(),
     BatteryLabel(),
     Date,
     Notifications,

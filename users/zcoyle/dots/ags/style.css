@@ -55,7 +55,6 @@ window {
 }
 
 .notificationLabel {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
   font-size: 20px;
   color: #d79921;
 }
@@ -63,6 +62,14 @@ window {
 .notificationButton {
   background-color: transparent;
   margin-right: 8px;
+}
+
+.notificationButton:hover {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #d79921, 0 2px 2px #d79921, 2px 0 2px #d79921, 0 -2px 2px #d79921;
+}
+
+.notificationButton:not(:hover) {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
 }
 
 .date {
@@ -121,6 +128,16 @@ window {
 }
 
 .ram {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+}
+
+.weather {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+}
+
+.network {
   text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
   font-weight: 900;
 }
