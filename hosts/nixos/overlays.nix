@@ -6,6 +6,7 @@
     inputs.hyprland.overlays.default
     (_: prev: {
       pyprland = inputs.pyprland.packages.${prev.system}.default;
+      ags = inputs.ags.packages.${prev.system}.default;
     })
   ];
 }

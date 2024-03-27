@@ -61,6 +61,8 @@ window {
 
 .notificationButton {
   background-color: transparent;
+  padding: 0;
+  margin: 0;
   margin-right: 8px;
 }
 
@@ -140,4 +142,14 @@ window {
 .network {
   text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
   font-weight: 900;
+}
+
+.trayButton {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.volume {
+  background-color: transparent;
 }

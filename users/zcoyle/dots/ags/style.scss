@@ -40,6 +40,12 @@ $bar-font: "Fira Sans";
   text-decoration-style: solid;
 }
 
+@mixin collapsedButton() {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
 window {
   background-color: transparent;
   font-family: $bar-font;
@@ -104,7 +110,7 @@ window {
 }
 
 .notificationButton {
-  background-color: transparent;
+  @include collapsedButton;
   margin-right: 8px;
 }
 
@@ -184,4 +190,12 @@ window {
 .network {
   @include shadow;
   @include poster;
+}
+
+.trayButton {
+  @include collapsedButton;
+}
+
+.volume {
+  background-color: transparent;
 }

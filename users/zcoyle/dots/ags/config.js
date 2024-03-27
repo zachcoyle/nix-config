@@ -2,7 +2,26 @@ const audio = await Service.import("audio");
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
 const network = await Service.import("network");
-// const systemtray = await Service.import("systemtray");
+const systemtray = await Service.import("systemtray");
+
+// TODO: shadow
+const VolumeIndicator = Widget.Button({
+  className: "volume",
+  on_clicked: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
+  child: Widget.Icon().hook(audio.speaker, (self) => {
+    const vol = audio.speaker.volume * 100;
+    const icon = [
+      [101, "overamplified"],
+      [67, "high"],
+      [34, "medium"],
+      [1, "low"],
+      [0, "muted"],
+    ].find(([threshold]) => threshold <= vol)?.[1];
+
+    self.icon = `audio-volume-${icon}-symbolic`;
+    self.tooltip_text = `Volume ${Math.floor(vol)}%`;
+  }),
+});
 
 const WifiIndicator = () =>
   Widget.Box({
@@ -115,22 +134,23 @@ const RAMStats = Widget.Box({
   ],
 });
 
-// const SysTray = () => {
-//   const items = systemtray.bind("items").as((items) =>
-//     items.map((item) =>
-//       Widget.Button({
-//         child: Widget.Icon({ icon: item.bind("icon") }),
-//         on_primary_click: (_, event) => item.activate(event),
-//         on_secondary_click: (_, event) => item.openMenu(event),
-//         tooltip_markup: item.bind("tooltip_markup"),
-//       }),
-//     ),
-//   );
-//
-//   return Widget.Box({
-//     children: items,
-//   });
-// };
+const SysTray = () => {
+  const items = systemtray.bind("items").as((items) =>
+    items.map((item) =>
+      Widget.Button({
+        className: "trayButton",
+        child: Widget.Icon({ icon: item.bind("icon") }),
+        on_primary_click: (_, event) => item.activate(event),
+        on_secondary_click: (_, event) => item.openMenu(event),
+        tooltip_markup: item.bind("tooltip_markup"),
+      }),
+    ),
+  );
+
+  return Widget.Box({
+    children: items,
+  });
+};
 
 const HyprlandButton = Widget.Button({
   className: "hyprlandButton",
@@ -286,8 +306,6 @@ const Middle = Widget.Box({
   children: [Workspaces()],
 });
 
-// needs [bluetooth / tray]
-
 const Right = Widget.Box({
   className: "middle",
   spacing: 10,
@@ -297,9 +315,11 @@ const Right = Widget.Box({
     Weather,
     CPUStats,
     RAMStats,
+    VolumeIndicator,
     NetworkIndicator(),
     BatteryLabel(),
     Date,
+    SysTray(),
     Notifications,
   ],
 });
