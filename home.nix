@@ -88,7 +88,7 @@ in {
       wget
       wttrbar
       xsv
-      youtube-dl
+      yt-dlp
       yq
       zstd
     ];
