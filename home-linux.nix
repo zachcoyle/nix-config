@@ -90,6 +90,7 @@ in {
       copyq
       cura
       foliate
+      font-manager
       freecad
       gnome-tecla
       gnome.gnome-calculator
