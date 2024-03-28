@@ -93,6 +93,7 @@ in {
       freecad
       gnome-tecla
       gnome.gnome-calculator
+      gnome.gnome-font-viewer
       gnome.gnome-keyring
       gnome.gnome-system-monitor
       gnome.nautilus
