@@ -116,6 +116,8 @@
       "SUPER_SHIFT, J, swapwindow, d"
       "SUPER_SHIFT, K, swapwindow, u"
       "SUPER_SHIFT, L, swapwindow, r"
+
+      "SUPER, slash, exec, hyprpicker | wl-copy"
     ];
 
     binde = [

@@ -16,6 +16,7 @@ const VolumeIndicator = Widget.Button({
       [34, "medium"],
       [1, "low"],
       [0, "muted"],
+      // @tsignore
     ].find(([threshold]) => threshold <= vol)?.[1];
 
     self.icon = `audio-volume-${icon}-symbolic`;

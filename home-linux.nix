@@ -100,6 +100,7 @@ in {
       gnome.nautilus
       godot3
       grim
+      hyprpicker
       hyprshade
       imagemagick
       imv

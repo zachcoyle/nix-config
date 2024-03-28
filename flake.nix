@@ -76,6 +76,11 @@
       };
     };
 
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     pyprland = {
       url = "github:hyprland-community/pyprland";
       inputs = {
