@@ -8,7 +8,9 @@ const systemtray = await Service.import("systemtray");
 const VolumeIndicator = Widget.Button({
   className: "volume",
   on_clicked: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
-  child: Widget.Icon().hook(audio.speaker, (self) => {
+  child: Widget.Icon({
+    className: "volumeIcon",
+  }).hook(audio.speaker, (self) => {
     const vol = audio.speaker.volume * 100;
     const icon = [
       [101, "overamplified"],
@@ -16,7 +18,7 @@ const VolumeIndicator = Widget.Button({
       [34, "medium"],
       [1, "low"],
       [0, "muted"],
-      // @tsignore
+      // @ts-ignore
     ].find(([threshold]) => threshold <= vol)?.[1];
 
     self.icon = `audio-volume-${icon}-symbolic`;
@@ -29,6 +31,7 @@ const WifiIndicator = () =>
     spacing: 8,
     children: [
       Widget.Icon({
+        className: "wifiIcon",
         icon: network.wifi.bind("icon_name"),
       }),
       Widget.Label({

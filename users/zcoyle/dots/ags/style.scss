@@ -11,6 +11,30 @@ $gruvbox-purple: #b16286;
 $button-default-background: transparent;
 $bar-font: "Fira Sans";
 
+@mixin gtkIconShadow($outline: $gruvbox-bg, $glow: $gruvbox-bg) {
+  @if $glow ==$gruvbox-bg {
+    -gtk-icon-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px $glow,
+      0 2px 2px $glow,
+      2px 0 2px $glow,
+      0 -2px 2px $glow;
+  }
+
+  @else {
+    -gtk-icon-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px color.adjust($glow, $lightness: -30%),
+      0 2px 2px color.adjust($glow, $lightness: -10%),
+      2px 0 2px color.adjust($glow, $lightness: -10%),
+      0 -2px 2px color.adjust($glow, $lightness: -10%);
+  }
+}
+
 @mixin shadow($outline: $gruvbox-bg, $glow: $gruvbox-bg) {
   @if $glow ==$gruvbox-bg {
     text-shadow: -1px 0 1px $outline,
@@ -35,7 +59,7 @@ $bar-font: "Fira Sans";
   }
 }
 
-@mixin icon() {
+@mixin nfIcon() {
   font-size: 20px;
 }
 
@@ -78,7 +102,7 @@ window {
 
 .hyprlandLogo {
   color: $gruvbox-blue;
-  @include icon;
+  @include nfIcon;
   padding-left: 10px;
   padding-right: 4px;
 }
@@ -118,7 +142,7 @@ window {
 
 
 .notificationLabel {
-  @include icon;
+  @include nfIcon;
   color: $gruvbox-yellow;
   padding-right: 10px;
 }
@@ -177,7 +201,7 @@ window {
 .cpuIcon {
   @include shadow;
   @include poster;
-  @include icon;
+  @include nfIcon;
 }
 
 .cpu {
@@ -188,7 +212,7 @@ window {
 .ramIcon {
   @include shadow;
   @include poster;
-  @include icon;
+  @include nfIcon;
 }
 
 .ram {
@@ -212,4 +236,16 @@ window {
 
 .volume {
   @include collapsedButton;
+}
+
+.volumeIcon {
+  @include gtkIconShadow;
+}
+
+.wifiIcon {
+  @include gtkIconShadow;
+}
+
+.activeClientIcon {
+  @include gtkIconShadow;
 }

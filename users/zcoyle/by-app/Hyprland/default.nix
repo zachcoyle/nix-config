@@ -118,6 +118,7 @@
       "SUPER_SHIFT, L, swapwindow, r"
 
       "SUPER, slash, exec, hyprpicker | wl-copy"
+      "SUPER, backslash, exec, pypr expose"
     ];
 
     binde = [
@@ -185,6 +186,7 @@
       "blueman-applet"
       "swaync"
       "udiskie -a -n"
+      "pypr"
     ];
 
     env = [

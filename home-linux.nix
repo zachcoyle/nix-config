@@ -138,7 +138,6 @@ in {
     ];
 
     file = {
-      # ".config/ags".source = ./users/zcoyle/dots/ags;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/yofi/blacklist".text = ''
       '';
