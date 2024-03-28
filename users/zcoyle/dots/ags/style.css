@@ -3,30 +3,58 @@ window {
   font-family: "Fira Sans";
   font-size: 14px;
   padding-top: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .activeClientTitle {
   font-weight: 900;
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
 }
 
 .hyprlandButton {
   background-color: transparent;
+  padding: 0;
+  margin: 0;
 }
 
 .hyprlandLogo {
   color: #458588;
   font-size: 20px;
+  padding-left: 10px;
+  padding-right: 4px;
 }
 
 .hyprlandButton:not(:hover) {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
 }
 
 .hyprlandButton:hover {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #689d6a, 0 2px 2px #689d6a, 2px 0 2px #689d6a, 0 -2px 2px #689d6a;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #2b412b,
+    0 2px 2px #537f54,
+    2px 0 2px #537f54,
+    0 -2px 2px #537f54;
 }
 
 .workspaceButton {
@@ -35,28 +63,61 @@ window {
 
 .workspaceButton:hover {
   font-style: italic;
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #665c54, 0 2px 2px #665c54, 2px 0 2px #665c54, 0 -2px 2px #665c54;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #12100f,
+    0 2px 2px #4a433d,
+    2px 0 2px #4a433d,
+    0 -2px 2px #4a433d;
 }
 
 .workspaceLabel {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .workspaceLabel:hover {
   font-style: italic;
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #665c54, 0 2px 2px #665c54, 2px 0 2px #665c54, 0 -2px 2px #665c54;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #12100f,
+    0 2px 2px #4a433d,
+    2px 0 2px #4a433d,
+    0 -2px 2px #4a433d;
 }
 
 .workspaceLabelFocused {
   font-style: italic;
   font-weight: 900;
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #665c54, 0 2px 2px #665c54, 2px 0 2px #665c54, 0 -2px 2px #665c54;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #12100f,
+    0 2px 2px #4a433d,
+    2px 0 2px #4a433d,
+    0 -2px 2px #4a433d;
 }
 
 .notificationLabel {
   font-size: 20px;
   color: #d79921;
+  padding-right: 10px;
 }
 
 .notificationButton {
@@ -67,25 +128,65 @@ window {
 }
 
 .notificationButton:hover {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #d79921, 0 2px 2px #d79921, 2px 0 2px #d79921, 0 -2px 2px #d79921;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #523b0d,
+    0 2px 2px #ab7a1a,
+    2px 0 2px #ab7a1a,
+    0 -2px 2px #ab7a1a;
 }
 
 .notificationButton:not(:hover) {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
 }
 
 .date {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .batteryIconLabel {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .batteryPercentabeLabel {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
@@ -103,44 +204,108 @@ window {
 
 .batteryChargingLabel {
   color: #d79921;
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .batteryPercentageLabel {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .cpuIcon {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
   font-size: 20px;
 }
 
 .cpu {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .ramIcon {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
   font-size: 20px;
 }
 
 .ram {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .weather {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 
 .network {
-  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  text-shadow:
+    -1px 0 1px #282828,
+    0 1px 1px #282828,
+    1px 0 1px #282828,
+    0 -1px 1px #282828,
+    -2px 0 2px #282828,
+    0 2px 2px #282828,
+    2px 0 2px #282828,
+    0 -2px 2px #282828;
   font-weight: 900;
 }
 

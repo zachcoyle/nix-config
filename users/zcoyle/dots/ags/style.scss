@@ -12,15 +12,27 @@ $button-default-background: transparent;
 $bar-font: "Fira Sans";
 
 @mixin shadow($outline: $gruvbox-bg, $glow: $gruvbox-bg) {
-  text-shadow:
-    -1px 0 1px $outline,
-    0 1px 1px $outline,
-    1px 0 1px $outline,
-    0 -1px 1px $outline,
-    -2px 0 2px $glow,
-    0 2px 2px $glow,
-    2px 0 2px $glow,
-    0 -2px 2px $glow;
+  @if $glow ==$gruvbox-bg {
+    text-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px $glow,
+      0 2px 2px $glow,
+      2px 0 2px $glow,
+      0 -2px 2px $glow;
+  }
+
+  @else {
+    text-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px color.adjust($glow, $lightness: -30%),
+      0 2px 2px color.adjust($glow, $lightness: -10%),
+      2px 0 2px color.adjust($glow, $lightness: -10%),
+      0 -2px 2px color.adjust($glow, $lightness: -10%);
+  }
 }
 
 @mixin icon() {
@@ -51,8 +63,8 @@ window {
   font-family: $bar-font;
   font-size: 14px;
   padding-top: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .activeClientTitle {
@@ -67,6 +79,8 @@ window {
 .hyprlandLogo {
   color: $gruvbox-blue;
   @include icon;
+  padding-left: 10px;
+  padding-right: 4px;
 }
 
 .hyprlandButton:not(:hover) {
@@ -106,6 +120,7 @@ window {
 .notificationLabel {
   @include icon;
   color: $gruvbox-yellow;
+  padding-right: 10px;
 }
 
 .notificationButton {
