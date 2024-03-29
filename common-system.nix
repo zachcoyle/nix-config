@@ -14,7 +14,7 @@ in {
   ];
 
   nix = {
-    package = pkgs.nixVersions.nix_2_21;
+    package = pkgs.nix;
     gc =
       {
         automatic = true;
