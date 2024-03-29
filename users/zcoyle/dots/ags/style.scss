@@ -260,3 +260,7 @@ window {
 .activeClientIcon {
   @include gtkIconShadow;
 }
+
+.trayIcon {
+  @include gtkIconShadow;
+}

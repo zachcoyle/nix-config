@@ -4,7 +4,6 @@ const battery = await Service.import("battery");
 const network = await Service.import("network");
 const systemtray = await Service.import("systemtray");
 
-// TODO: shadow
 const VolumeIndicator = Widget.Button({
   className: "volume",
   on_clicked: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
@@ -171,7 +170,10 @@ const SysTray = () => {
     items.map((item) =>
       Widget.Button({
         className: "trayButton",
-        child: Widget.Icon({ icon: item.bind("icon") }),
+        child: Widget.Icon({
+          className: "trayIcon",
+          icon: item.bind("icon"),
+        }),
         on_primary_click: (_, event) => item.activate(event),
         on_secondary_click: (_, event) => item.openMenu(event),
         tooltip_markup: item.bind("tooltip_markup"),
