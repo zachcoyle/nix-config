@@ -226,6 +226,7 @@ in {
       labels = [
         {
           text = ''cmd[update:10000] curl -s --connect-timeout 10 https://www.biblegateway.com/votd/get/\?format\=json\&version\=ESV | jq "(.votd.reference + \" \" + .votd.text)" | fold -w 120 -s | html2text | recode html'';
+          rotate = 0.0;
         }
       ];
     };
