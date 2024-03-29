@@ -802,11 +802,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1711708627,
-        "narHash": "sha256-sp+BH1y/WCx/GTetsW/fudNtMZoD9PkbRwb9Tk5AnjI=",
+        "lastModified": 1711718833,
+        "narHash": "sha256-C/Z0qVLtdui5AKDIov/kRigQWg//ezmRrzSduk2ZeWQ=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "f29c41d665fde8e03848db12093219466deceda2",
+        "rev": "5a5d26b4abdfc32c0e538a7a4b0d73c6827f0e5b",
         "type": "github"
       },
       "original": {
