@@ -139,6 +139,17 @@ window {
   font-weight: 900;
 }
 
+.diskIcon {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.disk {
+  text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
+  font-weight: 900;
+}
+
 .weather {
   text-shadow: -1px 0 1px #282828, 0 1px 1px #282828, 1px 0 1px #282828, 0 -1px 1px #282828, -2px 0 2px #282828, 0 2px 2px #282828, 2px 0 2px #282828, 0 -2px 2px #282828;
   font-weight: 900;

@@ -34,6 +34,7 @@ in {
       dasel
       dos2unix
       dsq
+      duf
       (dwarf-fortress-packages.dwarf-fortress-full.override {
         enableStoneSense = pkgs.stdenv.isLinux;
         enableDwarfTherapist = pkgs.stdenv.isLinux;

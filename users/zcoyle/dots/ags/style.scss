@@ -220,6 +220,17 @@ window {
   @include poster;
 }
 
+.diskIcon {
+  @include shadow;
+  @include poster;
+  @include nfIcon;
+}
+
+.disk {
+  @include shadow;
+  @include poster;
+}
+
 .weather {
   @include shadow;
   @include poster;

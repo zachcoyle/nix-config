@@ -82,6 +82,20 @@ const Weather = Widget.Label({
 
 const divide = ([total, free]) => free / total;
 
+const disk = Variable(0, {
+  poll: [
+    2000,
+    "duf -json",
+    (out) => {
+      const usage = JSON.parse(out).filter(
+        ({ mount_point }) => mount_point === "/",
+      )[0];
+
+      return Math.round((usage.used / usage.total) * 100);
+    },
+  ],
+});
+
 const cpu = Variable(0, {
   poll: [
     2000,
@@ -134,6 +148,20 @@ const RAMStats = Widget.Box({
     Widget.Label({
       className: "ram",
       label: ram.bind().as((x) => Math.round(x * 100).toString() + "%"),
+    }),
+  ],
+});
+
+const DiskStats = Widget.Box({
+  spacing: 8,
+  children: [
+    Widget.Label({
+      className: "diskIcon",
+      label: "󱛟",
+    }),
+    Widget.Label({
+      className: "disk",
+      label: disk.bind().as((x) => x.toString() + "%"),
     }),
   ],
 });
@@ -319,6 +347,7 @@ const Right = Widget.Box({
     Weather,
     CPUStats,
     RAMStats,
+    DiskStats,
     VolumeIndicator,
     NetworkIndicator(),
     BatteryLabel(),
