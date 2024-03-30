@@ -186,6 +186,15 @@
       };
     };
 
+    rippkgs = {
+      url = "github:replit/rippkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        devshell.follows = "devshell";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {
