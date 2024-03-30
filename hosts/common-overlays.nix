@@ -12,6 +12,15 @@
       inherit (inputs.zls.packages.${prev.system}) zls;
       ezra-sil = prev.callPackage ../packages/fonts/ezra-sil.nix {};
       galatia-sil = prev.callPackage ../packages/fonts/galatia-sil.nix {};
+      vimPlugins =
+        prev.vimPlugins
+        // {
+          cmp-ai = prev.vimUtils.buildVimPlugin {
+            name = "cmp-ai";
+            version = "git";
+            src = inputs.cmp-ai;
+          };
+        };
     })
   ];
 }
