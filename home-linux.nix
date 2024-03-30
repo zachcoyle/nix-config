@@ -125,6 +125,7 @@ in {
       snapshot
       swaynotificationcenter
       swww
+      thunderbird
       udiskie
       ueberzugpp
       ulauncher
@@ -255,8 +256,6 @@ in {
       enable = true;
       configDir = ./users/zcoyle/by-app/eww;
     };
-
-    thunderbird.enable = true;
 
     waybar = import ./users/zcoyle/by-app/waybar.nix {inherit pkgs config;};
 
