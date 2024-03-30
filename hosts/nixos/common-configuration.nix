@@ -127,6 +127,8 @@
   services = {
     blueman.enable = true;
 
+    gnome.gnome-keyring.enable = true;
+
     xserver = {
       #videoDrivers = ["amdgpu-pro"];
       enable = true;

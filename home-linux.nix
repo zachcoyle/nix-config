@@ -256,6 +256,8 @@ in {
       configDir = ./users/zcoyle/by-app/eww;
     };
 
+    thunderbird.enable = true;
+
     waybar = import ./users/zcoyle/by-app/waybar.nix {inherit pkgs config;};
 
     wlogout = {
