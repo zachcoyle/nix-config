@@ -79,7 +79,6 @@
       "SUPER, Y, fullscreen, 0"
       "SUPER, U, fakefullscreen, 0"
       "SUPER, T, togglefloating"
-      "SUPER, O, toggleopaque"
       "SUPER, SPACE, exec, yofi"
       "SUPER, S, togglespecialworkspace, scratchpad"
       "SUPER, 1, workspace, 1"
@@ -96,7 +95,10 @@
       "SUPER_SHIFT, 3, exec, grim"
 
       "SUPER, G, togglegroup"
-      "SUPER, A, changegroupactive"
+      "SUPER, N, changegroupactive"
+      "SUPER SHIFT, N, changegroupactive, b"
+      "SUPER, O, moveoutofgroup"
+      "SUPER, semicolon, lockactivegroup"
 
       "SUPER_ALT, 1, movetoworkspacesilent, 1"
       "SUPER_ALT, 2, movetoworkspacesilent, 2"
