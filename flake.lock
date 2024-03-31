@@ -845,11 +845,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1711910614,
-        "narHash": "sha256-dKwdBKvdV9WBpW6MZ3ba8Dlxx/x0tgQOGWsFouPDBXI=",
+        "lastModified": 1711919138,
+        "narHash": "sha256-h7tuwHoL3DMvI02nLymzft56s8Pav9AZW4OG6h5c5HI=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "01691c5447d9222a0e84f77b7043251580de7dee",
+        "rev": "9b9dab622a89a620419f4e0682d235bd30d705db",
         "type": "github"
       },
       "original": {
@@ -1212,11 +1212,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711917614,
-        "narHash": "sha256-H6VSW+uvq6MjYjAXOleGrZqDXzDgu0+vtDdc41u2F0A=",
+        "lastModified": 1711919348,
+        "narHash": "sha256-d3eMj32Ajvrk20Kzkte0rY4joJLYQ40Zxbh4nsSsizc=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "b54b480401865621f60a320c3a73219adbf9829a",
+        "rev": "8a617998e68d290c6844eeba68a5726ee97bcb2f",
         "type": "github"
       },
       "original": {
