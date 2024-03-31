@@ -26,6 +26,16 @@
       shadow_offset = "0 5";
       dim_inactive = true;
     };
+    group = {
+      groupbar = {
+        font_family = "Fira Sans";
+        font_size = 28;
+        "text_color" = "rgba(A89984CC)";
+        "col.active" = "rgba(282828FF)";
+        "col.inactive" = "rgba(A8998466)";
+        height = 22;
+      };
+    };
     gestures = {
       workspace_swipe = true;
       workspace_swipe_fingers = 4;
@@ -84,6 +94,9 @@
       "SUPER, 0, workspace, 10"
       "SUPER_SHIFT, 4, exec, grim -g \"$(slurp)\""
       "SUPER_SHIFT, 3, exec, grim"
+
+      "SUPER, G, togglegroup"
+      "SUPER, A, changegroupactive"
 
       "SUPER_ALT, 1, movetoworkspacesilent, 1"
       "SUPER_ALT, 2, movetoworkspacesilent, 2"
