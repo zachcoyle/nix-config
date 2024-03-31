@@ -939,11 +939,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711902432,
-        "narHash": "sha256-c4OGVgTCQbhdJWYGMY/cGM1/vDh6CExh+Gla259yULE=",
+        "lastModified": 1711906790,
+        "narHash": "sha256-fGHpdToU6MQ1rGSUvXn0zZcSuSY5WnX5Wt4U/JAhyuA=",
         "owner": "NixNeovim",
         "repo": "NixNeovimPlugins",
-        "rev": "72a1ef1bb8b5c2368913b88ab9349a69657f96e3",
+        "rev": "29f833146718fe5ab7316adaa65950036072703b",
         "type": "github"
       },
       "original": {
@@ -1107,11 +1107,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1711899970,
-        "narHash": "sha256-NZg9Avu4UC3BjYbDFZGfDHgEPXOhYPVYVHIeAKYONSY=",
+        "lastModified": 1711907167,
+        "narHash": "sha256-+xQqJ/j+EpxSymMcZnkkIptvKFeWApsz3DdGuMlOzIo=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "8b5e0025b22da9df1efeafbd8b84e594c670c8a7",
+        "rev": "d0150de0df485538d2c6f7c92b71f93dda3ef493",
         "type": "github"
       },
       "original": {
