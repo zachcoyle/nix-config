@@ -134,6 +134,7 @@ in {
       waypipe
       wdisplays
       wl-clipboard
+      wlsunset
       xdg-utils
       yofi
     ];
