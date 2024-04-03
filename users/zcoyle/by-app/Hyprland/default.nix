@@ -132,6 +132,11 @@
       "SUPER_SHIFT, K, swapwindow, u"
       "SUPER_SHIFT, L, swapwindow, r"
 
+      "ALT_SHIFT, H, movewindow, l"
+      "ALT_SHIFT, J, movewindow, d"
+      "ALT_SHIFT, K, movewindow, u"
+      "ALT_SHIFT, L, movewindow, r"
+
       "SUPER, slash, exec, hyprpicker | wl-copy"
       "SUPER, backslash, exec, pypr expose"
 
