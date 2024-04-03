@@ -24,5 +24,6 @@ jobs:
         with:
           name: zachcoyle
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - run: nix build .#nixosConfigurations.nixos-laptop.config.system.build.toplevel --show-trace
-      - run: nix build .#nixosConfigurations.nixos-desktop.config.system.build.toplevel --show-trace
+      # - run: nix build .#nixosConfigurations.nixos-laptop.config.system.build.toplevel --show-trace
+      - run: nix build .#nixosConfigurations.nixos-laptop.config.boot.kernelPackages.kernel --show-trace
+    # - run: nix build .#nixosConfigurations.nixos-desktop.config.system.build.toplevel --show-trace
