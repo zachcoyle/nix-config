@@ -5,29 +5,32 @@
   enableUpdateCheck = false;
   enableExtensionUpdateCheck = false;
 
-  extensions = with pkgs.open-vsx; [
-    bbenoist.nix
-    charliermarsh.ruff
-    codezombiech.gitignore
-    dbaeumer.vscode-eslint
-    eamodio.gitlens
-    editorconfig.editorconfig
-    esbenp.prettier-vscode
-    evgeniypeshkov.syntax-highlighter
-    gruntfuggly.todo-tree
-    # jdinhlife.gruvbox
-    kamadorueda.alejandra
-    kokakiwi.vscode-just
-    mkhl.direnv
-    ms-python.python
-    oderwat.indent-rainbow
-    rust-lang.rust-analyzer
-    vadimcn.vscode-lldb
-    vknabel.vscode-apple-swift-format
-    vscodevim.vim
-    vue.volar
-    xdebug.php-debug
-  ];
+  # FIXME:
+  # https://github.com/nix-community/nix-vscode-extensions/issues/57
+  #
+  # extensions = with pkgs.open-vsx; [
+  #   bbenoist.nix
+  #   charliermarsh.ruff
+  #   codezombiech.gitignore
+  #   dbaeumer.vscode-eslint
+  #   eamodio.gitlens
+  #   editorconfig.editorconfig
+  #   esbenp.prettier-vscode
+  #   evgeniypeshkov.syntax-highlighter
+  #   gruntfuggly.todo-tree
+  #   # jdinhlife.gruvbox
+  #   kamadorueda.alejandra
+  #   kokakiwi.vscode-just
+  #   mkhl.direnv
+  #   ms-python.python
+  #   oderwat.indent-rainbow
+  #   rust-lang.rust-analyzer
+  #   vadimcn.vscode-lldb
+  #   vknabel.vscode-apple-swift-format
+  #   vscodevim.vim
+  #   vue.volar
+  #   xdebug.php-debug
+  # ];
 
   userSettings = {
     "[javascript]" = {
