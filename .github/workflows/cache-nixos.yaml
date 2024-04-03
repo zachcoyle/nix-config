@@ -27,4 +27,5 @@ jobs:
       # - run: nix build .#nixosConfigurations.nixos-laptop.config.system.build.toplevel --show-trace
       - run: nix build .#nixosConfigurations.nixos-laptop.config.boot.kernelPackages.kernel --show-trace
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.freecad --show-trace
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.rocsolver --show-trace
     # - run: nix build .#nixosConfigurations.nixos-desktop.config.system.build.toplevel --show-trace
