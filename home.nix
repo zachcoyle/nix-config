@@ -302,6 +302,12 @@ in {
           statuspanel[type="overLink"] .statuspanel-label {
             display: none !important;
           }
+          #appcontent statuspanel {
+            display: none;
+          }
+          #statuspanel-label {
+            display: none;
+          }
         '';
 
         userContent = ''
