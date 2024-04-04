@@ -136,6 +136,7 @@
         sddm = {
           enable = true;
           enableHidpi = config.networking.hostName == "nixos-laptop";
+          wayland.enable = true;
           sugarCandyNix = {
             enable = true;
             settings = {
