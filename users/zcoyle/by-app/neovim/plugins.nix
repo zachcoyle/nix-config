@@ -63,7 +63,7 @@
         enable = true;
         adapterPythonPath = "python";
       };
-      dap-ui.enable = true;
+      dap-ui.enable = false;
       dap-virtual-text.enable = true;
     };
     adapters = {
@@ -281,7 +281,7 @@
     };
   };
   neotest = {
-    enable = true;
+    enable = false;
     adapters = {
       bash.enable = true;
       jest.enable = true;
