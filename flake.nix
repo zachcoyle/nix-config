@@ -171,7 +171,7 @@
     };
 
     neovim = {
-      url = "github:neovim/neovim?dir=contrib";
+      url = "github:neovim/neovim/99b3a068de1032975c4ab1486c0594a37aeabde8?dir=contrib";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
