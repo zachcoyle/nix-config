@@ -74,9 +74,18 @@ const wthr = Variable("", {
   ],
 });
 
+const wthrTip = Variable("", {
+  poll: [
+    300000,
+    "wttrbar --ampm --location 'Hartford City' --main-indicator temp_F --fahrenheit --custom-indicator '{ICON} {temp_F}'",
+    (w) => safelyParseWeatherJson(w).tooltip,
+  ],
+});
+
 const Weather = Widget.Label({
   className: "weather",
   label: wthr.bind(),
+  tooltipText: wthrTip.bind(),
 });
 
 const divide = ([total, free]) => free / total;
