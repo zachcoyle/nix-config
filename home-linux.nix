@@ -93,6 +93,7 @@ in {
       font-manager
       freecad
       gnome-tecla
+      gnome.evince
       gnome.gnome-calculator
       gnome.gnome-font-viewer
       gnome.gnome-keyring
@@ -118,6 +119,7 @@ in {
       ollama
       parted
       pavucontrol
+      pdfarranger
       playerctl
       pyprland
       showmethekey
