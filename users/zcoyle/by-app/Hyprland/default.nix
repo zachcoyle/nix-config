@@ -56,6 +56,10 @@
       rounding = 10;
       shadow_offset = "0 5";
       dim_inactive = true;
+      blur = {
+        size = 4;
+        passes = 2;
+      };
     };
     group = {
       groupbar = {
