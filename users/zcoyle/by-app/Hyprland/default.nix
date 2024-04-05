@@ -1,13 +1,13 @@
 {
   pkgs,
-  hyprland-plugins,
+  # hyprland-plugins,
   ...
 }: {
   enable = pkgs.stdenv.isLinux;
 
   plugins = [
-    hyprland-plugins.packages.${pkgs.system}.hyprtrails
-    hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    # hyprland-plugins.packages.${pkgs.system}.hyprtrails
+    # hyprland-plugins.packages.${pkgs.system}.hyprexpo
   ];
 
   extraConfig = ''
@@ -19,15 +19,35 @@
       cursor_inactive_timeout = 5;
     };
     plugin = {
-      hyprexpo = {
-        columns = 3;
-        gap_size = 5;
-        bg_col = "rgb(111111)";
-        workspace_method = "center current";
-        enable_gesture = true;
-        gesture_distance = 300;
-        gesture_positive = false;
-      };
+      # hyprexpo = {
+      #   columns = 3;
+      #   gap_size = 5;
+      #   bg_col = "rgb(111111)";
+      #   workspace_method = "center current";
+      #   enable_gesture = true;
+      #   gesture_distance = 300;
+      #   gesture_positive = false;
+      # };
+    };
+    animations = {
+      enabled = true;
+      bezier = [
+        "wind, 0.05, 0.9, 0.1, 1.05"
+        "winIn, 0.1, 1.1, 0.1, 1.1"
+        "winOut, 0.3, -0.3, 0, 1"
+        "liner, 1, 1, 1, 1"
+        "linear, 0.0, 0.0, 1.0, 1.0"
+      ];
+      animation = [
+        "windowsIn, 1, 6, winIn, slide"
+        "windowsOut, 1, 5, winOut, slide"
+        "windowsMove, 1, 5, wind, slide"
+        "border, 1, 10, default"
+        "borderangle, 1, 100, linear, loop"
+        "fade, 1, 10, default"
+        "workspaces, 1, 5, wind"
+        "windows, 1, 6, wind, slide"
+      ];
     };
     decoration = {
       active_opacity = 1.0;
@@ -49,7 +69,7 @@
     };
     gestures = {
       workspace_swipe = true;
-      workspace_swipe_fingers = 3;
+      workspace_swipe_fingers = 4;
       workspace_swipe_min_speed_to_force = 25;
       workspace_swipe_cancel_ratio = 0.3;
     };
@@ -84,7 +104,7 @@
     "$mod" = "SUPER";
 
     bind = [
-      "SUPER, grave, hyprexpo:expo, toggle"
+      # "SUPER, grave, hyprexpo:expo, toggle"
 
       "SUPER, B, exec, firefox"
       "SUPER, Return, exec, alacritty"
