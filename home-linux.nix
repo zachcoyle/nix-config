@@ -116,6 +116,7 @@ in {
       networkmanagerapplet
       nitch
       nvtopPackages.amd
+      nyxt
       ollama
       parted
       pavucontrol
