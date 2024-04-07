@@ -386,51 +386,53 @@
   surround.enable = true;
   telescope = {
     enable = true;
-    defaults = {
+    settings.defaults = {
       layout_strategy = "flex";
     };
     keymaps = {
       "<c-p>" = {
         action = "git_files";
-        desc = "Telescope Git Files";
+        options.desc = "Telescope Git Files";
       };
       "<c-->" = {
         action = "live_grep";
-        desc = "Telescope Live Grep";
+        options.desc = "Telescope Live Grep";
       };
       "<c-/>" = {
         action = "live_grep";
-        desc = "Telescope Live Grep";
+        options.desc = "Telescope Live Grep";
       };
       "<leader>ts" = {
         action = "live_grep";
-        desc = "Telescope Live Grep";
+        options.desc = "Telescope Live Grep";
       };
       "gr" = {
         action = "lsp_references";
-        desc = "Telescope LSP References";
+        options.desc = "Telescope LSP References";
       };
       "<leader>tb" = {
         action = "buffers";
-        desc = "Telescope Buffers";
+        options.desc = "Telescope Buffers";
       };
       "<leader>tt" = {
         action = "treesitter";
-        desc = "Telescope Treesitter";
+        options.desc = "Telescope Treesitter";
       };
     };
     extensions = {
-      file_browser = {
+      file-browser = {
         enable = true;
-        hidden = false;
-        hijackNetrw = true;
-        autoDepth = true;
-        depth = null;
-        selectBuffer = true;
+        settings = {
+          hidden = false;
+          hijack_netrw = true;
+          auto_depth = true;
+          depth = null;
+          select_buffer = true;
+        };
       };
       # frecency.enable = true;
       fzf-native.enable = true;
-      media_files.enable = true;
+      media-files.enable = true;
       ui-select.enable = true;
       undo.enable = true;
     };
