@@ -18,6 +18,13 @@
       layout = "dwindle";
       cursor_inactive_timeout = 5;
     };
+    misc = {
+      enable_swallow = true;
+      swallow_regex = [
+        "^(kitty)$"
+        "^(Alacritty)$"
+      ];
+    };
     plugin = {
       # hyprexpo = {
       #   columns = 3;
