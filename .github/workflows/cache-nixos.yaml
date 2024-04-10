@@ -31,4 +31,5 @@ jobs:
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.neovim --show-trace
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.neovide --show-trace
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.ollama --show-trace
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.hyprland --show-trace
     # - run: nix build .#nixosConfigurations.nixos-desktop.config.system.build.toplevel --show-trace
