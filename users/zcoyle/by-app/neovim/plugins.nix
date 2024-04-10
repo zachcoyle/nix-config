@@ -46,6 +46,7 @@
       swift = ["swift_format"];
       sh = ["beautysh"];
       sql = ["sql_formatter"];
+      toml = ["taplo"];
       typescript = ["prettierd"];
       typescriptreact = ["prettierd"];
       vue = ["prettierd"];

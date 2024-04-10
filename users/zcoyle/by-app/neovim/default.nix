@@ -42,6 +42,7 @@
       rustfmt
       stylua
       swift-format
+      taplo
       # yamlfix
       yamlfmt
     ]
