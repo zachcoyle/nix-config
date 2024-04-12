@@ -202,6 +202,7 @@ in {
           vimium
           vue-js-devtools
           wayback-machine
+          nighttab
         ];
 
         search = {
