@@ -28,7 +28,10 @@
     extraOptions = {timeout_ms = 1000;};
     formatOnSave = {};
     formattersByFt = {
-      "*" = ["codespell" "injected"];
+      "*" = [
+        # "codespell"
+        "injected"
+      ];
       "_" = ["trim_whitespace"];
       css = ["prettierd"];
       go = ["gofumpt"];
