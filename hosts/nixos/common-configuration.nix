@@ -129,6 +129,13 @@
 
     gnome.gnome-keyring.enable = true;
 
+    redis = {
+      enable = true;
+      settings = {
+        loadmodule = [];
+      };
+    };
+
     xserver = {
       #videoDrivers = ["amdgpu-pro"];
       enable = true;
