@@ -445,9 +445,9 @@
   todo-comments.enable = true;
   toggleterm = {
     enable = true;
-    direction = "float";
-    winbar.enabled = true;
     settings = {
+      direction = "float";
+      winbar.enabled = true;
       open_mapping = "[[<c-f>]]";
     };
   };
