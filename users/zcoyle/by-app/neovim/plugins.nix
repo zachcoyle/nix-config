@@ -447,7 +447,9 @@
     enable = true;
     direction = "float";
     winbar.enabled = true;
-    openMapping = "<c-f>";
+    settings = {
+      open_mapping = "[[<c-f>]]";
+    };
   };
   treesitter = {
     enable = true;
