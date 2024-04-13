@@ -1192,11 +1192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713045154,
-        "narHash": "sha256-w/TMCbqJiN7aHEcB4gIWTHc0EHa7/xndUf5MmqCu6wk=",
+        "lastModified": 1713047989,
+        "narHash": "sha256-/adJLyuuVxLofJZ2D1zbVpwWbbQLzzmzXBtxm9bZqe8=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "9b73ce8a8a3001b8950593e89db07c7409f5f816",
+        "rev": "edfdf0f1ff28e7a1e9652feff7bbf4cd441c5da2",
         "type": "github"
       },
       "original": {
