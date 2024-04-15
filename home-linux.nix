@@ -143,6 +143,7 @@ in {
     ];
 
     file = {
+      ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/yofi/blacklist".text = ''
       '';
