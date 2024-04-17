@@ -227,6 +227,22 @@ const ActiveClientInfo = Widget.Box({
   children: [ActiveClientIcon, ActiveClientTitle],
 });
 
+const romanize = (n) => {
+  const numerals = {
+    1: "I",
+    2: "II",
+    3: "III",
+    4: "IV",
+    5: "V",
+    6: "VI",
+    7: "VII",
+    8: "VIII",
+    9: "IX",
+    10: "X",
+  };
+  return numerals[n] ?? n;
+};
+
 const Workspaces = () => {
   const activeId = hyprland.active.workspace.bind("id");
   const workspaces = hyprland.bind("workspaces").as((ws) =>
@@ -239,7 +255,7 @@ const Workspaces = () => {
             className: activeId.as((i) =>
               i === id ? "workspaceLabelFocused" : "workspaceLabel",
             ),
-            label: `${id}`,
+            label: romanize(id),
           }),
           className: "workspaceButton",
         }),
