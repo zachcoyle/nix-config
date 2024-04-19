@@ -8,6 +8,7 @@
     (_: prev: {
       pyprland = inputs.pyprland.packages.${prev.system}.default;
       ags = inputs.ags.packages.${prev.system}.default;
+      inherit (inputs.nixos-conf-editor.packages.${prev.system}) nixos-conf-editor;
     })
   ];
 }

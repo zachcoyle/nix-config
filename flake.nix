@@ -232,6 +232,14 @@
         gitignore.follows = "gitignore";
       };
     };
+
+    nixos-conf-editor = {
+      url = "github:snowfallorg/nixos-conf-editor";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+      };
+    };
   };
 
   outputs = inputs @ {self, ...}:

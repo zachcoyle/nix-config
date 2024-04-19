@@ -115,6 +115,7 @@ in {
       makemkv
       networkmanagerapplet
       nitch
+      nixos-conf-editor
       nvtopPackages.amd
       nyxt
       ollama
