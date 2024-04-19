@@ -89,6 +89,7 @@ in {
       cider
       copyq
       cura
+      element-desktop
       foliate
       font-manager
       freecad
