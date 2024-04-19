@@ -47,7 +47,10 @@ in {
       associations = {
         added = {};
         removed = {
-          "inode/directory" = ["codium.desktop"];
+          "inode/directory" = [
+            "codium.desktop"
+            "zed.desktop"
+          ];
         };
       };
       defaultApplications = {
