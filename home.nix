@@ -59,6 +59,7 @@ in {
       moreutils
       neofetch
       neovide
+      nh
       nix-melt
       nix-output-monitor
       nix-top
