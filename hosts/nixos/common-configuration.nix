@@ -109,13 +109,22 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
 
-    zsh.enable = true;
+    nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 4d --keep 3";
+      };
+      flake = "/home/zcoyle/Developer/github.com/zachcoyle/nix-config";
+    };
 
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
+
+    zsh.enable = true;
   };
 
   console = {
