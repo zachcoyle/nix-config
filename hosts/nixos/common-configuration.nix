@@ -136,6 +136,25 @@
   services = {
     blueman.enable = true;
 
+    displayManager = {
+      sddm = {
+        enable = true;
+        enableHidpi = config.networking.hostName == "nixos-laptop";
+        wayland.enable = true;
+        sugarCandyNix = {
+          enable = true;
+          settings = {
+            Background = lib.cleanSource ../../users/zcoyle/dots/sddm-background.jpg;
+            ScreenWidth = 1920;
+            ScreenHeight = 1080;
+            FormPosition = "left";
+            HaveFormBackground = true;
+            PartialBlur = true;
+          };
+        };
+      };
+    };
+
     gnome.gnome-keyring.enable = true;
 
     redis = {
@@ -148,24 +167,6 @@
     xserver = {
       #videoDrivers = ["amdgpu-pro"];
       enable = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-          enableHidpi = config.networking.hostName == "nixos-laptop";
-          wayland.enable = true;
-          sugarCandyNix = {
-            enable = true;
-            settings = {
-              Background = lib.cleanSource ../../users/zcoyle/dots/sddm-background.jpg;
-              ScreenWidth = 1920;
-              ScreenHeight = 1080;
-              FormPosition = "left";
-              HaveFormBackground = true;
-              PartialBlur = true;
-            };
-          };
-        };
-      };
 
       xkb = {
         layout = "us, us";
