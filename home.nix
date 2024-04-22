@@ -192,7 +192,9 @@ in {
         id = 0;
         name = "zcoyle";
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          dearrow
           firenvim
+          nighttab
           react-devtools
           reddit-enhancement-suite
           reduxdevtools
@@ -201,7 +203,6 @@ in {
           vimium
           vue-js-devtools
           wayback-machine
-          nighttab
         ];
 
         search = {
