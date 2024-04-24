@@ -85,7 +85,6 @@ in {
       typioca
       util-linux
       visidata
-      wezterm
       wget
       wttrbar
       xsv
