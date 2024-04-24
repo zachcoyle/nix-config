@@ -91,7 +91,6 @@ in {
       xsv
       yt-dlp
       yq
-      zed-editor
       zstd
     ];
 
