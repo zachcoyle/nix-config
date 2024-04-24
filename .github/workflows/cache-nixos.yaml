@@ -5,7 +5,6 @@ on:
 jobs:
   cachix:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - name: Set Swap Space
         uses: pierotofy/set-swap-space@master
@@ -27,10 +26,17 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       # - run: nix build .#nixosConfigurations.nixos-laptop.config.system.build.toplevel --show-trace
       - run: nix build .#nixosConfigurations.nixos-laptop.config.boot.kernelPackages.kernel --show-trace
+        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.freecad --show-trace
+        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.rocmPackages.rocsolver --show-trace
+        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.neovim --show-trace
+        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.neovide --show-trace
+        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.ollama --show-trace
+        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.hyprland --show-trace
+        continue-on-error: true
     # - run: nix build .#nixosConfigurations.nixos-desktop.config.system.build.toplevel --show-trace
