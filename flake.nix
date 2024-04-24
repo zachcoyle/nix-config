@@ -162,14 +162,6 @@
       };
     };
 
-    sword-flake = {
-      url = "github:zachcoyle/sword-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs = {

@@ -1261,7 +1261,6 @@
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sg-nvim": "sg-nvim",
         "stylix": "stylix",
-        "sword-flake": "sword-flake",
         "systems-darwin": "systems-darwin",
         "systems-default": "systems-default",
         "systems-linux": "systems-linux",
@@ -1401,46 +1400,6 @@
       "original": {
         "owner": "danth",
         "repo": "stylix",
-        "type": "github"
-      }
-    },
-    "sword-flake": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "sword-src": "sword-src"
-      },
-      "locked": {
-        "lastModified": 1701845955,
-        "narHash": "sha256-aEAKsdO4d1Al1qIecLcQSGzHTav1sZnedazYLpGcajM=",
-        "owner": "zachcoyle",
-        "repo": "sword-flake",
-        "rev": "d99b9a04a8ba6d45d7d4c5542c3b93cd7e877ad5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zachcoyle",
-        "repo": "sword-flake",
-        "type": "github"
-      }
-    },
-    "sword-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1700673471,
-        "narHash": "sha256-aSyQgXMHsZ3ySbWjF963HRIapCPs+WSatPOUOJZKrMc=",
-        "owner": "zachcoyle",
-        "repo": "sword",
-        "rev": "9fb626327bac4f7e4f5f49b23d071257ba6dc664",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zachcoyle",
-        "repo": "sword",
         "type": "github"
       }
     },
