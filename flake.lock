@@ -555,11 +555,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1713903337,
-        "narHash": "sha256-epDAMax9H68DUM4tBEFiCXBvXgF749p6ouvXG6Ofb4U=",
+        "lastModified": 1713920773,
+        "narHash": "sha256-D+8ACH1bblpvXYa8MvWVmh2tbtWZNkWD6nPkape7OZI=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "d119513749daf47b9061258a1974b34111ab8bb5",
+        "rev": "34413d1f367b56e17614ee0455b6bf0b61a5aed1",
         "type": "github"
       },
       "original": {
@@ -887,11 +887,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713902557,
-        "narHash": "sha256-vdZVNnyS8qRREOAhhlC7sjL5CZwigRjGHgdazijfJu8=",
+        "lastModified": 1713921645,
+        "narHash": "sha256-dYa3X7wsyUznXJngPNsz3eGv7mNZOaUPfuJhKeOam8Y=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "f7f2e0b543335f469753b7ee0900ffe7eb9eb81f",
+        "rev": "878d11eb08da8ffe700aba7db90b18c344f553e1",
         "type": "github"
       },
       "original": {
@@ -980,11 +980,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713832958,
-        "narHash": "sha256-7glr2lLYeT5KdCE+pbrGcNx7DHTlHfesi0zkLq5tHh0=",
+        "lastModified": 1713919344,
+        "narHash": "sha256-Ep8jPm+Q832byS7VtlkdXEEWGFhk5BMX0CjkVtC1G4E=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "f4c08368063cff2052f435ab8daaf27036e32869",
+        "rev": "7e82af679667cf9d56075dfa375b32c317aa708d",
         "type": "github"
       },
       "original": {
@@ -1081,11 +1081,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1713908742,
-        "narHash": "sha256-iDH0/wF3H37auDHCf9FxFDL2DJaOZbvSkXbbGyTmk68=",
+        "lastModified": 1713931794,
+        "narHash": "sha256-W8Si84Fqi/kCPcGh5KnMfHddc39eJ3esmSTzUFL9HEY=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "4b1ce7625c123b2e33eb122c46543a50c625ef73",
+        "rev": "10344baebd47c199da92973d7f86f77290997412",
         "type": "github"
       },
       "original": {
@@ -1329,11 +1329,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713368621,
-        "narHash": "sha256-e4C64Ja75qg6CzKkV4r/O6LhuexjSEAAZwL/SEmXDeE=",
+        "lastModified": 1713915177,
+        "narHash": "sha256-ahE60qFELXeaIBk2sxGJ6X2s8dr4iJQnFCB4ZFVZxuU=",
         "owner": "Zhaith-Izaliel",
         "repo": "sddm-sugar-candy-nix",
-        "rev": "8ea8078c71efdb26c25e9dbc08579a2f12b866a4",
+        "rev": "5adbc917817d0480b70f99a2d497477e802f4d0a",
         "type": "gitlab"
       },
       "original": {
