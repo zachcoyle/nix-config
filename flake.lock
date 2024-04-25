@@ -1131,11 +1131,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1708589824,
-        "narHash": "sha256-2GOiFTkvs5MtVF65sC78KNVxQSmsxtk0WmV1wJ9V2ck=",
+        "lastModified": 1714071996,
+        "narHash": "sha256-GY4aLrZiEROVFcFMNCOT2j/7KoWmemV70J/LCmmCxfU=",
         "owner": "nix-community",
         "repo": "poetry2nix",
-        "rev": "3c92540611f42d3fb2d0d084a6c694cd6544b609",
+        "rev": "1105f50160fb9b7d89d5520d8a4a803122f96807",
         "type": "github"
       },
       "original": {
@@ -1186,11 +1186,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714070080,
-        "narHash": "sha256-pLulpozvZIzqmk/YZQVlu1MnLMLZiLZ0jx6xUnvBS7c=",
+        "lastModified": 1714070513,
+        "narHash": "sha256-q8V3NojyKnssCK6IBdvNiXfV4rExGmuWxKSPwgsPuMQ=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "0fe1f04586f80aea374159ed5abb161c23ed3fdc",
+        "rev": "57c5dfba565a9f749f414c24397348aff9dcb138",
         "type": "github"
       },
       "original": {
