@@ -133,7 +133,6 @@ in {
       thunderbird
       udiskie
       ueberzugpp
-      ulauncher
       unzip
       vlc
       waypipe
