@@ -44,7 +44,5 @@ jobs:
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.inkscape --show-trace
         continue-on-error: true
-      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.firefox-unwrapped --show-trace
-        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.alacritty --show-trace
         continue-on-error: true
