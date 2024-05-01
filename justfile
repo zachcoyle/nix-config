@@ -50,6 +50,11 @@ cachix-darwin:
       | jq -r '.[].outputs | to_entries[].value' \
       | cachix push zachcoyle
 
+cachix-inputs:
+    nix flake archive --json \
+      | jq -r '.path,(.inputs|to_entries[].value.path)' \
+      | cachix push zachcoyle
+
 why INPUT:
     nix why-depends .#nixosConfigurations.{{ host }}.config.system.build.toplevel .#nixosConfigurations.{{ host }}.pkgs.{{ INPUT }} --derivation
 
