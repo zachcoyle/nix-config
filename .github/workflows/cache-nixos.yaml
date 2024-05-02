@@ -58,3 +58,7 @@ jobs:
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.nerdfonts --show-trace
         continue-on-error: true
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.calibre --show-trace
+        continue-on-error: true
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.kdenlive --show-trace
+        continue-on-error: true
