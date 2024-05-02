@@ -62,3 +62,7 @@ jobs:
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.kdenlive --show-trace
         continue-on-error: true
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.imagemagick --show-trace
+        continue-on-error: true
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.element-desktop --show-trace
+        continue-on-error: true
