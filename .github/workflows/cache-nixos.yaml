@@ -66,3 +66,5 @@ jobs:
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.element-desktop --show-trace
         continue-on-error: true
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.calibre --show-trace
+        continue-on-error: true
