@@ -36,6 +36,7 @@ in {
       dsq
       duf
       entr
+      fastfetch
       fd
       ghq
       gimp
@@ -53,7 +54,6 @@ in {
       mdcat
       moar
       moreutils
-      neofetch
       neovide
       nh
       nix-melt
