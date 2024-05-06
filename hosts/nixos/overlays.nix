@@ -8,7 +8,6 @@
     (_: prev: {
       pyprland = inputs.pyprland.packages.${prev.system}.default;
       ags = inputs.ags.packages.${prev.system}.default;
-      inherit (inputs.nixpkgs-stable.legacyPackages.${prev.system}) firefox thunderbird;
     })
   ];
 }

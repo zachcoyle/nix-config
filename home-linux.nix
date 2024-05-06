@@ -201,13 +201,13 @@ in {
   services = {
     avizo.enable = true;
     batsignal.enable = true;
-    hypridle = {
-      enable = true;
-      lockCmd = "hyprlock";
-      # unlockCmd = "";
-      # afterSleepCmd = "";
-      beforeSleepCmd = "playerctl pause";
-    };
+    # hypridle = {
+    #   enable = true;
+    #   lockCmd = "hyprlock";
+    #   # unlockCmd = "";
+    #   # afterSleepCmd = "";
+    #   beforeSleepCmd = "playerctl pause";
+    # };
   };
 
   wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hyprland-plugins;};
