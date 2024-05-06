@@ -48,7 +48,7 @@
     systems-default.url = "github:nix-systems/default";
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
