@@ -130,7 +130,7 @@ in {
       snapshot
       swaynotificationcenter
       swww
-      thunderbird
+      thunderbird-bin
       udiskie
       ueberzugpp
       unzip
