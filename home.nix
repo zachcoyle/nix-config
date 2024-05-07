@@ -161,7 +161,7 @@ in {
     firefox = let
       darwin-package = pkgs.firefox-bin;
       linux-package =
-        pkgs.wrapFirefox pkgs.firefox-unwrapped
+        pkgs.wrapFirefox pkgs.firefox-bin-unwrapped
         {
           extraPolicies = {
             DisableFirefoxStudies = true;

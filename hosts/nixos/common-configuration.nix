@@ -89,7 +89,7 @@
       alacritty
       alejandra
       dmidecode
-      firefox
+      firefox-bin
       git
       ifuse
       iwd
