@@ -72,7 +72,10 @@
   };
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = [];
+    };
     nameservers = ["1.1.1.1" "1.0.0.1"];
   };
 
@@ -118,11 +121,11 @@
       flake = "/home/zcoyle/Developer/github.com/zachcoyle/nix-config";
     };
 
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
+    # steam = {
+    #   enable = true;
+    #   remotePlay.openFirewall = true;
+    #   dedicatedServer.openFirewall = true;
+    # };
 
     zsh.enable = true;
   };

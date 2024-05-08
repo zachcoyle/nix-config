@@ -89,10 +89,10 @@ in {
       cider
       copyq
       cura
-      dwarf-fortress-packages.dwarf-fortress-full
+      # dwarf-fortress-packages.dwarf-fortress-full
       # element-desktop
       # foliate
-      font-manager
+      # font-manager
       freecad
       gnome-tecla
       gnome.evince
