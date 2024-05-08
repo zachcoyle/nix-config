@@ -46,11 +46,7 @@ jobs:
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.ags --show-trace
         continue-on-error: true
-      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.inkscape --show-trace
-        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.alacritty --show-trace
-        continue-on-error: true
-      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.libreoffice --show-trace
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.vscodium --show-trace
         continue-on-error: true
@@ -58,11 +54,5 @@ jobs:
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.nerdfonts --show-trace
         continue-on-error: true
-      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.calibre --show-trace
-        continue-on-error: true
-      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.kdenlive --show-trace
-        continue-on-error: true
-      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.imagemagick --show-trace
-        continue-on-error: true
-      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.element-desktop --show-trace
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.networkmanager-openconnect --show-trace
         continue-on-error: true
