@@ -23,11 +23,11 @@
     "apple-firmware": {
       "flake": false,
       "locked": {
-        "lastModified": 1715182271,
-        "narHash": "sha256-Wn9PO3FcNAdFr2PpmjVcyMZlosBUsFJoj/fV3d9Afjc=",
+        "lastModified": 1715194751,
+        "narHash": "sha256-bvXnymV3ce8gq3y1mGMCnDrWZLIVJtfD3JkUlotAHP8=",
         "owner": "AdityaGarg8",
         "repo": "Apple-Firmware",
-        "rev": "8dce96552f774a00e0009b3187563fedb6b0beed",
+        "rev": "cd985c734ad84dc66c7b3ef961463892691f9c32",
         "type": "github"
       },
       "original": {
@@ -1132,11 +1132,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1715186949,
-        "narHash": "sha256-ugsb5RHUQr/Wa6aDDXjPMccrJDtIiMLEBnW6eD53nHk=",
+        "lastModified": 1715197646,
+        "narHash": "sha256-zdynoUAbvNtfYA/6D39VrI1vyt5rlFiQBTf8//9Pfb4=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "af908267887a420babf1acec8260a882b17ada98",
+        "rev": "223a5e3596202212600c2c8d492f02a70600a85d",
         "type": "github"
       },
       "original": {
@@ -1182,11 +1182,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1715180526,
-        "narHash": "sha256-YMJ8vKFj9vhUD9INYSNzmf+7sh72oXeleK2TvhysY1I=",
+        "lastModified": 1715192660,
+        "narHash": "sha256-rx0P/LrJ0fVz3RIEVsXgjR+PzHFoRlQFl4v42w5s1mI=",
         "owner": "nix-community",
         "repo": "poetry2nix",
-        "rev": "3df9d21b3b8b91a930c82db0f33ae44066589a56",
+        "rev": "59b51b92a192f027c21905a84dd6032389a668c4",
         "type": "github"
       },
       "original": {
