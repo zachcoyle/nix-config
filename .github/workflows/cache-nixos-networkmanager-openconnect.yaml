@@ -1,4 +1,4 @@
-name: cachix-nixos
+name: cachix-nixos-networkmanager-openconnect
 on:
   pull_request:
   push:
