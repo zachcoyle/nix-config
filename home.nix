@@ -438,6 +438,6 @@ in {
     };
 
     mpv.enable = true;
-    # zathura.enable = true;
+    zathura.enable = true;
   };
 }

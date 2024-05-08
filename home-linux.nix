@@ -83,20 +83,20 @@ in {
       appimage-run
       blender
       brightnessctl
-      # bruno
+      bruno
       buildah
-      # calibre
+      calibre
       cider
       copyq
       cura
-      # dwarf-fortress-packages.dwarf-fortress-full
-      # element-desktop
-      # foliate
-      # font-manager
+      dwarf-fortress-packages.dwarf-fortress-full
+      element-desktop
+      foliate
+      font-manager
       freecad
       gnome-tecla
       gnome.evince
-      # gnome.gnome-calculator
+      gnome.gnome-calculator
       gnome.gnome-font-viewer
       gnome.gnome-keyring
       gnome.gnome-system-monitor
@@ -118,7 +118,7 @@ in {
       networkmanagerapplet
       nitch
       nvtopPackages.amd
-      # nyxt
+      nyxt
       ollama
       parted
       pavucontrol
