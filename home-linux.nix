@@ -92,7 +92,6 @@ in {
       dwarf-fortress-packages.dwarf-fortress-full
       element-desktop
       foliate
-      font-manager
       freecad
       gnome-tecla
       gnome.evince
