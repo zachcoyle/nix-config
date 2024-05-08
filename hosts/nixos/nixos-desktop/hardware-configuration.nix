@@ -14,24 +14,24 @@
     initrd = {
       availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
       kernelModules = [];
-      luks.devices."luks-fd8a7e17-7b2e-4008-8f72-41a656b5a526".device = "/dev/disk/by-uuid/fd8a7e17-7b2e-4008-8f72-41a656b5a526";
+      luks.devices."luks-9885402b-5b7a-40d8-b363-35d3266d286f".device = "/dev/disk/by-uuid/9885402b-5b7a-40d8-b363-35d3266d286f";
     };
     kernelModules = ["kvm-amd"];
     extraModulePackages = [];
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/53d3e1b7-76f5-4044-a032-26e5f34c7b20";
+    device = "/dev/disk/by-uuid/5444a920-397a-4dc5-9bd4-13a5ed3a6341";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0F0A-176E";
+    device = "/dev/disk/by-uuid/5993-7A87";
     fsType = "vfat";
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/eaf4aa7f-a15b-4114-a002-0a78a5abb256";}
+    {device = "/dev/disk/by-uuid/d0abffb7-9e1d-45a3-a586-800893b27087";}
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
