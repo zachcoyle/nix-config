@@ -440,4 +440,12 @@ in {
     mpv.enable = true;
     zathura.enable = true;
   };
+
+  services = {
+    syncthing = {
+      enable = true;
+      tray.enable = true;
+      extraOptions = [];
+    };
+  };
 }
