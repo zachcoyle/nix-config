@@ -444,7 +444,9 @@ in {
   services = {
     syncthing = {
       enable = true;
-      tray.enable = true;
+      # FIXME: when tray enabled it throws an error message.
+      # need to figure out how to pass --wait to the tray program
+      # tray.enable = true;
       extraOptions = [];
     };
   };
