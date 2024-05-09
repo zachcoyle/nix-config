@@ -262,8 +262,6 @@ in {
       configDir = ./users/zcoyle/by-app/eww;
     };
 
-    waybar = import ./users/zcoyle/by-app/waybar.nix {inherit pkgs config;};
-
     wlogout = {
       enable = true;
       style = ./users/zcoyle/dots/wlogout.css;

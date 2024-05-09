@@ -223,7 +223,6 @@
     ];
 
     layerrule = [
-      # "blur, waybar"
       "blur, ags"
       "blur, yofi"
       "blur, alacritty"
