@@ -200,13 +200,28 @@ in {
   services = {
     avizo.enable = true;
     batsignal.enable = true;
-    # hypridle = {
-    #   enable = true;
-    #   lockCmd = "hyprlock";
-    #   # unlockCmd = "";
-    #   # afterSleepCmd = "";
-    #   beforeSleepCmd = "playerctl pause";
-    # };
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "hyprlock";
+          # unlockCmd = "";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+          before_sleep_cmd = "playerctl pause";
+        };
+        listener = [
+          {
+            timeout = 900;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 1200;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      };
+    };
   };
 
   wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hyprland-plugins;};
@@ -219,23 +234,32 @@ in {
       extraPackages = [];
     };
 
-    # hyprlock = {
-    #   enable = true;
-    #   backgrounds = [
-    #     {
-    #       path = "screenshot";
-    #       blur_passes = 1;
-    #       blur_size = 7;
-    #       noise = 0.00585;
-    #     }
-    #   ];
-    #   labels = [
-    #     {
-    #       text = ''cmd[update:10000] curl -s --connect-timeout 10 https://www.biblegateway.com/votd/get/\?format\=json\&version\=ESV | jq "(.votd.reference + \" \" + .votd.text)" | fold -w 120 -s | html2text | recode html'';
-    #       rotate = 0.0;
-    #     }
-    #   ];
-    # };
+    hyprlock = {
+      enable = true;
+
+      settings = {
+        disable_loading_bar = true;
+        grace = 300;
+        hide_cursor = true;
+        no_fade_in = false;
+
+        background = [
+          {
+            path = "screenshot";
+            blur_passes = 1;
+            blur_size = 7;
+            noise = 0.00585;
+          }
+        ];
+
+        label = [
+          {
+            text = ''cmd[update:10000] curl -s --connect-timeout 10 https://www.biblegateway.com/votd/get/\?format\=json\&version\=ESV | jq "(.votd.reference + \" \" + .votd.text)" | fold -w 120 -s | html2text | recode html'';
+            rotate = 0.0;
+          }
+        ];
+      };
+    };
 
     obs-studio = {
       enable = true;
