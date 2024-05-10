@@ -219,23 +219,23 @@ in {
       extraPackages = [];
     };
 
-    hyprlock = {
-      enable = true;
-      backgrounds = [
-        {
-          path = "screenshot";
-          blur_passes = 1;
-          blur_size = 7;
-          noise = 0.00585;
-        }
-      ];
-      labels = [
-        {
-          text = ''cmd[update:10000] curl -s --connect-timeout 10 https://www.biblegateway.com/votd/get/\?format\=json\&version\=ESV | jq "(.votd.reference + \" \" + .votd.text)" | fold -w 120 -s | html2text | recode html'';
-          rotate = 0.0;
-        }
-      ];
-    };
+    # hyprlock = {
+    #   enable = true;
+    #   backgrounds = [
+    #     {
+    #       path = "screenshot";
+    #       blur_passes = 1;
+    #       blur_size = 7;
+    #       noise = 0.00585;
+    #     }
+    #   ];
+    #   labels = [
+    #     {
+    #       text = ''cmd[update:10000] curl -s --connect-timeout 10 https://www.biblegateway.com/votd/get/\?format\=json\&version\=ESV | jq "(.votd.reference + \" \" + .votd.text)" | fold -w 120 -s | html2text | recode html'';
+    #       rotate = 0.0;
+    #     }
+    #   ];
+    # };
 
     obs-studio = {
       enable = true;

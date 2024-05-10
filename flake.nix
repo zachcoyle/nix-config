@@ -279,7 +279,6 @@
               }
               {
                 home-manager.users.zcoyle.imports = [
-                  inputs.hyprlock.homeManagerModules.default
                   inputs.ags.homeManagerModules.default
                   ./home-linux.nix
                 ];
