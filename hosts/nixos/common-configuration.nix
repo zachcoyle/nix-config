@@ -167,24 +167,25 @@
       };
     };
 
+    libinput = {
+      enable = true;
+      touchpad = {
+        disableWhileTyping = true;
+      };
+    };
+
     xserver = {
       #videoDrivers = ["amdgpu-pro"];
       enable = true;
-
       xkb = {
         layout = "us, us";
         variant = ", colemak";
         options = "caps:escape,grp:alt_space_toggle,terminate:ctrl_alt_bksp";
       };
-
-      libinput = {
-        enable = true;
-        touchpad = {
-          disableWhileTyping = true;
-        };
-      };
     };
+
     printing.enable = true;
+
     pipewire = {
       enable = true;
       audio.enable = true;
