@@ -15,7 +15,7 @@
   settings = {
     general = {
       layout = "dwindle";
-      cursor_inactive_timeout = 5;
+      # cursor_inactive_timeout = 5;
     };
     misc = {
       enable_swallow = true;
