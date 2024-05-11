@@ -120,6 +120,7 @@ in {
       nyxt
       ollama
       parted
+      pasystray
       pavucontrol
       pdfarranger
       playerctl

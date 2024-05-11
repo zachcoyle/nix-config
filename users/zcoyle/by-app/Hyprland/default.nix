@@ -252,6 +252,7 @@
       "udiskie -a -n"
       "pypr"
       "wlsunset -l 40.45 -L -85.37"
+      "pasystray"
     ];
 
     env = [
