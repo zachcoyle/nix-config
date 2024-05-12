@@ -190,6 +190,7 @@ in {
         id = 0;
         name = "zcoyle";
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          darkreader
           dearrow
           firenvim
           nighttab
