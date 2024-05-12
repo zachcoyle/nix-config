@@ -211,7 +211,12 @@ in {
               urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
               iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
               updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = ["@b"];
+              definedAliases = ["@b" "@brave"];
+            };
+            Youtube = {
+              urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = ["@yt" "@youtube"];
             };
             "Nix Packages" = {
               urls = [
@@ -265,17 +270,17 @@ in {
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = ["@nw"];
             };
-            "Ollama" = {
+            Ollama = {
               urls = [{template = "https://ollama.com/search?q={searchTerms}";}];
               iconUpdateURL = "https://ollama.com/public/icon-32x32.png";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = ["@ll"];
             };
             "Wikipedia (en)".metaData.alias = "@wiki";
-            "Google".metaData.hidden = true;
+            Google.metaData.hidden = true;
             "Amazon.com".metaData.hidden = true;
-            "Bing".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
+            Bing.metaData.hidden = true;
+            eBay.metaData.hidden = true;
           };
         };
 
