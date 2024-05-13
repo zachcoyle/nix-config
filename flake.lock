@@ -23,11 +23,11 @@
     "apple-firmware": {
       "flake": false,
       "locked": {
-        "lastModified": 1715429997,
-        "narHash": "sha256-25nTyf1IVhAE611rOhkK8lqbMuEe3OoODXc1NDFu/Ug=",
+        "lastModified": 1715620583,
+        "narHash": "sha256-+a24NgMG5Dz5D/mXShr6G0AN8K+L+LOozHQD4kNfE2w=",
         "owner": "AdityaGarg8",
         "repo": "Apple-Firmware",
-        "rev": "cad85f260e52d25177c19273bd52c6e07880bd52",
+        "rev": "25fb86193e0f3fae3681143eb132461142f94a4b",
         "type": "github"
       },
       "original": {
@@ -1028,11 +1028,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1715395895,
-        "narHash": "sha256-DreMqi6+qa21ffLQqhMQL2XRUkAGt3N7iVB5FhJKie4=",
+        "lastModified": 1715542476,
+        "narHash": "sha256-FF593AtlzQqa8JpzrXyRws4CeKbc5W86o8tHt4nRfIg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "71bae31b7dbc335528ca7e96f479ec93462323ff",
+        "rev": "44072e24566c5bcc0b7aa9178a0104f4cfffab19",
         "type": "github"
       },
       "original": {
@@ -1132,11 +1132,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1715610914,
-        "narHash": "sha256-FojuCE0uGI4WJtmPPFM4cxc9bcYj7VROT9Kn/nxbALk=",
+        "lastModified": 1715625955,
+        "narHash": "sha256-3+Vhj5A0PKs4nHZrBBjK2APtCWxXM7gsDe5pZjWX6II=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "6c87ebc0526b8cf99db7be0f1690eb4931080032",
+        "rev": "f20b6133ee8b8a88b72b6387eee7647617eecdb6",
         "type": "github"
       },
       "original": {
