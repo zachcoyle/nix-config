@@ -1,4 +1,4 @@
-name: cachix-nixos
+name: cachix-nixos-t2-kernel
 on:
   pull_request:
   push:

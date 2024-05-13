@@ -1,4 +1,4 @@
-name: cachix-nixos
+name: cachix-nixos-calibre
 on:
   pull_request:
   push:
