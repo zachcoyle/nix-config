@@ -121,11 +121,11 @@
       flake = "/home/zcoyle/Developer/github.com/zachcoyle/nix-config";
     };
 
-    # steam = {
-    #   enable = true;
-    #   remotePlay.openFirewall = true;
-    #   dedicatedServer.openFirewall = true;
-    # };
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
 
     zsh.enable = true;
   };
