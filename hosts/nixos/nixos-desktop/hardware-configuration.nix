@@ -16,7 +16,7 @@
       kernelModules = [];
       luks.devices."luks-9885402b-5b7a-40d8-b363-35d3266d286f".device = "/dev/disk/by-uuid/9885402b-5b7a-40d8-b363-35d3266d286f";
     };
-    kernelModules = ["kvm-amd"];
+    kernelModules = ["kvm-amd" "sg"];
     extraModulePackages = [];
   };
 

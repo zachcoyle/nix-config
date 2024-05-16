@@ -11,9 +11,11 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "nvme" "usbhid"];
-    initrd.kernelModules = [];
-    kernelModules = ["kvm-intel"];
+    initrd = {
+      availableKernelModules = ["xhci_pci" "nvme" "usbhid"];
+      kernelModules = [];
+    };
+    kernelModules = ["kvm-intel" "sg"];
     extraModulePackages = [];
   };
 
