@@ -44,6 +44,7 @@ in {
       git-get
       gitnr
       gource
+      handbrake
       html2text
       hurl
       jq
