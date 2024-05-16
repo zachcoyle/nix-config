@@ -38,6 +38,7 @@ in {
       entr
       fastfetch
       fd
+      file
       ghq
       gimp
       git-bug
