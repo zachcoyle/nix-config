@@ -251,7 +251,11 @@ in {
       theme = let
         inherit (config.lib.formats.rasi) mkLiteral;
       in {
-        window = {};
+        window = {
+          border-radius = mkLiteral "10px";
+          border = mkLiteral "2px";
+          border-color = mkLiteral "${colorsWithHashtag.base0A}";
+        };
         inputbar = {
           padding = mkLiteral "10px";
           spacing = mkLiteral "10px";
@@ -262,6 +266,12 @@ in {
         };
         listview = {
           spacing = mkLiteral "10px";
+        };
+        element = {
+          spacing = mkLiteral "10px";
+        };
+        element-icon = {
+          size = mkLiteral "32px";
         };
       };
     };
