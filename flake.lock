@@ -1299,7 +1299,6 @@
         "systems-default": "systems-default",
         "systems-linux": "systems-linux",
         "telescope-just": "telescope-just",
-        "yofi": "yofi",
         "zls": "zls"
       }
     },
@@ -1659,29 +1658,6 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
-        "type": "github"
-      }
-    },
-    "yofi": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1710356110,
-        "narHash": "sha256-dLYYHNiimcY5WMOnYs9zHVKdjqoPhdFhbEJa2h5hel0=",
-        "owner": "l4l",
-        "repo": "yofi",
-        "rev": "0d7af4653fa8f119a4aee0b7981edc88a6c7e892",
-        "type": "github"
-      },
-      "original": {
-        "owner": "l4l",
-        "repo": "yofi",
         "type": "github"
       }
     },

@@ -1,12 +1,12 @@
 {
   pkgs,
-  config,
+  # config,
   hyprland-plugins,
   ...
 }: let
   # base16 styleguide:
   # https://github.com/chriskempson/base16/blob/main/styling.md
-  colorsWithHashtag = config.lib.stylix.colors.withHashtag;
+  # colorsWithHashtag = config.lib.stylix.colors.withHashtag;
   tomlFormat = pkgs.formats.toml {};
 in {
   qt = {
@@ -140,14 +140,11 @@ in {
       wl-clipboard
       wlsunset
       xdg-utils
-      yofi
     ];
 
     file = {
       ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
-      ".config/yofi/blacklist".text = ''
-      '';
       ".config/hypr/pyprland.toml".source = tomlFormat.generate "pyprland.toml" {
         pyprland = {
           plugins = [
@@ -157,42 +154,6 @@ in {
         };
         expose = {
           include_special = false;
-        };
-      };
-      ".config/yofi/yofi.config".source = tomlFormat.generate "yofi.config" {
-        width = 400;
-        height = 512;
-        force_window = false;
-        corner_radius = "10";
-        font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
-        font_size = 24;
-        bg_color = "${colorsWithHashtag.base00}BD";
-        bg_border_color = colorsWithHashtag.base0A;
-        bg_border_width = 4.0;
-        font_color = colorsWithHashtag.base04;
-        term = "alacritty -e";
-        input_text = {
-          font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
-          font_color = colorsWithHashtag.base01;
-          bg_color = "${colorsWithHashtag.base04}BD";
-          margin = "10";
-          padding = "4 0";
-          corner_radius = "10";
-        };
-        list_items = {
-          font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
-          font_color = colorsWithHashtag.base04;
-          selected_font_color = colorsWithHashtag.base0B;
-          match_color = colorsWithHashtag.base0F;
-          margin = "12 10";
-          hide_actions = true;
-          action_left_margin = 60;
-          item_spacing = 8;
-          icon_spacing = 5;
-        };
-        icon = {
-          size = 32;
-          fallback_icon_path = "/run/current-system/sw/share/icons";
         };
       };
     };
@@ -282,9 +243,13 @@ in {
       ];
     };
 
-    eww = {
+    rofi = {
       enable = true;
-      configDir = ./users/zcoyle/by-app/eww;
+      package = pkgs.rofi-wayland;
+      terminal = "${pkgs.alacritty}/bin/alacritty";
+      # theme = let
+      #   inherit (config.lib.formats.rasi) mkLiteral;
+      # in { };
     };
 
     wlogout = {

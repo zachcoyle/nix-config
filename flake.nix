@@ -169,14 +169,6 @@
       };
     };
 
-    yofi = {
-      url = "github:l4l/yofi";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
     rippkgs = {
       url = "github:replit/rippkgs";
       inputs = {

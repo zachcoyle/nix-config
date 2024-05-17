@@ -122,7 +122,7 @@
       "SUPER, Y, fullscreen, 0"
       "SUPER, U, fakefullscreen, 0"
       "SUPER, T, togglefloating"
-      "SUPER, SPACE, exec, yofi"
+      "SUPER, SPACE, exec, rofi -show drun -show-icons"
       "SUPER, S, togglespecialworkspace, scratchpad"
       "SUPER, 1, workspace, 1"
       "SUPER, 2, workspace, 2"
@@ -224,7 +224,6 @@
 
     layerrule = [
       "blur, ags"
-      "blur, yofi"
       "blur, alacritty"
       "blur, wlogout"
       "blur, avizo"
