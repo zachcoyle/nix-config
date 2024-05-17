@@ -1,12 +1,13 @@
 {
   pkgs,
-  # config,
+  lib,
+  config,
   hyprland-plugins,
   ...
 }: let
   # base16 styleguide:
   # https://github.com/chriskempson/base16/blob/main/styling.md
-  # colorsWithHashtag = config.lib.stylix.colors.withHashtag;
+  colorsWithHashtag = config.lib.stylix.colors.withHashtag;
   tomlFormat = pkgs.formats.toml {};
 in {
   qt = {
@@ -247,9 +248,22 @@ in {
       enable = true;
       package = pkgs.rofi-wayland;
       terminal = "${pkgs.alacritty}/bin/alacritty";
-      # theme = let
-      #   inherit (config.lib.formats.rasi) mkLiteral;
-      # in { };
+      theme = let
+        inherit (config.lib.formats.rasi) mkLiteral;
+      in {
+        window = {};
+        inputbar = {
+          padding = mkLiteral "10px";
+          spacing = mkLiteral "10px";
+        };
+        prompt = {
+          text-color = lib.mkForce (mkLiteral "${colorsWithHashtag.base06}4F");
+          padding-horizontal = mkLiteral "10px";
+        };
+        listview = {
+          spacing = mkLiteral "10px";
+        };
+      };
     };
 
     wlogout = {
