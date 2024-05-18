@@ -248,6 +248,10 @@ in {
       enable = true;
       package = pkgs.rofi-wayland;
       terminal = "${pkgs.alacritty}/bin/alacritty";
+      plugins = with pkgs; [
+        rofi-calc
+        rofi-emoji
+      ];
       theme = let
         inherit (config.lib.formats.rasi) mkLiteral;
       in {
