@@ -265,14 +265,18 @@ in {
           padding-horizontal = mkLiteral "10px";
         };
         listview = {
-          spacing = mkLiteral "10px";
-          lines = 10;
+          lines = 12;
         };
         element = {
           spacing = mkLiteral "10px";
+          font = "Fira Sans 12";
         };
         element-icon = {
-          size = mkLiteral "32px";
+          size = mkLiteral "28px";
+          padding = mkLiteral "10px";
+        };
+        element-text = {
+          vertical-align = mkLiteral "0.5";
           padding = mkLiteral "10px";
         };
       };
