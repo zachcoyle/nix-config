@@ -266,7 +266,7 @@ in {
         };
         listview = {
           spacing = mkLiteral "10px";
-          lines = 8;
+          lines = 10;
         };
         element = {
           spacing = mkLiteral "10px";
