@@ -5,7 +5,7 @@
   ];
   boot = {
     supportedFilesystems = ["bcachefs"];
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_8;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_9;
   };
   networking.hostName = "nixos-desktop";
 }
