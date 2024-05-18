@@ -272,6 +272,7 @@ in {
         };
         element-icon = {
           size = mkLiteral "32px";
+          padding = mkLiteral "10px";
         };
       };
     };
