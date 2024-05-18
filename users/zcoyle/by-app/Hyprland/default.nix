@@ -117,6 +117,8 @@
       # "SUPER, grave, hyprexpo:expo, toggle"
 
       "SUPER, B, exec, firefox"
+      "SUPER, C, exec, rofi -show calc"
+      "SUPER, E, exec, rofi -show emoji"
       "SUPER, Return, exec, alacritty"
       "SUPER, Q, killactive"
       "SUPER, Y, fullscreen, 0"
