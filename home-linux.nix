@@ -257,7 +257,7 @@ in {
       in {
         window = {
           border-radius = mkLiteral "10px";
-          border = mkLiteral "2px";
+          border = mkLiteral "1px";
           border-color = mkLiteral "${colorsWithHashtag.base0A}";
         };
         inputbar = {
