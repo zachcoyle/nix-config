@@ -23,11 +23,11 @@
     "apple-firmware": {
       "flake": false,
       "locked": {
-        "lastModified": 1715620583,
-        "narHash": "sha256-+a24NgMG5Dz5D/mXShr6G0AN8K+L+LOozHQD4kNfE2w=",
+        "lastModified": 1716110702,
+        "narHash": "sha256-p91pyOYKHnJvaBZ7nxrBqFU63UQhMPWhm2GxabfncY4=",
         "owner": "AdityaGarg8",
         "repo": "Apple-Firmware",
-        "rev": "25fb86193e0f3fae3681143eb132461142f94a4b",
+        "rev": "c3ba2bce7b5b7d08a478763c678d71ddded60403",
         "type": "github"
       },
       "original": {
@@ -233,11 +233,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715872464,
-        "narHash": "sha256-mkZ3hrPG7d+qL7B6pQcrNfPh2mnQEJR3FHK93qCp6Uk=",
+        "lastModified": 1716126753,
+        "narHash": "sha256-fdodsQ2AWreGj4arHk6cKcnqlWrNiLb64eRrHtMZ5cw=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "5f6dbcce99d60dd77f96dfc66d06bbea149a40e1",
+        "rev": "601be8412d2ab72f752448766fe0fb2f00d5c40c",
         "type": "github"
       },
       "original": {
@@ -921,11 +921,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715995317,
-        "narHash": "sha256-Pt6Lkr3qteSi4nF5x9RPrnOLoH1bZYnxLmhYVJHyZpY=",
+        "lastModified": 1716081959,
+        "narHash": "sha256-22bzYl65zqYq9WYdHVe/6DEgUxSAKe2T5IDbjJduXWQ=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "6c49c56d4365278f755a2a05ee8581706afed626",
+        "rev": "08695ec925787d342064b6eebebacc1438d0e99b",
         "type": "github"
       },
       "original": {
@@ -947,11 +947,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715952540,
-        "narHash": "sha256-30G1z74lUyxkulwcCXXljXMSfLtpOaMlz7cPT25T4lQ=",
+        "lastModified": 1716128332,
+        "narHash": "sha256-8yXepKOfAbmdj2ktp5xf0a9+bklBhVlkb5fSPzROsDU=",
         "owner": "NixNeovim",
         "repo": "NixNeovimPlugins",
-        "rev": "7578271c83b5224387889803d95c4a5e2a5fa59b",
+        "rev": "b2b8f0ce8e83f6624a1850d7de6c7d9fbcba006b",
         "type": "github"
       },
       "original": {
@@ -962,11 +962,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1716034089,
-        "narHash": "sha256-QBfab6V4TeQ6Y4NiXVrEATdQuhCNFNaXt/L1K/Zw+zc=",
+        "lastModified": 1716141052,
+        "narHash": "sha256-/ndko9o/NKYNpngeJTvw63iGKiTpU0xJ5mxcXL3VlYY=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "b55712de78725c8fcde422ee0a0fe682046e73c3",
+        "rev": "e85c7a78d2657f852a931db3e782c4fab8196fb7",
         "type": "github"
       },
       "original": {
@@ -1102,11 +1102,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1715976947,
-        "narHash": "sha256-cfU0THstf6phd6vpzIzsew89Ns5JdPq7CyeiLRajE1g=",
+        "lastModified": 1716125991,
+        "narHash": "sha256-PmB9vmp383foiVi64RawbnkC+6SiYiWUjdzw2xgl3eM=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "7c4fe30f814595bc617d6b1b682ab9cbfe535d33",
+        "rev": "88ade1dfaa017499326103a078c66dd5d4d0606e",
         "type": "github"
       },
       "original": {
@@ -1117,11 +1117,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1716082022,
-        "narHash": "sha256-yOrsm9D9TQq/1sJDvDxvwzZOnqDFlXYolmbFPwQzUt0=",
+        "lastModified": 1716140745,
+        "narHash": "sha256-ybXfvdAggMnp/X+pj8jT7C5aQ6AtL/pA9sJA/ZzAg7E=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "4cbb29112a2ff1f914c826b74cea9c16c78f4024",
+        "rev": "49682cc18a65cd7a7e0081e9a1464b11655d4d15",
         "type": "github"
       },
       "original": {
@@ -1220,11 +1220,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716077772,
-        "narHash": "sha256-iugMQSeqDYCwVMaQjDu7moY7LRDHOj490mxm96cmNiU=",
+        "lastModified": 1716109432,
+        "narHash": "sha256-TxQhwfbWcek6v3DnVzEMikj9SrDOTHxZWgVgd6zctbQ=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "73a2c716bfc0746abca728d9c0ba373bca9b5024",
+        "rev": "4f7c0d405889b469b7779b5e582aad9efe8b3fdb",
         "type": "github"
       },
       "original": {
@@ -1597,11 +1597,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714058656,
-        "narHash": "sha256-Qv4RBm4LKuO4fNOfx9wl40W2rBbv5u5m+whxRYUMiaA=",
+        "lastModified": 1715940852,
+        "narHash": "sha256-wJqHMg/K6X3JGAE9YLM0LsuKrKb4XiBeVaoeMNlReZg=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "c6aaf729f34a36c445618580a9f95a48f5e4e03f",
+        "rev": "2fba33a182602b9d49f0b2440513e5ee091d838b",
         "type": "github"
       },
       "original": {
