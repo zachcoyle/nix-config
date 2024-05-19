@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  config,
   hyprland-plugins,
   ...
 }: {
@@ -16,6 +18,7 @@
     general = {
       layout = "dwindle";
       # cursor_inactive_timeout = 5;
+      "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0D})";
     };
     misc = {
       enable_swallow = true;
