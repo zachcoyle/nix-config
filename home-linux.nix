@@ -187,7 +187,7 @@ in {
     };
   };
 
-  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs hyprland-plugins;};
+  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs lib config hyprland-plugins;};
 
   programs = {
     ags = {
@@ -258,7 +258,7 @@ in {
         window = {
           border-radius = mkLiteral "10px";
           border = mkLiteral "1px";
-          border-color = mkLiteral "${colorsWithHashtag.base0A}";
+          border-color = mkLiteral "${colorsWithHashtag.base0D}";
         };
         inputbar = {
           padding = mkLiteral "10px";
