@@ -1014,11 +1014,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715993018,
-        "narHash": "sha256-9dzeayL4MdFW41h9kjt9wonnfWebSLmxWQGDCqZ0J/o=",
+        "lastModified": 1716079697,
+        "narHash": "sha256-q2JjNeALytcMxmQKwjGkrI7LAvUQikLwg/XimV+DXFU=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "53fc6ea23bb03319657ce2654b0e24c5e4e92179",
+        "rev": "37d616abf90e7a1ee0fa33bf6d9dce6bfe164e4c",
         "type": "github"
       },
       "original": {
@@ -1220,11 +1220,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716054566,
-        "narHash": "sha256-l0RDENoE1ILXbToQC1QJE+ATj1yzy5M/5ZfH4H6Ip+8=",
+        "lastModified": 1716077772,
+        "narHash": "sha256-iugMQSeqDYCwVMaQjDu7moY7LRDHOj490mxm96cmNiU=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "4a32a666a6e75ef836406ec39c2f8dcda505d089",
+        "rev": "73a2c716bfc0746abca728d9c0ba373bca9b5024",
         "type": "github"
       },
       "original": {
