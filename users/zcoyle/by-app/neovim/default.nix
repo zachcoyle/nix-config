@@ -135,7 +135,7 @@
   '';
 
   extraConfigLuaPost =
-    if pkgs.system == "x86_64-linux"
+    if pkgs.stdenv.isLinux
     then ''
       vim.notify = function(msg, level, opts)
         local log_level = {
