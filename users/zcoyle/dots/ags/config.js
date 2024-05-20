@@ -52,11 +52,11 @@ const disk = Variable(0, {
   ],
 });
 
-const cpu = Variable(0, {
+const cpu = Variable("", {
   poll: [
     2000,
     "top -b -n 1",
-    (out) =>
+    (/** @type {string} */ out) =>
       out
         .split("\n")
         .find((line) => line.includes("Cpu(s)"))
@@ -175,7 +175,7 @@ const ActiveClientInfo = Widget.Box({
   children: [ActiveClientIcon, ActiveClientTitle],
 });
 
-const romanize = (n) => {
+const romanize = (/** @type {number} */ n) => {
   const numerals = {
     1: "I",
     2: "II",
@@ -275,6 +275,7 @@ function BatteryLabel() {
 
   return Widget.Box({
     spacing: 4,
+    className: label === "-1%" ? "" : "",
     children: [
       Widget.Label({
         className: "batteryChargingLabel",
@@ -318,15 +319,9 @@ const Right = Widget.Box({
   spacing: 10,
   homogeneous: false,
   children: [
-    Widget.Box({ hexpand: true }),
-    Weather,
-    CPUStats,
-    RAMStats,
-    DiskStats,
-    BatteryLabel(),
-    Date,
-    SysTray(),
-    Notifications,
+    ...[Widget.Box({ hexpand: true }), Weather, CPUStats, RAMStats, DiskStats],
+    ...(battery.available ? [BatteryLabel()] : []),
+    ...[Date, SysTray(), Notifications],
   ],
 });
 
