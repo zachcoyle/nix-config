@@ -58,8 +58,7 @@ in {
     portal = {
       enable = true;
       config = {
-        # INFO:
-        # portals.conf(5)
+        # INFO: portals.conf(5)
         Hyprland = {
           default = [
             "Hyprland"
