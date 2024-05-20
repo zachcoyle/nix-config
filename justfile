@@ -24,17 +24,6 @@ switch:
 
 alias s := switch
 
-t2iso:
-    nix build .#nixosConfigurations.live-t2.config.system.build.isoImage
-
-iso:
-    nix build .#nixosConfigurations.live-non-t2.config.system.build.isoImage
-
-collect_garbage:
-    sudo nix-collect-garbage -d #> /dev/null 2>&1&
-
-alias gc := collect_garbage
-
 check:
     nix flake check
 
@@ -57,8 +46,3 @@ cachix-inputs:
 
 why INPUT:
     nix why-depends .#nixosConfigurations.{{ host }}.config.system.build.toplevel .#nixosConfigurations.{{ host }}.pkgs.{{ INPUT }} --derivation
-
-eww:
-    pkill -9 eww ; \
-    eww daemon -c ./users/zcoyle/by-app/eww && \
-    eww open topbar
