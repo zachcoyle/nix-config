@@ -212,8 +212,8 @@ const Workspaces = () => {
 
   return Widget.EventBox({
     class_name: "workspaces",
-    onScrollUp: () => {},
-    onScrollDown: () => {},
+    onScrollUp: () => hyprland.messageAsync(`dispatch workspace -1`),
+    onScrollDown: () => hyprland.messageAsync(`dispatch workspace +1`),
     child: Widget.Box({
       class_name: "workspaces",
       children: workspaces,
