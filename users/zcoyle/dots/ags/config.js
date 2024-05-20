@@ -1,58 +1,6 @@
-const audio = await Service.import("audio");
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
-const network = await Service.import("network");
 const systemtray = await Service.import("systemtray");
-
-const VolumeIndicator = Widget.Button({
-  className: "volume",
-  on_clicked: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
-  child: Widget.Icon({
-    className: "volumeIcon",
-  }).hook(audio.speaker, (self) => {
-    const vol = audio.speaker.volume * 100;
-    const icon = [
-      [101, "overamplified"],
-      [67, "high"],
-      [34, "medium"],
-      [1, "low"],
-      [0, "muted"],
-      // @ts-ignore
-    ].find(([threshold]) => threshold <= vol)?.[1];
-
-    self.icon = `audio-volume-${icon}-symbolic`;
-    self.tooltip_text = `Volume ${Math.floor(vol)}%`;
-  }),
-});
-
-const WifiIndicator = () =>
-  Widget.Box({
-    spacing: 8,
-    children: [
-      Widget.Icon({
-        className: "wifiIcon",
-        icon: network.wifi.bind("icon_name"),
-      }),
-      Widget.Label({
-        label: network.wifi.bind("ssid").as((ssid) => ssid || "Unknown"),
-      }),
-    ],
-  });
-
-const WiredIndicator = () =>
-  Widget.Icon({
-    icon: network.wired.bind("icon_name"),
-  });
-
-const NetworkIndicator = () =>
-  Widget.Stack({
-    className: "network",
-    items: [
-      ["wifi", WifiIndicator()],
-      ["wired", WiredIndicator()],
-    ],
-    shown: network.bind("primary").as((p) => p || "wifi"),
-  });
 
 const date = Variable("", {
   poll: [1000, 'date "+%I:%M %a %b %e"'],
@@ -375,8 +323,6 @@ const Right = Widget.Box({
     CPUStats,
     RAMStats,
     DiskStats,
-    // VolumeIndicator,
-    // NetworkIndicator(),
     BatteryLabel(),
     Date,
     SysTray(),
