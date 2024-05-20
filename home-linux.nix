@@ -162,7 +162,9 @@ in {
 
   services = {
     avizo.enable = true;
+
     batsignal.enable = true;
+
     hypridle = {
       enable = true;
       settings = {
@@ -196,6 +198,8 @@ in {
       configDir = ./users/zcoyle/dots/ags;
       extraPackages = [];
     };
+
+    # chromium.enable = true;
 
     hyprlock = {
       enable = true;
@@ -331,8 +335,6 @@ in {
         }
       ];
     };
-
-    # chromium.enable = true;
 
     zsh.shellAliases = {
       open = "xdg-open";
