@@ -306,7 +306,6 @@
             }
           ];
         };
-        wallpaperDir = ./theme/wallpapers;
       in {
         darwinConfigurations = {
           mbp13 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
@@ -316,40 +315,13 @@
           nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
             extraModules = [
               ./hosts/nixos/nixos-desktop/configuration.nix
-              {
-                # TODO: host-specific home file
-                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings = {
-                  exec-once = [
-                    "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 1695,855"
-                  ];
-                  bind = [
-                    "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 1695,855"
-                  ];
-                  monitor = [
-                    "HDMI-A-1, 1920x1080@60, 0x0, 1"
-                  ];
-                };
-              }
+              ./hosts/nixos/nixos-desktop/home.nix
             ];
           });
           nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
             extraModules = [
               ./hosts/nixos/nixos-laptop/configuration.nix
-              {
-                # TODO: host-specific home file
-                home-manager.users.zcoyle.wayland.windowManager.hyprland.settings = {
-                  exec-once = [
-                    "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
-                  ];
-                  bind = [
-                    "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
-                  ];
-                  monitor = [
-                    "DP-1, 3072x1920@60, 1920x540, 1"
-                    "DP-6, 1920x1080@60, 0x0, 1"
-                  ];
-                };
-              }
+              ./hosts/nixos/nixos-laptop/home.nix
             ];
           });
         };
