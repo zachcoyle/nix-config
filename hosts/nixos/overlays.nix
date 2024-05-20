@@ -8,8 +8,7 @@
     (_: prev: {
       pyprland = inputs.pyprland.packages.${prev.system}.default;
       ags = inputs.ags.packages.${prev.system}.default;
-      # FIXME:
-      # https://github.com/NixOS/nixpkgs/issues/298539
+      # FIXME: https://github.com/NixOS/nixpkgs/issues/298539
       rofi-calc = prev.rofi-calc.override {
         rofi-unwrapped = prev.rofi-wayland-unwrapped;
       };

@@ -102,8 +102,7 @@
       };
     };
 
-    # INFO:
-    # https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
+    # INFO: https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
 
     #  bind flags
     # l -> locked, aka. works also when an input inhibitor (e.g. a lockscreen) is active.

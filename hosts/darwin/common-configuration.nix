@@ -47,7 +47,7 @@ in {
 
     skhd = {
       enable = true;
-      # TODO: make these consistent with hyprland
+      # TODO: make these more ergonomic
       skhdConfig = lib.concatStrings (builtins.map buildSkhdBinding [
         {
           mods = ["fn" "shift"];
