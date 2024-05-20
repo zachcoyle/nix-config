@@ -5,9 +5,6 @@
   enableUpdateCheck = false;
   enableExtensionUpdateCheck = false;
 
-  # FIXME:
-  # https://github.com/nix-community/nix-vscode-extensions/issues/57
-  #
   extensions = with pkgs.open-vsx; [
     bbenoist.nix
     charliermarsh.ruff
