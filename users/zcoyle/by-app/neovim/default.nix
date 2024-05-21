@@ -4,7 +4,7 @@
 }: {
   enable = true;
 
-  package = pkgs.neovim;
+  # package = pkgs.neovim;
 
   enableMan = false;
 
