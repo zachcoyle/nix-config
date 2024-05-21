@@ -5,7 +5,7 @@
   hyprland-plugins,
   ...
 }: let
-  # base16 styleguide:
+  # INFO: base16 styleguide:
   # https://github.com/chriskempson/base16/blob/main/styling.md
   colorsWithHashtag = config.lib.stylix.colors.withHashtag;
   tomlFormat = pkgs.formats.toml {};
@@ -34,7 +34,6 @@ in {
       '';
     };
     iconTheme = {
-      # TODO: swap the icon theme out later
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
     };
