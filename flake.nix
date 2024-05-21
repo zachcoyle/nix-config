@@ -34,15 +34,6 @@
       };
     };
 
-    nixneovimplugins = {
-      url = "github:NixNeovim/NixNeovimPlugins";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        poetry2nix.follows = "poetry2nix";
-      };
-    };
-
     systems-linux.url = "github:nix-systems/default-linux";
     systems-darwin.url = "github:nix-systems/default-darwin";
     systems-default.url = "github:nix-systems/default";
@@ -158,14 +149,6 @@
         devshell.follows = "devshell";
         flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    neovim = {
-      url = "github:neovim/neovim/31dc6279693886a628119cd6c779e580faab32fd?dir=contrib";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
       };
     };
 
