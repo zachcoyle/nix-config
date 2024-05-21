@@ -18,7 +18,7 @@
     general = {
       layout = "dwindle";
       # cursor_inactive_timeout = 5;
-      "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0D})";
+      "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
     };
     misc = {
       enable_swallow = true;
