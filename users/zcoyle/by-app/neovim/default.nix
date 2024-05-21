@@ -87,8 +87,12 @@
     }
     --------------------------------------
     if vim.fn.exists('g:neovide') ~= 0 then
-        vim.g.neovide_transparency = 0.8
-        vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag.base00}"
+      local alpha = function()
+        return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+      end
+      vim.g.neovide_transparency = 0.0
+      vim.g.transparency = 0.8
+      vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag.base00}" .. alpha()
     else
       vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
       vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
