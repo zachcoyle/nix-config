@@ -101,6 +101,7 @@ in {
       gnome.nautilus
       godot3
       grim
+      handbrake
       hyprpicker
       hyprshade
       imagemagick
