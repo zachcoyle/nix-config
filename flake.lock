@@ -1645,11 +1645,11 @@
         "zig-overlay": "zig-overlay"
       },
       "locked": {
-        "lastModified": 1716226593,
-        "narHash": "sha256-3R/5alOUQHf4JuaHyxNu3/x9Zlga6mY4Uebqbl/ZqLI=",
+        "lastModified": 1716308493,
+        "narHash": "sha256-HxIOQc8j3pAU/7+YV7faGX2aKyGrHDBNRO5i17TJuhw=",
         "owner": "zigtools",
         "repo": "zls",
-        "rev": "c9ba2c9f974f5928cc5d02967f34af5d78843ae5",
+        "rev": "2b02cb0533376bc4f2b89b344208ced2062c97b7",
         "type": "github"
       },
       "original": {
