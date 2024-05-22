@@ -76,7 +76,6 @@ in {
       "col.border_locked_active" = lib.mkForce gradient_border;
       "col.border_active" = lib.mkForce gradient_border;
       groupbar = {
-        stacked = true;
         font_family = "Fira Sans";
         font_size = 14;
         text_color = "rgba(${config.lib.stylix.colors.base07}CC)";
