@@ -10,10 +10,10 @@ jobs:
       #   uses: pierotofy/set-swap-space@master
       #   with:
       #     swap-size-gb: 0.1
-      - name: Free Disk Space
-        uses: jlumbroso/free-disk-space@main
-        with:
-          tool-cache: true
+      # - name: Free Disk Space
+      #   uses: jlumbroso/free-disk-space@main
+      #   with:
+      #     tool-cache: true
       - name: Checkout
         uses: actions/checkout@v4.1.1
       - name: Install Nix
