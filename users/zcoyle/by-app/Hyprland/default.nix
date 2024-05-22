@@ -4,7 +4,9 @@
   config,
   hyprland-plugins,
   ...
-}: {
+}: let
+  gradient_border = "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
+in {
   enable = pkgs.stdenv.isLinux;
 
   plugins = [
@@ -18,7 +20,7 @@
     general = {
       layout = "dwindle";
       # cursor_inactive_timeout = 5;
-      "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
+      "col.active_border" = lib.mkForce gradient_border;
     };
     misc = {
       enable_swallow = true;
@@ -71,12 +73,14 @@
       };
     };
     group = {
+      "col.border_locked_active" = lib.mkForce "rgba(${config.lib.stylix.colors.base09}FF)";
+      "col.border_active" = lib.mkForce gradient_border;
       groupbar = {
         font_family = "Fira Sans";
-        font_size = 28;
-        "text_color" = "rgba(A89984CC)";
-        "col.active" = "rgba(282828FF)";
-        "col.inactive" = "rgba(A8998466)";
+        font_size = 14;
+        text_color = "rgba(${config.lib.stylix.colors.base07}CC)";
+        "col.active" = "rgba(${config.lib.stylix.colors.base02}CC)";
+        "col.inactive" = "rgba(${config.lib.stylix.colors.base00}CC)";
         height = 22;
       };
     };
@@ -145,7 +149,7 @@
       "SUPER, N, changegroupactive"
       "SUPER SHIFT, N, changegroupactive, b"
       "SUPER, O, moveoutofgroup"
-      "SUPER, semicolon, lockactivegroup"
+      "SUPER, semicolon, lockactivegroup, toggle"
 
       "SUPER_ALT, 1, movetoworkspacesilent, 1"
       "SUPER_ALT, 2, movetoworkspacesilent, 2"
@@ -179,10 +183,10 @@
       "SUPER_SHIFT, K, swapwindow, u"
       "SUPER_SHIFT, L, swapwindow, r"
 
-      "ALT_SHIFT, H, movewindow, l"
-      "ALT_SHIFT, J, movewindow, d"
-      "ALT_SHIFT, K, movewindow, u"
-      "ALT_SHIFT, L, movewindow, r"
+      "ALT_SHIFT, H, movewindoworgroup, l"
+      "ALT_SHIFT, J, movewindoworgroup, d"
+      "ALT_SHIFT, K, movewindoworgroup, u"
+      "ALT_SHIFT, L, movewindoworgroup, r"
 
       "SUPER, slash, exec, hyprpicker | wl-copy"
       "SUPER, backslash, exec, pypr expose"
