@@ -62,67 +62,85 @@
     yuck-vim
   ];
 
-  extraConfigLua = ''
-    vim.cmd [[ aunmenu PopUp.How-to\ disable\ mouse ]]
-    vim.cmd [[ aunmenu PopUp.-1- ]]
-    --------------------------------------
-    require("nvim-autopairs").setup({})
-    --------------------------------------
-    local builtin = require("statuscol.builtin")
-    require("statuscol").setup({
-      relculright = true,
-      segments = {
-        { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-        { text = { "%s" }, click = "v:lua.ScSa" },
-        { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-      },
-    })
-    --------------------------------------
-    require("tint").setup()
-    --------------------------------------
-    require("telescope").load_extension("refactoring")
-    --------------------------------------
-    require("sg").setup {
-      enable_cody = true
-    }
-    --------------------------------------
-    if vim.fn.exists('g:neovide') ~= 0 then
-        vim.g.neovide_transparency = 0.8
-        vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag.base00}"
-    else
-      vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
-      vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
-      vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
-    end
-
-    -- make telescope projects appear when started without args
-    vim.api.nvim_create_autocmd('UIEnter', {
-      group = vim.api.nvim_create_augroup('Dashboard', { clear = true }),
-      callback = function()
-        if
-          vim.fn.argc() == 0
-          and vim.api.nvim_buf_line_count(0) == 1
-          and vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] == ""
-        then
-          require("telescope").extensions.projects.projects{}
-        end
-      end,
-    })
-
-    local dropbar_sources = require('dropbar.sources')
-    local dropbar_utils = require('dropbar.utils')
-
-    require('dropbar').setup({
-      bar = {
-        sources = {
-          dropbar_utils.source.fallback({
-            dropbar_sources.lsp,
-            dropbar_sources.treesitter,
-          }),
+  extraConfigLua =
+    ''
+      vim.cmd [[ aunmenu PopUp.How-to\ disable\ mouse ]]
+      vim.cmd [[ aunmenu PopUp.-1- ]]
+      --------------------------------------
+      require("nvim-autopairs").setup({})
+      --------------------------------------
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup({
+        relculright = true,
+        segments = {
+          { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+          { text = { "%s" }, click = "v:lua.ScSa" },
+          { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
         },
-      },
-    })
-  '';
+      })
+      --------------------------------------
+      require("tint").setup()
+      --------------------------------------
+      require("telescope").load_extension("refactoring")
+      --------------------------------------
+      require("sg").setup {
+        enable_cody = true
+      }
+      --------------------------------------
+
+      -- make telescope projects appear when started without args
+      vim.api.nvim_create_autocmd('UIEnter', {
+        group = vim.api.nvim_create_augroup('Dashboard', { clear = true }),
+        callback = function()
+          if
+            vim.fn.argc() == 0
+            and vim.api.nvim_buf_line_count(0) == 1
+            and vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] == ""
+          then
+            require("telescope").extensions.projects.projects{}
+          end
+        end,
+      })
+
+      local dropbar_sources = require('dropbar.sources')
+      local dropbar_utils = require('dropbar.utils')
+
+      require('dropbar').setup({
+        bar = {
+          sources = {
+            dropbar_utils.source.fallback({
+              dropbar_sources.lsp,
+              dropbar_sources.treesitter,
+            }),
+          },
+        },
+      })
+    ''
+    + (
+      # TODO: all the neovide config could stand to be be tightened up
+      if pkgs.stdenv.isDarwin
+      then ''
+        -- Helper function for transparency formatting
+        local alpha = function()
+          return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+        end
+        -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
+        vim.g.neovide_transparency = 0.0
+        vim.g.transparency = 0.8
+        vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag.base00}" .. alpha()
+      ''
+      else ''
+        if vim.fn.exists('g:neovide') ~= 0 then
+            vim.g.neovide_transparency = 0.8
+            vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag.base00}"
+        else
+          vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+          vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
+          vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
+        end
+
+      ''
+    );
 
   extraConfigLuaPre = ''
     local Terminal  = require('toggleterm.terminal').Terminal
