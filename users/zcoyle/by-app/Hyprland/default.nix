@@ -73,14 +73,17 @@ in {
       };
     };
     group = {
-      "col.border_locked_active" = lib.mkForce "rgba(${config.lib.stylix.colors.base09}FF)";
+      "col.border_locked_active" = lib.mkForce gradient_border;
       "col.border_active" = lib.mkForce gradient_border;
       groupbar = {
+        stacked = true;
         font_family = "Fira Sans";
         font_size = 14;
         text_color = "rgba(${config.lib.stylix.colors.base07}CC)";
-        "col.active" = "rgba(${config.lib.stylix.colors.base02}CC)";
-        "col.inactive" = "rgba(${config.lib.stylix.colors.base00}CC)";
+        "col.active" = "rgba(${config.lib.stylix.colors.base00}CC)";
+        "col.inactive" = "rgba(${config.lib.stylix.colors.base03}CC)";
+        "col.locked_active" = "rgba(${config.lib.stylix.colors.base09}CC)";
+        "col.locked_inactive" = "rgba(${config.lib.stylix.colors.base08}CC)";
         height = 22;
       };
     };
