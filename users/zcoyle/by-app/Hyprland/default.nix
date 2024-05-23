@@ -19,7 +19,7 @@ in {
   settings = {
     general = {
       layout = "dwindle";
-      # cursor_inactive_timeout = 5;
+      cursor_inactive_timeout = 5;
       "col.active_border" = lib.mkForce gradient_border;
     };
     misc = {

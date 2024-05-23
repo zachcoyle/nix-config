@@ -74,6 +74,7 @@ in {
       ];
     };
   };
+
   home = {
     packages = with pkgs; [
       # darling
