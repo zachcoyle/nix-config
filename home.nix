@@ -330,12 +330,12 @@ in {
       lfs.enable = true;
     };
 
-    lazygit.enable = true;
-
     gitui = {
       enable = true;
       keyConfig = builtins.readFile ./users/zcoyle/dots/gitui_key_config.ron;
     };
+
+    lazygit.enable = true;
 
     lsd = {
       enable = true;
