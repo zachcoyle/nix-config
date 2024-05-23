@@ -126,6 +126,7 @@ in {
       pdfarranger
       playerctl
       pyprland
+      retroarchFull
       showmethekey
       slurp
       snapshot
