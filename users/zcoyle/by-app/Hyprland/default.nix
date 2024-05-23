@@ -22,6 +22,9 @@ in {
       # cursor_inactive_timeout = 5;
       "col.active_border" = lib.mkForce gradient_border;
     };
+    dwindle = {
+      preserve_split = true;
+    };
     misc = {
       enable_swallow = true;
       swallow_regex = [
@@ -132,7 +135,7 @@ in {
       "SUPER, Y, fullscreen, 0"
       "SUPER, U, fakefullscreen, 0"
       "SUPER, T, togglefloating"
-      "SUPER, I, togglesplit"
+      "SUPER, I, layoutmsg, togglesplit"
       "SUPER, SPACE, exec, rofi -show drun -show-icons"
       "SUPER, S, togglespecialworkspace, scratchpad"
       "SUPER, 1, workspace, 1"
