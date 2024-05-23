@@ -1,4 +1,4 @@
-name: cachix-nixos-nerdfonts
+name: cachix-nixos-retroarch
 on:
   pull_request:
   push:
