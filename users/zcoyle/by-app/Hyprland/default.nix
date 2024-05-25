@@ -19,8 +19,10 @@ in {
   settings = {
     general = {
       layout = "dwindle";
-      # cursor_inactive_timeout = 5;
       "col.active_border" = lib.mkForce gradient_border;
+    };
+    cursor = {
+      inactive_timeout = 5;
     };
     dwindle = {
       preserve_split = true;
@@ -80,7 +82,7 @@ in {
       "col.border_active" = lib.mkForce gradient_border;
       groupbar = {
         font_family = "Fira Sans";
-        font_size = 14;
+        font_size = 12;
         text_color = "rgba(${config.lib.stylix.colors.base07}CC)";
         "col.active" = "rgba(${config.lib.stylix.colors.base00}CC)";
         "col.inactive" = "rgba(${config.lib.stylix.colors.base03}CC)";
