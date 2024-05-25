@@ -53,6 +53,7 @@ in {
       lsix
       manix
       mdcat
+      meld
       moar
       moreutils
       neovide
