@@ -1157,11 +1157,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1716648428,
-        "narHash": "sha256-F65k9J9FFeWa6V/NHXxEG8Bz3hwZs6tgR+8jdsLq+sw=",
+        "lastModified": 1716655037,
+        "narHash": "sha256-z3v6jGCx3A1/H9hz5mlPOjGJ1ONgVSQBB37y7lmgwXE=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "fcc8c8161554b6c546d0aeded3fe572ce6ed5fec",
+        "rev": "17144726caa4a8ca2897d0fbeb04cee0c7f39253",
         "type": "github"
       },
       "original": {
@@ -1207,11 +1207,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1716644303,
-        "narHash": "sha256-ZHh1wl0hdHvChwm+/gx8693jawmskEjj7aU4XVhpstY=",
+        "lastModified": 1716653963,
+        "narHash": "sha256-D/OCVe9eTh6w9yZPqsya9AvWkloRF33hJXNW+t81x1E=",
         "owner": "nix-community",
         "repo": "poetry2nix",
-        "rev": "e42a6a50b87ab6f9dbb4462bd564eeddc8acca87",
+        "rev": "090792ed9d4420a636d5b1271c9192aff418f5ab",
         "type": "github"
       },
       "original": {
@@ -1260,11 +1260,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716591370,
-        "narHash": "sha256-y9W+sVLKIhQvtzcnHoXHYIpS2q83h13f1ngRMN/fdb8=",
+        "lastModified": 1716650622,
+        "narHash": "sha256-vW+GBPZ1/Wv7m3NXeGzj6YYakaPlPJonaVDg5gjysyE=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "ba55f6700c76c16ca647d37a77e1e9e2a48d26f6",
+        "rev": "d830bfa20c229e104f699b786ce81999e0823a57",
         "type": "github"
       },
       "original": {
