@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-src = {
+      url = "github:neovim/neovim";
+      flake = false;
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
@@ -28,6 +33,7 @@
         pre-commit-hooks.follows = "pre-commit-hooks";
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
+        neovim-src.follows = "neovim-src";
       };
     };
 
