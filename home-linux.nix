@@ -249,7 +249,9 @@ in {
       ];
     };
 
-    rofi = {
+    rofi = let
+      inherit (config.lib.formats.rasi) mkLiteral;
+    in {
       enable = true;
       package = pkgs.rofi-wayland;
       terminal = "${pkgs.alacritty}/bin/alacritty";
@@ -257,9 +259,7 @@ in {
         rofi-calc
         rofi-emoji
       ];
-      theme = let
-        inherit (config.lib.formats.rasi) mkLiteral;
-      in {
+      theme = {
         window = {
           border-radius = mkLiteral "10px";
           border = mkLiteral "1px";
@@ -288,6 +288,25 @@ in {
           vertical-align = mkLiteral "0.5";
           padding = mkLiteral "10px";
         };
+      };
+      extraConfig = {
+        "kb-row-up" = "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+        "kb-row-down" = "Down,Control+j";
+        "kb-accept-entry" = "Control+m,Return,KP_Enter";
+        "kb-remove-to-eol" = "Control+Shift+e";
+        "kb-mode-next" = "Shift+Right,Control+Tab,Control+l";
+        "kb-mode-previous" = "Shift+Left,Control+Shift+Tab,Control+h";
+        "kb-remove-char-back" = "BackSpace";
+        /*
+        rofi.kb-row-up:                      Up,k,Shift+Tab,Shift+ISO_Left_Tab
+        rofi.kb-row-down:                    Down,j
+        rofi.kb-accept-entry:                Control+m,Return,KP_Enter,l
+        rofi.terminal:                       mate-terminal
+        rofi.kb-remove-to-eol:               Control+Shift+e
+        rofi.kb-mode-next:                   Shift+Right,Control+Tab,Control+l
+        rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Control+h
+        rofi.kb-remove-char-back:            BackSpace
+        */
       };
     };
 
