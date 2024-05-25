@@ -627,11 +627,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1716662618,
-        "narHash": "sha256-c+GSvvXPpfegPoCx1rpl/z8BGjbd9JVYZF5IqpRkmdM=",
+        "lastModified": 1716667407,
+        "narHash": "sha256-Yyo12jxvY5vMvMTH8zHaDxjHtu6kkdlj+McmIJbSq3Y=",
         "ref": "refs/heads/main",
-        "rev": "90f262aada21af9be1c5ccf89b8dc5e0d28478f1",
-        "revCount": 4739,
+        "rev": "a71207434c0bc2c8e05e94b1619e68059a002879",
+        "revCount": 4741,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -920,11 +920,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1716660797,
-        "narHash": "sha256-F3l435ZNvxc5yDlgZwD5lS6RMKd486LmAiMVPtxcyFU=",
+        "lastModified": 1716664984,
+        "narHash": "sha256-rx3MnkfOxyg8B1HM8kjIqYfELn/ggCxTv3i2x/NIbBg=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "520c2657bb6832dc527bff94f313a1cc458238a4",
+        "rev": "7994fdba6a1e10aad0698dfabcbaf544b4d35eb4",
         "type": "github"
       },
       "original": {
@@ -1142,11 +1142,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1716566815,
-        "narHash": "sha256-WO3MF4W1SrSD0lanU1n7dfuHizeSLfDHJNEir9exlcM=",
+        "lastModified": 1716665871,
+        "narHash": "sha256-mdVVFXN6Ke6CCCr8l+RMmOlTlWmBS1rdRS3gbjiUBTk=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "9d858de2e9ab136d1c53d92af62fed8fccf492ab",
+        "rev": "2494e0af08b90034995a691fe48900b1c510c96a",
         "type": "github"
       },
       "original": {
@@ -1157,11 +1157,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1716662682,
-        "narHash": "sha256-q+Ak8c8dUAontV0SdhXznog/9OqyAtv4IT/9mHNkarI=",
+        "lastModified": 1716667836,
+        "narHash": "sha256-G6aTM2h4F06r/HxQBWjfISkQKLiVepTXy01IP5M+xQU=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "24e1ee4f3fbcc81c1018913aa8adfd33ebba19a0",
+        "rev": "6b55e90455a7ae56d0ff84138a1c273222d6003a",
         "type": "github"
       },
       "original": {
@@ -1429,11 +1429,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1716663579,
-        "narHash": "sha256-w0ILz9Fb+qwTaeFTY9ee1W/SaekRXcaI7xLb04yYDfA=",
+        "lastModified": 1716664639,
+        "narHash": "sha256-5wzTW9kJGYq41kXG9JoVAaA5601K26cDrweT2PtpEw8=",
         "owner": "sourcegraph",
         "repo": "sg.nvim",
-        "rev": "92a9f5ff64ca870d443fa6acd16fcf2c7376a698",
+        "rev": "8bdd4d19da2268072708d5fe18fda9c23e16509d",
         "type": "github"
       },
       "original": {
