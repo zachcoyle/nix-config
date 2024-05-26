@@ -470,6 +470,22 @@
         "type": "github"
       }
     },
+    "cmp-async-path": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706905094,
+        "narHash": "sha256-RuzoUsHzhM9nP1Jg8iSspeqHJSSszm4ZShNL//QHYDc=",
+        "owner": "FelipeLema",
+        "repo": "cmp-async-path",
+        "rev": "9d581eec5acf812316913565c135b0d1ee2c9a71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelipeLema",
+        "repo": "cmp-async-path",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -483,6 +499,86 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "cmp-buffer",
+        "type": "github"
+      }
+    },
+    "cmp-calc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716014700,
+        "narHash": "sha256-TI1FR0EjzPcjsFdJQ9vXVleQwyXkmqs4TvYyZ8A6cS0=",
+        "owner": "hrsh7th",
+        "repo": "cmp-calc",
+        "rev": "5947b412da67306c5b68698a02a846760059be2e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-calc",
+        "type": "github"
+      }
+    },
+    "cmp-clippy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675865010,
+        "narHash": "sha256-kG+NO+0hv4xNzjfJmam3LN8GkpPqfpnDKFefwdx2B9A=",
+        "owner": "vappolinario",
+        "repo": "cmp-clippy",
+        "rev": "eb501c9fa429c5852f8f420e71a9f565f4852c8f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vappolinario",
+        "repo": "cmp-clippy",
+        "type": "github"
+      }
+    },
+    "cmp-cmdline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711081050,
+        "narHash": "sha256-iBmXp+gUSMbgfkv7c7RDQAwPq02e07wEnBETP0dWBOo=",
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
+        "rev": "d250c63aa13ead745e3a40f61fdd3470efde3923",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
+        "type": "github"
+      }
+    },
+    "cmp-cmdline-history": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651653950,
+        "narHash": "sha256-IcruTOCNxYKmbo0St1U+CmrDStASPLe+rTLNU6/2Xew=",
+        "owner": "dmitmel",
+        "repo": "cmp-cmdline-history",
+        "rev": "003573b72d4635ce636234a826fa8c4ba2895ffe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dmitmel",
+        "repo": "cmp-cmdline-history",
+        "type": "github"
+      }
+    },
+    "cmp-conventionalcommits": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665962366,
+        "narHash": "sha256-PAEWX0U8qbBwC3DqfCrDDlTLoIRIlcbwS1eDu3yarTc=",
+        "owner": "davidsierradz",
+        "repo": "cmp-conventionalcommits",
+        "rev": "a4dfacf0601130b7f8afa7c948d735c27802fb7f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "davidsierradz",
+        "repo": "cmp-conventionalcommits",
         "type": "github"
       }
     },
@@ -502,6 +598,198 @@
         "type": "github"
       }
     },
+    "cmp-dap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702237116,
+        "narHash": "sha256-wi9L4RcnJWUzTkC4u8vSTacrMxg4ftm/K7pkuwLEQ3U=",
+        "owner": "rcarriga",
+        "repo": "cmp-dap",
+        "rev": "ea92773e84c0ad3288c3bc5e452ac91559669087",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rcarriga",
+        "repo": "cmp-dap",
+        "type": "github"
+      }
+    },
+    "cmp-dictionary": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709438605,
+        "narHash": "sha256-2I4p5V7/UCTIWFW8BJY/X07tgtQ81JNgvMr26cWz3iI=",
+        "owner": "uga-rosa",
+        "repo": "cmp-dictionary",
+        "rev": "3dab73d34a889eafdb57c666c3c2076b4c3e126b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "uga-rosa",
+        "repo": "cmp-dictionary",
+        "type": "github"
+      }
+    },
+    "cmp-digraphs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1639392485,
+        "narHash": "sha256-b4IFjTYvqodJokCGWyNJKShebSzz1UZ91vA5SthxORg=",
+        "owner": "dmitmel",
+        "repo": "cmp-digraphs",
+        "rev": "5efc1f0078d7c5f3ea1c8e3aad04da3fd6e081a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dmitmel",
+        "repo": "cmp-digraphs",
+        "type": "github"
+      }
+    },
+    "cmp-emoji": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710863470,
+        "narHash": "sha256-Sdgetlwhhc11ufDJH6uaXtbL0EZQFZ2Qgg5yBfG1u7I=",
+        "owner": "hrsh7th",
+        "repo": "cmp-emoji",
+        "rev": "e8398e2adf512a03bb4e1728ca017ffeac670a9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-emoji",
+        "type": "github"
+      }
+    },
+    "cmp-fish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1661996077,
+        "narHash": "sha256-5Z5fcb7HPC+og+kt8xhb2MHWhJdHvtWh6UBIZI/82ws=",
+        "owner": "mtoohey31",
+        "repo": "cmp-fish",
+        "rev": "8ae7bfb1b3251d433c4adf4e64396ef929fbd91f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mtoohey31",
+        "repo": "cmp-fish",
+        "type": "github"
+      }
+    },
+    "cmp-fuzzy-buffer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680431455,
+        "narHash": "sha256-8cIixO0OusqlnKrFqVutGwUfdX319k8a19Nz1xiUH2I=",
+        "owner": "tzachar",
+        "repo": "cmp-fuzzy-buffer",
+        "rev": "ada6352bc7e3c32471ab6c08f954001870329de1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tzachar",
+        "repo": "cmp-fuzzy-buffer",
+        "type": "github"
+      }
+    },
+    "cmp-fuzzy-path": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705489094,
+        "narHash": "sha256-hJakGmszuJnPIcqrDSNAmm2x1c7ra+qUMEdoKrUop+w=",
+        "owner": "tzachar",
+        "repo": "cmp-fuzzy-path",
+        "rev": "9953c11a2510a04111b7b152cf50ae1e83f00798",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tzachar",
+        "repo": "cmp-fuzzy-path",
+        "type": "github"
+      }
+    },
+    "cmp-git": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713177887,
+        "narHash": "sha256-T4aw00meHGksdGyfG5C243Ijhh64WFRFxNWdI4N7R2Q=",
+        "owner": "petertriho",
+        "repo": "cmp-git",
+        "rev": "b9603f18496bc3ca07e6bd474607081af709e750",
+        "type": "github"
+      },
+      "original": {
+        "owner": "petertriho",
+        "repo": "cmp-git",
+        "type": "github"
+      }
+    },
+    "cmp-greek": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1641803129,
+        "narHash": "sha256-CYJ4Px18wXDMw/58InwBDxbcO+94IzNLcwYp6iKJPRE=",
+        "owner": "max397574",
+        "repo": "cmp-greek",
+        "rev": "799110b976f9194055e9d506931ac38171bc6bcd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "max397574",
+        "repo": "cmp-greek",
+        "type": "github"
+      }
+    },
+    "cmp-latex-symbols": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1674479758,
+        "narHash": "sha256-sud4B4aTB37QoQNCYiQ8kCmHkjdeZgADStbQsAaQGaY=",
+        "owner": "kdheepak",
+        "repo": "cmp-latex-symbols",
+        "rev": "165fb66afdbd016eaa1570e41672c4c557b57124",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kdheepak",
+        "repo": "cmp-latex-symbols",
+        "type": "github"
+      }
+    },
+    "cmp-look": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703404917,
+        "narHash": "sha256-Nr9dnPJt824Yb/udxQ5GKFW8rToWp6r7l9wAxwP2PRY=",
+        "owner": "octaltree",
+        "repo": "cmp-look",
+        "rev": "971e65a6be0e75c3438fe7b176d4fc020cb89d7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "octaltree",
+        "repo": "cmp-look",
+        "type": "github"
+      }
+    },
+    "cmp-npm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686559009,
+        "narHash": "sha256-6o0eO4uuHNBbo6pqWgRtleOxd8rYaYbrl+dTjhB6M8Q=",
+        "owner": "David-Kunz",
+        "repo": "cmp-npm",
+        "rev": "2337f109f51a09297596dd6b538b70ccba92b4e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "David-Kunz",
+        "repo": "cmp-npm",
+        "type": "github"
+      }
+    },
     "cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -515,6 +803,118 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "cmp-nvim-lsp",
+        "type": "github"
+      }
+    },
+    "cmp-nvim-lsp-document-symbol": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680363634,
+        "narHash": "sha256-kvy0Q/QA3S4xDqmRLCePmLHYmH7uG19rcgPPKdail/0=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-document-symbol",
+        "rev": "f0f53f704c08ea501f9d222b23491b0d354644b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-document-symbol",
+        "type": "github"
+      }
+    },
+    "cmp-nvim-lsp-signature-help": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715965063,
+        "narHash": "sha256-tLMhkmdehH3IDlIdqJq6GHpudY0G05Asjir6p4aONyI=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-signature-help",
+        "rev": "031e6ba70b0ad5eee49fd2120ff7a2e325b17fa7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp-signature-help",
+        "type": "github"
+      }
+    },
+    "cmp-nvim-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681458603,
+        "narHash": "sha256-6eXOK1mVK06TN1akhN42Bo4wQpeen3rk3b/m7iVmGKM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lua",
+        "rev": "f12408bdb54c39c23e67cab726264c10db33ada8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lua",
+        "type": "github"
+      }
+    },
+    "cmp-nvim-ultisnips": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688578226,
+        "narHash": "sha256-GaEczmqw0RU6H7irmL5b3a+FFxSdOKfpNKnKsDuSMzs=",
+        "owner": "quangnguyen30192",
+        "repo": "cmp-nvim-ultisnips",
+        "rev": "24bca5c3e137b28cd87442d4fc51a2b312dd99cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "quangnguyen30192",
+        "repo": "cmp-nvim-ultisnips",
+        "type": "github"
+      }
+    },
+    "cmp-omni": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695551166,
+        "narHash": "sha256-PyCZGb+54l9nLR0fXM2QXACGt25nH0IlucbTXIgbJp0=",
+        "owner": "hrsh7th",
+        "repo": "cmp-omni",
+        "rev": "4ef610bbd85a5ee4e97e09450c0daecbdc60de86",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-omni",
+        "type": "github"
+      }
+    },
+    "cmp-pandoc-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1677871835,
+        "narHash": "sha256-zkTOczQZQ59QiqiSxya9j8tOw+gtuFd7EK4gz+AAiTo=",
+        "owner": "aspeddro",
+        "repo": "cmp-pandoc.nvim",
+        "rev": "30faa4456a7643c4cb02d8fa18438fd484ed7602",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aspeddro",
+        "repo": "cmp-pandoc.nvim",
+        "type": "github"
+      }
+    },
+    "cmp-pandoc-references": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650481521,
+        "narHash": "sha256-vEO1BarFF3ervU56zDarePuSOxkSGfMEhyWbt4zu3E4=",
+        "owner": "jc-doyle",
+        "repo": "cmp-pandoc-references",
+        "rev": "2c808dff631a783ddd2c554c4c6033907589baf6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jc-doyle",
+        "repo": "cmp-pandoc-references",
         "type": "github"
       }
     },
@@ -534,6 +934,102 @@
         "type": "github"
       }
     },
+    "cmp-rg": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1693531324,
+        "narHash": "sha256-Y/JrVqiDan+C8bPer6h1UslbeI0z08nIwtJHE8v3UDE=",
+        "owner": "lukas-reineke",
+        "repo": "cmp-rg",
+        "rev": "677a7874ee8f1afc648c2e7d63a97bc21a7663c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lukas-reineke",
+        "repo": "cmp-rg",
+        "type": "github"
+      }
+    },
+    "cmp-snippy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697075062,
+        "narHash": "sha256-suw8AGXLi48hB49otZlS+DzbhwPDC9ql34dX3ufLnNA=",
+        "owner": "dcampos",
+        "repo": "cmp-snippy",
+        "rev": "6e39210aa3a74e2bf6462f492eaf0d436cd2b7d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dcampos",
+        "repo": "cmp-snippy",
+        "type": "github"
+      }
+    },
+    "cmp-spell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715084923,
+        "narHash": "sha256-Gf7HSocvHmTleVQytNYmmN+fFX7kl5sYHQSpUJc0CGI=",
+        "owner": "f3fora",
+        "repo": "cmp-spell",
+        "rev": "694a4e50809d6d645c1ea29015dad0c293f019d6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "f3fora",
+        "repo": "cmp-spell",
+        "type": "github"
+      }
+    },
+    "cmp-tabby": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700545704,
+        "narHash": "sha256-DQkEX5SdTLIdI4g157bVjlJUHRkFrD1akLHvDw7KJT4=",
+        "owner": "nzlov",
+        "repo": "cmp-tabby",
+        "rev": "eb793a7ac27972e99ae391f85ee7a2e0b7d02590",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nzlov",
+        "repo": "cmp-tabby",
+        "type": "github"
+      }
+    },
+    "cmp-tabnine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711460757,
+        "narHash": "sha256-H+O5mpd33BnARq2RsHzWxWtSihqdD1HXjhbvxvE1u5Q=",
+        "owner": "tzachar",
+        "repo": "cmp-tabnine",
+        "rev": "d52aae40ee86b62960c31a003352ddfc9e31c8d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tzachar",
+        "repo": "cmp-tabnine",
+        "type": "github"
+      }
+    },
+    "cmp-tmux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709227036,
+        "narHash": "sha256-xHnBKOOg/6n06vK7sC3shDw80ci/cl/5xgs7kobd6+s=",
+        "owner": "andersevenrud",
+        "repo": "cmp-tmux",
+        "rev": "95b1b921802e6f60627b3e76afb9380fddd87f9a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andersevenrud",
+        "repo": "cmp-tmux",
+        "type": "github"
+      }
+    },
     "cmp-treesitter": {
       "flake": false,
       "locked": {
@@ -547,6 +1043,102 @@
       "original": {
         "owner": "ray-x",
         "repo": "cmp-treesitter",
+        "type": "github"
+      }
+    },
+    "cmp-vim-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635252435,
+        "narHash": "sha256-V5yC4st22stUkD54/2hDGi/Axi/T0YArkVhQlDvHg7g=",
+        "owner": "dmitmel",
+        "repo": "cmp-vim-lsp",
+        "rev": "b13312a8c1a74a8747e64117f26f17390e8abfa8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dmitmel",
+        "repo": "cmp-vim-lsp",
+        "type": "github"
+      }
+    },
+    "cmp-vimwiki-tags": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650885280,
+        "narHash": "sha256-wG63srm0ieCPoEcpYxKHOJedWajW04FnJaL+1Vlb5Ug=",
+        "owner": "pontusk",
+        "repo": "cmp-vimwiki-tags",
+        "rev": "a9e631c8f4d64e009d253f741b035eb5d1bd404f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pontusk",
+        "repo": "cmp-vimwiki-tags",
+        "type": "github"
+      }
+    },
+    "cmp-vsnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669100283,
+        "narHash": "sha256-2mkN03noOr5vBvRbSb35xZKorSH+8savQNZtgM9+QcM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-vsnip",
+        "rev": "989a8a73c44e926199bfd05fa7a516d51f2d2752",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-vsnip",
+        "type": "github"
+      }
+    },
+    "cmp-zsh": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664809675,
+        "narHash": "sha256-RovqqMGvoUFvQB2CdYnDYa84/HQp2MotHNiuDLOgLuY=",
+        "owner": "tamago324",
+        "repo": "cmp-zsh",
+        "rev": "c24db8e58fac9006ec23d93f236749288d00dec9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tamago324",
+        "repo": "cmp-zsh",
+        "type": "github"
+      }
+    },
+    "cmp_luasnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696878902,
+        "narHash": "sha256-nUJJl2zyK/oSwz5RzI9j3gf9zpDfCImCYbPbVsyXgz8=",
+        "owner": "saadparwaiz1",
+        "repo": "cmp_luasnip",
+        "rev": "05a9ab28b53f71d1aece421ef32fee2cb857a843",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saadparwaiz1",
+        "repo": "cmp_luasnip",
+        "type": "github"
+      }
+    },
+    "cmp_yanky": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700136256,
+        "narHash": "sha256-jWNoKzY0x5GPFP7JsQi4nqgg1YFJV4DqxwJRqsg6KaQ=",
+        "owner": "chrisgrieser",
+        "repo": "cmp_yanky",
+        "rev": "c3d089186ccead26eba01023502f3eeadd7a92d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "cmp_yanky",
         "type": "github"
       }
     },
@@ -1820,11 +2412,48 @@
         "clangd_extensions-nvim": "clangd_extensions-nvim",
         "clipboard-image-nvim": "clipboard-image-nvim",
         "cloak-nvim": "cloak-nvim",
+        "cmp-async-path": "cmp-async-path",
         "cmp-buffer": "cmp-buffer",
+        "cmp-calc": "cmp-calc",
+        "cmp-clippy": "cmp-clippy",
+        "cmp-cmdline": "cmp-cmdline",
+        "cmp-cmdline-history": "cmp-cmdline-history",
+        "cmp-conventionalcommits": "cmp-conventionalcommits",
         "cmp-copilot": "cmp-copilot",
+        "cmp-dap": "cmp-dap",
+        "cmp-dictionary": "cmp-dictionary",
+        "cmp-digraphs": "cmp-digraphs",
+        "cmp-emoji": "cmp-emoji",
+        "cmp-fish": "cmp-fish",
+        "cmp-fuzzy-buffer": "cmp-fuzzy-buffer",
+        "cmp-fuzzy-path": "cmp-fuzzy-path",
+        "cmp-git": "cmp-git",
+        "cmp-greek": "cmp-greek",
+        "cmp-latex-symbols": "cmp-latex-symbols",
+        "cmp-look": "cmp-look",
+        "cmp-npm": "cmp-npm",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
+        "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
+        "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
+        "cmp-nvim-lua": "cmp-nvim-lua",
+        "cmp-nvim-ultisnips": "cmp-nvim-ultisnips",
+        "cmp-omni": "cmp-omni",
+        "cmp-pandoc-nvim": "cmp-pandoc-nvim",
+        "cmp-pandoc-references": "cmp-pandoc-references",
         "cmp-path": "cmp-path",
+        "cmp-rg": "cmp-rg",
+        "cmp-snippy": "cmp-snippy",
+        "cmp-spell": "cmp-spell",
+        "cmp-tabby": "cmp-tabby",
+        "cmp-tabnine": "cmp-tabnine",
+        "cmp-tmux": "cmp-tmux",
         "cmp-treesitter": "cmp-treesitter",
+        "cmp-vim-lsp": "cmp-vim-lsp",
+        "cmp-vimwiki-tags": "cmp-vimwiki-tags",
+        "cmp-vsnip": "cmp-vsnip",
+        "cmp-zsh": "cmp-zsh",
+        "cmp_luasnip": "cmp_luasnip",
+        "cmp_yanky": "cmp_yanky",
         "comment-nvim": "comment-nvim",
         "completion-nvim": "completion-nvim",
         "copilot-vim": "copilot-vim",
@@ -1924,11 +2553,11 @@
         "which-key-nvim": "which-key-nvim"
       },
       "locked": {
-        "lastModified": 1716752671,
-        "narHash": "sha256-23/zVMFK3IHHkv1/AlKHPG5xRKoJ1kMQUz+2s+qQhUg=",
+        "lastModified": 1716755032,
+        "narHash": "sha256-qitF0AySZkiqnDqmrppEdIBJzGrDSk7Gc9hK03Y5uf0=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "8e296235a592d7b4c2a6cb59cdd1707692eee8c9",
+        "rev": "78ca478a45bb55dbde7456df89f740cfc54dc2d4",
         "type": "github"
       },
       "original": {
