@@ -42,7 +42,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         devshell.follows = "devshell";
-        utils.follows = "flake-utils";
       };
     };
 
