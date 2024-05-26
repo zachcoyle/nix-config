@@ -37,6 +37,15 @@
       };
     };
 
+    neovim-plugins-nightly-overlay = {
+      url = "github:zachcoyle/neovim-plugins-nightly-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        devshell.follows = "devshell";
+        utils.follows = "flake-utils";
+      };
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {

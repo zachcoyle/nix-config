@@ -4,6 +4,7 @@
     inputs.nix-vscode-extensions.overlays.default
     inputs.nur.overlay
     inputs.rippkgs.overlays.default
+    inputs.neovim-plugins-nightly-overlay.overlays.default
     (_: prev: {
       sg-nvim = inputs.sg-nvim.legacyPackages.${prev.system}.sg-nvimsg-nvim;
       inherit (inputs.zls.packages.${prev.system}) zls;
