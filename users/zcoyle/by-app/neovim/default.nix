@@ -60,6 +60,7 @@
     telescope_just
     tint-nvim
     yuck-vim
+    firenvim
   ];
 
   extraConfigLua =
