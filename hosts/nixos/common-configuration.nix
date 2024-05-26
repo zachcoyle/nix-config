@@ -180,7 +180,7 @@
       xkb = {
         layout = "us, us";
         variant = ", colemak";
-        options = "caps:escape,grp:alt_space_toggle,terminate:ctrl_alt_bksp";
+        options = "caps:escape,grp:alt_space_toggle";
       };
     };
 

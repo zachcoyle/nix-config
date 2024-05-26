@@ -139,6 +139,7 @@ in {
       vlc
       waypipe
       wdisplays
+      wev
       wl-clipboard
       wlsunset
       xdg-utils
