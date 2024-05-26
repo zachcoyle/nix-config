@@ -2028,6 +2028,54 @@
         "type": "github"
       }
     },
+    "git-blame-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715349951,
+        "narHash": "sha256-LSGDTeDpL4nF9iKYADb86UXVEQKuaiLapSz30ygIxHo=",
+        "owner": "f-person",
+        "repo": "git-blame.nvim",
+        "rev": "fb84fad97cd4b51caee3c865e8a33a0d413b77a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "f-person",
+        "repo": "git-blame.nvim",
+        "type": "github"
+      }
+    },
+    "git-messenger-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1661833086,
+        "narHash": "sha256-SAnGSSjHbwlpkpyjlINr5rgL7M28W42bWGvQrkOQl1w=",
+        "owner": "rhysd",
+        "repo": "git-messenger.vim",
+        "rev": "8a61bdfa351d4df9a9118ee1d3f45edbed617072",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rhysd",
+        "repo": "git-messenger.vim",
+        "type": "github"
+      }
+    },
+    "git-worktree-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699392961,
+        "narHash": "sha256-+RBoa1NS/W6XMhaIg3/Qw38VnL2imTQZ6bR88bZzV1c=",
+        "owner": "ThePrimeagen",
+        "repo": "git-worktree.nvim",
+        "rev": "f247308e68dab9f1133759b05d944569ad054546",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ThePrimeagen",
+        "repo": "git-worktree.nvim",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -2045,6 +2093,38 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "gitignore-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711376478,
+        "narHash": "sha256-p6k0NP3Vne6Kl98YodzSruVmJwxyrXziJj8N7u79o1w=",
+        "owner": "wintermute-cell",
+        "repo": "gitignore.nvim",
+        "rev": "2455191ec94da8ed222806a4fe3aa358eac1e558",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wintermute-cell",
+        "repo": "gitignore.nvim",
+        "type": "github"
+      }
+    },
+    "gitlinker-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675414954,
+        "narHash": "sha256-zrHvJSROjrDC5XtepOwuDrzrJG2jpnF5NJ05Iwd6DwA=",
+        "owner": "ruifm",
+        "repo": "gitlinker.nvim",
+        "rev": "cc59f732f3d043b626c8702cb725c82e54d35c25",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ruifm",
+        "repo": "gitlinker.nvim",
         "type": "github"
       }
     },
@@ -2826,6 +2906,11 @@
         "fzf-lsp-nvim": "fzf-lsp-nvim",
         "fzf-lua": "fzf-lua",
         "galaxyline-nvim": "galaxyline-nvim",
+        "git-blame-nvim": "git-blame-nvim",
+        "git-messenger-vim": "git-messenger-vim",
+        "git-worktree-nvim": "git-worktree-nvim",
+        "gitignore-nvim": "gitignore-nvim",
+        "gitlinker-nvim": "gitlinker-nvim",
         "gitsigns-nvim": "gitsigns-nvim",
         "goyo-vim": "goyo-vim",
         "gruvbox-nvim": "gruvbox-nvim",
@@ -2906,6 +2991,7 @@
         "vim-endwise": "vim-endwise",
         "vim-floaterm": "vim-floaterm",
         "vim-fugitive": "vim-fugitive",
+        "vim-godot": "vim-godot",
         "vim-import-cost": "vim-import-cost",
         "vim-one": "vim-one",
         "vim-prisma": "vim-prisma",
@@ -2917,11 +3003,11 @@
         "which-key-nvim": "which-key-nvim"
       },
       "locked": {
-        "lastModified": 1716757753,
-        "narHash": "sha256-elz7gCEHx51kMjAnh2WjQ51H5O7+92QqfvZruCQCMAI=",
+        "lastModified": 1716758517,
+        "narHash": "sha256-Tgdo7gJn/ZLbr1gePM7PqO9JFEU+EXzgvC195FK5KQA=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "505f801fde265573ec4f495a4b780797a5416cfa",
+        "rev": "5516d663875d0a927cff1222656db5a9ea436426",
         "type": "github"
       },
       "original": {
@@ -4658,6 +4744,22 @@
       "original": {
         "owner": "tpope",
         "repo": "vim-fugitive",
+        "type": "github"
+      }
+    },
+    "vim-godot": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708212547,
+        "narHash": "sha256-HKp3CQwAOs+7TL8MjWZ2EHLHMZ3Ss7AckAZ5eOjTDEg=",
+        "owner": "habamax",
+        "repo": "vim-godot",
+        "rev": "f9c0b36b299efcc4aa4cb119a2be36a83fe10388",
+        "type": "github"
+      },
+      "original": {
+        "owner": "habamax",
+        "repo": "vim-godot",
         "type": "github"
       }
     },
