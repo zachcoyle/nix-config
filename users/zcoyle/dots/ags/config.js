@@ -227,12 +227,11 @@ const notificationCount = Variable(0, {
 
 const getNotificationLabel = ({ text, alt }) => {
   if (alt === "dnd-none") {
-    switch (text) {
-      case "0":
-        return "";
-      default:
-        return "";
-    }
+    return "";
+  }
+
+  if (alt === "dnd-notification") {
+    return "";
   }
 
   switch (text) {
