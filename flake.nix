@@ -30,7 +30,7 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        pre-commit-hooks.follows = "pre-commit-hooks";
+        git-hooks.follows = "pre-commit-hooks";
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         neovim-src.follows = "neovim-src";
