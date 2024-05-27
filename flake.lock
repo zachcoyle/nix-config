@@ -2877,18 +2877,6 @@
         "type": "github"
       }
     },
-    "lsp_lines-nvim": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-Oq7I2MY573leGFd78/wF+oHCxmAlMHhuJPes8+sZALQ=",
-        "type": "file",
-        "url": "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
-      }
-    },
     "lsp_signature-nvim": {
       "flake": false,
       "locked": {
@@ -3476,7 +3464,6 @@
         "leap-nvim": "leap-nvim",
         "lightline-vim": "lightline-vim",
         "lsp-format-nvim": "lsp-format-nvim",
-        "lsp_lines-nvim": "lsp_lines-nvim",
         "lsp_signature-nvim": "lsp_signature-nvim",
         "lspkind-nvim": "lspkind-nvim",
         "lspsaga-nvim": "lspsaga-nvim",
@@ -3533,6 +3520,7 @@
         "nvim-spectre": "nvim-spectre",
         "nvim-spider": "nvim-spider",
         "nvim-tree-lua": "nvim-tree-lua",
+        "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-treesitter-refactor": "nvim-treesitter-refactor",
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
@@ -3647,11 +3635,11 @@
         "zk-nvim": "zk-nvim"
       },
       "locked": {
-        "lastModified": 1716836721,
-        "narHash": "sha256-ZUoxHO1cBpgxFqRnHGOuGxjOsU7J6OChySZVjDLVFE4=",
+        "lastModified": 1716839093,
+        "narHash": "sha256-4u8+OJ+IziW9jyz0N3+afX+xSS/XZ16zZbR8CV6ss3s=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "4869fd1d46efbe29eed29c7c408886acaf4f8c47",
+        "rev": "14903341107686195323802f0490cf2825875ade",
         "type": "github"
       },
       "original": {
@@ -4374,6 +4362,22 @@
       "original": {
         "owner": "nvim-tree",
         "repo": "nvim-tree.lua",
+        "type": "github"
+      }
+    },
+    "nvim-treesitter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716792560,
+        "narHash": "sha256-B+lCD3HJjSwtpJaIwvFN7RPqdR9Lemf3ihap7wDt1Tg=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "aa02427dfeaead86fae038024ae7b29299f08b8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
         "type": "github"
       }
     },
