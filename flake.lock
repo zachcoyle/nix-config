@@ -1094,22 +1094,6 @@
         "type": "github"
       }
     },
-    "cmp_luasnip": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696878902,
-        "narHash": "sha256-nUJJl2zyK/oSwz5RzI9j3gf9zpDfCImCYbPbVsyXgz8=",
-        "owner": "saadparwaiz1",
-        "repo": "cmp_luasnip",
-        "rev": "05a9ab28b53f71d1aece421ef32fee2cb857a843",
-        "type": "github"
-      },
-      "original": {
-        "owner": "saadparwaiz1",
-        "repo": "cmp_luasnip",
-        "type": "github"
-      }
-    },
     "cmp_yanky": {
       "flake": false,
       "locked": {
@@ -2969,22 +2953,6 @@
         "type": "github"
       }
     },
-    "luasnip": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716536093,
-        "narHash": "sha256-WP71ChUQR67GJ/hsynv3/KAfojVFqTqYRVkmUmC9aqo=",
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
-        "rev": "878ace11983444d865a72e1759dbcc331d1ace4c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
-        "type": "github"
-      }
-    },
     "magma-nvim-goose": {
       "flake": false,
       "locked": {
@@ -3407,7 +3375,6 @@
         "cmp-vimwiki-tags": "cmp-vimwiki-tags",
         "cmp-vsnip": "cmp-vsnip",
         "cmp-zsh": "cmp-zsh",
-        "cmp_luasnip": "cmp_luasnip",
         "cmp_yanky": "cmp_yanky",
         "codeium-nvim": "codeium-nvim",
         "codeium-vim": "codeium-vim",
@@ -3482,7 +3449,6 @@
         "lspsaga-nvim": "lspsaga-nvim",
         "ltex_extra-nvim": "ltex_extra-nvim",
         "lualine-nvim": "lualine-nvim",
-        "luasnip": "luasnip",
         "magma-nvim-goose": "magma-nvim-goose",
         "mark-radar-nvim": "mark-radar-nvim",
         "markdown-preview-nvim": "markdown-preview-nvim",
@@ -3607,11 +3573,11 @@
         "which-key-nvim": "which-key-nvim"
       },
       "locked": {
-        "lastModified": 1716768580,
-        "narHash": "sha256-O0IqpvEgAaXrYsSnMRstTodI84DY/i6Uhgu+7Eg3D44=",
+        "lastModified": 1716768889,
+        "narHash": "sha256-U0E1dTvpslSyvZfmqoHeBDJhFETuRVYZjLe3o5TvGuE=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "c5332055690ecef587829fce307f8464a46ac0e3",
+        "rev": "a9e129fcc500dcc0f5b36260f44931d4e0a82d47",
         "type": "github"
       },
       "original": {
