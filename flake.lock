@@ -3536,15 +3536,27 @@
         "nvim-ts-rainbow": "nvim-ts-rainbow",
         "nvim-ufo": "nvim-ufo",
         "nvim-web-devicons": "nvim-web-devicons",
+        "obsidian-nvim": "obsidian-nvim",
         "octo-nvim": "octo-nvim",
+        "oil-nvim": "oil-nvim",
+        "ollama-nvim": "ollama-nvim",
         "onedark-nvim": "onedark-nvim",
+        "openscad-nvim": "openscad-nvim",
         "oxocarbon-nvim": "oxocarbon-nvim",
         "packer-nvim": "packer-nvim",
         "palette-nvim": "palette-nvim",
+        "persistence-nvim": "persistence-nvim",
+        "plantuml-syntax": "plantuml-syntax",
         "plenary-nvim": "plenary-nvim",
         "poimandres-nvim": "poimandres-nvim",
         "popup-nvim": "popup-nvim",
         "presence-nvim": "presence-nvim",
+        "project-nvim": "project-nvim",
+        "qmk-nvim": "qmk-nvim",
+        "quickmath-nvim": "quickmath-nvim",
+        "rainbow-delimeters-nvim": "rainbow-delimeters-nvim",
+        "refactoring-nvim": "refactoring-nvim",
+        "rest-nvim": "rest-nvim",
         "rose-pine": "rose-pine",
         "scrollbar-nvim": "scrollbar-nvim",
         "snippets-nvim": "snippets-nvim",
@@ -3595,11 +3607,11 @@
         "which-key-nvim": "which-key-nvim"
       },
       "locked": {
-        "lastModified": 1716766899,
-        "narHash": "sha256-CYEDyvTFW6KBR+M2m399Uo9L71Tjsx9frMOt5E/YwzE=",
+        "lastModified": 1716768580,
+        "narHash": "sha256-O0IqpvEgAaXrYsSnMRstTodI84DY/i6Uhgu+7Eg3D44=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "66934abbabb13c795fa0f6fed5414809b15ee1d0",
+        "rev": "c5332055690ecef587829fce307f8464a46ac0e3",
         "type": "github"
       },
       "original": {
@@ -4373,6 +4385,22 @@
         "type": "github"
       }
     },
+    "obsidian-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716489161,
+        "narHash": "sha256-R7q3PmDMYQtDTE1JZgQtvArBq55MnvNdcChOsuivSCo=",
+        "owner": "epwalsh",
+        "repo": "obsidian.nvim",
+        "rev": "0890a3f4e1711d98b5aa78bf40d2c5b81ef3c39f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "epwalsh",
+        "repo": "obsidian.nvim",
+        "type": "github"
+      }
+    },
     "octo-nvim": {
       "flake": false,
       "locked": {
@@ -4389,6 +4417,38 @@
         "type": "github"
       }
     },
+    "oil-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716410771,
+        "narHash": "sha256-nsKp7Ln3VSXrZVghRNjFxDugoSwJfoOPWGLL2Ife5VQ=",
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "rev": "2cb39e838e9dcd8b374f09a3a87a2e5ec9d372f6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "type": "github"
+      }
+    },
+    "ollama-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703226011,
+        "narHash": "sha256-LOa56hd92RoGiN6gd4AUUlCLc97URmlFsUvv3HM3XeI=",
+        "owner": "nomnivore",
+        "repo": "ollama.nvim",
+        "rev": "d99e2462be8875602d173c117d5301862669d985",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nomnivore",
+        "repo": "ollama.nvim",
+        "type": "github"
+      }
+    },
     "onedark-nvim": {
       "flake": false,
       "locked": {
@@ -4402,6 +4462,22 @@
       "original": {
         "owner": "navarasu",
         "repo": "onedark.nvim",
+        "type": "github"
+      }
+    },
+    "openscad-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713038159,
+        "narHash": "sha256-h8/9nyHeD6w8YtrHyxDfq9Q0ksUX8oQy5zF9y7lbIK0=",
+        "owner": "salkin-mada",
+        "repo": "openscad.nvim",
+        "rev": "bf99a48bff318ceb28646d27f29f925ba0b10af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "salkin-mada",
+        "repo": "openscad.nvim",
         "type": "github"
       }
     },
@@ -4472,6 +4548,38 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "persistence-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715879030,
+        "narHash": "sha256-6T7/KoC38i9M/IoNrxgwkM/uxeFI8IJpD7XRpDC0Suk=",
+        "owner": "folke",
+        "repo": "persistence.nvim",
+        "rev": "5fe077056c821aab41f87650bd6e1c48cd7dd047",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "persistence.nvim",
+        "type": "github"
+      }
+    },
+    "plantuml-syntax": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715327113,
+        "narHash": "sha256-eDvmRicuQILDAuBpn6NhhjnqZNNokFACP/RYZrxJk08=",
+        "owner": "aklt",
+        "repo": "plantuml-syntax",
+        "rev": "44054d6d2cbcf01a064858faa3364cd30d38057d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aklt",
+        "repo": "plantuml-syntax",
         "type": "github"
       }
     },
@@ -4593,6 +4701,22 @@
         "type": "github"
       }
     },
+    "project-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680567592,
+        "narHash": "sha256-avV3wMiDbraxW4mqlEsKy0oeewaRj9Q33K8NzWoaptU=",
+        "owner": "ahmedkhalf",
+        "repo": "project.nvim",
+        "rev": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ahmedkhalf",
+        "repo": "project.nvim",
+        "type": "github"
+      }
+    },
     "pyprland": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -4617,6 +4741,86 @@
       "original": {
         "owner": "hyprland-community",
         "repo": "pyprland",
+        "type": "github"
+      }
+    },
+    "qmk-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713377993,
+        "narHash": "sha256-cNHB3h9+ip3FGFG9oJppr6ahFQh3DaeD39lnH4uIhFw=",
+        "owner": "codethread",
+        "repo": "qmk.nvim",
+        "rev": "cfa6cecae362d23778cd97317d33ab12671e157c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "codethread",
+        "repo": "qmk.nvim",
+        "type": "github"
+      }
+    },
+    "quickmath-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707776221,
+        "narHash": "sha256-uShIzazgemL+8ir3aJSfUijJzORvZsX/l/NFulBVIgU=",
+        "owner": "jbyuki",
+        "repo": "quickmath.nvim",
+        "rev": "7a9a6599018aa931a8fe7ad2e4cb2f36db533d19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jbyuki",
+        "repo": "quickmath.nvim",
+        "type": "github"
+      }
+    },
+    "rainbow-delimeters-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716546688,
+        "narHash": "sha256-+6u3fo1ennJ/BS/jWdHnBtLBR65abFPU6sVvjkPtpqY=",
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "rev": "849803e0a687c6ef7c9a0d305bd4d441017b8abf",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "type": "gitlab"
+      }
+    },
+    "refactoring-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710536335,
+        "narHash": "sha256-TZZRS6d3GZ7tvSV0JA+u6KP36WmqB7XfyuRbmJZoF2g=",
+        "owner": "ThePrimeagen",
+        "repo": "refactoring.nvim",
+        "rev": "d2786877c91aa409c824f27b4ce8a9f560dda60a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ThePrimeagen",
+        "repo": "refactoring.nvim",
+        "type": "github"
+      }
+    },
+    "rest-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714851012,
+        "narHash": "sha256-N7yNoeoZDE3tkJLrn6pqpcSHFcZz5pus59aj0fm81Xk=",
+        "owner": "rest-nvim",
+        "repo": "rest.nvim",
+        "rev": "f96edb54a2940322bc7ed81a1031be04db7d3a99",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rest-nvim",
+        "repo": "rest.nvim",
         "type": "github"
       }
     },
