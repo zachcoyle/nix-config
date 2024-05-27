@@ -2880,7 +2880,7 @@
     "lsp_lines-nvim": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-JH3dKiEw1kQaSZJv2wo0UJI/uVYCbl20l+5NUNe+AY4=",
+        "narHash": "sha256-5xKdl3MwIj8C/U0gKDXNn4mHsXuQFcN+Tt3QwPrdZb8=",
         "type": "file",
         "url": "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
       },
@@ -3647,11 +3647,11 @@
         "zk-nvim": "zk-nvim"
       },
       "locked": {
-        "lastModified": 1716777701,
-        "narHash": "sha256-UUm5YDNNeHYa8e5d79gedv/USuxFd7M33Dp0JH6RGU0=",
+        "lastModified": 1716778776,
+        "narHash": "sha256-oGQnCM/iSJt5UGGx6xvBDGdpr73D6JD08lCw58fdlgY=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "bd72945d3c341832db48f4e1ccf2a2702140b266",
+        "rev": "7f4744191ed725fe5529bc3785267babbd287396",
         "type": "github"
       },
       "original": {
