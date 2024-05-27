@@ -3559,7 +3559,7 @@
         "project-nvim": "project-nvim",
         "qmk-nvim": "qmk-nvim",
         "quickmath-nvim": "quickmath-nvim",
-        "rainbow-delimeters-nvim": "rainbow-delimeters-nvim",
+        "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
         "refactoring-nvim": "refactoring-nvim",
         "rest-nvim": "rest-nvim",
         "rose-pine": "rose-pine",
@@ -3647,11 +3647,11 @@
         "zk-nvim": "zk-nvim"
       },
       "locked": {
-        "lastModified": 1716775974,
-        "narHash": "sha256-PVsPwvWymzbk992GrHsw8GPVji01sWryMvJFWoWusMQ=",
+        "lastModified": 1716776603,
+        "narHash": "sha256-w1IC6c/iIMl4w3oReiUJW3s0F5i9ge39WmyLZpw+7qA=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "397a06366da98c74a7522a43af549f18efe982fd",
+        "rev": "f072ea24937768c9d7abe4d4ede50df8409b2d87",
         "type": "github"
       },
       "original": {
@@ -4896,7 +4896,7 @@
         "type": "github"
       }
     },
-    "rainbow-delimeters-nvim": {
+    "rainbow-delimiters-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1716546688,
