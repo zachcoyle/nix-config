@@ -2880,7 +2880,7 @@
     "lsp_lines-nvim": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-qL7/enRJ/vcJDSyEnfApAjoPkQ+OI80HZThAO7Mj2Kw=",
+        "narHash": "sha256-JH3dKiEw1kQaSZJv2wo0UJI/uVYCbl20l+5NUNe+AY4=",
         "type": "file",
         "url": "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
       },
@@ -3647,11 +3647,11 @@
         "zk-nvim": "zk-nvim"
       },
       "locked": {
-        "lastModified": 1716776603,
-        "narHash": "sha256-w1IC6c/iIMl4w3oReiUJW3s0F5i9ge39WmyLZpw+7qA=",
+        "lastModified": 1716777701,
+        "narHash": "sha256-UUm5YDNNeHYa8e5d79gedv/USuxFd7M33Dp0JH6RGU0=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "f072ea24937768c9d7abe4d4ede50df8409b2d87",
+        "rev": "bd72945d3c341832db48f4e1ccf2a2702140b266",
         "type": "github"
       },
       "original": {
@@ -3980,11 +3980,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1716775717,
-        "narHash": "sha256-mRFd3BanjIyYt9yIWT3j3HvceVw4up5pNF7x6pyNkEQ=",
+        "lastModified": 1716777195,
+        "narHash": "sha256-eBOGRFQ5UMBf9CPuJPASKLtrEJeD5QPMhGIGC8WZVWM=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "52671da7ee69ae9c58f39c9885e609ef348224e0",
+        "rev": "cc9601ec6ce6c7c76e20f4bd8c49e49b5d45892f",
         "type": "github"
       },
       "original": {
@@ -4904,12 +4904,12 @@
         "owner": "HiPhish",
         "repo": "rainbow-delimiters.nvim",
         "rev": "849803e0a687c6ef7c9a0d305bd4d441017b8abf",
-        "type": "gitlab"
+        "type": "github"
       },
       "original": {
         "owner": "HiPhish",
         "repo": "rainbow-delimiters.nvim",
-        "type": "gitlab"
+        "type": "github"
       }
     },
     "refactoring-nvim": {
