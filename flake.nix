@@ -50,7 +50,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         devshell.follows = "devshell";
-        pre-commit-hooks.follows = "pre-commit-hooks";
+        git-hooks.follows = "pre-commit-hooks";
         flake-parts.follows = "flake-parts";
         home-manager.follows = "home-manager";
         nix-darwin.follows = "nix-darwin";
