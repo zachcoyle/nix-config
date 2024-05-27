@@ -3500,7 +3500,6 @@
         "nvim-ts-autotag": "nvim-ts-autotag",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-ts-rainbow": "nvim-ts-rainbow",
-        "nvim-ufo": "nvim-ufo",
         "nvim-web-devicons": "nvim-web-devicons",
         "obsidian-nvim": "obsidian-nvim",
         "octo-nvim": "octo-nvim",
@@ -3573,11 +3572,11 @@
         "which-key-nvim": "which-key-nvim"
       },
       "locked": {
-        "lastModified": 1716768889,
-        "narHash": "sha256-U0E1dTvpslSyvZfmqoHeBDJhFETuRVYZjLe3o5TvGuE=",
+        "lastModified": 1716769587,
+        "narHash": "sha256-cP2+SqTHBYmzc2JjGzBX3gikt3ndMma3B31glTbsOhE=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "a9e129fcc500dcc0f5b36260f44931d4e0a82d47",
+        "rev": "e981b6368e8db9294a4f674671518ddef72faf8f",
         "type": "github"
       },
       "original": {
@@ -4316,22 +4315,6 @@
       "original": {
         "owner": "p00f",
         "repo": "nvim-ts-rainbow",
-        "type": "github"
-      }
-    },
-    "nvim-ufo": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716226930,
-        "narHash": "sha256-tucS6d6ALl5mX7YHZlv+FDaVy8Tyho6yLqsbUBqRS1c=",
-        "owner": "kevinhwang91",
-        "repo": "nvim-ufo",
-        "rev": "65dda6360879f6ffe0278163b9192a573a0d2a08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kevinhwang91",
-        "repo": "nvim-ufo",
         "type": "github"
       }
     },
