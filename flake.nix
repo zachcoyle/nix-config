@@ -34,6 +34,7 @@
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         neovim-src.follows = "neovim-src";
+        hercules-ci-effects.follows = "hercules-ci-effects";
       };
     };
 
@@ -42,6 +43,8 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         devshell.follows = "devshell";
+        flake-parts.follows = "flake-parts";
+        hercules-ci-effects.follows = "hercules-ci-effects";
       };
     };
 
@@ -55,6 +58,7 @@
         home-manager.follows = "home-manager";
         nix-darwin.follows = "nix-darwin";
         flake-compat.follows = "flake-compat";
+        treefmt-nix.follows = "treefmt-nix";
       };
     };
 
@@ -62,11 +66,20 @@
     systems-darwin.url = "github:nix-systems/default-darwin";
     systems-default.url = "github:nix-systems/default";
 
+    hyprlang = {
+      url = "github:hyprwm/hyprlang";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
+      };
+    };
+
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
+        hyprlang.follows = "hyprlang";
       };
     };
 
@@ -80,6 +93,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
+        hyprlang.follows = "hyprlang";
       };
     };
 
@@ -88,6 +102,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
+        hyprlang.follows = "hyprlang";
       };
     };
 
@@ -102,6 +117,7 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
         poetry2nix.follows = "poetry2nix";
+        flake-compat.follows = "flake-compat";
       };
     };
 
@@ -110,7 +126,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    xremap = {
+    xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -118,6 +134,8 @@
         devshell.follows = "devshell";
         hyprland.follows = "hyprland";
         home-manager.follows = "home-manager";
+        treefmt-nix.follows = "treefmt-nix";
+        crane.follows = "crane";
       };
     };
 
@@ -175,6 +193,7 @@
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
         pre-commit-nix.follows = "pre-commit-hooks";
+        # FIXME: see https://github.com/NixOS/nix/issues/5790#issuecomment-996690415
       };
     };
 
@@ -193,6 +212,7 @@
         nixpkgs.follows = "nixpkgs";
         devshell.follows = "devshell";
         flake-parts.follows = "flake-parts";
+        crane.follows = "crane";
       };
     };
 
@@ -216,12 +236,34 @@
     nur.url = "github:nix-community/nur";
 
     flake-utils.url = "github:numtide/flake-utils";
+
     flake-compat.url = "github:edolstra/flake-compat";
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    crane = {
+      url = "github:ipetkov/crane";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hercules-ci-effects = {
+      url = "github:hercules-ci/hercules-ci-effects";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+
     poetry2nix = {
+      url = "github:nix-community/poetry2nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
         systems.follows = "systems-default";
+        treefmt-nix.follows = "treefmt-nix";
       };
     };
 
@@ -231,6 +273,7 @@
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
         gitignore.follows = "gitignore";
+        # FIXME: see https://github.com/NixOS/nix/issues/5790#issuecomment-996690415
       };
     };
   };
@@ -288,7 +331,7 @@
               {
                 home-manager.users.zcoyle.imports = [
                   inputs.ags.homeManagerModules.default
-                  inputs.xremap.homeManagerModules.default
+                  inputs.xremap-flake.homeManagerModules.default
                   ./home-linux.nix
                 ];
               }
