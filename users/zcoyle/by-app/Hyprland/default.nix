@@ -35,6 +35,9 @@ in {
       ];
     };
     plugin = {
+      hyprtrails = {
+        color = "rgba(${config.lib.stylix.colors.base0C}CC)";
+      };
       # hyprexpo = {
       #   columns = 3;
       #   gap_size = 5;
