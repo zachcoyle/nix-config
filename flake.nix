@@ -110,6 +110,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    xremap = {
+      url = "github:xremap/nix-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        devshell.follows = "devshell";
+        hyprland.follows = "hyprland";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     stylix = {
       url = "github:danth/stylix";
       inputs = {
@@ -277,6 +288,7 @@
               {
                 home-manager.users.zcoyle.imports = [
                   inputs.ags.homeManagerModules.default
+                  inputs.xremap.homeManagerModules.default
                   ./home-linux.nix
                 ];
               }

@@ -189,6 +189,20 @@ in {
         ];
       };
     };
+
+    xremap = {
+      withWlroots = true;
+      watch = true;
+      config = {
+        keymap = [
+          {
+            name = "Global";
+            remap = {
+            };
+          }
+        ];
+      };
+    };
   };
 
   wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs lib config hyprland-plugins;};
