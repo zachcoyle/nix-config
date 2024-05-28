@@ -36,7 +36,7 @@ in {
     };
     plugin = {
       hyprtrails = {
-        color = "rgba(${config.lib.stylix.colors.base0C}CC)";
+        color = "rgba(${config.lib.stylix.colors.base0C}80)";
       };
       # hyprexpo = {
       #   columns = 3;
