@@ -8,6 +8,7 @@
   gradient_border = "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
 in {
   enable = pkgs.stdenv.isLinux;
+  # systemdIntegration = true;
 
   plugins = [
     hyprland-plugins.packages.${pkgs.system}.hyprtrails
