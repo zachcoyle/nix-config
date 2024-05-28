@@ -194,7 +194,18 @@ in {
       withWlroots = true;
       watch = true;
       config = {
-        modmap = [];
+        modmap = [
+          {
+            name = "Global";
+            remap = {
+              CapsLock = {
+                held = "Ctrl_L";
+                alone = "Esc";
+                alone_timeout_millis = 1000;
+              };
+            };
+          }
+        ];
         keymap = [
           {
             name = "Global";

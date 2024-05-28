@@ -4,7 +4,7 @@ in {
   home-manager.users.zcoyle = {
     services.xremap.config.modmap = [
       {
-        name = "Global";
+        name = "Desktop";
         remap = {
           Alt_L = "Super_L";
           Super_L = "Alt_L";
