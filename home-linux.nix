@@ -194,6 +194,7 @@ in {
       withWlroots = true;
       watch = true;
       config = {
+        modmap = [];
         keymap = [
           {
             name = "Global";
