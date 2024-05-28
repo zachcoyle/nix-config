@@ -174,16 +174,6 @@
       };
     };
 
-    xserver = {
-      #videoDrivers = ["amdgpu-pro"];
-      enable = true;
-      xkb = {
-        layout = "us, us";
-        variant = ", colemak";
-        options = "caps:escape,grp:alt_space_toggle";
-      };
-    };
-
     printing.enable = true;
 
     pipewire = {
