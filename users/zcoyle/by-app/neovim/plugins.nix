@@ -375,7 +375,7 @@
   };
   ollama = {
     enable = true;
-    model = "dolphin-mistral";
+    model = "dolphin-llama3";
     url = "http://127.0.0.1:11434";
     extraOptions = {
       stream = true;
