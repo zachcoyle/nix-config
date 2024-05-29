@@ -61,7 +61,7 @@
         enable = true;
         debug = true;
         mode = "challenge-response";
-        id = ["15732395"];
+        id = ["15732395" "15217433"];
       };
       services = {
         login.u2fAuth = true;
