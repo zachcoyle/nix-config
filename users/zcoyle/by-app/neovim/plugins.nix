@@ -151,10 +151,7 @@
       };
     };
   };
-  indent-blankline = {
-    enable = true;
-    # TODO: rainbow indent
-  };
+  indent-blankline.enable = true;
   leap.enable = true;
   lualine = {
     enable = true;

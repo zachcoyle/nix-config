@@ -1,7 +1,9 @@
 {
   pkgs,
   config,
-}: {
+}: let
+  colorsWithHashtag = config.lib.stylix.colors.withHashtag;
+in {
   enable = true;
 
   package = pkgs.neovim;
@@ -116,6 +118,34 @@
           },
         },
       })
+
+      --------------------------------------
+      local highlight = {
+          "RainbowRed",
+          "RainbowYellow",
+          "RainbowBlue",
+          "RainbowOrange",
+          "RainbowGreen",
+          "RainbowViolet",
+          "RainbowCyan",
+      }
+      local hooks = require "ibl.hooks"
+      -- create the highlight groups in the highlight setup hook, so they are reset
+      -- every time the colorscheme changes
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+          vim.api.nvim_set_hl(0, "RainbowRed", { fg = "${colorsWithHashtag.base08}" })
+          vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "${colorsWithHashtag.base0A}" })
+          vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "${colorsWithHashtag.base0D}" })
+          vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "${colorsWithHashtag.base09}" })
+          vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "${colorsWithHashtag.base0B}" })
+          vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "${colorsWithHashtag.base0E}" })
+          vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "${colorsWithHashtag.base0C}" })
+      end)
+
+      vim.g.rainbow_delimiters = { highlight = highlight }
+      require("ibl").setup { scope = { highlight = highlight } }
+
+      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     ''
     + (
       # TODO: all the neovide config could stand to be be tightened up
