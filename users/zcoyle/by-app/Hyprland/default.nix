@@ -104,7 +104,7 @@ in {
     input = {
       # NOTE: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
       kb_layout = "us, us";
-      kb_options = "grp:alt_space_toggle";
+      kb_options = "caps:escape,grp:alt_space_toggle";
       kb_variant = ", colemak";
       natural_scroll = true;
       touchpad = {
