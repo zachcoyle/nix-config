@@ -56,8 +56,21 @@
   nixpkgs.config.allowUnfree = true;
 
   security = {
-    pam.services = {
-      hyprlock = {};
+    pam = {
+      yubico = {
+        enable = true;
+        debug = true;
+        mode = "challenge-response";
+        id = ["15732395"];
+      };
+      services = {
+        login.u2fAuth = true;
+        sudo.u2fAuth = true;
+        hyprlock = {
+          yubicoAuth = true;
+          u2fAuth = true;
+        };
+      };
     };
     doas = {
       enable = true;
