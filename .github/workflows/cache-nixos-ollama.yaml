@@ -6,6 +6,10 @@ jobs:
   cachix:
     runs-on: ubuntu-latest
     steps:
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
       - name: Checkout
         uses: actions/checkout@v4.1.1
       - name: Install Nix
