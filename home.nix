@@ -32,6 +32,7 @@ in {
       coreutils-full
       curlFull
       dasel
+      discord
       dos2unix
       dsq
       duf
