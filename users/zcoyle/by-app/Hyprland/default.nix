@@ -247,6 +247,7 @@ in {
       "blur, alacritty"
       "blur, wlogout"
       "blur, avizo"
+      "blur, rofi"
     ];
 
     windowrule = [
