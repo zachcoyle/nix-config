@@ -3502,11 +3502,11 @@
         "zk-nvim": "zk-nvim"
       },
       "locked": {
-        "lastModified": 1717028784,
-        "narHash": "sha256-oWJobIkwYeV888sS0zwQttnTYcU99eK7+uMVT5XwzgM=",
+        "lastModified": 1717031573,
+        "narHash": "sha256-RdRXxXJZ7J9zoxvNjVseOfvBBC1EWA/h9d8ViGuR6eM=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "d3eb2fa966cfc30a9556690492963e6778521ce7",
+        "rev": "11aa1919684c6a6fcffecb8a3ef585447beb8e95",
         "type": "github"
       },
       "original": {
@@ -3700,11 +3700,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716943765,
-        "narHash": "sha256-vf64nddW0FJ07lbkfwnHtmIwjGoVROTBfIliGYXXo+0=",
+        "lastModified": 1717029892,
+        "narHash": "sha256-U1SYLSnnPfXJxhq5BTzGzi2dR9U/XBzicWC8Q5YB5tk=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "9ff6927958bb6d4b472badb28a44e385c74b034e",
+        "rev": "f23843928fd343cc1234b2108f406e8b9d159437",
         "type": "github"
       },
       "original": {
