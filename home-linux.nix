@@ -275,6 +275,7 @@ in {
 
     rofi = let
       inherit (config.lib.formats.rasi) mkLiteral;
+      inherit (config.lib.stylix) colors;
       inherit (config.lib.stylix.colors) withHashtag;
     in {
       enable = true;
@@ -285,6 +286,13 @@ in {
         rofi-emoji
       ];
       theme = {
+        "*" = {
+          # https://github.com/davatorium/rofi-themes/blob/master/Official%20Themes/solarized_alternate.rasi
+          separatorcolor = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
+          background = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
+          normal-background = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
+          alternate-normal-background = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
+        };
         window = {
           border-radius = mkLiteral "10px";
           border = mkLiteral "1px";
