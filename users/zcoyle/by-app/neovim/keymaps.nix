@@ -156,7 +156,7 @@
   }
   {
     key = "<leader>tl";
-    action = "require('trouble.providers.telescope').open_with_trouble";
+    action = "require('trouble.sources.telescope').open";
     lua = true;
     options = {
       silent = true;
