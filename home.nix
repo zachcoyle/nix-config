@@ -15,7 +15,9 @@ in {
   ];
 
   stylix = {
-    targets.nixvim.enable = false;
+    targets = {
+      nixvim.enable = false;
+    };
   };
 
   home = {
