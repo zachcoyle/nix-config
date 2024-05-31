@@ -203,6 +203,7 @@ in {
           reduxdevtools
           stylus
           ublock-origin
+          user-agent-string-switcher
           vimium
           vue-js-devtools
           wayback-machine
