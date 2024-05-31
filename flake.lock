@@ -597,11 +597,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1716968065,
-        "narHash": "sha256-kuVKS98JUgJ71Z3sRUo+YnQgmX8xdXoZZbBPyIZMWYs=",
+        "lastModified": 1717151932,
+        "narHash": "sha256-MwAAjC9AXaxxmvTMkgZZvdWaE/d7AfVd0L1NZtciRbY=",
         "ref": "refs/heads/main",
-        "rev": "a60c7283e677ed81a466d1c0c864c8a05e192cac",
-        "revCount": 4750,
+        "rev": "df6ebe358b30ee7b49f296e05763e5e4b0edce98",
+        "revCount": 4751,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -624,11 +624,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717091920,
-        "narHash": "sha256-wlvgsjLWB5m/TX+D6JN6UfBAPfSduByFGDbws5wWNR0=",
+        "lastModified": 1717171694,
+        "narHash": "sha256-LN2lrcGdAMpkooleWSOV+/q1+wx1f3pSBs1TWeoMCkA=",
         "owner": "hyprwm",
         "repo": "hyprland-plugins",
-        "rev": "83cbe9af3f0d4c59b07f0854dc77cb038e50ec2d",
+        "rev": "e0cad229c3d799c7f72b1217ab2eb300ceecf3ac",
         "type": "github"
       },
       "original": {
@@ -832,11 +832,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717086148,
-        "narHash": "sha256-rZyQv0MdYX+tYoGhc5mV4iZb+kGqA93+k3R1BIRiwXk=",
+        "lastModified": 1717171539,
+        "narHash": "sha256-Sr7x7scl6VGOD/+74wyZaKF2asiidkG/9+Me5vmEy84=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "fe31f9e863e643327e8a5fffa0f4aae9288fd048",
+        "rev": "8d9517ad34e62b04744f1586838d4565939172b4",
         "type": "github"
       },
       "original": {
@@ -862,11 +862,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1717131546,
-        "narHash": "sha256-/zzoQPY4sjyh5Cm5qOxXYlwg50NH8ZMxYQw5i5Kx6Xs=",
+        "lastModified": 1717176511,
+        "narHash": "sha256-3x4kHpPoFdMtqLnWDAb4ZZ2B9hiYZcOYcUatPYakdKE=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "846980b9b1a7bf3f88fe53b979efd4d1674e8816",
+        "rev": "572e1e4ebc2c8abf18753992fbf8d3d6749ca3e9",
         "type": "github"
       },
       "original": {
@@ -878,11 +878,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1717130730,
-        "narHash": "sha256-LFHKMkGZJwK+PRL6T42WsQh0AzY7VpsGlz3xYZofRSM=",
+        "lastModified": 1717166885,
+        "narHash": "sha256-HcvLlqj4SaBEqjf1aVnH0Jig1oVwrX/LWNbAx0Sx5Jk=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "a18652ed619b4c94c74080b637f446503e2bc605",
+        "rev": "d62d181ce065556be51d5eda0425aa42f427cc27",
         "type": "github"
       },
       "original": {
@@ -1102,11 +1102,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717100844,
-        "narHash": "sha256-cKEGHGLaZoiNroMd34RrDgVDB7xgfff7HBShMz7cEy8=",
+        "lastModified": 1717171287,
+        "narHash": "sha256-wXHGKRw5Qjk2mFJQWYR2VpFyUt+vddf5wUQJsRpcacY=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "6ff3493c9bc85063ae829f0c25c21be3bde5c5b3",
+        "rev": "db32a4ebdae0a84c07098c6d2b585033e51eb7e5",
         "type": "github"
       },
       "original": {
@@ -1117,11 +1117,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1717137954,
-        "narHash": "sha256-coRwojhix3oG/8+dcibxy5AfX9HUJXPYPar8qfjP5Zo=",
+        "lastModified": 1717170290,
+        "narHash": "sha256-NTCyGbK740GIGXuLpqXx0JhYJj+lNEqAAngweVNUfMk=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "f47e2ef0b6e6a25d99f04506c042b8c3eba18790",
+        "rev": "2b326c59b42cb400b2ba7f1d3c51cc145683b1f9",
         "type": "github"
       },
       "original": {
@@ -1169,11 +1169,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717090555,
-        "narHash": "sha256-4ajbEBEB8C2x9Dz07ZG5iXDsXuOjntpMmZt+I/tGBFQ=",
+        "lastModified": 1717171636,
+        "narHash": "sha256-SwqzDI7ddN8SkfJ0moYMRu9iastqI25YAHPpmI2PlYM=",
         "owner": "nix-community",
         "repo": "poetry2nix",
-        "rev": "0a592572706db14e49202892318d3812061340a0",
+        "rev": "3bad7d0f33e6fd09205a19aab01e10af532198f9",
         "type": "github"
       },
       "original": {
