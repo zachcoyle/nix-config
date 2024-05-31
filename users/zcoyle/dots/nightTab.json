@@ -1,0 +1,835 @@
+{
+  "nightTab": true,
+  "version": "7.3.0",
+  "state": {
+    "layout": {
+      "area": {
+        "header": { "width": 100, "justify": "center" },
+        "bookmark": { "width": 100, "justify": "center" }
+      },
+      "alignment": "center-center",
+      "order": "header-bookmark",
+      "direction": "vertical",
+      "size": 100,
+      "width": 80,
+      "padding": 40,
+      "gutter": 20,
+      "breakpoint": "md",
+      "scrollbar": "auto",
+      "title": "",
+      "favicon": "",
+      "overscroll": false
+    },
+    "header": {
+      "item": { "justify": "left" },
+      "greeting": {
+        "show": false,
+        "type": "good",
+        "custom": "",
+        "name": "",
+        "size": 100,
+        "newLine": false
+      },
+      "transitional": {
+        "show": false,
+        "type": "time-and-date",
+        "size": 100,
+        "newLine": false
+      },
+      "clock": {
+        "hour": { "show": true, "display": "number" },
+        "minute": { "show": true, "display": "number" },
+        "second": { "show": false, "display": "number" },
+        "separator": { "show": true, "text": "" },
+        "meridiem": { "show": false },
+        "hour24": { "show": true },
+        "size": 100,
+        "newLine": false
+      },
+      "date": {
+        "day": {
+          "show": false,
+          "display": "word",
+          "weekStart": "monday",
+          "length": "long"
+        },
+        "date": { "show": true, "display": "number", "ordinal": true },
+        "month": {
+          "show": true,
+          "display": "word",
+          "length": "short",
+          "ordinal": true
+        },
+        "year": { "show": false, "display": "number" },
+        "separator": { "show": true, "text": "" },
+        "format": "date-month",
+        "size": 100,
+        "newLine": false
+      },
+      "search": {
+        "show": true,
+        "width": { "by": "auto", "size": 30 },
+        "engine": {
+          "selected": "google",
+          "custom": { "name": "", "url": "", "queryName": "" }
+        },
+        "text": { "justify": "center" },
+        "size": 100,
+        "newLine": false,
+        "newTab": false
+      },
+      "order": ["clock", "date", "search", "toolbar"],
+      "edit": false
+    },
+    "bookmark": {
+      "size": 55,
+      "url": { "show": true },
+      "line": { "show": true },
+      "shadow": { "show": true },
+      "hoverScale": { "show": true },
+      "orientation": "bottom",
+      "style": "block",
+      "newTab": false,
+      "edit": false,
+      "add": false,
+      "show": true,
+      "item": {}
+    },
+    "group": {
+      "area": { "justify": "left" },
+      "order": "header-body",
+      "name": { "size": 100 },
+      "toolbar": { "size": 100 },
+      "edit": false,
+      "add": false
+    },
+    "toolbar": {
+      "location": "header",
+      "position": "bottom-right",
+      "size": 100,
+      "accent": { "show": true },
+      "add": { "show": true },
+      "edit": { "show": true },
+      "newLine": false
+    },
+    "theme": {
+      "color": {
+        "range": { "primary": { "h": 305, "s": 20 } },
+        "contrast": { "start": 20, "end": 48 },
+        "shades": 14
+      },
+      "accent": {
+        "hsl": { "h": 30, "s": 80, "l": 63 },
+        "rgb": { "r": 236, "g": 161, "b": 85 },
+        "random": { "active": false, "style": "any" },
+        "cycle": { "active": false, "speed": 300, "step": 10 }
+      },
+      "font": {
+        "display": { "name": "Gowun Batang", "weight": 400, "style": "normal" },
+        "ui": { "name": "", "weight": 400, "style": "normal" }
+      },
+      "background": {
+        "type": "image",
+        "color": {
+          "hsl": { "h": 221, "s": 47, "l": 17 },
+          "rgb": { "r": 23, "g": 36, "b": 64 }
+        },
+        "gradient": {
+          "angle": 160,
+          "start": {
+            "hsl": { "h": 206, "s": 16, "l": 40 },
+            "rgb": { "r": 86, "g": 104, "b": 118 }
+          },
+          "end": {
+            "hsl": { "h": 219, "s": 28, "l": 12 },
+            "rgb": { "r": 22, "g": 28, "b": 39 }
+          }
+        },
+        "image": {
+          "url": "https://github.com/zombieFox/nightTabAssets/blob/main/images/1626366147967.jpeg?raw=true",
+          "blur": 0,
+          "grayscale": 52,
+          "scale": 100,
+          "accent": 0,
+          "opacity": 40,
+          "vignette": { "opacity": 25, "start": 90, "end": 20 }
+        },
+        "video": {
+          "url": "",
+          "blur": 0,
+          "grayscale": 0,
+          "scale": 100,
+          "accent": 0,
+          "opacity": 100,
+          "vignette": { "opacity": 0, "start": 90, "end": 70 }
+        }
+      },
+      "opacity": { "general": 100 },
+      "layout": {
+        "color": {
+          "by": "theme",
+          "blur": 0,
+          "opacity": 10,
+          "hsl": { "h": 0, "s": 0, "l": 0 },
+          "rgb": { "r": 0, "g": 0, "b": 0 }
+        },
+        "divider": { "size": 0 }
+      },
+      "header": {
+        "color": {
+          "by": "theme",
+          "opacity": 10,
+          "hsl": { "h": 0, "s": 0, "l": 0 },
+          "rgb": { "r": 0, "g": 0, "b": 0 }
+        },
+        "search": { "opacity": 50 }
+      },
+      "bookmark": {
+        "color": {
+          "by": "theme",
+          "opacity": 10,
+          "hsl": { "h": 0, "s": 0, "l": 0 },
+          "rgb": { "r": 0, "g": 0, "b": 0 }
+        },
+        "item": { "border": 0, "opacity": 50 }
+      },
+      "group": { "toolbar": { "opacity": 0 } },
+      "toolbar": { "opacity": 0 },
+      "style": "dark",
+      "radius": 40,
+      "shadow": 30,
+      "shade": { "opacity": 0, "blur": 10 },
+      "custom": { "all": [], "edit": false }
+    },
+    "search": false,
+    "modal": false,
+    "menu": true
+  },
+  "bookmark": [
+    {
+      "name": { "text": "", "show": true },
+      "collapse": true,
+      "toolbar": {
+        "size": 100,
+        "openAll": { "show": true },
+        "collapse": { "show": true }
+      },
+      "items": [
+        {
+          "url": "https://app.leonardo.ai/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Leonardo.ai" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712886937940
+        },
+        {
+          "url": "https://wiki.hyprland.org/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Hyprland Wiki" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712886979595
+        },
+        {
+          "url": "https://wiki.archlinux.org/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Arch Wiki" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887248160
+        }
+      ]
+    },
+    {
+      "name": { "text": "Nix", "show": true },
+      "collapse": false,
+      "toolbar": {
+        "size": 100,
+        "openAll": { "show": true },
+        "collapse": { "show": true }
+      },
+      "items": [
+        {
+          "url": "https://github.com/NixOS/nixpkgs",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "nixpkgs" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712886875713
+        },
+        {
+          "url": "https://nixpk.gs/pr-tracker.html",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Nixpkgs PR Progress tracker" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887027214
+        },
+        {
+          "url": "https://nixos.org/manual/nixpkgs/unstable/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Nixpkgs Manual" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887270219
+        },
+        {
+          "url": "https://noogle.dev/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Noogle" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887293945
+        },
+        {
+          "url": "https://nix-community.github.io/home-manager/options.xhtml",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "icon",
+              "size": 64,
+              "letter": { "text": "Home-Manager" },
+              "icon": {
+                "name": "laptop-house",
+                "prefix": "fas",
+                "label": "Laptop House"
+              },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887336157
+        },
+        {
+          "url": "https://wiki.nixos.org/wiki/Main_Page",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "NixOS Wiki" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887361831
+        },
+        {
+          "url": "https://nix-community.github.io/nixvim/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Nixvim" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887386070
+        }
+      ]
+    },
+    {
+      "name": { "text": "doom scrolling", "show": true },
+      "collapse": false,
+      "toolbar": {
+        "size": 100,
+        "openAll": { "show": true },
+        "collapse": { "show": true }
+      },
+      "items": [
+        {
+          "url": "https://news.ycombinator.com/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "HackerNews" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887121441
+        },
+        {
+          "url": "https://www.reddit.com/r/LocalLLaMA+Nix+NixOS+hyprland+neovim+unixporn+vim/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "reddit" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887408260
+        },
+        {
+          "url": "https://programming.dev/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Lemmy" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887429390
+        },
+        {
+          "url": "https://lobste.rs/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "Lobsters" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 50
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1712887454755
+        }
+      ]
+    }
+  ]
+}
