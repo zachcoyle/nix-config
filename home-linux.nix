@@ -5,9 +5,6 @@
   hyprland-plugins,
   ...
 }: let
-  # INFO: base16 styleguide:
-  # https://github.com/chriskempson/base16/blob/main/styling.md
-  colorsWithHashtag = config.lib.stylix.colors.withHashtag;
   tomlFormat = pkgs.formats.toml {};
 in {
   qt = {
@@ -278,6 +275,7 @@ in {
 
     rofi = let
       inherit (config.lib.formats.rasi) mkLiteral;
+      inherit (config.lib.stylix.colors) withHashtag;
     in {
       enable = true;
       package = pkgs.rofi-wayland;
@@ -290,14 +288,14 @@ in {
         window = {
           border-radius = mkLiteral "10px";
           border = mkLiteral "1px";
-          border-color = mkLiteral "${colorsWithHashtag.base0D}";
+          border-color = mkLiteral "${withHashtag.base0D}";
         };
         inputbar = {
           padding = mkLiteral "10px";
           spacing = mkLiteral "10px";
         };
         prompt = {
-          text-color = lib.mkForce (mkLiteral "${colorsWithHashtag.base06}4F");
+          text-color = lib.mkForce (mkLiteral "${withHashtag.base06}4F");
           padding-horizontal = mkLiteral "10px";
         };
         listview = {

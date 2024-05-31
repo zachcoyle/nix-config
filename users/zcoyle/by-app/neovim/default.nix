@@ -2,7 +2,7 @@
   pkgs,
   config,
 }: let
-  colorsWithHashtag = config.lib.stylix.colors.withHashtag;
+  inherit (config.lib.stylix.colors) withHashtag;
 in {
   enable = true;
 
@@ -133,13 +133,13 @@ in {
       -- create the highlight groups in the highlight setup hook, so they are reset
       -- every time the colorscheme changes
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-          vim.api.nvim_set_hl(0, "RainbowRed", { fg = "${colorsWithHashtag.base08}" })
-          vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "${colorsWithHashtag.base0A}" })
-          vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "${colorsWithHashtag.base0D}" })
-          vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "${colorsWithHashtag.base09}" })
-          vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "${colorsWithHashtag.base0B}" })
-          vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "${colorsWithHashtag.base0E}" })
-          vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "${colorsWithHashtag.base0C}" })
+          vim.api.nvim_set_hl(0, "RainbowRed", { fg = "${withHashtag.base08}" })
+          vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "${withHashtag.base0A}" })
+          vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "${withHashtag.base0D}" })
+          vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "${withHashtag.base09}" })
+          vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "${withHashtag.base0B}" })
+          vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "${withHashtag.base0E}" })
+          vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "${withHashtag.base0C}" })
       end)
 
       vim.g.rainbow_delimiters = { highlight = highlight }
@@ -158,12 +158,12 @@ in {
         -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
         vim.g.neovide_transparency = 0.0
         vim.g.transparency = 0.8
-        vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag.base00}" .. alpha()
+        vim.g.neovide_background_color = "${withHashtag.base00}" .. alpha()
       ''
       else ''
         if vim.fn.exists('g:neovide') ~= 0 then
             vim.g.neovide_transparency = 0.8
-            vim.g.neovide_background_color = "${config.lib.stylix.colors.withHashtag.base00}"
+            vim.g.neovide_background_color = "${withHashtag.base00}"
         else
           vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
           vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
