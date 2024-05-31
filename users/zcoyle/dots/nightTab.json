@@ -14,7 +14,7 @@
       "width": 80,
       "padding": 40,
       "gutter": 20,
-      "breakpoint": "sm",
+      "breakpoint": "md",
       "scrollbar": "auto",
       "title": "",
       "favicon": "",
@@ -532,10 +532,14 @@
             "name": { "show": true, "text": "", "size": 7 },
             "visual": {
               "show": true,
-              "type": "letter",
-              "size": 25,
+              "type": "icon",
+              "size": 64,
               "letter": { "text": "Home-Manager" },
-              "icon": { "name": "", "prefix": "", "label": "" },
+              "icon": {
+                "name": "laptop-house",
+                "prefix": "fas",
+                "label": "Laptop House"
+              },
               "image": { "url": "" },
               "shadow": { "size": 0 }
             }
