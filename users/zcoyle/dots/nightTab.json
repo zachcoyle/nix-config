@@ -14,7 +14,7 @@
       "width": 80,
       "padding": 40,
       "gutter": 20,
-      "breakpoint": "md",
+      "breakpoint": "sm",
       "scrollbar": "auto",
       "title": "",
       "favicon": "",
@@ -114,22 +114,22 @@
     },
     "theme": {
       "color": {
-        "range": { "primary": { "h": 305, "s": 20 } },
-        "contrast": { "start": 20, "end": 48 },
+        "range": { "primary": { "h": 0, "s": 13 } },
+        "contrast": { "start": 15, "end": 40 },
         "shades": 14
       },
       "accent": {
-        "hsl": { "h": 30, "s": 80, "l": 63 },
-        "rgb": { "r": 236, "g": 161, "b": 85 },
+        "hsl": { "h": 48, "s": 100, "l": 50 },
+        "rgb": { "r": 255, "g": 204, "b": 0 },
         "random": { "active": false, "style": "any" },
         "cycle": { "active": false, "speed": 300, "step": 10 }
       },
       "font": {
-        "display": { "name": "Gowun Batang", "weight": 400, "style": "normal" },
-        "ui": { "name": "", "weight": 400, "style": "normal" }
+        "display": { "name": "Tulpen One", "weight": 400, "style": "normal" },
+        "ui": { "name": "Barlow Condensed", "weight": 400, "style": "normal" }
       },
       "background": {
-        "type": "image",
+        "type": "theme",
         "color": {
           "hsl": { "h": 221, "s": 47, "l": 17 },
           "rgb": { "r": 23, "g": 36, "b": 64 }
@@ -146,13 +146,13 @@
           }
         },
         "image": {
-          "url": "https://github.com/zombieFox/nightTabAssets/blob/main/images/1626366147967.jpeg?raw=true",
+          "url": "",
           "blur": 0,
-          "grayscale": 52,
+          "grayscale": 0,
           "scale": 100,
           "accent": 0,
-          "opacity": 40,
-          "vignette": { "opacity": 25, "start": 90, "end": 20 }
+          "opacity": 100,
+          "vignette": { "opacity": 0, "start": 90, "end": 70 }
         },
         "video": {
           "url": "",
@@ -182,7 +182,7 @@
           "hsl": { "h": 0, "s": 0, "l": 0 },
           "rgb": { "r": 0, "g": 0, "b": 0 }
         },
-        "search": { "opacity": 50 }
+        "search": { "opacity": 100 }
       },
       "bookmark": {
         "color": {
@@ -191,14 +191,14 @@
           "hsl": { "h": 0, "s": 0, "l": 0 },
           "rgb": { "r": 0, "g": 0, "b": 0 }
         },
-        "item": { "border": 0, "opacity": 50 }
+        "item": { "border": 0, "opacity": 100 }
       },
-      "group": { "toolbar": { "opacity": 0 } },
-      "toolbar": { "opacity": 0 },
+      "group": { "toolbar": { "opacity": 100 } },
+      "toolbar": { "opacity": 100 },
       "style": "dark",
-      "radius": 40,
-      "shadow": 30,
-      "shade": { "opacity": 0, "blur": 10 },
+      "radius": 80,
+      "shadow": 100,
+      "shade": { "opacity": 80, "blur": 0 },
       "custom": { "all": [], "edit": false }
     },
     "search": false,
@@ -244,7 +244,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -286,7 +286,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -328,7 +328,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -381,7 +381,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -423,7 +423,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -465,7 +465,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -507,7 +507,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -532,14 +532,10 @@
             "name": { "show": true, "text": "", "size": 7 },
             "visual": {
               "show": true,
-              "type": "icon",
-              "size": 64,
+              "type": "letter",
+              "size": 25,
               "letter": { "text": "Home-Manager" },
-              "icon": {
-                "name": "laptop-house",
-                "prefix": "fas",
-                "label": "Laptop House"
-              },
+              "icon": { "name": "", "prefix": "", "label": "" },
               "image": { "url": "" },
               "shadow": { "size": 0 }
             }
@@ -553,7 +549,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -565,6 +561,48 @@
           "border": 0,
           "shape": { "wide": false, "tall": false },
           "timestamp": 1712887336157
+        },
+        {
+          "url": "https://home-manager-options.extranix.com/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": true, "text": "", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "letter",
+              "size": 25,
+              "letter": { "text": "HM Option Search" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": { "url": "" },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 100
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1713589216523
         },
         {
           "url": "https://wiki.nixos.org/wiki/Main_Page",
@@ -595,7 +633,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -637,7 +675,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -653,7 +691,7 @@
       ]
     },
     {
-      "name": { "text": "doom scrolling", "show": true },
+      "name": { "text": "Link Aggregators", "show": true },
       "collapse": false,
       "toolbar": {
         "size": 100,
@@ -673,11 +711,11 @@
             "name": { "show": true, "text": "", "size": 7 },
             "visual": {
               "show": true,
-              "type": "letter",
-              "size": 25,
+              "type": "image",
+              "size": 64,
               "letter": { "text": "HackerNews" },
               "icon": { "name": "", "prefix": "", "label": "" },
-              "image": { "url": "" },
+              "image": { "url": "https://news.ycombinator.com/y18.svg" },
               "shadow": { "size": 0 }
             }
           },
@@ -690,7 +728,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -715,11 +753,13 @@
             "name": { "show": true, "text": "", "size": 7 },
             "visual": {
               "show": true,
-              "type": "letter",
-              "size": 25,
+              "type": "image",
+              "size": 64,
               "letter": { "text": "reddit" },
               "icon": { "name": "", "prefix": "", "label": "" },
-              "image": { "url": "" },
+              "image": {
+                "url": "https://www.redditstatic.com/desktop2x/img/favicon/favicon-32x32.png"
+              },
               "shadow": { "size": 0 }
             }
           },
@@ -732,7 +772,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -757,11 +797,13 @@
             "name": { "show": true, "text": "", "size": 7 },
             "visual": {
               "show": true,
-              "type": "letter",
-              "size": 25,
+              "type": "image",
+              "size": 64,
               "letter": { "text": "Lemmy" },
               "icon": { "name": "", "prefix": "", "label": "" },
-              "image": { "url": "" },
+              "image": {
+                "url": "https://programming.dev/pictrs/image/1e947440-0f0d-4768-ba4b-1480551e7cc9.png"
+              },
               "shadow": { "size": 0 }
             }
           },
@@ -774,7 +816,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
@@ -799,11 +841,11 @@
             "name": { "show": true, "text": "", "size": 7 },
             "visual": {
               "show": true,
-              "type": "letter",
-              "size": 25,
+              "type": "image",
+              "size": 64,
               "letter": { "text": "Lobsters" },
               "icon": { "name": "", "prefix": "", "label": "" },
-              "image": { "url": "" },
+              "image": { "url": "https://lobste.rs/favicon.ico" },
               "shadow": { "size": 0 }
             }
           },
@@ -816,7 +858,7 @@
             "by": "theme",
             "hsl": { "h": 0, "s": 0, "l": 0 },
             "rgb": { "r": 0, "g": 0, "b": 0 },
-            "opacity": 50
+            "opacity": 100
           },
           "background": {
             "show": false,
