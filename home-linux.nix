@@ -6,6 +6,7 @@
   ...
 }: let
   tomlFormat = pkgs.formats.toml {};
+  random-emoji = pkgs.callPackage ./packages/random-emoji.nix {};
 in {
   qt = {
     enable = true;
@@ -123,6 +124,7 @@ in {
       pdfarranger
       playerctl
       pyprland
+      random-emoji
       retroarchFull
       showmethekey
       slurp
@@ -140,6 +142,7 @@ in {
       wl-clipboard
       wlsunset
       xdg-utils
+      yubikey-touch-detector
     ];
 
     file = {
@@ -273,66 +276,7 @@ in {
       ];
     };
 
-    rofi = let
-      inherit (config.lib.formats.rasi) mkLiteral;
-      inherit (config.lib.stylix) colors;
-      inherit (config.lib.stylix.colors) withHashtag;
-    in {
-      enable = true;
-      package = pkgs.rofi-wayland;
-      terminal = "${pkgs.alacritty}/bin/alacritty";
-      plugins = with pkgs; [
-        rofi-calc
-        rofi-emoji
-      ];
-      theme = {
-        "*" = {
-          # https://github.com/davatorium/rofi-themes/blob/master/Official%20Themes/solarized_alternate.rasi
-          separatorcolor = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-          background = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-          normal-background = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-          alternate-normal-background = lib.mkForce (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-        };
-        window = {
-          border-radius = mkLiteral "10px";
-          border = mkLiteral "1px";
-          border-color = mkLiteral "${withHashtag.base0D}";
-        };
-        inputbar = {
-          padding = mkLiteral "10px";
-          spacing = mkLiteral "10px";
-        };
-        prompt = {
-          text-color = lib.mkForce (mkLiteral "${withHashtag.base06}4F");
-          padding-horizontal = mkLiteral "10px";
-        };
-        listview = {
-          lines = 12;
-        };
-        element = {
-          spacing = mkLiteral "10px";
-          font = "Fira Sans 12";
-        };
-        element-icon = {
-          size = mkLiteral "28px";
-          padding = mkLiteral "10px";
-        };
-        element-text = {
-          vertical-align = mkLiteral "0.5";
-          padding = mkLiteral "10px";
-        };
-      };
-      extraConfig = {
-        "kb-row-up" = "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
-        "kb-row-down" = "Down,Control+j";
-        "kb-accept-entry" = "Control+m,Return,KP_Enter";
-        "kb-remove-to-eol" = "Control+Shift+e";
-        "kb-mode-next" = "Shift+Right,Control+Tab,Control+l";
-        "kb-mode-previous" = "Shift+Left,Control+Shift+Tab,Control+h";
-        "kb-remove-char-back" = "BackSpace";
-        "kb-mode-complete" = ""; # default conflicts with Control+l
-      };
-    };
+    rofi = import ./users/zcoyle/by-app/rofi.nix {inherit pkgs lib config;};
 
     wlogout = {
       enable = true;

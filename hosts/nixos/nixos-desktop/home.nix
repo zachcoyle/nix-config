@@ -9,7 +9,7 @@ in {
           Alt_L = "Super_L";
           Super_L = "Alt_L";
           Alt_R = "Super_R";
-          Menu = "Alt_R";
+          Context_Menu = "Alt_R";
         };
       }
     ];

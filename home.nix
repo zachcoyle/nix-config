@@ -17,6 +17,7 @@ in {
   stylix = {
     targets = {
       nixvim.enable = false;
+      rofi.enable = false;
     };
   };
 
@@ -27,6 +28,7 @@ in {
       act
       alejandra
       asciinema
+      armcord
       baobab
       cachix
       cool-retro-term
@@ -64,6 +66,7 @@ in {
       nix-melt
       nix-output-monitor
       nix-top
+      nix-tree
       opentofu
       oterm
       pijul

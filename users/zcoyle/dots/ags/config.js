@@ -221,6 +221,15 @@ const Workspaces = () => {
   });
 };
 
+const yubikeyNeedsAttention = Variable(false, {
+  listen: [["yubikey-touch-detector", "-stdout"], (out) => out === "U2F_1"],
+});
+
+const YubikeyNeedsAttention = Widget.Icon({
+  icon: "./cat.gif",
+  size: 30,
+});
+
 const notificationCount = Variable(0, {
   listen: [["swaync-client", "-swb", "-sw"], (out) => JSON.parse(out)],
 });
@@ -325,7 +334,9 @@ const Right = Widget.Box({
   children: [
     ...[Widget.Box({ hexpand: true }), Weather, CPUStats, RAMStats, DiskStats],
     ...(battery.available ? [BatteryLabel()] : []),
-    ...[Date, SysTray(), Notifications],
+    ...[Date, SysTray()],
+    ...(yubikeyNeedsAttention.value === true ? [YubikeyNeedsAttention] : []),
+    ...[Notifications],
   ],
 });
 
