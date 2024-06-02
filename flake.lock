@@ -348,11 +348,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715865404,
-        "narHash": "sha256-/GJvTdTpuDjNn84j82cU6bXztE0MSkdnTWClUCRub78=",
+        "lastModified": 1717285511,
+        "narHash": "sha256-iKzJcpdXih14qYVcZ9QC9XuZYnPc6T8YImb6dX166kw=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "8dc45382d5206bd292f9c2768b8058a8fd8311d9",
+        "rev": "2a55567fcf15b1b1c7ed712a2c6fadaec7412ea8",
         "type": "github"
       },
       "original": {
@@ -878,11 +878,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1717255181,
-        "narHash": "sha256-AVwPCb3R/3RBkTgjhTtLH6YTvmzVALFjaAiS00UfqOM=",
+        "lastModified": 1717280958,
+        "narHash": "sha256-1k0brOQVt5idsf7WHPbig/ASgSl6pzFb2lyPYfFeo1U=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "bb6190bec5f18c1f9e2c1d29ef1f7cf7912ea625",
+        "rev": "05435a915a8446a8c2d824551fbea2dc1d7b5e98",
         "type": "github"
       },
       "original": {
@@ -1225,11 +1225,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717278610,
-        "narHash": "sha256-u0pYyGw4a/wIOGIT15Gduty7+eVVD2VwIm4OMlLb5js=",
+        "lastModified": 1717287238,
+        "narHash": "sha256-xvvBw4FEBa6GTV0poqf2/yrAXa/SxoOoVdbYQpWuqqI=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "c8b7f5cb9e57c0c4ec7e2f31bf4e4aa3382ebdb6",
+        "rev": "f0301c3a4fcfeecfdb330717741f922c87c1df61",
         "type": "github"
       },
       "original": {
