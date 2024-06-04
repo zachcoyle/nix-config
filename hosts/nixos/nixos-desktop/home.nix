@@ -9,7 +9,7 @@ in {
           Alt_L = "Super_L";
           Super_L = "Alt_L";
           Alt_R = "Super_R";
-          "135" = "Alt_R"; # code 135 (actually the menu key)
+          Menu = "Alt_R";
         };
       }
     ];
