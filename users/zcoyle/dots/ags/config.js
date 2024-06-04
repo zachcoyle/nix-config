@@ -226,8 +226,14 @@ const yubikeyNeedsAttention = Variable(false, {
 });
 
 const YubikeyNeedsAttention = Widget.Icon({
-  icon: "./cat.gif",
-  size: 30,
+  icon: yubikeyNeedsAttention
+    .bind()
+    .as((x) =>
+      x
+        ? "/home/zcoyle/.config/ags/cat.gif"
+        : "/home/zcoyle/.config/ags/transparent_pixel.png",
+    ),
+  size: 24,
 });
 
 const notificationCount = Variable(0, {
@@ -332,11 +338,16 @@ const Right = Widget.Box({
   spacing: 10,
   homogeneous: false,
   children: [
-    ...[Widget.Box({ hexpand: true }), Weather, CPUStats, RAMStats, DiskStats],
+    ...[
+      Widget.Box({ hexpand: true }),
+      YubikeyNeedsAttention,
+      Weather,
+      CPUStats,
+      RAMStats,
+      DiskStats,
+    ],
     ...(battery.available ? [BatteryLabel()] : []),
-    ...[Date, SysTray()],
-    ...(yubikeyNeedsAttention.value === true ? [YubikeyNeedsAttention] : []),
-    ...[Notifications],
+    ...[Date, SysTray(), Notifications],
   ],
 });
 
