@@ -456,7 +456,7 @@
     ensureInstalled = "all";
     folding = true;
     nixvimInjections = true;
-    moduleConfig = {};
+    incrementalSelection.enable = true;
   };
   treesitter-refactor = {
     enable = true;
