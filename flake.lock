@@ -1209,11 +1209,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717535735,
-        "narHash": "sha256-DGOmUr41QublgNlN9VeFJAfN8Af38C8OWZ6/iynkH30=",
+        "lastModified": 1717620519,
+        "narHash": "sha256-M5a5nVjIPo8EIMxbZwvcTjIFWvTXB4rsXSRwYkm+yz8=",
         "owner": "hyprland-community",
         "repo": "pyprland",
-        "rev": "f2dddc79df74605eca3ecdbf6b68930038cda847",
+        "rev": "f9602937e22745c63ec317a5005b085366ade262",
         "type": "github"
       },
       "original": {
@@ -1239,11 +1239,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713550073,
-        "narHash": "sha256-+f058P0gFSpwE5q2rBsoVx4sakoM0yZFF6Xp/HfV3E4=",
+        "lastModified": 1717614103,
+        "narHash": "sha256-k50q78ycjrFVFTDstTdOLF8aJjsUpQ3lFRbFD1nL8xM=",
         "owner": "replit",
         "repo": "rippkgs",
-        "rev": "fe9864e16a6618703bd13b7ccc1183f138e922cf",
+        "rev": "13998c38647dd71b5b767ffd902f0cb128f188a9",
         "type": "github"
       },
       "original": {
@@ -1731,11 +1731,11 @@
         "zig-overlay": "zig-overlay"
       },
       "locked": {
-        "lastModified": 1717351634,
-        "narHash": "sha256-JDWL4gH1r2QnEbIqscmJ8DVk+nBBtXnFDNIGj1CwTVQ=",
+        "lastModified": 1717622300,
+        "narHash": "sha256-qpF/CSt7vRQDVzGEreZfjDqBMdqNdpdeqj7FC+hdlsg=",
         "owner": "zigtools",
         "repo": "zls",
-        "rev": "73e7db9cc92a10bfadacf060bb125b5f26a77db5",
+        "rev": "490e69b5803111a352e348b0371088d5960dcf06",
         "type": "github"
       },
       "original": {
