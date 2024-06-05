@@ -28,7 +28,6 @@ in {
       act
       alejandra
       asciinema
-      armcord
       baobab
       cachix
       cool-retro-term

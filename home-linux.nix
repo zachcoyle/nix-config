@@ -77,6 +77,7 @@ in {
       # darling
       # darling-dmg
       android-studio
+      armcord
       appimage-run
       blender
       bottles
