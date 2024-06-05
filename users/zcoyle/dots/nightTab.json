@@ -14,7 +14,7 @@
       "width": 80,
       "padding": 40,
       "gutter": 20,
-      "breakpoint": "md",
+      "breakpoint": "sm",
       "scrollbar": "auto",
       "title": "",
       "favicon": "",
@@ -532,15 +532,17 @@
             "name": { "show": true, "text": "", "size": 7 },
             "visual": {
               "show": true,
-              "type": "icon",
-              "size": 64,
+              "type": "image",
+              "size": 94,
               "letter": { "text": "Home-Manager" },
               "icon": {
                 "name": "laptop-house",
                 "prefix": "fas",
                 "label": "Laptop House"
               },
-              "image": { "url": "" },
+              "image": {
+                "url": "https://repository-images.githubusercontent.com/78938149/bd7773f5-21d0-4653-b380-d3476697dfc4"
+              },
               "shadow": { "size": 0 }
             }
           },
