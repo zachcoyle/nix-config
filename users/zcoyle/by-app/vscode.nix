@@ -66,6 +66,7 @@
       enableTelemetry = false;
     };
     vscode-neovim.neovimPath = "${pkgs.neovim}/bin/nvim";
+    window.menuBarVisibility = "compact";
     workbench = {
       editor.empty.hint = "hidden";
       startupEditor = "none";
