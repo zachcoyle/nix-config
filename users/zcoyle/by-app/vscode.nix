@@ -71,5 +71,6 @@
       editor.empty.hint = "hidden";
       startupEditor = "none";
     };
+    zenMode.fullScreen = false;
   };
 }
