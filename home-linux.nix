@@ -77,6 +77,7 @@ in {
       # darling
       # darling-dmg
       android-studio
+      apostrophe
       armcord
       appimage-run
       blender
