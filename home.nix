@@ -95,6 +95,7 @@ in {
       visidata
       wget
       wttrbar
+      xdg-user-dirs
       xsv
       yt-dlp
       yq
@@ -469,4 +470,6 @@ in {
       extraOptions = [];
     };
   };
+
+  xdg.userDirs.enable = true;
 }
