@@ -66,6 +66,7 @@ in {
       nix-melt
       nix-output-monitor
       nix-top
+      nix-tree
       opentofu
       oterm
       pijul
