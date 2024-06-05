@@ -141,6 +141,8 @@
       dedicatedServer.openFirewall = true;
     };
 
+    yubikey-touch-detector.enable = true;
+
     zsh.enable = true;
   };
 

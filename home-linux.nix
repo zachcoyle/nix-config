@@ -142,6 +142,7 @@ in {
       wl-clipboard
       wlsunset
       xdg-utils
+      yubikey-touch-detector
     ];
 
     file = {
