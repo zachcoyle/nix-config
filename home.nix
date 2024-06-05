@@ -17,6 +17,7 @@ in {
   stylix = {
     targets = {
       nixvim.enable = false;
+      rofi.enable = false;
     };
   };
 
