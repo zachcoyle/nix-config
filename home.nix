@@ -470,6 +470,4 @@ in {
       extraOptions = [];
     };
   };
-
-  xdg.userDirs.enable = true;
 }
