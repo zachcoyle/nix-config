@@ -41,57 +41,51 @@
   }
   {
     key = "<leader>ca";
-    action = "vim.lsp.buf.code_action";
+    action.__raw = "vim.lsp.buf.code_action";
     options = {
       silent = true;
       desc = "LSP Code Actions";
     };
-    lua = true;
   }
   {
     key = "<leader>rn";
-    action = "vim.lsp.buf.rename";
+    action.__raw = "vim.lsp.buf.rename";
     options = {
       silent = true;
       desc = "LSP Rename";
     };
-    lua = true;
   }
   {
     key = "zR";
-    action = "require('ufo').openAllFolds";
+    action.__raw = "require('ufo').openAllFolds";
     options = {
       silent = true;
       desc = "UFO Open All Folds";
     };
-    lua = true;
   }
   {
     key = "zM";
-    action = "require('ufo').closeAllFolds";
+    action.__raw = "require('ufo').closeAllFolds";
     options = {
       silent = true;
       desc = "UFO Close All Folds";
     };
-    lua = true;
   }
   {
     key = "zr";
-    action = "require('ufo').openFoldsExceptKinds";
+    action.__raw = "require('ufo').openFoldsExceptKinds";
     options = {
       silent = true;
       desc = "UFO Open Folds Except Kinds";
     };
-    lua = true;
   }
   {
     key = "zm";
-    action = "require('ufo').closeFoldsWith";
+    action.__raw = "require('ufo').closeFoldsWith";
     options = {
       silent = true;
       desc = "Close Folds With";
     };
-    lua = true;
   }
   {
     key = "<leader>dc";
@@ -103,12 +97,11 @@
   }
   {
     key = "<leader>dt";
-    action = "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
+    action.__raw = "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
     options = {
       silent = true;
       desc = "DAPUI Toggle";
     };
-    lua = true;
   }
   {
     key = "<leader>th";
@@ -120,35 +113,31 @@
   }
   {
     key = "<leader>tr";
-    action = "require('refactoring').select_refactor";
+    action.__raw = "require('refactoring').select_refactor";
     options = {
       silent = true;
       desc = "Telescope Refactor";
     };
-    lua = true;
   }
   {
     key = "<leader>tu";
-    action = "require('telescope').extensions.undo.undo";
+    action.__raw = "require('telescope').extensions.undo.undo";
     options = {
       silent = true;
       desc = "Telescope Undo";
     };
-    lua = true;
   }
   {
     key = "<leader>tf";
-    action = "require('telescope').extensions.file_browser.file_browser";
+    action.__raw = "require('telescope').extensions.file_browser.file_browser";
     options = {
       silent = true;
       desc = "Telecope File Browser";
     };
-    lua = true;
   }
   {
-    action = "require('just').just";
+    action.__raw = "require('just').just";
     key = "<leader>tj";
-    lua = true;
     options = {
       silent = true;
       desc = "Telescope Just";
@@ -156,8 +145,7 @@
   }
   {
     key = "<leader>tl";
-    action = "require('trouble.sources.telescope').open";
-    lua = true;
+    action.__raw = "require('trouble.sources.telescope').open";
     options = {
       silent = true;
       desc = "Telescope Trouble";
@@ -181,110 +169,99 @@
   }
   {
     key = "]t";
-    action = "require('todo-comments').jump_next";
+    action.__raw = "require('todo-comments').jump_next";
     options = {
       silent = true;
       desc = "Jump to Next TODO";
     };
     mode = "n";
-    lua = true;
   }
   {
     key = "[t";
-    action = "require('todo-comments').jump_prev";
+    action.__raw = "require('todo-comments').jump_prev";
     options = {
       silent = true;
       desc = "Jump to Previous TODO";
     };
     mode = "n";
-    lua = true;
   }
   {
     key = "K";
-    action = "function() vim.cmd[[ Lspsaga hover_doc ]] end";
+    action.__raw = "function() vim.cmd[[ Lspsaga hover_doc ]] end";
     options = {
       silent = false;
       desc = "LSP Hover";
     };
-    lua = true;
   }
   {
     key = "<leader>di";
-    action = "require('dap.ui.widgets').hover";
+    action.__raw = "require('dap.ui.widgets').hover";
     options = {
       silent = true;
       desc = "DAPUI Hover/Inspect";
     };
-    lua = true;
   }
   {
     key = ";";
-    action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
     options = {
       silent = true;
       desc = "Repeat Last Move Next";
     };
-    lua = true;
     mode = ["n" "x" "o"];
   }
   {
     key = ",";
-    action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
     options = {
       silent = true;
       desc = "Repeat Last Move Previous";
     };
-    lua = true;
     mode = ["n" "x" "o"];
   }
   {
     key = "f";
-    action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
     options = {
       silent = true;
       desc = "fancy f";
     };
-    lua = true;
     mode = ["n" "x" "o"];
   }
   {
     key = "F";
-    action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
     options = {
       silent = true;
       desc = "fancy F";
     };
-    lua = true;
     mode = ["n" "x" "o"];
   }
   {
     key = "t";
-    action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
     options = {
       silent = true;
       desc = "fancy t";
     };
-    lua = true;
     mode = ["n" "x" "o"];
   }
   {
     key = "T";
-    action = "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
     options = {
       silent = true;
       desc = "fancy T";
     };
-    lua = true;
     mode = ["n" "x" "o"];
   }
   {
     key = "<leader>go";
-    action = "require('neogit').open";
+    action.__raw = "require('neogit').open";
     options = {
       silent = true;
       desc = "Open Neogit";
     };
-    lua = true;
     mode = ["n"];
   }
   {
@@ -313,12 +290,11 @@
   }
   {
     key = "<c-g>";
-    action = "_gitui_toggle";
+    action.__raw = "_gitui_toggle";
     options = {
       silent = true;
       desc = "Open GitUI";
     };
-    lua = true;
     mode = ["n" "t"];
   }
 ]
