@@ -158,7 +158,8 @@
       flake = false;
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    # FIXME: Pinning until it has T2 Linux 6.9.3
+    nixos-hardware.url = "github:NixOS/nixos-hardware/82b2e20fbffe6a5f0555701af136ad3e734a5faa";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
