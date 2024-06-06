@@ -119,7 +119,7 @@ in {
       networkmanagerapplet
       nitch
       nvtopPackages.amd
-      nyxt
+      # nyxt
       ollama
       parted
       pasystray
