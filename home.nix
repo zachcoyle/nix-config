@@ -335,7 +335,8 @@ in {
       package = pkgs.gitSVN;
       userEmail = "zach.coyle@gmail.com";
       userName = "Zach Coyle";
-      difftastic.enable = true;
+      # FIXME: currently broken on darwin
+      difftastic.enable = pkgs.stdenv.isLinux;
       lfs.enable = true;
     };
 
