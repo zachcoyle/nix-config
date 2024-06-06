@@ -147,9 +147,9 @@
   };
 
   console = {
-    # font = "Lat2-Terminus16";
+    earlySetup = true;
     # keyMap = "us";
-    useXkbConfig = true; # use xkbOptions in tty.
+    useXkbConfig = true;
   };
 
   services = {
