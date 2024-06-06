@@ -224,7 +224,7 @@
       kotlin-language-server.enable = true;
       lua-ls.enable = true;
       marksman.enable = true;
-      nil_ls.enable = true;
+      nil-ls.enable = true;
       phpactor.enable = true;
       pyright.enable = true;
       ruff-lsp.enable = true;
