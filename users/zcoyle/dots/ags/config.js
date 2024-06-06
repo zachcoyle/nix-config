@@ -1,3 +1,5 @@
+import { Usage } from "./Usage.js";
+
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
 const systemtray = await Service.import("systemtray");
@@ -323,7 +325,14 @@ const Right = Widget.Box({
   spacing: 10,
   homogeneous: false,
   children: [
-    ...[Widget.Box({ hexpand: true }), Weather, CPUStats, RAMStats, DiskStats],
+    ...[
+      Widget.Box({ hexpand: true }),
+      Weather,
+      Usage,
+      CPUStats,
+      RAMStats,
+      DiskStats,
+    ],
     ...(battery.available ? [BatteryLabel()] : []),
     ...[Date, SysTray(), Notifications],
   ],

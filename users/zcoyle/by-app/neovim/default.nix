@@ -128,18 +128,22 @@ in {
           "RainbowViolet",
           "RainbowCyan",
           "RainbowRed",
+          "RainbowBrown",
+          "RainbowGrey",
       }
       local hooks = require "ibl.hooks"
       -- create the highlight groups in the highlight setup hook, so they are reset
       -- every time the colorscheme changes
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-          vim.api.nvim_set_hl(0, "RainbowRed", { fg = "${withHashtag.base08}" })
           vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "${withHashtag.base0A}" })
           vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "${withHashtag.base0D}" })
           vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "${withHashtag.base09}" })
           vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "${withHashtag.base0B}" })
           vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "${withHashtag.base0E}" })
           vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "${withHashtag.base0C}" })
+          vim.api.nvim_set_hl(0, "RainbowRed", { fg = "${withHashtag.base08}" })
+          vim.api.nvim_set_hl(0, "RainbowBrown", { fg = "${withHashtag.base0F}" })
+          vim.api.nvim_set_hl(0, "RainbowGrey", { fg = "${withHashtag.base03}" })
       end)
 
       vim.g.rainbow_delimiters = { highlight = highlight }
