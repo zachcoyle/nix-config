@@ -171,7 +171,7 @@ in {
     batsignal.enable = true;
 
     hypridle = {
-      enable = true;
+      enable = false;
       settings = {
         general = {
           lock_cmd = "hyprlock";
