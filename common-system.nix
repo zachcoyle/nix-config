@@ -16,13 +16,15 @@ in {
   nix = {
     package = pkgs.nix;
     gc =
-      if pkgs.stdenv.isDarwin
-      then {
+      {
         automatic = true;
         options = "--delete-older-than 7d";
-        interval.Weekday = 0;
       }
-      else null;
+      // (
+        if pkgs.stdenv.isLinux
+        then {dates = "weekly";}
+        else {interval.Weekday = 0;}
+      );
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = ["zcoyle"];
