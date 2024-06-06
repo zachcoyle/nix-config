@@ -13,6 +13,8 @@ in {
     neovim
   ];
 
+  home-manager.backupFileExtension = "backup";
+
   nix = {
     package = pkgs.nixVersions.latest;
     gc =
