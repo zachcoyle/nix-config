@@ -1,4 +1,5 @@
 import { Usage } from "./Usage.js";
+import { Yubikey } from "./Yubikey.js";
 
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
@@ -327,8 +328,9 @@ const Right = Widget.Box({
   children: [
     ...[
       Widget.Box({ hexpand: true }),
+      Yubikey,
       Weather,
-      Usage,
+      // Usage,
       CPUStats,
       RAMStats,
       DiskStats,
