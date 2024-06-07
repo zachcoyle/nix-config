@@ -2,17 +2,18 @@ let
   wallpaperDir = ../../../theme/wallpapers;
 in {
   home-manager.users.zcoyle = {
-    services.xremap.config.modmap = [
-      {
-        name = "Desktop";
-        remap = {
-          Alt_L = "Super_L";
-          Super_L = "Alt_L";
-          Alt_R = "Super_R";
-          Compose = "Alt_R"; # Menu key, see https://github.com/xremap/xremap/issues/455
-        };
-      }
-    ];
+    # don't need this turned on w/ apple keyboard
+    # services.xremap.config.modmap = [
+    #   {
+    #     name = "Desktop";
+    #     remap = {
+    #       Alt_L = "Super_L";
+    #       Super_L = "Alt_L";
+    #       Alt_R = "Super_R";
+    #       Compose = "Alt_R"; # Menu key, see https://github.com/xremap/xremap/issues/455
+    #     };
+    #   }
+    # ];
     wayland.windowManager.hyprland.settings = {
       exec-once = [
         "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 1695,855"
