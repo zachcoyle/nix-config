@@ -809,9 +809,7 @@
         "hercules-ci-effects": [
           "hercules-ci-effects"
         ],
-        "neovim-src": [
-          "neovim-src"
-        ],
+        "neovim-src": "neovim-src",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -1275,7 +1273,6 @@
         "hyprpicker": "hyprpicker",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-plugins-nightly-overlay": "neovim-plugins-nightly-overlay",
-        "neovim-src": "neovim-src",
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
