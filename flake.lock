@@ -845,11 +845,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1717788041,
-        "narHash": "sha256-z5J7yyFJK4WOfC6JCGDQWeDbllbB8c2xoKtxr55xkH4=",
+        "lastModified": 1717800730,
+        "narHash": "sha256-eF4MFJdAREa/fIX2pQmjxygNoufDK3nbGVnd6qqCTm4=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "0e841201c0a03e4584770da2561054b721a1fec6",
+        "rev": "15595feb421b392235630c672a8ccab2f37dcb47",
         "type": "github"
       },
       "original": {
