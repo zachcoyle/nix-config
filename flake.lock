@@ -759,11 +759,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717868638,
-        "narHash": "sha256-3ZPIfxq4pHc6/UK/gpx5Mh2pqYFE9DC30iAhRkef7eo=",
+        "lastModified": 1717869073,
+        "narHash": "sha256-4QgeVLuEakWYIPf27ic19yIoBtny8EuO+ZBR5FZhBsg=",
         "owner": "zachcoyle",
         "repo": "icon-themes-nightly-overlay",
-        "rev": "8f1c6fdba68e705a21148b53076d3a50284341b4",
+        "rev": "6910ee0a94d2ddbe9558a1789e79006340e3a36a",
         "type": "github"
       },
       "original": {
