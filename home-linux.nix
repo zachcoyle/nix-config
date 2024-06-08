@@ -32,8 +32,47 @@ in {
       '';
     };
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      # if i have to
+      # name = "Adwaita";
+      # package = pkgs.gnome.adwaita-icon-theme;
+
+      # no
+      # name = "Candy";
+      # package = pkgs.candy-icons;
+
+      # no
+      # name = "Colloid";
+      # package = pkgs.colloid-icon-theme;
+
+      # like it, but not for me
+      # name = "Fluent";
+      # package = pkgs.fluent-icon-theme;
+
+      name = "GruvboxPlus";
+      package = pkgs.gruvbox-plus-icons;
+
+      # I like it for the most part
+      # name = "Papirus";
+      # package = pkgs.papirus-icon-theme;
+
+      # no
+      # name = "Pop";
+      # package = pkgs.pop-icon-theme;
+
+      # could live with
+      # name = "Qogir";
+      # package = pkgs.qogir-icon-theme;
+
+      # name = "Tela";
+      # package = pkgs.tela-icon-theme;
+
+      # no
+      # name = "Vimix";
+      # package = pkgs.vimix-icon-theme;
+
+      # no
+      # name = "WhiteSur";
+      # package = pkgs.whitesur-icon-theme;
     };
   };
 
