@@ -32,8 +32,19 @@ in {
       '';
     };
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      # TODO: make a decision between these
+
+      # name = "Adwaita";
+      # package = pkgs.gnome.adwaita-icon-theme;
+
+      # name = "Papirus";
+      # package = pkgs.papirus-icon-theme;
+
+      # name = "Qogir";
+      # package = pkgs.qogir-icon-theme;
+
+      name = "Tela";
+      package = pkgs.tela-icon-theme;
     };
   };
 
