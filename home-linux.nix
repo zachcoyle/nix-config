@@ -37,14 +37,17 @@ in {
       # name = "Adwaita";
       # package = pkgs.gnome.adwaita-icon-theme;
 
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+
       # name = "Papirus";
       # package = pkgs.papirus-icon-theme;
 
       # name = "Qogir";
       # package = pkgs.qogir-icon-theme;
 
-      name = "Tela";
-      package = pkgs.tela-icon-theme;
+      # name = "Tela";
+      # package = pkgs.tela-icon-theme;
     };
   };
 
