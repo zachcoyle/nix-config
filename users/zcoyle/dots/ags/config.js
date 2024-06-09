@@ -1,3 +1,5 @@
+import { Workspaces as Workspaces2 } from "./Workspaces.js";
+
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
 const systemtray = await Service.import("systemtray");
