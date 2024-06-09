@@ -203,21 +203,8 @@ in {
 
   options =
     {
-      mouse = "a";
-      mousemoveevent = true;
-      number = true;
-      relativenumber = true;
-      wrap = false;
       clipboard = "unnamedplus";
-      undofile = true;
-      undodir = ["${config.xdg.configHome}nvim/.undo//"];
       exrc = true; # (.exrc, .nvimrc, .nvim.lua)
-      foldcolumn = "1";
-      foldlevel = 99;
-      foldlevelstart = 99;
-      foldenable = true;
-      signcolumn = "yes:2";
-      scrolloff = 4;
       fillchars = {
         eob = " ";
         fold = " ";
@@ -225,6 +212,20 @@ in {
         foldsep = " ";
         foldclose = "";
       };
+      foldcolumn = "1";
+      foldenable = true;
+      foldlevel = 99;
+      foldlevelstart = 99;
+      mouse = "a";
+      mousemoveevent = true;
+      number = true;
+      relativenumber = true;
+      scrolloff = 4;
+      shada = "!,'100,<50,s10";
+      signcolumn = "yes:2";
+      undodir = ["${config.xdg.configHome}nvim/.undo//"];
+      undofile = true;
+      wrap = false;
     }
     // (
       if pkgs.stdenv.isDarwin
