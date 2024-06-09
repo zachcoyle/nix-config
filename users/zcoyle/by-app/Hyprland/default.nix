@@ -201,7 +201,6 @@ in {
       "ALT_SHIFT, L, movewindoworgroup, r"
 
       "SUPER, slash, exec, hyprpicker | wl-copy"
-      "SUPER, backslash, exec, pypr expose"
 
       "SUPER_ALT, backspace, exit"
     ];
