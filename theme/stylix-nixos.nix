@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  enable = true;
   cursor = {
     name = "Bibata-Modern-Gruvbox";
     size = 24;
