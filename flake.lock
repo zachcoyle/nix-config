@@ -582,11 +582,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1717946608,
-        "narHash": "sha256-YtqFGpsbPXBp8hvuzYYTrxVrBuxb+MNcPVsOeebLvxY=",
+        "lastModified": 1717970802,
+        "narHash": "sha256-kFnaAmte/N1mrbHEQyrwDu9+laZzVAi4N2nQodCNfgg=",
         "ref": "refs/heads/main",
-        "rev": "4168b8c17b12b90873fab1ca73c2981b53f48bf5",
-        "revCount": 4786,
+        "rev": "1423707dbefc0329e80895451903a77ab684f7ea",
+        "revCount": 4789,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -926,11 +926,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1717892883,
-        "narHash": "sha256-kqOzfVJzS7zIVialhGyO1Vdqx/LG4AzskUa12SXhIF0=",
+        "lastModified": 1717979407,
+        "narHash": "sha256-u5qdkSD4UpMxJ7KnpkH60yABnehHO8SoyQZqfZRR4N8=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "584c2fae9b4b68307faaac858285e9541c5c8e32",
+        "rev": "f2382c8c1a261b6e715a43d4c54a2c9fbddc499b",
         "type": "github"
       },
       "original": {
@@ -962,11 +962,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716993688,
-        "narHash": "sha256-vo5k2wQekfeoq/2aleQkBN41dQiQHNTniZeVONWiWLs=",
+        "lastModified": 1717976995,
+        "narHash": "sha256-u3HBinyIyUvL1+N816bODpJmSQdgn0Mbb8BprFw7kqo=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "c0d5b8c54d6828516c97f6be9f2d00c63a363df4",
+        "rev": "315aa649ba307704db0b16c92f097a08a65ec955",
         "type": "github"
       },
       "original": {
@@ -1181,11 +1181,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1717948052,
-        "narHash": "sha256-2gCnJZoXuNOBRaYKHOemGhktvPxywIQGX4cfb5EB0Bo=",
+        "lastModified": 1717978908,
+        "narHash": "sha256-FzK10ZFnJC9j4UZbAuQwNmc44tGXz/E4J84b/BreDMg=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "83e160a6adc2c8bb270b68dd23409d6539e19cb2",
+        "rev": "f78ff440eec05d49992f979dd2cc8af1c461b482",
         "type": "github"
       },
       "original": {
@@ -1233,11 +1233,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717954407,
-        "narHash": "sha256-nw/W1a6a6ZeUMvpv1OpfdvedlDTbpKmYThBgoSb6S1k=",
+        "lastModified": 1717965289,
+        "narHash": "sha256-62VsS1MvwcsyYWnxxOD9rX5yqDUvMXH7qE3Kj8HECYE=",
         "owner": "nix-community",
         "repo": "poetry2nix",
-        "rev": "7f3af426cd7ceee928224b4fc8e4ab48cfd5b23e",
+        "rev": "304f8235fb0729fd48567af34fcd1b58d18f9b95",
         "type": "github"
       },
       "original": {
