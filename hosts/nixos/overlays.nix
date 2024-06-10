@@ -6,7 +6,6 @@
     inputs.hyprpicker.overlays.default
     inputs.hyprland.overlays.default
     inputs.neovim-nightly-overlay.overlays.default
-    inputs.icon-themes-nightly-overlay.overlays.default
     inputs.xremap-flake.overlays.default
     (_: prev: {
       pyprland = inputs.pyprland.packages.${prev.system}.default;

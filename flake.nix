@@ -42,16 +42,6 @@
       };
     };
 
-    icon-themes-nightly-overlay = {
-      url = "github:zachcoyle/icon-themes-nightly-overlay";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        devshell.follows = "devshell";
-        systems.follows = "systems-linux";
-      };
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {

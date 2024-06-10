@@ -795,35 +795,6 @@
         "type": "github"
       }
     },
-    "icon-themes-nightly-overlay": {
-      "inputs": {
-        "devshell": [
-          "devshell"
-        ],
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": [
-          "systems-linux"
-        ]
-      },
-      "locked": {
-        "lastModified": 1718037784,
-        "narHash": "sha256-13sJlDrq5DQP9fJdkefNjn17YD5UT+MpTyXNokcdV/U=",
-        "owner": "zachcoyle",
-        "repo": "icon-themes-nightly-overlay",
-        "rev": "7fa0200867e5962365a8f15ef3dfe189bedb8226",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zachcoyle",
-        "repo": "icon-themes-nightly-overlay",
-        "type": "github"
-      }
-    },
     "langref": {
       "flake": false,
       "locked": {
@@ -1351,7 +1322,6 @@
         "hyprlang": "hyprlang",
         "hyprlock": "hyprlock",
         "hyprpicker": "hyprpicker",
-        "icon-themes-nightly-overlay": "icon-themes-nightly-overlay",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-plugins-nightly-overlay": "neovim-plugins-nightly-overlay",
         "nix-darwin": "nix-darwin",
