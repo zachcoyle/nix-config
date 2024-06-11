@@ -36,3 +36,6 @@ cachix-inputs:
     nix flake archive --json \
       | jq -r '.path,(.inputs|to_entries[].value.path)' \
       | cachix push zachcoyle
+
+seeya:
+    nix run nixpkgs#activate-linux -- -t "SEE YOU SPACE COWBOY..." -b -i -m "" -f "Cheltenham Condensed" -c 1-1-1-1
