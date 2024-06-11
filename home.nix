@@ -345,6 +345,8 @@ in {
       keyConfig = builtins.readFile ./users/zcoyle/dots/gitui_key_config.ron;
     };
 
+    kitty.enable = true;
+
     lazygit.enable = true;
 
     lf = {
