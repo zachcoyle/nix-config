@@ -89,8 +89,6 @@ in {
   };
   home = {
     packages = with pkgs; [
-      # darling
-      # darling-dmg
       android-studio
       apostrophe
       armcord
@@ -134,7 +132,6 @@ in {
       networkmanagerapplet
       nitch
       nvtopPackages.amd
-      # nyxt
       ollama
       parted
       pasystray
@@ -245,8 +242,6 @@ in {
       extraPackages = [];
     };
 
-    # chromium.enable = true;
-
     hyprlock = {
       enable = true;
 
@@ -277,9 +272,6 @@ in {
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
-        # advanced-scene-switcher
-        # obs-backgroundremoval
-        # obs-xdg-portal
         input-overlay
         obs-3d-effect
         obs-command-source
