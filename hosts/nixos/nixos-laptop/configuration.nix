@@ -193,6 +193,9 @@ in {
   services = {
     thermald.enable = true;
 
+    # this service is the touchbar, nixos-hardware enables it
+    tiny-dfr.serviceConfig.Restart = "always";
+
     tlp = {
       enable = true;
       settings = {
