@@ -34,6 +34,7 @@ in {
       comma
       coreutils-full
       curlFull
+      dart-sass
       dasel
       discord
       dos2unix

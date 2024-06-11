@@ -2,6 +2,17 @@ const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
 const systemtray = await Service.import("systemtray");
 
+const css = `/tmp/ags-style.css`;
+
+const reloadCss = () => {
+  const scss = `${App.configDir}/style.scss`;
+  Utils.exec(`sass --no-source-map ${scss} ${css}`);
+  App.resetCss();
+  App.applyCss(css);
+};
+
+reloadCss();
+
 const date = Variable("", {
   poll: [1000, 'date "+%I:%M %a %b %e"'],
 });
