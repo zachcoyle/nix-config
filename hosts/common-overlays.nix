@@ -10,6 +10,7 @@
       inherit (inputs.zls.packages.${prev.system}) zls;
       ezra-sil = prev.callPackage ../packages/fonts/ezra-sil.nix {};
       galatia-sil = prev.callPackage ../packages/fonts/galatia-sil.nix {};
+      cheltenham-condensed-bold = prev.callPackage ../packages/fonts/cheltenham-condensed-bold/package.nix {};
     })
   ];
 }

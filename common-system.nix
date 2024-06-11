@@ -6,6 +6,7 @@
     ezra-sil
     galatia-sil
     nerdfonts
+    cheltenham-condensed-bold
   ];
 in {
   environment.systemPackages = with pkgs; [
