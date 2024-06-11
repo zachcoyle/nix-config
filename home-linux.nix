@@ -115,6 +115,7 @@ in {
       gnome.gnome-keyring
       gnome.gnome-system-monitor
       gnome.nautilus
+      gnome.zenity
       godot3
       grim
       handbrake
