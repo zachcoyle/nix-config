@@ -897,11 +897,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1718063796,
-        "narHash": "sha256-3E1tQIdF+hogvTGq2xLWME81O8C+XlFajVQ1yRueBZw=",
+        "lastModified": 1718065470,
+        "narHash": "sha256-YFl2KsYfdUCK5e02G/ZjrHnS3uKYQf9SuvX89bmZRdY=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "8656e3935148aa0ca383147a9aa06b6c476bcbaf",
+        "rev": "c3a3c1affbe71ffc75cf0d9113b6f9c9af06104b",
         "type": "github"
       },
       "original": {
