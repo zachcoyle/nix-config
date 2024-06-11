@@ -191,7 +191,9 @@ in {
   });
 
   # this service is the touchbar, nixos-hardware enables it
+  type = "simple";
   systemd.services.tiny-dfr.serviceConfig.Restart = "always";
+  systemd.services.tiny-dfr.serviceConfig.RestartSec = 3;
 
   services = {
     thermald.enable = true;
