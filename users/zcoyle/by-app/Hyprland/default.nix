@@ -215,8 +215,8 @@ in {
 
     bindm = [
       "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
+      "$mod, mouse:273, resizewindowpixel"
+      "$mod ALT, mouse:272, resizewindowpixel"
     ];
 
     bindl = [
