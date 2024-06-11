@@ -203,6 +203,7 @@ in {
       "SUPER, slash, exec, hyprpicker | wl-copy"
 
       "SUPER_ALT, backspace, exit"
+      "SUPER, backslash, exec, sudo systemctl restart tiny-dfr"
     ];
 
     binde = [

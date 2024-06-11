@@ -190,11 +190,6 @@ in {
     ];
   });
 
-  systemd.services.tiny-dfr = {
-    startLimitIntervalSec = 10000;
-    startLimitBurst = 10000;
-  };
-
   services = {
     thermald.enable = true;
 
