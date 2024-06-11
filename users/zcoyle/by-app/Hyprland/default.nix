@@ -220,7 +220,7 @@ in {
     ];
 
     bindl = [
-      ", switch:Lid Switch, exec, hyprlock"
+      ", switch:on:Lid Switch, exec, hyprlock"
       ", XF86AudioPrev, exec, playerctl previous"
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"
