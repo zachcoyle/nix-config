@@ -1,4 +1,6 @@
 import { Bar } from "./bar.js";
+import { PowerMenu } from "./powermenu.js";
+import { Notifications } from "./notifications.js";
 
 const css = `/tmp/ags-style.css`;
 
@@ -12,5 +14,5 @@ const reloadCss = () => {
 reloadCss();
 
 App.config({
-  windows: [Bar],
+  windows: [Bar, PowerMenu, Notifications],
 });

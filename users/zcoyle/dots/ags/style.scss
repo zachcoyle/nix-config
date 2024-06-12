@@ -1,9 +1,33 @@
+@mixin removeBg {
+  background-color: transparent;
+}
+
+@mixin iconButton {
+  @include removeBg;
+  font-size: 24px;
+}
+
 window {
   background-color: transparent;
 }
 
 .workspaceButton {
   background-color: transparent;
-  /* margin: 0; */
-  /* padding: 0; */
+
+  label {
+    font-family: "ShureTechMono Nerd Font";
+    font-size: 28px;
+  }
+
+  margin: 0px;
+  padding: 0px;
+  margin-right: 8px;
+}
+
+.nixosButton {
+  @include iconButton;
+}
+
+.hyprlandButton {
+  @include iconButton;
 }
