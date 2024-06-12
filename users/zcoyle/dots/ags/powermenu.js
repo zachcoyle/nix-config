@@ -1,13 +1,43 @@
 const entries = [
-  { icon: "󰌾", label: "Lock", action: ["hyprlock"] },
-  { icon: "󰍃", label: "Log out", action: ["hyprctl", "dispatch", "exit"] },
-  { icon: "", label: "Hibernate", action: ["systemctl", "hibernate"] },
-  { icon: "", label: "Suspend", action: ["systemctl", "suspend"] },
-  { icon: "", label: "Reboot", action: ["systemctl", "reboot"] },
-  { icon: "󰐥", label: "Power off", action: ["systemctl", "poweroff"] },
+  {
+    icon: "󰌾",
+    extraClassName: "yellow",
+    label: "Lock",
+    action: ["hyprlock"],
+  },
+  {
+    icon: "󰍃",
+    extraClassName: "cyan",
+    label: "Log out",
+    action: ["hyprctl", "dispatch", "exit"],
+  },
+  {
+    icon: "󱘲",
+    extraClassName: "blue",
+    label: "Hibernate",
+    action: ["systemctl", "hibernate"],
+  },
+  {
+    icon: "󰤄",
+    extraClassName: "purple",
+    label: "Suspend",
+    action: ["systemctl", "suspend"],
+  },
+  {
+    icon: "",
+    extraClassName: "green",
+    label: "Reboot",
+    action: ["systemctl", "reboot"],
+  },
+  {
+    icon: "󰐥",
+    extraClassName: "red",
+    label: "Power off",
+    action: ["systemctl", "poweroff"],
+  },
 ];
 
-const PowerMenuItem = ({ icon, label, action }) =>
+const PowerMenuItem = ({ icon, extraClassName, label, action }) =>
   Widget.Box({
     spacing: 0,
     homogeneous: false,
@@ -17,8 +47,30 @@ const PowerMenuItem = ({ icon, label, action }) =>
         className: "powerMenuItem",
         child: Widget.Overlay({
           passThrough: true,
-          child: Widget.Label({ label }),
-          overlays: [Widget.Label({ label: icon }), Widget.Label({ label })],
+          // child: Widget.Label({ label }),
+          child: Widget.Box({
+            children: [
+              Widget.Label({ className: "powerMenuItemLabel", label }),
+              Widget.Box({ hexpand: true }),
+            ],
+          }),
+          overlays: [
+            Widget.Box({
+              children: [
+                Widget.Label({
+                  classNames: ["powerMenuItemIcon", extraClassName],
+                  label: icon,
+                }),
+                Widget.Box({ hexpand: true }),
+              ],
+            }),
+            Widget.Box({
+              children: [
+                Widget.Label({ className: "powerMenuItemLabel", label }),
+                Widget.Box({ hexpand: true }),
+              ],
+            }),
+          ],
         }),
         onClicked: () => {
           togglePowerMenu();
@@ -33,8 +85,8 @@ const PowerMenu = Widget.Box({
   spacing: 10,
   homogeneous: true,
   vertical: true,
-  children: entries.map(({ icon, label, action }) =>
-    PowerMenuItem({ icon, label, action }),
+  children: entries.map(({ icon, extraClassName, label, action }) =>
+    PowerMenuItem({ icon, extraClassName, label, action }),
   ),
 });
 

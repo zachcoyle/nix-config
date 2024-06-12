@@ -14,7 +14,16 @@ $hyprland-brand-color: #03A6D5;
 /* $nixos-brand-color: #83a598; */
 $nixos-brand-color: #4F72BB;
 $shadow-color: #282828;
+$text-color: #ebdbb2;
 $glow-color: #ebdbb2;
+
+$cyan: #689d6a;
+$green: #98971a;
+$red: #cc241d;
+$yellow: #d79921;
+$blue: #458588;
+$purple: #b16286;
+
 
 @mixin gtkIconShadow($outline: $shadow-color, $glow: $shadow-color) {
   @if $glow ==$shadow-color {
@@ -133,4 +142,43 @@ window {
   border-color: black;
   padding-top: 10px;
   padding-left: 10px;
+}
+
+.powerMenuItem {
+  background-color: transparent;
+}
+
+.powerMenuItemIcon {
+  font-size: 50px;
+  text-shadow: 1px 1px 1px black, 0 0 1em black, 0 0 0.2em black;
+  color: color.adjust($color: $text-color, $alpha: -0.55);
+}
+
+.powerMenuItemLabel {
+  font-size: 32px;
+  padding: 20px;
+}
+
+.red {
+  color: $red;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.green {
+  color: $green;
+}
+
+.cyan {
+  color: $cyan;
+}
+
+.purple {
+  color: $purple;
+}
+
+.blue {
+  color: $blue;
 }
