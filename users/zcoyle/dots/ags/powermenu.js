@@ -1,10 +1,10 @@
 const entries = [
-  { icon: "", label: "Reboot", action: ["systemctl", "reboot"] },
+  { icon: "󰌾", label: "Lock", action: ["hyprlock"] },
+  { icon: "󰍃", label: "Log out", action: ["hyprctl", "dispatch", "exit"] },
   { icon: "", label: "Hibernate", action: ["systemctl", "hibernate"] },
   { icon: "", label: "Suspend", action: ["systemctl", "suspend"] },
-  { icon: "", label: "Power off", action: ["systemctl", "poweroff"] },
-  { icon: "", label: "Log out", action: ["hyprctl", "dispatch", "exit"] },
-  { icon: "", label: "Lock", action: ["hyprlock"] },
+  { icon: "", label: "Reboot", action: ["systemctl", "reboot"] },
+  { icon: "󰐥", label: "Power off", action: ["systemctl", "poweroff"] },
 ];
 
 const PowerMenuItem = ({ icon, label, action }) =>
@@ -15,7 +15,11 @@ const PowerMenuItem = ({ icon, label, action }) =>
     children: [
       Widget.Button({
         className: "powerMenuItem",
-        child: Widget.Label({ label }),
+        child: Widget.Overlay({
+          passThrough: true,
+          child: Widget.Label({ label }),
+          overlays: [Widget.Label({ label: icon }), Widget.Label({ label })],
+        }),
         onClicked: () => {
           togglePowerMenu();
           Utils.execAsync(action);
