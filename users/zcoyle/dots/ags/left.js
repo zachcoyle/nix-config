@@ -2,6 +2,7 @@ import { Workspaces } from "./workspaces.js";
 import { togglePowerMenu } from "./powermenu.js";
 
 export const Left = Widget.Box({
+  spacing: 10,
   children: [
     Widget.Button({
       className: "nixosButton",
@@ -10,9 +11,6 @@ export const Left = Widget.Box({
         className: "nixosIcon",
         icon: App.configDir + "/nix-snowflake-colours.svg",
       }),
-      // child: Widget.Label({
-      //   label: "",
-      // }),
     }),
     Widget.Button({
       className: "hyprlandButton",

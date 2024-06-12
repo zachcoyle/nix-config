@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @mixin removeBg {
   background-color: transparent;
 }
@@ -7,8 +9,10 @@
   font-size: 24px;
 }
 
-$hyprland-brand-color: #458588;
-$nixos-brand-color: #83a598;
+/* $hyprland-brand-color: #458588; */
+$hyprland-brand-color: #03A6D5;
+/* $nixos-brand-color: #83a598; */
+$nixos-brand-color: #4F72BB;
 $shadow-color: #282828;
 $glow-color: #ebdbb2;
 
@@ -64,13 +68,22 @@ window {
   background-color: transparent;
 }
 
+.workspaceButton:not(:hover) {
+  @include shadow;
+}
+
+.workspaceButton:hover {
+  @include shadow($glow: #928374);
+}
+
 .workspaceButton {
   background-color: transparent;
+
 
   label {
     font-family: "ShureTechMono Nerd Font";
     font-size: 28px;
-    @include shadow;
+
   }
 
   margin: 0px;
@@ -78,18 +91,46 @@ window {
   margin-right: 8px;
 }
 
-.nixosIcon {
+/* .nixosIcon { */
+/*   @include gtkIconShadow; */
+/* } */
+
+.nixosButton:hover {
+  /* @include shadow($glow: $nixos-brand-color); */
+  @include gtkIconShadow($glow: $nixos-brand-color);
+}
+
+.nixosButton:not(:hover) {
+  @include shadow;
   @include gtkIconShadow;
 }
 
 .nixosButton {
   @include fontIcon;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 8px;
+}
+
+
+.hyprlandButton:hover {
+  @include shadow($glow: $hyprland-brand-color);
+}
+
+.hyprlandButton:not(:hover) {
   @include shadow;
-  color: $nixos-brand-color;
 }
 
 .hyprlandButton {
   @include fontIcon;
-  @include shadow;
   color: $hyprland-brand-color;
+  margin: 0px;
+  padding: 0px;
+}
+
+.powerMenu {
+  border-width: 1px;
+  border-color: black;
+  padding-top: 10px;
+  padding-left: 10px;
 }
