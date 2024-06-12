@@ -1,266 +1,184 @@
 @use "sass:color";
 
-$gruvbox-bg: #282828;
-$gruvbox-bg3: #665c54;
-$gruvbox-aqua: #689d6a;
-$gruvbox-blue: #458588;
-$gruvbox-yellow: #d79921;
-$gruvbox-green: #98971a;
-$gruvbox-red: #cc241d;
-$gruvbox-purple: #b16286;
-$button-default-background: transparent;
-$bar-font: "Fira Sans";
-
-@mixin gtkIconShadow($outline: $gruvbox-bg, $glow: $gruvbox-bg) {
-  @if $glow ==$gruvbox-bg {
-    -gtk-icon-shadow: -1px 0 1px $outline,
-      0 1px 1px $outline,
-      1px 0 1px $outline,
-      0 -1px 1px $outline,
-      -2px 0 2px $glow,
-      0 2px 2px $glow,
-      2px 0 2px $glow,
-      0 -2px 2px $glow;
-  }
-
-  @else {
-    -gtk-icon-shadow: -1px 0 1px $outline,
-      0 1px 1px $outline,
-      1px 0 1px $outline,
-      0 -1px 1px $outline,
-      -2px 0 2px color.adjust($glow, $lightness: -30%),
-      0 2px 2px color.adjust($glow, $lightness: -10%),
-      2px 0 2px color.adjust($glow, $lightness: -10%),
-      0 -2px 2px color.adjust($glow, $lightness: -10%);
-  }
-}
-
-@mixin shadow($outline: $gruvbox-bg, $glow: $gruvbox-bg) {
-  @if $glow ==$gruvbox-bg {
-    text-shadow: -1px 0 1px $outline,
-      0 1px 1px $outline,
-      1px 0 1px $outline,
-      0 -1px 1px $outline,
-      -2px 0 2px $glow,
-      0 2px 2px $glow,
-      2px 0 2px $glow,
-      0 -2px 2px $glow;
-  }
-
-  @else {
-    text-shadow: -1px 0 1px $outline,
-      0 1px 1px $outline,
-      1px 0 1px $outline,
-      0 -1px 1px $outline,
-      -2px 0 2px color.adjust($glow, $lightness: -30%),
-      0 2px 2px color.adjust($glow, $lightness: -10%),
-      2px 0 2px color.adjust($glow, $lightness: -10%),
-      0 -2px 2px color.adjust($glow, $lightness: -10%);
-  }
-}
-
-@mixin nfIcon() {
-  font-size: 20px;
-}
-
-@mixin poster() {
-  font-weight: 900;
-}
-
-@mixin active() {
-  background-color: color.adjust($gruvbox-bg, $alpha: -0.6);
-}
-
-@mixin underline() {
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-}
-
-@mixin collapsedButton() {
+@mixin removeBg {
   background-color: transparent;
-  padding: 0;
-  margin: 0;
+}
+
+@mixin fontIcon {
+  @include removeBg;
+  font-size: 24px;
+}
+
+/* $hyprland-brand-color: #458588; */
+$hyprland-brand-color: #03A6D5;
+/* $nixos-brand-color: #83a598; */
+$nixos-brand-color: #4F72BB;
+$shadow-color: #282828;
+$text-color: #ebdbb2;
+$glow-color: #ebdbb2;
+
+$cyan: #689d6a;
+$green: #98971a;
+$red: #cc241d;
+$yellow: #d79921;
+$blue: #458588;
+$purple: #b16286;
+
+
+@mixin gtkIconShadow($outline: $shadow-color, $glow: $shadow-color) {
+  @if $glow ==$shadow-color {
+    -gtk-icon-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px $glow,
+      0 2px 2px $glow,
+      2px 0 2px $glow,
+      0 -2px 2px $glow;
+  }
+
+  @else {
+    -gtk-icon-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px color.adjust($glow, $lightness: -30%),
+      0 2px 2px color.adjust($glow, $lightness: -10%),
+      2px 0 2px color.adjust($glow, $lightness: -10%),
+      0 -2px 2px color.adjust($glow, $lightness: -10%);
+  }
+}
+
+@mixin shadow($outline: $shadow-color, $glow: $shadow-color) {
+  @if $glow ==$shadow-color {
+    text-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px $glow,
+      0 2px 2px $glow,
+      2px 0 2px $glow,
+      0 -2px 2px $glow;
+  }
+
+  @else {
+    text-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px color.adjust($glow, $lightness: -30%),
+      0 2px 2px color.adjust($glow, $lightness: -10%),
+      2px 0 2px color.adjust($glow, $lightness: -10%),
+      0 -2px 2px color.adjust($glow, $lightness: -10%);
+  }
 }
 
 window {
   background-color: transparent;
-  font-family: $bar-font;
-  font-size: 14px;
-  padding-top: 8px;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
-.activeClientTitle {
-  @include poster;
+.workspaceButton:not(:hover) {
   @include shadow;
 }
 
-.hyprlandButton {
-  @include collapsedButton;
+.workspaceButton:hover {
+  @include shadow($glow: #928374);
 }
 
-.hyprlandLogo {
-  color: $gruvbox-blue;
-  @include nfIcon;
-  padding-left: 10px;
-  padding-right: 4px;
+.workspaceButton {
+  background-color: transparent;
+
+
+  label {
+    font-family: "ShureTechMono Nerd Font";
+    font-size: 28px;
+
+  }
+
+  margin: 0px;
+  padding: 0px;
+  margin-right: 8px;
+}
+
+/* .nixosIcon { */
+/*   @include gtkIconShadow; */
+/* } */
+
+.nixosButton:hover {
+  /* @include shadow($glow: $nixos-brand-color); */
+  @include gtkIconShadow($glow: $nixos-brand-color);
+}
+
+.nixosButton:not(:hover) {
+  @include shadow;
+  @include gtkIconShadow;
+}
+
+.nixosButton {
+  @include fontIcon;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 8px;
+}
+
+
+.hyprlandButton:hover {
+  @include shadow($glow: $hyprland-brand-color);
 }
 
 .hyprlandButton:not(:hover) {
   @include shadow;
 }
 
-.hyprlandButton:hover {
-  @include shadow($glow: $gruvbox-aqua);
+.hyprlandButton {
+  @include fontIcon;
+  color: $hyprland-brand-color;
+  margin: 0px;
+  padding: 0px;
 }
 
-.workspaceButton {
+.powerMenu {
+  border-width: 1px;
+  border-color: black;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.powerMenuItem {
   background-color: transparent;
 }
 
-.workspaceButton:hover {
-  font-style: italic;
-  @include shadow($glow: $gruvbox-bg3);
+.powerMenuItemIcon {
+  font-size: 50px;
+  text-shadow: 1px 1px 1px black, 0 0 1em black, 0 0 0.2em black;
+  color: color.adjust($color: $text-color, $alpha: -0.55);
 }
 
-.workspaceLabel {
-  @include shadow;
-  @include poster;
+.powerMenuItemLabel {
+  font-size: 32px;
+  padding: 20px;
 }
 
-.workspaceLabel:hover {
-  font-style: italic;
-  @include shadow($glow: $gruvbox-bg3);
+.red {
+  color: $red;
 }
 
-.workspaceLabelFocused {
-  font-style: italic;
-  @include poster;
-  @include shadow($glow: $gruvbox-bg3);
+.yellow {
+  color: $yellow;
 }
 
-
-.notificationLabel {
-  @include nfIcon;
-  color: $gruvbox-yellow;
-  padding-right: 10px;
+.green {
+  color: $green;
 }
 
-.notificationButton {
-  @include collapsedButton;
-  margin-right: 8px;
+.cyan {
+  color: $cyan;
 }
 
-.notificationButton:hover {
-  @include shadow($glow: $gruvbox-yellow);
+.purple {
+  color: $purple;
 }
 
-.notificationButton:not(:hover) {
-  @include shadow;
-}
-
-.date {
-  @include shadow;
-  @include poster;
-}
-
-.batteryIconLabel {
-  @include shadow;
-  @include poster;
-}
-
-.batteryPercentabeLabel {
-  @include shadow;
-  @include poster;
-}
-
-.batteryHigh {
-  color: $gruvbox-green;
-}
-
-.batteryMedium {
-  color: $gruvbox-yellow;
-}
-
-.batteryLow {
-  color: $gruvbox-red;
-}
-
-.batteryChargingLabel {
-  color: $gruvbox-yellow;
-  @include shadow;
-  @include poster;
-}
-
-.batteryPercentageLabel {
-  @include shadow;
-  @include poster;
-}
-
-.cpuIcon {
-  @include shadow;
-  @include poster;
-  @include nfIcon;
-}
-
-.cpu {
-  @include shadow;
-  @include poster;
-}
-
-.ramIcon {
-  @include shadow;
-  @include poster;
-  @include nfIcon;
-}
-
-.ram {
-  @include shadow;
-  @include poster;
-}
-
-.diskIcon {
-  @include shadow;
-  @include poster;
-  @include nfIcon;
-}
-
-.disk {
-  @include shadow;
-  @include poster;
-}
-
-.weather {
-  @include shadow;
-  @include poster;
-}
-
-.network {
-  @include shadow;
-  @include poster;
-}
-
-.trayButton {
-  @include collapsedButton;
-}
-
-.volume {
-  @include collapsedButton;
-}
-
-.volumeIcon {
-  @include gtkIconShadow;
-}
-
-.wifiIcon {
-  @include gtkIconShadow;
-}
-
-.activeClientIcon {
-  @include gtkIconShadow;
-}
-
-.trayIcon {
-  @include gtkIconShadow;
+.blue {
+  color: $blue;
 }
