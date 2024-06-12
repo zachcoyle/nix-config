@@ -6,9 +6,13 @@ export const Left = Widget.Box({
     Widget.Button({
       className: "nixosButton",
       onClicked: togglePowerMenu,
-      child: Widget.Label({
-        label: "",
+      child: Widget.Icon({
+        className: "nixosIcon",
+        icon: App.configDir + "/nix-snowflake-colours.svg",
       }),
+      // child: Widget.Label({
+      //   label: "",
+      // }),
     }),
     Widget.Button({
       className: "hyprlandButton",

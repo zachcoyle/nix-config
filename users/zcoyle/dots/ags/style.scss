@@ -2,9 +2,62 @@
   background-color: transparent;
 }
 
-@mixin iconButton {
+@mixin fontIcon {
   @include removeBg;
   font-size: 24px;
+}
+
+$hyprland-brand-color: #458588;
+$nixos-brand-color: #83a598;
+$shadow-color: #282828;
+$glow-color: #ebdbb2;
+
+@mixin gtkIconShadow($outline: $shadow-color, $glow: $shadow-color) {
+  @if $glow ==$shadow-color {
+    -gtk-icon-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px $glow,
+      0 2px 2px $glow,
+      2px 0 2px $glow,
+      0 -2px 2px $glow;
+  }
+
+  @else {
+    -gtk-icon-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px color.adjust($glow, $lightness: -30%),
+      0 2px 2px color.adjust($glow, $lightness: -10%),
+      2px 0 2px color.adjust($glow, $lightness: -10%),
+      0 -2px 2px color.adjust($glow, $lightness: -10%);
+  }
+}
+
+@mixin shadow($outline: $shadow-color, $glow: $shadow-color) {
+  @if $glow ==$shadow-color {
+    text-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px $glow,
+      0 2px 2px $glow,
+      2px 0 2px $glow,
+      0 -2px 2px $glow;
+  }
+
+  @else {
+    text-shadow: -1px 0 1px $outline,
+      0 1px 1px $outline,
+      1px 0 1px $outline,
+      0 -1px 1px $outline,
+      -2px 0 2px color.adjust($glow, $lightness: -30%),
+      0 2px 2px color.adjust($glow, $lightness: -10%),
+      2px 0 2px color.adjust($glow, $lightness: -10%),
+      0 -2px 2px color.adjust($glow, $lightness: -10%);
+  }
 }
 
 window {
@@ -17,6 +70,7 @@ window {
   label {
     font-family: "ShureTechMono Nerd Font";
     font-size: 28px;
+    @include shadow;
   }
 
   margin: 0px;
@@ -24,10 +78,18 @@ window {
   margin-right: 8px;
 }
 
+.nixosIcon {
+  @include gtkIconShadow;
+}
+
 .nixosButton {
-  @include iconButton;
+  @include fontIcon;
+  @include shadow;
+  color: $nixos-brand-color;
 }
 
 .hyprlandButton {
-  @include iconButton;
+  @include fontIcon;
+  @include shadow;
+  color: $hyprland-brand-color;
 }
