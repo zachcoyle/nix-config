@@ -257,6 +257,35 @@ window {
   @include shadow;
 }
 
+.player {
+  /* @include typography; */
+  @include shadow;
+}
+
+.artist {
+  /* text-align: start; */
+  font-family: "Fira Sans Nerd Font";
+  font-weight: bold;
+  font-style: italic;
+}
+
+.track {
+  /* text-align: start; */
+  font-family: "Fira Sans Nerd Font";
+  font-weight: bold;
+  font-style: italic;
+}
+
+.playPause {
+  background-color: transparent;
+
+  label {
+    color: color.adjust($color: $text-color, $alpha: -0.55);
+  }
+}
+
+.albumArt {}
+
 .red {
   color: $red;
 }
