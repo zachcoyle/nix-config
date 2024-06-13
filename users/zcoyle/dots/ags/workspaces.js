@@ -12,6 +12,7 @@ export const Workspaces = () =>
     onScrollUp: () => dispatch("+1"),
     onScrollDown: () => dispatch("-1"),
     child: Widget.Box({
+      spacing: 8,
       children: Array.from({ length: 10 }, (_, i) => i + 1).map((i) =>
         Widget.Button({
           className: "workspaceButton",

@@ -9,6 +9,17 @@
   font-size: 24px;
 }
 
+@mixin collapse {
+  padding: 0px;
+  margin: 0px;
+}
+
+@mixin typography {
+  font-family: "Fira Code Nerd Font";
+  font-size: 16px;
+  font-weight: 900;
+}
+
 /* $hyprland-brand-color: #458588; */
 $hyprland-brand-color: #03A6D5;
 /* $nixos-brand-color: #83a598; */
@@ -92,12 +103,10 @@ window {
   label {
     font-family: "ShureTechMono Nerd Font";
     font-size: 28px;
-
   }
 
-  margin: 0px;
-  padding: 0px;
-  margin-right: 8px;
+  @include collapse;
+  margin-right: 0px;
 }
 
 /* .nixosIcon { */
@@ -116,8 +125,7 @@ window {
 
 .nixosButton {
   @include fontIcon;
-  margin: 0px;
-  padding: 0px;
+  @include collapse;
   margin-left: 8px;
 }
 
@@ -132,8 +140,7 @@ window {
 .hyprlandButton {
   @include fontIcon;
   color: $hyprland-brand-color;
-  margin: 0px;
-  padding: 0px;
+  @include collapse;
 }
 
 .notificationsButton:hover {
@@ -146,9 +153,8 @@ window {
 
 .notificationsButton {
   @include fontIcon;
+  @include collapse;
   color: $yellow;
-  margin: 0px;
-  padding: 0px;
   margin-right: 12px;
 }
 
@@ -228,14 +234,27 @@ window {
   @include text-border;
 }
 
+
 .activeClientIcon {
-  padding: 0px;
-  margin: 0px;
+  @include collapse;
+  @include gtkIconShadow;
 }
 
 .activeClientLabel {
-  padding: 0px;
-  margin: 0px;
+  @include collapse;
+  @include shadow;
+  @include typography;
+}
+
+.systrayButton {
+  @include collapse;
+  @include gtkIconShadow;
+  background-color: transparent;
+}
+
+.time {
+  @include typography;
+  @include shadow;
 }
 
 .red {

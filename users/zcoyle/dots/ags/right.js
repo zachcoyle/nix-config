@@ -6,6 +6,7 @@ const systemtray = await Service.import("systemtray");
 /** @param {import('types/service/systemtray').TrayItem} item */
 const SysTrayItem = (item) =>
   Widget.Button({
+    className: "systrayButton",
     child: Widget.Icon().bind("icon", item, "icon"),
     tooltipMarkup: item.bind("tooltip_markup"),
     onPrimaryClick: (_, event) => item.activate(event),
@@ -13,6 +14,7 @@ const SysTrayItem = (item) =>
   });
 
 const SysTray = Widget.Box({
+  spacing: 2,
   children: systemtray.bind("items").as((i) => i.map(SysTrayItem)),
 });
 
@@ -27,7 +29,8 @@ const BatteryProgress = Widget.CircularProgress({
 });
 
 const Time = Widget.Label({
-  label: "some example content",
+  className: "time",
+  label: "",
 });
 
 Utils.interval(1000, () => {
@@ -35,6 +38,7 @@ Utils.interval(1000, () => {
 });
 
 export const Right = Widget.Box({
+  spacing: 10,
   children: [
     Widget.Box({ hexpand: true }),
     BatteryProgress,
