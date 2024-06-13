@@ -19,22 +19,27 @@ const Notification = ({
   summary,
   time,
   urgency,
-}) => {
-  print(JSON.stringify(appIcon));
-  return Widget.Box({
+}) =>
+  Widget.Box({
+    name: `notification-${id}`,
     classNames: ["notificationBox", `urgency${urgency}`],
     children: [
-      Widget.Overlay({
-        child: Widget.Icon({
-          size: 50,
-          icon: appIcon,
-        }),
-        overlays: [
-          Widget.Icon({
-            size: 22,
-            icon: image,
-            visible: !!image && appIcon != image,
+      Widget.Box({
+        children: [
+          Widget.Overlay({
+            child: Widget.Icon({
+              size: 50,
+              icon: appIcon,
+            }),
+            overlays: [
+              Widget.Icon({
+                size: 22,
+                icon: image,
+                visible: !!image && appIcon != image,
+              }),
+            ],
           }),
+          Widget.Box({ vexpand: true }),
         ],
       }),
       Widget.Box({
@@ -43,6 +48,7 @@ const Notification = ({
           Widget.Box({
             children: [
               Widget.Label({
+                className: "notificationTitle",
                 label: summary,
               }),
               Widget.Box({ hexpand: true }),
@@ -70,7 +76,6 @@ const Notification = ({
       }),
     ],
   });
-};
 
 export const NotificationCenter = Widget.Window({
   name: "notifications",
@@ -78,7 +83,7 @@ export const NotificationCenter = Widget.Window({
   visible: true,
   child: Widget.Scrollable({
     hscroll: "never",
-    vscroll: "always",
+    vscroll: "automatic",
     // rather make this dynamic, but works for now
     css: "min-height: 925px;",
     child: Widget.Box({
@@ -140,5 +145,39 @@ export const NotificationButton = Widget.Button({
 });
 
 export const NotificationPopups = Widget.Window({
-  className: "",
+  name: "notificationsPopupsWindow",
+  anchor: ["bottom", "left"],
+  visible: true,
+  child: Widget.Scrollable({
+    hscroll: "never",
+    vscroll: "always",
+    // rather make this dynamic, but works for now
+    css: "min-height: 925px;",
+    child: Widget.Box({
+      vertical: true,
+      spacing: 8,
+      children: notifications.bind("notifications").as((ns) =>
+        ns
+          .filter((n) => n.popup)
+          .reverse()
+          .map((n) =>
+            Notification({
+              actions: n.bind("actions"),
+              appEntry: n.bind("app_entry"),
+              appIcon: n.bind("app_icon"),
+              appName: n.bind("app_name"),
+              body: n.bind("body"),
+              hints: n.bind("hints"),
+              id: n.bind("id"),
+              image: n.bind("image"),
+              popup: n.bind("popup"),
+              summary: n.bind("summary"),
+              time: n.bind("time"),
+              urgency: n.bind("urgency"),
+              close: () => n.close(),
+            }),
+          ),
+      ),
+    }),
+  }),
 });

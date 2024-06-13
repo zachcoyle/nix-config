@@ -160,6 +160,10 @@ window {
   padding: 10px;
 }
 
+.notificationTitle {
+  font-weight: bold;
+}
+
 .urgencylow {
   border-color: $text-color;
 }
@@ -222,6 +226,16 @@ window {
   font-size: 32px;
   padding: 20px;
   @include text-border;
+}
+
+.activeClientIcon {
+  padding: 0px;
+  margin: 0px;
+}
+
+.activeClientLabel {
+  padding: 0px;
+  margin: 0px;
 }
 
 .red {

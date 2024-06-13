@@ -1,5 +1,6 @@
 import { Workspaces } from "./workspaces.js";
 import { togglePowerMenu } from "./powermenu.js";
+import { ActiveClient } from "./client.js";
 
 export const Left = Widget.Box({
   spacing: 10,
@@ -20,5 +21,6 @@ export const Left = Widget.Box({
       }),
     }),
     Workspaces(),
+    ActiveClient,
   ],
 });
