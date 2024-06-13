@@ -20,10 +20,7 @@ const Player = (player) =>
             child: Widget.Label({
               label: "",
             }).hook(player, (label) => {
-              // Paused
-              // Playing
               const isPlaying = player.play_back_status === "Playing";
-              print(player.play_back_status);
               label.label = isPlaying ? "󰏤" : "󰐊";
             }),
           }),
@@ -34,7 +31,10 @@ const Player = (player) =>
         children: [
           Widget.Box({
             children: [
-              Widget.Label({ className: "artist" }).hook(player, (label) => {
+              Widget.Label({
+                className: "artist",
+                truncate: "end",
+              }).hook(player, (label) => {
                 const { track_title } = player;
                 label.label = track_title;
               }),
@@ -43,7 +43,10 @@ const Player = (player) =>
           }),
           Widget.Box({
             children: [
-              Widget.Label({ className: "track" }).hook(player, (label) => {
+              Widget.Label({
+                className: "track",
+                truncate: "end",
+              }).hook(player, (label) => {
                 const { track_artists } = player;
                 label.label = `${track_artists.join(", ")}`;
               }),
