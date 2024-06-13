@@ -269,7 +269,7 @@ in {
       "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
       "nm-applet"
       "blueman-applet"
-      "swaync"
+      # "swaync"
       "udiskie -a -n"
       "pypr"
       "wlsunset -l 40.45 -L -85.37"

@@ -144,7 +144,7 @@ in {
       showmethekey
       slurp
       snapshot
-      swaynotificationcenter
+      # swaynotificationcenter
       swww
       thunderbird-bin
       udiskie
@@ -161,7 +161,7 @@ in {
     ];
 
     file = {
-      ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
+      # ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/hypr/pyprland.toml".source = tomlFormat.generate "pyprland.toml" {
         pyprland = {
