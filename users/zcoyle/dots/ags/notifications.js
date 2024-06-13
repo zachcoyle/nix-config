@@ -86,6 +86,7 @@ export const NotificationCenter = Widget.Window({
     vscroll: "automatic",
     // rather make this dynamic, but works for now
     css: "min-height: 925px;",
+    className: "notificationWindow",
     child: Widget.Box({
       vertical: true,
       spacing: 8,
