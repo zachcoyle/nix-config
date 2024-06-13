@@ -121,7 +121,6 @@ window {
   margin-left: 8px;
 }
 
-
 .hyprlandButton:hover {
   @include shadow($glow: $hyprland-brand-color);
 }
@@ -151,6 +150,26 @@ window {
   margin: 0px;
   padding: 0px;
   margin-right: 12px;
+}
+
+.notificationBox {
+  background-color: $shadow-color;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.urgencylow {
+  border-color: $text-color;
+}
+
+.urgencynormal {
+  border-color: $cyan;
+}
+
+.urgencycritical {
+  border-color: $red;
 }
 
 .powerMenu {

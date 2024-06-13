@@ -5,17 +5,110 @@ notifications.forceTimeout = false;
 notifications.cacheActions = false;
 notifications.clearDelay = 100;
 
-export const Notifications = Widget.Window({
+const Notification = ({
+  actions,
+  appEntry,
+  appIcon,
+  appName,
+  body,
+  close,
+  hints,
+  id,
+  image,
+  popup,
+  summary,
+  time,
+  urgency,
+}) => {
+  print(JSON.stringify(appIcon));
+  return Widget.Box({
+    classNames: ["notificationBox", `urgency${urgency}`],
+    children: [
+      Widget.Overlay({
+        child: Widget.Icon({
+          size: 50,
+          icon: appIcon,
+        }),
+        overlays: [
+          Widget.Icon({
+            size: 22,
+            icon: image,
+            visible: !!image && appIcon != image,
+          }),
+        ],
+      }),
+      Widget.Box({
+        vertical: true,
+        children: [
+          Widget.Box({
+            children: [
+              Widget.Label({
+                label: summary,
+              }),
+              Widget.Box({ hexpand: true }),
+              Widget.Button({
+                onClicked: close,
+                child: Widget.Label({
+                  label: "󰅘",
+                }),
+              }),
+            ],
+          }),
+          Widget.Label({
+            label: body,
+            wrap: true,
+            useMarkup: true,
+            truncate: "end",
+            xalign: 0,
+            justification: "left",
+          }),
+          // action buttons
+          Widget.Box({
+            spacing: 8,
+          }),
+        ],
+      }),
+    ],
+  });
+};
+
+export const NotificationCenter = Widget.Window({
   name: "notifications",
   anchor: ["top", "right"],
-  child: Widget.Box({
-    children: [],
-  }),
   visible: true,
+  child: Widget.Scrollable({
+    hscroll: "never",
+    vscroll: "always",
+    // rather make this dynamic, but works for now
+    css: "min-height: 925px;",
+    child: Widget.Box({
+      vertical: true,
+      spacing: 8,
+      children: notifications.bind("notifications").as((ns) =>
+        ns.reverse().map((n) =>
+          Notification({
+            actions: n.bind("actions"),
+            appEntry: n.bind("app_entry"),
+            appIcon: n.bind("app_icon"),
+            appName: n.bind("app_name"),
+            body: n.bind("body"),
+            hints: n.bind("hints"),
+            id: n.bind("id"),
+            image: n.bind("image"),
+            popup: n.bind("popup"),
+            summary: n.bind("summary"),
+            time: n.bind("time"),
+            urgency: n.bind("urgency"),
+            close: () => n.close(),
+          }),
+        ),
+      ),
+    }),
+  }),
 });
 
 export const toggleNotifications = () => {
-  Notifications.visible = !Notifications.visible;
+  NotificationCenter.visible = !NotificationCenter.visible;
 };
 
 const allowNotifications = Variable(true);
@@ -44,4 +137,8 @@ export const NotificationButton = Widget.Button({
   child: Widget.Label({
     label: merged,
   }),
+});
+
+export const NotificationPopups = Widget.Window({
+  className: "",
 });
