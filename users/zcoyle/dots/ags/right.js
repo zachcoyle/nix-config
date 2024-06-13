@@ -34,7 +34,7 @@ const Time = Widget.Label({
 });
 
 Utils.interval(1000, () => {
-  Time.label = Utils.exec('date "+%a %b %d %H:%M:%S"');
+  Time.label = Utils.exec('date "+%a %b %d %I:%M"');
 });
 
 export const Right = Widget.Box({
