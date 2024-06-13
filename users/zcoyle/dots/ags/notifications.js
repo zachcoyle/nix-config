@@ -147,7 +147,7 @@ export const NotificationButton = Widget.Button({
 
 export const NotificationPopups = Widget.Window({
   name: "notificationsPopupsWindow",
-  anchor: ["bottom", "left"],
+  anchor: ["top", "right"],
   visible: true,
   child: Widget.Scrollable({
     hscroll: "never",
