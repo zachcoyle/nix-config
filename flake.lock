@@ -928,11 +928,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1718204840,
-        "narHash": "sha256-ftwVVgJ3IfWW8u8MFiwyTVn8Sphuz7loEcMIgZLOCMU=",
+        "lastModified": 1718238464,
+        "narHash": "sha256-C+DN62RrIP5tOgR/byydLrO5bzkw2TVPoQdFXVqrO8U=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "4d9ce98ac69a639c730a68014dc0a5f64b0c15c1",
+        "rev": "615bef976cc2eee6349f8708cd420ee446c77236",
         "type": "github"
       },
       "original": {
