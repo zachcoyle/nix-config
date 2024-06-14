@@ -36,6 +36,7 @@ in {
   environment.systemPackages = with pkgs; [
     dockutil
     jankyborders
+    karabiner-elements
   ];
 
   services = {
