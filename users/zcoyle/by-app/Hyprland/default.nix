@@ -19,6 +19,7 @@ in {
 
   settings = {
     general = {
+      gaps_out = "8,20,20,20";
       layout = "dwindle";
       "col.active_border" = lib.mkForce gradient_border;
     };
