@@ -1,6 +1,10 @@
 import { Bar } from "./bar.js";
 import { PowerMenuWindow } from "./powermenu.js";
-import { NotificationCenter, NotificationPopups } from "./notifications.js";
+import {
+  // NotificationCenter,
+  NotificationPopups as NotificationPopups2,
+} from "./notifications.js";
+import { NotificationPopups } from "./notificationPopups.js";
 
 const css = `/tmp/ags-style.css`;
 
@@ -14,5 +18,10 @@ const reloadCss = () => {
 reloadCss();
 
 App.config({
-  windows: [Bar, PowerMenuWindow, NotificationCenter, NotificationPopups],
+  windows: [
+    Bar,
+    PowerMenuWindow,
+    // NotificationCenter,
+    NotificationPopups(),
+  ],
 });

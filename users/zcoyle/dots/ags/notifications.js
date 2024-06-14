@@ -77,44 +77,44 @@ const Notification = ({
     ],
   });
 
-export const NotificationCenter = Widget.Window({
-  name: "notifications",
-  anchor: ["top", "right"],
-  visible: true,
-  child: Widget.Scrollable({
-    hscroll: "never",
-    vscroll: "automatic",
-    // rather make this dynamic, but works for now
-    css: "min-height: 925px;",
-    className: "notificationWindow",
-    child: Widget.Box({
-      vertical: true,
-      spacing: 8,
-      children: notifications.bind("notifications").as((ns) =>
-        ns.reverse().map((n) =>
-          Notification({
-            actions: n.bind("actions"),
-            appEntry: n.bind("app_entry"),
-            appIcon: n.bind("app_icon"),
-            appName: n.bind("app_name"),
-            body: n.bind("body"),
-            hints: n.bind("hints"),
-            id: n.bind("id"),
-            image: n.bind("image"),
-            popup: n.bind("popup"),
-            summary: n.bind("summary"),
-            time: n.bind("time"),
-            urgency: n.bind("urgency"),
-            close: () => n.close(),
-          }),
-        ),
-      ),
-    }),
-  }),
-});
+// export const NotificationCenter = Widget.Window({
+//   name: "notifications",
+//   anchor: ["top", "right"],
+//   visible: true,
+//   child: Widget.Scrollable({
+//     hscroll: "never",
+//     vscroll: "automatic",
+//     // rather make this dynamic, but works for now
+//     css: "min-height: 925px;",
+//     className: "notificationWindow",
+//     child: Widget.Box({
+//       vertical: true,
+//       spacing: 8,
+//       children: notifications.bind("notifications").as((ns) =>
+//         ns.reverse().map((n) =>
+//           Notification({
+//             actions: n.bind("actions"),
+//             appEntry: n.bind("app_entry"),
+//             appIcon: n.bind("app_icon"),
+//             appName: n.bind("app_name"),
+//             body: n.bind("body"),
+//             hints: n.bind("hints"),
+//             id: n.bind("id"),
+//             image: n.bind("image"),
+//             popup: n.bind("popup"),
+//             summary: n.bind("summary"),
+//             time: n.bind("time"),
+//             urgency: n.bind("urgency"),
+//             close: () => n.close(),
+//           }),
+//         ),
+//       ),
+//     }),
+//   }),
+// });
 
 export const toggleNotifications = () => {
-  NotificationCenter.visible = !NotificationCenter.visible;
+  // NotificationCenter.visible = !NotificationCenter.visible;
 };
 
 const allowNotifications = Variable(true);
@@ -159,7 +159,7 @@ export const NotificationPopups = Widget.Window({
       spacing: 8,
       children: notifications.bind("notifications").as((ns) =>
         ns
-          .filter((n) => n.popup)
+          .filter((n) => !n.popup)
           .reverse()
           .map((n) =>
             Notification({
