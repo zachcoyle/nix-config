@@ -213,7 +213,7 @@
       };
     };
     servers = {
-      bashls.enable = true;
+      # bashls.enable = true;
       biome.enable = true;
       clangd.enable = true;
       cssls.enable = true;
