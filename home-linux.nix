@@ -116,7 +116,7 @@ in {
       gnome.zenity
       godot3
       grim
-      # handbrake
+      handbrake
       hyprpicker
       hyprshade
       imagemagick
