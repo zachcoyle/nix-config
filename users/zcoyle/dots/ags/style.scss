@@ -27,6 +27,8 @@ $nixos-brand-color: #4F72BB;
 $shadow-color: #282828;
 $text-color: #ebdbb2;
 $glow-color: #ebdbb2;
+$theme_fg_color: #ebdbb2;
+$theme_bg_color: #ebdbb2;
 
 $cyan: #689d6a;
 $green: #98971a;
@@ -339,7 +341,7 @@ window.notification-popups box.notifications {
   padding: 1em;
   margin: .5em;
   /* border: 1px solid @wm_borders_edge; */
-  /* background-color: @theme_bg_color; */
+  background-color: $theme_bg_color;
 }
 
 .notification.critical {
@@ -347,7 +349,7 @@ window.notification-popups box.notifications {
 }
 
 .title {
-  /* color: @theme_fg_color; */
+  color: $theme_fg_color;
   font-size: 1.4em;
 }
 
