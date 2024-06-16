@@ -17,6 +17,10 @@ switch:
 
 alias s := switch
 
+# workaround for the build user issue w/sequoia for now
+sequoia:
+    darwin-rebuild switch --flake . --option build-users-group '' |& nom
+
 check:
     nix flake check
 
