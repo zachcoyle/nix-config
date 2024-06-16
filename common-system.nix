@@ -39,22 +39,15 @@
     };
   };
 
-  fonts =
-    {
-      packages = with pkgs; [
-        fira
-        fira-code-nerdfont
-        noto-fonts
-        ezra-sil
-        galatia-sil
-        nerdfonts
-      ];
-    }
-    // (
-      if pkgs.stdenv.isLinux
-      then {
-        fontDir.enable = true;
-      }
-      else {}
-    );
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      fira
+      fira-code-nerdfont
+      noto-fonts
+      ezra-sil
+      galatia-sil
+      nerdfonts
+    ];
+  };
 }

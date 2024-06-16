@@ -13,8 +13,8 @@
       '';
     };
   };
-  # opacity = {
-  #   popups = 0.8;
-  #   terminal = 0.8;
-  # };
+  opacity = {
+    popups = 0.8;
+    terminal = 0.8;
+  };
 }
