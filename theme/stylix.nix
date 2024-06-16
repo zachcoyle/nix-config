@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  enable = true;
+  # enable = true;
   image = ./wallpapers/platform.jpg;
   polarity = "dark";
   base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
