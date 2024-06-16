@@ -1,13 +1,4 @@
-{pkgs, ...}: let
-  fonts = with pkgs; [
-    fira
-    fira-code-nerdfont
-    noto-fonts
-    ezra-sil
-    galatia-sil
-    nerdfonts
-  ];
-in {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     git
     neovim
@@ -48,13 +39,15 @@ in {
     };
   };
 
-  fonts =
-    {
-      fontDir.enable = true;
-    }
-    // (
-      if pkgs.stdenv.isLinux
-      then {packages = fonts;}
-      else {inherit fonts;}
-    );
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      fira
+      fira-code-nerdfont
+      noto-fonts
+      ezra-sil
+      galatia-sil
+      nerdfonts
+    ];
+  };
 }
