@@ -101,6 +101,7 @@
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
+    pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       alacritty
