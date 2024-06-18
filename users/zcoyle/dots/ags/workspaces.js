@@ -23,12 +23,21 @@ export const Workspaces = () =>
       ),
 
       setup: (self) =>
-        self.hook(hyprland, () =>
-          self.children.forEach((btn) => {
-            btn.visible = hyprland.workspaces.some(
-              (ws) => ws.id === btn.attribute,
-            );
+        self
+          .hook(hyprland, () =>
+            self.children.forEach((btn) => {
+              btn.visible = hyprland.workspaces.some(
+                (ws) => ws.id === btn.attribute,
+              );
+            }),
+          )
+          .bind("prop", hyprland.active.workspace, "id", (id) => {
+            self.children.forEach((btn) => {
+              btn.class_names =
+                id === btn.attribute
+                  ? ["workspaceButton", "workspaceButtonActive"]
+                  : ["workspaceButton"];
+            });
           }),
-        ),
     }),
   });

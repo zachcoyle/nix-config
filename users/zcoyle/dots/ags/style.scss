@@ -98,6 +98,11 @@ window {
   @include shadow($glow: #928374);
 }
 
+.workspaceButtonActive {
+  font-style: italic;
+  text-decoration: underline;
+}
+
 .workspaceButton {
   background-color: transparent;
 
