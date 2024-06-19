@@ -2,7 +2,7 @@
   pkgs,
   lib,
   config,
-  hyprland-plugins,
+  # hyprland-plugins,
   ...
 }: let
   gradient_border = "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
@@ -11,7 +11,7 @@ in {
   # systemdIntegration = true;
 
   plugins = [
-    hyprland-plugins.packages.${pkgs.system}.hyprtrails
+    # hyprland-plugins.packages.${pkgs.system}.hyprtrails
   ];
 
   extraConfig = ''
