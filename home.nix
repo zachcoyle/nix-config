@@ -207,6 +207,7 @@ in {
           react-devtools
           reddit-enhancement-suite
           reduxdevtools
+          sponsorblock
           stylus
           ublock-origin
           user-agent-string-switcher
