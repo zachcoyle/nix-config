@@ -9,7 +9,6 @@
     bbenoist.nix
     charliermarsh.ruff
     codezombiech.gitignore
-    dbaeumer.vscode-eslint
     eamodio.gitlens
     editorconfig.editorconfig
     esbenp.prettier-vscode
