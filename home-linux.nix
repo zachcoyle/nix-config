@@ -128,6 +128,7 @@ in {
       libinput-gestures
       libnotify
       libreoffice
+      logos
       makemkv
       networkmanagerapplet
       nitch

@@ -280,6 +280,8 @@
         # FIXME: see https://github.com/NixOS/nix/issues/5790#issuecomment-996690415
       };
     };
+
+    logos.url = "github:zachcoyle/logos.nix";
   };
 
   outputs = inputs @ {self, ...}:

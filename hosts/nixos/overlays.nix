@@ -9,6 +9,7 @@
     inputs.icon-themes-nightly-overlay.overlays.default
     inputs.xremap-flake.overlays.default
     (_: prev: {
+      logos = inputs.logos.packages.${prev.system}.default;
       pyprland = inputs.pyprland.packages.${prev.system}.default;
       ags = inputs.ags.packages.${prev.system}.default;
       # FIXME: https://github.com/NixOS/nixpkgs/issues/298539
