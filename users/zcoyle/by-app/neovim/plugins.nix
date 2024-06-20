@@ -43,7 +43,7 @@
       kotlin = ["ktlint"];
       lua = ["stylua"];
       md = ["mdformat"];
-      nix = ["alejandra"];
+      nix = ["nixfmt"];
       python = ["ruff_fix" "ruff_format"];
       rust = ["rustfmt"];
       swift = ["swift_format"];

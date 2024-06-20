@@ -400,12 +400,12 @@
         pkgs,
         ...
       }: {
-        formatter = pkgs.alejandra;
+        formatter = pkgs.nixfmt-rfc-style;
 
         pre-commit = {
           settings = {
             hooks = {
-              alejandra.enable = true;
+              nixfmt.enable = true;
               deadnix.enable = true;
               nil.enable = true;
               statix.enable = true;
