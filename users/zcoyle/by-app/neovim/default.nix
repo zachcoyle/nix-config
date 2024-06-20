@@ -1,9 +1,8 @@
-{
-  pkgs,
-  config,
-}: let
+{ pkgs, config }:
+let
   inherit (config.lib.stylix.colors) withHashtag;
-in {
+in
+{
   enable = true;
 
   package = pkgs.neovim;
@@ -14,7 +13,8 @@ in {
 
   editorconfig.enable = true;
 
-  extraPackages = with pkgs;
+  extraPackages =
+    with pkgs;
     [
       # utility
       fd
@@ -23,11 +23,7 @@ in {
       tabnine
       # dap
       lldb
-      (php.withExtensions ({
-        enabled,
-        all,
-      }:
-        enabled ++ [all.xdebug]))
+      (php.withExtensions ({ enabled, all }: enabled ++ [ all.xdebug ]))
       # formatters
       alejandra
       biome
@@ -49,9 +45,7 @@ in {
       yamlfmt
     ]
     # FIXME: this should also work on darwin
-    ++ (lib.optionals pkgs.stdenv.isLinux [
-      pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
-    ]);
+    ++ (lib.optionals pkgs.stdenv.isLinux [ pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter ]);
 
   extraPlugins = with pkgs.vimPlugins; [
     dropbar-nvim
@@ -149,28 +143,29 @@ in {
     ''
     + (
       # TODO: all the neovide config could stand to be be tightened up
-      if pkgs.stdenv.isDarwin
-      then ''
-        -- Helper function for transparency formatting
-        local alpha = function()
-          return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
-        end
-        -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
-        vim.g.neovide_transparency = 0.0
-        vim.g.transparency = 0.8
-        vim.g.neovide_background_color = "${withHashtag.base00}" .. alpha()
-      ''
-      else ''
-        if vim.fn.exists('g:neovide') ~= 0 then
-            vim.g.neovide_transparency = 0.8
-            vim.g.neovide_background_color = "${withHashtag.base00}"
-        else
-          vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
-          vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
-          vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
-        end
+      if pkgs.stdenv.isDarwin then
+        ''
+          -- Helper function for transparency formatting
+          local alpha = function()
+            return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+          end
+          -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
+          vim.g.neovide_transparency = 0.0
+          vim.g.transparency = 0.8
+          vim.g.neovide_background_color = "${withHashtag.base00}" .. alpha()
+        ''
+      else
+        ''
+          if vim.fn.exists('g:neovide') ~= 0 then
+              vim.g.neovide_transparency = 0.8
+              vim.g.neovide_background_color = "${withHashtag.base00}"
+          else
+            vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+            vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
+            vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
+          end
 
-      ''
+        ''
     );
 
   extraConfigLuaPre = ''
@@ -184,22 +179,22 @@ in {
   '';
 
   extraConfigLuaPost =
-    if pkgs.stdenv.isLinux
-    then ''
-      vim.notify = function(msg, level, opts)
-        local log_level = {
-          [vim.log.levels.DEBUG] = 'low',
-          [vim.log.levels.ERROR] = 'critical',
-          [vim.log.levels.INFO] = 'normal',
-          [vim.log.levels.TRACE] = 'normal',
-          [vim.log.levels.WARN] = 'normal',
-        }
-        vim.system({'notify-send', msg, '-u', log_level[level], '-e', '-i', '${../../../../theme/neovim-mark.svg}'})
-      end
-    ''
+    if pkgs.stdenv.isLinux then
+      ''
+        vim.notify = function(msg, level, opts)
+          local log_level = {
+            [vim.log.levels.DEBUG] = 'low',
+            [vim.log.levels.ERROR] = 'critical',
+            [vim.log.levels.INFO] = 'normal',
+            [vim.log.levels.TRACE] = 'normal',
+            [vim.log.levels.WARN] = 'normal',
+          }
+          vim.system({'notify-send', msg, '-u', log_level[level], '-e', '-i', '${../../../../theme/neovim-mark.svg}'})
+        end
+      ''
     # TODO: darwin
-    else ''
-    '';
+    else
+      '''';
 
   options =
     {
@@ -223,18 +218,15 @@ in {
       scrolloff = 4;
       shada = "!,'100,<50,s10";
       signcolumn = "yes:2";
-      undodir = ["${config.xdg.configHome}nvim/.undo//"];
+      undodir = [ "${config.xdg.configHome}nvim/.undo//" ];
       undofile = true;
       wrap = false;
     }
     // (
-      if pkgs.stdenv.isDarwin
-      then {
-        guifont = "FiraCode Nerd Font:h13";
-      }
-      else {
-        guifont = "FiraCode Nerd Font:h10";
-      }
+      if pkgs.stdenv.isDarwin then
+        { guifont = "FiraCode Nerd Font:h13"; }
+      else
+        { guifont = "FiraCode Nerd Font:h10"; }
     );
 
   globals = {
@@ -251,5 +243,5 @@ in {
     };
   };
 
-  plugins = import ./plugins.nix {inherit pkgs config;};
+  plugins = import ./plugins.nix { inherit pkgs config; };
 }

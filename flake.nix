@@ -284,8 +284,9 @@
     logos.url = "github:zachcoyle/logos.nix";
   };
 
-  outputs = inputs @ {self, ...}:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs@{ self, ... }:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.devshell.flakeModule
         inputs.pre-commit-hooks.flakeModule
@@ -293,140 +294,154 @@
 
       systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
 
-      flake = let
-        registryModule.nix.registry.nixpkgs.flake = inputs.nixpkgs;
+      flake =
+        let
+          registryModule.nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
-        common_nixos_config = {extraModules}: {
-          system = "x86_64-linux";
-          specialArgs = {inherit inputs;};
-          modules =
-            [
-              ./hosts/nixos/overlays.nix
-              ./hosts/common-overlays.nix
-              ./common-system.nix
-              inputs.home-manager.nixosModules.home-manager
-              inputs.sddm-sugar-candy-nix.nixosModules.default
-              inputs.stylix.nixosModules.stylix
-              registryModule
-              (
-                {lib, ...}: {
-                  nixpkgs = {
-                    config = {
-                      rocmSupport = true;
-                      allowUnfreePredicate = pkg:
-                        builtins.elem (lib.getName pkg) [
-                          "dwarf-fortress"
-                          "steam"
-                          "steam-original"
-                          "steam-run"
-                        ];
+          common_nixos_config =
+            { extraModules }:
+            {
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit inputs;
+              };
+              modules = [
+                ./hosts/nixos/overlays.nix
+                ./hosts/common-overlays.nix
+                ./common-system.nix
+                inputs.home-manager.nixosModules.home-manager
+                inputs.sddm-sugar-candy-nix.nixosModules.default
+                inputs.stylix.nixosModules.stylix
+                registryModule
+                (
+                  { lib, ... }:
+                  {
+                    nixpkgs = {
+                      config = {
+                        rocmSupport = true;
+                        allowUnfreePredicate =
+                          pkg:
+                          builtins.elem (lib.getName pkg) [
+                            "dwarf-fortress"
+                            "steam"
+                            "steam-original"
+                            "steam-run"
+                          ];
+                      };
+                    };
+                  }
+                )
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    users.zcoyle = import ./home.nix;
+                    extraSpecialArgs = {
+                      inherit (inputs)
+                        nixvim
+                        hyprlock
+                        hypridle
+                        hyprland-plugins
+                        ;
                     };
                   };
                 }
-              )
+                {
+                  home-manager.users.zcoyle.imports = [
+                    inputs.ags.homeManagerModules.default
+                    inputs.xremap-flake.homeManagerModules.default
+                    ./home-linux.nix
+                  ];
+                }
+              ] ++ extraModules;
+            };
+          common_darwin_config = {
+            specialArgs = {
+              inherit inputs;
+            };
+            modules = [
+              ./hosts/darwin/overlays.nix
+              ./hosts/common-overlays.nix
+              ./common-system.nix
+              ./hosts/darwin/common-configuration.nix
+              inputs.darwin-modules.darwinModule
+              inputs.home-manager.darwinModules.home-manager
+              inputs.stylix.darwinModules.stylix
+              ./modules/darwin/dock.nix
+              registryModule
               {
+                system.configurationRevision = self.rev or self.dirtyRef or null;
+                nixpkgs = {
+                  config = {
+                    allowUnfree = true;
+                  };
+                };
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   users.zcoyle = import ./home.nix;
                   extraSpecialArgs = {
-                    inherit (inputs) nixvim hyprlock hypridle hyprland-plugins;
+                    inherit (inputs) nixvim;
                   };
                 };
               }
-              {
-                home-manager.users.zcoyle.imports = [
-                  inputs.ags.homeManagerModules.default
-                  inputs.xremap-flake.homeManagerModules.default
-                  ./home-linux.nix
-                ];
-              }
-            ]
-            ++ extraModules;
-        };
-        common_darwin_config = {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/darwin/overlays.nix
-            ./hosts/common-overlays.nix
-            ./common-system.nix
-            ./hosts/darwin/common-configuration.nix
-            inputs.darwin-modules.darwinModule
-            inputs.home-manager.darwinModules.home-manager
-            inputs.stylix.darwinModules.stylix
-            ./modules/darwin/dock.nix
-            registryModule
-            {
-              system.configurationRevision = self.rev or self.dirtyRef or null;
-              nixpkgs = {
-                config = {
-                  allowUnfree = true;
-                };
-              };
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.zcoyle = import ./home.nix;
-                extraSpecialArgs = {
-                  inherit (inputs) nixvim;
-                };
-              };
-            }
-          ];
-        };
-      in {
-        darwinConfigurations = {
-          mbp13 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
-          mbp15 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
-        };
-        nixosConfigurations = {
-          nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
-            extraModules = [
-              ./hosts/nixos/nixos-desktop/configuration.nix
-              ./hosts/nixos/nixos-desktop/home.nix
             ];
-          });
-          nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
-            extraModules = [
-              ./hosts/nixos/nixos-laptop/configuration.nix
-              ./hosts/nixos/nixos-laptop/home.nix
-            ];
-          });
-        };
-      };
-
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
-        formatter = pkgs.nixfmt-rfc-style;
-
-        pre-commit = {
-          settings = {
-            hooks = {
-              nixfmt.enable = true;
-              deadnix.enable = true;
-              nil.enable = true;
-              statix.enable = true;
-            };
+          };
+        in
+        {
+          darwinConfigurations = {
+            mbp13 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
+            mbp15 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
+          };
+          nixosConfigurations = {
+            nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
+              extraModules = [
+                ./hosts/nixos/nixos-desktop/configuration.nix
+                ./hosts/nixos/nixos-desktop/home.nix
+              ];
+            });
+            nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
+              extraModules = [
+                ./hosts/nixos/nixos-laptop/configuration.nix
+                ./hosts/nixos/nixos-laptop/home.nix
+              ];
+            });
           };
         };
 
-        devshells.default = {
-          name = "system-flake";
-          env = [];
-          devshell.startup.pre-commit-hooks.text = ''
-            ${config.pre-commit.installationScript}
-          '';
-          packages = with pkgs; [
-            dart-sass
-            just
-            deadnix
-            alejandra
-            statix
-          ];
+      perSystem =
+        { config, pkgs, ... }:
+        {
+          formatter = pkgs.nixfmt-rfc-style;
+
+          pre-commit = {
+            settings = {
+              hooks = {
+                nixfmt = {
+                  enable = true;
+                  package = pkgs.nixfmt-rfc-style;
+                };
+                deadnix.enable = true;
+                nil.enable = true;
+                statix.enable = true;
+              };
+            };
+          };
+
+          devshells.default = {
+            name = "system-flake";
+            env = [ ];
+            devshell.startup.pre-commit-hooks.text = ''
+              ${config.pre-commit.installationScript}
+            '';
+            packages = with pkgs; [
+              dart-sass
+              just
+              deadnix
+              alejandra
+              statix
+            ];
+          };
         };
-      };
     };
 }

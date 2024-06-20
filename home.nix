@@ -4,15 +4,15 @@
   nixvim,
   config,
   ...
-}: let
+}:
+let
   neovide_settings = builtins.toJSON {
     frame = "none";
     title-hidden = true;
   };
-in {
-  imports = [
-    nixvim.homeManagerModules.nixvim
-  ];
+in
+{
+  imports = [ nixvim.homeManagerModules.nixvim ];
 
   stylix = {
     targets = {
@@ -104,33 +104,32 @@ in {
     ];
 
     file =
-      if pkgs.stdenv.isDarwin
-      then {
-        "Library/Application\ Support/neovide/neovide-settings.json".text = lib.mkIf pkgs.stdenv.isDarwin neovide_settings;
-        ".config/borders/bordersrc".executable = true;
-        ".config/borders/bordersrc".text = ''
-          #!/bin/bash
+      if pkgs.stdenv.isDarwin then
+        {
+          "Library/Application\ Support/neovide/neovide-settings.json".text = lib.mkIf pkgs.stdenv.isDarwin neovide_settings;
+          ".config/borders/bordersrc".executable = true;
+          ".config/borders/bordersrc".text = ''
+            #!/bin/bash
 
-          options=(
-              style=round
-              width=6.0
-              hidpi=on
-              active_color=0xffebdbb2
-              inactive_color=0xff282828
-              background_color=0x302c2e34
-              blur_radius=25
-          )
+            options=(
+                style=round
+                width=6.0
+                hidpi=on
+                active_color=0xffebdbb2
+                inactive_color=0xff282828
+                background_color=0x302c2e34
+                blur_radius=25
+            )
 
-          borders "''${options[@]}"
-        '';
-      }
-      else {
-        ".local/share/neovide/neovide-settings.json".text = neovide_settings;
-      };
+            borders "''${options[@]}"
+          '';
+        }
+      else
+        { ".local/share/neovide/neovide-settings.json".text = neovide_settings; };
   };
 
   programs = {
-    alacritty = import ./users/zcoyle/by-app/alacritty.nix {inherit pkgs lib;};
+    alacritty = import ./users/zcoyle/by-app/alacritty.nix { inherit pkgs lib; };
 
     bat = {
       enable = true;
@@ -168,11 +167,10 @@ in {
       '';
     };
 
-    firefox = let
-      darwin-package = pkgs.firefox-bin;
-      linux-package =
-        pkgs.wrapFirefox pkgs.firefox-bin-unwrapped
-        {
+    firefox =
+      let
+        darwin-package = pkgs.firefox-bin;
+        linux-package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
           extraPolicies = {
             DisableFirefoxStudies = true;
             DisablePocket = true;
@@ -189,148 +187,151 @@ in {
             };
           };
         };
-    in {
-      enable = true;
-      package =
-        if pkgs.stdenv.isDarwin
-        then darwin-package
-        else linux-package;
+      in
+      {
+        enable = true;
+        package = if pkgs.stdenv.isDarwin then darwin-package else linux-package;
 
-      profiles.zcoyle = {
-        id = 0;
-        name = "zcoyle";
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          darkreader
-          dearrow
-          firenvim
-          nighttab
-          react-devtools
-          reddit-enhancement-suite
-          reduxdevtools
-          sponsorblock
-          stylus
-          ublock-origin
-          user-agent-string-switcher
-          vimium
-          vue-js-devtools
-          wayback-machine
-        ];
+        profiles.zcoyle = {
+          id = 0;
+          name = "zcoyle";
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            darkreader
+            dearrow
+            firenvim
+            nighttab
+            react-devtools
+            reddit-enhancement-suite
+            reduxdevtools
+            sponsorblock
+            stylus
+            ublock-origin
+            user-agent-string-switcher
+            vimium
+            vue-js-devtools
+            wayback-machine
+          ];
 
-        search = {
-          force = true;
-          default = "Brave";
-          engines = {
-            Brave = {
-              urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
-              iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
-              updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = ["@b" "@brave"];
+          search = {
+            force = true;
+            default = "Brave";
+            engines = {
+              Brave = {
+                urls = [ { template = "https://search.brave.com/search?q={searchTerms}"; } ];
+                iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
+                updateInterval = 24 * 60 * 60 * 1000;
+                definedAliases = [
+                  "@b"
+                  "@brave"
+                ];
+              };
+              Youtube = {
+                urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
+                updateInterval = 24 * 60 * 60 * 1000;
+                definedAliases = [
+                  "@yt"
+                  "@youtube"
+                ];
+              };
+              "Nix Packages" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@np" ];
+              };
+              "NixOS Options" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/options";
+                    params = [
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@no" ];
+              };
+              "NixOS Wiki" = {
+                urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
+                iconUpdateURL = "https://nixos.wiki/favicon.png";
+                updateInterval = 24 * 60 * 60 * 1000;
+                definedAliases = [ "@nw" ];
+              };
+              Ollama = {
+                urls = [ { template = "https://ollama.com/search?q={searchTerms}"; } ];
+                iconUpdateURL = "https://ollama.com/public/icon-32x32.png";
+                updateInterval = 24 * 60 * 60 * 1000;
+                definedAliases = [ "@ll" ];
+              };
+              "Wikipedia (en)".metaData.alias = "@wiki";
+              Google.metaData.hidden = true;
+              "Amazon.com".metaData.hidden = true;
+              Bing.metaData.hidden = true;
+              eBay.metaData.hidden = true;
             };
-            Youtube = {
-              urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
-              updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = ["@yt" "@youtube"];
-            };
-            "Nix Packages" = {
-              urls = [
-                {
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    {
-                      name = "channel";
-                      value = "unstable";
-                    }
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@np"];
-            };
-            "NixOS Options" = {
-              urls = [
-                {
-                  template = "https://search.nixos.org/options";
-                  params = [
-                    {
-                      name = "channel";
-                      value = "unstable";
-                    }
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@no"];
-            };
-            "NixOS Wiki" = {
-              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
-              iconUpdateURL = "https://nixos.wiki/favicon.png";
-              updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = ["@nw"];
-            };
-            Ollama = {
-              urls = [{template = "https://ollama.com/search?q={searchTerms}";}];
-              iconUpdateURL = "https://ollama.com/public/icon-32x32.png";
-              updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = ["@ll"];
-            };
-            "Wikipedia (en)".metaData.alias = "@wiki";
-            Google.metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            Bing.metaData.hidden = true;
-            eBay.metaData.hidden = true;
           };
+
+          settings = {
+            "general.smoothScroll" = true;
+            # disable alt key bringing up window menu
+            "ui.key.menuAccessKeyFocuses" = false;
+          };
+
+          extraConfig = ''
+            user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+            user_pref("full-screen-api.ignore-widgets", true);
+            user_pref("media.ffmpeg.vaapi.enabled", true);
+            user_pref("media.rdd-vpx.enabled", true);
+            user_pref("apz.overscroll.enabled", true);
+            user_pref("browser.shell.checkDefaultBrowser", false);
+          '';
+
+          userChrome = ''
+            .titlebar-buttonbox-container {
+              display: none !important;
+            }
+            statuspanel[type="overLink"] .statuspanel-label {
+              display: none !important;
+            }
+            #appcontent statuspanel {
+              display: none;
+            }
+            #statuspanel-label {
+              display: none;
+            }
+          '';
+
+          userContent = '''';
         };
-
-        settings = {
-          "general.smoothScroll" = true;
-          # disable alt key bringing up window menu
-          "ui.key.menuAccessKeyFocuses" = false;
-        };
-
-        extraConfig = ''
-          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-          user_pref("full-screen-api.ignore-widgets", true);
-          user_pref("media.ffmpeg.vaapi.enabled", true);
-          user_pref("media.rdd-vpx.enabled", true);
-          user_pref("apz.overscroll.enabled", true);
-          user_pref("browser.shell.checkDefaultBrowser", false);
-        '';
-
-        userChrome = ''
-          .titlebar-buttonbox-container {
-            display: none !important;
-          }
-          statuspanel[type="overLink"] .statuspanel-label {
-            display: none !important;
-          }
-          #appcontent statuspanel {
-            display: none;
-          }
-          #statuspanel-label {
-            display: none;
-          }
-        '';
-
-        userContent = ''
-        '';
       };
-    };
 
     git = {
       enable = true;
@@ -365,18 +366,20 @@ in {
       keyScheme = "vim";
     };
 
-    nixvim = import ./users/zcoyle/by-app/neovim {inherit pkgs config;};
+    nixvim = import ./users/zcoyle/by-app/neovim { inherit pkgs config; };
 
-    starship = let
-      nerdfontPreset = pkgs.runCommand "nerdfont.toml" {} ''
-        mkdir $out
-        ${pkgs.starship}/bin/starship preset nerd-font-symbols -o $out/nerdfont.toml
-      '';
-    in {
-      enable = true;
-      enableZshIntegration = true;
-      settings = {} // (builtins.fromTOML (builtins.readFile "${nerdfontPreset}/nerdfont.toml"));
-    };
+    starship =
+      let
+        nerdfontPreset = pkgs.runCommand "nerdfont.toml" { } ''
+          mkdir $out
+          ${pkgs.starship}/bin/starship preset nerd-font-symbols -o $out/nerdfont.toml
+        '';
+      in
+      {
+        enable = true;
+        enableZshIntegration = true;
+        settings = { } // (builtins.fromTOML (builtins.readFile "${nerdfontPreset}/nerdfont.toml"));
+      };
 
     tmux = {
       enable = true;
@@ -385,9 +388,9 @@ in {
       keyMode = "vi";
       prefix = "C-b";
       plugins = with pkgs.tmuxPlugins; [
-        {plugin = sensible;}
-        {plugin = battery;}
-        {plugin = mode-indicator;}
+        { plugin = sensible; }
+        { plugin = battery; }
+        { plugin = mode-indicator; }
       ];
       extraConfig = ''
         # Smart pane switching with awareness of Vim splits.
@@ -412,7 +415,7 @@ in {
       '';
     };
 
-    vscode = import ./users/zcoyle/by-app/vscode.nix {inherit pkgs;};
+    vscode = import ./users/zcoyle/by-app/vscode.nix { inherit pkgs; };
 
     yazi = {
       enable = true;
@@ -437,9 +440,7 @@ in {
 
       oh-my-zsh = {
         enable = true;
-        plugins = [
-          "vi-mode"
-        ];
+        plugins = [ "vi-mode" ];
       };
 
       sessionVariables = {
@@ -470,7 +471,7 @@ in {
       # FIXME: when tray enabled it throws an error message.
       # need to figure out how to pass --wait to the tray program
       # tray.enable = true;
-      extraOptions = [];
+      extraOptions = [ ];
     };
   };
 }

@@ -4,10 +4,12 @@
   config,
   hyprland-plugins,
   ...
-}: let
-  tomlFormat = pkgs.formats.toml {};
-  random-emoji = pkgs.callPackage ./packages/random-emoji.nix {};
-in {
+}:
+let
+  tomlFormat = pkgs.formats.toml { };
+  random-emoji = pkgs.callPackage ./packages/random-emoji.nix { };
+in
+{
   qt = {
     enable = true;
     platformTheme.name = "gtk";
@@ -58,9 +60,9 @@ in {
     mimeApps = {
       enable = true;
       associations = {
-        added = {};
+        added = { };
         removed = {
-          "inode/directory" = ["codium.desktop"];
+          "inode/directory" = [ "codium.desktop" ];
         };
       };
       defaultApplications = {
@@ -76,15 +78,11 @@ in {
             "Hyprland"
             "gtk"
           ];
-          "org.freedesktop.impl.portal.Secret" = [
-            "gnome-keyring"
-          ];
+          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
         };
       };
       xdgOpenUsePortal = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
   };
   home = {
@@ -226,22 +224,28 @@ in {
         keymap = [
           {
             name = "Global";
-            remap = {
-            };
+            remap = { };
           }
         ];
       };
     };
   };
 
-  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {inherit pkgs lib config hyprland-plugins;};
+  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {
+    inherit
+      pkgs
+      lib
+      config
+      hyprland-plugins
+      ;
+  };
 
   programs = {
     ags = {
       enable = true;
       package = pkgs.ags;
       configDir = ./users/zcoyle/dots/ags;
-      extraPackages = [];
+      extraPackages = [ ];
     };
 
     hyprlock = {
@@ -258,7 +262,7 @@ in {
             path = "screenshot";
             blur_passes = 1;
             blur_size = 7;
-            noise = 0.00585;
+            noise = 5.85e-3;
           }
         ];
 
@@ -288,7 +292,7 @@ in {
       ];
     };
 
-    rofi = import ./users/zcoyle/by-app/rofi.nix {inherit pkgs lib config;};
+    rofi = import ./users/zcoyle/by-app/rofi.nix { inherit pkgs lib config; };
 
     wlogout = {
       enable = true;

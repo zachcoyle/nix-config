@@ -208,7 +208,11 @@
       silent = true;
       desc = "Repeat Last Move Next";
     };
-    mode = ["n" "x" "o"];
+    mode = [
+      "n"
+      "x"
+      "o"
+    ];
   }
   {
     key = ",";
@@ -217,7 +221,11 @@
       silent = true;
       desc = "Repeat Last Move Previous";
     };
-    mode = ["n" "x" "o"];
+    mode = [
+      "n"
+      "x"
+      "o"
+    ];
   }
   {
     key = "f";
@@ -226,7 +234,11 @@
       silent = true;
       desc = "fancy f";
     };
-    mode = ["n" "x" "o"];
+    mode = [
+      "n"
+      "x"
+      "o"
+    ];
   }
   {
     key = "F";
@@ -235,7 +247,11 @@
       silent = true;
       desc = "fancy F";
     };
-    mode = ["n" "x" "o"];
+    mode = [
+      "n"
+      "x"
+      "o"
+    ];
   }
   {
     key = "t";
@@ -244,7 +260,11 @@
       silent = true;
       desc = "fancy t";
     };
-    mode = ["n" "x" "o"];
+    mode = [
+      "n"
+      "x"
+      "o"
+    ];
   }
   {
     key = "T";
@@ -253,7 +273,11 @@
       silent = true;
       desc = "fancy T";
     };
-    mode = ["n" "x" "o"];
+    mode = [
+      "n"
+      "x"
+      "o"
+    ];
   }
   {
     key = "<leader>go";
@@ -262,7 +286,7 @@
       silent = true;
       desc = "Open Neogit";
     };
-    mode = ["n"];
+    mode = [ "n" ];
   }
   {
     key = "<leader>nb";
@@ -278,7 +302,10 @@
     options = {
       desc = "ollama prompt";
     };
-    mode = ["n" "v"];
+    mode = [
+      "n"
+      "v"
+    ];
   }
   {
     key = "<leader>oG";
@@ -286,7 +313,10 @@
     options = {
       desc = "ollama Generate Code";
     };
-    mode = ["n" "v"];
+    mode = [
+      "n"
+      "v"
+    ];
   }
   {
     key = "<c-g>";
@@ -295,6 +325,9 @@
       silent = true;
       desc = "Open GitUI";
     };
-    mode = ["n" "t"];
+    mode = [
+      "n"
+      "t"
+    ];
   }
 ]

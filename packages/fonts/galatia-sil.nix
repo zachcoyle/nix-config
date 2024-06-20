@@ -1,8 +1,4 @@
-{
-  stdenvNoCC,
-  fetchzip,
-  ...
-}:
+{ stdenvNoCC, fetchzip, ... }:
 stdenvNoCC.mkDerivation rec {
   pname = "galatia-sil";
   version = "2.1";

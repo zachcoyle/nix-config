@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   barbar.enable = true;
   cmp-emoji.enable = true;
   cmp-nvim-lsp.enable = true;
@@ -18,42 +15,53 @@
       sort = true;
       run_on_every_keystroke = true;
       snippet_placeholder = "..";
-      ignored_file_types = {};
+      ignored_file_types = { };
       show_prediction_strength = true;
     };
   };
   comment.enable = true;
   conform-nvim = {
     enable = true;
-    extraOptions = {timeout_ms = 1000;};
-    formatOnSave = {};
+    extraOptions = {
+      timeout_ms = 1000;
+    };
+    formatOnSave = { };
     formattersByFt = {
       "*" = [
         # "codespell"
         "injected"
       ];
-      "_" = ["trim_whitespace"];
-      css = ["prettierd"];
-      go = ["gofumpt"];
-      graphql = ["prettierd"];
-      javascript = ["prettierd"];
-      javascriptreact = ["prettierd"];
-      json = ["fix_json" "prettierd"];
-      just = ["just"];
-      kotlin = ["ktlint"];
-      lua = ["stylua"];
-      md = ["mdformat"];
-      nix = ["nixfmt"];
-      python = ["ruff_fix" "ruff_format"];
-      rust = ["rustfmt"];
-      swift = ["swift_format"];
-      sh = ["beautysh"];
-      sql = ["sql_formatter"];
-      toml = ["taplo"];
-      typescript = ["prettierd"];
-      typescriptreact = ["prettierd"];
-      vue = ["prettierd"];
-      yaml = ["yamlfix" "yamlfmt"];
+      "_" = [ "trim_whitespace" ];
+      css = [ "prettierd" ];
+      go = [ "gofumpt" ];
+      graphql = [ "prettierd" ];
+      javascript = [ "prettierd" ];
+      javascriptreact = [ "prettierd" ];
+      json = [
+        "fix_json"
+        "prettierd"
+      ];
+      just = [ "just" ];
+      kotlin = [ "ktlint" ];
+      lua = [ "stylua" ];
+      md = [ "mdformat" ];
+      nix = [ "nixfmt" ];
+      python = [
+        "ruff_fix"
+        "ruff_format"
+      ];
+      rust = [ "rustfmt" ];
+      swift = [ "swift_format" ];
+      sh = [ "beautysh" ];
+      sql = [ "sql_formatter" ];
+      toml = [ "taplo" ];
+      typescript = [ "prettierd" ];
+      typescriptreact = [ "prettierd" ];
+      vue = [ "prettierd" ];
+      yaml = [
+        "yamlfix"
+        "yamlfmt"
+      ];
     };
   };
   crates-nvim.enable = true;
@@ -74,7 +82,9 @@
       executables = {
         php = {
           command = "${pkgs.nodejs}/bin/node";
-          args = ["${pkgs.vscode-marketplace.xdebug.php-debug}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js"];
+          args = [
+            "${pkgs.vscode-marketplace.xdebug.php-debug}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js"
+          ];
         };
       };
     };
@@ -94,12 +104,12 @@
           program = "\${file}";
           cwd = "\${fileDirname}";
           port = 0;
-          runtimeArgs = ["-dxdebug.start_with_request=yes"];
+          runtimeArgs = [ "-dxdebug.start_with_request=yes" ];
           env = {
             XDEBUG_MODE = "debug,develop";
             XDEBUG_CONFIG = ''client_port=''${port}'';
           };
-          ignoreExceptions = ["IgnoreException"];
+          ignoreExceptions = [ "IgnoreException" ];
         }
         {
           name = "Launch Built-in web server";
@@ -235,7 +245,10 @@
         settings = {
           cargo.features = "all";
           files = {
-            excludeDirs = [".direnv" ".devenv"];
+            excludeDirs = [
+              ".direnv"
+              ".devenv"
+            ];
           };
           hover = {
             documentation = {
@@ -257,7 +270,7 @@
   };
   luasnip = {
     enable = true;
-    fromVscode = [{}];
+    fromVscode = [ { } ];
   };
   lspkind.enable = true;
   lspsaga = {
@@ -325,8 +338,26 @@
         end
       '';
       widow = {
-        completion.border = ["╔" "═" "╗" "║" "╝" "═" "╚" "║"];
-        documentation.border = ["╔" "═" "╗" "║" "╝" "═" "╚" "║"];
+        completion.border = [
+          "╔"
+          "═"
+          "╗"
+          "║"
+          "╝"
+          "═"
+          "╚"
+          "║"
+        ];
+        documentation.border = [
+          "╔"
+          "═"
+          "╗"
+          "║"
+          "╝"
+          "═"
+          "╚"
+          "║"
+        ];
       };
       mapping = {
         "<C-Space>" = "cmp.mapping.complete()";
@@ -338,16 +369,16 @@
         "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
       };
       sources = [
-        {name = "nvim_lsp";}
-        {name = "nvim_lsp_signature_help";}
-        {name = "nvim_lsp_document_symbol";}
-        {name = "nvim_lua";}
-        {name = "cmp_tabnine";}
-        {name = "luasnip";}
-        {name = "path";}
-        {name = "buffer";}
-        {name = "emoji";}
-        {name = "cmp_ai";}
+        { name = "nvim_lsp"; }
+        { name = "nvim_lsp_signature_help"; }
+        { name = "nvim_lsp_document_symbol"; }
+        { name = "nvim_lua"; }
+        { name = "cmp_tabnine"; }
+        { name = "luasnip"; }
+        { name = "path"; }
+        { name = "buffer"; }
+        { name = "emoji"; }
+        { name = "cmp_ai"; }
       ];
     };
   };
@@ -356,11 +387,12 @@
     data = "${config.xdg.cacheHome}/jdtls/workspace/";
     configuration = "${config.xdg.cacheHome}/jdtls/config";
     initOptions = {
-      bundles = let
-        base_path = "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug";
-        package_json = builtins.fromJSON (builtins.readFile "${base_path}/package.json");
-        jar_paths = builtins.map (e: "${base_path}/${e}") package_json.contributes.javaExtensions;
-      in
+      bundles =
+        let
+          base_path = "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug";
+          package_json = builtins.fromJSON (builtins.readFile "${base_path}/package.json");
+          jar_paths = builtins.map (e: "${base_path}/${e}") package_json.contributes.javaExtensions;
+        in
         jar_paths;
     };
   };
@@ -467,7 +499,7 @@
     lspInterop = {
       enable = true;
       border = "double";
-      floatingPreviewOpts = {};
+      floatingPreviewOpts = { };
       peekDefinitionCode = {
         "<leader>df" = "@function.outer";
         "<leader>dF" = "@class.outer";

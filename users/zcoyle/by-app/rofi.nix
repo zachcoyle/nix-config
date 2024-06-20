@@ -1,8 +1,5 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs, config, ... }:
+let
   # TODO:
   # need to come back to this to make it more general
   # I'd had a nice generalized solution thought out but I
@@ -63,7 +60,8 @@
   text = mkLiteral base07_100;
   # text = mkLiteral base07_100;
   selected_text = mkLiteral base00_100;
-in {
+in
+{
   enable = true;
   package = pkgs.rofi-wayland;
   terminal = "${pkgs.alacritty}/bin/alacritty";
@@ -220,7 +218,12 @@ in {
       padding = 10;
       spacing = 10;
       text-color = text;
-      children = ["prompt" "textbox-prompt-colon" "entry" "case-indicator"];
+      children = [
+        "prompt"
+        "textbox-prompt-colon"
+        "entry"
+        "case-indicator"
+      ];
     };
     case-indicator = {
       spacing = 0;

@@ -4,9 +4,11 @@
   config,
   # hyprland-plugins,
   ...
-}: let
+}:
+let
   gradient_border = "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
-in {
+in
+{
   enable = pkgs.stdenv.isLinux;
   # systemdIntegration = true;
 
@@ -14,8 +16,7 @@ in {
     # hyprland-plugins.packages.${pkgs.system}.hyprtrails
   ];
 
-  extraConfig = ''
-  '';
+  extraConfig = '''';
 
   settings = {
     general = {
@@ -240,9 +241,7 @@ in {
       ", XF86Eject, exec, eject"
     ];
 
-    workspace = [
-      "special:scratchpad, on-created-empty:alacritty"
-    ];
+    workspace = [ "special:scratchpad, on-created-empty:alacritty" ];
 
     layerrule = [
       "blur, ags"
@@ -277,9 +276,7 @@ in {
       "pasystray"
     ];
 
-    env = [
-      "NIXOS_OZONE_WL, 1"
-    ];
+    env = [ "NIXOS_OZONE_WL, 1" ];
   };
 
   xwayland.enable = true;

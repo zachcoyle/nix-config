@@ -1,4 +1,5 @@
-{pkgs}: {
+{ pkgs }:
+{
   enable = true;
 
   package = pkgs.vscodium;
@@ -47,7 +48,7 @@
       library = "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB";
       launch.expressions = "native";
     };
-    apple-swift-format.path = ["swift-format"];
+    apple-swift-format.path = [ "swift-format" ];
     update = {
       mode = "none";
     };
