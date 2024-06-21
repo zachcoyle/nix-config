@@ -106,7 +106,7 @@ in
 
     file =
       {
-        ".config/oils/oshrc" = ''
+        ".config/oils/oshrc".text = ''
           eval "$(starship init bash)"
           set -o vi
         '';
