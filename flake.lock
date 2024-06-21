@@ -1685,12 +1685,12 @@
         "owner": "Zhaith-Izaliel",
         "repo": "sddm-sugar-candy-nix",
         "rev": "b410c02eb404db9456cce766bd3ff7944a86ccb2",
-        "type": "gitlab"
+        "type": "github"
       },
       "original": {
         "owner": "Zhaith-Izaliel",
         "repo": "sddm-sugar-candy-nix",
-        "type": "gitlab"
+        "type": "github"
       }
     },
     "sg-nvim": {
