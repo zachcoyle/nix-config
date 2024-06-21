@@ -190,8 +190,6 @@ in
           nighttab
           react-devtools
           reddit-enhancement-suite
-          reduxdevtools
-          return-youtube-dislikes
           sponsorblock
           stylus
           ublock-origin
@@ -199,24 +197,10 @@ in
           vimium
           vue-js-devtools
           wayback-machine
-          refined-github
-          enhanced-github
         ];
         darwin-package = pkgs.firefox-bin;
         linux-package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
           extraPolicies = {
-            ExtensionSettings = (
-              builtins.listToAttrs (
-                builtins.map (e: {
-                  name = e.addonId;
-                  value = {
-                    allowed = true;
-                    installation_mode = "force_installed";
-                    force_installed = true;
-                  };
-                }) extensions
-              )
-            );
             DisableFirefoxStudies = true;
             DisablePocket = true;
             NoDefaultBookmarks = true;
