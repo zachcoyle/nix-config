@@ -11,6 +11,22 @@
 
     darwin-modules.url = "github:zachcoyle/darwin-modules";
 
+    dustinlyons-modules = {
+      url = "github:dustinlyons/nixos-config";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        darwin.follows = "nix-darwin";
+        disko.follows = "disko";
+        agenix.follows = "";
+        secrets.follows = "";
+        homebrew-bundle.follows = "";
+        homebrew-cask.follows = "";
+        homebrew-core.follows = "";
+        nix-homebrew.follows = "";
+      };
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -368,7 +384,7 @@
               inputs.darwin-modules.darwinModule
               inputs.home-manager.darwinModules.home-manager
               inputs.stylix.darwinModules.stylix
-              ./modules/darwin/dock.nix
+              "${inputs.dustinlyons-modules}/modules/darwin/dock"
               registryModule
               {
                 system.configurationRevision = self.rev or self.dirtyRef or null;

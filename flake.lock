@@ -310,6 +310,41 @@
         "type": "github"
       }
     },
+    "dustinlyons-modules": {
+      "inputs": {
+        "agenix": [],
+        "darwin": [
+          "nix-darwin"
+        ],
+        "disko": [
+          "disko"
+        ],
+        "home-manager": [
+          "home-manager"
+        ],
+        "homebrew-bundle": [],
+        "homebrew-cask": [],
+        "homebrew-core": [],
+        "nix-homebrew": [],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "secrets": []
+      },
+      "locked": {
+        "lastModified": 1718797017,
+        "narHash": "sha256-S0180iNJp8zPDiyFIuwrUvygH4Bv5CuSMEE+gSJyj+s=",
+        "owner": "dustinlyons",
+        "repo": "nixos-config",
+        "rev": "f0120aa2371add5ec6c3792729b805aab5ddd12f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dustinlyons",
+        "repo": "nixos-config",
+        "type": "github"
+      }
+    },
     "erosanix": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -1524,6 +1559,7 @@
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
         "disko": "disko",
+        "dustinlyons-modules": "dustinlyons-modules",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
