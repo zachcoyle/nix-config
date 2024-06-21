@@ -27,6 +27,7 @@ in
     packages = with pkgs; [
       act
       alejandra
+      nixfmt-rfc-style
       asciinema
       baobab
       cachix
