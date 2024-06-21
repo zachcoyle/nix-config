@@ -1227,16 +1227,15 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1718919463,
-        "narHash": "sha256-8sRLknI57b9IUPUrCj5L95PZZpW+zzuUDDyxf21xmsQ=",
-        "owner": "zachcoyle",
+        "lastModified": 1719007440,
+        "narHash": "sha256-ll9zg1P0W8cMk1Co1BOQOrICr9dDgUw+ZL3mGy5GnOg=",
+        "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "68ef79e804710488c4ba158ad14a529b12a65279",
+        "rev": "e6d40db8924c3a663e1f76e0daed09510fea51c3",
         "type": "github"
       },
       "original": {
-        "owner": "zachcoyle",
-        "ref": "t2-linux-6.9.4",
+        "owner": "NixOS",
         "repo": "nixos-hardware",
         "type": "github"
       }

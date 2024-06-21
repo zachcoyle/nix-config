@@ -183,8 +183,7 @@
       flake = false;
     };
 
-    # nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixos-hardware.url = "github:zachcoyle/nixos-hardware/t2-linux-6.9.4";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
