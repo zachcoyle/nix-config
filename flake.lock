@@ -1521,6 +1521,26 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718923189,
+        "narHash": "sha256-hC0o/1SxTxDdHlI+aUpHdglvIU9ka+M/nTaGbWqu92M=",
+        "owner": "outfoxxed",
+        "repo": "quickshell",
+        "rev": "3573663ab648ff793e6ad545b63eaa5979633e51",
+        "type": "github"
+      },
+      "original": {
+        "owner": "outfoxxed",
+        "repo": "quickshell",
+        "type": "github"
+      }
+    },
     "rippkgs": {
       "inputs": {
         "crane": [
@@ -1587,6 +1607,7 @@
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks": "pre-commit-hooks",
         "pyprland": "pyprland",
+        "quickshell": "quickshell",
         "rippkgs": "rippkgs",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sg-nvim": "sg-nvim",
