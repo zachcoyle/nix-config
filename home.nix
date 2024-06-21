@@ -108,11 +108,11 @@ in
     file =
       {
         ".config/oils/oshrc".text = ''
-          if [ $TERM != "dumb" ]; then
+          if [[ $TERM != "dumb" ]]; then
            eval "$(starship init bash)" 
           fi
           eval $(mcfly init bash)
-          eval $(direnv hook zsh)
+          # eval $(direnv hook bash)
           set -o vi
         '';
       }
