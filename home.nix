@@ -199,6 +199,8 @@ in
           vimium
           vue-js-devtools
           wayback-machine
+          refined-github
+          enhanced-github
         ];
         darwin-package = pkgs.firefox-bin;
         linux-package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
@@ -208,7 +210,9 @@ in
                 builtins.map (e: {
                   name = e.addonId;
                   value = {
-                    enabled = true;
+                    allowed = true;
+                    installation_mode = "force_installed";
+                    force_installed = true;
                   };
                 }) extensions
               )
