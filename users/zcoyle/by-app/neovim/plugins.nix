@@ -192,6 +192,7 @@
   hmts.enable = true;
   lsp = {
     enable = true;
+    inlayHints = true;
     preConfig = ''
       vim.fn.sign_define(
         "DiagnosticSignError",
