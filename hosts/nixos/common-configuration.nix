@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
@@ -13,7 +14,6 @@
     };
     opengl = {
       enable = true;
-      driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
@@ -32,9 +32,7 @@
         rocmPackages.rocsparse
         vaapiVdpau
       ];
-      extraPackages32 = with pkgs.driversi686Linux; [
-        amdvlk
-      ];
+      extraPackages32 = with pkgs.driversi686Linux; [ amdvlk ];
     };
   };
 
@@ -50,8 +48,8 @@
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
-    kernelModules = ["wl"];
-    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
+    kernelModules = [ "wl" ];
+    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -62,7 +60,10 @@
         enable = true;
         debug = true;
         mode = "challenge-response";
-        id = ["15732395" "15217433"];
+        id = [
+          "15732395"
+          "15217433"
+        ];
       };
       services = {
         login.u2fAuth = true;
@@ -77,7 +78,7 @@
       enable = true;
       extraRules = [
         {
-          users = ["zcoyle"];
+          users = [ "zcoyle" ];
           keepEnv = true;
           persist = true;
         }
@@ -88,9 +89,12 @@
   networking = {
     networkmanager = {
       enable = true;
-      plugins = [];
+      plugins = [ ];
     };
-    nameservers = ["1.1.1.1" "1.0.0.1"];
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
   };
 
   time.timeZone = "America/Indiana/Indianapolis";
@@ -101,7 +105,10 @@
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
+    pathsToLink = [
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+    ];
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       alacritty
@@ -180,7 +187,7 @@
     redis = {
       enable = true;
       settings = {
-        loadmodule = [];
+        loadmodule = [ ];
       };
     };
 
@@ -221,8 +228,8 @@
   };
 
   stylix =
-    (import ../../theme/stylix.nix {inherit pkgs;})
-    // (import ../../theme/stylix-nixos.nix {inherit pkgs;});
+    (import ../../theme/stylix.nix { inherit pkgs; })
+    // (import ../../theme/stylix-nixos.nix { inherit pkgs; });
 
   system.stateVersion = "24.05";
 
@@ -238,7 +245,7 @@
           "video"
           "wheel"
         ];
-        packages = [];
+        packages = [ ];
         shell = pkgs.zsh;
       };
     };
