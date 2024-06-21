@@ -146,6 +146,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs = {

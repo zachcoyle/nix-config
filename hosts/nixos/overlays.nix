@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   nixpkgs.overlays = [
     inputs.sddm-sugar-candy-nix.overlays.default
     inputs.hypridle.overlays.default
@@ -12,13 +13,10 @@
       logos = inputs.logos.packages.${prev.system}.default;
       pyprland = inputs.pyprland.packages.${prev.system}.default;
       ags = inputs.ags.packages.${prev.system}.default;
+      quickshell = inputs.quickshell.packages.${prev.system}.default;
       # FIXME: https://github.com/NixOS/nixpkgs/issues/298539
-      rofi-calc = prev.rofi-calc.override {
-        rofi-unwrapped = prev.rofi-wayland-unwrapped;
-      };
-      rofi-emoji = prev.rofi-emoji.override {
-        rofi-unwrapped = prev.rofi-wayland-unwrapped;
-      };
+      rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+      rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
     })
   ];
 }
