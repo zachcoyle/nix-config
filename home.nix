@@ -67,6 +67,7 @@ in
       nix-output-monitor
       nix-top
       nix-tree
+      oils-for-unix
       opentofu
       oterm
       pijul
@@ -104,28 +105,36 @@ in
     ];
 
     file =
-      if pkgs.stdenv.isDarwin then
-        {
-          "Library/Application\ Support/neovide/neovide-settings.json".text = lib.mkIf pkgs.stdenv.isDarwin neovide_settings;
-          ".config/borders/bordersrc".executable = true;
-          ".config/borders/bordersrc".text = ''
-            #!/bin/bash
+      {
+        ".config/oils/oshrc" = ''
+          eval "$(starship init bash)"
+          set -o vi
+        '';
+      }
+      // (
+        if pkgs.stdenv.isDarwin then
+          {
+            "Library/Application\ Support/neovide/neovide-settings.json".text = lib.mkIf pkgs.stdenv.isDarwin neovide_settings;
+            ".config/borders/bordersrc".executable = true;
+            ".config/borders/bordersrc".text = ''
+              #!/bin/bash
 
-            options=(
-                style=round
-                width=6.0
-                hidpi=on
-                active_color=0xffebdbb2
-                inactive_color=0xff282828
-                background_color=0x302c2e34
-                blur_radius=25
-            )
+              options=(
+                  style=round
+                  width=6.0
+                  hidpi=on
+                  active_color=0xffebdbb2
+                  inactive_color=0xff282828
+                  background_color=0x302c2e34
+                  blur_radius=25
+              )
 
-            borders "''${options[@]}"
-          '';
-        }
-      else
-        { ".local/share/neovide/neovide-settings.json".text = neovide_settings; };
+              borders "''${options[@]}"
+            '';
+          }
+        else
+          { ".local/share/neovide/neovide-settings.json".text = neovide_settings; }
+      );
   };
 
   programs = {

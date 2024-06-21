@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     git
     neovim
@@ -8,19 +9,13 @@
 
   nix = {
     package = pkgs.nixVersions.latest;
-    gc =
-      {
-        automatic = true;
-        options = "--delete-older-than 7d";
-      }
-      // (
-        if pkgs.stdenv.isLinux
-        then {dates = "weekly";}
-        else {interval.Weekday = 0;}
-      );
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    } // (if pkgs.stdenv.isLinux then { dates = "weekly"; } else { interval.Weekday = 0; });
     settings = {
       experimental-features = "nix-command flakes";
-      trusted-users = ["zcoyle"];
+      trusted-users = [ "zcoyle" ];
       auto-optimise-store = true;
       substituters = [
         "https://zachcoyle.cachix.org"
@@ -39,22 +34,14 @@
     };
   };
 
-  fonts =
-    {
-      packages = with pkgs; [
-        fira
-        fira-code-nerdfont
-        noto-fonts
-        ezra-sil
-        galatia-sil
-        nerdfonts
-      ];
-    }
-    // (
-      if pkgs.stdenv.isLinux
-      then {
-        fontDir.enable = true;
-      }
-      else {}
-    );
+  fonts = {
+    packages = with pkgs; [
+      fira
+      fira-code-nerdfont
+      noto-fonts
+      ezra-sil
+      galatia-sil
+      nerdfonts
+    ];
+  } // (if pkgs.stdenv.isLinux then { fontDir.enable = true; } else { });
 }
