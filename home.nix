@@ -108,7 +108,11 @@ in
     file =
       {
         ".config/oils/oshrc".text = ''
-          eval "$(starship init bash)"
+          if [ $TERM != "dumb" ]; then
+           eval "$(starship init bash)" 
+          fi
+          eval $(mcfly init bash)
+          eval $(direnv hook zsh)
           set -o vi
         '';
       }
