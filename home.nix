@@ -183,9 +183,36 @@ in
 
     firefox =
       let
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          darkreader
+          dearrow
+          firenvim
+          nighttab
+          react-devtools
+          reddit-enhancement-suite
+          reduxdevtools
+          return-youtube-dislikes
+          sponsorblock
+          stylus
+          ublock-origin
+          user-agent-string-switcher
+          vimium
+          vue-js-devtools
+          wayback-machine
+        ];
         darwin-package = pkgs.firefox-bin;
         linux-package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
           extraPolicies = {
+            ExtensionSettings = (
+              builtins.listToAttrs (
+                builtins.map (e: {
+                  name = e.addonId;
+                  value = {
+                    enabled = true;
+                  };
+                }) extensions
+              )
+            );
             DisableFirefoxStudies = true;
             DisablePocket = true;
             NoDefaultBookmarks = true;
@@ -209,22 +236,7 @@ in
         profiles.zcoyle = {
           id = 0;
           name = "zcoyle";
-          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-            darkreader
-            dearrow
-            firenvim
-            nighttab
-            react-devtools
-            reddit-enhancement-suite
-            reduxdevtools
-            sponsorblock
-            stylus
-            ublock-origin
-            user-agent-string-switcher
-            vimium
-            vue-js-devtools
-            wayback-machine
-          ];
+          inherit extensions;
 
           search = {
             force = true;
