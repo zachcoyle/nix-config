@@ -39,9 +39,9 @@
       fira
       fira-code-nerdfont
       noto-fonts
-      ezra-sil
-      galatia-sil
       nerdfonts
+      (pkgs.callPackage ./packages/fonts/ezra-sil.nix { })
+      (pkgs.callPackage ./packages/fonts/galatia-sil.nix { })
     ];
   } // (if pkgs.stdenv.isLinux then { fontDir.enable = true; } else { });
 }
