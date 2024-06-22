@@ -324,6 +324,52 @@
         let
           registryModule.nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
+          common-overlays = {
+            nixpkgs.overlays = [
+              inputs.telescope-just.overlays.default
+              inputs.nix-vscode-extensions.overlays.default
+              inputs.nur.overlay
+              inputs.rippkgs.overlays.default
+              inputs.neovim-plugins-nightly-overlay.overlays.default
+              (_: prev: {
+                inherit (inputs.sg-nvim.legacyPackages.${prev.system}) sg-nvim;
+                inherit (inputs.zls.packages.${prev.system}) zls;
+                ezra-sil = prev.callPackage ../packages/fonts/ezra-sil.nix { };
+                galatia-sil = prev.callPackage ../packages/fonts/galatia-sil.nix { };
+              })
+            ];
+          };
+
+          nixos-overlays = {
+            nixpkgs.overlays = [
+              inputs.sddm-sugar-candy-nix.overlays.default
+              inputs.hypridle.overlays.default
+              inputs.hyprlock.overlays.default
+              inputs.hyprpicker.overlays.default
+              inputs.hyprland.overlays.default
+              inputs.neovim-nightly-overlay.overlays.default
+              inputs.icon-themes-nightly-overlay.overlays.default
+              inputs.xremap-flake.overlays.default
+              (_: prev: {
+                logos = inputs.logos.packages.${prev.system}.default;
+                inherit (inputs.pyprland.packages.${prev.system}) pyprland;
+                inherit (inputs.ags.packages.${prev.system}) ags;
+                inherit (inputs.quickshell.packages.${prev.system}) quickshell;
+                inherit (inputs.libastal.packages.${prev.system}) astal;
+                # FIXME: https://github.com/NixOS/nixpkgs/issues/298539
+                rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+                rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+              })
+            ];
+          };
+
+          darwin-overlays = {
+            nixpkgs.overlays = [
+              inputs.nixpkgs-firefox-darwin.overlay
+              (_: prev: { inherit (inputs.nixpkgs-23-05-darwin.legacyPackages.${prev.system}) neovide; })
+            ];
+          };
+
           common_nixos_config =
             { extraModules }:
             {
@@ -332,8 +378,8 @@
                 inherit inputs;
               };
               modules = [
-                ./hosts/nixos/overlays.nix
-                ./hosts/common-overlays.nix
+                nixos-overlays
+                common-overlays
                 ./common-system.nix
                 inputs.home-manager.nixosModules.home-manager
                 inputs.sddm-sugar-candy-nix.nixosModules.default
@@ -381,13 +427,14 @@
                 }
               ] ++ extraModules;
             };
+
           common_darwin_config = {
             specialArgs = {
               inherit inputs;
             };
             modules = [
-              ./hosts/darwin/overlays.nix
-              ./hosts/common-overlays.nix
+              darwin-overlays
+              common-overlays
               ./common-system.nix
               ./hosts/darwin/common-configuration.nix
               inputs.darwin-modules.darwinModule
