@@ -411,12 +411,7 @@
                     useUserPackages = true;
                     users.zcoyle = import ./home.nix;
                     extraSpecialArgs = {
-                      inherit (inputs)
-                        nixvim
-                        hyprlock
-                        hypridle
-                        hyprland-plugins
-                        ;
+                      inherit (inputs) nixvim;
                     };
                   };
                 }

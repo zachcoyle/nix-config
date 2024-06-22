@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  # hyprland-plugins,
   ...
 }:
 let
@@ -10,13 +9,6 @@ let
 in
 {
   enable = pkgs.stdenv.isLinux;
-  # systemdIntegration = true;
-
-  plugins = [
-    # hyprland-plugins.packages.${pkgs.system}.hyprtrails
-  ];
-
-  extraConfig = '''';
 
   settings = {
     general = {
@@ -36,20 +28,6 @@ in
         "^(kitty)$"
         "^(Alacritty)$"
       ];
-    };
-    plugin = {
-      hyprtrails = {
-        color = "rgba(${config.lib.stylix.colors.base0C}80)";
-      };
-      # hyprexpo = {
-      #   columns = 3;
-      #   gap_size = 5;
-      #   bg_col = "rgb(111111)";
-      #   workspace_method = "center current";
-      #   enable_gesture = true;
-      #   gesture_distance = 300;
-      #   gesture_positive = false;
-      # };
     };
     animations = {
       enabled = true;

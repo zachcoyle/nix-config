@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  hyprland-plugins,
   ...
 }:
 let
@@ -231,14 +230,7 @@ in
     };
   };
 
-  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland {
-    inherit
-      pkgs
-      lib
-      config
-      hyprland-plugins
-      ;
-  };
+  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland { inherit pkgs lib config; };
 
   programs = {
     ags = {
