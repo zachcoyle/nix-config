@@ -976,11 +976,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719014941,
-        "narHash": "sha256-V3saCqEU0VoCz9X/XcguUo83lGCVhQK8IxTxqpHRAFY=",
+        "lastModified": 1719015815,
+        "narHash": "sha256-T/4RKW97JBp33JkJ8G951QBIVk3slBXwfqpnqJCLmKA=",
         "owner": "zachcoyle",
         "repo": "icon-themes-nightly-overlay",
-        "rev": "0a012a385226c318928398009227272acfefae15",
+        "rev": "d08f53b0bf5d261ccd216c3df7757a9de257001e",
         "type": "github"
       },
       "original": {
