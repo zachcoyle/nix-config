@@ -11,9 +11,10 @@
     inputs.xremap-flake.overlays.default
     (_: prev: {
       logos = inputs.logos.packages.${prev.system}.default;
-      pyprland = inputs.pyprland.packages.${prev.system}.default;
-      ags = inputs.ags.packages.${prev.system}.default;
-      quickshell = inputs.quickshell.packages.${prev.system}.default;
+      inherit (inputs.pyprland.packages.${prev.system}) pyprland;
+      inherit (inputs.ags.packages.${prev.system}) ags;
+      inherit (inputs.quickshell.packages.${prev.system}) quickshell;
+      inherit (inputs.libastal.packages.${prev.system}) astal;
       # FIXME: https://github.com/NixOS/nixpkgs/issues/298539
       rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
       rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
