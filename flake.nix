@@ -103,11 +103,6 @@
       };
     };
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     hypridle = {
       url = "github:hyprwm/hypridle";
       inputs = {
