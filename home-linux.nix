@@ -137,6 +137,7 @@ in
       pdfarranger
       playerctl
       pyprland
+      quickshell
       random-emoji
       retroarchFull
       showmethekey
