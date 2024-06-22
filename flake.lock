@@ -946,11 +946,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719015815,
-        "narHash": "sha256-T/4RKW97JBp33JkJ8G951QBIVk3slBXwfqpnqJCLmKA=",
+        "lastModified": 1719097849,
+        "narHash": "sha256-Sq1ja4QvVGKwgujGcVePGWC5Plnj2zTMtXZuKZKeEVM=",
         "owner": "zachcoyle",
         "repo": "icon-themes-nightly-overlay",
-        "rev": "d08f53b0bf5d261ccd216c3df7757a9de257001e",
+        "rev": "80f157ba740a045ab05bf888b137f456acfbf6c4",
         "type": "github"
       },
       "original": {
@@ -1119,11 +1119,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1719014807,
-        "narHash": "sha256-CiS6Dp9hePikuh5E3ZMK7H0CN66bqaQHMN+YBcHTgI8=",
+        "lastModified": 1719097968,
+        "narHash": "sha256-AaVYGbexL1f/Rh9pzmtnVfSHanVwTLiqLtSFaYHjnVk=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "d10916a11bc70be4c331c1951b74b8232b2fa6a9",
+        "rev": "2fd7398a4110b5282264aa47dda475f800b434b9",
         "type": "github"
       },
       "original": {
