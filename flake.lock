@@ -1001,6 +1001,26 @@
         "url": "https://raw.githubusercontent.com/ziglang/zig/0fb2015fd3422fc1df364995f9782dfe7255eccd/doc/langref.html.in"
       }
     },
+    "libastal": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718889419,
+        "narHash": "sha256-pzCbcTRbBNnQOgWICNgKR7eQyXPeCmvGAY+olXGRK/0=",
+        "owner": "astal-sh",
+        "repo": "libastal",
+        "rev": "4e32f62dcd50c545670ef67f9b0f65ed87821426",
+        "type": "github"
+      },
+      "original": {
+        "owner": "astal-sh",
+        "repo": "libastal",
+        "type": "github"
+      }
+    },
     "logos": {
       "inputs": {
         "devshell": "devshell_2",
@@ -1592,6 +1612,7 @@
         "hyprlock": "hyprlock",
         "hyprpicker": "hyprpicker",
         "icon-themes-nightly-overlay": "icon-themes-nightly-overlay",
+        "libastal": "libastal",
         "logos": "logos",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-plugins-nightly-overlay": "neovim-plugins-nightly-overlay",
