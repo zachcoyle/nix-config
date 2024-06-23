@@ -717,11 +717,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1719150233,
-        "narHash": "sha256-HOt6FGQdTRIitp5agm3tnZ/4OYM6RG6KOm3UGMntlrY=",
+        "lastModified": 1719164993,
+        "narHash": "sha256-FABhTnL6CBNrvsHVrEXWYoH+zrNfA4yPmgorQupUSZo=",
         "ref": "refs/heads/main",
-        "rev": "e09addf8dede9a8e7f2dd0e5bb414d3a0d5dc471",
-        "revCount": 4878,
+        "rev": "8a68199a0ceb2894a5d9cc300961c38123ac0312",
+        "revCount": 4879,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1389,11 +1389,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1719153056,
-        "narHash": "sha256-nIp6HOIrPTMeIoaaj8MavebUI1HBeq1iz9P0nzWq1CI=",
+        "lastModified": 1719160963,
+        "narHash": "sha256-hm2XunlO5oD0xh9Z0r1kIQj8UEt1vYeyyFlieN8hkHI=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "46ab9f286d5546781726537039455867a59c19a3",
+        "rev": "72137385988d41b40f749b9203f9ba831f4fbe04",
         "type": "github"
       },
       "original": {
@@ -2057,11 +2057,11 @@
         "zig-overlay": "zig-overlay"
       },
       "locked": {
-        "lastModified": 1719052215,
-        "narHash": "sha256-kWL4LzPps7U/s5n+mQwA80IdRK0gMFhwyGN7Lvx/DyE=",
+        "lastModified": 1719164948,
+        "narHash": "sha256-pXgziR7uWaDY18yCEXltcOExgdcHPReH0r/vmphnMoE=",
         "owner": "zigtools",
         "repo": "zls",
-        "rev": "2e5a2a5959c0ba645fd6bfbf93dc467c32458465",
+        "rev": "9a37d38c2444e39a988f3970b04baae6b5aee61b",
         "type": "github"
       },
       "original": {
