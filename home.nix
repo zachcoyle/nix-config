@@ -474,7 +474,9 @@ in
       };
     };
 
-    mpv.enable = true;
+    # broken on darwin currently
+    mpv.enable = pkgs.stdenv.isLinux;
+
     zathura.enable = true;
   };
 
