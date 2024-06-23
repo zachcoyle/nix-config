@@ -67,11 +67,11 @@ in
       groupbar = {
         font_family = "Fira Sans";
         font_size = 12;
-        text_color = "rgba(${config.lib.stylix.colors.base07}CC)";
-        "col.active" = "rgba(${config.lib.stylix.colors.base00}CC)";
-        "col.inactive" = "rgba(${config.lib.stylix.colors.base03}CC)";
-        "col.locked_active" = "rgba(${config.lib.stylix.colors.base09}CC)";
-        "col.locked_inactive" = "rgba(${config.lib.stylix.colors.base08}CC)";
+        text_color = lib.mkForce "rgba(${config.lib.stylix.colors.base07}CC)";
+        "col.active" = lib.mkForce "rgba(${config.lib.stylix.colors.base00}CC)";
+        "col.inactive" = lib.mkForce "rgba(${config.lib.stylix.colors.base03}CC)";
+        "col.locked_active" = lib.mkForce "rgba(${config.lib.stylix.colors.base09}CC)";
+        "col.locked_inactive" = lib.mkForce "rgba(${config.lib.stylix.colors.base08}CC)";
         height = 22;
       };
     };
