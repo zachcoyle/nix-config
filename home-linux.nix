@@ -125,6 +125,7 @@ in
       libinput-gestures
       libnotify
       libreoffice
+      librepcb
       logos
       makemkv
       networkmanagerapplet
