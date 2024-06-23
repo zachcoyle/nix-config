@@ -261,7 +261,7 @@
           };
         };
       };
-      sourcekit.enable = pkgs.stdenv.isDarwin;
+      sourcekit.enable = false;
       tsserver.enable = true;
       volar.enable = true;
       vuels.enable = true;

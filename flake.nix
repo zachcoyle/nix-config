@@ -325,6 +325,7 @@
               inputs.nix-vscode-extensions.overlays.default
               inputs.nur.overlay
               inputs.rippkgs.overlays.default
+              inputs.neovim-nightly-overlay.overlays.default
               inputs.neovim-plugins-nightly-overlay.overlays.default
               (_: prev: {
                 inherit (inputs.sg-nvim.legacyPackages.${prev.system}) sg-nvim;
@@ -337,7 +338,6 @@
             nixpkgs.overlays = [
               inputs.sddm-sugar-candy-nix.overlays.default
               inputs.hyprland.overlays.default
-              inputs.neovim-nightly-overlay.overlays.default
               inputs.icon-themes-nightly-overlay.overlays.default
               inputs.xremap-flake.overlays.default
               (_: prev: {

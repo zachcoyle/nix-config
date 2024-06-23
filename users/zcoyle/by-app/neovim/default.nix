@@ -39,7 +39,7 @@ in
       ruff
       rustfmt
       stylua
-      swift-format
+      # swift-format
       taplo
       # yamlfix
       yamlfmt

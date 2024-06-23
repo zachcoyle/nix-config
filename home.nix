@@ -88,7 +88,7 @@ in
       sqlite
       sqlitebrowser
       sshfs
-      swift-format
+      # swift-format
       sword
       tealdeer
       transmission
@@ -108,7 +108,7 @@ in
       {
         ".config/oils/oshrc".text = ''
           if [[ $TERM != "dumb" ]]; then
-           eval "$(starship init bash)" 
+           eval "$(starship init bash)"
           fi
           eval $(mcfly init bash)
           # eval $(direnv hook bash)
