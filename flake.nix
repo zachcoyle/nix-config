@@ -448,6 +448,7 @@
                   };
                 };
               }
+              { home-manager.users.zcoyle.imports = [ ./home-darwin.nix ]; }
             ];
           };
         in

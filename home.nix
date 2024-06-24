@@ -5,12 +5,6 @@
   config,
   ...
 }:
-let
-  neovide_settings = builtins.toJSON {
-    frame = "none";
-    title-hidden = true;
-  };
-in
 {
   imports = [ nixvim.homeManagerModules.nixvim ];
 
@@ -104,41 +98,16 @@ in
       zstd
     ];
 
-    file =
-      {
-        ".config/oils/oshrc".text = ''
-          if [[ $TERM != "dumb" ]]; then
-           eval "$(starship init bash)"
-          fi
-          eval $(mcfly init bash)
-          # eval $(direnv hook bash)
-          set -o vi
-        '';
-      }
-      // (
-        if pkgs.stdenv.isDarwin then
-          {
-            "Library/Application\ Support/neovide/neovide-settings.json".text = lib.mkIf pkgs.stdenv.isDarwin neovide_settings;
-            ".config/borders/bordersrc".executable = true;
-            ".config/borders/bordersrc".text = ''
-              #!/bin/bash
-
-              options=(
-                  style=round
-                  width=6.0
-                  hidpi=on
-                  active_color=0xffebdbb2
-                  inactive_color=0xff282828
-                  background_color=0x302c2e34
-                  blur_radius=25
-              )
-
-              borders "''${options[@]}"
-            '';
-          }
-        else
-          { ".local/share/neovide/neovide-settings.json".text = neovide_settings; }
-      );
+    file = {
+      ".config/oils/oshrc".text = ''
+        if [[ $TERM != "dumb" ]]; then
+         eval "$(starship init bash)"
+        fi
+        eval $(mcfly init bash)
+        # eval $(direnv hook bash)
+        set -o vi
+      '';
+    };
   };
 
   programs = {
@@ -180,171 +149,7 @@ in
       '';
     };
 
-    firefox =
-      let
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          darkreader
-          dearrow
-          firenvim
-          nighttab
-          react-devtools
-          reddit-enhancement-suite
-          sponsorblock
-          stylus
-          ublock-origin
-          user-agent-string-switcher
-          vimium
-          vue-js-devtools
-          wayback-machine
-        ];
-        darwin-package = pkgs.firefox-bin;
-        linux-package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
-          extraPolicies = {
-            DisableFirefoxStudies = true;
-            DisablePocket = true;
-            NoDefaultBookmarks = true;
-            FirefoxHome = {
-              Search = true;
-              Pocket = false;
-              TopSites = false;
-              Highlights = false;
-            };
-            UserMessaging = {
-              ExtensionRecommendations = false;
-              SkipOnboarding = true;
-            };
-          };
-        };
-      in
-      {
-        enable = true;
-        package = if pkgs.stdenv.isDarwin then darwin-package else linux-package;
-
-        profiles.zcoyle = {
-          id = 0;
-          name = "zcoyle";
-          inherit extensions;
-
-          search = {
-            force = true;
-            default = "Brave";
-            engines = {
-              Brave = {
-                urls = [ { template = "https://search.brave.com/search?q={searchTerms}"; } ];
-                iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
-                updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = [
-                  "@b"
-                  "@brave"
-                ];
-              };
-              Youtube = {
-                urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
-                updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = [
-                  "@yt"
-                  "@youtube"
-                ];
-              };
-              "Nix Packages" = {
-                urls = [
-                  {
-                    template = "https://search.nixos.org/packages";
-                    params = [
-                      {
-                        name = "channel";
-                        value = "unstable";
-                      }
-                      {
-                        name = "type";
-                        value = "packages";
-                      }
-                      {
-                        name = "query";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@np" ];
-              };
-              "NixOS Options" = {
-                urls = [
-                  {
-                    template = "https://search.nixos.org/options";
-                    params = [
-                      {
-                        name = "channel";
-                        value = "unstable";
-                      }
-                      {
-                        name = "type";
-                        value = "packages";
-                      }
-                      {
-                        name = "query";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@no" ];
-              };
-              "NixOS Wiki" = {
-                urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
-                iconUpdateURL = "https://nixos.wiki/favicon.png";
-                updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = [ "@nw" ];
-              };
-              Ollama = {
-                urls = [ { template = "https://ollama.com/search?q={searchTerms}"; } ];
-                iconUpdateURL = "https://ollama.com/public/icon-32x32.png";
-                updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = [ "@ll" ];
-              };
-              "Wikipedia (en)".metaData.alias = "@wiki";
-              Google.metaData.hidden = true;
-              "Amazon.com".metaData.hidden = true;
-              Bing.metaData.hidden = true;
-              eBay.metaData.hidden = true;
-            };
-          };
-
-          settings = {
-            "general.smoothScroll" = true;
-            # disable alt key bringing up window menu
-            "ui.key.menuAccessKeyFocuses" = false;
-          };
-
-          extraConfig = ''
-            user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-            user_pref("full-screen-api.ignore-widgets", true);
-            user_pref("media.ffmpeg.vaapi.enabled", true);
-            user_pref("media.rdd-vpx.enabled", true);
-            user_pref("apz.overscroll.enabled", true);
-            user_pref("browser.shell.checkDefaultBrowser", false);
-          '';
-
-          userChrome = ''
-            .titlebar-buttonbox-container {
-              display: none !important;
-            }
-            statuspanel[type="overLink"] .statuspanel-label {
-              display: none !important;
-            }
-            #appcontent statuspanel {
-              display: none;
-            }
-            #statuspanel-label {
-              display: none;
-            }
-          '';
-
-          userContent = '''';
-        };
-      };
+    firefox = import ./users/zcoyle/by-app/firefox.nix { inherit pkgs; };
 
     git = {
       enable = true;
@@ -474,7 +279,7 @@ in
       };
     };
 
-    # broken on darwin currently
+    # FIXME: broken on darwin currently
     mpv.enable = pkgs.stdenv.isLinux;
 
     zathura.enable = true;

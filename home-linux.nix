@@ -162,6 +162,7 @@ in
     ];
 
     file = {
+      ".local/share/neovide/neovide-settings.json".text = import ./users/zcoyle/by-app/neovide.nix;
       # ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/hypr/pyprland.toml".source = tomlFormat.generate "pyprland.toml" {
@@ -240,6 +241,24 @@ in
       package = pkgs.ags;
       configDir = ./users/zcoyle/dots/ags;
       extraPackages = [ ];
+    };
+
+    firefox.package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
+      extraPolicies = {
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        NoDefaultBookmarks = true;
+        FirefoxHome = {
+          Search = true;
+          Pocket = false;
+          TopSites = false;
+          Highlights = false;
+        };
+        UserMessaging = {
+          ExtensionRecommendations = false;
+          SkipOnboarding = true;
+        };
+      };
     };
 
     hyprlock = {
