@@ -501,7 +501,7 @@
               dart-sass
               just
               deadnix
-              alejandra
+              nixfmt-rfc-style
               statix
             ];
           };
