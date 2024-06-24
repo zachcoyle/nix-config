@@ -60,6 +60,7 @@ in
   ];
 
   extraConfigLua =
+    # lua
     ''
       vim.cmd [[ aunmenu PopUp.How-to\ disable\ mouse ]]
       vim.cmd [[ aunmenu PopUp.-1- ]]
@@ -144,6 +145,7 @@ in
     + (
       # TODO: all the neovide config could stand to be be tightened up
       if pkgs.stdenv.isDarwin then
+        # lua 
         ''
           -- Helper function for transparency formatting
           local alpha = function()
@@ -155,6 +157,7 @@ in
           vim.g.neovide_background_color = "${withHashtag.base00}" .. alpha()
         ''
       else
+        # lua
         ''
           if vim.fn.exists('g:neovide') ~= 0 then
               vim.g.neovide_transparency = 0.8
@@ -168,18 +171,20 @@ in
         ''
     );
 
-  extraConfigLuaPre = ''
-    local Terminal  = require('toggleterm.terminal').Terminal
+  extraConfigLuaPre = # lua
+    ''
+      local Terminal = require("toggleterm.terminal").Terminal
 
-    local _gitui = Terminal:new({ cmd = "gitui", direction = "float", hidden = true })
+      local _gitui = Terminal:new({ cmd = "gitui", direction = "float", hidden = true })
 
-    function _gitui_toggle()
-      _gitui:toggle()
-    end
-  '';
+      function _gitui_toggle()
+        _gitui:toggle()
+      end
+    '';
 
   extraConfigLuaPost =
     if pkgs.stdenv.isLinux then
+      # lua
       ''
         vim.notify = function(msg, level, opts)
           local log_level = {
