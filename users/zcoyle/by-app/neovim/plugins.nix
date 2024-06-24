@@ -166,6 +166,15 @@
   lualine = {
     enable = true;
     theme = "gruvbox";
+    componentSeparators = {
+      left = "";
+      right = "";
+    };
+    sectionSeparators = {
+      left = "";
+      right = "";
+    };
+
   };
   harpoon = {
     enable = true;
