@@ -200,6 +200,7 @@ in
       ''
     # TODO: darwin
     else
+      # lua
       '''';
 
   options =
