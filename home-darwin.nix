@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  file = {
+  home.file = {
     "Library/Application\ Support/neovide/neovide-settings.json".text = import ./users/zcoyle/by-app/neovide.nix;
     ".config/borders/bordersrc".executable = true;
     ".config/borders/bordersrc".text = ''
