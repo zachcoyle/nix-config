@@ -333,11 +333,12 @@
       experimental = {
         ghost_text = true;
       };
-      snippet.expand = ''
-        function(args)
-          require('luasnip').lsp_expand(args.body)
-        end
-      '';
+      snippet.expand = # lua
+        ''
+          function(args)
+            require('luasnip').lsp_expand(args.body)
+          end
+        '';
       widow = {
         completion.border = [
           "╔"
@@ -400,11 +401,12 @@
   nvim-ufo = {
     enable = true;
     enableGetFoldVirtText = true;
-    providerSelector = ''
-      function(bufnr, filetype, buftype)
-          return {'treesitter', 'indent'}
-      end
-    '';
+    providerSelector = # lua
+      ''
+        function(bufnr, filetype, buftype)
+            return {'treesitter', 'indent'}
+        end
+      '';
   };
   ollama = {
     enable = true;

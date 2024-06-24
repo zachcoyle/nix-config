@@ -53,28 +53,33 @@ in
               "shift"
             ];
             key = "q";
-            command = ''launchctl kickstart -k "gui/''${UID}/homebrew.mxcl.yabai"; skhd --reload'';
+            command = # sh
+              ''launchctl kickstart -k "gui/''${UID}/homebrew.mxcl.yabai"; skhd --reload'';
           }
           # Move focus
           {
             mods = [ "fn" ];
             key = "h";
-            command = "yabai -m window --focus west";
+            command = # sh
+              "yabai -m window --focus west";
           }
           {
             mods = [ "fn" ];
             key = "j";
-            command = "yabai -m window --focus south";
+            command = # sh
+              "yabai -m window --focus south";
           }
           {
             mods = [ "fn" ];
             key = "k";
-            command = "yabai -m window --focus north";
+            command = # sh
+              "yabai -m window --focus north";
           }
           {
             mods = [ "fn" ];
             key = "l";
-            command = "yabai -m window --focus east";
+            command = # sh
+              "yabai -m window --focus east";
           }
           # Swap
           {
@@ -83,7 +88,8 @@ in
               "shift"
             ];
             key = "h";
-            command = "yabai -m window --swap west";
+            command = # sh
+              "yabai -m window --swap west";
           }
           {
             mods = [
@@ -91,7 +97,8 @@ in
               "shift"
             ];
             key = "j";
-            command = "yabai -m window --swap south";
+            command = # sh
+              "yabai -m window --swap south";
           }
           {
             mods = [
@@ -99,7 +106,8 @@ in
               "shift"
             ];
             key = "k";
-            command = "yabai -m window --swap north";
+            command = # sh
+              "yabai -m window --swap north";
           }
           {
             mods = [
@@ -107,7 +115,8 @@ in
               "shift"
             ];
             key = "l";
-            command = "yabai -m window --swap east";
+            command = # sh
+              "yabai -m window --swap east";
           }
           # Move
           {
@@ -116,7 +125,8 @@ in
               "cmd"
             ];
             key = "h";
-            command = "yabai -m window --warp west";
+            command = # sh
+              "yabai -m window --warp west";
           }
           {
             mods = [
@@ -124,7 +134,8 @@ in
               "cmd"
             ];
             key = "j";
-            command = "yabai -m window --warp south";
+            command = # sh
+              "yabai -m window --warp south";
           }
           {
             mods = [
@@ -132,7 +143,8 @@ in
               "cmd"
             ];
             key = "k";
-            command = "yabai -m window --warp north";
+            command = # sh
+              "yabai -m window --warp north";
           }
           {
             mods = [
@@ -140,7 +152,8 @@ in
               "cmd"
             ];
             key = "l";
-            command = "yabai -m window --warp east";
+            command = # sh
+              "yabai -m window --warp east";
           }
           # Balance
           {
@@ -149,7 +162,8 @@ in
               "alt"
             ];
             key = "0";
-            command = "yabai -m space --balance";
+            command = # sh
+              "yabai -m space --balance";
           }
           # Fill
           {
@@ -158,7 +172,8 @@ in
               "alt"
             ];
             key = "up";
-            command = "yabai -m window --grid 1:1:0:0:1:1";
+            command = # sh
+              "yabai -m window --grid 1:1:0:0:1:1";
           }
           # create desktop, move window and follow focus
           {
@@ -167,13 +182,13 @@ in
               "cmd"
             ];
             key = "n";
-            # FIXME:
-            command = lib.concatStringsSep "\n" [
-              ''yabai -m space --create && \''
-              ''index="''$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \''
-              ''yabai -m window --space "''${index}" && \''
-              ''yabai -m space --focus "''${index}''
-            ];
+            command = # sh
+              ''
+                yabai -m space --create && \
+                              index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                              yabai -m window --space "''${index}" && \
+                              yabai -m space --focus "''${index}
+              '';
           }
           # Focus
           {
@@ -182,7 +197,8 @@ in
               "alt"
             ];
             key = "x";
-            command = "yabai -m space --focus recent";
+            command = # sh
+              "yabai -m space --focus recent";
           }
           {
             mods = [
@@ -190,7 +206,8 @@ in
               "alt"
             ];
             key = "1";
-            command = "yabai -m space --focus 1";
+            command = # sh
+              "yabai -m space --focus 1";
           }
           # Move to space and follow focus
           {
@@ -199,7 +216,8 @@ in
               "cmd"
             ];
             key = "2";
-            command = "yabai -m window --space 2; yabai -m space --focus 2";
+            command = # sh
+              "yabai -m window --space 2; yabai -m space --focus 2";
           }
           # Focus monitor
           {
@@ -208,7 +226,8 @@ in
               "alt"
             ];
             key = "z";
-            command = "yabai -m display --focus prev";
+            command = # sh
+              "yabai -m display --focus prev";
           }
           {
             mods = [
@@ -216,7 +235,8 @@ in
               "alt"
             ];
             key = "3";
-            command = "yabai -m display --focus 3";
+            command = # sh
+              "yabai -m display --focus 3";
           }
           {
             mods = [
@@ -224,7 +244,8 @@ in
               "cmd"
             ];
             key = "c";
-            command = "yabai -m window --display next; yabai -m display --focus next";
+            command = # sh
+              "yabai -m window --display next; yabai -m display --focus next";
           }
           {
             mods = [
@@ -232,7 +253,8 @@ in
               "ctrl"
             ];
             key = "a";
-            command = "yabai -m window --move rel:-20:0";
+            command = # sh
+              "yabai -m window --move rel:-20:0";
           }
           {
             mods = [
@@ -240,7 +262,8 @@ in
               "ctrl"
             ];
             key = "s";
-            command = "yabai -m window --move rel:0:20";
+            command = # sh
+              "yabai -m window --move rel:0:20";
           }
           {
             mods = [
@@ -248,7 +271,8 @@ in
               "alt"
             ];
             key = "a";
-            command = "yabai -m window --resize left:-20:0";
+            command = # sh
+              "yabai -m window --resize left:-20:0";
           }
           {
             mods = [
@@ -256,32 +280,38 @@ in
               "alt"
             ];
             key = "w";
-            command = "yabai -m window --resize top:0:-20";
+            command = # sh
+              "yabai -m window --resize top:0:-20";
           }
           {
             mods = [ "alt" ];
             key = "d";
-            command = "yabai -m window --toggle zoom-parent";
+            command = # sh
+              "yabai -m window --toggle zoom-parent";
           }
           {
             mods = [ "alt" ];
             key = "f";
-            command = "yabai -m window --toggle zoom-fullscreen";
+            command = # sh
+              "yabai -m window --toggle zoom-fullscreen";
           }
           {
             mods = [ "alt" ];
             key = "e";
-            command = "yabai -m window --toggle split";
+            command = # sh
+              "yabai -m window --toggle split";
           }
           {
             mods = [ "alt" ];
             key = "t";
-            command = "yabai -m window --toggle float --grid 4:4:1:1:2:2";
+            command = # sh
+              "yabai -m window --toggle float --grid 4:4:1:1:2:2";
           }
           {
             mods = [ "alt" ];
             key = "p";
-            command = "yabai -m window --toggle sticky --toggle pip";
+            command = # sh
+              "yabai -m window --toggle sticky --toggle pip";
           }
           {
             mods = [ "cmd" ];

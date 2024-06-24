@@ -99,14 +99,15 @@
     ];
 
     file = {
-      ".config/oils/oshrc".text = ''
-        if [[ $TERM != "dumb" ]]; then
-         eval "$(starship init bash)"
-        fi
-        eval $(mcfly init bash)
-        # eval $(direnv hook bash)
-        set -o vi
-      '';
+      ".config/oils/oshrc".text = # sh
+        ''
+          if [[ $TERM != "dumb" ]]; then
+           eval "$(starship init bash)"
+          fi
+          eval $(mcfly init bash)
+          # eval $(direnv hook bash)
+          set -o vi
+        '';
     };
   };
 
@@ -134,19 +135,20 @@
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
-      stdlib = ''
-        layout_poetry() {
-          if [[ ! -f pyproject.toml ]]; then
-            log_error 'No pyproject.toml found.  Use `poetry new` or `poetry init` to create one first.'
-            exit 2
-          fi
+      stdlib = # sh
+        ''
+          layout_poetry() {
+            if [[ ! -f pyproject.toml ]]; then
+              log_error 'No pyproject.toml found.  Use `poetry new` or `poetry init` to create one first.'
+              exit 2
+            fi
 
-          local VENV=$(dirname $(poetry run which python))
-          export VIRTUAL_ENV=$(echo "$VENV" | rev | cut -d'/' -f2- | rev)
-          export POETRY_ACTIVE=1
-          PATH_add "$VENV"
-        }
-      '';
+            local VENV=$(dirname $(poetry run which python))
+            export VIRTUAL_ENV=$(echo "$VENV" | rev | cut -d'/' -f2- | rev)
+            export POETRY_ACTIVE=1
+            PATH_add "$VENV"
+          }
+        '';
     };
 
     firefox = import ./users/zcoyle/by-app/firefox.nix { inherit pkgs; };
@@ -210,27 +212,28 @@
         { plugin = battery; }
         { plugin = mode-indicator; }
       ];
-      extraConfig = ''
-        # Smart pane switching with awareness of Vim splits.
-        # See: https://github.com/christoomey/vim-tmux-navigator
-        is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-            | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
-        bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
-        bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
-        bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
-        bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
-        tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
-        if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
-            "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
-        if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
-            "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+      extraConfig = # sh
+        ''
+          # Smart pane switching with awareness of Vim splits.
+          # See: https://github.com/christoomey/vim-tmux-navigator
+          is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+              | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
+          bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
+          bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
+          bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
+          bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
+          tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+          if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+              "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+          if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+              "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
 
-        bind-key -T copy-mode-vi 'C-h' select-pane -L
-        bind-key -T copy-mode-vi 'C-j' select-pane -D
-        bind-key -T copy-mode-vi 'C-k' select-pane -U
-        bind-key -T copy-mode-vi 'C-l' select-pane -R
-        bind-key -T copy-mode-vi 'C-\' select-pane -l
-      '';
+          bind-key -T copy-mode-vi 'C-h' select-pane -L
+          bind-key -T copy-mode-vi 'C-j' select-pane -D
+          bind-key -T copy-mode-vi 'C-k' select-pane -U
+          bind-key -T copy-mode-vi 'C-l' select-pane -R
+          bind-key -T copy-mode-vi 'C-\' select-pane -l
+        '';
     };
 
     vscode = import ./users/zcoyle/by-app/vscode.nix { inherit pkgs; };

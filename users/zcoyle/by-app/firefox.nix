@@ -117,29 +117,31 @@ in
       "ui.key.menuAccessKeyFocuses" = false;
     };
 
-    extraConfig = ''
-      user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-      user_pref("full-screen-api.ignore-widgets", true);
-      user_pref("media.ffmpeg.vaapi.enabled", true);
-      user_pref("media.rdd-vpx.enabled", true);
-      user_pref("apz.overscroll.enabled", true);
-      user_pref("browser.shell.checkDefaultBrowser", false);
-    '';
+    extraConfig = # javascript
+      ''
+        user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+        user_pref("full-screen-api.ignore-widgets", true);
+        user_pref("media.ffmpeg.vaapi.enabled", true);
+        user_pref("media.rdd-vpx.enabled", true);
+        user_pref("apz.overscroll.enabled", true);
+        user_pref("browser.shell.checkDefaultBrowser", false);
+      '';
 
-    userChrome = ''
-      .titlebar-buttonbox-container {
-        display: none !important;
-      }
-      statuspanel[type="overLink"] .statuspanel-label {
-        display: none !important;
-      }
-      #appcontent statuspanel {
-        display: none;
-      }
-      #statuspanel-label {
-        display: none;
-      }
-    '';
+    userChrome = # css
+      ''
+        .titlebar-buttonbox-container {
+          display: none !important;
+        }
+        statuspanel[type="overLink"] .statuspanel-label {
+          display: none !important;
+        }
+        #appcontent statuspanel {
+          display: none;
+        }
+        #statuspanel-label {
+          display: none;
+        }
+      '';
 
     userContent = '''';
   };

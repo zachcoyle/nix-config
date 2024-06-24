@@ -60,8 +60,8 @@ in
   ];
 
   extraConfigLua =
-    # lua
-    ''
+    '''' # lua
+    + ''
       vim.cmd [[ aunmenu PopUp.How-to\ disable\ mouse ]]
       vim.cmd [[ aunmenu PopUp.-1- ]]
       --------------------------------------
@@ -81,29 +81,29 @@ in
       --------------------------------------
       require("telescope").load_extension("refactoring")
       --------------------------------------
-      require("sg").setup {
-        enable_cody = true
-      }
-      --------------------------------------
+      require("sg").setup({
+        enable_cody = true,
+      })
 
+      --------------------------------------
       -- make telescope projects appear when started without args
-      vim.api.nvim_create_autocmd('UIEnter', {
-        group = vim.api.nvim_create_augroup('Dashboard', { clear = true }),
+      vim.api.nvim_create_autocmd("UIEnter", {
+        group = vim.api.nvim_create_augroup("Dashboard", { clear = true }),
         callback = function()
           if
             vim.fn.argc() == 0
             and vim.api.nvim_buf_line_count(0) == 1
             and vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] == ""
           then
-            require("telescope").extensions.projects.projects{}
+            require("telescope").extensions.projects.projects({})
           end
         end,
       })
 
-      local dropbar_sources = require('dropbar.sources')
-      local dropbar_utils = require('dropbar.utils')
+      local dropbar_sources = require("dropbar.sources")
+      local dropbar_utils = require("dropbar.utils")
 
-      require('dropbar').setup({
+      require("dropbar").setup({
         bar = {
           sources = {
             dropbar_utils.source.fallback({
@@ -116,14 +116,15 @@ in
 
       --------------------------------------
       local highlight = {
-          "RainbowYellow",
-          "RainbowBlue",
-          "RainbowOrange",
-          "RainbowGreen",
-          "RainbowViolet",
-          "RainbowCyan",
-          "RainbowRed",
+        "RainbowYellow",
+        "RainbowBlue",
+        "RainbowOrange",
+        "RainbowGreen",
+        "RainbowViolet",
+        "RainbowCyan",
+        "RainbowRed",
       }
+
       local hooks = require "ibl.hooks"
       -- create the highlight groups in the highlight setup hook, so they are reset
       -- every time the colorscheme changes
