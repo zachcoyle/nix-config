@@ -332,11 +332,11 @@
         "secrets": []
       },
       "locked": {
-        "lastModified": 1719187410,
-        "narHash": "sha256-ISf4PLSNktc28Yi9F8lWIyIGlouFKfJdgijBsJiZrGg=",
+        "lastModified": 1719254569,
+        "narHash": "sha256-mP9hAhRkVqv5ZME0fry54M5y9Erp/Nu8cIXCi1vFXXs=",
         "owner": "dustinlyons",
         "repo": "nixos-config",
-        "rev": "486df5f83596d24f04428db61c05c7cfbda2bd12",
+        "rev": "09d3eab5fbcc345011f9072353bf17db58d0181b",
         "type": "github"
       },
       "original": {
@@ -1389,11 +1389,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1719249443,
-        "narHash": "sha256-pVxxDqPu+BIABdLiHgAyq2KPTOJFKF85XpFW3JNjkoE=",
+        "lastModified": 1719258314,
+        "narHash": "sha256-9vk2lmLfq5eqQ/INOoGRp46fwpGUCvkboZr4x418XpA=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "5759f55f61b31cca0bf3bf0c0aaf876bb06aee05",
+        "rev": "c2836da9bb8837dd2314da335746a16b0c1423f5",
         "type": "github"
       },
       "original": {
