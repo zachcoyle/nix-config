@@ -240,7 +240,7 @@
       pyright.enable = true;
       ruff-lsp.enable = true;
       rust-analyzer = {
-        enable = false;
+        enable = true;
         installRustc = true;
         installCargo = true;
         settings = {
