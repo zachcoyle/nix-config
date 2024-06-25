@@ -128,6 +128,9 @@
   };
 
   programs = {
+
+    adb.enable = true;
+
     hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -184,18 +187,18 @@
 
     gnome.gnome-keyring.enable = true;
 
-    redis = {
-      enable = true;
-      settings = {
-        loadmodule = [ ];
-      };
-    };
-
     libinput = {
       enable = true;
       touchpad = {
         disableWhileTyping = true;
       };
+    };
+
+    openssh.enable = true;
+
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
     };
 
     printing.enable = true;
@@ -211,20 +214,24 @@
       jack.enable = true;
     };
 
+    redis = {
+      enable = true;
+      settings = {
+        loadmodule = [ ];
+      };
+    };
+
+    udisks2.enable = true;
+
+    udev.packages = [ pkgs.android-udev-rules ];
+
+    upower.enable = true;
+
     usbmuxd = {
       enable = true;
       package = pkgs.usbmuxd2;
     };
 
-    openssh.enable = true;
-
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-    };
-
-    udisks2.enable = true;
-    upower.enable = true;
   };
 
   stylix =
@@ -243,6 +250,8 @@
           "input"
           "networkmanager"
           "video"
+          "kvm"
+          "adbusers"
           "wheel"
         ];
         packages = [ ];
