@@ -810,6 +810,32 @@
         "type": "github"
       }
     },
+    "hyprpaper": {
+      "inputs": {
+        "hyprlang": [
+          "hyprlang"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems-linux"
+        ]
+      },
+      "locked": {
+        "lastModified": 1717919427,
+        "narHash": "sha256-50HWM67p81v+dhvcOS0UFQiPGh8McUHs40UGqkz6s9I=",
+        "owner": "hyprwm",
+        "repo": "hyprpaper",
+        "rev": "f4abf5902f3f0c51d2aab8a521f7c1b1b08afd64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprpaper",
+        "type": "github"
+      }
+    },
     "hyprpicker": {
       "inputs": {
         "nixpkgs": [
@@ -1579,6 +1605,7 @@
         "hyprland": "hyprland",
         "hyprlang": "hyprlang",
         "hyprlock": "hyprlock",
+        "hyprpaper": "hyprpaper",
         "hyprpicker": "hyprpicker",
         "icon-themes-nightly-overlay": "icon-themes-nightly-overlay",
         "libastal": "libastal",

@@ -126,6 +126,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
+        hyprlang.follows = "hyprlang";
+      };
+    };
+
     pyprland = {
       url = "github:hyprland-community/pyprland";
       inputs = {
@@ -345,6 +354,7 @@
                 inherit (inputs.hypridle.packages.${prev.system}) hypridle;
                 inherit (inputs.hyprlock.packages.${prev.system}) hyprlock;
                 inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
+                inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
                 inherit (inputs.libastal.packages.${prev.system}) astal;
                 inherit (inputs.pyprland.packages.${prev.system}) pyprland;
                 inherit (inputs.quickshell.packages.${prev.system}) quickshell;
