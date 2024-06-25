@@ -330,4 +330,9 @@
       "t"
     ];
   }
+  {
+    key = "s";
+    action.__raw = # lua
+      ''require("flash").remote'';
+  }
 ]

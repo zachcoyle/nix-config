@@ -138,6 +138,9 @@
   emmet = {
     enable = true;
   };
+  flash = {
+    enable = true;
+  };
   friendly-snippets.enable = true;
   fzf-lua = {
     enable = true;
@@ -180,7 +183,6 @@
     };
   };
   indent-blankline.enable = true;
-  leap.enable = true;
   lualine = {
     enable = true;
     theme = "gruvbox";
