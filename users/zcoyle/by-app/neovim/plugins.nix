@@ -139,6 +139,24 @@
     enable = true;
   };
   friendly-snippets.enable = true;
+  fzf-lua = {
+    enable = true;
+    profile = "max-perf";
+    keymaps = {
+      "<leader>fp" = {
+        action = "git_files";
+        options = {
+          desc = "Fzf-Lua Git Files";
+          silent = true;
+        };
+        settings = {
+          previewers.cat.cmd = "${pkgs.coreutils}/bin/cat";
+          winopts.height = 0.5;
+        };
+      };
+      "<leader>fg" = "live_grep";
+    };
+  };
   git-worktree = {
     enable = true;
     enableTelescope = true;
@@ -371,13 +389,20 @@
         ];
       };
       mapping = {
-        "<C-Space>" = "cmp.mapping.complete()";
-        "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-        "<C-e>" = "cmp.mapping.close()";
-        "<C-f>" = "cmp.mapping.scroll_docs(4)";
-        "<CR>" = "cmp.mapping.confirm({ select = true })";
-        "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-        "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+        "<C-Space>" = # lua
+          "cmp.mapping.complete()";
+        "<C-d>" = # lua
+          "cmp.mapping.scroll_docs(-4)";
+        "<C-e>" = # lua
+          "cmp.mapping.close()";
+        "<C-f>" = # lua
+          "cmp.mapping.scroll_docs(4)";
+        "<CR>" = # lua
+          "cmp.mapping.confirm({ select = true })";
+        "<S-Tab>" = # lua
+          ''cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" })'';
+        "<Tab>" = # lua
+          ''cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" })'';
       };
       sources = [
         { name = "nvim_lsp"; }
