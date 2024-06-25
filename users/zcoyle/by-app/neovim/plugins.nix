@@ -33,6 +33,7 @@
       ];
       "_" = [ "trim_whitespace" ];
       css = [ "prettierd" ];
+      dart = [ "dart_format" ];
       go = [ "gofumpt" ];
       graphql = [ "prettierd" ];
       javascript = [ "prettierd" ];
