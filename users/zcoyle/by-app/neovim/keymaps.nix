@@ -33,7 +33,8 @@
   }
   {
     key = "<leader>ch";
-    action = ":noh<cr>";
+    action = # vim
+      ":noh<cr>";
     options = {
       silent = true;
       desc = "Clear Highlights";
@@ -41,7 +42,8 @@
   }
   {
     key = "<leader>ca";
-    action.__raw = "vim.lsp.buf.code_action";
+    action.__raw = # lua
+      "vim.lsp.buf.code_action";
     options = {
       silent = true;
       desc = "LSP Code Actions";
@@ -49,7 +51,8 @@
   }
   {
     key = "<leader>rn";
-    action.__raw = "vim.lsp.buf.rename";
+    action.__raw = # lua
+      "vim.lsp.buf.rename";
     options = {
       silent = true;
       desc = "LSP Rename";
@@ -57,7 +60,8 @@
   }
   {
     key = "zR";
-    action.__raw = "require('ufo').openAllFolds";
+    action.__raw = # lua
+      "require('ufo').openAllFolds";
     options = {
       silent = true;
       desc = "UFO Open All Folds";
@@ -65,7 +69,8 @@
   }
   {
     key = "zM";
-    action.__raw = "require('ufo').closeAllFolds";
+    action.__raw = # lua
+      "require('ufo').closeAllFolds";
     options = {
       silent = true;
       desc = "UFO Close All Folds";
@@ -73,7 +78,8 @@
   }
   {
     key = "zr";
-    action.__raw = "require('ufo').openFoldsExceptKinds";
+    action.__raw = # lua
+      "require('ufo').openFoldsExceptKinds";
     options = {
       silent = true;
       desc = "UFO Open Folds Except Kinds";
@@ -81,7 +87,8 @@
   }
   {
     key = "zm";
-    action.__raw = "require('ufo').closeFoldsWith";
+    action.__raw = # lua
+      "require('ufo').closeFoldsWith";
     options = {
       silent = true;
       desc = "Close Folds With";
@@ -89,7 +96,8 @@
   }
   {
     key = "<leader>dc";
-    action = ":DapContinue<cr>";
+    action = # vim
+      ":DapContinue<cr>";
     options = {
       silent = true;
       desc = "DAP Continue";
@@ -97,7 +105,8 @@
   }
   {
     key = "<leader>dt";
-    action.__raw = "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
+    action.__raw = # lua
+      "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
     options = {
       silent = true;
       desc = "DAPUI Toggle";
@@ -105,7 +114,8 @@
   }
   {
     key = "<leader>th";
-    action = ":Telescope harpoon marks<cr>";
+    action = # vim
+      ":Telescope harpoon marks<cr>";
     options = {
       silent = true;
       desc = "Telescope Harpoon Marks";
@@ -113,7 +123,8 @@
   }
   {
     key = "<leader>tr";
-    action.__raw = "require('refactoring').select_refactor";
+    action.__raw = # lua
+      "require('refactoring').select_refactor";
     options = {
       silent = true;
       desc = "Telescope Refactor";
@@ -121,7 +132,8 @@
   }
   {
     key = "<leader>tu";
-    action.__raw = "require('telescope').extensions.undo.undo";
+    action.__raw = # lua
+      "require('telescope').extensions.undo.undo";
     options = {
       silent = true;
       desc = "Telescope Undo";
@@ -129,14 +141,16 @@
   }
   {
     key = "<leader>tf";
-    action.__raw = "require('telescope').extensions.file_browser.file_browser";
+    action.__raw = # lua
+      "require('telescope').extensions.file_browser.file_browser";
     options = {
       silent = true;
       desc = "Telecope File Browser";
     };
   }
   {
-    action.__raw = "require('just').just";
+    action.__raw = # lua
+      "require('just').just";
     key = "<leader>tj";
     options = {
       silent = true;
@@ -145,7 +159,8 @@
   }
   {
     key = "<leader>tl";
-    action.__raw = "require('trouble.sources.telescope').open";
+    action.__raw = # lua
+      "require('trouble.sources.telescope').open";
     options = {
       silent = true;
       desc = "Telescope Trouble";
@@ -153,7 +168,8 @@
   }
   {
     key = "<leader>td";
-    action = ":TodoTelescope<cr>";
+    action = # vim
+      ":TodoTelescope<cr>";
     options = {
       silent = true;
       desc = "Telescope Todos";
@@ -161,7 +177,8 @@
   }
   {
     key = "<leader>tp";
-    action = ":Telescope projects<cr>";
+    action = # vim
+      ":Telescope projects<cr>";
     options = {
       silent = true;
       desc = "Telescope Projects";
@@ -169,7 +186,8 @@
   }
   {
     key = "]t";
-    action.__raw = "require('todo-comments').jump_next";
+    action.__raw = # lua
+      "require('todo-comments').jump_next";
     options = {
       silent = true;
       desc = "Jump to Next TODO";
@@ -178,7 +196,8 @@
   }
   {
     key = "[t";
-    action.__raw = "require('todo-comments').jump_prev";
+    action.__raw = # lua
+      "require('todo-comments').jump_prev";
     options = {
       silent = true;
       desc = "Jump to Previous TODO";
@@ -187,7 +206,8 @@
   }
   {
     key = "K";
-    action.__raw = "function() vim.cmd[[ Lspsaga hover_doc ]] end";
+    action.__raw = # lua
+      "function() vim.cmd[[ Lspsaga hover_doc ]] end";
     options = {
       silent = false;
       desc = "LSP Hover";
@@ -195,7 +215,8 @@
   }
   {
     key = "<leader>di";
-    action.__raw = "require('dap.ui.widgets').hover";
+    action.__raw = # lua
+      "require('dap.ui.widgets').hover";
     options = {
       silent = true;
       desc = "DAPUI Hover/Inspect";
@@ -203,7 +224,8 @@
   }
   {
     key = ";";
-    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
+    action.__raw = # lua
+      "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
     options = {
       silent = true;
       desc = "Repeat Last Move Next";
@@ -216,7 +238,8 @@
   }
   {
     key = ",";
-    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
+    action.__raw = # lua
+      "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
     options = {
       silent = true;
       desc = "Repeat Last Move Previous";
@@ -229,7 +252,8 @@
   }
   {
     key = "f";
-    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
+    action.__raw = # lua
+      "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
     options = {
       silent = true;
       desc = "fancy f";
@@ -242,7 +266,8 @@
   }
   {
     key = "F";
-    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
+    action.__raw = # lua
+      "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
     options = {
       silent = true;
       desc = "fancy F";
@@ -255,7 +280,8 @@
   }
   {
     key = "t";
-    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
+    action.__raw = # lua
+      "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
     options = {
       silent = true;
       desc = "fancy t";
@@ -268,7 +294,8 @@
   }
   {
     key = "T";
-    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
+    action.__raw = # lua
+      "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
     options = {
       silent = true;
       desc = "fancy T";
@@ -281,7 +308,8 @@
   }
   {
     key = "<leader>go";
-    action.__raw = "require('neogit').open";
+    action.__raw = # lua
+      "require('neogit').open";
     options = {
       silent = true;
       desc = "Open Neogit";
@@ -290,7 +318,8 @@
   }
   {
     key = "<leader>nb";
-    action = ":Navbuddy<cr>";
+    action = # vim
+      ":Navbuddy<cr>";
     options = {
       silent = true;
       desc = "Open Navbuddy";
@@ -298,7 +327,8 @@
   }
   {
     key = "<leader>oo";
-    action = ":<c-u>lua require('ollama').prompt()<cr>";
+    action = # vim
+      ":<c-u>lua require('ollama').prompt()<cr>";
     options = {
       desc = "ollama prompt";
     };
@@ -309,7 +339,8 @@
   }
   {
     key = "<leader>oG";
-    action = ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>";
+    action = # vim
+      ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>";
     options = {
       desc = "ollama Generate Code";
     };
@@ -320,7 +351,8 @@
   }
   {
     key = "<c-g>";
-    action.__raw = "_gitui_toggle";
+    action.__raw = # lua
+      "_gitui_toggle";
     options = {
       silent = true;
       desc = "Open GitUI";
