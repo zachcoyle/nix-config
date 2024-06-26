@@ -214,6 +214,7 @@
 
     redis = {
       enable = true;
+      package = pkgs.valkey;
       settings = {
         loadmodule = [ ];
       };
