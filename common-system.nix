@@ -9,10 +9,6 @@
 
   nix = {
     package = pkgs.nixVersions.latest;
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    } // (if pkgs.stdenv.isLinux then { dates = "weekly"; } else { interval.Weekday = 0; });
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = [ "zcoyle" ];

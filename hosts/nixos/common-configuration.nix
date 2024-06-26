@@ -139,10 +139,11 @@
 
     nh = {
       enable = true;
-      # clean = {
-      #   enable = true;
-      #   extraArgs = "--keep-since 4d --keep 3";
-      # };
+      clean = {
+        enable = true;
+        dates = "daily";
+        extraArgs = "--keep-since 2d --keep 5"; # "--nogcroots"
+      };
       flake = "/home/zcoyle/Developer/github.com/zachcoyle/nix-config";
     };
 
