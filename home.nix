@@ -59,6 +59,7 @@
       moreutils
       neovide
       nh
+      nix-btm
       nix-melt
       nix-output-monitor
       nix-tree

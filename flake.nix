@@ -311,6 +311,15 @@
       };
     };
 
+    nix-btm = {
+      url = "github:DieracDelta/nix-btm";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        utils.follows = "flake-utils";
+        # fenix.follows = "fenix";
+      };
+    };
+
     logos.url = "github:zachcoyle/logos.nix";
   };
 
@@ -336,9 +345,11 @@
               inputs.rippkgs.overlays.default
               inputs.neovim-nightly-overlay.overlays.default
               inputs.neovim-plugins-nightly-overlay.overlays.default
+
               (_: prev: {
                 inherit (inputs.sg-nvim.legacyPackages.${prev.system}) sg-nvim;
                 inherit (inputs.zls.packages.${prev.system}) zls;
+                inherit (inputs.nix-btm.packages.${prev.system}) nix-btm;
               })
             ];
           };
