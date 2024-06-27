@@ -20,7 +20,7 @@
         system = "x86_64-linux";
         protocol = "ssh-ng";
         maxJobs = 6;
-        speedFactor = 0.5;
+        speedFactor = 1;
         supportedFeatures = [
           "nixos-test"
           "benchmark"
