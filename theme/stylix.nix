@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   enable = true;
-  image = ./wallpapers/wallhaven-6k5m8x.png;
+  image = ./wallpapers/solarized/tpveste801k81.png;
   polarity = "dark";
   base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
   fonts = {
