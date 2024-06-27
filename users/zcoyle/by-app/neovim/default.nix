@@ -57,11 +57,15 @@ in
     tint-nvim
     yuck-vim
     firenvim
+    nvim-solarized-lua
   ];
 
   extraConfigLua =
     '''' # lua
     + ''
+      -- TODO: PR solarized into nixvim
+      vim.cmd.colorscheme 'solarized'
+      --------------------------------------
       vim.cmd [[ aunmenu PopUp.How-to\ disable\ mouse ]]
       vim.cmd [[ aunmenu PopUp.-1- ]]
       --------------------------------------
@@ -205,6 +209,7 @@ in
 
   options =
     {
+      background = "dark";
       clipboard = "unnamedplus";
       exrc = true; # (.exrc, .nvimrc, .nvim.lua)
       fillchars = {

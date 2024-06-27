@@ -186,7 +186,7 @@
   indent-blankline.enable = true;
   lualine = {
     enable = true;
-    theme = "gruvbox";
+    theme = "solarized";
     componentSeparators = {
       left = "";
       right = "";
