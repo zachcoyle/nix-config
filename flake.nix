@@ -247,6 +247,7 @@
         devshell.follows = "devshell";
         flake-parts.follows = "flake-parts";
         crane.follows = "crane";
+        fenix.follows = "fenix";
       };
     };
 
@@ -311,12 +312,17 @@
       };
     };
 
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-btm = {
       url = "github:DieracDelta/nix-btm/0.2.0";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         utils.follows = "flake-utils";
-        # fenix.follows = "fenix";
+        fenix.follows = "fenix";
       };
     };
 
