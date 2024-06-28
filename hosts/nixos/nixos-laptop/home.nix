@@ -1,9 +1,10 @@
 let
   wallpaperDir = ../../../theme/wallpapers;
-in {
+in
+{
   home-manager.users.zcoyle.wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "swww img ${wallpaperDir}/platform.jpg --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
+      "swww img ${wallpaperDir}/platform.png --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
     ];
     bind = [
       "SUPER, P, exec, swww img ${wallpaperDir}/`ls ${wallpaperDir} | shuf -n 1` --transition-fps 60 --transition-type grow --transition-pos 2622,1470"
