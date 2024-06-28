@@ -165,17 +165,7 @@
 
     firefox = import ./users/zcoyle/by-app/firefox.nix { inherit pkgs; };
 
-    fish = {
-      enable = true;
-    };
-
-    foot = {
-      enable = true;
-      settings = {
-        main.term = "xterm-256color";
-        mouse.hide-when-typing = "yes";
-      };
-    };
+    fish.enable = true;
 
     git = {
       enable = true;
