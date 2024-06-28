@@ -155,6 +155,7 @@ in
       waypipe
       wdisplays
       wev
+      wf-recorder
       wl-clipboard
       wlsunset
       xdg-utils

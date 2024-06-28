@@ -6,6 +6,17 @@
 }:
 let
   gradient_border = "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
+  toggle_recording =
+    pkgs.writeScriptBin "toggle_recording.sh" # sh
+      ''
+        PID="$(pidof wf-recorder)"
+
+        if [ -n "$PID" ]; then
+            kill -s INT "$PID"
+        else
+            wf-recorder -g "$(slurp)" -f "$XDG_VIDEOS_DIR/recording_$(date +"%Y-%m-%d_%H:%M:%S.mp4")"
+        fi
+      '';
 in
 {
   enable = pkgs.stdenv.isLinux;
@@ -134,8 +145,9 @@ in
       "SUPER, 8, workspace, 8"
       "SUPER, 9, workspace, 9"
       "SUPER, 0, workspace, 10"
-      "SUPER_SHIFT, 4, exec, grim -g \"$(slurp)\""
       "SUPER_SHIFT, 3, exec, grim"
+      ''SUPER_SHIFT, 4, exec, grim -g "$(slurp)"''
+      "SUPER_SHIFT, 5, exec, ${toggle_recording}/bin/toggle_recording.sh"
 
       "SUPER, G, togglegroup"
       "SUPER, N, changegroupactive"
