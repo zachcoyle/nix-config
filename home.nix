@@ -8,6 +8,8 @@
 {
   imports = [ nixvim.homeManagerModules.nixvim ];
 
+  nix.settings.use-xdg-base-directories = true;
+
   stylix = {
     targets = {
       nixvim.enable = false;

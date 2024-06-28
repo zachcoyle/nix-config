@@ -13,6 +13,7 @@
       experimental-features = "nix-command flakes";
       trusted-users = [ "zcoyle" ];
       auto-optimise-store = true;
+      use-xdg-base-directories = true;
       substituters = [
         "https://zachcoyle.cachix.org"
         "https://nix-community.cachix.org"
