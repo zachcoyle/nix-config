@@ -266,32 +266,57 @@
         plugins = [ "vi-mode" ];
       };
 
-      sessionVariables = {
-        # GNUPGHOME = ''"$XDG_DATA_HOME"/gnupg'';
-        _JAVA_OPTIONS = ''-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java'';
-        ANDROID_HOME = ''"$XDG_DATA_HOME"/android/sdk'';
-        ANDROID_USER_HOME = ''"$XDG_DATA_HOME"/android'';
-        BROWSER = "firefox";
-        CARGO_HOME = ''"$XDG_DATA_HOME"/cargo'';
-        DVDCSS_CACHE = ''"$XDG_DATA_HOME"/dvdcss'';
-        EDITOR = "nvim";
-        GITGET_ROOT = "~/Developer";
-        GTK2_RC_FILES = ''"$XDG_CONFIG_HOME"/gtk-2.0/gtkrc'';
-        REDISCLI_HISTFILE = ''"$XDG_DATA_HOME"/redis/rediscli_history'';
-        XCURSOR_SIZE = 24;
-      };
+      sessionVariables =
+        {
+          BROWSER = "firefox";
+          EDITOR = "nvim";
+          GITGET_ROOT = "~/Developer";
+          XCURSOR_SIZE = 24;
+        }
+        // {
+          # xdg-ninja recommendations
+
+          # TODO:
+          # GNUPGHOME = # sh
+          #   ''"$XDG_DATA_HOME"/gnupg'';
+
+          _JAVA_OPTIONS = # sh
+            ''-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java'';
+          ANDROID_HOME = # sh
+            ''"$XDG_DATA_HOME"/android/sdk'';
+          ANDROID_USER_HOME = # sh
+            ''"$XDG_DATA_HOME"/android'';
+          CARGO_HOME = # sh
+            ''"$XDG_DATA_HOME"/cargo'';
+          DVDCSS_CACHE = # sh
+            ''"$XDG_DATA_HOME"/dvdcss'';
+          GTK2_RC_FILES = # sh
+            ''"$XDG_CONFIG_HOME"/gtk-2.0/gtkrc'';
+          REDISCLI_HISTFILE = # sh
+            ''"$XDG_DATA_HOME"/redis/rediscli_history'';
+        };
 
       shellAliases = {
-        adb = ''HOME="$XDG_DATA_HOME"/android adb'';
-        cat = "bat";
-        gl = "git log --one-line --graph | head -n 50";
-        j = "z";
-        nix-top = "nix-btm";
-        repos = "lsd --tree --depth 3 ~/Developer";
-        tree = "lsd --tree";
-        vi = "nvim";
-        vim = "nvim";
-        yarn = "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config";
+        adb = # sh
+          ''HOME="$XDG_DATA_HOME"/android adb'';
+        cat = # sh
+          "bat";
+        gl = # sh
+          "git log --one-line --graph | head -n 50";
+        j = # sh
+          "z";
+        nix-top = # sh
+          "nix-btm";
+        repos = # sh
+          "lsd --tree --depth 3 ~/Developer";
+        tree = # sh
+          "lsd --tree";
+        vi = # sh
+          "nvim";
+        vim = # sh
+          "nvim";
+        yarn = # sh
+          "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config";
       };
     };
 
