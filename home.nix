@@ -267,21 +267,31 @@
       };
 
       sessionVariables = {
+        # GNUPGHOME = ''"$XDG_DATA_HOME"/gnupg'';
+        _JAVA_OPTIONS = ''-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java'';
+        ANDROID_HOME = ''"$XDG_DATA_HOME"/android/sdk'';
+        ANDROID_USER_HOME = ''"$XDG_DATA_HOME"/android'';
         BROWSER = "firefox";
+        CARGO_HOME = ''"$XDG_DATA_HOME"/cargo'';
+        DVDCSS_CACHE = ''"$XDG_DATA_HOME"/dvdcss'';
         EDITOR = "nvim";
         GITGET_ROOT = "~/Developer";
+        GTK2_RC_FILES = ''"$XDG_CONFIG_HOME"/gtk-2.0/gtkrc'';
+        REDISCLI_HISTFILE = ''"$XDG_DATA_HOME"/redis/rediscli_history'';
         XCURSOR_SIZE = 24;
       };
 
       shellAliases = {
+        adb = ''HOME="$XDG_DATA_HOME"/android adb'';
         cat = "bat";
+        gl = "git log --one-line --graph | head -n 50";
         j = "z";
+        nix-top = "nix-btm";
         repos = "lsd --tree --depth 3 ~/Developer";
         tree = "lsd --tree";
         vi = "nvim";
         vim = "nvim";
-        gl = "git log --one-line --graph | head -n 50";
-        nix-top = "nix-btm";
+        yarn = "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config";
       };
     };
 
