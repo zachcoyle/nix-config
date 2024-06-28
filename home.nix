@@ -163,6 +163,18 @@
 
     firefox = import ./users/zcoyle/by-app/firefox.nix { inherit pkgs; };
 
+    fish = {
+      enable = true;
+    };
+
+    foot = {
+      enable = true;
+      settings = {
+        main.term = "xterm-256color";
+        mouse.hide-when-typing = "yes";
+      };
+    };
+
     git = {
       enable = true;
       package = pkgs.gitSVN;
@@ -208,6 +220,8 @@
       {
         enable = true;
         enableZshIntegration = true;
+        enableFishIntegration = true;
+        enableTransience = true;
         settings = { } // (builtins.fromTOML (builtins.readFile "${nerdfontPreset}/nerdfont.toml"));
       };
 
@@ -262,7 +276,7 @@
 
     zsh = {
       enable = true;
-      dotDir = "${config.xdg.configHome}/zsh";
+      dotDir = ".config/zsh";
       enableCompletion = true;
       autosuggestion.enable = true;
       enableVteIntegration = true;
@@ -302,26 +316,19 @@
           REDISCLI_HISTFILE = "${config.xdg.dataHome}/redis/rediscli_history";
           VALKEYCLI_HISTFILE = "${config.xdg.dataHome}/valkey/valkeycli_history";
           W3M_DIR = "${config.xdg.dataHome}/w3m";
+          XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
         };
 
       shellAliases =
         {
-          cat = # sh
-            "bat";
-          gl = # sh
-            "git log --one-line --graph | head -n 50";
-          j = # sh
-            "z";
-          nix-top = # sh
-            "nix-btm";
-          repos = # sh
-            "lsd --tree --depth 3 ~/Developer";
-          tree = # sh
-            "lsd --tree";
-          vi = # sh
-            "nvim";
-          vim = # sh
-            "nvim";
+          cat = "bat";
+          gl = "git log --one-line --graph | head -n 50";
+          j = "z";
+          nix-top = "nix-btm";
+          repos = "lsd --tree --depth 3 ~/Developer";
+          tree = "lsd --tree";
+          vi = "nvim";
+          vim = "nvim";
         }
         // {
           # xdg-ninja recommendations
