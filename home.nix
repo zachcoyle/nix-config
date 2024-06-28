@@ -19,6 +19,7 @@
   home = {
     username = "zcoyle";
     stateVersion = "24.05";
+    preferXdgDirectories = true;
     packages = with pkgs; [
       act
       alejandra
