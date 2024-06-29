@@ -139,7 +139,7 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
 
-    open-any-terminal = {
+    nautilus-open-any-terminal = {
       enable = true;
       terminal = "alacritty";
     };
