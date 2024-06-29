@@ -110,6 +110,7 @@ in
       gnome.gnome-keyring
       gnome.gnome-system-monitor
       gnome.nautilus
+      gnome.nautilus-python
       gnome.zenity
       godot3
       grim

@@ -103,11 +103,11 @@
   sound.enable = true;
 
   environment = {
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
+    sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.gnome.nautilus-python}/lib/nautilus/extensions-4";
     pathsToLink = [
       "/share/xdg-desktop-portal"
       "/share/applications"
+      "/share/nautilus-python/extensions"
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
@@ -124,6 +124,8 @@
       neovim
       pciutils
       wget
+      gnome.nautilus
+      gnome.nautilus-python
     ];
   };
 
@@ -135,6 +137,11 @@
       enable = true;
       xwayland.enable = true;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    };
+
+    open-any-terminal = {
+      enable = true;
+      terminal = "alacritty";
     };
 
     nh = {
