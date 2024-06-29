@@ -30,9 +30,6 @@ in
     cursor = {
       inactive_timeout = 5;
     };
-    dwindle = {
-      preserve_split = true;
-    };
     misc = {
       enable_swallow = true;
       swallow_regex = [
@@ -132,7 +129,6 @@ in
       "SUPER, Y, fullscreen, 0"
       "SUPER, U, fakefullscreen, 0"
       "SUPER, T, togglefloating"
-      "SUPER, I, layoutmsg, togglesplit"
       "SUPER, SPACE, exec, rofi -opacity 0 -show drun -show-icons -display-drun '' -display-ssh '󰣀' -display-run '' -display-window ''"
       "SUPER, S, togglespecialworkspace, scratchpad"
       "SUPER, 1, workspace, 1"
