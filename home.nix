@@ -63,6 +63,7 @@
       neovide
       nh
       nix-btm
+      nix-diff
       nix-init
       nix-melt
       nix-output-monitor
