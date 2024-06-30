@@ -1,5 +1,5 @@
 import Quickshell
 
 ShellRoot {
-
+  Bar {}
 }

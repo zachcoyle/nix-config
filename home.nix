@@ -83,7 +83,7 @@ in
       process-compose
       python3
       qemu
-      qml-formatter
+      # qml-formatter
       quicktype
       recode
       ripgrep
