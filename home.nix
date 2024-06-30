@@ -5,6 +5,9 @@
   config,
   ...
 }:
+let
+  qml-formatter = pkgs.callPackage ./packages/qml-formatter;
+in
 {
   imports = [ nixvim.homeManagerModules.nixvim ];
 
@@ -80,6 +83,7 @@
       process-compose
       python3
       qemu
+      qml-formatter
       quicktype
       recode
       ripgrep

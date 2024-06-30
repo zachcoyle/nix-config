@@ -146,7 +146,7 @@ in
       slurp
       snapshot
       swayimg
-      # swaynotificationcenter
+      swaynotificationcenter
       swww
       thunderbird-bin
       udiskie
@@ -164,8 +164,12 @@ in
     ];
 
     file = {
+      ".config/quickshell" = {
+        source = ./users/zcoyle/dots/quickshell;
+        recursive = true;
+      };
       ".local/share/neovide/neovide-settings.json".text = import ./users/zcoyle/by-app/neovide.nix;
-      # ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
+      ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/hypr/pyprland.toml".source = tomlFormat.generate "pyprland.toml" {
         pyprland = {
