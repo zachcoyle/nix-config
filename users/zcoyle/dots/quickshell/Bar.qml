@@ -9,6 +9,7 @@ Scope {
 
     delegate: Component {
       PanelWindow {
+        color: "transparent"
 
         property var modelData
         screen: modelData

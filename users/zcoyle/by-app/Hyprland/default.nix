@@ -237,6 +237,7 @@ in
       "blur, wlogout"
       "blur, avizo"
       "blur, rofi"
+      "blur, quickshell"
     ];
 
     windowrule = [
