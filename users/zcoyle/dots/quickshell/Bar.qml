@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-
+import QtQuick.Controls
 
 Scope {
   Variants {
@@ -22,9 +22,9 @@ Scope {
 
         height: 30
 
-        ClockWidget {
-          anchors.centerIn: parent
-        }
+        Left { }
+        Center { }
+        Right { }
       }
     }
   }

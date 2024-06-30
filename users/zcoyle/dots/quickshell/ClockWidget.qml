@@ -1,5 +1,4 @@
 import QtQuick
-// import QtGraphicalEffects
 
 Text {
   color: "#ebdbb2"
