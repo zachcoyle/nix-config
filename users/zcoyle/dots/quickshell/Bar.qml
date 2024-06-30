@@ -9,7 +9,8 @@ Scope {
 
     delegate: Component {
       PanelWindow {
-        color: "transparent"
+        // color: "transparent"
+        color: "#80282828"
 
         property var modelData
         screen: modelData
@@ -20,7 +21,7 @@ Scope {
           right: true
         }
 
-        height: 30
+        height: 40
 
         Left { }
         Center { }
