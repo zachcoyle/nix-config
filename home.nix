@@ -177,6 +177,9 @@
       # FIXME: currently broken on darwin
       difftastic.enable = pkgs.stdenv.isLinux;
       lfs.enable = true;
+      extraConfig = {
+        push.autoSetupRemote = true;
+      };
     };
 
     gitui = {
