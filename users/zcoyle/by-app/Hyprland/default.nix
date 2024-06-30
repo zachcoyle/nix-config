@@ -237,6 +237,7 @@ in
       "blur, wlogout"
       "blur, avizo"
       "blur, rofi"
+      "blur, quickshell"
     ];
 
     windowrule = [
@@ -250,6 +251,7 @@ in
     exec-once = [
       "copyq --start-server"
       "swww init"
+      "swaync"
       "ags"
       "libinput-gestures"
       "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
@@ -257,7 +259,6 @@ in
       "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
       "nm-applet"
       "blueman-applet"
-      # "swaync"
       "udiskie -a -n"
       "pypr"
       "wlsunset -l 40.45 -L -85.37"
