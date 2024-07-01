@@ -13,6 +13,8 @@ Rectangle {
     background: Rectangle { opacity: 0 }
     anchors.left: parent.left
     anchors.verticalCenter: parent.verticalCenter
+    leftPadding: 8
+    rightPadding: 5
   }
   Button {
     icon.name: "hyprland"
@@ -22,6 +24,7 @@ Rectangle {
     background: Rectangle { opacity: 0 }
     anchors.left: b1.right
     anchors.verticalCenter: parent.verticalCenter
+    rightPadding: 10
   }
   anchors.top: parent.top
   anchors.left: parent.left

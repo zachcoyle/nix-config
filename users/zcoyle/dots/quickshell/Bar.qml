@@ -1,7 +1,7 @@
 import QtQuick
+import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
-import QtQuick.Controls
 
 Scope {
   Variants {
@@ -10,7 +10,8 @@ Scope {
     delegate: Component {
       PanelWindow {
         // color: "transparent"
-        color: "#80282828"
+        // color: "#80282828"
+        color: "#AF282828"
 
         property var modelData
         screen: modelData
