@@ -183,20 +183,6 @@
       };
     };
   };
-  indent-blankline.enable = true;
-  lualine = {
-    enable = true;
-    theme = "gruvbox";
-    componentSeparators = {
-      left = "";
-      right = "";
-    };
-    sectionSeparators = {
-      left = "";
-      right = "";
-    };
-
-  };
   harpoon = {
     enable = true;
     enableTelescope = true;
@@ -220,6 +206,20 @@
     };
   };
   hmts.enable = true;
+  indent-blankline.enable = true;
+  lualine = {
+    enable = true;
+    theme = "gruvbox";
+    componentSeparators = {
+      left = "";
+      right = "";
+    };
+    sectionSeparators = {
+      left = "";
+      right = "";
+    };
+
+  };
   lsp = {
     enable = true;
     inlayHints = true;
@@ -330,7 +330,7 @@
     };
   };
   neotest = {
-    enable = false;
+    enable = true;
     adapters = {
       bash.enable = true;
       jest.enable = true;
