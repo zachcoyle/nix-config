@@ -339,6 +339,7 @@
       zig.enable = true;
     };
   };
+  neorg.enable = true;
   noice = {
     enable = true;
     notify.enabled = false;
