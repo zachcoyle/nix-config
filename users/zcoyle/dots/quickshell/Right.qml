@@ -5,16 +5,14 @@ import QtQuick.Controls
 Rectangle {
   ClockWidget {
     id: clock
-    anchors.top: parent.top
     anchors.right: parent.right
-    anchors.bottom: parent.bottom
     anchors.rightMargin: 8
+    anchors.verticalCenter: parent.verticalCenter
   }
   Button {
     text: "Ok"
     anchors.right: clock.left
   }
-  anchors.top: parent.top
   anchors.right: parent.right
-  anchors.bottom: parent.bottom
+  anchors.verticalCenter: parent.verticalCenter
 }

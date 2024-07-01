@@ -6,4 +6,5 @@ Text {
   font.weight: Font.Black
   font.pixelSize: 16
   text: Time.time
+  anchors.verticalCenter: parent.verticalCenter
 }
