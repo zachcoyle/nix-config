@@ -716,11 +716,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1719938427,
-        "narHash": "sha256-b0QtvQtFAtuOVBNPEUYf4V2VNGChTukkrLH/JlCQds8=",
+        "lastModified": 1719949580,
+        "narHash": "sha256-HDZpI+/LR4fh6TCqByoZrP5/cN3iSiDO0JqG/yKWDWQ=",
         "ref": "refs/heads/main",
-        "rev": "6247a6b537fd1c05ecf35420529fab1adf83143e",
-        "revCount": 4903,
+        "rev": "8bb75a223db3ea9471d05d74fbed3328334a9f78",
+        "revCount": 4904,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1144,11 +1144,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1719937169,
-        "narHash": "sha256-ZTtPwXwAfhMERrDcgMiE08qqr46ZSzvCMpugsSTQlPY=",
+        "lastModified": 1719947925,
+        "narHash": "sha256-kY7cq95nT9cEAP37G62Z+aTIaz3kJH7XgsOJA1JOsK8=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "4ef33ebab253865b9a0b2242b30301d2ce824987",
+        "rev": "bd7c224cde871cd2f4372c1125f4836e148e2d5e",
         "type": "github"
       },
       "original": {
@@ -1441,11 +1441,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1719938409,
-        "narHash": "sha256-GzmLs/YaKAzpTQr9u4VpU0ISGtBluAyx9qTZC/86wb4=",
+        "lastModified": 1719949581,
+        "narHash": "sha256-5oTHaCzhztZL0we4NxD9ZbHoRtxxS+psl+8VVVDNN+A=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "1ec5b968d5751a0c817b7e56974059d01b348bf2",
+        "rev": "ef879b77a1fbbe7170ab555852e18fa531c23a60",
         "type": "github"
       },
       "original": {
@@ -1569,11 +1569,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719892230,
-        "narHash": "sha256-Vdqt5KXqNG+zva5dTRs98plVoZvymL/VAWde9aDfV2U=",
+        "lastModified": 1719942731,
+        "narHash": "sha256-XghQGO2C8w8RxAgKBMSW96PeCC0BHab5Ho7mL6Fi/lM=",
         "owner": "outfoxxed",
         "repo": "quickshell",
-        "rev": "ec362637b879baa817e4df7c96e27adef35b89a0",
+        "rev": "fdbb490537b9e70f9cff7555bd5e176ecd1644bd",
         "type": "github"
       },
       "original": {
