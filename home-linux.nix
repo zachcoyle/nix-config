@@ -115,6 +115,7 @@ in
       godot3
       grim
       handbrake
+      helvum
       hyprpicker
       hyprshade
       imagemagick
