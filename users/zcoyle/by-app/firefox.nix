@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    dark-background-light-text
     darkreader
     dearrow
     firenvim
