@@ -52,6 +52,7 @@ in
       git-get
       gitnr
       gource
+      heroic
       html2text
       hurl
       jq
