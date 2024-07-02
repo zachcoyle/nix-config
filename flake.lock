@@ -1655,7 +1655,6 @@
         "pyprland": "pyprland",
         "quickshell": "quickshell",
         "rippkgs": "rippkgs",
-        "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sg-nvim": "sg-nvim",
         "stylix": "stylix",
         "systems-darwin": "systems-darwin",
@@ -1716,26 +1715,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "sddm-sugar-candy-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1717241028,
-        "narHash": "sha256-GO96asMkQ1hQGBJWyxkbM9cplypqXY2Wb5TpKRMfxiE=",
-        "owner": "Zhaith-Izaliel",
-        "repo": "sddm-sugar-candy-nix",
-        "rev": "b410c02eb404db9456cce766bd3ff7944a86ccb2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Zhaith-Izaliel",
-        "repo": "sddm-sugar-candy-nix",
         "type": "github"
       }
     },

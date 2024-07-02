@@ -182,11 +182,6 @@
       };
     };
 
-    sddm-sugar-candy-nix = {
-      url = "github:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     apple-firmware = {
       url = "github:AdityaGarg8/Apple-Firmware";
       flake = false;
@@ -362,7 +357,6 @@
 
           nixos-overlays = {
             nixpkgs.overlays = [
-              inputs.sddm-sugar-candy-nix.overlays.default
               inputs.hyprland.overlays.default
               inputs.icon-themes-nightly-overlay.overlays.default
               inputs.xremap-flake.overlays.default
@@ -404,7 +398,6 @@
                 common-overlays
                 ./common-system.nix
                 inputs.home-manager.nixosModules.home-manager
-                inputs.sddm-sugar-candy-nix.nixosModules.default
                 inputs.stylix.nixosModules.stylix
                 registryModule
                 (

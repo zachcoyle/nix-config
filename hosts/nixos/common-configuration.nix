@@ -66,12 +66,13 @@
         ];
       };
       services = {
-        login.u2fAuth = true;
-        sudo.u2fAuth = true;
+        greetd.enableGnomeKeyring = true;
         hyprlock = {
           yubicoAuth = true;
           u2fAuth = true;
         };
+        login.u2fAuth = true;
+        sudo.u2fAuth = true;
       };
     };
     doas = {
@@ -174,24 +175,17 @@
   services = {
     blueman.enable = true;
 
-    displayManager.sddm = {
+    gnome.gnome-keyring.enable = true;
+
+    greetd = {
       enable = true;
-      enableHidpi = config.networking.hostName == "nixos-laptop";
-      wayland.enable = true;
-      sugarCandyNix = {
-        enable = true;
-        settings = {
-          Background = lib.cleanSource ../../users/zcoyle/dots/sddm-background.jpg;
-          ScreenWidth = 1920;
-          ScreenHeight = 1080;
-          FormPosition = "left";
-          HaveFormBackground = true;
-          PartialBlur = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway";
+          user = "greeter";
         };
       };
     };
-
-    gnome.gnome-keyring.enable = true;
 
     libinput = {
       enable = true;
