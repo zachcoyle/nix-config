@@ -1186,16 +1186,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1719340282,
-        "narHash": "sha256-vz/MaO/zqQJb6sSUYWOMn7W23UBR1zQu39Y8OaCw6ZA=",
+        "lastModified": 1719879437,
+        "narHash": "sha256-Q1LXep4gSzT737ywrANjyB1lKBCG0Z7/59RgVFgQPlc=",
         "owner": "DieracDelta",
         "repo": "nix-btm",
-        "rev": "365a5e50be440bddeb4318ed49e9e8663c8cb4d8",
+        "rev": "3b0740f1dd5c5a9ec296420fa058c6ece7ae99c9",
         "type": "github"
       },
       "original": {
         "owner": "DieracDelta",
-        "ref": "0.2.0",
         "repo": "nix-btm",
         "type": "github"
       }

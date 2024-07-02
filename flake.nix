@@ -318,7 +318,7 @@
     };
 
     nix-btm = {
-      url = "github:DieracDelta/nix-btm/0.2.0";
+      url = "github:DieracDelta/nix-btm";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         utils.follows = "flake-utils";
