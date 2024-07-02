@@ -110,6 +110,10 @@ in
     ];
 
     file = {
+      ".config/zls.json".text = builtins.toJSON {
+        enable_build_on_save = true;
+        build_save_on_step = "check";
+      };
       ".config/oils/oshrc".text = # sh
         ''
           if [[ $TERM != "dumb" ]]; then
