@@ -146,6 +146,9 @@ in
       require("ibl").setup { scope = { highlight = highlight } }
 
       hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+
+      --------------------------------------
+      require("otter").activate({ "javascript", "python", "sh", "css", "lua"}, true, true, nil)
     ''
     + (
       # TODO: all the neovide config could stand to be be tightened up

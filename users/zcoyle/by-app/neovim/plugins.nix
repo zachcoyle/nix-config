@@ -459,7 +459,21 @@
       stream = true;
     };
   };
-  otter.enable = true;
+  otter = {
+    enable = true;
+    settings = {
+      handle_leading_whitespace = true;
+      buffers = {
+        set_filetype = true;
+        write_to_disk = true;
+      };
+      lsp.diagnostic_update_events = [
+        "BufWritePost"
+        "InsertLeave"
+        "TextChanged"
+      ];
+    };
+  };
   project-nvim = {
     enable = true;
     enableTelescope = true;
