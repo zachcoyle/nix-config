@@ -251,6 +251,24 @@ in
       extraPackages = [ ];
     };
 
+    chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+      dictionaries = with pkgs.hunspellDictsChromium; [
+        en_US
+        en_GB
+      ];
+      extensions = [
+        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+        { id = "fpnmgdkabkmnadcjpehmlllkndpkmiak"; } # wayback machine
+        { id = "hdpcadigjkbcpnlcpbcohpafiaefanki"; } # nighttab
+        { id = "egpjdkipkomnmjhjmdamaniclmdlobbo"; } # firenvim
+        { id = "kbmfpngjjgdllneeigpgjifpgocmfgmb"; } # res
+        { id = "fmkadmapgofadopljbjfkapdkoienihi"; } # react devtools
+        { id = "nhdogjmejiglipccpnnnanhbledajbpd"; } # vue devtools
+      ];
+    };
+
     firefox.package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
       extraPolicies = {
         DisableFirefoxStudies = true;
