@@ -252,7 +252,7 @@ in
 
     chromium = {
       enable = true;
-      package = pkgs.ungoogled-chromium;
+      package = pkgs.chromium;
       dictionaries = with pkgs.hunspellDictsChromium; [
         en_US
         en_GB
