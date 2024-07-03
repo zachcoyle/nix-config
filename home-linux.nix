@@ -55,6 +55,15 @@ in
   xdg = {
     enable = true;
     userDirs.enable = true;
+    desktopEntries = {
+      apple_music = {
+        name = "Apple Music";
+        type = "Application";
+        terminal = false;
+        exec = ''${pkgs.firefox-bin}/bin/firefox -P "apple_music" --no-remote --kiosk=https://beta.music.apple.com/us/browse'';
+        icon = ./theme/apple_music.png;
+      };
+    };
     mime.enable = true;
     mimeApps = {
       enable = true;
@@ -248,24 +257,6 @@ in
       package = pkgs.ags;
       configDir = ./users/zcoyle/dots/ags;
       extraPackages = [ ];
-    };
-
-    chromium = {
-      enable = true;
-      package = pkgs.chromium;
-      dictionaries = with pkgs.hunspellDictsChromium; [
-        en_US
-        en_GB
-      ];
-      extensions = [
-        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
-        { id = "fpnmgdkabkmnadcjpehmlllkndpkmiak"; } # wayback machine
-        { id = "hdpcadigjkbcpnlcpbcohpafiaefanki"; } # nighttab
-        { id = "egpjdkipkomnmjhjmdamaniclmdlobbo"; } # firenvim
-        { id = "kbmfpngjjgdllneeigpgjifpgocmfgmb"; } # res
-        { id = "fmkadmapgofadopljbjfkapdkoienihi"; } # react devtools
-        { id = "nhdogjmejiglipccpnnnanhbledajbpd"; } # vue devtools
-      ];
     };
 
     firefox.package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {

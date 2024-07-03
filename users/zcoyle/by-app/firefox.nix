@@ -20,6 +20,11 @@ in
 {
   enable = true;
 
+  profiles.apple_music = {
+    id = 1;
+    name = "apple_music";
+    extensions = [ pkgs.nur.repos.rycee.firefox-addons.ublock-origin ];
+  };
   profiles.zcoyle = {
     id = 0;
     name = "zcoyle";
@@ -133,14 +138,8 @@ in
         .titlebar-buttonbox-container {
           display: none !important;
         }
-        statuspanel[type="overLink"] .statuspanel-label {
+        #statuspanel {
           display: none !important;
-        }
-        #appcontent statuspanel {
-          display: none;
-        }
-        #statuspanel-label {
-          display: none;
         }
       '';
 
