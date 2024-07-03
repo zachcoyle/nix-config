@@ -153,7 +153,6 @@ in
       udiskie
       ueberzugpp
       unzip
-      virt-manager
       vlc
       waypipe
       wdisplays

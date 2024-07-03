@@ -116,16 +116,16 @@
       dmidecode
       firefox-bin
       git
+      gnome.nautilus
+      gnome.nautilus-python
       ifuse
       iwd
       libimobiledevice
-      linuxKernel.packages.linux_zen.broadcom_sta
       lshw
       neovim
       pciutils
+      virt-manager
       wget
-      gnome.nautilus
-      gnome.nautilus-python
     ];
   };
 
