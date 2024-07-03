@@ -225,7 +225,7 @@ in
       scrolloff = 4;
       shada = "!,'100,<50,s10";
       signcolumn = "yes:2";
-      undodir = [ "${config.xdg.configHome}/nvim/.undo//" ];
+      undodir = [ "${config.xdg.stateHome}/nvim/.undo//" ];
       undofile = true;
       wrap = false;
     }
