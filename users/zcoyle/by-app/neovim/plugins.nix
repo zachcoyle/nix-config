@@ -459,6 +459,7 @@
       stream = true;
     };
   };
+  otter.enable = true;
   project-nvim = {
     enable = true;
     enableTelescope = true;
