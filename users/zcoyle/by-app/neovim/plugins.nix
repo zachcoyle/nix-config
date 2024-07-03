@@ -269,7 +269,25 @@
       html.enable = true;
       jsonls.enable = true;
       kotlin-language-server.enable = true;
-      lua-ls.enable = true;
+      lua-ls = {
+        enable = true;
+        settings = {
+          diagnostics.globals = [ "vim" ];
+          workspace = {
+            ignoreDir = [
+              ".vscode"
+              ".direnv"
+              ".devenv"
+            ];
+            library = [
+              {
+                __raw = # lua
+                  ''vim.api.nvim_get_runtime_file("", true)'';
+              }
+            ];
+          };
+        };
+      };
       marksman.enable = true;
       nil-ls.enable = true;
       phpactor.enable = true;
@@ -415,6 +433,7 @@
       };
       sources = [
         { name = "nvim_lsp"; }
+        { name = "otter"; }
         { name = "nvim_lsp_signature_help"; }
         { name = "nvim_lsp_document_symbol"; }
         { name = "nvim_lua"; }
