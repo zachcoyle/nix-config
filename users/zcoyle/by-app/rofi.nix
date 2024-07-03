@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   # TODO:
   # need to come back to this to make it more general
@@ -64,7 +69,7 @@ in
 {
   enable = true;
   package = pkgs.rofi-wayland;
-  terminal = "${pkgs.alacritty}/bin/alacritty";
+  terminal = lib.getExe pkgs.alacritty;
   plugins = with pkgs; [
     rofi-calc
     rofi-emoji

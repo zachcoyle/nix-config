@@ -214,13 +214,13 @@ in
       keyScheme = "vim";
     };
 
-    nixvim = import ./users/zcoyle/by-app/neovim { inherit pkgs config; };
+    nixvim = import ./users/zcoyle/by-app/neovim { inherit pkgs lib config; };
 
     starship =
       let
         nerdfontPreset = pkgs.runCommand "nerdfont.toml" { } ''
           mkdir $out
-          ${pkgs.starship}/bin/starship preset nerd-font-symbols -o $out/nerdfont.toml
+          ${lib.getExe pkgs.starship} preset nerd-font-symbols -o $out/nerdfont.toml
         '';
       in
       {
@@ -266,7 +266,7 @@ in
         '';
     };
 
-    vscode = import ./users/zcoyle/by-app/vscode.nix { inherit pkgs; };
+    vscode = import ./users/zcoyle/by-app/vscode.nix { inherit pkgs lib; };
 
     yazi = {
       enable = true;

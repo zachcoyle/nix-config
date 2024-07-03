@@ -143,7 +143,7 @@ in
       "SUPER, 0, workspace, 10"
       "SUPER_SHIFT, 3, exec, grim"
       ''SUPER_SHIFT, 4, exec, grim -g "$(slurp)"''
-      "SUPER_SHIFT, 5, exec, ${toggle_recording}/bin/toggle_recording.sh"
+      "SUPER_SHIFT, 5, exec, ${lib.getExe toggle_recording}"
 
       "SUPER, G, togglegroup"
       "SUPER, N, changegroupactive"

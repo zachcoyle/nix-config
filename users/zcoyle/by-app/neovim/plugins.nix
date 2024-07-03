@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   barbar.enable = true;
   cmp-emoji.enable = true;
@@ -82,7 +87,7 @@
     adapters = {
       executables = {
         php = {
-          command = "${pkgs.nodejs}/bin/node";
+          command = lib.getExe pkgs.nodejs;
           args = [
             "${pkgs.vscode-marketplace.xdebug.php-debug}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js"
           ];

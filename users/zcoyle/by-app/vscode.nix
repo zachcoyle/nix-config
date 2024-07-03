@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, lib, ... }:
 {
   enable = true;
 
@@ -65,7 +65,7 @@
       enableCrashReporter = false;
       enableTelemetry = false;
     };
-    vscode-neovim.neovimPath = "${pkgs.neovim}/bin/nvim";
+    vscode-neovim.neovimPath = lib.getExe pkgs.neovim;
     window.menuBarVisibility = "compact";
     workbench = {
       editor.empty.hint = "hidden";

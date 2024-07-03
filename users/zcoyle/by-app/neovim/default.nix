@@ -1,4 +1,8 @@
-{ pkgs, config }:
+{
+  pkgs,
+  lib,
+  config,
+}:
 let
   inherit (config.lib.stylix.colors) withHashtag;
 in
@@ -250,5 +254,5 @@ in
     };
   };
 
-  plugins = import ./plugins.nix { inherit pkgs config; };
+  plugins = import ./plugins.nix { inherit pkgs lib config; };
 }

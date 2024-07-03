@@ -60,7 +60,7 @@ in
         name = "Apple Music";
         type = "Application";
         terminal = false;
-        exec = ''${pkgs.firefox-bin}/bin/firefox -P "apple_music" --no-remote --kiosk=https://beta.music.apple.com/us/browse'';
+        exec = ''${lib.getExe pkgs.firefox-bin} -P "apple_music" --no-remote --kiosk=https://beta.music.apple.com/us/browse'';
         icon = ./theme/apple_music.png;
       };
     };
