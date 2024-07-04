@@ -25,15 +25,18 @@ in
       lazygit
       ripgrep
       tabnine
+
       # dap
       lldb
       (php.withExtensions ({ enabled, all }: enabled ++ [ all.xdebug ]))
+
       # formatters
       alejandra
       biome
       beautysh
       prettierd
       codespell
+      dart
       gofumpt
       just
       ktlint
