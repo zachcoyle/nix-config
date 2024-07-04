@@ -5,7 +5,6 @@
   ...
 }:
 let
-  tomlFormat = pkgs.formats.toml { };
   random-emoji = pkgs.callPackage ./packages/random-emoji.nix { };
 in
 {
@@ -181,7 +180,7 @@ in
       ".local/share/neovide/neovide-settings.json".text = import ./users/zcoyle/by-app/neovide.nix;
       ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
-      ".config/hypr/pyprland.toml".source = tomlFormat.generate "pyprland.toml" {
+      ".config/hypr/pyprland.toml".source = pkgs.writers.writeTOML "pyprland.toml" {
         pyprland = {
           plugins = [
             "expose"

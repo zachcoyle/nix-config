@@ -486,11 +486,7 @@
         set_filetype = true;
         write_to_disk = true;
       };
-      lsp.diagnostic_update_events = [
-        "BufWritePost"
-        "InsertLeave"
-        "TextChanged"
-      ];
+      lsp.diagnostic_update_events = [ "BufWritePost" ];
     };
   };
   project-nvim = {
