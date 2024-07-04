@@ -400,7 +400,7 @@
                 inputs.home-manager.nixosModules.home-manager
                 inputs.stylix.nixosModules.stylix
                 registryModule
-                ({ nixpkgs.config.rocmSupport = true; })
+                { nixpkgs.config.rocmSupport = true; }
                 {
                   home-manager = {
                     useGlobalPkgs = true;
