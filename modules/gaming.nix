@@ -19,5 +19,7 @@
     discord
     dwarf-fortress-packages.dwarf-fortress-full
     heroic
+    opendune
+    openloco
   ];
 }
