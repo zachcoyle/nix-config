@@ -367,4 +367,18 @@
     action.__raw = # lua
       ''require("flash").remote'';
   }
+  {
+    #  TODO: improve this later by getting 
+    #  all the current injections of the current
+    #  buffer from the data returned by:
+    #  vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] 
+    key = "<leader>oa";
+    action.__raw = # lua
+      ''function() require("otter").activate({ "javascript", "python", "bash", "css", "lua", "rust", "haskell" }, true, true, nil) end'';
+    options = {
+      silent = true;
+      desc = "Otter: Activate";
+    };
+    mode = [ "n" ];
+  }
 ]

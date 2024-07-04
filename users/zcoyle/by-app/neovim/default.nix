@@ -146,18 +146,6 @@ in
       require("ibl").setup { scope = { highlight = highlight } }
 
       hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-
-      --------------------------------------
-      vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-        pattern = {"*"},
-        callback = function(ev)
-        -- TODO: improve this later by getting 
-        -- all the current injections of the current
-        -- buffer from the data returned by:
-        -- vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] -- (probably can peek inside ev to get current buf)
-          require("otter").activate({ "javascript", "python", "bash", "css", "lua", "rust", "haskell"}, true, true, nil)
-        end
-      })
     ''
     + (
       # TODO: all the neovide config could stand to be be tightened up
