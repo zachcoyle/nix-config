@@ -265,7 +265,7 @@ in
       "nm-applet"
       "blueman-applet"
       "udiskie -a -n"
-      "pypr"
+      # "pypr"
       "wlsunset -l 40.45 -L -85.37"
       "pasystray"
     ];
