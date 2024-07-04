@@ -38,7 +38,6 @@ in
       curlFull
       dart-sass
       dasel
-      discord
       dos2unix
       dsq
       duf
@@ -52,7 +51,6 @@ in
       git-get
       gitnr
       gource
-      heroic
       html2text
       hurl
       jq
@@ -115,7 +113,7 @@ in
         enable_build_on_save = true;
         build_save_on_step = "check";
       };
-      ".config/oils/oshrc".text = # sh
+      ".config/oils/oshrc".text = # bash
         ''
           if [[ $TERM != "dumb" ]]; then
            eval "$(starship init bash)"

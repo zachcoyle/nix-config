@@ -107,7 +107,6 @@ in
       cider
       copyq
       cura
-      dwarf-fortress-packages.dwarf-fortress-full
       element-desktop
       foliate
       freecad

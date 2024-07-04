@@ -400,24 +400,7 @@
                 inputs.home-manager.nixosModules.home-manager
                 inputs.stylix.nixosModules.stylix
                 registryModule
-                (
-                  { lib, ... }:
-                  {
-                    nixpkgs = {
-                      config = {
-                        rocmSupport = true;
-                        allowUnfreePredicate =
-                          pkg:
-                          builtins.elem (lib.getName pkg) [
-                            "dwarf-fortress"
-                            "steam"
-                            "steam-original"
-                            "steam-run"
-                          ];
-                      };
-                    };
-                  }
-                )
+                ({ nixpkgs.config.rocmSupport = true; })
                 {
                   home-manager = {
                     useGlobalPkgs = true;
@@ -482,12 +465,14 @@
               extraModules = [
                 ./hosts/nixos/nixos-desktop/configuration.nix
                 ./hosts/nixos/nixos-desktop/home.nix
+                ./modules/gaming.nix
               ];
             });
             nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
               extraModules = [
                 ./hosts/nixos/nixos-laptop/configuration.nix
                 ./hosts/nixos/nixos-laptop/home.nix
+                ./modules/gaming.nix
               ];
             });
           };

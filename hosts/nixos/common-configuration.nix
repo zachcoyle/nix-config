@@ -154,12 +154,6 @@
       flake = "/home/zcoyle/Developer/github.com/zachcoyle/nix-config";
     };
 
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
-
     yubikey-touch-detector.enable = true;
 
     zsh.enable = true;
