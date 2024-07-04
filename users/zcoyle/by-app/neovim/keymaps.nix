@@ -326,7 +326,7 @@
     };
   }
   {
-    key = "<leader>oo";
+    key = "<leader>ll";
     action = # vim
       ":<c-u>lua require('ollama').prompt()<cr>";
     options = {
@@ -338,7 +338,7 @@
     ];
   }
   {
-    key = "<leader>oG";
+    key = "<leader>lG";
     action = # vim
       ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>";
     options = {
@@ -367,17 +367,77 @@
     action.__raw = # lua
       ''require("flash").remote'';
   }
+  #  TODO: improve the otter bindings later by getting 
+  #  all the current injections of the current
+  #  buffer from the data returned by:
+  #  vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] 
   {
-    #  TODO: improve this later by getting 
-    #  all the current injections of the current
-    #  buffer from the data returned by:
-    #  vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] 
-    key = "<leader>oa";
+    key = "<leader>ob";
     action.__raw = # lua
-      ''function() require("otter").activate({ "javascript", "python", "bash", "css", "lua", "rust", "haskell" }, true, true, nil) end'';
+      ''function() require("otter").activate({ "bash" }) end'';
     options = {
       silent = true;
-      desc = "Otter: Activate";
+      desc = "Otter: Activate Bash";
+    };
+    mode = [ "n" ];
+  }
+  {
+    key = "<leader>oc";
+    action.__raw = # lua
+      ''function() require("otter").activate({ "css" }) end'';
+    options = {
+      silent = true;
+      desc = "Otter: Activate CSS";
+    };
+    mode = [ "n" ];
+  }
+  {
+    key = "<leader>oh";
+    action.__raw = # lua
+      ''function() require("otter").activate({ "haskell" }, true, true, nil) end'';
+    options = {
+      silent = true;
+      desc = "Otter: Activate Haskell";
+    };
+    mode = [ "n" ];
+  }
+  {
+    key = "<leader>oj";
+    action.__raw = # lua
+      ''function() require("otter").activate({ "javascript"}, true, true, nil) end'';
+    options = {
+      silent = true;
+      desc = "Otter: Activate Javascript";
+    };
+    mode = [ "n" ];
+  }
+  {
+    key = "<leader>ol";
+    action.__raw = # lua
+      ''function() require("otter").activate({ "lua" }, true, true, nil) end'';
+    options = {
+      silent = true;
+      desc = "Otter: Activate Lua";
+    };
+    mode = [ "n" ];
+  }
+  {
+    key = "<leader>op";
+    action.__raw = # lua
+      ''function() require("otter").activate({ "python" }, true, true, nil) end'';
+    options = {
+      silent = true;
+      desc = "Otter: Activate Python";
+    };
+    mode = [ "n" ];
+  }
+  {
+    key = "<leader>or";
+    action.__raw = # lua
+      ''function() require("otter").activate({ "rust" }, true, true, nil) end'';
+    options = {
+      silent = true;
+      desc = "Otter: Activate Rust";
     };
     mode = [ "n" ];
   }
