@@ -21,5 +21,6 @@
     heroic
     opendune
     openloco
+    retroarchFull
   ];
 }

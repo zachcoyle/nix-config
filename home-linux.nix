@@ -149,7 +149,6 @@ in
       pyprland
       quickshell
       random-emoji
-      retroarchFull
       showmethekey
       slurp
       snapshot
