@@ -199,6 +199,8 @@ in
       "SUPER, backslash, exec, sudo systemctl restart tiny-dfr"
 
       "SUPER, XF86Eject, exec, hyprctl kill"
+
+      "SUPER, bracketright, pin"
     ];
 
     binde = [
