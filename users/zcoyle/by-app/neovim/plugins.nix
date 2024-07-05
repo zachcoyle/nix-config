@@ -442,7 +442,6 @@
         { name = "path"; }
         { name = "buffer"; }
         { name = "emoji"; }
-        { name = "cmp_ai"; }
       ];
     };
   };
