@@ -40,3 +40,6 @@ cachix-inputs:
     nix flake archive --json \
       | jq -r '.path,(.inputs|to_entries[].value.path)' \
       | cachix push zachcoyle
+
+iso:
+    nix build -L .#nixosConfigurations.iso.config.system.build.isoImage
