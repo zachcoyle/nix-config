@@ -12,9 +12,10 @@
       enable = true;
       powerOnBoot = true;
     };
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
+      extraPackages32 = with pkgs.driversi686Linux; [ amdvlk ];
       extraPackages = with pkgs; [
         amdvlk
         libva
@@ -32,7 +33,6 @@
         rocmPackages.rocsparse
         vaapiVdpau
       ];
-      extraPackages32 = with pkgs.driversi686Linux; [ amdvlk ];
     };
   };
 

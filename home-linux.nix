@@ -96,8 +96,8 @@ in
     packages = with pkgs; [
       android-studio
       apostrophe
-      armcord
       appimage-run
+      armcord
       blender
       bottles
       brightnessctl
@@ -108,17 +108,14 @@ in
       copyq
       cura
       element-desktop
+      evince
       foliate
       freecad
+      gnome-calculator
+      gnome-font-viewer
+      gnome-keyring
+      gnome-system-monitor
       gnome-tecla
-      gnome.evince
-      gnome.gnome-calculator
-      gnome.gnome-font-viewer
-      gnome.gnome-keyring
-      gnome.gnome-system-monitor
-      gnome.nautilus
-      gnome.nautilus-python
-      gnome.zenity
       godot3
       grim
       handbrake
@@ -137,6 +134,8 @@ in
       librepcb
       logos
       makemkv
+      nautilus
+      nautilus-python
       networkmanagerapplet
       nitch
       nvtopPackages.amd
@@ -168,6 +167,7 @@ in
       wlsunset
       xdg-utils
       yubikey-touch-detector
+      zenity
     ];
 
     file = {
