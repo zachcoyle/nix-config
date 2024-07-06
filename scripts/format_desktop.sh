@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell nixpkgs#keyutils nixpkgs#bash --command bash
+#!/usr/bin/env -S nix shell nixpkgs#keyutils nixpkgs#zenity nixpkgs#bash --command bash
 
 sudo parted /dev/sda -- mklabel gpt
 sudo parted /dev/sda -- mkpart root ext4 512MB -20GB
@@ -12,12 +12,14 @@ sudo bcachefs format --encrypt \
   --background_compression=zstd \
   --label=ssd.ssd1 /dev/sda1 \
   --label=hdd.hdd1 /dev/sdb \
-  --fs_label root \
+  --fs_label nixos \
   --foreground_target=ssd \
   --promote_target=ssd \
   --background_target=hdd
 
 sudo bcachefs unlock /dev/sda1
 sudo bcachefs unlock /dev/sdb
+
+user_input=$(zenity --entry --text="external uuid:")
 
 # sudo mount -t bcachefs /dev/sda1:/dev/sdb /mnt
