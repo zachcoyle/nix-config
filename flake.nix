@@ -216,16 +216,6 @@
       };
     };
 
-    sg-nvim = {
-      url = "github:sourcegraph/sg.nvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        pre-commit-nix.follows = "pre-commit-hooks";
-        # FIXME: see https://github.com/NixOS/nix/issues/5790#issuecomment-996690415
-      };
-    };
-
     telescope-just = {
       url = "github:zachcoyle/telescope-just";
       inputs = {
@@ -348,7 +338,6 @@
               inputs.neovim-plugins-nightly-overlay.overlays.default
 
               (_: prev: {
-                inherit (inputs.sg-nvim.legacyPackages.${prev.system}) sg-nvim;
                 inherit (inputs.zls.packages.${prev.system}) zls;
                 inherit (inputs.nix-btm.packages.${prev.system}) nix-btm;
               })

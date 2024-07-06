@@ -58,7 +58,6 @@ in
     dropbar-nvim
     neorepl-nvim
     nvim-autopairs
-    sg-nvim
     statuscol-nvim
     telescope_just
     tint-nvim
@@ -87,11 +86,6 @@ in
       require("tint").setup()
       --------------------------------------
       require("telescope").load_extension("refactoring")
-      --------------------------------------
-      require("sg").setup({
-        enable_cody = true,
-      })
-
       --------------------------------------
       -- make telescope projects appear when started without args
       vim.api.nvim_create_autocmd("UIEnter", {
