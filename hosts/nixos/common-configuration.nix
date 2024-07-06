@@ -210,8 +210,10 @@
     redis = {
       enable = true;
       package = pkgs.valkey;
-      settings = {
-        loadmodule = [ ];
+      servers.default = {
+        settings = {
+          loadmodule = [ ];
+        };
       };
     };
 
