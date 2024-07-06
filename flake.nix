@@ -513,6 +513,7 @@
                         zfs = lib.mkForce false;
                       };
                     };
+                    environment.systemPackages = with pkgs; [ alacritty ];
                   }
                 )
               ];
