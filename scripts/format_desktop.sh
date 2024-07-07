@@ -28,8 +28,6 @@ sudo bcachefs format --encrypt \
 sudo bcachefs unlock /dev/sda2
 sudo bcachefs unlock /dev/sdb1
 
-# user_input=$(zenity --entry --text="external uuid:")
-# sudo mount.bcachefs UUID="$user_input" /mnt
 sudo mount.bcachefs /dev/disk/by-label/nixos /mnt
 sudo mkdir -p /mnt/boot
 sudo mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
