@@ -103,7 +103,7 @@
   sound.enable = true;
 
   environment = {
-    sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.gnome.nautilus-python}/lib/nautilus/extensions-4";
+    sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
     pathsToLink = [
       "/share/xdg-desktop-portal"
       "/share/applications"
@@ -116,8 +116,8 @@
       dmidecode
       firefox-bin
       git
-      gnome.nautilus
-      gnome.nautilus-python
+      nautilus
+      nautilus-python
       ifuse
       iwd
       libimobiledevice
