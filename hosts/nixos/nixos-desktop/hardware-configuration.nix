@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -33,12 +32,12 @@
 
   };
   fileSystems."/" = {
-    device = "UUID=5862292c-f9cb-4017-b319-c207f265fbef";
+    device = "UUID=9f35d9e8-92e6-43da-a378-a8a21f1ffca6";
     fsType = "bcachefs";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/3BA3-D6CD";
+    device = "/dev/disk/by-uuid/02BA-D805";
     fsType = "vfat";
     options = [
       "fmask=0077"
