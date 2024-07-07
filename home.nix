@@ -93,7 +93,7 @@
       sword
       tealdeer
       transmission_4
-      transmission_4-qt
+      transmission_4-gtk
       typioca
       util-linux
       visidata
