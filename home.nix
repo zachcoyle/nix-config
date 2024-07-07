@@ -92,7 +92,8 @@
       # swift-format
       sword
       tealdeer
-      transmission
+      transmission_4
+      transmission_4-qt
       typioca
       util-linux
       visidata
