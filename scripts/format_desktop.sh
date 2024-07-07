@@ -35,3 +35,5 @@ sudo mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
 sudo swapon /dev/sda3
 
 sudo nixos-generate-config --root /mnt
+
+echo "🧠: remember there were some issues w/ uuids last time"
