@@ -32,4 +32,6 @@
     ];
     distributedBuilds = true;
   };
+
+  services.fwupd.enable = true;
 }
