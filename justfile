@@ -43,3 +43,6 @@ cachix-inputs:
 
 iso:
     nix build -L .#nixosConfigurations.iso.config.system.build.isoImage
+
+iso-t2:
+    nix build -L .#nixosConfigurations.iso-t2.config.system.build.isoImage

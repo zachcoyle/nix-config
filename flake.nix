@@ -375,7 +375,7 @@
             ];
           };
 
-          common_nixos_config =
+          common-nixos-config =
             { extraModules }:
             {
               system = "x86_64-linux";
@@ -410,7 +410,7 @@
               ] ++ extraModules;
             };
 
-          common_darwin_config = {
+          common-darwin-config = {
             specialArgs = {
               inherit inputs;
             };
@@ -443,28 +443,10 @@
               { home-manager.users.zcoyle.imports = [ ./home-darwin.nix ]; }
             ];
           };
-        in
-        {
-          darwinConfigurations = {
-            mbp13 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
-            mbp15 = inputs.nix-darwin.lib.darwinSystem common_darwin_config;
-          };
-          nixosConfigurations = {
-            nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
-              extraModules = [
-                ./hosts/nixos/nixos-desktop/configuration.nix
-                ./hosts/nixos/nixos-desktop/home.nix
-                ./modules/gaming.nix
-              ];
-            });
-            nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common_nixos_config {
-              extraModules = [
-                ./hosts/nixos/nixos-laptop/configuration.nix
-                ./hosts/nixos/nixos-laptop/home.nix
-                ./modules/gaming.nix
-              ];
-            });
-            iso = inputs.nixpkgs.lib.nixosSystem {
+
+          common-iso-config =
+            { extraModules }:
+            {
               modules = [
                 "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
                 (
@@ -493,7 +475,6 @@
                       };
                     };
                     boot = {
-                      kernelPackages = pkgs.linuxPackages_latest;
                       supportedFilesystems = {
                         bcachefs = true;
                         exfat = true;
@@ -505,8 +486,63 @@
                     environment.systemPackages = with pkgs; [ alacritty ];
                   }
                 )
-              ];
+              ] ++ extraModules;
             };
+
+        in
+        {
+          darwinConfigurations = {
+            mbp13 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
+            mbp15 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
+          };
+          nixosConfigurations = {
+            nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common-nixos-config {
+              extraModules = [
+                ./hosts/nixos/nixos-desktop/configuration.nix
+                ./hosts/nixos/nixos-desktop/home.nix
+                ./modules/gaming.nix
+              ];
+            });
+            nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common-nixos-config {
+              extraModules = [
+                ./hosts/nixos/nixos-laptop/configuration.nix
+                ./hosts/nixos/nixos-laptop/home.nix
+                ./modules/gaming.nix
+              ];
+            });
+            iso = inputs.nixpkgs.lib.nixosSystem (common-iso-config {
+              extraModules = [
+                (
+                  { pkgs, ... }:
+                  {
+                    boot.kernelPackages = pkgs.linuxPackages_latest;
+                  }
+                )
+              ];
+            });
+            iso-t2 = inputs.nixpkgs.lib.nixosSystem (common-iso-config {
+              extraModules = [
+                inputs.nixos-hardware.nixosModules.apple-t2
+                (
+                  { pkgs, ... }:
+                  {
+                    hardware = {
+                      apple-t2.enableAppleSetOsLoader = true;
+                      firmware = [
+                        (pkgs.stdenvNoCC.mkDerivation {
+                          name = "brcm-firmware";
+                          buildCommand = ''
+                            dir="$out/lib/firmware"
+                            mkdir -p "$dir"
+                            cp -r ${inputs.apple-firmware}/lib/firmware/* "$dir"
+                          '';
+                        })
+                      ];
+                    };
+                  }
+                )
+              ];
+            });
           };
         };
 
