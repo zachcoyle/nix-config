@@ -128,7 +128,6 @@
 
     atuin = {
       enable = true;
-      openRegistration = true;
       settings = {
         auto_sync = true;
         sync_frequency = "5m";
