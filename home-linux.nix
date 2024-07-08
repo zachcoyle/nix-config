@@ -98,7 +98,7 @@ in
       apostrophe
       appimage-run
       armcord
-      blender
+      # blender
       bottles
       brightnessctl
       bruno
