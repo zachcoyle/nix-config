@@ -1361,35 +1361,6 @@
         "type": "github"
       }
     },
-    "pyprland": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "poetry2nix": [
-          "poetry2nix"
-        ],
-        "systems": [
-          "systems-linux"
-        ]
-      },
-      "locked": {
-        "lastModified": 1720468574,
-        "narHash": "sha256-g5dlK6gYMRhn+7rmqIH6xJIJMb5H0atqc5vy7GbsN1A=",
-        "owner": "hyprland-community",
-        "repo": "pyprland",
-        "rev": "f7850970ba0eeabab6268e818069c20057809cd5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprland-community",
-        "repo": "pyprland",
-        "type": "github"
-      }
-    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -1480,7 +1451,6 @@
         "nur": "nur",
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks": "pre-commit-hooks",
-        "pyprland": "pyprland",
         "quickshell": "quickshell",
         "rippkgs": "rippkgs",
         "stylix": "stylix",

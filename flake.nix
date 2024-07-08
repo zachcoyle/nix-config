@@ -135,16 +135,6 @@
       };
     };
 
-    pyprland = {
-      url = "github:hyprland-community/pyprland";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems-linux";
-        poetry2nix.follows = "poetry2nix";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -356,7 +346,6 @@
                 inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
                 inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
                 inherit (inputs.libastal.packages.${prev.system}) astal;
-                inherit (inputs.pyprland.packages.${prev.system}) pyprland;
                 inherit (inputs.quickshell.packages.${prev.system}) quickshell;
 
                 logos = inputs.logos.packages.${prev.system}.default;
