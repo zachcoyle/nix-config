@@ -560,10 +560,21 @@
   };
   treesitter = {
     enable = true;
-    ensureInstalled = "all";
-    folding = true;
+    nixGrammars = true;
     nixvimInjections = true;
-    incrementalSelection.enable = true;
+    folding = true;
+    settings = {
+      # ensure_installed = "all";
+      highlight.enable = true;
+      indent.enable = true;
+      incremental_selection = {
+        enable = true;
+        init_selection = "gnn";
+        node_decremental = "grm";
+        node_incremental = "grn";
+        scope_incremental = "grc";
+      };
+    };
   };
   treesitter-refactor = {
     enable = true;
