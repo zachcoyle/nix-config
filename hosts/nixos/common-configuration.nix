@@ -37,6 +37,8 @@
   };
 
   boot = {
+    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+    kernelModules = [ "wl" ];
     loader = {
       timeout = 1;
       systemd-boot = {
@@ -47,8 +49,13 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelModules = [ "wl" ];
-    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+    supportedFilesystems = {
+      bcachefs = true;
+      exfat = true;
+      ext4 = true;
+      fat = true;
+      zfs = lib.mkForce false;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
