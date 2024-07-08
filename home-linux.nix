@@ -110,7 +110,7 @@ in
       element-desktop
       evince
       foliate
-      freecad
+      # freecad
       gnome-calculator
       gnome-font-viewer
       gnome-keyring
