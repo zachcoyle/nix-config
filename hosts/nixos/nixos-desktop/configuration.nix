@@ -28,5 +28,12 @@
     distributedBuilds = true;
   };
 
-  services.fwupd.enable = true;
+  services = {
+    fwupd.enable = true;
+    atuin = {
+      enable = true;
+      openRegistration = true;
+      openFirewall = true;
+    };
+  };
 }

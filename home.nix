@@ -126,6 +126,17 @@
 
     alacritty = import ./users/zcoyle/by-app/alacritty.nix { inherit pkgs lib; };
 
+    atuin = {
+      enable = true;
+      openRegistration = true;
+      settings = {
+        auto_sync = true;
+        sync_frequency = "5m";
+        sync_address = "nixos-desktop:8888";
+        search_mode = "prefix";
+      };
+    };
+
     bash = {
       enable = true;
       historyFile = "${config.xdg.stateHome}/bash/history";
