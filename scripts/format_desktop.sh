@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell nixpkgs#keyutils nixpkgs#zenity nixpkgs#bash --command bash
+#!/usr/bin/env -S nix shell nixpkgs#keyutils nixpkgs#bash --command bash
 
 sudo parted /dev/sda -- mklabel gpt
 sudo parted /dev/sdb -- mklabel gpt
