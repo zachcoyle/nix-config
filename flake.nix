@@ -267,16 +267,6 @@
       };
     };
 
-    poetry2nix = {
-      url = "github:nix-community/poetry2nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        systems.follows = "systems-default";
-        treefmt-nix.follows = "treefmt-nix";
-      };
-    };
-
     zls = {
       url = "github:zigtools/zls";
       inputs = {
