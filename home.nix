@@ -92,7 +92,6 @@
       # swift-format
       sword
       tealdeer
-      transmission_4
       transmission_4-gtk
       typioca
       util-linux
