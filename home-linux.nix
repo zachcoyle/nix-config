@@ -106,7 +106,7 @@ in
       calibre
       cider
       copyq
-      cura
+      # cura
       element-desktop
       evince
       foliate
