@@ -9,7 +9,7 @@ sudo parted /dev/nvme0n1 -- mkpart primary 512MB -20GB
 
 sudo parted /dev/nvme0n1 -- mkpart swap linux-swap -20GB 100%
 
-sudo mkfs.fat -F 32 -n boot /dev/nvme01p1
+sudo mkfs.fat -F 32 -n boot /dev/nvme0n1p1
 
 sudo keyctl link @u @s
 
