@@ -131,7 +131,7 @@
       settings = {
         auto_sync = true;
         sync_frequency = "5m";
-        sync_address = "nixos-desktop:8888";
+        sync_address = "http://nixos-desktop:8888";
         search_mode = "prefix";
       };
     };

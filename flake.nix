@@ -449,7 +449,6 @@
             {
               modules = [
                 "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
-                inputs.nixvim.nixosModules.nixvim
                 (
                   { pkgs, lib, ... }:
                   {
@@ -485,10 +484,13 @@
                       };
                     };
 
-                    environment.systemPackages = with pkgs; [ alacritty ];
+                    environment.systemPackages = with pkgs; [
+                      alacritty
+                      git
+                      neovim
+                    ];
                   }
                 )
-                ./modules/nvim-for-installer.nix
               ] ++ extraModules;
             };
 
