@@ -250,7 +250,7 @@
       extraConfig = # sh
         ''
           # Smart pane switching with awareness of Vim splits.
-          # See: https://github.com/christoomey/vim-tmux-navigator
+          # INFO: See: https://github.com/christoomey/vim-tmux-navigator
           is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
               | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
           bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
@@ -268,6 +268,10 @@
           bind-key -T copy-mode-vi 'C-k' select-pane -U
           bind-key -T copy-mode-vi 'C-l' select-pane -R
           bind-key -T copy-mode-vi 'C-\' select-pane -l
+
+          # INFO: colors fix https://stackoverflow.com/a/77871533
+          set -g default-terminal "alacritty"
+          set-option -sa terminal-overrides ",alacritty*:Tc"
         '';
     };
 
