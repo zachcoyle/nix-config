@@ -154,7 +154,7 @@ in
       swayimg
       swaynotificationcenter
       swww
-      thunderbird-bin
+      # thunderbird-bin
       udiskie
       ueberzugpp
       unzip
