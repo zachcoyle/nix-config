@@ -51,6 +51,24 @@ in
             "@youtube"
           ];
         };
+        "Home Manager" = {
+          urls = [
+            {
+              template = "https://home-manager-options.extranix.com";
+              params = [
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "release";
+                  value = "master";
+                }
+              ];
+            }
+          ];
+          definedAliases = [ "@hm" ];
+        };
         "Nix Packages" = {
           urls = [
             {
