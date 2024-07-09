@@ -563,8 +563,10 @@
     nixGrammars = true;
     nixvimInjections = true;
     folding = true;
+    auto_install = false;
+    sync_install = false;
     settings = {
-      # ensure_installed = "all";
+      ensure_installed = [ "all" ];
       highlight.enable = true;
       indent.enable = true;
       incremental_selection = {
