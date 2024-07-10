@@ -154,6 +154,7 @@ in
       swaynotificationcenter
       swww
       thunderbird-bin
+      transmission_4-gtk
       udiskie
       ueberzugpp
       unzip
