@@ -230,35 +230,13 @@
         "type": "github"
       }
     },
-    "disko": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1720402389,
-        "narHash": "sha256-zJv6euDOrJWMHBhxfp/ay+Dvjwpe8YtMuEI5b09bxmo=",
-        "owner": "nix-community",
-        "repo": "disko",
-        "rev": "f1a00e7f55dc266ef286cc6fc8458fa2b5ca2414",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "disko",
-        "type": "github"
-      }
-    },
     "dustinlyons-modules": {
       "inputs": {
         "agenix": [],
         "darwin": [
           "nix-darwin"
         ],
-        "disko": [
-          "disko"
-        ],
+        "disko": [],
         "home-manager": [
           "home-manager"
         ],
@@ -1369,7 +1347,6 @@
         "crane": "crane",
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
-        "disko": "disko",
         "dustinlyons-modules": "dustinlyons-modules",
         "fenix": "fenix",
         "flake-compat": "flake-compat",

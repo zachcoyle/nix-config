@@ -17,7 +17,7 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         darwin.follows = "nix-darwin";
-        disko.follows = "disko";
+        disko.follows = "";
         agenix.follows = "";
         secrets.follows = "";
         homebrew-bundle.follows = "";
@@ -29,11 +29,6 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    disko = {
-      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
