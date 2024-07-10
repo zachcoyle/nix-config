@@ -42,8 +42,7 @@
   }
   {
     key = "<leader>ca";
-    action.__raw = # lua
-      "vim.lsp.buf.code_action";
+    action.__raw = "vim.lsp.buf.code_action";
     options = {
       silent = true;
       desc = "LSP Code Actions";
@@ -51,8 +50,7 @@
   }
   {
     key = "<leader>rn";
-    action.__raw = # lua
-      "vim.lsp.buf.rename";
+    action.__raw = "vim.lsp.buf.rename";
     options = {
       silent = true;
       desc = "LSP Rename";
@@ -60,8 +58,7 @@
   }
   {
     key = "zR";
-    action.__raw = # lua
-      "require('ufo').openAllFolds";
+    action.__raw = "require('ufo').openAllFolds";
     options = {
       silent = true;
       desc = "UFO Open All Folds";
@@ -69,8 +66,7 @@
   }
   {
     key = "zM";
-    action.__raw = # lua
-      "require('ufo').closeAllFolds";
+    action.__raw = "require('ufo').closeAllFolds";
     options = {
       silent = true;
       desc = "UFO Close All Folds";
@@ -78,8 +74,7 @@
   }
   {
     key = "zr";
-    action.__raw = # lua
-      "require('ufo').openFoldsExceptKinds";
+    action.__raw = "require('ufo').openFoldsExceptKinds";
     options = {
       silent = true;
       desc = "UFO Open Folds Except Kinds";
@@ -87,8 +82,7 @@
   }
   {
     key = "zm";
-    action.__raw = # lua
-      "require('ufo').closeFoldsWith";
+    action.__raw = "require('ufo').closeFoldsWith";
     options = {
       silent = true;
       desc = "Close Folds With";
@@ -105,8 +99,7 @@
   }
   {
     key = "<leader>dt";
-    action.__raw = # lua
-      "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
+    action.__raw = "function() if vim.bo.filetype == 'java' then vim.cmd('JdtUpdateDebugConfig') end; require('dapui').toggle() end";
     options = {
       silent = true;
       desc = "DAPUI Toggle";
@@ -123,8 +116,7 @@
   }
   {
     key = "<leader>tr";
-    action.__raw = # lua
-      "require('refactoring').select_refactor";
+    action.__raw = "require('refactoring').select_refactor";
     options = {
       silent = true;
       desc = "Telescope Refactor";
@@ -132,8 +124,7 @@
   }
   {
     key = "<leader>tu";
-    action.__raw = # lua
-      "require('telescope').extensions.undo.undo";
+    action.__raw = "require('telescope').extensions.undo.undo";
     options = {
       silent = true;
       desc = "Telescope Undo";
@@ -141,16 +132,14 @@
   }
   {
     key = "<leader>tf";
-    action.__raw = # lua
-      "require('telescope').extensions.file_browser.file_browser";
+    action.__raw = "require('telescope').extensions.file_browser.file_browser";
     options = {
       silent = true;
       desc = "Telecope File Browser";
     };
   }
   {
-    action.__raw = # lua
-      "require('just').just";
+    action.__raw = "require('just').just";
     key = "<leader>tj";
     options = {
       silent = true;
@@ -159,8 +148,7 @@
   }
   {
     key = "<leader>tl";
-    action.__raw = # lua
-      "require('trouble.sources.telescope').open";
+    action.__raw = "require('trouble.sources.telescope').open";
     options = {
       silent = true;
       desc = "Telescope Trouble";
@@ -186,8 +174,7 @@
   }
   {
     key = "]t";
-    action.__raw = # lua
-      "require('todo-comments').jump_next";
+    action.__raw = "require('todo-comments').jump_next";
     options = {
       silent = true;
       desc = "Jump to Next TODO";
@@ -196,8 +183,7 @@
   }
   {
     key = "[t";
-    action.__raw = # lua
-      "require('todo-comments').jump_prev";
+    action.__raw = "require('todo-comments').jump_prev";
     options = {
       silent = true;
       desc = "Jump to Previous TODO";
@@ -206,8 +192,7 @@
   }
   {
     key = "K";
-    action.__raw = # lua
-      "function() vim.cmd[[ Lspsaga hover_doc ]] end";
+    action.__raw = "function() vim.cmd[[ Lspsaga hover_doc ]] end";
     options = {
       silent = false;
       desc = "LSP Hover";
@@ -215,8 +200,7 @@
   }
   {
     key = "<leader>di";
-    action.__raw = # lua
-      "require('dap.ui.widgets').hover";
+    action.__raw = "require('dap.ui.widgets').hover";
     options = {
       silent = true;
       desc = "DAPUI Hover/Inspect";
@@ -224,8 +208,7 @@
   }
   {
     key = ";";
-    action.__raw = # lua
-      "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_next";
     options = {
       silent = true;
       desc = "Repeat Last Move Next";
@@ -238,8 +221,7 @@
   }
   {
     key = ",";
-    action.__raw = # lua
-      "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').repeat_last_move_previous";
     options = {
       silent = true;
       desc = "Repeat Last Move Previous";
@@ -252,8 +234,7 @@
   }
   {
     key = "f";
-    action.__raw = # lua
-      "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_f";
     options = {
       silent = true;
       desc = "fancy f";
@@ -266,8 +247,7 @@
   }
   {
     key = "F";
-    action.__raw = # lua
-      "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_F";
     options = {
       silent = true;
       desc = "fancy F";
@@ -280,8 +260,7 @@
   }
   {
     key = "t";
-    action.__raw = # lua
-      "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_t";
     options = {
       silent = true;
       desc = "fancy t";
@@ -294,8 +273,7 @@
   }
   {
     key = "T";
-    action.__raw = # lua
-      "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
+    action.__raw = "require('nvim-treesitter.textobjects.repeatable_move').builtin_T";
     options = {
       silent = true;
       desc = "fancy T";
@@ -308,8 +286,7 @@
   }
   {
     key = "<leader>go";
-    action.__raw = # lua
-      "require('neogit').open";
+    action.__raw = "require('neogit').open";
     options = {
       silent = true;
       desc = "Open Neogit";
@@ -351,8 +328,7 @@
   }
   {
     key = "<c-g>";
-    action.__raw = # lua
-      "_gitui_toggle";
+    action.__raw = "_gitui_toggle";
     options = {
       silent = true;
       desc = "Open GitUI";
@@ -364,8 +340,7 @@
   }
   {
     key = "s";
-    action.__raw = # lua
-      ''require("flash").remote'';
+    action.__raw = ''require("flash").remote'';
   }
   #  TODO: improve the otter bindings later by getting 
   #  all the current injections of the current
@@ -373,8 +348,7 @@
   #  vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] 
   {
     key = "<leader>ob";
-    action.__raw = # lua
-      ''function() require("otter").activate({ "bash" }) end'';
+    action.__raw = ''function() require("otter").activate({ "bash" }) end'';
     options = {
       silent = true;
       desc = "Otter: Activate Bash";
@@ -383,8 +357,7 @@
   }
   {
     key = "<leader>oc";
-    action.__raw = # lua
-      ''function() require("otter").activate({ "css" }) end'';
+    action.__raw = ''function() require("otter").activate({ "css" }) end'';
     options = {
       silent = true;
       desc = "Otter: Activate CSS";
@@ -393,8 +366,7 @@
   }
   {
     key = "<leader>oh";
-    action.__raw = # lua
-      ''function() require("otter").activate({ "haskell" }, true, true, nil) end'';
+    action.__raw = ''function() require("otter").activate({ "haskell" }, true, true, nil) end'';
     options = {
       silent = true;
       desc = "Otter: Activate Haskell";
@@ -403,8 +375,7 @@
   }
   {
     key = "<leader>oj";
-    action.__raw = # lua
-      ''function() require("otter").activate({ "javascript"}, true, true, nil) end'';
+    action.__raw = ''function() require("otter").activate({ "javascript"}, true, true, nil) end'';
     options = {
       silent = true;
       desc = "Otter: Activate Javascript";
@@ -413,8 +384,7 @@
   }
   {
     key = "<leader>ol";
-    action.__raw = # lua
-      ''function() require("otter").activate({ "lua" }, true, true, nil) end'';
+    action.__raw = ''function() require("otter").activate({ "lua" }, true, true, nil) end'';
     options = {
       silent = true;
       desc = "Otter: Activate Lua";
@@ -423,8 +393,7 @@
   }
   {
     key = "<leader>op";
-    action.__raw = # lua
-      ''function() require("otter").activate({ "python" }, true, true, nil) end'';
+    action.__raw = ''function() require("otter").activate({ "python" }, true, true, nil) end'';
     options = {
       silent = true;
       desc = "Otter: Activate Python";
@@ -433,8 +402,7 @@
   }
   {
     key = "<leader>or";
-    action.__raw = # lua
-      ''function() require("otter").activate({ "rust" }, true, true, nil) end'';
+    action.__raw = ''function() require("otter").activate({ "rust" }, true, true, nil) end'';
     options = {
       silent = true;
       desc = "Otter: Activate Rust";

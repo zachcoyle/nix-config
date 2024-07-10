@@ -279,12 +279,7 @@
               ".direnv"
               ".devenv"
             ];
-            library = [
-              {
-                __raw = # lua
-                  ''vim.api.nvim_get_runtime_file("", true)'';
-              }
-            ];
+            library = [ { __raw = ''vim.api.nvim_get_runtime_file("", true)''; } ];
           };
         };
       };
