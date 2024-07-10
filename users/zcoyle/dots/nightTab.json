@@ -14,7 +14,7 @@
       "width": 80,
       "padding": 40,
       "gutter": 20,
-      "breakpoint": "sm",
+      "breakpoint": "md",
       "scrollbar": "auto",
       "title": "",
       "favicon": "",
@@ -208,7 +208,7 @@
   "bookmark": [
     {
       "name": { "text": "", "show": true },
-      "collapse": true,
+      "collapse": false,
       "toolbar": {
         "size": 100,
         "openAll": { "show": true },
@@ -340,6 +340,50 @@
           "border": 0,
           "shape": { "wide": false, "tall": false },
           "timestamp": 1712887248160
+        },
+        {
+          "url": "https://annas-archive.gs/",
+          "display": {
+            "alignment": "center-center",
+            "direction": "vertical",
+            "order": "visual-name",
+            "rotate": 0,
+            "translate": { "x": 0, "y": 0 },
+            "gutter": 25,
+            "name": { "show": false, "text": "Anna's Archive", "size": 7 },
+            "visual": {
+              "show": true,
+              "type": "image",
+              "size": 64,
+              "letter": { "text": "" },
+              "icon": { "name": "", "prefix": "", "label": "" },
+              "image": {
+                "url": "https://annas-archive.gs/apple-touch-icon.png?hash=d2fa3410fb1ae23ef0ab"
+              },
+              "shadow": { "size": 0 }
+            }
+          },
+          "accent": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 }
+          },
+          "color": {
+            "by": "theme",
+            "hsl": { "h": 0, "s": 0, "l": 0 },
+            "rgb": { "r": 0, "g": 0, "b": 0 },
+            "opacity": 100
+          },
+          "background": {
+            "show": false,
+            "type": "image",
+            "opacity": 100,
+            "image": { "url": "" },
+            "video": { "url": "" }
+          },
+          "border": 0,
+          "shape": { "wide": false, "tall": false },
+          "timestamp": 1720648664583
         }
       ]
     },
@@ -878,6 +922,16 @@
           "timestamp": 1712887454755
         }
       ]
+    },
+    {
+      "name": { "text": "Wikis", "show": true },
+      "collapse": false,
+      "toolbar": {
+        "size": 100,
+        "openAll": { "show": true },
+        "collapse": { "show": true }
+      },
+      "items": []
     }
   ]
 }
