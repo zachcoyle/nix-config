@@ -131,6 +131,7 @@
         sync_frequency = "5m";
         sync_address = "http://nixos-desktop:8888";
         search_mode = "prefix";
+        keymap_mode = "vim-normal";
       };
     };
 
