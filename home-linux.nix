@@ -68,9 +68,7 @@ in
       enable = true;
       associations = {
         added = { };
-        removed = {
-          "inode/directory" = [ "codium.desktop" ];
-        };
+        removed = { };
       };
       defaultApplications = import ./mimetypes.nix;
     };
