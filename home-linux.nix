@@ -68,12 +68,13 @@ in
       enable = true;
       associations = {
         added = { };
-        removed = {
-          "inode/directory" = [ "codium.desktop" ];
-        };
+        removed = { };
       };
       defaultApplications = {
-        "inode/directory" = "org.gnome.Nautilus.desktop";
+        "inode/directory" = [
+          "org.gnome.Nautilus.desktop"
+          "Alacritty.desktop"
+        ];
       };
     };
     portal = {
