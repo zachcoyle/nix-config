@@ -73,7 +73,7 @@ in
         };
       };
       defaultApplications = {
-        "inode/directory" = "nautilus.desktop";
+        "inode/directory" = "org.gnome.Nautilus.desktop";
       };
     };
     portal = {
