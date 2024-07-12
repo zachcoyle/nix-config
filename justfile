@@ -46,3 +46,7 @@ iso:
 
 iso-t2:
     nix build -L .#nixosConfigurations.iso-t2.config.system.build.isoImage
+
+# list all desktop files found in well-known locations
+desktop-files:
+    { ls -1 /run/current-system/sw/share/applications; ls -1 /etc/profiles/per-user/zcoyle/share/applications; ls -1 ~/.local/share/applications; } | sort | uniq | grep ".*\.desktop"

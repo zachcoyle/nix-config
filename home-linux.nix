@@ -72,9 +72,7 @@ in
           "inode/directory" = [ "codium.desktop" ];
         };
       };
-      defaultApplications = {
-        "inode/directory" = "nautilus.desktop";
-      };
+      defaultApplications = import ./mimetypes.nix;
     };
     portal = {
       enable = true;
