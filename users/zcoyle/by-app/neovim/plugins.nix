@@ -285,7 +285,7 @@
       };
       marksman.enable = true;
       nil-ls.enable = true;
-      phpactor.enable = true;
+      # phpactor.enable = true;
       pyright.enable = true;
       ruff-lsp.enable = true;
       rust-analyzer = {
