@@ -58,6 +58,10 @@
   "application/pgp-encrypted" = [ ];
   "application/pgp-keys" = [ ];
   "application/pgp-signature" = [ ];
+  "application/photoshop" = [
+    "krita_psd.desktop"
+    "gimp.desktop"
+  ];
   "application/pkcs-12" = [ ];
   "application/pkcs-crl" = [ ];
   "application/pkcs10" = [ ];
@@ -69,6 +73,10 @@
   "application/postscript" = [ "com.github.jeromerobert.pdfarranger.desktop" ];
   "application/powerpoint" = [ ];
   "application/pro_eng" = [ ];
+  "application/psd" = [
+    "krita_psd.desktop"
+    "gimp.desktop"
+  ];
   "application/ringing-tones" = [ ];
   "application/rtf" = [ "writer.desktop" ];
   "application/sdp" = [ "mpv.desktop" ];
@@ -214,7 +222,7 @@
   "application/x-cue" = [ ];
   "application/x-dbase" = [ ];
   "application/x-dbm" = [ ];
-  "application/x-dc-rom" = [ ];
+  "application/x-dc-rom" = [ "org.libretro.RetroArch.desktop" ];
   "application/x-deb" = [ ];
   "application/x-deepv" = [ ];
   "application/x-designer" = [ ];
@@ -249,10 +257,10 @@
   "application/x-frame" = [ ];
   "application/x-freelance" = [ ];
   "application/x-frontline" = [ ];
-  "application/x-gameboy-rom" = [ ];
+  "application/x-gameboy-rom" = [ "org.libretro.RetroArch.desktop" ];
   "application/x-gdbm" = [ ];
   "application/x-gdesklets-display" = [ ];
-  "application/x-genesis-rom" = [ ];
+  "application/x-genesis-rom" = [ "org.libretro.RetroArch.desktop" ];
   "application/x-gettext-translation" = [ ];
   "application/x-glabels" = [ ];
   "application/x-glade" = [ ];
@@ -324,7 +332,7 @@
   "application/x-magicpoint" = [ ];
   "application/x-master-page" = [ ];
   "application/x-mathcad" = [ ];
-  "application/x-matroska" = [ ];
+  "application/x-matroska" = [ "mpv.desktop" ];
   "application/x-mdp" = [ ];
   "application/x-mds" = [ ];
   "application/x-mdsx" = [ ];
@@ -366,6 +374,10 @@
   "application/x-pcl" = [ ];
   "application/x-pef-executable" = [ ];
   "application/x-perl" = [ ];
+  "application/x-photoshop" = [
+    "krita_psd.desktop"
+    "gimp.desktop"
+  ];
   "application/x-php" = [ ];
   "application/x-pixclscript" = [ ];
   "application/x-pkcs10" = [ ];
@@ -407,13 +419,13 @@
   "application/x-shar" = [ ];
   "application/x-shared-library-la" = [ ];
   "application/x-sharedlib" = [ ];
-  "application/x-shellscript" = [ ];
+  "application/x-shellscript" = [ "neovide.desktop" ];
   "application/x-shockwave-flash" = [ "vlc.desktop" ];
   "application/x-siag" = [ ];
   "application/x-sit" = [ ];
   "application/x-slp" = [ ];
   "application/x-smil" = [ ];
-  "application/x-sms-rom" = [ ];
+  "application/x-sms-rom" = [ "org.libretro.RetroArch.desktop" ];
   "application/x-soap-remoting" = [ ];
   "application/x-sprite" = [ ];
   "application/x-streamingmedia" = [ ];
@@ -464,15 +476,15 @@
   "application/xml" = [ ];
   "application/zip" = [ "org.gnome.Nautilus.desktop" ];
   "audio/ac3" = [ ];
-  "audio/aiff" = "mpv.desktop";
-  "audio/basic" = "vlc.desktop";
+  "audio/aiff" = [ "mpv.desktop" ];
+  "audio/basic" = [ "vlc.desktop" ];
   "audio/it" = [ ];
   "audio/make" = [ ];
   "audio/make.my.funk" = [ ];
   "audio/mid" = [ ];
   "audio/midi" = [ "vlc.desktop" ];
   "audio/mod" = [ ];
-  "audio/mpeg" = [ "fr.handbrake.ghb.desktop" ];
+  "audio/mpeg" = [ ];
   "audio/mpeg3" = [ "mpv.desktop" ];
   "audio/nspaudio" = [ ];
   "audio/prs.sid" = [ ];
@@ -541,8 +553,12 @@
   "image/pict" = [ ];
   "image/pjpeg" = [ "imv-dir.desktop" ];
   "image/png" = [ "imv-dir.desktop" ];
+  "image/psd" = [
+    "krita_psd.desktop"
+    "gimp.desktop"
+  ];
   "image/rle" = [ ];
-  "image/svg+xml" = [ ];
+  "image/svg+xml" = [ "org.inkscape.Inkscape.desktop" ];
   "image/tiff" = [ "imv-dir.desktop" ];
   "image/vasa" = [ ];
   "image/vnd.djvu" = [ ];
@@ -550,6 +566,10 @@
   "image/vnd.dxf" = [ ];
   "image/vnd.fpx" = [ ];
   "image/vnd.net-fpx" = [ ];
+  "image/vnd.adobe.photoshop" = [
+    "krita_psd.desktop"
+    "gimp.desktop"
+  ];
   "image/vnd.rn-realflash" = [ ];
   "image/vnd.rn-realpix" = [ "vlc.desktop" ];
   "image/vnd.wap.wbmp" = [ ];
@@ -578,6 +598,10 @@
   "image/x-niff" = [ ];
   "image/x-pcx" = [ "imv-dir.desktop" ];
   "image/x-photo-cd" = [ ];
+  "image/x-photoshop" = [
+    "krita_psd.desktop"
+    "gimp.desktop"
+  ];
   "image/x-pict" = [ ];
   "image/x-portable-anymap" = [ "gimp.desktop" ];
   "image/x-portable-bitmap" = [ "gimp.desktop" ];
@@ -605,7 +629,10 @@
   "image/xpm" = [ ];
   "inode/blockdevice" = [ ];
   "inode/chardevice" = [ ];
-  "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+  "inode/directory" = [
+    "org.gnome.Nautilus.desktop"
+    "lf.desktop"
+  ];
   "inode/fifo" = [ ];
   "inode/mount-point" = [ ];
   "inode/socket" = [ ];
@@ -640,7 +667,7 @@
   "text/calendar" = [ ];
   "text/css" = [ ];
   "text/directory" = [ ];
-  "text/ecmascript" = [ ];
+  "text/ecmascript" = [ "neovide.desktop" ];
   "text/enriched" = [ ];
   "text/html" = [ "firefox.desktop" ];
   "text/htmlh" = [ ];
@@ -674,9 +701,9 @@
   "text/x-bibtex" = [ ];
   "text/x-boo" = [ ];
   "text/x-c" = [ "neovide.desktop" ];
-  "text/x-c++hdr" = [ ];
-  "text/x-c++src" = [ ];
-  "text/x-chdr" = [ ];
+  "text/x-c++hdr" = [ "neovide.desktop" ];
+  "text/x-c++src" = [ "neovide.desktop" ];
+  "text/x-chdr" = [ "neovide.desktop" ];
   "text/x-comma-separated-values" = [
     "calc.desktop"
     "visidata.desktop"
@@ -695,8 +722,8 @@
   "text/x-gettext-translation-template" = [ ];
   "text/x-gtkrc" = [ ];
   "text/x-h" = [ ];
-  "text/x-haskell" = [ ];
-  "text/x-idl" = [ ];
+  "text/x-haskell" = [ "neovide.desktop" ];
+  "text/x-idl" = [ "neovide.desktop" ];
   "text/x-install" = [ ];
   "text/x-java" = [ ];
   "text/x-java-source" = [ ];
@@ -706,15 +733,15 @@
   "text/x-literate-haskell" = [ ];
   "text/x-log" = [ ];
   "text/x-m" = [ ];
-  "text/x-makefile" = [ ];
+  "text/x-makefile" = [ "neovide.desktop" ];
   "text/x-moc" = [ ];
   "text/x-msil" = [ ];
   "text/x-nemerle" = [ ];
   "text/x-objcsrc" = [ ];
   "text/x-pascal" = [ "neovide.desktop" ];
   "text/x-patch" = [ ];
-  "text/x-python" = [ ];
-  "text/x-readme" = [ ];
+  "text/x-python" = [ "neovide.desktop" ];
+  "text/x-readme" = [ "neovide.desktop" ];
   "text/x-rng" = [ ];
   "text/x-scheme" = [ ];
   "text/x-script" = [ ];
@@ -722,8 +749,8 @@
   "text/x-script.elisp" = [ ];
   "text/x-script.guile" = [ ];
   "text/x-script.ksh" = [ ];
-  "text/x-script.lisp" = [ ];
-  "text/x-script.perl" = [ ];
+  "text/x-script.lisp" = [ "neovide.desktop" ];
+  "text/x-script.perl" = [ "neovide.desktop" ];
   "text/x-script.perl-module" = [ ];
   "text/x-script.python" = [ "neovide.desktop" ];
   "text/x-script.rexx" = [ ];
@@ -747,7 +774,8 @@
   "text/x-troff-mm" = [ ];
   "text/x-troff-ms" = [ ];
   "text/x-uil" = [ ];
-  "text/x-uri" = [ ];
+  "text/x-uri" = [ "firefox.desktop" ];
+  "text/x-url" = [ "firefox.desktop" ];
   "text/x-uuencode" = [ ];
   "text/x-vb" = [ ];
   "text/x-vcalendar" = [ ];
