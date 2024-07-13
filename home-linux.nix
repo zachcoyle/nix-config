@@ -90,7 +90,7 @@ in
   };
   home = {
     packages = with pkgs; [
-      android-studio
+      # android-studio
       apostrophe
       appimage-run
       armcord
