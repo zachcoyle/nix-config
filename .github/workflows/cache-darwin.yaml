@@ -1,18 +1,18 @@
-name: cachix-darwin
-on:
-  pull_request:
-  push:
-jobs:
-  cachix:
-    runs-on: macos-13
-    steps:
-      - uses: actions/checkout@main
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
-      - uses: cachix/cachix-action@master
-        with:
-          name: zachcoyle
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - run: nix build .#darwinConfigurations.mbp13.system --show-trace
-      - run: nix build .#darwinConfigurations.mbp15.system --show-trace
+# name: cachix-darwin
+# on:
+#   pull_request:
+#   push:
+# jobs:
+#   cachix:
+#     runs-on: macos-13
+#     steps:
+#       - uses: actions/checkout@main
+#       - name: Install Nix
+#         uses: DeterminateSystems/nix-installer-action@main
+#       - uses: DeterminateSystems/magic-nix-cache-action@main
+#       - uses: cachix/cachix-action@master
+#         with:
+#           name: zachcoyle
+#           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+#       - run: nix build .#darwinConfigurations.mbp13.system --show-trace
+#       - run: nix build .#darwinConfigurations.mbp15.system --show-trace
