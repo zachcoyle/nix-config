@@ -162,7 +162,7 @@ in
       networkmanagerapplet
       nitch
       nvtopPackages.amd
-      ollama
+      # ollama
       parted
       pasystray
       pavucontrol
@@ -177,7 +177,7 @@ in
       swaynotificationcenter
       swww
       thunderbird-bin
-      transmission_4-gtk
+      # transmission_4-gtk
       udiskie
       ueberzugpp
       unzip

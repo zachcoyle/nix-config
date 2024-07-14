@@ -92,7 +92,7 @@
       tealdeer
       typioca
       util-linux
-      visidata
+      # visidata
       wget
       wttrbar
       xdg-user-dirs
