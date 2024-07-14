@@ -94,14 +94,25 @@
   };
 
   networking = {
+    # proxy = {
+    #   default = "http://user:password@proxy:port/";
+    #   noProxy = "127.0.0.1,localhost,internal.domain";
+    # };
+    firewall = {
+      allowedTCPPorts = [
+        8080 # web dev
+      ];
+      allowedUDPPorts = [ ];
+    };
+    nameservers = [
+      # quad9
+      "9.9.9.9"
+      "149.112.112.112"
+    ];
     networkmanager = {
       enable = true;
       plugins = [ ];
     };
-    nameservers = [
-      "9.9.9.9" # quad9
-      "149.112.112.112"
-    ];
   };
 
   time.timeZone = "America/Indiana/Indianapolis";
@@ -267,25 +278,4 @@
 
   zramSwap.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 }
