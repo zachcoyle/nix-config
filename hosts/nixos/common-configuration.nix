@@ -118,8 +118,6 @@
   time.timeZone = "America/Indiana/Indianapolis";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  sound.enable = true;
-
   environment = {
     sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
     pathsToLink = [
