@@ -35,6 +35,7 @@
     packages = with pkgs; [
       fira
       fira-code-nerdfont
+      inter
       noto-fonts
       nerdfonts
       (pkgs.callPackage ./packages/fonts/ezra-sil.nix { })
