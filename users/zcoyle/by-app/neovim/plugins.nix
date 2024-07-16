@@ -286,7 +286,7 @@
       marksman.enable = true;
       nil-ls.enable = true;
       # phpactor.enable = true;
-      pyright.enable = true;
+      # pyright.enable = true;
       ruff-lsp.enable = true;
       rust-analyzer = {
         enable = true;
@@ -347,16 +347,16 @@
       integrations.diffview = true;
     };
   };
-  neotest = {
-    enable = true;
-    adapters = {
-      bash.enable = true;
-      jest.enable = true;
-      python.enable = true;
-      rust.enable = true;
-      zig.enable = true;
-    };
-  };
+  # neotest = {
+  #   enable = true;
+  #   adapters = {
+  #     bash.enable = true;
+  #     jest.enable = true;
+  #     python.enable = true;
+  #     rust.enable = true;
+  #     zig.enable = true;
+  #   };
+  # };
   noice = {
     enable = true;
     notify.enabled = false;

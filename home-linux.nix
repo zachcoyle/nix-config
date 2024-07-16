@@ -91,11 +91,11 @@ in
   home = {
     packages = with pkgs; [
       # android-studio
-      apostrophe
+      # apostrophe
       appimage-run
       armcord
       blender
-      bottles
+      # bottles
       brightnessctl
       bruno
       buildah
@@ -131,14 +131,14 @@ in
         ''
       )
       element-desktop
-      evince
+      # evince
       foliate
       # freecad
-      gnome-calculator
-      gnome-font-viewer
-      gnome-keyring
-      gnome-system-monitor
-      gnome-tecla
+      # gnome-calculator
+      # gnome-font-viewer
+      # gnome-keyring
+      # gnome-system-monitor
+      # gnome-tecla
       godot3
       grim
       handbrake
