@@ -20,5 +20,7 @@ jobs:
         continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.bruno --show-trace
         continue-on-error: true
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.heroic --show-trace
+        continue-on-error: true
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.nyxt --show-trace
         continue-on-error: true
