@@ -51,6 +51,7 @@
       jq
       just
       killall
+      ladybird
       lsix
       manix
       mdcat
