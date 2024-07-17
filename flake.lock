@@ -617,11 +617,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1721160190,
-        "narHash": "sha256-dnC7b/C8QRPoGs2H2cAYWmrTRVhN5m1xDpyrNTqV8r8=",
+        "lastModified": 1721248202,
+        "narHash": "sha256-VAhuQQ4EKbw/6z7K2IoR83+gXUdMksLWFQOhJNhSvQE=",
         "ref": "refs/heads/main",
-        "rev": "293e687389a19b369f312c5c335c9afe7c886be1",
-        "revCount": 4929,
+        "rev": "300228b503b36e5977b0d58713c5b4cf1f07b8a9",
+        "revCount": 4930,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1082,11 +1082,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1721243858,
-        "narHash": "sha256-Wg9Lm9PCAu58lhRGji1eznlJ75YtuUQdnZVFwcC5vZg=",
+        "lastModified": 1721251145,
+        "narHash": "sha256-YAsa1fOeG+uNkgSSy9L+qYUdl1n/Vo/CqU63wIlJ5uU=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "70b5eb5664fa1edbebcffa90306951a1165013f7",
+        "rev": "a09330b374200a77032f28986dbc2e8a16416533",
         "type": "github"
       },
       "original": {
@@ -1326,11 +1326,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1721241063,
-        "narHash": "sha256-jBAuwmtJmSNT6xwjtGINslFK0m3R3+Ydw+xrd+a3tSE=",
+        "lastModified": 1721251988,
+        "narHash": "sha256-eIOxl6Xq/7SKFoxW2q0968B6r1nYOOEC7H2lb2r/YpU=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "f33f46c1e38b07b20a978ac39208058ab9ddedb1",
+        "rev": "9d824e97d360a832131036684e30bc3d09d6f151",
         "type": "github"
       },
       "original": {
