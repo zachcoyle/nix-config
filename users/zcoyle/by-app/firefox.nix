@@ -127,6 +127,10 @@ in
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@ll" ];
         };
+        NPM = {
+          urls = [ { template = "https://www.npmjs.com/search?q={searchTerms}"; } ];
+          definedAliases = [ "@npm" ];
+        };
         "Wikipedia (en)".metaData.alias = "@wiki";
         Google.metaData.hidden = true;
         "Amazon.com".metaData.hidden = true;
