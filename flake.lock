@@ -981,11 +981,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721074198,
-        "narHash": "sha256-/DjGP4+A7AyJKc70idZjeqapCY/tmzmAFxLCirdr2+o=",
+        "lastModified": 1721255913,
+        "narHash": "sha256-v0ekwW8IgHCV4C9ORJGpEip5h9pGOR2Kbqc3nwW8g74=",
         "owner": "astal-sh",
         "repo": "libastal",
-        "rev": "e5251d23f158c7cc092121c3a7cc0438a73746ec",
+        "rev": "97040efe066ec046c72e63658e1aba534ccf2e95",
         "type": "github"
       },
       "original": {
@@ -1082,11 +1082,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1721251145,
-        "narHash": "sha256-YAsa1fOeG+uNkgSSy9L+qYUdl1n/Vo/CqU63wIlJ5uU=",
+        "lastModified": 1721254760,
+        "narHash": "sha256-fskNIAB7H7RgmPwRMXgWO50BKLTiYY38tl/BXi3X4uQ=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "a09330b374200a77032f28986dbc2e8a16416533",
+        "rev": "3710e8b2c6a3c4e4842d699a9df4b1309deacc79",
         "type": "github"
       },
       "original": {
@@ -1326,11 +1326,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1721251988,
-        "narHash": "sha256-eIOxl6Xq/7SKFoxW2q0968B6r1nYOOEC7H2lb2r/YpU=",
+        "lastModified": 1721255050,
+        "narHash": "sha256-ClEVkWTaC2vVeG3E/d7S4DkXhFeH7wpGHTMv8BqWOXs=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "9d824e97d360a832131036684e30bc3d09d6f151",
+        "rev": "0dbaf1aac3fb831d131839f6733055199d453bc2",
         "type": "github"
       },
       "original": {
