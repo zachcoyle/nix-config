@@ -51,7 +51,7 @@
       jq
       just
       killall
-      ladybird
+      # ladybird
       lsix
       manix
       mdcat
@@ -80,7 +80,7 @@
       qemu
       quicktype
       recode
-      revolt-desktop
+      # revolt-desktop
       ripgrep
       rippkgs
       rippkgs-index

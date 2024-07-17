@@ -19,7 +19,7 @@
   home-manager.users.zcoyle.home.packages = with pkgs; [
     discord
     # dwarf-fortress-packages.dwarf-fortress-full
-    heroic
+    # heroic
     retroarchFull
   ];
 }

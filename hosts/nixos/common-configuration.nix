@@ -101,6 +101,7 @@
     firewall = {
       allowedTCPPorts = [
         8080 # web dev
+        8081 # web dev
       ];
       allowedUDPPorts = [ ];
     };

@@ -97,9 +97,9 @@ in
       blender
       # bottles
       brightnessctl
-      bruno
+      # bruno
       buildah
-      calibre
+      # calibre
       cider
       copyq
       # INFO: https://github.com/NixOS/nixpkgs/issues/186570#issuecomment-1627797219
@@ -130,9 +130,9 @@ in
           exec "${cura5}/bin/cura5" "''${args[@]}"
         ''
       )
-      element-desktop
+      # element-desktop
       # evince
-      foliate
+      # foliate
       # freecad
       # gnome-calculator
       # gnome-font-viewer
@@ -143,7 +143,7 @@ in
       grim
       handbrake
       helvum
-      hyprpicker
+      # hyprpicker
       hyprshade
       imagemagick
       imv
@@ -153,7 +153,7 @@ in
       krita
       libinput-gestures
       libnotify
-      libreoffice
+      # libreoffice
       librepcb
       logos
       makemkv
@@ -268,7 +268,7 @@ in
       extraPackages = [ ];
     };
 
-    firefox.package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
+    firefox.package = pkgs.wrapFirefox pkgs.librewolf-unwrapped {
       extraPolicies = {
         DisableFirefoxStudies = true;
         DisablePocket = true;
