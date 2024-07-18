@@ -352,7 +352,7 @@
 
           common-nixos-config =
             { extraModules }:
-            (rec {
+            rec {
               system = "x86_64-linux";
               specialArgs = {
                 inherit inputs system;
@@ -393,7 +393,7 @@
                   ];
                 }
               ] ++ extraModules;
-            });
+            };
 
           common-darwin-config = {
             specialArgs = {
