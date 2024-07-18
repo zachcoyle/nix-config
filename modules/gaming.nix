@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  pkgsStable,
+  lib,
+  ...
+}:
 {
   programs.steam = {
     enable = true;
@@ -18,8 +23,8 @@
 
   home-manager.users.zcoyle.home.packages = with pkgs; [
     discord
-    # dwarf-fortress-packages.dwarf-fortress-full
-    # heroic
+    pkgsStable.dwarf-fortress-packages.dwarf-fortress-full
+    pkgsStable.heroic
     retroarchFull
   ];
 }

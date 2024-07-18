@@ -352,10 +352,10 @@
 
           common-nixos-config =
             { extraModules }:
-            {
+            (rec {
               system = "x86_64-linux";
               specialArgs = {
-                inherit inputs;
+                inherit inputs system;
               };
               modules = [
                 nixos-overlays
@@ -365,16 +365,20 @@
                 inputs.stylix.nixosModules.stylix
                 registryModule
                 { nixpkgs.config.rocmSupport = true; }
-                {
-                  home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.zcoyle = import ./home.nix;
-                    extraSpecialArgs = {
-                      inherit (inputs) nixvim;
+                (
+                  { pkgs, ... }:
+                  {
+                    home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      users.zcoyle = import ./home.nix;
+                      extraSpecialArgs = {
+                        inherit (inputs) nixvim;
+                        pkgsStable = import inputs.nixpkgs-stable { inherit (pkgs) system; };
+                      };
                     };
-                  };
-                }
+                  }
+                )
                 {
                   home-manager.users.zcoyle.imports = [
                     inputs.ags.homeManagerModules.default
@@ -383,7 +387,7 @@
                   ];
                 }
               ] ++ extraModules;
-            };
+            });
 
           common-darwin-config = {
             specialArgs = {

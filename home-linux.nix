@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsStable,
   lib,
   config,
   ...
@@ -91,15 +92,15 @@ in
   home = {
     packages = with pkgs; [
       # android-studio
-      # apostrophe
+      pkgsStable.apostrophe
       appimage-run
       armcord
       blender
       # bottles
       brightnessctl
-      # bruno
+      pkgsStable.bruno
       buildah
-      # calibre
+      pkgsStable.calibre
       cider
       copyq
       # INFO: https://github.com/NixOS/nixpkgs/issues/186570#issuecomment-1627797219
@@ -130,20 +131,20 @@ in
           exec "${cura5}/bin/cura5" "''${args[@]}"
         ''
       )
-      # element-desktop
-      # evince
-      # foliate
-      # freecad
-      # gnome-calculator
-      # gnome-font-viewer
-      # gnome-keyring
-      # gnome-system-monitor
-      # gnome-tecla
+      pkgsStable.element-desktop
+      evince
+      pkgsStable.foliate
+      pkgsStable.freecad
+      gnome-calculator
+      gnome-font-viewer
+      gnome-keyring
+      gnome-system-monitor
+      gnome-tecla
       godot3
       grim
       handbrake
       helvum
-      # hyprpicker
+      hyprpicker
       hyprshade
       imagemagick
       imv
@@ -153,7 +154,7 @@ in
       krita
       libinput-gestures
       libnotify
-      # libreoffice
+      pkgsStable.libreoffice
       librepcb
       logos
       makemkv
@@ -162,7 +163,6 @@ in
       networkmanagerapplet
       nitch
       nvtopPackages.amd
-      # ollama
       parted
       pasystray
       pavucontrol
@@ -177,7 +177,7 @@ in
       swaynotificationcenter
       swww
       thunderbird-bin
-      # transmission_4-gtk
+      pkgsStable.transmission_4-gtk
       udiskie
       ueberzugpp
       unzip

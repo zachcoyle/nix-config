@@ -51,7 +51,7 @@
       jq
       just
       killall
-      # ladybird
+      pkgsStable.ladybird
       lsix
       manix
       mdcat
@@ -80,7 +80,7 @@
       qemu
       quicktype
       recode
-      # revolt-desktop
+      revolt-desktop
       ripgrep
       rippkgs
       rippkgs-index
@@ -88,12 +88,12 @@
       sqlite
       sqlitebrowser
       sshfs
-      # swift-format
+      swift-format
       sword
       tealdeer
       typioca
       util-linux
-      # visidata
+      visidata
       wget
       wttrbar
       xdg-user-dirs
