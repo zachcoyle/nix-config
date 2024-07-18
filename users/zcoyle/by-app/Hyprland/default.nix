@@ -253,6 +253,8 @@ in
       "fullscreen, wlogout"
       "opacity 1.0 override 1.0 override, title:^Picture-in-Picture$"
       "nodim, title:^Picture-in-Picture$"
+      "opacity 1.0 override 1.0 override, title:^.* - mpv$"
+      "nodim, title:^.* - mpv$"
     ];
 
     exec-once = [
