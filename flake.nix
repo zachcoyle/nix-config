@@ -78,9 +78,8 @@
       };
     };
 
-    systems-linux.url = "github:nix-systems/default-linux";
-    systems-darwin.url = "github:nix-systems/default-darwin";
-    systems-default.url = "github:nix-systems/default";
+    systems-linux.url = "github:nix-systems/x86_64-linux";
+    systems-darwin.url = "github:nix-systems/x86_64-darwin";
 
     hyprlang = {
       url = "github:hyprwm/hyprlang";
@@ -134,6 +133,7 @@
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems-linux";
     };
 
     quickshell = {
