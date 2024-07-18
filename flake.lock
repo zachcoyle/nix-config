@@ -590,11 +590,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721324616,
-        "narHash": "sha256-++PNSPGc12GNDTaDFb/frBa9G/7pBrrBqcO/2Ckcwvs=",
+        "lastModified": 1721332982,
+        "narHash": "sha256-UiNq9EDnnWXaG7d5AExvPlzapuw4VyWnFHTo38Q3kn4=",
         "owner": "hyprwm",
         "repo": "hypridle",
-        "rev": "9163a9f318922d7a2460a0626a7518f7c86723d4",
+        "rev": "e5366d34b5e1f06a1233667cded3ef05b482778c",
         "type": "github"
       },
       "original": {
@@ -620,11 +620,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1721248202,
-        "narHash": "sha256-VAhuQQ4EKbw/6z7K2IoR83+gXUdMksLWFQOhJNhSvQE=",
+        "lastModified": 1721332628,
+        "narHash": "sha256-kEB88spCIG7xTvKPlkghDNqZz26YHa0B06Ku2zsGFgo=",
         "ref": "refs/heads/main",
-        "rev": "300228b503b36e5977b0d58713c5b4cf1f07b8a9",
-        "revCount": 4930,
+        "rev": "8e15f91c2417c8f05d69a93f1294185ccc5f8f3e",
+        "revCount": 4931,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1086,11 +1086,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1721326833,
-        "narHash": "sha256-YD5lPRuY8ee55uR5sf/mbDfUbnU+gP+Ke+LIgjSBGzQ=",
+        "lastModified": 1721341091,
+        "narHash": "sha256-h2CY+SOREZD708PqdMhLvbCVR5XiZxIiVMkdw7YOCd0=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "64b7ed3368d09c6fb69dfc3d1dec8ba12b3633c0",
+        "rev": "b198a5b132abdaf789bec97cc2db546133a5cad3",
         "type": "github"
       },
       "original": {
@@ -1190,11 +1190,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1721323232,
-        "narHash": "sha256-T4K2P8FayLshsIkY04i7M8qs0aQY5ugf8HsghqGONCc=",
+        "lastModified": 1721331912,
+        "narHash": "sha256-h2yaU+QEU4pHxMySHPIsRV2T/pihDHnrXBca8BY6xgc=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "ede1f14cc21e811a605f16c6b69bd3e8425383d7",
+        "rev": "bb90787ea034c8b9035dfcfc9b4dc23898d414be",
         "type": "github"
       },
       "original": {
@@ -1346,11 +1346,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1721308608,
-        "narHash": "sha256-9+sG0T06cECg/WR19qX6k0t1BQz4qMmfB7k9N+1QGS8=",
+        "lastModified": 1721335575,
+        "narHash": "sha256-dry8Y8MwACIdIBVFDOFQGpKd8PmEIPv9Ej0UdrdOlG8=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "6a52aa02e9c127a4bbdee2412123b6df5caa02de",
+        "rev": "6e46867fdecc920a1de55dc1e553a16f54e2d2ee",
         "type": "github"
       },
       "original": {
