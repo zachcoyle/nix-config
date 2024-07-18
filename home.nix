@@ -81,7 +81,7 @@
       qemu
       quicktype
       recode
-      revolt-desktop
+      pkgsStable.revolt-desktop
       ripgrep
       rippkgs
       rippkgs-index
