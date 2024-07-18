@@ -118,7 +118,7 @@
     };
 
     hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
+      url = "github:hyprwm/hyprpicker/8791f717ef495c8c5a36b21cbccc7cf218fbc380";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
