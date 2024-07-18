@@ -268,7 +268,7 @@ in
       "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
       "nm-applet"
       "blueman-applet"
-      "udiskie -a -n"
+      "udiskie --automount --notify --tray"
       # "pypr"
       "wlsunset -l 40.45 -L -85.37"
       "pasystray"
