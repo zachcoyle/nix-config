@@ -136,6 +136,7 @@ in
       pkgsStable.foliate
       pkgsStable.freecad
       gnome-calculator
+      gnome-disk-utility
       gnome-font-viewer
       gnome-keyring
       gnome-system-monitor
