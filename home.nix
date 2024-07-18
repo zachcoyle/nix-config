@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsStable,
   lib,
   nixvim,
   config,
