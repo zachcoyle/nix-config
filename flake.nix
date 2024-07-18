@@ -356,7 +356,12 @@
               system = "x86_64-linux";
               specialArgs = {
                 inherit inputs system;
-                pkgsStable = import inputs.nixpkgs-stable { inherit system; };
+                pkgsStable = (
+                  import inputs.nixpkgs-stable {
+                    inherit system;
+                    config.allowUnfreePredicate = import ./unfreePredicate.nix;
+                  }
+                );
               };
               modules = [
                 nixos-overlays
