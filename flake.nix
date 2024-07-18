@@ -356,6 +356,7 @@
               system = "x86_64-linux";
               specialArgs = {
                 inherit inputs system;
+                pkgsStable = import inputs.nixpkgs-stable { inherit system; };
               };
               modules = [
                 nixos-overlays
