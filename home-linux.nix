@@ -90,110 +90,88 @@ in
     };
   };
   home = {
-    packages = with pkgs; [
-      # android-studio
-      pkgsStable.apostrophe
-      appimage-run
-      armcord
-      blender
-      # bottles
-      brightnessctl
-      pkgsStable.bruno
-      buildah
-      pkgsStable.calibre
-      cider
-      copyq
-      # INFO: https://github.com/NixOS/nixpkgs/issues/186570#issuecomment-1627797219
-      (
-        let
-          cura5 = appimageTools.wrapType2 rec {
-            name = "cura5";
-            version = "5.4.0";
-            src = fetchurl {
-              url = "https://github.com/Ultimaker/Cura/releases/download/${version}/UltiMaker-Cura-${version}-linux-modern.AppImage";
-              hash = "sha256-QVv7Wkfo082PH6n6rpsB79st2xK2+Np9ivBg/PYZd74=";
-            };
-            extraPkgs = pkgs: [ ];
-          };
-        in
-        writeScriptBin "cura" ''
-          #! ${pkgs.bash}/bin/bash
-          # AppImage version of Cura loses current working directory and treats all paths relateive to $HOME.
-          # So we convert each of the files passed as argument to an absolute path.
-          # This fixes use cases like `cd /path/to/my/files; cura mymodel.stl anothermodel.stl`.
-          args=()
-          for a in "$@"; do
-            if [ -e "$a" ]; then
-              a="$(realpath "$a")"
-            fi
-            args+=("$a")
-          done
-          exec "${cura5}/bin/cura5" "''${args[@]}"
-        ''
-      )
-      pkgsStable.element-desktop
-      evince
-      pkgsStable.foliate
-      pkgsStable.freecad
-      gnome-calculator
-      gnome-disk-utility
-      gnome-font-viewer
-      gnome-keyring
-      gnome-system-monitor
-      gnome-tecla
-      godot3
-      grim
-      handbrake
-      helvum
-      hyprpicker
-      hyprshade
-      imagemagick
-      imv
-      inkscape
-      kdenlive
-      kickoff
-      krita
-      libinput-gestures
-      libnotify
-      pkgsStable.libreoffice
-      librepcb
-      logos
-      makemkv
-      nautilus
-      nautilus-python
-      networkmanagerapplet
-      nitch
-      nvtopPackages.amd
-      parted
-      pasystray
-      pavucontrol
-      pdfarranger
-      playerctl
-      quickshell
-      random-emoji
-      showmethekey
-      slurp
-      snapshot
-      swayimg
-      swaynotificationcenter
-      swww
-      thunderbird-bin
-      pkgsStable.transmission_4-gtk
-      udiskie
-      ueberzugpp
-      unzip
-      vlc
-      waypipe
-      wdisplays
-      wev
-      wf-recorder
-      wl-clipboard
-      wlr-which-key
-      wlsunset
-      xdg-utils
-      yubikey-touch-detector
-      zenity
-    ];
+    packages =
+      with pkgs;
+      [
+        # android-studio
+        appimage-run
+        armcord
+        blender
+        # bottles
+        brightnessctl
+        buildah
+        cider
+        copyq
+        # INFO: https://github.com/NixOS/nixpkgs/issues/186570#issuecomment-1627797219
+        evince
+        gnome-calculator
+        gnome-disk-utility
+        gnome-font-viewer
+        gnome-keyring
+        gnome-system-monitor
+        gnome-tecla
+        godot3
+        grim
+        handbrake
+        helvum
+        hyprpicker
+        hyprshade
+        imagemagick
+        imv
+        inkscape
+        kdenlive
+        kickoff
+        krita
+        libinput-gestures
+        libnotify
+        librepcb
+        logos
+        makemkv
+        nautilus
+        nautilus-python
+        networkmanagerapplet
+        nitch
+        nvtopPackages.amd
+        parted
+        pasystray
+        pavucontrol
+        pdfarranger
+        playerctl
+        quickshell
+        random-emoji
+        showmethekey
+        slurp
+        snapshot
+        swayimg
+        swaynotificationcenter
+        swww
+        thunderbird-bin
+        udiskie
+        ueberzugpp
+        unzip
+        vlc
+        waypipe
+        wdisplays
+        wev
+        wf-recorder
+        wl-clipboard
+        wlr-which-key
+        wlsunset
+        xdg-utils
+        yubikey-touch-detector
+        zenity
+      ]
+      ++ (with pkgsStable; [
+        apostrophe
+        bruno
+        calibre
+        cura
+        element-desktop
+        foliate
+        freecad
+        libreoffice
+        transmission_4-gtk
+      ]);
 
     file = {
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
