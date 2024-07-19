@@ -155,6 +155,8 @@ in
       "SUPER SHIFT, N, changegroupactive, b"
       "SUPER, O, moveoutofgroup"
       "SUPER, semicolon, lockactivegroup, toggle"
+      "SUPER, U, movegroupwindow"
+      "SUPER_SHIFT, U, movegroupwindow, b"
 
       "SUPER_ALT, 1, movetoworkspacesilent, 1"
       "SUPER_ALT, 2, movetoworkspacesilent, 2"
