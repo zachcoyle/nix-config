@@ -37,18 +37,17 @@
       fira-code-nerdfont
       inter
       noto-fonts
-      nerdfonts
-      # (nerdfonts.override {
-      #   fonts = [
-      #     "FiraCode"
-      #     "FiraMono"
-      #     "FiraSans"
-      #     "GohuFont"
-      #     "HeavyData"
-      #     "JetBrainsMono"
-      #     "OpenDyslexic"
-      #   ];
-      # })
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "FiraMono"
+          "FiraSans"
+          "GohuFont"
+          "HeavyData"
+          "JetBrainsMono"
+          "OpenDyslexic"
+        ];
+      })
       (pkgs.callPackage ./packages/fonts/ezra-sil.nix { })
       (pkgs.callPackage ./packages/fonts/galatia-sil.nix { })
     ];
