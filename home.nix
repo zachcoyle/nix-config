@@ -50,6 +50,7 @@
       html2text
       hurl
       jq
+      jujutsu
       just
       killall
       pkgsStable.ladybird
