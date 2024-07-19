@@ -183,11 +183,11 @@ in
       ".config/wlr-which-key/config.yaml".text = builtins.toJSON {
         font = "Fira Sans Nerd Font";
         background = "282828d0";
-        color = "ebdbb2ff";
-        border = "83a598ff";
+        color = "ffebdbb2";
+        border = "ff83a598";
         separator = " ➜ ";
         border_width = 2;
-        corner_r = 2;
+        corner_r = 10;
         padding = 15;
         anchor = "center";
         margin_right = 0;
@@ -205,6 +205,10 @@ in
               k = {
                 desc = "Kill Mode";
                 cmd = "hyprctl kill";
+              };
+              p = {
+                desc = "Hyprpicker";
+                cmd = "hyprpicker";
               };
             };
           };
