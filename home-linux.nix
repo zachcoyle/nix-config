@@ -202,7 +202,7 @@ in
         source = ./users/zcoyle/dots/quickshell;
       };
       ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
-      ".config/wlr-which-key/config.yaml".text = pkgs.writeYaml {
+      ".config/wlr-which-key/config.yaml".text = builtins.toJSON {
         font = "Fira Sans Nerd Font";
         background = "282828d0";
         color = "ebdbb2ff";
