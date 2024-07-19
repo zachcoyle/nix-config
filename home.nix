@@ -50,7 +50,6 @@
       html2text
       hurl
       jq
-      jujutsu
       just
       killall
       pkgsStable.ladybird
@@ -200,6 +199,15 @@
     gitui = {
       enable = true;
       keyConfig = builtins.readFile ./users/zcoyle/dots/gitui_key_config.ron;
+    };
+
+    jujutsu = {
+      enable = true;
+      ediff = true;
+      settings = {
+        user = "Zach Coyle";
+        email = "zach.coyle@gmail.com";
+      };
     };
 
     lazygit.enable = true;
