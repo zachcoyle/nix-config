@@ -175,8 +175,8 @@ in
       "SUPER, comma, layoutmsg, orientationprev"
       "SUPER_SHIFT, semicolon, exec, hyprlock"
 
-      "SUPER, D, exec, hyprctl keyword general:layout \"dwindle\""
-      "SUPER, M, exec, hyprctl keyword general:layout \"master\""
+      ''SUPER, D, exec, hyprctl keyword general:layout "dwindle"''
+      ''SUPER, M, exec, hyprctl keyword general:layout "master"''
 
       "SUPER, H, movefocus, l"
       "SUPER, J, movefocus, d"
@@ -193,14 +193,11 @@ in
       "ALT_SHIFT, K, movewindoworgroup, u"
       "ALT_SHIFT, L, movewindoworgroup, r"
 
-      "SUPER, slash, exec, hyprpicker | wl-copy"
-
-      "SUPER_ALT, backspace, exit"
-      "SUPER, backslash, exec, sudo systemctl restart tiny-dfr"
-
-      "SUPER, XF86Eject, exec, hyprctl kill"
-
-      "SUPER, bracketright, pin"
+      "SUPER, Backspace, exec, hyprctl kill"
+      "SUPER, BracketRight, pin"
+      "SUPER, Delete, exec, hyprctl kill"
+      "SUPER, Slash, exec, wlr-which-key"
+      "SUPER_ALT, Backspace, exit"
     ];
 
     binde = [
@@ -231,8 +228,8 @@ in
       ", XF86MonBrightnessUp, exec, lightctl up"
       ", XF86MonBrightnessDown, exec, lightctl down"
 
-      ", XF86KbdBrightnessUp, exec, brightnessctl -d \":white:kbd_backlight\" s 10%+"
-      ", XF86KbdBrightnessDown, exec, brightnessctl -d \":white:kbd_backlight\" s 10%-"
+      '', XF86KbdBrightnessUp, exec, brightnessctl -d ":white:kbd_backlight" s 10%+''
+      '', XF86KbdBrightnessDown, exec, brightnessctl -d ":white:kbd_backlight" s 10%-''
       ", XF86Eject, exec, eject"
     ];
 
@@ -269,7 +266,6 @@ in
       "nm-applet"
       "blueman-applet"
       "udiskie --automount --notify --tray"
-      # "pypr"
       "wlsunset -l 40.45 -L -85.37"
       "pasystray"
     ];

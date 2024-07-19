@@ -188,6 +188,7 @@ in
       wev
       wf-recorder
       wl-clipboard
+      wlr-which-key
       wlsunset
       xdg-utils
       yubikey-touch-detector
@@ -195,13 +196,52 @@ in
     ];
 
     file = {
+      ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
       ".config/quickshell" = {
-        source = ./users/zcoyle/dots/quickshell;
         recursive = true;
+        source = ./users/zcoyle/dots/quickshell;
+      };
+      ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
+      ".config/wlr-which-key/config.yaml".text = pkgs.writeYaml {
+        font = "Fira Sans Nerd Font";
+        background = "282828d0";
+        color = "ebdbb2ff";
+        border = "83a598ff";
+        separator = " ➜ ";
+        border_width = 2;
+        corner_r = 2;
+        padding = 15;
+        anchor = "center";
+        margin_right = 0;
+        margin_bottom = 0;
+        margin_left = 0;
+        margin_top = 0;
+        menu = {
+          h = {
+            desc = "Hyprland";
+            submenu = {
+              e = {
+                desc = "Exit";
+                cmd = "hyprctl dispatch exit";
+              };
+              k = {
+                desc = "Kill Mode";
+                cmd = "hyprctl kill";
+              };
+            };
+          };
+          s = {
+            desc = "Services";
+            submenu = {
+              t = {
+                desc = "(restart) tiny-dfr";
+                cmd = "sudo systemctl restart tiny-dfr";
+              };
+            };
+          };
+        };
       };
       ".local/share/neovide/neovide-settings.json".text = import ./users/zcoyle/by-app/neovide.nix;
-      ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
-      ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
     };
   };
 
