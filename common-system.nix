@@ -41,8 +41,7 @@
         fonts = [
           "FiraCode"
           "FiraMono"
-          "FiraSans"
-          "GohuFont"
+          "Gohu"
           "HeavyData"
           "JetBrainsMono"
           "OpenDyslexic"
