@@ -9,14 +9,7 @@ let
   random-emoji = pkgs.callPackage ./packages/random-emoji.nix { };
 in
 {
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
+  qt.enable = true;
   gtk = {
     enable = true;
     gtk2.extraConfig = ''
