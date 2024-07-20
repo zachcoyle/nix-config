@@ -18,3 +18,5 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.libsForQt5.full --show-trace
         continue-on-error: true
+      - run: nix build .#nixosConfigurations.nixos-laptop.pkgs.kdePackages.full --show-trace
+        continue-on-error: true
