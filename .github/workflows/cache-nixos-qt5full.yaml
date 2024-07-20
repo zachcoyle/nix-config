@@ -1,4 +1,4 @@
-name: cachix-nixos-neovim
+name: cachix-nixos-qt5Full
 on:
   pull_request:
   push:
