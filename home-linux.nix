@@ -156,7 +156,6 @@ in
       ]
       ++ (with pkgsStable; [
         apostrophe
-        bruno
         calibre
         cura
         element-desktop
