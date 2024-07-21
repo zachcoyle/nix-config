@@ -192,7 +192,7 @@
   "application/x-bittorrent" = [ ];
   "application/x-blender" = [ ];
   "application/x-bsh" = [ ];
-  "application/x-bytecode.elisp (compiled elisp)" = [ ];
+  "application/x-bytecode.elisp" = [ ];
   "application/x-bytecode.python" = [ ];
   "application/x-bzip" = [ "org.gnome.Nautilus.desktop" ];
   "application/x-bzip-compressed-tar" = [ ];
@@ -212,6 +212,7 @@
   "application/x-compress" = [ "org.gnome.Nautilus.desktop" ];
   "application/x-compressed" = [ ];
   "application/x-compressed-tar" = [ ];
+  "application/x-7z-compressed" = [ ];
   "application/x-conference" = [ ];
   "application/x-config" = [ ];
   "application/x-core" = [ ];
