@@ -45,6 +45,7 @@
           "HeavyData"
           "JetBrainsMono"
           "OpenDyslexic"
+          "ShureTechMono"
         ];
       })
       (pkgs.callPackage ./packages/fonts/ezra-sil.nix { })
