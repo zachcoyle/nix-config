@@ -630,6 +630,7 @@
         "url": "https://github.com/hyprwm/Hyprland"
       },
       "original": {
+        "rev": "f642fb97df5c69267a03452533de383ff8023570",
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
