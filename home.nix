@@ -13,7 +13,6 @@
     targets = {
       nixvim.enable = false;
       rofi.enable = false;
-      # hyprpaper.enable = lib.mkForce false;
     };
   };
 

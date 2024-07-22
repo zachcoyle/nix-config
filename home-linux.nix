@@ -26,22 +26,8 @@ in
       '';
     };
     iconTheme = {
-      # TODO: make a decision between these
-
-      # name = "Adwaita";
-      # package = pkgs.gnome.adwaita-icon-theme;
-
       name = "Gruvbox-Plus-Dark";
       package = pkgs.gruvbox-plus-icons;
-
-      # name = "Papirus";
-      # package = pkgs.papirus-icon-theme;
-
-      # name = "Qogir";
-      # package = pkgs.qogir-icon-theme;
-
-      # name = "Tela";
-      # package = pkgs.tela-icon-theme;
     };
   };
 
@@ -86,11 +72,11 @@ in
     packages =
       with pkgs;
       [
-        # android-studio
+        android-studio
         appimage-run
         armcord
         blender
-        # bottles
+        bottles
         brightnessctl
         buildah
         cider
