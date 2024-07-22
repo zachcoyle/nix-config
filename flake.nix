@@ -90,7 +90,7 @@
     };
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?rev=f642fb97df5c69267a03452533de383ff8023570&submodules=1";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
