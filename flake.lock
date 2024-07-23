@@ -654,11 +654,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1721684218,
-        "narHash": "sha256-FbFz+F5LJs92s6/DEkhh2h+k8NRqqrs8MGF+GRZWZGo=",
+        "lastModified": 1721757407,
+        "narHash": "sha256-LOOKUKOuJfmB6FJe08/YjtQOuAwoBgjRpDGqdE/CjRI=",
         "ref": "refs/heads/main",
-        "rev": "3c758db95c129ed6ca7ce0c1b5b82ad6e189488d",
-        "revCount": 4963,
+        "rev": "077494ee85c8fa4c6ae74ad8d749feea826294d2",
+        "revCount": 4965,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1149,6 +1149,32 @@
         "type": "github"
       }
     },
+    "niqspkgs": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems-linux"
+        ]
+      },
+      "locked": {
+        "lastModified": 1721584457,
+        "narHash": "sha256-BQReQE9DUfqN9sGQy4RMbYGkwFzq9m915FnJTOWIJlk=",
+        "owner": "diniamo",
+        "repo": "niqspkgs",
+        "rev": "544c3b2c69fd1b5ab3407e7b35c76060801a8bcf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diniamo",
+        "repo": "niqspkgs",
+        "type": "github"
+      }
+    },
     "nix-btm": {
       "inputs": {
         "fenix": [
@@ -1498,6 +1524,7 @@
         "logos": "logos",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-plugins-nightly-overlay": "neovim-plugins-nightly-overlay",
+        "niqspkgs": "niqspkgs",
         "nix-btm": "nix-btm",
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
