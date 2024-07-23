@@ -288,6 +288,15 @@
     };
 
     logos.url = "github:zachcoyle/logos.nix";
+
+    niqspkgs = {
+      url = "github:diniamo/niqspkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
+        flake-parts.follows = "flake-parts";
+      };
+    };
   };
 
   outputs =
@@ -333,6 +342,7 @@
                 inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
                 inherit (inputs.libastal.packages.${prev.system}) astal;
                 inherit (inputs.quickshell.packages.${prev.system}) quickshell;
+                inherit (inputs.niqspkgs.packages.${prev.system}) bibata-hyprcursor;
 
                 logos = inputs.logos.packages.${prev.system}.default;
 

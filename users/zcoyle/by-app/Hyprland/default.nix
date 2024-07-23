@@ -272,7 +272,11 @@ in
       "pasystray"
     ];
 
-    env = [ "NIXOS_OZONE_WL, 1" ];
+    env = [
+      "NIXOS_OZONE_WL, 1"
+      "HYPRCURSOR_THEME,Bibata-modern"
+      "HYPRCURSOR_SIZE,${builtins.toString config.stylix.cursor.size}"
+    ];
   };
 
   xwayland.enable = true;

@@ -4,6 +4,9 @@
   config,
   ...
 }:
+let
+  inherit (config.lib.stylix.colors) withHashtag;
+in
 {
   hardware = {
     enableAllFirmware = true;
@@ -143,6 +146,34 @@
       pciutils
       virt-manager
       wget
+      (bibata-hyprcursor.overrideAttrs (oldAttrs: {
+        configurePhase =
+          ''
+            find cursors -type f -name '*.svg' | xargs sed -i \
+              -e 's/#00FF00/${withHashtag.base00}/g' \
+              -e 's/#2C2C2C/${withHashtag.base00}/g' \
+              -e 's/black/${withHashtag.base00}/g' \
+              -e 's/#FF0000/${withHashtag.base00}/g' \
+              -e 's/#606060/${withHashtag.base03}/g' \
+              -e 's/#0000FF/${withHashtag.base07}/g' \
+              -e 's/white/${withHashtag.base07}/g' \
+              -e 's/#F05024/${withHashtag.base08}/g' \
+              -e 's/#FE0000/${withHashtag.base08}/g' \
+              -e 's/#F1613A/${withHashtag.base09}/g' \
+              -e 's/#F27400/${withHashtag.base09}/g' \
+              -e 's/#FCB813/${withHashtag.base0A}/g' \
+              -e 's/#FDBE2A/${withHashtag.base0A}/g' \
+              -e 's/#06B231/${withHashtag.base0A}/g' \
+              -e 's/#0A6857/${withHashtag.base0A}/g' \
+              -e 's/#7EBA41/${withHashtag.base0A}/g' \
+              -e 's/#96C865/${withHashtag.base0A}/g' \
+              -e 's/#179DD8/${withHashtag.base0D}/g' \
+              -e 's/#32A0DA/${withHashtag.base0D}/g' \
+              -e 's/#4FADDF/${withHashtag.base0D}/g' \
+              -e 's/#5F3BE4/${withHashtag.base0E}/g'
+          ''
+          + oldAttrs.configurePhase;
+      }))
     ];
   };
 
