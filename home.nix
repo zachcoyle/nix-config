@@ -67,7 +67,6 @@
         nix-output-monitor
         nix-tree
         nixfmt-rfc-style
-        oils-for-unix
         opentofu
         oterm
         pijul
@@ -112,15 +111,6 @@
         enable_build_on_save = true;
         build_save_on_step = "check";
       };
-      ".config/oils/oshrc".text = # bash
-        ''
-          if [[ $TERM != "dumb" ]]; then
-           eval "$(starship init bash)"
-          fi
-          eval $(mcfly init bash)
-          # eval $(direnv hook bash)
-          set -o vi
-        '';
     };
   };
 
@@ -146,10 +136,8 @@
 
     bat = {
       enable = true;
-      config = {
-        pager = "less -FR";
-        # theme = "gruvbox-dark";
-      };
+      config.pager = "less -FR";
+
       extraPackages = with pkgs.bat-extras; [
         batdiff
         batman
@@ -194,9 +182,7 @@
       # FIXME: currently broken on darwin
       difftastic.enable = pkgs.stdenv.isLinux;
       lfs.enable = true;
-      extraConfig = {
-        push.autoSetupRemote = true;
-      };
+      extraConfig.push.autoSetupRemote = true;
     };
 
     gitui = {
@@ -217,6 +203,24 @@
 
     lf = {
       enable = true;
+      cmdKeybindings = { };
+      commands = { };
+      keybindings = { };
+      # previewer.keybinding = "";
+      # previewer.source = pkgs.writeShellApplication {
+      #   name = "lf-previewer";
+      #   runtimeInputs = with pkgs; [ ];
+      #   text = '''';
+      # };
+      settings = {
+        number = true;
+        ratios = [
+          1
+          1
+          2
+        ];
+        tabstop = 4;
+      };
     };
 
     lsd = {
