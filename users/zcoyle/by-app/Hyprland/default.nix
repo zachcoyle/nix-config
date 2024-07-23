@@ -200,6 +200,7 @@ in
       "SUPER, Delete, exec, hyprctl kill"
       "SUPER, Slash, exec, wlr-which-key"
       "SUPER_ALT, Backspace, exit"
+      "SUPER, Backslash, exec, swaync-client -t"
     ];
 
     binde = [
