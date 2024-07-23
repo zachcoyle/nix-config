@@ -121,7 +121,6 @@ in
         showmethekey
         slurp
         snapshot
-        swayimg
         swaynotificationcenter
         swww
         thunderbird-bin
