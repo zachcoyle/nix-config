@@ -81,7 +81,6 @@ in
         buildah
         cider
         copyq
-        # INFO: https://github.com/NixOS/nixpkgs/issues/186570#issuecomment-1627797219
         evince
         gnome-calculator
         gnome-disk-utility

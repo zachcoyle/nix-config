@@ -3,18 +3,6 @@ let
 in
 {
   home-manager.users.zcoyle = {
-    # don't need this turned on w/ apple keyboard
-    # services.xremap.config.modmap = [
-    #   {
-    #     name = "Desktop";
-    #     remap = {
-    #       Alt_L = "Super_L";
-    #       Super_L = "Alt_L";
-    #       Alt_R = "Super_R";
-    #       Compose = "Alt_R"; # Menu key, see https://github.com/xremap/xremap/issues/455
-    #     };
-    #   }
-    # ];
     wayland.windowManager.hyprland.settings = {
       # FIXME: https://github.com/hyprwm/Hyprland/issues/7001
       cursor.no_hardware_cursors = true;
