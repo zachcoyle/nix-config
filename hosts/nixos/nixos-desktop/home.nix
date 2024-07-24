@@ -16,6 +16,8 @@ in
     #   }
     # ];
     wayland.windowManager.hyprland.settings = {
+      # FIXME: https://github.com/hyprwm/Hyprland/issues/7001
+      cursor.no_hardware_cursors = true;
       exec-once = [
         "swww img ${wallpaperDir}/platform.png --transition-fps 60 --transition-type grow --transition-pos 1695,855"
       ];
