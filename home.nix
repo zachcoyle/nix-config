@@ -6,6 +6,15 @@
   config,
   ...
 }:
+let
+  lf-previewer = pkgs.writeShellApplication {
+    name = "lf-previewer";
+    runtimeInputs = with pkgs; [ bat ];
+    text = ''
+      bat --color=always --theme=gruvbox-dark "$1"
+    '';
+  };
+in
 {
   imports = [ nixvim.homeManagerModules.nixvim ];
 
@@ -206,12 +215,10 @@
       cmdKeybindings = { };
       commands = { };
       keybindings = { };
-      # previewer.keybinding = "";
-      # previewer.source = pkgs.writeShellApplication {
-      #   name = "lf-previewer";
-      #   runtimeInputs = with pkgs; [ ];
-      #   text = '''';
-      # };
+      previewer = {
+        keybinding = "i";
+        source = ''${lf-previewer}/bin/lf-previewer "$@"'';
+      };
       settings = {
         number = true;
         ratios = [
