@@ -1138,11 +1138,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1722007179,
-        "narHash": "sha256-Ypx2IBXiz5Px3hH5jmL3c2to6f1rW22hS+eCdXM2AFs=",
+        "lastModified": 1722014262,
+        "narHash": "sha256-MNf1WB/cUX04WmCH2BRT0AYujLnEcf6Z8JgAGtPhdrc=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "ccc81dea55e6c1ff50f232de6b87a896644bffab",
+        "rev": "500fa16bd7f0dc040aad047880d807be4918fb5b",
         "type": "github"
       },
       "original": {
