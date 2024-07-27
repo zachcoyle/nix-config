@@ -332,49 +332,43 @@ in
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
 
-      sessionVariables =
-        {
-          BROWSER = "firefox";
-          EDITOR = "nvim";
-          GITGET_ROOT = "~/Developer";
-          XCURSOR_SIZE = 24;
-        }
-        // {
-          # xdg-ninja recommendations
+      sessionVariables = {
+        BROWSER = "firefox";
+        EDITOR = "nvim";
+        GITGET_ROOT = "~/Developer";
+        XCURSOR_SIZE = 24;
 
-          # TODO:
-          # GNUPGHOME = "${config.xdg.dataHome}/gnupg";
+        # xdg-ninja recommendations:
+        # TODO:
+        # GNUPGHOME = "${config.xdg.dataHome}/gnupg";
 
-          _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${config.xdg.configHome}/java";
-          ANDROID_HOME = "${config.xdg.dataHome}/android/sdk";
-          ANDROID_USER_HOME = "${config.xdg.dataHome}/android";
-          CARGO_HOME = "${config.xdg.dataHome}/cargo";
-          DVDCSS_CACHE = "${config.xdg.dataHome}/dvdcss";
-          GTK2_RC_FILES = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-          REDISCLI_HISTFILE = "${config.xdg.dataHome}/redis/rediscli_history";
-          VALKEYCLI_HISTFILE = "${config.xdg.dataHome}/valkey/valkeycli_history";
-          W3M_DIR = "${config.xdg.dataHome}/w3m";
-          XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
-        };
+        _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${config.xdg.configHome}/java";
+        ANDROID_HOME = "${config.xdg.dataHome}/android/sdk";
+        ANDROID_USER_HOME = "${config.xdg.dataHome}/android";
+        CARGO_HOME = "${config.xdg.dataHome}/cargo";
+        DVDCSS_CACHE = "${config.xdg.dataHome}/dvdcss";
+        GTK2_RC_FILES = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+        REDISCLI_HISTFILE = "${config.xdg.dataHome}/redis/rediscli_history";
+        VALKEYCLI_HISTFILE = "${config.xdg.dataHome}/valkey/valkeycli_history";
+        W3M_DIR = "${config.xdg.dataHome}/w3m";
+        XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
+      };
 
-      shellAliases =
-        {
-          cat = "bat";
-          gl = "git log --one-line --graph | head -n 50";
-          j = "z";
-          nix-top = "nix-btm";
-          repos = "lsd --tree --depth 3 ~/Developer";
-          tree = "lsd --tree";
-          vi = "nvim";
-          vim = "nvim";
-        }
-        // {
-          # xdg-ninja recommendations
+      shellAliases = {
+        cat = "bat";
+        gl = "git log --one-line --graph | head -n 50";
+        j = "z";
+        nix-top = "nix-btm";
+        repos = "lsd --tree --depth 3 ~/Developer";
+        tree = "lsd --tree";
+        vi = "nvim";
+        vim = "nvim";
 
-          adb = "HOME=${config.xdg.dataHome}/android adb";
-          dosbox = "dosbox -conf ${config.xdg.configHome}/dosbox/dosbox.conf";
-          yarn = "yarn --use-yarnrc ${config.xdg.configHome}/yarn/config";
-        };
+        # xdg-ninja recommendations:
+        adb = "HOME=${config.xdg.dataHome}/android adb";
+        dosbox = "dosbox -conf ${config.xdg.configHome}/dosbox/dosbox.conf";
+        yarn = "yarn --use-yarnrc ${config.xdg.configHome}/yarn/config";
+      };
     };
 
     # FIXME: broken on darwin currently
