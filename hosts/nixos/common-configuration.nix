@@ -163,10 +163,10 @@ in
               -e 's/#F27400/${withHashtag.base09}/g' \
               -e 's/#FCB813/${withHashtag.base0A}/g' \
               -e 's/#FDBE2A/${withHashtag.base0A}/g' \
-              -e 's/#06B231/${withHashtag.base0A}/g' \
-              -e 's/#0A6857/${withHashtag.base0A}/g' \
-              -e 's/#7EBA41/${withHashtag.base0A}/g' \
-              -e 's/#96C865/${withHashtag.base0A}/g' \
+              -e 's/#06B231/${withHashtag.base0B}/g' \
+              -e 's/#0A6857/${withHashtag.base0B}/g' \
+              -e 's/#7EBA41/${withHashtag.base0B}/g' \
+              -e 's/#96C865/${withHashtag.base0B}/g' \
               -e 's/#179DD8/${withHashtag.base0D}/g' \
               -e 's/#32A0DA/${withHashtag.base0D}/g' \
               -e 's/#4FADDF/${withHashtag.base0D}/g' \
