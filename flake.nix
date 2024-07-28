@@ -150,16 +150,6 @@
       inputs.systems.follows = "systems-linux";
     };
 
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    libastal = {
-      url = "github:astal-sh/libastal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs = {
@@ -339,8 +329,6 @@
                 inherit (inputs.hyprlock.packages.${prev.system}) hyprlock;
                 inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
                 inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
-                inherit (inputs.libastal.packages.${prev.system}) astal;
-                inherit (inputs.quickshell.packages.${prev.system}) quickshell;
                 inherit (inputs.niqspkgs.packages.${prev.system}) bibata-hyprcursor;
 
                 logos = inputs.logos.packages.${prev.system}.default;

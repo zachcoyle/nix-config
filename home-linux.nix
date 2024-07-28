@@ -115,7 +115,6 @@ in
         pavucontrol
         pdfarranger
         playerctl
-        quickshell
         random-emoji
         showmethekey
         slurp

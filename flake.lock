@@ -935,26 +935,6 @@
         "url": "https://raw.githubusercontent.com/ziglang/zig/0fb2015fd3422fc1df364995f9782dfe7255eccd/doc/langref.html.in"
       }
     },
-    "libastal": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1721998984,
-        "narHash": "sha256-coydOpGeLOwp0UvRS+LcprKfaZZPXZQrY1hRniBjlB4=",
-        "owner": "astal-sh",
-        "repo": "libastal",
-        "rev": "1e230baa86c08df8347eed29fcdf90f13173b263",
-        "type": "github"
-      },
-      "original": {
-        "owner": "astal-sh",
-        "repo": "libastal",
-        "type": "github"
-      }
-    },
     "logos": {
       "inputs": {
         "devshell": "devshell_2",
@@ -1365,26 +1345,6 @@
         "type": "github"
       }
     },
-    "quickshell": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1722072501,
-        "narHash": "sha256-ZTOs+cJDKnEMifkVvQwduPtAInrUO3vP+KE470FFVYw=",
-        "owner": "outfoxxed",
-        "repo": "quickshell",
-        "rev": "18563b1273166f6e5795e892642fd11f6b66e69a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "outfoxxed",
-        "repo": "quickshell",
-        "type": "github"
-      }
-    },
     "rippkgs": {
       "inputs": {
         "crane": [
@@ -1440,7 +1400,6 @@
         "hyprpicker": "hyprpicker",
         "hyprutils": "hyprutils",
         "icon-themes-nightly-overlay": "icon-themes-nightly-overlay",
-        "libastal": "libastal",
         "logos": "logos",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-plugins-nightly-overlay": "neovim-plugins-nightly-overlay",
@@ -1455,7 +1414,6 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
-        "quickshell": "quickshell",
         "rippkgs": "rippkgs",
         "stylix": "stylix",
         "systems-darwin": "systems-darwin",
