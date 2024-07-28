@@ -87,6 +87,15 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
+        hyprutils.follows = "hyprutils";
+      };
+    };
+
+    hyprutils = {
+      url = "github:hyprwm/hyprutils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems-linux";
       };
     };
 
@@ -96,6 +105,7 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
         hyprlang.follows = "hyprlang";
+        hyprutils.follows = "hyprutils";
       };
     };
 
@@ -105,6 +115,7 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
         hyprlang.follows = "hyprlang";
+        hyprutils.follows = "hyprutils";
       };
     };
 
@@ -114,6 +125,7 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
         hyprlang.follows = "hyprlang";
+        hyprutils.follows = "hyprutils";
       };
     };
 
@@ -128,6 +140,7 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems-linux";
         hyprlang.follows = "hyprlang";
+        hyprutils.follows = "hyprutils";
       };
     };
 
