@@ -188,10 +188,7 @@
 
     devshell = {
       url = "github:numtide/devshell";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     pre-commit-hooks = {
@@ -279,15 +276,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-btm = {
-      url = "github:DieracDelta/nix-btm/0.2.0";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        utils.follows = "flake-utils";
-        fenix.follows = "fenix";
-      };
-    };
-
     logos.url = "github:zachcoyle/logos.nix";
 
     niqspkgs = {
@@ -323,10 +311,7 @@
               inputs.neovim-nightly-overlay.overlays.default
               inputs.neovim-plugins-nightly-overlay.overlays.default
 
-              (_: prev: {
-                inherit (inputs.zls.packages.${prev.system}) zls;
-                inherit (inputs.nix-btm.packages.${prev.system}) nix-btm;
-              })
+              (_: prev: { inherit (inputs.zls.packages.${prev.system}) zls; })
             ];
           };
 

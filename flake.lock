@@ -1190,33 +1190,6 @@
         "type": "github"
       }
     },
-    "nix-btm": {
-      "inputs": {
-        "fenix": [
-          "fenix"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "utils": [
-          "flake-utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1719340282,
-        "narHash": "sha256-vz/MaO/zqQJb6sSUYWOMn7W23UBR1zQu39Y8OaCw6ZA=",
-        "owner": "DieracDelta",
-        "repo": "nix-btm",
-        "rev": "365a5e50be440bddeb4318ed49e9e8663c8cb4d8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "DieracDelta",
-        "ref": "0.2.0",
-        "repo": "nix-btm",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -1563,7 +1536,6 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-plugins-nightly-overlay": "neovim-plugins-nightly-overlay",
         "niqspkgs": "niqspkgs",
-        "nix-btm": "nix-btm",
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
