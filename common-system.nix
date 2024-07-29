@@ -45,6 +45,7 @@
           "HeavyData"
           "JetBrainsMono"
           "OpenDyslexic"
+          "Lilex"
           # "ShureTechMono"
         ];
       })
