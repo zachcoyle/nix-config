@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   enable = true;
   cursor = {
     name = "Bibata-Modern-Gruvbox";
