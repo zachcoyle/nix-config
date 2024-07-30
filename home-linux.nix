@@ -9,6 +9,11 @@ let
   random-emoji = pkgs.callPackage ./packages/random-emoji.nix { };
 in
 {
+  imports = [
+    ./users/zcoyle/by-app/Hyprland
+    ./users/zcoyle/by-app/rofi.nix
+  ];
+
   qt.enable = true;
   gtk = {
     enable = true;
@@ -256,8 +261,6 @@ in
     };
   };
 
-  wayland.windowManager.hyprland = import ./users/zcoyle/by-app/Hyprland { inherit pkgs lib config; };
-
   programs = {
     ags = {
       enable = true;
@@ -335,8 +338,6 @@ in
         wlrobs
       ];
     };
-
-    rofi = import ./users/zcoyle/by-app/rofi.nix { inherit pkgs lib config; };
 
     wlogout = {
       enable = true;
