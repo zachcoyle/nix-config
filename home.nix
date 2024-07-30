@@ -21,6 +21,7 @@ in
     ./users/zcoyle/by-app/alacritty.nix
     ./users/zcoyle/by-app/firefox.nix
     ./users/zcoyle/by-app/neovim
+    ./users/zcoyle/by-app/vscode.nix
   ];
 
   stylix = {
@@ -315,8 +316,6 @@ in
           set-option -sa terminal-overrides ",alacritty*:Tc"
         '';
     };
-
-    vscode = import ./users/zcoyle/by-app/vscode.nix { inherit pkgs lib; };
 
     yazi = {
       enable = true;
