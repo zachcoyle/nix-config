@@ -98,7 +98,6 @@ in
         recode
         ripgrep
         rippkgs
-        rippkgs-index
         scc
         sqlite
         sqlitebrowser
