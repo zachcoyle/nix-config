@@ -74,6 +74,14 @@ in
     rofi-calc
     rofi-emoji
   ];
+  pass = {
+    enable = true;
+    package = pkgs.rofi-pass-wayland;
+    stores = [
+      # FIXME:
+      "/home/zcoyle/Passwords"
+    ];
+  };
   theme = {
     # "*" = {
     #   # https://github.com/davatorium/rofi-themes/blob/master/Official%20Themes/solarized_alternate.rasi

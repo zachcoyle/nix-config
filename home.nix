@@ -60,6 +60,7 @@ in
         hurl
         jq
         just
+        keepassxc
         killall
         lsix
         manix
@@ -243,6 +244,24 @@ in
     };
 
     nixvim = import ./users/zcoyle/by-app/neovim { inherit pkgs lib config; };
+
+    password-store = {
+      package = pkgs.pass.withExtensions (
+        exts: with exts; [
+          pass-otp
+          pass-audit
+          pass-update
+          pass-import
+          pass-checkup
+          pass-genphrase
+        ]
+      );
+      enable = true;
+      settings = {
+        # FIXME:
+        PASSWORD_STORE_DIR = "/home/zcoyle/Passwords";
+      };
+    };
 
     starship =
       let

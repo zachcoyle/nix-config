@@ -5,7 +5,9 @@ let
     darkreader
     dearrow
     firenvim
+    keepassxc-browser
     nighttab
+    passff
     react-devtools
     reddit-enhancement-suite
     sponsorblock
