@@ -255,16 +255,6 @@ in
       jack.enable = true;
     };
 
-    redis = {
-      enable = true;
-      package = pkgs.valkey;
-      servers.default = {
-        settings = {
-          loadmodule = [ ];
-        };
-      };
-    };
-
     udisks2.enable = true;
 
     udev.packages = [ pkgs.android-udev-rules ];

@@ -39,7 +39,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         git-hooks.follows = "pre-commit-hooks";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         flake-parts.follows = "flake-parts";
         hercules-ci-effects.follows = "hercules-ci-effects";
       };
@@ -74,7 +74,7 @@
         flake-parts.follows = "flake-parts";
         home-manager.follows = "home-manager";
         nix-darwin.follows = "nix-darwin";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         treefmt-nix.follows = "treefmt-nix";
       };
     };
@@ -168,7 +168,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
       };
     };
 
@@ -198,7 +198,7 @@
       url = "github:cachix/git-hooks.nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         gitignore.follows = "gitignore";
       };
     };
@@ -212,23 +212,12 @@
       };
     };
 
-    rippkgs = {
-      url = "github:replit/rippkgs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        devshell.follows = "devshell";
-        flake-parts.follows = "flake-parts";
-        crane.follows = "crane";
-        fenix.follows = "fenix";
-      };
-    };
-
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
       };
     };
 
@@ -243,8 +232,6 @@
     nur.url = "github:nix-community/nur";
 
     flake-utils.url = "github:numtide/flake-utils";
-
-    flake-compat.url = "github:edolstra/flake-compat";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -310,7 +297,6 @@
               inputs.telescope-just.overlays.default
               inputs.nix-vscode-extensions.overlays.default
               inputs.nur.overlay
-              inputs.rippkgs.overlays.default
               inputs.neovim-nightly-overlay.overlays.default
               inputs.neovim-plugins-nightly-overlay.overlays.default
 

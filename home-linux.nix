@@ -154,10 +154,6 @@ in
 
     file = {
       ".config/libinput-gestures.conf".source = ./users/zcoyle/dots/libinput-gestures.conf;
-      ".config/quickshell" = {
-        recursive = true;
-        source = ./users/zcoyle/dots/quickshell;
-      };
       ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/wlr-which-key/config.yaml".text = builtins.toJSON {
         font = "Fira Sans Nerd Font";

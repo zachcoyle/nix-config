@@ -212,7 +212,7 @@ in
         # lua
         '''';
 
-    options =
+    opts =
       {
         clipboard = "unnamedplus";
         exrc = true; # (.exrc, .nvimrc, .nvim.lua)
