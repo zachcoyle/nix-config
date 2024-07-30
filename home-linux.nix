@@ -138,6 +138,8 @@ in
         wlr-which-key
         wlsunset
         xdg-utils
+        yubikey-manager
+        yubikey-manager-qt
         yubikey-touch-detector
         zenity
       ]
