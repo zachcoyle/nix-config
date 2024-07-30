@@ -16,7 +16,12 @@ let
   };
 in
 {
-  imports = [ nixvim.homeManagerModules.nixvim ];
+  imports = [
+    nixvim.homeManagerModules.nixvim
+    ./users/zcoyle/by-app/alacritty.nix
+    ./users/zcoyle/by-app/firefox.nix
+    ./users/zcoyle/by-app/neovim
+  ];
 
   stylix = {
     targets = {
@@ -126,8 +131,6 @@ in
 
   programs = {
 
-    alacritty = import ./users/zcoyle/by-app/alacritty.nix { inherit pkgs lib; };
-
     atuin = {
       enable = true;
       settings = {
@@ -179,8 +182,6 @@ in
           }
         '';
     };
-
-    firefox = import ./users/zcoyle/by-app/firefox.nix { inherit pkgs; };
 
     fish.enable = true;
 
@@ -242,8 +243,6 @@ in
       enableZshIntegration = true;
       keyScheme = "vim";
     };
-
-    nixvim = import ./users/zcoyle/by-app/neovim { inherit pkgs lib config; };
 
     password-store = {
       package = pkgs.pass.withExtensions (
