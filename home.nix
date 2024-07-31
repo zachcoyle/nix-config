@@ -390,7 +390,13 @@ in
     # FIXME: broken on darwin currently
     mpv.enable = pkgs.stdenv.isLinux;
 
-    zathura.enable = true;
+    zathura = {
+      enable = true;
+      options = {
+        recolor = true;
+        recolor-keephue = true;
+      };
+    };
   };
 
   services = {
