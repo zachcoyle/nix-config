@@ -87,6 +87,7 @@ in
         copyq
         evince
         gnome-calculator
+        gnome-calendar
         gnome-disk-utility
         gnome-font-viewer
         gnome-keyring
