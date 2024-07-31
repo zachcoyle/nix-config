@@ -658,11 +658,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1722366828,
-        "narHash": "sha256-grUcMvIZs3ncEg2irrFJtTPxR0YaOYO4D1CgUB+u0dg=",
+        "lastModified": 1722375236,
+        "narHash": "sha256-8yrkwPN3TbCrtZSD/7GSV2kW9hruIZUQymnpyV15TI4=",
         "ref": "refs/heads/main",
-        "rev": "8ec3dc4c09c30aab7669f99ba6359be320023fa8",
-        "revCount": 5028,
+        "rev": "3b9b5346b830554aa7470ccf1202a7f3be72d1b4",
+        "revCount": 5029,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -895,11 +895,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722299281,
-        "narHash": "sha256-JjWjXxYcHB87eGN8lidWok4D1G68MyngU611eNPkqjM=",
+        "lastModified": 1722385410,
+        "narHash": "sha256-j8fcRiGMlutMC1Cwvt7Qa2q0T77XD503DkP7+23Pxt4=",
         "owner": "zachcoyle",
         "repo": "icon-themes-nightly-overlay",
-        "rev": "117221c2aa4474e107967bbccfdaa5a83a9f75b7",
+        "rev": "1849ae2f612f347500521aa1008aa4a2d57b99ab",
         "type": "github"
       },
       "original": {
@@ -976,11 +976,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722299518,
-        "narHash": "sha256-0hRxk6iKiPeSNAxIauHtr3oDSoHcDkt4Ia3XXuGwy60=",
+        "lastModified": 1722378708,
+        "narHash": "sha256-MxG/Hfm7+BHIKXOAAoNJmTYvQ+EO0ezACqUYR55eQ4w=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "cbf1a4829aad170bcf35ca417617d3ff29f76267",
+        "rev": "e84a246c521f0c6348a0d01da3dfe0cd611f078a",
         "type": "github"
       },
       "original": {
@@ -1006,11 +1006,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1722363627,
-        "narHash": "sha256-oq8myscYHcLTId8JSlOyVH/32Vq/6dnIUKidKrTgcpg=",
+        "lastModified": 1722377872,
+        "narHash": "sha256-UPuFMSbAL70woZWtF9SqZ98wVrVZkWrleSD7ID/XnhI=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "12c6f0f706706c2408e6d1dbcdef363b92925ede",
+        "rev": "4f9de22cbf3152804839f8626a4a334a0da27573",
         "type": "github"
       },
       "original": {
@@ -1159,11 +1159,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722300566,
-        "narHash": "sha256-ukz6lyH3EDLznlU+2jzTLurw/G4IrdYf1t0eGmcYia4=",
+        "lastModified": 1722386404,
+        "narHash": "sha256-j7h9ZEEkH2JnEV2QGgePQCDC4eeX22D8QgLUolzmSPE=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "311f8e46df6ab418580ee2fcba09bbb58a2d1a2c",
+        "rev": "fbb421fea959a6af0709aa4b5b16e407f63a743d",
         "type": "github"
       },
       "original": {
@@ -1262,11 +1262,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1722368740,
-        "narHash": "sha256-oYXUTzFGDqlZo0u+pHQ8jmmsjJjxpLKYG1ou3yyZuX8=",
+        "lastModified": 1722388116,
+        "narHash": "sha256-5ipOzy993QkKEoM7XNNHvNTiohnt2/32RSD0WqkdHJQ=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "c1edc6df5b9eeb2f2f9d780b2f87de190fc15ba5",
+        "rev": "185662d6e39943da1a790b01ecba71a212c167e3",
         "type": "github"
       },
       "original": {
