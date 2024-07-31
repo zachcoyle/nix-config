@@ -110,6 +110,7 @@ in
         librepcb
         logos
         makemkv
+        meteo
         nautilus
         nautilus-python
         networkmanagerapplet

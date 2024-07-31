@@ -271,6 +271,7 @@ in
         "udiskie --automount --notify --tray"
         "wlsunset -l 40.45 -L -85.37"
         "pasystray"
+        "meteo"
       ];
 
       env = [
