@@ -2,9 +2,11 @@
   pkgs,
   pkgsStable,
   lib,
+  config,
   ...
 }:
 let
+  inherit (config.lib.stylix.colors) withHashtag;
   random-emoji = pkgs.callPackage ./packages/random-emoji.nix { };
 in
 {
@@ -161,11 +163,11 @@ in
       ".config/swaync/style.css".source = ./users/zcoyle/dots/swaync/style.css;
       ".config/wlr-which-key/config.yaml".text = builtins.toJSON {
         font = "Fira Sans Nerd Font";
-        background = "282828d0";
-        color = "ffebdbb2";
-        border = "ff83a598";
+        background = withHashtag.base00 + "cc";
+        color = withHashtag.base07;
+        border = withHashtag.base0C;
         separator = " ➜ ";
-        border_width = 2;
+        border_width = 1;
         corner_r = 10;
         padding = 15;
         anchor = "center";
@@ -184,6 +186,19 @@ in
               k = {
                 desc = "Kill Mode";
                 cmd = "hyprctl kill";
+              };
+              l = {
+                desc = "Layout";
+                submenu = {
+                  d = {
+                    desc = "Dwindle";
+                    cmd = ''hyprctl keyword general:layout "dwindle"'';
+                  };
+                  m = {
+                    desc = "Master";
+                    cmd = ''hyprctl keyword general:layout "master"'';
+                  };
+                };
               };
               p = {
                 desc = "Hyprpicker";
