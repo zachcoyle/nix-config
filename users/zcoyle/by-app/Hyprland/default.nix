@@ -6,6 +6,21 @@
 }:
 let
   gradient_border = "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
+  toggle-fakefullscreen = pkgs.writeShellApplication {
+    name = "toggle-fakefullscreen";
+    runtimeInputs = with pkgs; [ jq ];
+    text = ''
+      FFS_STATE="$(hyprctl activewindow -j | jq '.fullscreenClient')"
+      case $FFS_STATE in 
+      "0")
+      hyprctl dispatch fullscreenstate "0 2"
+      ;;
+      *) 
+      hyprctl dispatch fullscreenstate "0 0"
+      ;;
+      esac
+    '';
+  };
   toggle-recording = pkgs.writeShellApplication {
     name = "toggle-recording";
     runtimeInputs = with pkgs; [
@@ -132,8 +147,8 @@ in
         "SUPER, E, exec, rofi -opacity 0 -show emoji -display-emoji `random-emoji`"
         "SUPER, Return, exec, alacritty"
         "SUPER, Q, killactive"
-        "SUPER, Y, fullscreen, 0"
-        "SUPER, U, fakefullscreen, 0"
+        "SUPER, F, fullscreen, 0"
+        "SUPER SHIFT, F, exec, ${lib.getExe toggle-fakefullscreen}"
         "SUPER, T, togglefloating"
         "SUPER, SPACE, exec, rofi -opacity 0 -show drun -show-icons -display-drun '' -display-ssh '󰣀' -display-run '' -display-window ''"
         "SUPER, S, togglespecialworkspace, scratchpad"
@@ -147,9 +162,9 @@ in
         "SUPER, 8, workspace, 8"
         "SUPER, 9, workspace, 9"
         "SUPER, 0, workspace, 10"
-        "SUPER_SHIFT, 3, exec, grim"
-        ''SUPER_SHIFT, 4, exec, grim -g "$(slurp)"''
-        "SUPER_SHIFT, 5, exec, ${lib.getExe toggle-recording}"
+        "SUPER SHIFT, 3, exec, grim"
+        ''SUPER SHIFT, 4, exec, grim -g "$(slurp)"''
+        "SUPER SHIFT, 5, exec, ${lib.getExe toggle-recording}"
 
         "SUPER, G, togglegroup"
         "SUPER, N, changegroupactive"
@@ -157,26 +172,26 @@ in
         "SUPER, O, moveoutofgroup"
         "SUPER, semicolon, lockactivegroup, toggle"
         "SUPER, U, movegroupwindow"
-        "SUPER_SHIFT, U, movegroupwindow, b"
+        "SUPER SHIFT, U, movegroupwindow, b"
 
-        "SUPER_ALT, 1, movetoworkspacesilent, 1"
-        "SUPER_ALT, 2, movetoworkspacesilent, 2"
-        "SUPER_ALT, 3, movetoworkspacesilent, 3"
-        "SUPER_ALT, 4, movetoworkspacesilent, 4"
-        "SUPER_ALT, 5, movetoworkspacesilent, 5"
-        "SUPER_ALT, 6, movetoworkspacesilent, 6"
-        "SUPER_ALT, 7, movetoworkspacesilent, 7"
-        "SUPER_ALT, 8, movetoworkspacesilent, 8"
-        "SUPER_ALT, 9, movetoworkspacesilent, 9"
-        "SUPER_ALT, 0, movetoworkspacesilent, 10"
-        "SUPER_ALT, S, movetoworkspacesilent, special:scratchpad"
+        "SUPER ALT, 1, movetoworkspacesilent, 1"
+        "SUPER ALT, 2, movetoworkspacesilent, 2"
+        "SUPER ALT, 3, movetoworkspacesilent, 3"
+        "SUPER ALT, 4, movetoworkspacesilent, 4"
+        "SUPER ALT, 5, movetoworkspacesilent, 5"
+        "SUPER ALT, 6, movetoworkspacesilent, 6"
+        "SUPER ALT, 7, movetoworkspacesilent, 7"
+        "SUPER ALT, 8, movetoworkspacesilent, 8"
+        "SUPER ALT, 9, movetoworkspacesilent, 9"
+        "SUPER ALT, 0, movetoworkspacesilent, 10"
+        "SUPER ALT, S, movetoworkspacesilent, special:scratchpad"
 
         "SUPER, TAB, cyclenext"
-        "SUPER_SHIFT, TAB, cyclenext, prev"
+        "SUPER SHIFT, TAB, cyclenext, prev"
 
         "SUPER, period, layoutmsg, orientationnext"
         "SUPER, comma, layoutmsg, orientationprev"
-        "SUPER_SHIFT, semicolon, exec, hyprlock"
+        "SUPER SHIFT, semicolon, exec, hyprlock"
 
         ''SUPER, D, exec, hyprctl keyword general:layout "dwindle"''
         ''SUPER, M, exec, hyprctl keyword general:layout "master"''
@@ -186,10 +201,10 @@ in
         "SUPER, K, movefocus, u"
         "SUPER, L, movefocus, r"
 
-        "SUPER_SHIFT, H, swapwindow, l"
-        "SUPER_SHIFT, J, swapwindow, d"
-        "SUPER_SHIFT, K, swapwindow, u"
-        "SUPER_SHIFT, L, swapwindow, r"
+        "SUPER SHIFT, H, swapwindow, l"
+        "SUPER SHIFT, J, swapwindow, d"
+        "SUPER SHIFT, K, swapwindow, u"
+        "SUPER SHIFT, L, swapwindow, r"
 
         "ALT_SHIFT, H, movewindoworgroup, l"
         "ALT_SHIFT, J, movewindoworgroup, d"
@@ -200,7 +215,7 @@ in
         "SUPER, BracketRight, pin"
         "SUPER, Delete, exec, hyprctl kill"
         "SUPER, Slash, exec, wlr-which-key"
-        "SUPER_ALT, Backspace, exit"
+        "SUPER ALT, Backspace, exit"
         "SUPER, Backslash, exec, swaync-client -t"
       ];
 
