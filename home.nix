@@ -84,7 +84,7 @@ in
         nix-tree
         nixfmt-rfc-style
         opentofu
-        oterm
+        # oterm
         pijul
         podman
         podman-compose
