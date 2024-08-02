@@ -181,6 +181,11 @@ in
 
     adb.enable = true;
 
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
     hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -259,7 +264,10 @@ in
 
     udisks2.enable = true;
 
-    udev.packages = [ pkgs.android-udev-rules ];
+    udev.packages = with pkgs; [
+      android-udev-rules
+      yubikey-personalization
+    ];
 
     upower.enable = true;
 
