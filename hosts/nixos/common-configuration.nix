@@ -242,6 +242,8 @@ in
       acceleration = "rocm";
     };
 
+    pcscd.enable = true;
+
     printing.enable = true;
 
     pipewire = {
