@@ -113,6 +113,7 @@ in
         xsv
         yq
         yt-dlp
+        yubikey-manager
         zstd
       ]
       ++ (with pkgsStable; [
