@@ -16,24 +16,22 @@ in
   ];
 
   qt.enable = true;
+
   gtk = {
     enable = true;
-    gtk2.extraConfig = ''
-      gtk-decoration-layout=:menu,appmenu
-    '';
-    gtk3.extraConfig = {
-      gtk-decoration-layout = ''
-        gtk-decoration-layout=:menu,appmenu
-      '';
-    };
-    gtk4.extraConfig = {
-      gtk-decoration-layout = ''
-        gtk-decoration-layout=:menu,appmenu
-      '';
-    };
+    gtk2.extraConfig = "";
+    gtk3.extraConfig.gtk-decoration-layout = "";
+    gtk4.extraConfig.gtk-decoration-layout = "";
+
     iconTheme = {
       name = "Gruvbox-Plus-Dark";
       package = pkgs.gruvbox-plus-icons;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = ":appmenu";
     };
   };
 
