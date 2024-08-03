@@ -184,7 +184,12 @@ in
         '';
     };
 
-    fish.enable = true;
+    fish = {
+      enable = true;
+      interactiveShellInit = ''
+        fish_vi_key_bindings
+      '';
+    };
 
     git = {
       enable = true;
