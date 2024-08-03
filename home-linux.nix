@@ -15,13 +15,17 @@ in
     ./users/zcoyle/by-app/rofi.nix
   ];
 
+  stylix.targets.gtk.extraCss = ''
+    @define-color window-bg-color: ${withHashtag.base00}cc;
+    @define-color sidebar-bg-color: ${withHashtag.base01}cc;
+    window { background: ${withHashtag.base00}cc !important; } 
+    .sidebar-pane { background: ${withHashtag.base01}cc !important; }
+  '';
+
   qt.enable = true;
 
   gtk = {
     enable = true;
-    gtk2.extraConfig = "";
-    gtk3.extraConfig.gtk-decoration-layout = "";
-    gtk4.extraConfig.gtk-decoration-layout = "";
 
     iconTheme = {
       name = "Gruvbox-Plus-Dark";
