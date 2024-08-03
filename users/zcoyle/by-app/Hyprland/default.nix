@@ -282,7 +282,7 @@ in
         # INFO: https://github.com/NixOS/nixpkgs/issues/189851
         "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
         "nm-applet"
-        "blueman-tray"
+        "blueman-applet"
         "udiskie --automount --notify --tray"
         "wlsunset -l 40.45 -L -85.37"
         "pasystray"
