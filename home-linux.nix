@@ -83,6 +83,7 @@ in
         android-studio
         appimage-run
         armcord
+        audio-recorder
         blender
         bottles
         brightnessctl
