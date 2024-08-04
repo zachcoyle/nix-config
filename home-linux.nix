@@ -216,13 +216,13 @@ in
                 desc = "(restart) tiny-dfr";
                 cmd = "sudo systemctl restart tiny-dfr";
               };
-              n = {
-                desc = "nh-clean.timer";
-                submenu = {
-                  start = "sudo systemctl start nh-clean.timer";
-                  stop = "sudo systemctl stop nh-clean.timer";
-                };
-              };
+              # n = {
+              #   desc = "nh-clean.timer";
+              #   submenu = {
+              #     start = "sudo systemctl start nh-clean.timer";
+              #     stop = "sudo systemctl stop nh-clean.timer";
+              #   };
+              # };
             };
           };
         };
