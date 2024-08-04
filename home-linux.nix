@@ -85,7 +85,7 @@ in
         armcord
         audio-recorder
         blender
-        bottles
+        # bottles
         brightnessctl
         buildah
         cider
@@ -346,22 +346,22 @@ in
       };
     };
 
-    obs-studio = {
-      enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
-        input-overlay
-        obs-3d-effect
-        obs-command-source
-        obs-composite-blur
-        obs-move-transition
-        obs-mute-filter
-        obs-pipewire-audio-capture
-        obs-shaderfilter
-        obs-source-switcher
-        obs-vkcapture
-        wlrobs
-      ];
-    };
+    # obs-studio = {
+    #   enable = true;
+    #   plugins = with pkgs.obs-studio-plugins; [
+    #     input-overlay
+    #     obs-3d-effect
+    #     obs-command-source
+    #     obs-composite-blur
+    #     obs-move-transition
+    #     obs-mute-filter
+    #     obs-pipewire-audio-capture
+    #     obs-shaderfilter
+    #     obs-source-switcher
+    #     obs-vkcapture
+    #     wlrobs
+    #   ];
+    # };
 
     wlogout = {
       enable = true;

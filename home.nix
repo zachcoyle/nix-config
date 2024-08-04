@@ -63,7 +63,7 @@ in
         gitnr
         gource
         html2text
-        hurl
+        # hurl
         jq
         just
         keepassxc
@@ -256,7 +256,7 @@ in
           pass-otp
           pass-audit
           pass-update
-          pass-import
+          # pass-import
           pass-checkup
           pass-genphrase
         ]

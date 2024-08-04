@@ -242,10 +242,10 @@ in
 
     openssh.enable = true;
 
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-    };
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "rocm";
+    # };
 
     pcscd.enable = true;
 
