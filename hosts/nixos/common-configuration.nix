@@ -192,6 +192,8 @@ in
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
 
+    mosh.enable = true;
+
     nautilus-open-any-terminal = {
       enable = true;
       terminal = "alacritty";
