@@ -112,9 +112,9 @@ in
       };
       input = {
         # NOTE: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
-        kb_layout = "us, us, il";
         kb_options = "caps:escape,grp:alt_space_toggle";
-        kb_variant = ", colemak, phonetic";
+        kb_layout = "us, us, il, il, gr, gr";
+        kb_variant = ", colemak, phonetic, biblical, simple, polytonic";
         natural_scroll = true;
         touchpad = {
           natural_scroll = true;
