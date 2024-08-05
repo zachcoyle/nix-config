@@ -1324,6 +1324,7 @@
         "systems-linux": "systems-linux",
         "telescope-just": "telescope-just",
         "treefmt-nix": "treefmt-nix",
+        "walker": "walker",
         "xremap-flake": "xremap-flake",
         "zls": "zls"
       }
@@ -1511,6 +1512,29 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "walker": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1722878136,
+        "narHash": "sha256-Zk41KjrWKI9/7eI+ZKxbwM3vKFUMvYUsdZK1qbJU5NI=",
+        "owner": "abenz1267",
+        "repo": "walker",
+        "rev": "c9bdb62c9e77f74c3d97a8199e9f84c7bae7151f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenz1267",
+        "repo": "walker",
         "type": "github"
       }
     },

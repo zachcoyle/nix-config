@@ -407,6 +407,12 @@ in
     #   ];
     # };
 
+    walker = {
+      enable = true;
+      runAsService = true;
+      # config = {};
+    };
+
     wlogout = {
       enable = true;
       style = ./users/zcoyle/dots/wlogout.css;
