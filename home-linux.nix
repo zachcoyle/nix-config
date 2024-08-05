@@ -80,7 +80,7 @@ in
     packages =
       with pkgs;
       [
-        android-studio
+        # android-studio
         appimage-run
         armcord
         audio-recorder
