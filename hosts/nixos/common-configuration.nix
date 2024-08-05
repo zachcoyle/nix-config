@@ -204,7 +204,7 @@ in
       clean = {
         enable = true;
         dates = "daily";
-        extraArgs = "--keep-since 2d --keep 10"; # "--nogcroots"
+        extraArgs = "--keep-since 2d --keep 10 --nogcroots";
       };
       flake = "/home/zcoyle/Developer/github.com/zachcoyle/nix-config";
     };
