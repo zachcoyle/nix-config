@@ -323,26 +323,70 @@ in
       enable = true;
 
       settings = {
-        disable_loading_bar = true;
-        grace = 300;
+        disable_loading_bar = false;
+        grace = 0;
         hide_cursor = true;
         no_fade_in = false;
 
         background = [
           {
-            path = "screenshot";
-            blur_passes = 1;
-            blur_size = 7;
-            noise = 5.85e-3;
+            path = builtins.toString ./theme/wallpapers/calder-moore-factorycomped.jpg;
+            blur_passes = 0;
+            contrast = 0.8916;
+            brightness = 0.8172;
+            vibrancy = 0.1696;
+            vibrancy_darkness = 0.0;
           }
         ];
-
         label = [
           {
-            text = ''cmd[update:10000] curl -s --connect-timeout 10 https://www.biblegateway.com/votd/get/\?format\=json\&version\=ESV | jq "(.votd.reference + \" \" + .votd.text)" | fold -w 120 -s | html2text | recode html'';
-            rotate = 0.0;
+            text = "Welcome!";
+            color = "rgba(216, 222, 233, 0.75)";
+            font_size = 55;
+            font_family = "Fira Sans";
+            position = "150, 320";
+            halign = "left";
+            valign = "center";
+          }
+          {
+            text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
+            color = "rgba(216, 222, 233, 0.75)";
+            font_size = 19;
+            font_family = "Fira Sans";
+            position = "217, 175";
+            halign = "left";
+            valign = "right";
+          }
+          {
+            text = "    $USER";
+            color = "rgba(216, 222, 233, 0.80)";
+            outline_thickness = 0;
+            dots_size = 0.2;
+            dots_spacing = 0.2;
+            dots_center = true;
+            font_size = 16;
+            font_family = "Fira Sans";
+            position = "275, -140";
+            halign = "left";
+            valign = "center";
           }
         ];
+        image = [ ];
+        shape = [
+          {
+            size = "320, 55";
+            color = "rgba(255, 255, 255, 0.1)";
+            rounding = -1;
+            border_size = 0;
+            border_color = "rgba(255, 255, 255, 1)";
+            rotate = 0;
+            xray = false;
+            position = "160, -140";
+            halign = "left";
+            valign = "center";
+          }
+        ];
+        input-field = [ ];
       };
     };
 
