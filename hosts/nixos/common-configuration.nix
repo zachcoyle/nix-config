@@ -280,6 +280,7 @@ in
 
   };
 
+  # FIXME: 
   stylix =
     (import ../../theme/stylix.nix { inherit pkgs; })
     // (import ../../theme/stylix-nixos.nix { inherit pkgs; });
