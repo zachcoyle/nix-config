@@ -109,6 +109,7 @@ in
         imv
         inkscape
         kdenlive
+        keepassxc
         kickoff
         krita
         libinput-gestures
@@ -162,6 +163,7 @@ in
         libreoffice
         revolt-desktop
         transmission_4-gtk
+        visidata
       ]);
 
     file = {

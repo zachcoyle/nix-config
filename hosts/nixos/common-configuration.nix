@@ -8,6 +8,12 @@ let
   inherit (config.lib.stylix.colors) withHashtag;
 in
 {
+
+  imports = [
+    ../../theme/stylix.nix
+    ../../theme/stylix-nixos.nix
+  ];
+
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
@@ -279,11 +285,6 @@ in
     };
 
   };
-
-  # FIXME: 
-  stylix =
-    (import ../../theme/stylix.nix { inherit pkgs; })
-    // (import ../../theme/stylix-nixos.nix { inherit pkgs; });
 
   system.stateVersion = "24.05";
 

@@ -12,6 +12,9 @@ let
     '';
 in
 {
+
+  imports = [ ../../theme/stylix.nix ];
+
   nix = {
     linux-builder = {
       enable = true;
@@ -21,8 +24,6 @@ in
       };
     };
   };
-
-  stylix = import ../../theme/stylix.nix { inherit pkgs; };
 
   system.stateVersion = 4;
 

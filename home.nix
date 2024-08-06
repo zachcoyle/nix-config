@@ -35,88 +35,84 @@ in
     username = "zcoyle";
     stateVersion = "24.05";
     preferXdgDirectories = true;
-    packages =
-      with pkgs;
-      [
-        act
-        alejandra
-        asciinema
-        baobab
-        cachix
-        comma
-        cool-retro-term
-        coreutils-full
-        curlFull
-        dart-sass
-        dasel
-        dos2unix
-        dsq
-        duf
-        entr
-        fastfetch
-        fd
-        file
-        ghq
-        gimp
-        git-bug
-        git-get
-        gitnr
-        gource
-        html2text
-        # hurl
-        jq
-        just
-        keepassxc
-        killall
-        lsix
-        manix
-        mdcat
-        meld
-        moar
-        moreutils
-        neovide
-        nh
-        nix-btm
-        nix-diff
-        nix-init
-        nix-melt
-        nix-output-monitor
-        nix-tree
-        nixfmt-rfc-style
-        opentofu
-        # oterm
-        pijul
-        podman
-        podman-compose
-        podman-tui
-        poetry
-        process-compose
-        prqlc
-        python3
-        qemu
-        quicktype
-        recode
-        ripgrep
-        rippkgs
-        scc
-        sqlite
-        sqlitebrowser
-        sshfs
-        swift-format
-        sword
-        tealdeer
-        typioca
-        util-linux
-        wget
-        wttrbar
-        xdg-user-dirs
-        xsv
-        yq
-        yt-dlp
-        yubikey-manager
-        zstd
-      ]
-      ++ (with pkgsStable; [ visidata ]);
+    packages = with pkgs; [
+      act
+      alejandra
+      asciinema
+      baobab
+      cachix
+      comma
+      cool-retro-term
+      coreutils-full
+      curlFull
+      dart-sass
+      dasel
+      dos2unix
+      dsq
+      duf
+      entr
+      fastfetch
+      fd
+      file
+      ghq
+      gimp
+      git-bug
+      git-get
+      gitnr
+      gource
+      html2text
+      # hurl
+      jq
+      just
+      killall
+      lsix
+      manix
+      mdcat
+      meld
+      moar
+      moreutils
+      neovide
+      nh
+      nix-btm
+      nix-diff
+      nix-init
+      nix-melt
+      nix-output-monitor
+      nix-tree
+      nixfmt-rfc-style
+      opentofu
+      # oterm
+      pijul
+      podman
+      podman-compose
+      podman-tui
+      poetry
+      process-compose
+      prqlc
+      python3
+      qemu
+      quicktype
+      recode
+      ripgrep
+      rippkgs
+      scc
+      sqlite
+      sqlitebrowser
+      sshfs
+      # swift-format
+      sword
+      tealdeer
+      typioca
+      util-linux
+      wget
+      wttrbar
+      xdg-user-dirs
+      xsv
+      yq
+      yt-dlp
+      yubikey-manager
+      zstd
+    ];
 
     file = {
       ".config/zls.json".text = builtins.toJSON {

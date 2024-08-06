@@ -22,7 +22,7 @@
       ms-python.python
       oderwat.indent-rainbow
       rust-lang.rust-analyzer
-      vadimcn.vscode-lldb
+      # vadimcn.vscode-lldb
       vknabel.vscode-apple-swift-format
       vscodevim.vim
       vue.volar
