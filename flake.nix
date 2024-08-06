@@ -391,6 +391,10 @@
           common-darwin-config = {
             specialArgs = {
               inherit inputs;
+              pkgsStable = import inputs.nixpkgs-stable {
+                system = "x86_64-darwin";
+                config.allowUnfreePredicate = import ./unfreePredicate.nix;
+              };
             };
             modules = [
               darwin-overlays
@@ -415,6 +419,10 @@
                   users.zcoyle = import ./home.nix;
                   extraSpecialArgs = {
                     inherit (inputs) nixvim;
+                    pkgsStable = import inputs.nixpkgs-stable {
+                      system = "x86_64-darwin";
+                      config.allowUnfreePredicate = import ./unfreePredicate.nix;
+                    };
                   };
                 };
               }

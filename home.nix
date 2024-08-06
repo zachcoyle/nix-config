@@ -116,11 +116,7 @@ in
         yubikey-manager
         zstd
       ]
-      ++ (with pkgsStable; [
-        ladybird
-        revolt-desktop
-        visidata
-      ]);
+      ++ (with pkgsStable; [ visidata ]);
 
     file = {
       ".config/zls.json".text = builtins.toJSON {

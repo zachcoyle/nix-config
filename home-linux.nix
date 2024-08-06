@@ -158,7 +158,9 @@ in
         element-desktop
         foliate
         freecad
+        ladybird
         libreoffice
+        revolt-desktop
         transmission_4-gtk
       ]);
 
