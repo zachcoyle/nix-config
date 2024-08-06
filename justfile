@@ -42,10 +42,10 @@ cachix-inputs:
       | cachix push zachcoyle
 
 iso:
-    nix build -L .#nixosConfigurations.iso.config.system.build.isoImage
+    nix build -L .#nixosConfigurations.iso.config.system.build.isoImage --show-trace
 
 iso-t2:
-    nix build -L .#nixosConfigurations.iso-t2.config.system.build.isoImage
+    nix build -L .#nixosConfigurations.iso-t2.config.system.build.isoImage --show-trace
 
 # list all desktop files found in well-known locations
 desktop-files:
