@@ -151,35 +151,28 @@ in
         require("ibl").setup { scope = { highlight = highlight } }
 
         hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-      ''
-      + (
-        # TODO: all the neovide config could stand to be be tightened up
-        if pkgs.stdenv.isDarwin then
-          # lua 
-          ''
-            -- Helper function for transparency formatting
-            local alpha = function()
-              return string.format("%x", math.floor((255 * vim.g.transparency) or 0.8))
-            end
-            -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
-            vim.g.neovide_transparency = 0.0
-            vim.g.transparency = 0.8
-            vim.g.neovide_background_color = "${withHashtag.base00}" .. alpha()
-          ''
-        else
-          # lua
-          ''
-            if vim.fn.exists('g:neovide') ~= 0 then
-              vim.g.neovide_transparency = 0.8
-              vim.g.neovide_background_color = "${withHashtag.base00}"
-            else
-              vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
-              vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
-              vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
-            end
 
-          ''
-      );
+        --------------------------------------
+
+        -- FIXME: temp junky fix for neovide theme on darwin
+
+        local alpha = function() 
+          return string.format("%x", math.floor((255 * vim.g.transparency) or 0.8))
+        end
+
+
+        if vim.fn.exists('g:neovide') ~= 0 then
+          vim.g.neovide_transparency = 0.8
+          vim.g.neovide_background_color = "${withHashtag.base00}" .. alpha()
+          vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+          vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
+          vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
+        else
+          vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+          vim.cmd [[ hi NonText guibg=NONE ctermbg=NONE ]]
+          vim.cmd [[ hi SignColumn guibg=NONE ctermbg=NONE ]]
+        end
+      '';
 
     extraConfigLuaPre = # lua
       ''
@@ -207,10 +200,8 @@ in
             vim.system({'notify-send', msg, '-u', log_level[level], '-e', '-i', '${../../../../theme/neovim-mark.svg}'})
           end
         ''
-      # TODO: darwin
       else
-        # lua
-        '''';
+        "";
 
     opts =
       {
@@ -251,11 +242,6 @@ in
       neovide_unlink_border_highlights = true;
     };
 
-    colorschemes = {
-      gruvbox = {
-        enable = true;
-      };
-    };
-
+    colorschemes.gruvbox.enable = true;
   };
 }
