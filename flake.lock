@@ -206,6 +206,22 @@
         "type": "github"
       }
     },
+    "custom-nixos-hardware": {
+      "locked": {
+        "lastModified": 1722822317,
+        "narHash": "sha256-GYZi1t3Gz4FtUQ4izz5pVm2qyL1lBZE5Y9eS24N5br8=",
+        "owner": "zachcoyle",
+        "repo": "nixos-hardware",
+        "rev": "a377a3ed4a22b51fca13ebcfe6ee255797497b14",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zachcoyle",
+        "ref": "t2-linux-6.10.3",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "darwin-modules": {
       "locked": {
         "lastModified": 1699403461,
@@ -1089,16 +1105,15 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1722822317,
-        "narHash": "sha256-GYZi1t3Gz4FtUQ4izz5pVm2qyL1lBZE5Y9eS24N5br8=",
-        "owner": "zachcoyle",
+        "lastModified": 1723149858,
+        "narHash": "sha256-3u51s7jdhavmEL1ggtd8wqrTH2clTy5yaZmhLvAXTqc=",
+        "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "a377a3ed4a22b51fca13ebcfe6ee255797497b14",
+        "rev": "107bb46eef1f05e86fc485ee8af9b637e5157988",
         "type": "github"
       },
       "original": {
-        "owner": "zachcoyle",
-        "ref": "t2-linux-6.10.3",
+        "owner": "NixOS",
         "repo": "nixos-hardware",
         "type": "github"
       }
@@ -1288,6 +1303,7 @@
         "ags": "ags",
         "apple-firmware": "apple-firmware",
         "crane": "crane",
+        "custom-nixos-hardware": "custom-nixos-hardware",
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
         "dustinlyons-modules": "dustinlyons-modules",
