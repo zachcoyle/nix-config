@@ -13,6 +13,6 @@
     discord
     # dwarf-fortress-packages.dwarf-fortress-full
     pkgsStable.heroic
-    retroarchFull
+    # retroarchFull
   ];
 }

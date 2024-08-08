@@ -21,7 +21,7 @@
       mkhl.direnv
       # ms-python.python
       oderwat.indent-rainbow
-      rust-lang.rust-analyzer
+      # rust-lang.rust-analyzer
       # vadimcn.vscode-lldb
       vknabel.vscode-apple-swift-format
       vscodevim.vim

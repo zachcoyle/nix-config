@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -22,7 +21,6 @@
         "sd_mod"
       ];
       kernelModules = [ ];
-      luks.devices."luks-f4e18b91-5cec-4b40-ac1e-5683056b4572".device = "/dev/disk/by-uuid/f4e18b91-5cec-4b40-ac1e-5683056b4572";
     };
     kernelModules = [
       "kvm-intel"
@@ -33,21 +31,21 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/8e7c7fb7-c89c-46e5-957a-f70e8f43ca23";
-      fsType = "ext4";
+      device = "UUID=9fc59ae0-2423-409e-a605-0b67484581d2";
+      fsType = "bcachefs";
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/47AC-5F88";
+      device = "/dev/disk/by-uuid/C3A1-B22F";
       fsType = "vfat";
       options = [
-        "fmask=0022"
-        "dmask=0022"
+        "fmask=0077"
+        "dmask=0077"
       ];
     };
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/3b1bc5d1-a381-417b-91ea-32ef568814b5"; } ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/c098404c-2e24-45c7-bb7e-a5108e768dd1"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
