@@ -23,7 +23,7 @@
       oderwat.indent-rainbow
       # rust-lang.rust-analyzer
       # vadimcn.vscode-lldb
-      vknabel.vscode-apple-swift-format
+      # vknabel.vscode-apple-swift-format
       vscodevim.vim
       vue.volar
       xdebug.php-debug
