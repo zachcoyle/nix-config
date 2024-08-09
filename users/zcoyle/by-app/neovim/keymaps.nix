@@ -410,5 +410,23 @@
       };
       mode = [ "n" ];
     }
+    {
+      key = "<leader>md";
+      action.__raw = ''function() vim.o.mouse = "" end'';
+      options = {
+        silent = true;
+        desc = "Mouse: disable";
+      };
+      mode = [ "n" ];
+    }
+    {
+      key = "<leader>me";
+      action.__raw = ''function() vim.o.mouse = "a" end'';
+      options = {
+        silent = true;
+        desc = "Mouse: enable";
+      };
+      mode = [ "n" ];
+    }
   ];
 }
