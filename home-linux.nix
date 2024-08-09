@@ -2,10 +2,12 @@
   pkgs,
   pkgsStable,
   lib,
+  std,
   config,
   ...
 }:
 let
+  inherit (config.lib.stylix) colors;
   inherit (config.lib.stylix.colors) withHashtag;
   random-emoji = pkgs.callPackage ./packages/random-emoji.nix { };
 in
@@ -16,12 +18,26 @@ in
     ./users/zcoyle/by-app/walker.nix
   ];
 
-  stylix.targets.gtk.extraCss = ''
-    @define-color window-bg-color: ${withHashtag.base00}cc;
-    @define-color sidebar-bg-color: ${withHashtag.base01}cc;
-    window { background: ${withHashtag.base00}cc !important; } 
-    .sidebar-pane { background: ${withHashtag.base01}cc !important; }
-  '';
+  stylix.targets.gtk.extraCss =
+    let
+      base00-pct = {
+        r = builtins.toString ((std.num.parseFloat colors.base00-dec-r) * 255);
+        g = builtins.toString ((std.num.parseFloat colors.base00-dec-g) * 255);
+        b = builtins.toString ((std.num.parseFloat colors.base00-dec-b) * 255);
+      };
+      base01-pct = {
+        r = builtins.toString ((std.num.parseFloat colors.base01-dec-r) * 255);
+        g = builtins.toString ((std.num.parseFloat colors.base01-dec-g) * 255);
+        b = builtins.toString ((std.num.parseFloat colors.base01-dec-b) * 255);
+      };
+      cssRgba = color: "rgba(${color.r}, ${color.g}, ${color.b}, 0.8)";
+    in
+    ''
+      @define-color window-bg-color: ${cssRgba base00-pct};
+      @define-color sidebar-bg-color: ${cssRgba base01-pct};
+      window { background: ${cssRgba base00-pct}; } 
+      .sidebar-pane { background: ${cssRgba base01-pct}; }
+    '';
 
   qt.enable = true;
 

@@ -6,6 +6,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/dc14ed91132ee3a26255d01d8fd0c1f5bff27b2f";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 
+    nix-std.url = "github:chessai/nix-std";
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -352,6 +354,7 @@
               system = "x86_64-linux";
               specialArgs = {
                 inherit inputs system;
+                std = inputs.nix-std.lib;
                 pkgsStable = import inputs.nixpkgs-stable {
                   inherit system;
                   config.allowUnfreePredicate = import ./unfreePredicate.nix;
@@ -374,6 +377,7 @@
                       users.zcoyle = import ./home.nix;
                       extraSpecialArgs = {
                         inherit (inputs) nixvim;
+                        std = inputs.nix-std.lib;
                         pkgsStable = import inputs.nixpkgs-stable { inherit (pkgs) system; };
                       };
                     };
@@ -393,6 +397,7 @@
           common-darwin-config = {
             specialArgs = {
               inherit inputs;
+              std = inputs.nix-std.lib;
               pkgsStable = import inputs.nixpkgs-stable {
                 system = "x86_64-darwin";
                 config.allowUnfreePredicate = import ./unfreePredicate.nix;
@@ -421,6 +426,7 @@
                   users.zcoyle = import ./home.nix;
                   extraSpecialArgs = {
                     inherit (inputs) nixvim;
+                    std = inputs.nix-std.lib;
                     pkgsStable = import inputs.nixpkgs-stable {
                       system = "x86_64-darwin";
                       config.allowUnfreePredicate = import ./unfreePredicate.nix;
