@@ -35,8 +35,15 @@ in
   };
 
   dconf.settings = {
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = ":appmenu";
+    "org/gnome/desktop/wm/preferences".button-layout = ":appmenu";
+    "com/gitlab/bitseater/meteo" = {
+      country = "US";
+      idplace = "4927510";
+      indicator = true;
+      interval = 3600;
+      location = "Matthews";
+      minimized = true;
+      state = "Indiana";
     };
   };
 
