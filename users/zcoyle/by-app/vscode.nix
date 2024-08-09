@@ -17,7 +17,7 @@
       evgeniypeshkov.syntax-highlighter
       gruntfuggly.todo-tree
       kamadorueda.alejandra
-      kokakiwi.vscode-just
+      # kokakiwi.vscode-just
       mkhl.direnv
       # ms-python.python
       oderwat.indent-rainbow
