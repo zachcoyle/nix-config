@@ -333,8 +333,8 @@
                 logos = inputs.logos.packages.${prev.system}.default;
 
                 # FIXME: https://github.com/NixOS/nixpkgs/issues/298539
-                # rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
-                # rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+                rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+                rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
               })
             ];
           };
