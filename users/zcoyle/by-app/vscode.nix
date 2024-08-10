@@ -9,7 +9,7 @@
 
     extensions = with pkgs.open-vsx; [
       bbenoist.nix
-      charliermarsh.ruff
+      # charliermarsh.ruff
       codezombiech.gitignore
       eamodio.gitlens
       editorconfig.editorconfig
