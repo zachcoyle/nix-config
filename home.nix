@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgsStable,
   lib,
   nixvim,
   config,
@@ -201,7 +200,7 @@ in
 
     jujutsu = {
       enable = true;
-      ediff = true;
+      ediff = false;
       settings = {
         user = "Zach Coyle";
         email = "zach.coyle@gmail.com";
