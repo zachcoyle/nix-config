@@ -1,69 +1,67 @@
 {
   pkgs,
   lib,
+  std,
   config,
   ...
 }:
 let
-  # TODO:
-  # need to come back to this to make it more general
-  # I'd had a nice generalized solution thought out but I
-  # was having issues with mkLiteral and interpolated strings
-  # and just gave up in the meantime for a hard-coded theme until
-  # I have some time to clean this up
   inherit (config.lib.formats.rasi) mkLiteral;
-  # inherit (config.lib.stylix) colors;
-  # inherit (config.lib.stylix.colors) withHashtag;
+  inherit (config.lib.stylix) colors;
+
+  rgba =
+    { color, alpha }:
+    let
+      channel =
+        c: builtins.toString (builtins.floor ((std.num.parseFloat colors."${color}-dec-${c}") * 255));
+    in
+    "rgba(${channel "r"}, ${channel "g"}, ${channel "b"}, ${builtins.toString alpha}%)";
 
   # backgrounds
-  base00_100 = "rgba(29,32,33,100%)";
-  base00_80 = "rgba(29,32,33,60%)";
-  base01_100 = "rgba(60,56,54,100%)";
-  base01_80 = "rgba(60,56,54,80%)";
-  base02_100 = "rgba(80,73,69,100%)";
-  base02_80 = "rgba(80,73,69,80%)";
-  base03_100 = "rgba(102,92,84,100%)";
-  base03_80 = "rgba(102,92,84,80%)";
+  base00_100 = rgba {
+    color = "base00";
+    alpha = 100;
+  };
+  base00_80 = rgba {
+    color = "base00";
+    alpha = 80;
+  };
   # foregrounds
-  base04_100 = "rgba(189,174,147,100%)";
-  base04_80 = "rgba(189,174,147,80%)";
-  base05_100 = "rgba(213,196,161,100%)";
-  base05_80 = "rgba(213,196,161,80%)";
-  base06_100 = "rgba(235,219,178,100%)";
-  base06_80 = "rgba(235,219,178,80%)";
-  base07_100 = "rgba(251,241,199,100%)";
-  base07_80 = "rgba(251,241,199,80%)";
-  base07_20 = "rgba(251,241,199,20%)";
+  base07_100 = rgba {
+    color = "base07";
+    alpha = 100;
+  };
+  base07_80 = rgba {
+    color = "base07";
+    alpha = 80;
+  };
+  base07_20 = rgba {
+    color = "base07";
+    alpha = 20;
+  };
   # colors
-  base08_100 = "rgba(251,73,52,100%)";
-  base08_80 = "rgba(251,73,52,80%)";
-  base09_100 = "rgba(254,128,25,100%)";
-  base09_80 = "rgba(254,128,25,80%)";
-  base0A_100 = "rgba(250,189,47,100%)";
-  base0A_80 = "rgba(250,189,47,80%)";
-  base0B_100 = "rgba(184,187,38,100%)";
-  base0B_80 = "rgba(184,187,38,80%)";
-  base0C_100 = "rgba(142,192,124,100%)";
-  base0C_80 = "rgba(142,192,124,80%)";
-  base0D_100 = "rgba(131,165,152,100%)";
-  base0D_80 = "rgba(131,165,152,50%)";
-  base0E_100 = "rgba(211,134,155,100%)";
-  base0E_80 = "rgba(211,134,155,80%)";
-  base0F_100 = "rgb(214,93,14,100%)";
-  base0F_80 = "rgb(214,93,14,80%)";
+  base08_80 = rgba {
+    color = "base08";
+    alpha = 80;
+  };
+  base0D_100 = rgba {
+    color = "base0D";
+    alpha = 100;
+  };
+  base0D_80 = rgba {
+    color = "base0D";
+    alpha = 100;
+  };
 
   clear = mkLiteral "rgba(0,0,0,0%)";
   active_bg = mkLiteral base07_80;
-  alt_bg = mkLiteral base00_80;
   bg = mkLiteral base00_80;
   blue = mkLiteral base0D_80;
   border = mkLiteral base0D_100;
   fg = mkLiteral base07_100;
   red = mkLiteral base08_80;
-  selected_fg = bg;
   selected_bg = mkLiteral base07_20;
   text = mkLiteral base07_100;
-  # text = mkLiteral base07_100;
   selected_text = mkLiteral base00_100;
 in
 {
@@ -79,27 +77,11 @@ in
       enable = true;
       package = pkgs.rofi-pass-wayland;
       stores = [
-        # FIXME:
+        # TODO:
         "/home/zcoyle/Passwords"
       ];
     };
     theme = {
-      # "*" = {
-      #   # https://github.com/davatorium/rofi-themes/blob/master/Official%20Themes/solarized_alternate.rasi
-      #   alternate-normal-background =  (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-      #   background =  (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-      #   normal-background =  (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-      #   selected-normal-background =  (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-      #   separatorcolor =  (mkLiteral "rgba( ${colors.base00-rgb-r}, ${colors.base00-rgb-g}, ${colors.base00-rgb-b}, 80%)");
-      # };
-      # prompt = {
-      #   text-color =  (mkLiteral "${withHashtag.base06}4F");
-      #   padding-horizontal = mkLiteral "10px";
-      # };
-      # element = {
-      #   spacing = mkLiteral "10px";
-      #   font = "Fira Sans 12";
-      # };
       element-icon = {
         size = mkLiteral "32px";
         padding = mkLiteral "10px";
@@ -180,14 +162,6 @@ in
         background-color = mkLiteral "@normal-background";
         text-color = text;
       };
-      # "element.normal.urgent" = {
-      #   background-color = mkLiteral "@urgent-background";
-      #   text-color = fg;
-      # };
-      # "element.normal.active" = {
-      #   background-color = mkLiteral "@active-background";
-      #   text-color = fg;
-      # };
       "element.selected.normal" = {
         background-color = mkLiteral "@selected-normal-background";
         text-color = text;
