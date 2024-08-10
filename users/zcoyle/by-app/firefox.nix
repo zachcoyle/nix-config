@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
   extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    # darkreader
     dark-background-light-text
-    darkreader
     dearrow
     firenvim
     keepassxc-browser
@@ -12,6 +12,7 @@ let
     reddit-enhancement-suite
     sponsorblock
     stylus
+    tridactyl
     ublock-origin
     user-agent-string-switcher
     vimium
