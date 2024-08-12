@@ -89,7 +89,6 @@ in
       poetry
       process-compose
       prqlc
-      python3
       qemu
       quicktype
       recode
