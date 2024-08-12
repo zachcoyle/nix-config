@@ -43,7 +43,6 @@ in
 
   gtk = {
     enable = true;
-
     iconTheme = {
       name = "Gruvbox-Plus-Dark";
       package = pkgs.gruvbox-plus-icons;
@@ -107,6 +106,7 @@ in
         # android-studio
         appimage-run
         armcord
+        aseprite
         audio-recorder
         blender
         # bottles
