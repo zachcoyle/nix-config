@@ -87,6 +87,7 @@ in
       podman-compose
       podman-tui
       poetry
+      portal
       process-compose
       prqlc
       qemu
