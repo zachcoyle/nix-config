@@ -37,110 +37,122 @@ in
       search = {
         force = true;
         default = "Brave";
-        engines = {
-          Brave = {
-            urls = [ { template = "https://search.brave.com/search?q={searchTerms}"; } ];
-            iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
+        engines =
+          let
             updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = [
-              "@b"
-              "@brave"
-            ];
+          in
+          {
+            Brave = {
+              urls = [ { template = "https://search.brave.com/search?q={searchTerms}"; } ];
+              iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
+              inherit updateInterval;
+              definedAliases = [
+                "@b"
+                "@brave"
+              ];
+            };
+            Youtube = {
+              urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
+              inherit updateInterval;
+              definedAliases = [
+                "@yt"
+                "@youtube"
+              ];
+            };
+            "Home Manager" = {
+              urls = [
+                {
+                  template = "https://home-manager-options.extranix.com";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                    {
+                      name = "release";
+                      value = "master";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = [ "@hm" ];
+            };
+            "Nix Packages" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "@np" ];
+            };
+            "NixOS Options" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "@no" ];
+            };
+            "NixOS Wiki" = {
+              urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
+              iconUpdateURL = "https://nixos.wiki/favicon.png";
+              inherit updateInterval;
+              definedAliases = [ "@nw" ];
+            };
+            Ollama = {
+              urls = [ { template = "https://ollama.com/search?q={searchTerms}"; } ];
+              iconUpdateURL = "https://ollama.com/public/icon-32x32.png";
+              inherit updateInterval;
+              definedAliases = [ "@ll" ];
+            };
+            "crates.io" = {
+              urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
+              iconUpdateURL = "https://crates.io/favicon.ico";
+              inherit updateInterval;
+              definedAliases = [ "@crates" ];
+            };
+            NPM = {
+              urls = [ { template = "https://www.npmjs.com/search?q={searchTerms}"; } ];
+              iconUpdateURL = "https://static-production.npmjs.com/1996fcfdf7ca81ea795f67f093d7f449.png";
+              inherit updateInterval;
+              definedAliases = [ "@npm" ];
+            };
+            "Wikipedia (en)".metaData.alias = "@wiki";
+            Google.metaData.hidden = true;
+            "Amazon.com".metaData.hidden = true;
+            Bing.metaData.hidden = true;
+            eBay.metaData.hidden = true;
           };
-          Youtube = {
-            urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
-            updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = [
-              "@yt"
-              "@youtube"
-            ];
-          };
-          "Home Manager" = {
-            urls = [
-              {
-                template = "https://home-manager-options.extranix.com";
-                params = [
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                  {
-                    name = "release";
-                    value = "master";
-                  }
-                ];
-              }
-            ];
-            definedAliases = [ "@hm" ];
-          };
-          "Nix Packages" = {
-            urls = [
-              {
-                template = "https://search.nixos.org/packages";
-                params = [
-                  {
-                    name = "channel";
-                    value = "unstable";
-                  }
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "@np" ];
-          };
-          "NixOS Options" = {
-            urls = [
-              {
-                template = "https://search.nixos.org/options";
-                params = [
-                  {
-                    name = "channel";
-                    value = "unstable";
-                  }
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "@no" ];
-          };
-          "NixOS Wiki" = {
-            urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
-            iconUpdateURL = "https://nixos.wiki/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = [ "@nw" ];
-          };
-          Ollama = {
-            urls = [ { template = "https://ollama.com/search?q={searchTerms}"; } ];
-            iconUpdateURL = "https://ollama.com/public/icon-32x32.png";
-            updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = [ "@ll" ];
-          };
-          NPM = {
-            urls = [ { template = "https://www.npmjs.com/search?q={searchTerms}"; } ];
-            definedAliases = [ "@npm" ];
-          };
-          "Wikipedia (en)".metaData.alias = "@wiki";
-          Google.metaData.hidden = true;
-          "Amazon.com".metaData.hidden = true;
-          Bing.metaData.hidden = true;
-          eBay.metaData.hidden = true;
-        };
       };
 
       settings = {
