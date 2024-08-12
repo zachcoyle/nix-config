@@ -102,6 +102,7 @@ in
       # swift-format
       sword
       tealdeer
+      termshark
       typioca
       util-linux
       wget
