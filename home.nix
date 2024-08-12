@@ -38,6 +38,7 @@ in
       act
       alejandra
       asciinema
+      atac
       baobab
       cachix
       comma
