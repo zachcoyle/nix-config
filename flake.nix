@@ -448,7 +448,7 @@
                     nixpkgs.hostPlatform = "x86_64-linux";
                     nix = {
                       settings = {
-                        experimental-features = "nix-command flakes";
+                        experimental-features = "nix-command flakes pipe-operators";
                         auto-optimise-store = true;
                         use-xdg-base-directories = true;
                         substituters = [
