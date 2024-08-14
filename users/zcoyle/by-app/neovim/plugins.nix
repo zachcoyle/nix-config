@@ -322,6 +322,7 @@
         zls.enable = true;
       };
     };
+    lsp-lines.enable = true;
     luasnip = {
       enable = true;
       fromVscode = [ { } ];
