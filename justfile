@@ -50,3 +50,15 @@ iso-t2:
 # list all desktop files found in well-known locations
 desktop-files:
     { ls -1 /run/current-system/sw/share/applications; ls -1 /etc/profiles/per-user/zcoyle/share/applications; ls -1 ~/.local/share/applications; } | sort | uniq | grep ".*\.desktop"
+
+low-pressure:
+    nix build .#nixosConfigurations.nixos-laptop.config.boot.kernelPackages.kernel --log-format internal-json -v |& nom --json
+    nix build .#nixosConfigurations.nixos-laptop.pkgs.krita --log-format internal-json -v |& nom --json
+    nix build .#nixosConfigurations.nixos-laptop.pkgs.kdenlive --log-format internal-json -v |& nom --json
+    nix build .#nixosConfigurations.nixos-laptop.pkgs.blender --log-format internal-json -v |& nom --json
+    # TODO:
+    # ...
+    # ...
+    nh os switch .
+
+alias lp := low-pressure
