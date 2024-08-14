@@ -344,6 +344,7 @@
                   # networkmanager
                   ;
                 logos = inputs.logos.packages.${prev.system}.default;
+                rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
               })
             ];
           };
