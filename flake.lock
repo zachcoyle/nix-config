@@ -283,11 +283,11 @@
         "secrets": []
       },
       "locked": {
-        "lastModified": 1723007344,
-        "narHash": "sha256-A6g9X+biUhu6l4rPp9FSpXpA3+4mQg1sdNjumJk96vo=",
+        "lastModified": 1723604001,
+        "narHash": "sha256-w5i6jcUMWQ6z5QOXx+aJUI8UEt9EcnB4onLzc87JJ6c=",
         "owner": "dustinlyons",
         "repo": "nixos-config",
-        "rev": "4c2a48d1b5a80d8961172f0ed53e0dfd2d02ed4b",
+        "rev": "c80ba02a0a47c001723330e2df1dfa4985ac73c9",
         "type": "github"
       },
       "original": {
@@ -988,11 +988,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1723602533,
-        "narHash": "sha256-EKa11Vaej6l/mpBrd27/9k7gAKGdsev9l6EW2jpNRs0=",
+        "lastModified": 1723609138,
+        "narHash": "sha256-C0OX+QWXZ8ypwZIv1YGyMiNHeIbjla5O3eXr/RI5RmE=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "cef0eacb0ada994b180fa3bdde4cd70b2334b624",
+        "rev": "b098a3df6b8f549016e9492e2c3dca975cf20eca",
         "type": "github"
       },
       "original": {
@@ -1284,11 +1284,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1723601917,
-        "narHash": "sha256-/t6ZtVSLNO01KtI0E+NirfGwvQ1m4XCIt8YTrjJVok8=",
+        "lastModified": 1723608258,
+        "narHash": "sha256-a5c/trRUHjVU4kFQ0QFzOrvnXcQ71iBUaMgRDoK1KRc=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "f88e52b6f36d876b2228ad7fc7d2f538d99c493d",
+        "rev": "8200aa360759a1f4da5a3b9f2f0821582e1fe621",
         "type": "github"
       },
       "original": {
