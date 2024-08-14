@@ -42,6 +42,7 @@
         dart = [ "dart_format" ];
         go = [ "gofumpt" ];
         graphql = [ "prettierd" ];
+        html = [ "prettierd" ];
         javascript = [ "prettierd" ];
         javascriptreact = [ "prettierd" ];
         json = [
