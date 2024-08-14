@@ -276,6 +276,14 @@
       };
     };
 
+    nil = {
+      url = "github:oxalica/nil";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -314,7 +322,7 @@
               inputs.nur.overlay
               inputs.neovim-nightly-overlay.overlays.default
               inputs.neovim-plugins-nightly-overlay.overlays.default
-
+              inputs.nil.overlays.default
               (_: prev: { inherit (inputs.zls.packages.${prev.system}) zls; })
             ];
           };

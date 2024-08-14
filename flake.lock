@@ -1017,6 +1017,30 @@
         "type": "github"
       }
     },
+    "nil": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1722947113,
+        "narHash": "sha256-DqsN/VkYVr4M0PVRQKXPPOTaind5miYZURIYqM4MxYM=",
+        "owner": "oxalica",
+        "repo": "nil",
+        "rev": "70df371289962554cf7a23ed595b23a2ce271960",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "nil",
+        "type": "github"
+      }
+    },
     "niqspkgs": {
       "inputs": {
         "flake-parts": [
@@ -1323,6 +1347,7 @@
         "logos": "logos",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-plugins-nightly-overlay": "neovim-plugins-nightly-overlay",
+        "nil": "nil",
         "niqspkgs": "niqspkgs",
         "nix-darwin": "nix-darwin",
         "nix-std": "nix-std",
@@ -1359,6 +1384,27 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nil",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1722824458,
+        "narHash": "sha256-2k3/geD5Yh8JT1nrGaRycje5kB0DkvQA/OUZoel1bIU=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "a8a937c304e62a5098c6276c9cdf65c19a43b1a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
         "type": "github"
       }
     },
