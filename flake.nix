@@ -2,8 +2,8 @@
   description = "nixos + darwin system flake";
 
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/dc14ed91132ee3a26255d01d8fd0c1f5bff27b2f";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/dc14ed91132ee3a26255d01d8fd0c1f5bff27b2f";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     nix-std.url = "github:chessai/nix-std";
@@ -331,12 +331,11 @@
                 inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
                 inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
                 inherit (inputs.niqspkgs.packages.${prev.system}) bibata-hyprcursor;
-
+                inherit (inputs.nixpkgs-stable.legacyPackages.${prev.system})
+                  wpa_supplicant
+                  # networkmanager
+                  ;
                 logos = inputs.logos.packages.${prev.system}.default;
-
-                # FIXME: https://github.com/NixOS/nixpkgs/issues/298539
-                rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
-                rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
               })
             ];
           };

@@ -70,8 +70,8 @@ in
     package = pkgs.rofi-wayland;
     terminal = lib.getExe pkgs.alacritty;
     plugins = with pkgs; [
-      rofi-calc
-      rofi-emoji
+      # rofi-calc-wayland
+      # rofi-emoji-wayland
     ];
     pass = {
       enable = true;
