@@ -45,9 +45,12 @@
           "FiraMono"
           "Gohu"
           "HeavyData"
+          "Iosevka"
+          "IosevkaTerm"
+          "IosevkaTermSlab"
           "JetBrainsMono"
-          "OpenDyslexic"
           "Lilex"
+          "OpenDyslexic"
           # "ShureTechMono"
         ];
       })
