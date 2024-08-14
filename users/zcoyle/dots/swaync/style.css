@@ -248,6 +248,14 @@
   background: transparent;
 }
 
+window {
+  background: transparent;
+}
+
+.window {
+  background: transparent;
+}
+
 .floating-notifications {
   background: transparent;
 }
