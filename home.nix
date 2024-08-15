@@ -62,7 +62,7 @@ in
       gitnr
       gource
       html2text
-      # hurl
+      hurl
       jq
       just
       killall
@@ -82,7 +82,7 @@ in
       nix-tree
       nixfmt-rfc-style
       opentofu
-      # oterm
+      oterm
       pijul
       podman
       podman-compose
