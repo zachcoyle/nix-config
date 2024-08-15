@@ -512,11 +512,11 @@
         "zls": []
       },
       "locked": {
-        "lastModified": 1723728765,
-        "narHash": "sha256-LJcw4Zk+TB+SZXjLwVR/vNFAFEpEFJHPOkCP0aORYo8=",
+        "lastModified": 1723752687,
+        "narHash": "sha256-vFJsFB7USjCPtwMEKXWgtcGlNrNvgfJ3TsVjYfkKeZ8=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "de351bf97c082fb31291347e540b2176d3d7d070",
+        "rev": "9cf6dd845c6c429be62d1057a337da8e19c70a05",
         "type": "github"
       },
       "original": {
@@ -683,11 +683,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1723723403,
-        "narHash": "sha256-IKWf8JdUOgoTYaWaQ7pFIjfpD6bFvf8V+rKuZRUytro=",
+        "lastModified": 1723738578,
+        "narHash": "sha256-TLkmHk6xWEUGpLci1QNyWRC7VFqocgBat2gl1gVXpY4=",
         "ref": "refs/heads/main",
-        "rev": "069faa4027d016549ee72afcd7df3b2c1e7ee578",
-        "revCount": 5091,
+        "rev": "12d9901472c6f9128fa8b16c25b3a879d1859e60",
+        "revCount": 5095,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1031,11 +1031,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1723731474,
-        "narHash": "sha256-p+1PxXCDf8JZov6WULeBEfv+3ZOU/hzYIMHY1HoZO+4=",
+        "lastModified": 1723738754,
+        "narHash": "sha256-YAex8QJtslVGkxbq4FDibrLdq7kSrtDAU5E+xnMLT9Y=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "78a81aeab0aad8a3696d79ac81ca72560bbbedf2",
+        "rev": "da55f3e33e9a9987f43d00e11ee7ca7dd7f4a8dd",
         "type": "github"
       },
       "original": {
@@ -1327,11 +1327,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1723728459,
-        "narHash": "sha256-/REChCgzN10bqe4Nyd+xPHc8jfFM5YxMJvskSNt8164=",
+        "lastModified": 1723755277,
+        "narHash": "sha256-CG3tf+EwOXTYFfGSYyJjSnWQTpVW7+1ptz0ySf6KGPc=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "84e0a72d1e17aedc43da8fbe38ef654a36211e46",
+        "rev": "be8fc33ecbf051d900d23f0f42a8ff7a305f586f",
         "type": "github"
       },
       "original": {
@@ -1646,11 +1646,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723704630,
-        "narHash": "sha256-Wfogd1FJbNdW2KW8RlEs2Wio5m1Fstmx2osKaOvkDto=",
+        "lastModified": 1723751477,
+        "narHash": "sha256-hIsd959PdbSPPudaVD2A7DSfA6iDTQToz/mG0H9MnNQ=",
         "owner": "abenz1267",
         "repo": "walker",
-        "rev": "b5b3866d0e6891cdf2bfd4edbeb833f02fe39bac",
+        "rev": "c5f829720a79ad975f5bdc45d0d47e1827d3f726",
         "type": "github"
       },
       "original": {
