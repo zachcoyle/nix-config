@@ -135,6 +135,21 @@ in
             font-size = 10;
             theme = "GruvboxDark";
             cursor-style = "block";
+            window-padding-x = 4;
+            window-padding-y = 4;
+            window-padding-balance = "true";
+            window-padding-color = "extend";
+            keybind = [
+              "ctrl+shift+c=copy_to_clipboard"
+              "super+c=copy_to_clipboard"
+              "ctrl+shift+v=paste_from_clipboard"
+              "super+v=paste_from_clipboard"
+              "ctrl+h=goto_split:left"
+              "ctrl+j=goto_split:bottom"
+              "ctrl+k=goto_split:top"
+              "ctrl+l=goto_split:right"
+              "super+r=reload_config"
+            ];
           };
         in
         builtins.concatStringsSep "\n" (
