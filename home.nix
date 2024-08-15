@@ -54,6 +54,7 @@ in
       fastfetch
       fd
       file
+      ghostty
       ghq
       gimp
       git-bug
@@ -120,6 +121,33 @@ in
         enable_build_on_save = true;
         build_save_on_step = "check";
       };
+      ".config/ghostty/config".text =
+        let
+          ghostty_config = {
+            # background = colors.base00;
+            # foreground = colors.base07;
+            # TODO: grab from stylix
+            font-family = "FiraCode Nerd Font";
+            # TODO: grab from stylix
+            background-opacity = 0.8;
+            gtk-titlebar = "false";
+            # TODO: grab from stylix
+            font-size = 10;
+            theme = "GruvboxDark";
+            cursor-style = "block";
+          };
+        in
+        builtins.concatStringsSep "\n" (
+          lib.mapAttrsToList (
+            name: value:
+            if name == "palette" then
+              (builtins.concatStringsSep "\n" (builtins.map (x: "palette = ${x}") value))
+            else if name == "keybind" then
+              (builtins.concatStringsSep "\n" (builtins.map (x: "keybind = ${x}") value))
+            else
+              "${name} = ${builtins.toString value}"
+          ) ghostty_config
+        );
     };
   };
 

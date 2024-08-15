@@ -145,7 +145,7 @@ in
         "SUPER, B, exec, firefox"
         "SUPER, C, exec, rofi -opacity 0 -show calc -display-calc ''"
         "SUPER, E, exec, rofi -opacity 0 -show emoji -display-emoji `random-emoji`"
-        "SUPER, Return, exec, alacritty"
+        "SUPER, Return, exec, ghostty"
         "SUPER, Q, killactive"
         "SUPER, F, fullscreen, 0"
         "SUPER SHIFT, F, exec, ${lib.getExe toggle-fakefullscreen}"
@@ -253,11 +253,12 @@ in
         ", XF86Eject, exec, eject"
       ];
 
-      workspace = [ "special:scratchpad, on-created-empty:alacritty" ];
+      workspace = [ "special:scratchpad, on-created-empty:ghostty" ];
 
       layerrule = [
         "blur, ags"
         "blur, alacritty"
+        "blur, ghostty"
         "blur, wlogout"
         "blur, avizo"
         "blur, rofi"

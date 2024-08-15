@@ -299,6 +299,15 @@
         flake-parts.follows = "flake-parts";
       };
     };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs = {
+        nixpkgs-unstable.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs";
+        zls.follows = "";
+      };
+    };
   };
 
   outputs =
@@ -323,7 +332,10 @@
               inputs.neovim-nightly-overlay.overlays.default
               inputs.neovim-plugins-nightly-overlay.overlays.default
               inputs.nil.overlays.default
-              (_: prev: { inherit (inputs.zls.packages.${prev.system}) zls; })
+              (_: prev: {
+                inherit (inputs.zls.packages.${prev.system}) zls;
+                inherit (inputs.ghostty.packages.${prev.system}) ghostty;
+              })
             ];
           };
 
