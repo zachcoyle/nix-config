@@ -263,6 +263,10 @@ in
       };
       ".local/share/neovide/neovide-settings.json".text = import ./users/zcoyle/by-app/neovide.nix;
     };
+
+    shellAliases = {
+      open = "xdg-open";
+    };
   };
 
   services = {
@@ -487,8 +491,6 @@ in
       ];
     };
 
-    zsh.shellAliases = {
-      open = "xdg-open";
-    };
   };
+
 }
