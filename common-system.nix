@@ -10,7 +10,7 @@
   nix = {
     package = pkgs.nixVersions.latest;
     settings = {
-      experimental-features = "nix-command flakes pipe-operators";
+      experimental-features = "nix-command flakes";
       trusted-users = [ "zcoyle" ];
       auto-optimise-store = true;
       use-xdg-base-directories = true;
