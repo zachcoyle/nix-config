@@ -215,6 +215,7 @@
       };
     };
     hmts.enable = true;
+    image.enable = true;
     indent-blankline.enable = true;
     lualine = {
       enable = true;
