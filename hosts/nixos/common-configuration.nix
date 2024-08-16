@@ -305,7 +305,7 @@ in
           "wheel"
         ];
         packages = [ ];
-        shell = pkgs.fish;
+        shell = pkgs.zsh;
       };
     };
   };
