@@ -135,6 +135,7 @@ in
             window-padding-color = "extend";
             window-padding-x = 4;
             window-padding-y = 4;
+            mouse-hide-while-typing = "true";
             keybind = [
               "ctrl+shift+c=copy_to_clipboard"
               "super+c=copy_to_clipboard"
