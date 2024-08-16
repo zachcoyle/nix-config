@@ -123,22 +123,18 @@ in
       };
       ".config/ghostty/config".text =
         let
+
           ghostty_config = {
-            # background = colors.base00;
-            # foreground = colors.base07;
-            # TODO: grab from stylix
-            font-family = "FiraCode Nerd Font";
-            # TODO: grab from stylix
-            background-opacity = 0.8;
-            gtk-titlebar = "false";
-            # TODO: grab from stylix
-            font-size = 10;
-            theme = "GruvboxDark";
+            background-opacity = config.stylix.opacity.terminal;
             cursor-style = "block";
-            window-padding-x = 4;
-            window-padding-y = 4;
+            font-family = config.stylix.fonts.monospace.name;
+            font-size = config.stylix.fonts.sizes.terminal;
+            gtk-titlebar = "false";
+            theme = "GruvboxDark";
             window-padding-balance = "true";
             window-padding-color = "extend";
+            window-padding-x = 4;
+            window-padding-y = 4;
             keybind = [
               "ctrl+shift+c=copy_to_clipboard"
               "super+c=copy_to_clipboard"
