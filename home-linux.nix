@@ -207,6 +207,35 @@ in
         margin_left = 0;
         margin_top = 0;
         menu = {
+          ";" = {
+            desc = "System";
+            submenu = {
+              k = {
+                desc = "Lock";
+                cmd = "hyprlock";
+              };
+              l = {
+                desc = "Logout";
+                cmd = "hyprctl dispatch exit";
+              };
+              h = {
+                desc = "Hibernate";
+                cmd = "systemctl hibernate";
+              };
+              s = {
+                desc = "Suspend";
+                cmd = "systemctl suspend";
+              };
+              r = {
+                desc = "Reboot";
+                cmd = "systemctl reboot";
+              };
+              p = {
+                desc = "Power Off";
+                cmd = "systemctl poweroff";
+              };
+            };
+          };
           h = {
             desc = "Hyprland";
             submenu = {
@@ -254,6 +283,42 @@ in
                   x = {
                     desc = "Stop nh-clean.timer";
                     cmd = "sudo systemctl stop nh-clean.timer";
+                  };
+                };
+              };
+            };
+          };
+          n = {
+            desc = "Notifications";
+            submenu = {
+              d = {
+                desc = "Toggle Do Not Disturb";
+                cmd = "swaync-client --toggle-dnd";
+              };
+              c = {
+                desc = "Close All Notifications";
+                cmd = "swaync-client --close-all";
+              };
+              i = {
+                desc = "Inhibition";
+                submenu = {
+                  a = {
+                    desc = "Add Inhibitor";
+                    submenu = {
+                      d = {
+                        desc = "Discord";
+                        cmd = "swaync-client --inhibitor-add discord";
+                      };
+                    };
+                  };
+                  r = {
+                    desc = "Remove Inhibitor";
+                    submenu = {
+                      d = {
+                        desc = "Discord";
+                        cmd = "swaync-client --inhibitor-remove discord";
+                      };
+                    };
                   };
                 };
               };
