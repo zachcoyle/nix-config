@@ -920,11 +920,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723768089,
-        "narHash": "sha256-QqaSs63RgSvG7iRgUwYmrjFXwa8zy50HUmde/qHA7d8=",
+        "lastModified": 1723870126,
+        "narHash": "sha256-BkKc8tCTibSJXrLe6EfKipQ5h7EbS2TZRaisVkso+AI=",
         "owner": "zachcoyle",
         "repo": "icon-themes-nightly-overlay",
-        "rev": "a568caed12889e620dc8b9b43d301aca02a754cc",
+        "rev": "5c620da7fbdaec2b9dd8222bdcef833ebfa2e5b6",
         "type": "github"
       },
       "original": {
