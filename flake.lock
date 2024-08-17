@@ -512,11 +512,11 @@
         "zls": []
       },
       "locked": {
-        "lastModified": 1723826436,
-        "narHash": "sha256-JJGZ95HXD2Z4BUiK4P0Rsw9RS4tq2MHhTskG7AuaTm0=",
+        "lastModified": 1723854102,
+        "narHash": "sha256-Cb6pyz3VVdqIHGBHTfyfmcmulMqc9KFr2gC5f0pF2eY=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "caf0355b5c3be39fc2e3cb18d6b7ab12f7028da7",
+        "rev": "dd9e1d9fa796a8a3c65191424e2a9c16f2dce16e",
         "type": "github"
       },
       "original": {
