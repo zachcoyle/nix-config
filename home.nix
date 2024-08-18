@@ -225,7 +225,7 @@ in
       config.pager = "less -FR";
 
       extraPackages = with pkgs.bat-extras; [
-        batdiff
+        # batdiff
         batman
         batgrep
         batwatch
@@ -323,23 +323,23 @@ in
       keyScheme = "vim";
     };
 
-    password-store = {
-      package = pkgs.pass.withExtensions (
-        exts: with exts; [
-          pass-otp
-          pass-audit
-          pass-update
-          # pass-import
-          pass-checkup
-          pass-genphrase
-        ]
-      );
-      enable = true;
-      settings = {
-        # FIXME:
-        PASSWORD_STORE_DIR = "/home/zcoyle/Passwords";
-      };
-    };
+    # password-store = {
+    #   package = pkgs.pass.withExtensions (
+    #     exts: with exts; [
+    #       pass-otp
+    #       pass-audit
+    #       pass-update
+    #       # pass-import
+    #       pass-checkup
+    #       pass-genphrase
+    #     ]
+    #   );
+    #   enable = true;
+    #   settings = {
+    #     # FIXME:
+    #     PASSWORD_STORE_DIR = "/home/zcoyle/Passwords";
+    #   };
+    # };
 
     starship =
       let
