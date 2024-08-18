@@ -210,29 +210,43 @@ in
           ";" = {
             desc = "System";
             submenu = {
-              k = {
-                desc = "Lock";
-                cmd = "hyprlock";
-              };
-              l = {
-                desc = "Logout";
-                cmd = "hyprctl dispatch exit";
-              };
-              h = {
-                desc = "Hibernate";
-                cmd = "systemctl hibernate";
-              };
-              s = {
-                desc = "Suspend";
-                cmd = "systemctl suspend";
-              };
-              r = {
-                desc = "Reboot";
-                cmd = "systemctl reboot";
+              v = {
+                desc = "Volume";
+                submenu = {
+                  m = {
+                    desc = "Toggle Mute";
+                    cmd = "volumectl -p toggle-mute";
+                  };
+                };
               };
               p = {
-                desc = "Power Off";
-                cmd = "systemctl poweroff";
+                desc = "Power";
+                submenu = {
+                  k = {
+                    desc = "Lock";
+                    cmd = "hyprlock";
+                  };
+                  l = {
+                    desc = "Logout";
+                    cmd = "hyprctl dispatch exit";
+                  };
+                  h = {
+                    desc = "Hibernate";
+                    cmd = "systemctl hibernate";
+                  };
+                  s = {
+                    desc = "Suspend";
+                    cmd = "systemctl suspend";
+                  };
+                  r = {
+                    desc = "Reboot";
+                    cmd = "systemctl reboot";
+                  };
+                  p = {
+                    desc = "Power Off";
+                    cmd = "systemctl poweroff";
+                  };
+                };
               };
             };
           };
