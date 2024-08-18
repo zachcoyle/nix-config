@@ -159,7 +159,6 @@ in
         swww
         thunderbird-bin
         udiskie
-        ueberzugpp
         unzip
         vlc
         waypipe
