@@ -157,6 +157,7 @@ in
         snapshot
         swaynotificationcenter
         swww
+        system-config-printer
         thunderbird-bin
         udiskie
         unzip

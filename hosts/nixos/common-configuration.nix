@@ -229,6 +229,18 @@ in
   };
 
   services = {
+
+    avahi = {
+      # bonjour!
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+    };
+
     blueman.enable = true;
 
     gnome.gnome-keyring.enable = true;
@@ -259,7 +271,30 @@ in
 
     pcscd.enable = true;
 
-    printing.enable = true;
+    printing = {
+      enable = true;
+      listenAddresses = [ "*:631" ];
+      allowFrom = [ "all" ];
+      browsing = true;
+      defaultShared = true;
+      openFirewall = true;
+      drivers = with pkgs; [
+        canon-capt
+        canon-cups-ufr2
+        carps-cups
+        gutenprint
+        gutenprintBin
+        hplip
+        # hplipWithPlugin # unfree
+        postscript-lexmark
+        samsung-unified-linux-driver
+        splix
+        brlaser
+        brgenml1lpr
+        brgenml1cupswrapper
+        cnijfilter2
+      ];
+    };
 
     pipewire = {
       enable = true;
