@@ -134,7 +134,7 @@ in
             window-padding-balance = "true";
             window-padding-color = "extend";
             window-padding-x = 4;
-            window-padding-y = 4;
+            window-padding-y = 0;
             mouse-hide-while-typing = "true";
             keybind = [
               "ctrl+shift+c=copy_to_clipboard"
