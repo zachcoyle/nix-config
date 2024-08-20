@@ -131,9 +131,10 @@ in
   environment = {
     sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
     pathsToLink = [
-      "/share/xdg-desktop-portal"
       "/share/applications"
       "/share/nautilus-python/extensions"
+      "/share/xdg-desktop-portal"
+      "/share/zsh"
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
