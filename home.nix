@@ -125,6 +125,10 @@ in
       ".config/ghostty/config".text =
         let
 
+          leader = "ctrl+space";
+
+          sequence = keyseq: builtins.concatStringsSep ">" keyseq;
+
           ghostty_config = {
             background-opacity = config.stylix.opacity.terminal;
             cursor-style = "block";
@@ -139,14 +143,54 @@ in
             mouse-hide-while-typing = "true";
             keybind = [
               "ctrl+shift+c=copy_to_clipboard"
-              "super+c=copy_to_clipboard"
               "ctrl+shift+v=paste_from_clipboard"
-              "super+v=paste_from_clipboard"
-              "ctrl+h=goto_split:left"
-              "ctrl+j=goto_split:bottom"
-              "ctrl+k=goto_split:top"
-              "ctrl+l=goto_split:right"
+              "super+c=copy_to_clipboard"
               "super+r=reload_config"
+              "super+v=paste_from_clipboard"
+              (
+                (sequence [
+                  leader
+                  "h"
+                ])
+                + "=goto_split:left"
+              )
+              (
+                (sequence [
+                  leader
+                  "j"
+                ])
+                + "=goto_split:bottom"
+              )
+              (
+                (sequence [
+                  leader
+                  "k"
+                ])
+                + "=goto_split:top"
+              )
+              (
+                (sequence [
+                  leader
+                  "l"
+                ])
+                + "=goto_split:right"
+              )
+              (
+                (sequence [
+                  leader
+                  "n"
+                  "j"
+                ])
+                + "=new_split:down"
+              )
+              (
+                (sequence [
+                  leader
+                  "n"
+                  "l"
+                ])
+                + "=new_split:right"
+              )
             ];
           };
         in
