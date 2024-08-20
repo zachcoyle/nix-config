@@ -56,9 +56,18 @@ low-pressure:
     nix build .#nixosConfigurations.nixos-laptop.pkgs.krita --log-format internal-json -v |& nom --json
     nix build .#nixosConfigurations.nixos-laptop.pkgs.kdenlive --log-format internal-json -v |& nom --json
     nix build .#nixosConfigurations.nixos-laptop.pkgs.blender --log-format internal-json -v |& nom --json
+    nix build .#nixosConfigurations.nixos-laptop.pkgs.ghostty --log-format internal-json -v |& nom --json
+    nix build .#nixosConfigurations.nixos-laptop.pkgs.hyprland --log-format internal-json -v |& nom --json
+    nix build .#nixosConfigurations.nixos-laptop.pkgs.neovide --log-format internal-json -v |& nom --json
     # TODO:
     # ...
     # ...
     nh os switch .
 
 alias lp := low-pressure
+
+update-small:
+    nix flake update ghostty --commit-lock-file
+    nix flake update hypridle hyprland hyprlang hyprlock hyprpaper hyprpicker hyprutils --commit-lock-file
+    nix flake update icon-themes-nightly-overlay --commit-lock-file
+    nix flake update nixvim neovim-nightly-overlay neovim-plugins-nightly-overlay --commit-lock-file
