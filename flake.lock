@@ -1311,11 +1311,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724112441,
-        "narHash": "sha256-wjetNPHj4+vEqznWw8UuOkdS7QjDSu6tiDns6N/xbiE=",
+        "lastModified": 1724118730,
+        "narHash": "sha256-UwtVD2FyD7FjfLLmqGLsCBCQgLC1Jj78e1PhiVb0MJk=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "123a55ed6f8ae2daec76af5a0ee7e495ccb7e884",
+        "rev": "39081a41067a7bdb66f6f85a3fee9693ff8a21b1",
         "type": "github"
       },
       "original": {
