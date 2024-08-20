@@ -512,11 +512,11 @@
         "zls": []
       },
       "locked": {
-        "lastModified": 1724083760,
-        "narHash": "sha256-BwqL6L0f+sVuyk5xtxRx3U7HnmmnEtIqES4OjC2W/mA=",
+        "lastModified": 1724116117,
+        "narHash": "sha256-OCs/Z/qhaqjsAoisYhF2sH0YIbJxhpC2/XrdbYe/PZ8=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "443a5e12e739766581f3489fd03c2020189735d9",
+        "rev": "cac22bd1735f46c0817916647f7f0de8a26c2342",
         "type": "github"
       },
       "original": {
@@ -920,11 +920,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724027362,
-        "narHash": "sha256-koiaDWA/U4KSEqApr/qbuak47QfaPXdsxLVxPVayeKQ=",
+        "lastModified": 1724113696,
+        "narHash": "sha256-FlwyVF547+33nUMs1NPAMrKMuTFFR/iK8TvOjMtzh+k=",
         "owner": "zachcoyle",
         "repo": "icon-themes-nightly-overlay",
-        "rev": "52796c7efed903c2cdfe82f1edd860ec24691723",
+        "rev": "e739e9e48720127ef809d0958020722dc49e0b5e",
         "type": "github"
       },
       "original": {
