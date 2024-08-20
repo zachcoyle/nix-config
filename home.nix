@@ -113,6 +113,7 @@ in
       yq
       yt-dlp
       yubikey-manager
+      zed-editor
       zstd
     ];
 
