@@ -173,7 +173,7 @@ in
         "SUPER, 0, workspace, 10"
 
         "SUPER SHIFT, 3, exec, grim"
-        ''SUPER SHIFT, 4, exec, grimblast --notify --cursor --freeze copysave area "$XDG_PICTURES_DIR/grimblast_$(date +"%Y-%m-%d_%H:%M:%S.png")"''
+        ''SUPER SHIFT, 4, exec, grimblast --notify --freeze copysave area "$XDG_PICTURES_DIR/grimblast_$(date +"%Y-%m-%d_%H:%M:%S.png")"''
         "SUPER SHIFT, 5, exec, ${lib.getExe toggle-recording}"
 
         "SUPER, G, togglegroup"
