@@ -15,7 +15,6 @@ in
   imports = [
     ./users/zcoyle/by-app/Hyprland
     ./users/zcoyle/by-app/rofi.nix
-    # ./users/zcoyle/by-app/walker.nix
   ];
 
   stylix.targets.gtk.extraCss =
