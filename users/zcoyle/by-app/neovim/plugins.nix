@@ -146,9 +146,15 @@
     emmet = {
       enable = true;
     };
-    flash = {
+    firenvim = {
       enable = true;
+      # TODO: 
+      # settings = {
+      #   globalSettings = { };
+      #   localSettings = { };
+      # };
     };
+    flash.enable = true;
     friendly-snippets.enable = true;
     fzf-lua = {
       enable = true;
