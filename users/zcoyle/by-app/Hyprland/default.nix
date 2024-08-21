@@ -39,8 +39,13 @@ let
   };
 in
 {
+  # TODO: finish moving pkgs 
   home.packages = with pkgs; [
+    grim
     grimblast
+    slurp
+    wf-recorder
+    wlsunset
   ];
 
   wayland.windowManager.hyprland = {
