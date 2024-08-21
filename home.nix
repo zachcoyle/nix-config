@@ -140,6 +140,8 @@ in
             window-padding-x = 4;
             window-padding-y = 0;
             mouse-hide-while-typing = "true";
+            custom-shader-animation = "true";
+            # custom-shader = [ ];
             keybind = [
               "ctrl+shift+c=copy_to_clipboard"
               "ctrl+shift+v=paste_from_clipboard"
@@ -200,6 +202,8 @@ in
               (builtins.concatStringsSep "\n" (builtins.map (x: "palette = ${x}") value))
             else if name == "keybind" then
               (builtins.concatStringsSep "\n" (builtins.map (x: "keybind = ${x}") value))
+            else if name == "custom-shader" then
+              (builtins.concatStringsSep "\n" (builtins.map (x: "custom-shader = ${x}") value))
             else
               "${name} = ${builtins.toString value}"
           ) ghostty_config
