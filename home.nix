@@ -51,7 +51,6 @@ in
       dsq
       duf
       entr
-      fastfetch
       fd
       file
       ghq
