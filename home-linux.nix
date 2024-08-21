@@ -122,7 +122,6 @@ in
         gnome-system-monitor
         gnome-tecla
         godot3
-        grim
         handbrake
         helvum
         hyprpicker
@@ -152,7 +151,6 @@ in
         playerctl
         random-emoji
         showmethekey
-        slurp
         snapshot
         swaynotificationcenter
         swww
@@ -164,10 +162,8 @@ in
         waypipe
         wdisplays
         wev
-        wf-recorder
         wl-clipboard
         wlr-which-key
-        wlsunset
         xdg-utils
         yubikey-manager
         yubikey-manager-qt
