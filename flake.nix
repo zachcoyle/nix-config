@@ -341,7 +341,6 @@
                 inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
                 inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
                 inherit (inputs.niqspkgs.packages.${prev.system}) bibata-hyprcursor;
-                inherit (inputs.nixpkgs-stable.legacyPackages.${prev.system}) wpa_supplicant;
                 logos = inputs.logos.packages.${prev.system}.default;
                 rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
               })
