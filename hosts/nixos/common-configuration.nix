@@ -65,11 +65,13 @@ in
       fat = true;
       zfs = lib.mkForce false;
     };
+    tmp.cleanOnBoot = true;
   };
 
   nixpkgs.config.allowUnfree = true;
 
   security = {
+    rtkit.enable = true;
     pam = {
       yubico = {
         enable = true;
@@ -231,7 +233,6 @@ in
   };
 
   services = {
-
     avahi = {
       # bonjour!
       enable = true;
@@ -244,6 +245,9 @@ in
     };
 
     blueman.enable = true;
+
+    # fstrim.enable = true;
+    # boot.initrd.luks.devices.<name>.allowDiscards = true; # also required
 
     gnome.gnome-keyring.enable = true;
 
