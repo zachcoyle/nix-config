@@ -33,6 +33,23 @@ in
       plugins = true;
     };
 
+    extraFiles = {
+      # for vizia:
+      # const STYLE: &str = r#"<css here>"#;
+      "queries/rust/injections.scm".text = # scheme
+        ''
+          ;; extends
+          (const_item
+            name: (_) @n
+            type: (_) @t
+            value: (raw_string_literal
+          	     (string_content) @injection.content
+          	     (#set! injection.language "css"))
+            (#match? @n "STYLE")
+            (#match? @t "&str"))
+        '';
+    };
+
     extraPackages =
       with pkgs;
       [
