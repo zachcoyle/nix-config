@@ -174,6 +174,7 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
         flake-compat.follows = "";
+        flake-utils.follows = "flake-utils";
       };
     };
 
