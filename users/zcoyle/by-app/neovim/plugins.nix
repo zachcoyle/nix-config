@@ -30,7 +30,27 @@
       enable = true;
       settings = {
         timeout_ms = 2000;
-        format_on_save = { };
+        format_on_save = # lua
+          ''
+            -- TODO: tighten this up
+            function(bufnr)
+              if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                return
+              end
+
+              -- if slow_format_filetypes[vim.bo[bufnr].filetype] then
+              --   return
+              -- end
+
+              local function on_format(err)
+                if err and err:match("timeout$") then
+                  -- slow_format_filetypes[vim.bo[bufnr].filetype] = true
+                end
+              end
+
+              return { timeout_ms = 2000, lsp_fallback = false }, on_format
+             end
+          '';
         formatters_by_ft = {
           "*" = [
             # "codespell"
