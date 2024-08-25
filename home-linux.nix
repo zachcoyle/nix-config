@@ -30,12 +30,18 @@ in
         g = builtins.toString ((std.num.parseFloat colors.base01-dec-g) * 255);
         b = builtins.toString ((std.num.parseFloat colors.base01-dec-b) * 255);
       };
+      # TODO: use alpha(@the_color, 0.8)
       cssRgba = color: "rgba(${color.r}, ${color.g}, ${color.b}, 0.8)";
     in
+    # css
     ''
-      @define-color window-bg-color: ${cssRgba base00-pct};
-      @define-color sidebar-bg-color: ${cssRgba base01-pct};
-      window { background: ${cssRgba base00-pct}; } 
+      window {
+        background: ${cssRgba base00-pct};
+      } 
+      window.swaync-control-center,
+      window.swaync-notification-window {
+        background: transparent !important;
+      } 
       .sidebar-pane { background: ${cssRgba base01-pct}; }
     '';
 
