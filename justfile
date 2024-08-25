@@ -51,6 +51,11 @@ iso-t2:
 desktop-files:
     { ls -1 /run/current-system/sw/share/applications; ls -1 /etc/profiles/per-user/zcoyle/share/applications; ls -1 ~/.local/share/applications; } | sort | uniq | grep ".*\.desktop"
 
+download:
+    nh os build . -- -j0
+
+alias d := download
+
 low-pressure:
     nix build .#nixosConfigurations.nixos-laptop.config.boot.kernelPackages.kernel --log-format internal-json -v |& nom --json
     nix build .#nixosConfigurations.nixos-laptop.pkgs.krita --log-format internal-json -v |& nom --json
