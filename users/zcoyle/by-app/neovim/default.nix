@@ -81,6 +81,7 @@ in
         stylua
         # swift-format
         taplo
+        uncrustify
         # yamlfix
         yamlfmt
       ]

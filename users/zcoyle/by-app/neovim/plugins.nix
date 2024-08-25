@@ -84,6 +84,7 @@
           toml = [ "taplo" ];
           typescript = [ "prettierd" ];
           typescriptreact = [ "prettierd" ];
+          vala = [ "uncrustify" ];
           vue = [ "prettierd" ];
           yaml = [
             "yamlfix"
@@ -343,6 +344,7 @@
         };
         sourcekit.enable = false;
         tsserver.enable = true;
+        vala-ls.enable = true;
         volar.enable = true;
         vuels.enable = true;
         yamlls.enable = true;
