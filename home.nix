@@ -64,6 +64,7 @@ in
       jq
       just
       killall
+      lazyjj
       lsix
       manix
       mdcat

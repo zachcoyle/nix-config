@@ -325,6 +325,7 @@
               (_: prev: {
                 inherit (inputs.zls.packages.${prev.system}) zls;
                 inherit (inputs.ghostty.packages.${prev.system}) ghostty;
+                lazyjj = prev.callPackage ./packages/lazyjj.nix { };
               })
             ];
           };
