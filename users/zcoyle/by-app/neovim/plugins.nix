@@ -31,7 +31,9 @@
       extraOptions = {
         timeout_ms = 2000;
       };
-      formatOnSave = { };
+      settings = {
+        format_on_save = { };
+      };
       formattersByFt = {
         "*" = [
           # "codespell"
