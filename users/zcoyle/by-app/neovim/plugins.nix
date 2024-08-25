@@ -28,50 +28,48 @@
     comment.enable = true;
     conform-nvim = {
       enable = true;
-      extraOptions = {
-        timeout_ms = 2000;
-      };
       settings = {
+        timeout_ms = 2000;
         format_on_save = { };
-      };
-      formattersByFt = {
-        "*" = [
-          # "codespell"
-          "injected"
-        ];
-        "_" = [ "trim_whitespace" ];
-        css = [ "prettierd" ];
-        dart = [ "dart_format" ];
-        go = [ "gofumpt" ];
-        graphql = [ "prettierd" ];
-        html = [ "prettierd" ];
-        javascript = [ "prettierd" ];
-        javascriptreact = [ "prettierd" ];
-        json = [
-          "fix_json"
-          "prettierd"
-        ];
-        just = [ "just" ];
-        kotlin = [ "ktlint" ];
-        lua = [ "stylua" ];
-        md = [ "mdformat" ];
-        nix = [ "nixfmt" ];
-        python = [
-          "ruff_fix"
-          "ruff_format"
-        ];
-        rust = [ "rustfmt" ];
-        swift = [ "swift_format" ];
-        sh = [ "beautysh" ];
-        sql = [ "sql_formatter" ];
-        toml = [ "taplo" ];
-        typescript = [ "prettierd" ];
-        typescriptreact = [ "prettierd" ];
-        vue = [ "prettierd" ];
-        yaml = [
-          "yamlfix"
-          "yamlfmt"
-        ];
+        formatters_by_ft = {
+          "*" = [
+            # "codespell"
+            "injected"
+          ];
+          "_" = [ "trim_whitespace" ];
+          css = [ "prettierd" ];
+          dart = [ "dart_format" ];
+          go = [ "gofumpt" ];
+          graphql = [ "prettierd" ];
+          html = [ "prettierd" ];
+          javascript = [ "prettierd" ];
+          javascriptreact = [ "prettierd" ];
+          json = [
+            "fix_json"
+            "prettierd"
+          ];
+          just = [ "just" ];
+          kotlin = [ "ktlint" ];
+          lua = [ "stylua" ];
+          md = [ "mdformat" ];
+          nix = [ "nixfmt" ];
+          python = [
+            "ruff_fix"
+            "ruff_format"
+          ];
+          rust = [ "rustfmt" ];
+          swift = [ "swift_format" ];
+          sh = [ "beautysh" ];
+          sql = [ "sql_formatter" ];
+          toml = [ "taplo" ];
+          typescript = [ "prettierd" ];
+          typescriptreact = [ "prettierd" ];
+          vue = [ "prettierd" ];
+          yaml = [
+            "yamlfix"
+            "yamlfmt"
+          ];
+        };
       };
     };
     crates-nvim.enable = true;
