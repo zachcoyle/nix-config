@@ -245,8 +245,11 @@ in
       enable = true;
       ediff = false;
       settings = {
-        user = "Zach Coyle";
-        email = "zach.coyle@gmail.com";
+        user = {
+          name = "Zach Coyle";
+          email = "zach.coyle@gmail.com";
+        };
+        ui.default-command = [ "log" ];
       };
     };
 
