@@ -527,52 +527,6 @@ in
     #   ];
     # };
 
-    wlogout = {
-      enable = true;
-      style = ./users/zcoyle/dots/wlogout.css;
-      layout = [
-        {
-          label = "lock";
-          action = "hyprlock";
-          text = "󰌾";
-          # text = "Lock";
-          keybind = "l";
-        }
-        {
-          label = "logout";
-          action = "hyprctl dispatch exit";
-          text = "󰍃";
-          keybind = "o";
-        }
-        {
-          # TODO: command and binding
-          label = "suspend";
-          # action = "";
-          text = "󰏤";
-          # keybind = "";
-        }
-        {
-          # TODO: command and binding
-          label = "hibernate";
-          # action = "";
-          text = "";
-          # keybind = "";
-        }
-        {
-          label = "shutdown";
-          action = "systemctl poweroff";
-          text = "";
-          keybind = "s";
-        }
-        {
-          label = "reboot";
-          action = "systemctl reboot";
-          text = "";
-          keybind = "r";
-        }
-      ];
-    };
-
   };
 
 }

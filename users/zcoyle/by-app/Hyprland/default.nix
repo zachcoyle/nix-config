@@ -268,15 +268,11 @@ in
         "blur, ags"
         "blur, alacritty"
         "blur, ghostty"
-        "blur, wlogout"
         "blur, avizo"
         "blur, rofi"
       ];
 
       windowrule = [
-        "float, wlogout"
-        "noanim, wlogout"
-        "fullscreen, wlogout"
         "opacity 1.0 override 1.0 override, title:^Picture-in-Picture$"
         "nodim, title:^Picture-in-Picture$"
         "opacity 1.0 override 1.0 override, title:^.* - mpv$"
