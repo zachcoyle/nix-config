@@ -111,6 +111,7 @@ in
       with pkgs;
       [
         # android-studio
+        apostrophe
         appimage-run
         armcord
         aseprite
@@ -179,7 +180,6 @@ in
         zenity
       ]
       ++ (with pkgsStable; [
-        apostrophe
         calibre
         cura
         element-desktop
