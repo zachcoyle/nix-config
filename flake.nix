@@ -274,11 +274,6 @@
       };
     };
 
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     logos.url = "github:zachcoyle/logos.nix";
 
     niqspkgs = {
