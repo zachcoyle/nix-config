@@ -528,11 +528,11 @@
         "zls": []
       },
       "locked": {
-        "lastModified": 1724604890,
-        "narHash": "sha256-WivY48Jiu2Z4TzhshAl9S5DtDRDTacIdkrx0XE6Aaro=",
+        "lastModified": 1724705831,
+        "narHash": "sha256-KNs29p+Zha/J94yn4ui5wRuhbZxyUHkFJrzPgNXvQns=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "a2bb4a7cd1e84f9034ebfd456452d5746f95d0e6",
+        "rev": "3746fed0b92a8bf69862f4832840597a4bf2ffd8",
         "type": "github"
       },
       "original": {
@@ -699,11 +699,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1724688164,
-        "narHash": "sha256-59TSHh7qDewt/B7XeJzhC+jf12wd+YKSMI8ESs/AoHY=",
+        "lastModified": 1724701003,
+        "narHash": "sha256-kTceEi5B4t2u5oG3bKnGgZkHxFTsvYAUiAmyYA/6Y3o=",
         "ref": "refs/heads/main",
-        "rev": "1ea47950f4262ec1215087948c7275f8e0115af2",
-        "revCount": 5142,
+        "rev": "eb42adc4c090918ad6be9fcb24066da8cdfd9bd0",
+        "revCount": 5145,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -936,11 +936,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724632171,
-        "narHash": "sha256-MXtoeJGwU4M9FjOlGgUHWVatHWebgZdGbaMB3k/Ddf0=",
+        "lastModified": 1724718539,
+        "narHash": "sha256-4ZGUb0U3N7JCmYUXA3sb6/EjPdp1M69GOO7H6qBLrMM=",
         "owner": "zachcoyle",
         "repo": "icon-themes-nightly-overlay",
-        "rev": "ca22c18b10552fa410bb230f23e63a5b7f248c61",
+        "rev": "177ec09cb123179a8b5425fd2b92ffe8392e503d",
         "type": "github"
       },
       "original": {
@@ -1060,11 +1060,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1724689160,
-        "narHash": "sha256-wAXzEOfrI4R8mDTyg+bnAGhshCP4aVkowsTkqtMDCjI=",
+        "lastModified": 1724710700,
+        "narHash": "sha256-eaX1WWekTQd1s4l+P+qf+doVeRM6dtNfdpYmCLSf8tQ=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "11c90ebf77bac8106a08634db4b7f69f663d5d71",
+        "rev": "b7b26f92053535283ab03649c64bec7e21ecc3b0",
         "type": "github"
       },
       "original": {
@@ -1373,11 +1373,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724598705,
-        "narHash": "sha256-/oaK6niVP0wezfXoJcKAP2Ho887hKza7y1n8HazCkKA=",
+        "lastModified": 1724710305,
+        "narHash": "sha256-qotbY/mgvykExLqRLAKN4yeufPfIjnMaK6hQQFhE2DE=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "bb8ecad13c229e1c89301055c8e54d8d0e33e839",
+        "rev": "eac092c876e4c4861c6df0cff93e25b972b1842c",
         "type": "github"
       },
       "original": {
@@ -1388,11 +1388,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1724686814,
-        "narHash": "sha256-OwcY7S/yNv0nJL+YRw6ZZF0ptpQw8o9ctCGYwQfBtsA=",
+        "lastModified": 1724708863,
+        "narHash": "sha256-9s2DVwj7ei71TC3zEG3tvJxCLts6qdj58zAotrql9Xs=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "b88e43567b88e61760055808ce2f3f8928a06fd1",
+        "rev": "749a6f749710d115d57c9b1b5bc2c553e8d70d75",
         "type": "github"
       },
       "original": {
@@ -1551,11 +1551,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1724444244,
-        "narHash": "sha256-fH1lyJvJjUhZ8xMlmiI18EZNzodDSe74rFuwlZDL0aQ=",
+        "lastModified": 1724702977,
+        "narHash": "sha256-bP1/BHbEigLjTTmqyy1t8w5EVWHuLuABtOd/BBXVLtA=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "d042af478ce87e188139480922a3085218194106",
+        "rev": "6c895c6b42ca205017abe72a7263baf36a197972",
         "type": "github"
       },
       "original": {
