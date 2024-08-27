@@ -507,11 +507,11 @@
         "zls": []
       },
       "locked": {
-        "lastModified": 1724730981,
-        "narHash": "sha256-zDUQEJfcKKup13qgVo200kbU/M/ejjLKQF9AkrFI7mY=",
+        "lastModified": 1724776272,
+        "narHash": "sha256-D8GnyjKRKCi11LLjS7hPD4MDYfkjR3Avuq0XT0QlcbU=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "23c924140a2a5054239cd9e4ce773cb5dc613cff",
+        "rev": "89e16ebef5e490f742431d2c9b0c41e194e9fc6d",
         "type": "github"
       },
       "original": {
@@ -645,11 +645,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722631742,
-        "narHash": "sha256-HJWmbQo/vseT2vb3yQsbrN/gnlKj21HWRqlZrJp44Os=",
+        "lastModified": 1724785279,
+        "narHash": "sha256-XEb6gkcIcCsPMJegkNNvlwvEmklXoIU8vBhYgodlkrs=",
         "owner": "hyprwm",
         "repo": "hypridle",
-        "rev": "96d51ec2a749a928cb9d48b1fc0ea4898e73a335",
+        "rev": "a46cd0bb0592d3fa40de8fdd9ee94de2bceffbef",
         "type": "github"
       },
       "original": {
@@ -678,11 +678,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1724701003,
-        "narHash": "sha256-kTceEi5B4t2u5oG3bKnGgZkHxFTsvYAUiAmyYA/6Y3o=",
+        "lastModified": 1724784150,
+        "narHash": "sha256-XlmFLoLppuKxSh2eGPXy27+tNIQ+w+cXoh8Ln3vBJew=",
         "ref": "refs/heads/main",
-        "rev": "eb42adc4c090918ad6be9fcb24066da8cdfd9bd0",
-        "revCount": 5145,
+        "rev": "17ed4fc04cedbaad365bdebf6bfe0160c527f3fe",
+        "revCount": 5147,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1039,11 +1039,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1724771952,
-        "narHash": "sha256-e2Svj+9epizGyd8nn+nPTS3aE/ymDFd+dAWr9moXlMg=",
+        "lastModified": 1724782840,
+        "narHash": "sha256-N+P8H55y49F826yCrT2lo0ZfBYxSNbwYA0hjF4QNCGs=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "1c8df06c7a50428c6ae55549f3b817f5b3a7410e",
+        "rev": "d961566d7ffb16f5bd0dc52145f63c15fd3ce265",
         "type": "github"
       },
       "original": {
@@ -1352,11 +1352,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724710305,
-        "narHash": "sha256-qotbY/mgvykExLqRLAKN4yeufPfIjnMaK6hQQFhE2DE=",
+        "lastModified": 1724727283,
+        "narHash": "sha256-F7AUWC2p20zbQuymca1jB70OH/MQ0MYgkhUsY+7K0cg=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "eac092c876e4c4861c6df0cff93e25b972b1842c",
+        "rev": "60ea38d2c450537eb2adadff9527c8d0db6f9fea",
         "type": "github"
       },
       "original": {
@@ -1367,11 +1367,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1724769294,
-        "narHash": "sha256-v+DpyKlc9JpQ70Cae17kIJW2jk9wtUn6s4zA/Lj2ziE=",
+        "lastModified": 1724775364,
+        "narHash": "sha256-agN3Oaph2+2DH3+m6Jp4d1ji5s93joohKcV35DfJWQk=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "54d8e6daaa8f158e753735b498ce4f9ca1b11670",
+        "rev": "95f1862227c883581265a8801ea28af99635dd97",
         "type": "github"
       },
       "original": {
