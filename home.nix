@@ -67,6 +67,7 @@ in
       lazyjj
       lsix
       manix
+      md-tui
       mdcat
       meld
       moar
