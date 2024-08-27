@@ -174,6 +174,7 @@ in
         wl-clipboard
         wlr-which-key
         xdg-utils
+        yt-dlp
         yubikey-manager
         yubikey-manager-qt
         yubikey-touch-detector
