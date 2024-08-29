@@ -14,6 +14,7 @@
       trusted-users = [ "zcoyle" ];
       auto-optimise-store = true;
       use-xdg-base-directories = true;
+      download-attempts = 20;
       substituters = [
         "https://crane.cachix.org"
         "https://devenv.cachix.org"
