@@ -179,6 +179,7 @@ in
         yubikey-manager
         yubikey-manager-qt
         yubikey-touch-detector
+        zed-editor
         zenity
       ]
       ++ (with pkgsStable; [
