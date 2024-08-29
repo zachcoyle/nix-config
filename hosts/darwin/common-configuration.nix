@@ -454,8 +454,9 @@ in
       { path = "/System/Applications/Mail.app"; }
       { path = "/System/Applications/Freeform.app"; }
       { path = "/System/Applications/Notes.app"; }
-      { path = "/Applications/Xcode.app"; }
-      { path = "${pkgs.alacritty}/Applications/Alacritty.app"; }
+      { path = "/Applications/Xcode-beta.app"; }
+      # { path = "${pkgs.alacritty}/Applications/Alacritty.app"; }
+      { path = "/Applications/Ghostty.app"; }
       { path = "/Applications/Fork.app"; }
       { path = "/Applications/Neovide.app"; }
       { path = "/Applications/Logos.app"; }
