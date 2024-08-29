@@ -16,7 +16,6 @@ in
     ./users/zcoyle/by-app/Hyprland
     ./users/zcoyle/by-app/rofi.nix
     ./users/zcoyle/by-app/fastfetch.nix
-    ./users/zcoyle/by-app/ghostty.nix
   ];
 
   # FIXME: swaync still getting unwanted backgrounds with th following
@@ -124,6 +123,7 @@ in
         cider
         copyq
         evince
+        ghostty
         gnome-calculator
         gnome-calendar
         gnome-disk-utility

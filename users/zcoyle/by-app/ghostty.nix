@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -77,9 +76,6 @@ let
   };
 in
 {
-
-  home.packages = with pkgs; [ ghostty ];
-
   home.file.".config/ghostty/config".text = builtins.concatStringsSep "\n" (
     lib.mapAttrsToList (
       name: value:
