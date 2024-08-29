@@ -16,6 +16,7 @@ in
     ./users/zcoyle/by-app/Hyprland
     ./users/zcoyle/by-app/rofi.nix
     ./users/zcoyle/by-app/fastfetch.nix
+    ./users/zcoyle/by-app/ghostty.nix
   ];
 
   # FIXME: swaync still getting unwanted backgrounds with th following

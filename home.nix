@@ -20,7 +20,6 @@ in
     ./users/zcoyle/by-app/alacritty.nix
     ./users/zcoyle/by-app/firefox.nix
     ./users/zcoyle/by-app/neovim
-    ./users/zcoyle/by-app/ghostty.nix
   ];
 
   stylix = {
