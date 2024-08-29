@@ -38,9 +38,7 @@ in
   ];
 
   services = {
-
-    karabiner-elements.enable = true;
-
+    karabiner-elements.enable = false;
     nix-daemon.enable = true;
 
     skhd = {
