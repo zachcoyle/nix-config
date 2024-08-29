@@ -37,6 +37,7 @@
       fira-code-nerdfont
       inter
       noto-fonts
+      monaspace
       (nerdfonts.override {
         fonts = [
           "FiraCode"
