@@ -9,7 +9,8 @@ let
   sequence = keyseq: builtins.concatStringsSep ">" keyseq;
 
   ghostty_config = {
-    background-opacity = config.stylix.opacity.terminal;
+    background-opacity = 0.8;
+    background-blur-radius = 20;
     cursor-style = "block";
     font-family = config.stylix.fonts.monospace.name;
     font-size = config.stylix.fonts.sizes.terminal;
