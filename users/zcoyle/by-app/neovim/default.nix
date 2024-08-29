@@ -61,7 +61,6 @@ in
 
         # dap
         lldb
-        (php.withExtensions ({ enabled, all }: enabled ++ [ all.xdebug ]))
 
         # formatters
         alejandra
