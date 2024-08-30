@@ -1426,6 +1426,7 @@
       "inputs": {
         "ags": "ags",
         "apple-firmware": "apple-firmware",
+        "crane": "crane",
         "darwin-modules": "darwin-modules",
         "devshell": "devshell",
         "dustinlyons-modules": "dustinlyons-modules",
@@ -1741,7 +1742,9 @@
     },
     "xremap-flake": {
       "inputs": {
-        "crane": "crane",
+        "crane": [
+          "crane"
+        ],
         "devshell": [
           "devshell"
         ],
