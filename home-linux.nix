@@ -121,7 +121,6 @@ in
         brightnessctl
         buildah
         cider
-        copyq
         evince
         ghostty
         gnome-calculator

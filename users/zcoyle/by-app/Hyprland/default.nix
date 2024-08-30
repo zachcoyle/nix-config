@@ -280,7 +280,6 @@ in
       ];
 
       exec-once = [
-        "copyq --start-server"
         "swww init"
         "swaync"
         "ags"
