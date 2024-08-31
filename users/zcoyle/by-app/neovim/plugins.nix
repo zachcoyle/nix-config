@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }:
@@ -103,11 +104,68 @@
           enable = true;
           adapterPythonPath = "python";
         };
-        dap-ui.enable = false;
+        dap-ui.enable = true;
         dap-virtual-text.enable = true;
       };
-      adapters.executables = { };
-      configurations = { };
+      adapters.executables = {
+        lldb.command = "${lib.getExe' pkgs.lldb_17 "lldb-vscode"}";
+      };
+      configurations = {
+        rust = [
+          {
+            name = "Launch";
+            type = "lldb";
+            request = "launch";
+            program = {
+              __raw = # lua
+                ''
+                  function()
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                  end
+                '';
+            };
+            cwd = ''''${workspaceFolder}'';
+            stopOnEntry = false;
+            args = { };
+            initCommands = {
+              __raw = # lua
+                ''
+                  function()
+                    -- Find out where to look for the pretty printer Python module
+                    local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
+
+                    local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+                    local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
+
+                    local commands = {}
+                    local file = io.open(commands_file, 'r')
+                    if file then
+                      for line in file:lines() do
+                        table.insert(commands, line)
+                      end
+                      file:close()
+                    end
+                    table.insert(commands, 1, script_import)
+
+                    return commands
+                  end
+                '';
+            };
+            env = {
+              __raw = # lua
+                ''
+                  function()
+                      local variables = {}
+                      for k, v in pairs(vim.fn.environ()) do
+                        table.insert(variables, string.format("%s=%s", k, v))
+                      end
+                      return variables
+                    end
+                '';
+            };
+          }
+        ];
+      };
     };
     diffview.enable = true;
     emmet.enable = true;
