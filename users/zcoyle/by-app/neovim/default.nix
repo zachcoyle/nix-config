@@ -34,19 +34,46 @@ in
     };
 
     extraFiles = {
-      # for vizia:
-      # const STYLE: &str = r#"<css here>"#;
       "queries/rust/injections.scm".text = # scheme
         ''
           ;; extends
+
+          ; vizia - const STYLE: &str = r#"<css here>"#;
           (const_item
             name: (_) @n
             type: (_) @t
             value: (raw_string_literal
-          	     (string_content) @injection.content
-          	     (#set! injection.language "css"))
+              (string_content) @injection.content
+              (#set! injection.language "css"))
             (#match? @n "STYLE")
             (#match? @t "&str"))
+
+          ; sqlx - sqlx::query(r#"<sql here>");
+          (call_expression
+            function: (scoped_identifier
+                        path: (identifier) @p 
+                        name: (identifier) @n)
+            arguments: (arguments
+                         (raw_string_literal
+                           (string_content) @injection.content 
+                           (#set! injection.language "sql")))
+            (#match? @p "sqlx")
+            (#match? @n "query"))
+
+          ; sqlx - sqlx::query_as!(r#"<sql here>");
+          ; FIXME: this one is sorta flakey w/highlighting
+          (call_expression function:
+            (field_expression value:
+              (macro_invocation macro:
+                (scoped_identifier 
+                  path: (identifier) @p 
+                  name: (identifier) @n) 
+                 (token_tree
+                   (raw_string_literal
+                     (string_content) @injection.content
+                     (#set! injection.language "sql")))))
+            (#match? @p "sqlx")
+            (#match? @n "query_as"))
         '';
     };
 
