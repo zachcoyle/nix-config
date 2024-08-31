@@ -12,6 +12,7 @@ let
     background-opacity = 0.8;
     background-blur-radius = 20;
     cursor-style = "block";
+    adjust-underline-position = 20;
     font-family = config.stylix.fonts.monospace.name;
     font-size = config.stylix.fonts.sizes.terminal;
     gtk-titlebar = "false";
@@ -22,6 +23,19 @@ let
     window-padding-y = 0;
     mouse-hide-while-typing = "true";
     custom-shader-animation = "true";
+    font-feature = [
+      "calt"
+      "ss01"
+      "ss02"
+      "ss03"
+      "ss04"
+      "ss05"
+      "ss06"
+      "ss07"
+      "ss08"
+      "ss09"
+      "liga"
+    ];
     # custom-shader = [ ];
     keybind = [
       "ctrl+shift+c=copy_to_clipboard"
@@ -82,6 +96,8 @@ in
       name: value:
       if name == "palette" then
         (builtins.concatStringsSep "\n" (builtins.map (x: "palette = ${x}") value))
+      else if name == "font-feature" then
+        (builtins.concatStringsSep "\n" (builtins.map (x: "font-feature = ${x}") value))
       else if name == "keybind" then
         (builtins.concatStringsSep "\n" (builtins.map (x: "keybind = ${x}") value))
       else if name == "custom-shader" then

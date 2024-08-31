@@ -16,7 +16,7 @@
       };
       monospace = {
         package = pkgs.fira-code-nerdfont;
-        name = if pkgs.stdenv.isDarwin then "FiraCode Nerd Font" else "Fira Code Nerd Font";
+        name = "Monaspace Krypton";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
