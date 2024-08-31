@@ -94,7 +94,6 @@ in
       statuscol-nvim
       telescope_just
       tint-nvim
-      yuck-vim
     ];
 
     extraConfigLua =
