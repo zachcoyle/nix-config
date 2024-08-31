@@ -110,9 +110,7 @@
       configurations = { };
     };
     diffview.enable = true;
-    emmet = {
-      enable = true;
-    };
+    emmet.enable = true;
     firenvim = {
       enable = true;
       # TODO: 
@@ -643,8 +641,6 @@
       enableSurround = true;
       treesitterIntegration.enable = true;
     };
-    which-key = {
-      enable = true;
-    };
+    which-key.enable = true;
   };
 }
