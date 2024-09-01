@@ -728,11 +728,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725188252,
-        "narHash": "sha256-yBH8c4GDaEAtBrh+BqIlrx5vp6gG/Gu8fQQK63KAQgs=",
+        "lastModified": 1725230717,
+        "narHash": "sha256-rzNQk/1k5SV10RumkLmRd1BLaZ18BkZsRYXqhYeVb70=",
         "owner": "hyprwm",
         "repo": "hyprlang",
-        "rev": "c12ab785ce1982f82594aff03b3104c598186ddd",
+        "rev": "5b175c9704f6ef5db29ac9aa8ab30029aa2e0dc7",
         "type": "github"
       },
       "original": {
@@ -1034,11 +1034,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1725221939,
-        "narHash": "sha256-nC07MEobq8DZ/xpa9b1LBQbMxj/VhQo2l1wfJjRP3vc=",
+        "lastModified": 1725229166,
+        "narHash": "sha256-yX8h2pLyggZIU8qlTsuS/1A2fZ6ocvS8A5oU7h3GBAI=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "70c5be33e16b86982f2617580b54faf29882c175",
+        "rev": "c1bce7d0216df438814078eef632ee53871386f7",
         "type": "github"
       },
       "original": {
