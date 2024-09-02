@@ -51,7 +51,7 @@
           "JetBrainsMono"
           "Lilex"
           "OpenDyslexic"
-          # "ShureTechMono"
+          "Monaspace"
         ];
       })
       (pkgs.callPackage ./packages/fonts/ezra-sil.nix { })
