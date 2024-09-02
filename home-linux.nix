@@ -122,6 +122,7 @@ in
         buildah
         cider
         evince
+        ghostty
         gnome-calculator
         gnome-calendar
         gnome-disk-utility

@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -108,11 +107,3 @@ in
     ) ghostty_config
   );
 }
-// (
-  if pkgs.stdenv.isLinux then
-    {
-      home.packages = [ pkgs.ghostty ];
-    }
-  else
-    { }
-)
