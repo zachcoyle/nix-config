@@ -15,7 +15,7 @@
         name = "Fira Sans";
       };
       monospace = {
-        package = pkgs.fira-code-nerdfont;
+        package = pkgs.monaspace;
         name = "Monaspace Krypton";
       };
       emoji = {
