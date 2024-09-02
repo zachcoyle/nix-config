@@ -1034,11 +1034,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1725311899,
-        "narHash": "sha256-A4cmBnqUKSNJWQ8rdeaWe4cSku2VUscLGBmY6Qu99WM=",
+        "lastModified": 1725315560,
+        "narHash": "sha256-OBZL6rIiH5HWIkJleN7TG4mF0d6DViWARKLaYNoKzus=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "728a49f1235d9fb7c59e33cc05f502a9c2733f4b",
+        "rev": "8a3894a4697ee057d20f84680470c71a6238ac74",
         "type": "github"
       },
       "original": {
