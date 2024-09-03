@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  self,
   ...
 }:
 let
@@ -329,6 +330,9 @@ in
   };
 
   system.stateVersion = "24.05";
+
+  # make a symlink of flake within the generation (e.g. /run/current-system/src)
+  system.extraSystemBuilderCmds = "ln -s ${self.sourceInfo.outPath} $out/src";
 
   users = {
     users = {

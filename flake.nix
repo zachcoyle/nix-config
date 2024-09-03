@@ -352,7 +352,7 @@
             rec {
               system = "x86_64-linux";
               specialArgs = {
-                inherit inputs system;
+                inherit inputs system self;
                 std = inputs.nix-std.lib;
                 pkgsStable = import inputs.nixpkgs-stable {
                   inherit system;
@@ -488,6 +488,7 @@
 
         in
         {
+          inherit self;
           darwinConfigurations = {
             mbp13 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
             mbp15 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
