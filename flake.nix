@@ -287,7 +287,6 @@
       inputs = {
         nixpkgs-unstable.follows = "nixpkgs";
         nixpkgs-stable.follows = "nixpkgs";
-        zls.follows = "";
       };
     };
   };
