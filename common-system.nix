@@ -34,6 +34,7 @@
 
   fonts = {
     packages = with pkgs; [
+      departure-mono
       fira
       fira-code-nerdfont
       inter
