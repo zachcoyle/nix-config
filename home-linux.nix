@@ -16,6 +16,7 @@ in
     ./users/zcoyle/by-app/Hyprland
     ./users/zcoyle/by-app/rofi.nix
     ./users/zcoyle/by-app/fastfetch.nix
+    ./users/zcoyle/by-app/zed.nix
   ];
 
   # FIXME: swaync still getting unwanted backgrounds with th following
@@ -38,11 +39,11 @@ in
   #   ''
   #     window {
   #       background: ${cssRgba base00-pct};
-  #     } 
+  #     }
   #     window.swaync-control-center,
   #     window.swaync-notification-window {
   #       background: transparent !important;
-  #     } 
+  #     }
   #     .sidebar-pane { background: ${cssRgba base01-pct}; }
   #   '';
 
