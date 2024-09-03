@@ -498,15 +498,14 @@
         "nixpkgs-unstable": [
           "nixpkgs"
         ],
-        "zig": "zig",
-        "zls": []
+        "zig": "zig"
       },
       "locked": {
-        "lastModified": 1725390183,
-        "narHash": "sha256-+eiXT93F913xLj3zDXjrshf4QxydLC/M+VvDi5VKTrk=",
+        "lastModified": 1725402764,
+        "narHash": "sha256-A2yl7bYfESYLpn4i2A6ATx3yfFM+lyuepE/Wy7dU9FM=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "f45cde0b9546e8fc78013dcb128a6e3760ef801c",
+        "rev": "339a83c89d6f66d7f7a7aa51a0404f7d3673fc1a",
         "type": "github"
       },
       "original": {
@@ -1034,11 +1033,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1725391094,
-        "narHash": "sha256-ow7Yn/c05xG/XLl4kEoP/SWOB4cbsONhsQe/IEGjFaQ=",
+        "lastModified": 1725401993,
+        "narHash": "sha256-QNH453ByzJdABjDw/Ptgknqy+iSBWNKoph06wqcrQz4=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "9d8723e0f7f9285e19f6fce998ebf17b8cc50e72",
+        "rev": "59d163b91d82fc39c27b7d0ad536f32faabec198",
         "type": "github"
       },
       "original": {
@@ -1347,11 +1346,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725269752,
-        "narHash": "sha256-AtZ9fSo2q6UeMoDy6kw6solM1B+BCABbKgCyUclsctg=",
+        "lastModified": 1725391554,
+        "narHash": "sha256-m8NSagGZpMAQ8LZ+fLxAtD0Miwzy0nJoLSRf41k+3SE=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "18b7597e6ca4b98a6c3f20ddc9783165d5998018",
+        "rev": "3f9cf9f961ba734d85021248c01b38cd8f2aa173",
         "type": "github"
       },
       "original": {
@@ -1362,11 +1361,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1725389314,
-        "narHash": "sha256-gRp10+HgMy6xVN90l7TQiM1wVA7UUO5WADrXjPJcidg=",
+        "lastModified": 1725404010,
+        "narHash": "sha256-wRNhjOg+AL74LEgcZxrSh7rEeo3PJBJRgYvmMn5IQW4=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "598d06e7eea438f532244709823ff9a75bcbdf5d",
+        "rev": "7269a5400c6d8c426038852c5a1cadf95e3bd9bd",
         "type": "github"
       },
       "original": {
