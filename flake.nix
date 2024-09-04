@@ -362,6 +362,8 @@
                 nixos-overlays
                 common-overlays
                 ./common-system.nix
+                ./modules/nix.nix
+                ./modules/fonts.nix
                 inputs.home-manager.nixosModules.home-manager
                 inputs.stylix.nixosModules.stylix
                 registryModule
@@ -404,6 +406,8 @@
               darwin-overlays
               common-overlays
               ./common-system.nix
+              ./modules/nix.nix
+              ./modules/fonts.nix
               ./hosts/darwin/common-configuration.nix
               inputs.darwin-modules.darwinModule
               inputs.home-manager.darwinModules.home-manager
