@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-calibre
 on:
   pull_request:

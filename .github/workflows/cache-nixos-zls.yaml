@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-zls
 on:
   pull_request:

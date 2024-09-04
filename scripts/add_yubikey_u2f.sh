@@ -6,9 +6,9 @@ CFG_FILE="$BASE_DIR/u2f_keys"
 mkdir -p "$BASE_DIR"
 
 if [ -f "$CFG_FILE" ]; then
-    pamu2fcfg  -n >> "$CFG_FILE"
+  pamu2fcfg  -n >> "$CFG_FILE"
 else
-    pamu2fcfg > "$CFG_FILE"
+  pamu2fcfg > "$CFG_FILE"
 fi
 
 

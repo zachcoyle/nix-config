@@ -20,10 +20,8 @@
   font-weight: 900;
 }
 
-/* $hyprland-brand-color: #458588; */
-$hyprland-brand-color: #03A6D5;
-/* $nixos-brand-color: #83a598; */
-$nixos-brand-color: #4F72BB;
+$hyprland-brand-color: #03a6d5;
+$nixos-brand-color: #4f72bb;
 $shadow-color: #282828;
 $text-color: #ebdbb2;
 $glow-color: #ebdbb2;
@@ -37,10 +35,10 @@ $yellow: #d79921;
 $blue: #458588;
 $purple: #b16286;
 
-
 @mixin gtkIconShadow($outline: $shadow-color, $glow: $shadow-color) {
   @if $glow ==$shadow-color {
-    -gtk-icon-shadow: -1px 0 1px $outline,
+    -gtk-icon-shadow:
+      -1px 0 1px $outline,
       0 1px 1px $outline,
       1px 0 1px $outline,
       0 -1px 1px $outline,
@@ -48,10 +46,9 @@ $purple: #b16286;
       0 2px 2px $glow,
       2px 0 2px $glow,
       0 -2px 2px $glow;
-  }
-
-  @else {
-    -gtk-icon-shadow: -1px 0 1px $outline,
+  } @else {
+    -gtk-icon-shadow:
+      -1px 0 1px $outline,
       0 1px 1px $outline,
       1px 0 1px $outline,
       0 -1px 1px $outline,
@@ -64,7 +61,8 @@ $purple: #b16286;
 
 @mixin shadow($outline: $shadow-color, $glow: $shadow-color) {
   @if $glow ==$shadow-color {
-    text-shadow: -1px 0 1px $outline,
+    text-shadow:
+      -1px 0 1px $outline,
       0 1px 1px $outline,
       1px 0 1px $outline,
       0 -1px 1px $outline,
@@ -72,10 +70,9 @@ $purple: #b16286;
       0 2px 2px $glow,
       2px 0 2px $glow,
       0 -2px 2px $glow;
-  }
-
-  @else {
-    text-shadow: -1px 0 1px $outline,
+  } @else {
+    text-shadow:
+      -1px 0 1px $outline,
       0 1px 1px $outline,
       1px 0 1px $outline,
       0 -1px 1px $outline,
@@ -116,12 +113,7 @@ window {
   margin-right: 0px;
 }
 
-/* .nixosIcon { */
-/*   @include gtkIconShadow; */
-/* } */
-
 .nixosButton:hover {
-  /* @include shadow($glow: $nixos-brand-color); */
   @include gtkIconShadow($glow: $nixos-brand-color);
 }
 
@@ -241,7 +233,6 @@ window {
   @include text-border;
 }
 
-
 .activeClientIcon {
   @include collapse;
   @include gtkIconShadow;
@@ -265,19 +256,16 @@ window {
 }
 
 .player {
-  /* @include typography; */
   @include shadow;
 }
 
 .artist {
-  /* text-align: start; */
   font-family: "Fira Sans Nerd Font";
   font-weight: bold;
   font-style: italic;
 }
 
 .track {
-  /* text-align: start; */
   font-family: "Fira Sans Nerd Font";
   font-weight: bold;
   font-style: italic;
@@ -291,7 +279,8 @@ window {
   }
 }
 
-.albumArt {}
+.albumArt {
+}
 
 .red {
   color: $red;
@@ -318,7 +307,7 @@ window {
 }
 
 window.notification-popups box.notifications {
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .icon {
@@ -329,9 +318,7 @@ window.notification-popups box.notifications {
 
 .icon image {
   font-size: 58px;
-  /* to center the icon */
   margin: 5px;
-  /* color: @theme_fg_color; */
 }
 
 .icon box {
@@ -344,8 +331,7 @@ window.notification-popups box.notifications {
   min-width: 350px;
   border-radius: 11px;
   padding: 1em;
-  margin: .5em;
-  /* border: 1px solid @wm_borders_edge; */
+  margin: 0.5em;
   background-color: $theme_bg_color;
 }
 
@@ -359,12 +345,11 @@ window.notification-popups box.notifications {
 }
 
 .body {
-  /* color: @theme_unfocused_fg_color; */
 }
 
 .actions .action-button {
-  margin: 0 .4em;
-  margin-top: .8em;
+  margin: 0 0.4em;
+  margin-top: 0.8em;
 }
 
 .actions .action-button:first-child {
@@ -373,4 +358,20 @@ window.notification-popups box.notifications {
 
 .actions .action-button:last-child {
   margin-right: 0;
+}
+
+.charging {
+  color: #ebdbb2;
+}
+
+.not_charging_high {
+  color: $green;
+}
+
+.not_charging_med {
+  color: $yellow;
+}
+
+.not_charging_low {
+  color: $red;
 }

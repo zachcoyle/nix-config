@@ -1,0 +1,62 @@
+[global]
+excludes = [
+  "*.png",
+  "*.jpg",
+  "*.jpeg",
+  "*.svg",
+  "*.ron",
+  ".codespellrc",
+  ".editorconfig",
+  ".gitignore",
+  ".git-blame-ignore-revs",
+  "*.tar.xz",
+  "justfile",
+  ".envrc",
+  "*.conf",
+  "*.editorconfig",
+  "flake.lock",
+]
+
+[formatter.nix]
+command = "nixfmt"
+includes = ["*.nix"]
+
+[formatter.css]
+command = "prettier"
+options = ["--write"]
+includes = ["*.css"]
+
+[formatter.scss]
+command = "prettier"
+options = ["--write"]
+includes = ["*.scss"]
+
+[formatter.json]
+command = "prettier"
+options = ["--write"]
+includes = ["*.json"]
+
+[formatter.yaml]
+command = "yamlfix"
+options = []
+includes = ["*.yaml", "*.yml"]
+
+[formatter.js]
+command = "prettier"
+options = ["--write"]
+includes = ["*.js"]
+
+[formatter.toml]
+command = "taplo"
+options = ["format"]
+includes = ["*.toml"]
+
+[formatter.sh]
+command = "beautysh"
+options = ["--indent-size=2"]
+includes = ["*.sh"]
+
+[formatter.md]
+command = "mdformat"
+options = []
+includes = ["*.md"]

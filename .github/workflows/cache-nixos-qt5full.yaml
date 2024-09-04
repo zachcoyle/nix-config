@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-qt5Full
 on:
   pull_request:

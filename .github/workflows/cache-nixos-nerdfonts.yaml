@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-nerdfonts
 on:
   pull_request:

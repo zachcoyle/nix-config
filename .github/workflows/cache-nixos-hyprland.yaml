@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-hyprland
 on:
   pull_request:

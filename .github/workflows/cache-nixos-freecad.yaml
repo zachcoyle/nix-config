@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-freecad
 on:
   pull_request:

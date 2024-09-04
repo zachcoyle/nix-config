@@ -14,10 +14,10 @@ sudo mkfs.fat -F 32 -n boot /dev/nvme0n1p1
 sudo keyctl link @u @s
 
 sudo bcachefs format --encrypt \
-    --compression=lz4 \
-    --background_compression=zstd \
-    --label=ssd.ssd1 /dev/nvme0n1p2 \
-    --fs_label nixos
+  --compression=lz4 \
+  --background_compression=zstd \
+  --label=ssd.ssd1 /dev/nvme0n1p2 \
+  --fs_label nixos
 
 sudo bcachefs unlock /dev/nvme0n1p2
 

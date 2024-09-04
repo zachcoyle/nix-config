@@ -20,12 +20,25 @@ const SysTray = Widget.Box({
 
 const BatteryProgress = Widget.CircularProgress({
   child: Widget.Icon({
-    // icon: battery.bind("icon_name"),
     icon: "battery",
   }),
   visible: battery.bind("available"),
   value: battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0)),
-  class_name: battery.bind("charging").as((ch) => (ch ? "charging" : "")),
+  class_name: Utils.merge(
+    [battery.bind("charging"), battery.bind("percent")],
+    (charging, percent) => {
+      if (charging) {
+        return "charging";
+      }
+      if (percent >= 85) {
+        return "not_charging_high";
+      }
+      if (percent >= 30) {
+        return "not_charging_med";
+      }
+      return "not_charging_low";
+    },
+  ),
 });
 
 const Time = Widget.Label({

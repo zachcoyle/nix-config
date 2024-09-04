@@ -16,14 +16,14 @@ sudo mkfs.fat -F 32 -n boot /dev/sda1
 sudo keyctl link @u @s
 
 sudo bcachefs format --encrypt \
-    --compression=lz4 \
-    --background_compression=zstd \
-    --label=ssd.ssd1 /dev/sda2 \
-    --label=hdd.hdd1 /dev/sdb1 \
-    --fs_label nixos \
-    --foreground_target=ssd \
-    --promote_target=ssd \
-    --background_target=hdd
+  --compression=lz4 \
+  --background_compression=zstd \
+  --label=ssd.ssd1 /dev/sda2 \
+  --label=hdd.hdd1 /dev/sdb1 \
+  --fs_label nixos \
+  --foreground_target=ssd \
+  --promote_target=ssd \
+  --background_target=hdd
 
 sudo bcachefs unlock /dev/sda2
 sudo bcachefs unlock /dev/sdb1

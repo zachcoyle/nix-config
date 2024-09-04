@@ -555,13 +555,14 @@
           pre-commit = {
             settings = {
               hooks = {
-                nixfmt = {
-                  enable = true;
-                  package = pkgs.nixfmt-rfc-style;
-                };
+                # nixfmt = {
+                #   enable = true;
+                #   package = pkgs.nixfmt-rfc-style;
+                # };
                 deadnix.enable = true;
                 nil.enable = true;
                 statix.enable = true;
+                treefmt.enable = true;
               };
             };
           };
@@ -578,6 +579,12 @@
               deadnix
               nixfmt-rfc-style
               statix
+              treefmt
+              nodePackages.prettier
+              yamlfix
+              taplo
+              beautysh
+              mdformat
             ];
           };
         };

@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-retroarch
 on:
   pull_request:

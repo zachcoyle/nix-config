@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-electron
 on:
   pull_request:

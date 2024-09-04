@@ -1,3 +1,4 @@
+---
 name: cachix-nixos-ags
 on:
   pull_request:
