@@ -11,11 +11,11 @@ let
     runtimeInputs = with pkgs; [ jq ];
     text = ''
       FFS_STATE="$(hyprctl activewindow -j | jq '.fullscreenClient')"
-      case $FFS_STATE in 
+      case $FFS_STATE in
       "0")
       hyprctl dispatch fullscreenstate "0 2"
       ;;
-      *) 
+      *)
       hyprctl dispatch fullscreenstate "0 0"
       ;;
       esac
@@ -39,7 +39,7 @@ let
   };
 in
 {
-  # TODO: finish moving pkgs 
+  # TODO: finish moving pkgs
   home.packages = with pkgs; [
     grim
     grimblast
@@ -65,6 +65,7 @@ in
         swallow_regex = [
           "^(kitty)$"
           "^(Alacritty)$"
+          "^(com.mitchellh.ghostty)$"
         ];
       };
       animations = {
