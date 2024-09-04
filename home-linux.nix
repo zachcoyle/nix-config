@@ -416,7 +416,7 @@ in
       extraPackages = [ ];
     };
 
-    firefox.package = pkgs.wrapFirefox pkgs.firefox-beta-bin-unwrapped {
+    firefox.package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
       extraPolicies = {
         DisableFirefoxStudies = true;
         DisablePocket = true;

@@ -152,7 +152,7 @@ in
       bind = [
         # "SUPER, grave, hyprexpo:expo, toggle"
 
-        "SUPER, B, exec, firefox-beta"
+        "SUPER, B, exec, firefox"
         "SUPER, C, exec, rofi -opacity 0 -show calc -display-calc ''"
         "SUPER, E, exec, rofi -opacity 0 -show emoji -display-emoji `random-emoji`"
         "SUPER, Return, exec, ghostty"
