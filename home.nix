@@ -349,6 +349,11 @@ in
         '';
     };
 
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+    };
+
     yazi = {
       enable = true;
       enableZshIntegration = true;
