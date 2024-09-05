@@ -217,14 +217,6 @@ in
         '';
     };
 
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        set -g fish_greeting
-        fish_vi_key_bindings
-      '';
-    };
-
     git = {
       enable = true;
       package = pkgs.gitSVN;
@@ -315,8 +307,6 @@ in
       {
         enable = true;
         enableZshIntegration = true;
-        enableFishIntegration = true;
-        enableTransience = true;
         settings = { } // (builtins.fromTOML (builtins.readFile "${nerdfontPreset}/nerdfont.toml"));
       };
 
