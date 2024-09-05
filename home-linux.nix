@@ -122,6 +122,7 @@ in
         brightnessctl
         buildah
         cider
+        d-spy
         evince
         ghostty
         gnome-calculator
