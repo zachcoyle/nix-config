@@ -9,6 +9,7 @@ const dispatch = (ws) => hyprland.messageAsync(`dispatch workspace ${ws}`);
 
 export const Workspaces = () =>
   Widget.EventBox({
+    className: "workspaces",
     onScrollUp: () => dispatch("+1"),
     onScrollDown: () => dispatch("-1"),
     child: Widget.Box({
