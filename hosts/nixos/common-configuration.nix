@@ -206,7 +206,7 @@ in
 
     nautilus-open-any-terminal = {
       enable = true;
-      terminal = "alacritty";
+      terminal = "ghostty";
     };
 
     nh = {
