@@ -66,6 +66,7 @@ in
           "^(kitty)$"
           "^(Alacritty)$"
           "^(com.mitchellh.ghostty)$"
+          "^(org.gnome.Nautilus)$"
         ];
       };
       animations = {
