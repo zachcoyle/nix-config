@@ -373,6 +373,7 @@
     mini = {
       enable = true;
       modules = {
+        # TODO: look into replacing with https://github.com/max397574/care.nvim
         completion = {
           delay = {
             completion = 100;
