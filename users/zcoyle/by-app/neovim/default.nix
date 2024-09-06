@@ -102,6 +102,7 @@ in
         mdformat
         nodePackages.fixjson
         nodePackages.sql-formatter
+        ormolu
         ruff
         rustfmt
         stylua

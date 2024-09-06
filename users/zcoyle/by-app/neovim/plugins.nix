@@ -61,6 +61,7 @@
           dart = [ "dart_format" ];
           go = [ "gofumpt" ];
           graphql = [ "prettierd" ];
+          haskell = [ "ormolu" ];
           html = [ "prettierd" ];
           javascript = [ "prettierd" ];
           javascriptreact = [ "prettierd" ];
@@ -300,6 +301,7 @@
         dartls.enable = true;
         eslint.enable = true;
         gopls.enable = true;
+        hls.enable = true;
         html.enable = true;
         jsonls.enable = true;
         kotlin-language-server.enable = true;
