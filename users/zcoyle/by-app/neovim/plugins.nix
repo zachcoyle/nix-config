@@ -7,24 +7,24 @@
 {
   programs.nixvim.plugins = {
     barbar.enable = true;
-    cmp-emoji.enable = true;
-    cmp-nvim-lsp.enable = true;
-    cmp-nvim-lsp-document-symbol.enable = true;
-    cmp-nvim-lsp-signature-help.enable = true;
-    cmp-nvim-lua.enable = true;
-    cmp-path.enable = true;
-    cmp-tabnine = {
-      enable = true;
-      extraOptions = {
-        max_lines = 1000;
-        max_num_results = 2;
-        sort = true;
-        run_on_every_keystroke = true;
-        snippet_placeholder = "..";
-        ignored_file_types = { };
-        show_prediction_strength = true;
-      };
-    };
+    # cmp-emoji.enable = true;
+    # cmp-nvim-lsp.enable = true;
+    # cmp-nvim-lsp-document-symbol.enable = true;
+    # cmp-nvim-lsp-signature-help.enable = true;
+    # cmp-nvim-lua.enable = true;
+    # cmp-path.enable = true;
+    # cmp-tabnine = {
+    #   enable = true;
+    #   extraOptions = {
+    #     max_lines = 1000;
+    #     max_num_results = 2;
+    #     sort = true;
+    #     run_on_every_keystroke = true;
+    #     snippet_placeholder = "..";
+    #     ignored_file_types = { };
+    #     show_prediction_strength = true;
+    #   };
+    # };
     comment.enable = true;
     conform-nvim = {
       enable = true;
@@ -171,7 +171,7 @@
     emmet.enable = true;
     firenvim = {
       enable = true;
-      # TODO: 
+      # TODO:
       # settings = {
       #   globalSettings = { };
       #   localSettings = { };
@@ -370,6 +370,49 @@
         };
       };
     };
+    mini = {
+      enable = true;
+      modules = {
+        completion = {
+          delay = {
+            completion = 100;
+            info = 100;
+            signature = 50;
+          };
+
+          window = {
+            info = {
+              height = 25;
+              width = 80;
+              border = "none";
+            };
+            signature = {
+              height = 25;
+              width = 80;
+              border = "none";
+            };
+          };
+
+          lsp_completion = {
+            # `source_func` should be one of 'completefunc' or 'omnifunc'.
+            source_func = "completefunc";
+
+            auto_setup = true;
+
+            # process_items = --<function: MiniCompletion.default_process_items>;
+          };
+
+          # fallback_action = --<function: like `<C-n>` completion>;
+
+          mappings = {
+            force_twostep = "<C-Space>"; # -- Force two-step completion
+            force_fallback = "<A-Space>"; # -- Force fallback completion
+          };
+
+          set_vim_settings = true;
+        };
+      };
+    };
     navbuddy = {
       enable = true;
       lsp.autoAttach = true;
@@ -410,70 +453,70 @@
         virtualtext = "virtualtext";
       };
     };
-    cmp = {
-      enable = true;
-      settings = {
-        experimental = {
-          ghost_text = true;
-        };
-        snippet.expand = # lua
-          ''
-            function(args)
-              require('luasnip').lsp_expand(args.body)
-            end
-          '';
-        widow = {
-          completion.border = [
-            "╔"
-            "═"
-            "╗"
-            "║"
-            "╝"
-            "═"
-            "╚"
-            "║"
-          ];
-          documentation.border = [
-            "╔"
-            "═"
-            "╗"
-            "║"
-            "╝"
-            "═"
-            "╚"
-            "║"
-          ];
-        };
-        mapping = {
-          "<C-Space>" = # lua
-            "cmp.mapping.complete()";
-          "<C-d>" = # lua
-            "cmp.mapping.scroll_docs(-4)";
-          "<C-e>" = # lua
-            "cmp.mapping.close()";
-          "<C-f>" = # lua
-            "cmp.mapping.scroll_docs(4)";
-          "<CR>" = # lua
-            "cmp.mapping.confirm({ select = true })";
-          "<S-Tab>" = # lua
-            ''cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" })'';
-          "<Tab>" = # lua
-            ''cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" })'';
-        };
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "otter"; }
-          { name = "nvim_lsp_signature_help"; }
-          { name = "nvim_lsp_document_symbol"; }
-          { name = "nvim_lua"; }
-          { name = "cmp_tabnine"; }
-          { name = "luasnip"; }
-          { name = "path"; }
-          { name = "buffer"; }
-          { name = "emoji"; }
-        ];
-      };
-    };
+    # cmp = {
+    #   enable = true;
+    #   settings = {
+    #     experimental = {
+    #       ghost_text = true;
+    #     };
+    #     snippet.expand = # lua
+    #       ''
+    #         function(args)
+    #           require('luasnip').lsp_expand(args.body)
+    #         end
+    #       '';
+    #     widow = {
+    #       completion.border = [
+    #         "╔"
+    #         "═"
+    #         "╗"
+    #         "║"
+    #         "╝"
+    #         "═"
+    #         "╚"
+    #         "║"
+    #       ];
+    #       documentation.border = [
+    #         "╔"
+    #         "═"
+    #         "╗"
+    #         "║"
+    #         "╝"
+    #         "═"
+    #         "╚"
+    #         "║"
+    #       ];
+    #     };
+    #     mapping = {
+    #       "<C-Space>" = # lua
+    #         "cmp.mapping.complete()";
+    #       "<C-d>" = # lua
+    #         "cmp.mapping.scroll_docs(-4)";
+    #       "<C-e>" = # lua
+    #         "cmp.mapping.close()";
+    #       "<C-f>" = # lua
+    #         "cmp.mapping.scroll_docs(4)";
+    #       "<CR>" = # lua
+    #         "cmp.mapping.confirm({ select = true })";
+    #       "<S-Tab>" = # lua
+    #         ''cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" })'';
+    #       "<Tab>" = # lua
+    #         ''cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" })'';
+    #     };
+    #     sources = [
+    #       { name = "nvim_lsp"; }
+    #       { name = "otter"; }
+    #       { name = "nvim_lsp_signature_help"; }
+    #       { name = "nvim_lsp_document_symbol"; }
+    #       { name = "nvim_lua"; }
+    #       { name = "cmp_tabnine"; }
+    #       { name = "luasnip"; }
+    #       { name = "path"; }
+    #       { name = "buffer"; }
+    #       { name = "emoji"; }
+    #     ];
+    #   };
+    # };
     nvim-jdtls = {
       enable = true;
       data = "${config.xdg.cacheHome}/jdtls/workspace/";

@@ -84,7 +84,7 @@ in
         fd
         lazygit
         ripgrep
-        tabnine
+        #tabnine
 
         # dap
         lldb
