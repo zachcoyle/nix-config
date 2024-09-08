@@ -231,16 +231,17 @@
     indent-blankline.enable = true;
     lualine = {
       enable = true;
-      theme = "gruvbox";
-      componentSeparators = {
-        left = "";
-        right = "";
+      settings.options = {
+        theme = "gruvbox";
+        component_separators = {
+          left = "";
+          right = "";
+        };
+        section_separators = {
+          left = "";
+          right = "";
+        };
       };
-      sectionSeparators = {
-        left = "";
-        right = "";
-      };
-
     };
     lsp = {
       enable = true;
