@@ -226,7 +226,7 @@
         };
       };
     };
-    hmts.enable = true;
+    hmts.enable = false;
     image.enable = true;
     indent-blankline.enable = true;
     lualine = {
@@ -554,7 +554,7 @@
     treesitter = {
       enable = true;
       nixGrammars = true;
-      nixvimInjections = true;
+      nixvimInjections = false;
       folding = true;
       settings = {
         highlight.enable = true;
