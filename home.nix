@@ -77,7 +77,7 @@ in
       nix-btm
       nix-diff
       nix-init
-      # nix-melt
+      nix-melt
       nix-output-monitor
       nix-tree
       nixfmt-rfc-style
