@@ -465,7 +465,7 @@
     };
     ollama = {
       enable = true;
-      model = "dolphin-llama3";
+      model = "yi-coder";
       url = "http://127.0.0.1:11434";
       extraOptions = {
         stream = true;
