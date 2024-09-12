@@ -157,6 +157,8 @@ in
 
       settings = {
         "general.smoothScroll" = true;
+        # forbids sites from taking over keybinds
+        "permissions.default.shortcuts" = 2;
         # disable alt key bringing up window menu
         "ui.key.menuAccessKeyFocuses" = false;
       };
