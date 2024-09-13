@@ -73,7 +73,7 @@
           kotlin = [ "ktlint" ];
           lua = [ "stylua" ];
           md = [ "mdformat" ];
-          nix = [ "nixfmt" ];
+          nix = [ "alejandra" ];
           python = [
             "ruff_fix"
             "ruff_format"

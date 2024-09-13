@@ -80,7 +80,6 @@ in
       nix-melt
       nix-output-monitor
       nix-tree
-      nixfmt-rfc-style
       opentofu
       oterm
       pijul

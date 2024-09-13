@@ -550,7 +550,7 @@
       perSystem =
         { config, pkgs, ... }:
         {
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.alejandra;
 
           pre-commit = {
             settings = {
@@ -570,10 +570,10 @@
               ${config.pre-commit.installationScript}
             '';
             packages = with pkgs; [
+              alejandra
               dart-sass
               just
               deadnix
-              nixfmt-rfc-style
               statix
               treefmt
               nodePackages.prettier
