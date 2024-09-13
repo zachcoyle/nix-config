@@ -34,7 +34,8 @@
     }
     {
       key = "<leader>ch";
-      action = # vim
+      action =
+        # vim
         ":noh<cr>";
       options = {
         silent = true;
@@ -91,7 +92,8 @@
     }
     {
       key = "<leader>dc";
-      action = # vim
+      action =
+        # vim
         ":DapContinue<cr>";
       options = {
         silent = true;
@@ -108,7 +110,8 @@
     }
     {
       key = "<leader>th";
-      action = # vim
+      action =
+        # vim
         ":Telescope harpoon marks<cr>";
       options = {
         silent = true;
@@ -157,7 +160,8 @@
     }
     {
       key = "<leader>td";
-      action = # vim
+      action =
+        # vim
         ":TodoTelescope<cr>";
       options = {
         silent = true;
@@ -166,7 +170,8 @@
     }
     {
       key = "<leader>tp";
-      action = # vim
+      action =
+        # vim
         ":Telescope projects<cr>";
       options = {
         silent = true;
@@ -292,11 +297,12 @@
         silent = true;
         desc = "Open Neogit";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>nb";
-      action = # vim
+      action =
+        # vim
         ":Navbuddy<cr>";
       options = {
         silent = true;
@@ -305,7 +311,8 @@
     }
     {
       key = "<leader>ll";
-      action = # vim
+      action =
+        # vim
         ":<c-u>lua require('ollama').prompt()<cr>";
       options = {
         desc = "ollama prompt";
@@ -317,7 +324,8 @@
     }
     {
       key = "<leader>lG";
-      action = # vim
+      action =
+        # vim
         ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>";
       options = {
         desc = "ollama Generate Code";
@@ -343,10 +351,10 @@
       key = "s";
       action.__raw = ''require("flash").remote'';
     }
-    #  TODO: improve the otter bindings later by getting 
+    #  TODO: improve the otter bindings later by getting
     #  all the current injections of the current
     #  buffer from the data returned by:
-    #  vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] 
+    #  vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()]
     {
       key = "<leader>ob";
       action.__raw = ''function() require("otter").activate({ "bash" }) end'';
@@ -354,7 +362,7 @@
         silent = true;
         desc = "Otter: Activate Bash";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>oc";
@@ -363,7 +371,7 @@
         silent = true;
         desc = "Otter: Activate CSS";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>oh";
@@ -372,7 +380,7 @@
         silent = true;
         desc = "Otter: Activate Haskell";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>oj";
@@ -381,7 +389,7 @@
         silent = true;
         desc = "Otter: Activate Javascript";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>ol";
@@ -390,7 +398,7 @@
         silent = true;
         desc = "Otter: Activate Lua";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>op";
@@ -399,7 +407,7 @@
         silent = true;
         desc = "Otter: Activate Python";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>or";
@@ -408,7 +416,7 @@
         silent = true;
         desc = "Otter: Activate Rust";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>md";
@@ -417,7 +425,7 @@
         silent = true;
         desc = "Mouse: disable";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
     {
       key = "<leader>me";
@@ -426,7 +434,7 @@
         silent = true;
         desc = "Mouse: enable";
       };
-      mode = [ "n" ];
+      mode = ["n"];
     }
   ];
 }

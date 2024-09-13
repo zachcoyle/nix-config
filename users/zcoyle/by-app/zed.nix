@@ -3,9 +3,8 @@
   lib,
   # config,
   ...
-}:
-{
-  home.packages = with pkgs; [ zed-editor ];
+}: {
+  home.packages = with pkgs; [zed-editor];
   home.file.".config/zed/settings.json".text = builtins.toJSON {
     vim_mode = true;
     ui_font_size = 14;
@@ -23,7 +22,7 @@
     };
     languages = {
       rust = {
-        language_servers = [ "rust-analyzer" ];
+        language_servers = ["rust-analyzer"];
       };
     };
     lsp = {

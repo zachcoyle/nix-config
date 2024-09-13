@@ -4,12 +4,9 @@
   config,
   self,
   ...
-}:
-let
+}: let
   inherit (config.lib.stylix.colors) withHashtag;
-in
-{
-
+in {
   imports = [
     ../../theme/stylix.nix
     ../../theme/stylix-nixos.nix
@@ -25,7 +22,7 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages32 = with pkgs.driversi686Linux; [ amdvlk ];
+      extraPackages32 = with pkgs.driversi686Linux; [amdvlk];
       extraPackages = with pkgs; [
         amdvlk
         libva
@@ -47,8 +44,8 @@ in
   };
 
   boot = {
-    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-    kernelModules = [ "wl" ];
+    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
+    kernelModules = ["wl"];
     loader = {
       timeout = 1;
       systemd-boot = {
@@ -97,7 +94,7 @@ in
       enable = true;
       extraRules = [
         {
-          users = [ "zcoyle" ];
+          users = ["zcoyle"];
           keepEnv = true;
           persist = true;
         }
@@ -115,7 +112,7 @@ in
         8080 # web dev
         8081 # web dev
       ];
-      allowedUDPPorts = [ ];
+      allowedUDPPorts = [];
     };
     nameservers = [
       # quad9
@@ -124,7 +121,7 @@ in
     ];
     networkmanager = {
       enable = true;
-      plugins = [ ];
+      plugins = [];
     };
   };
 
@@ -188,7 +185,6 @@ in
   };
 
   programs = {
-
     adb.enable = true;
 
     gnupg.agent = {
@@ -277,8 +273,8 @@ in
 
     printing = {
       enable = true;
-      listenAddresses = [ "*:631" ];
-      allowFrom = [ "all" ];
+      listenAddresses = ["*:631"];
+      allowFrom = ["all"];
       browsing = true;
       defaultShared = true;
       openFirewall = true;
@@ -324,7 +320,6 @@ in
       enable = true;
       package = pkgs.usbmuxd2;
     };
-
   };
 
   system.stateVersion = "24.05";
@@ -346,7 +341,7 @@ in
           "adbusers"
           "wheel"
         ];
-        packages = [ ];
+        packages = [];
         shell = pkgs.zsh;
       };
     };
@@ -355,5 +350,4 @@ in
   virtualisation.libvirtd.enable = true;
 
   zramSwap.enable = true;
-
 }

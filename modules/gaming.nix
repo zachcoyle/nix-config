@@ -1,10 +1,13 @@
-{ pkgs, pkgsStable, ... }:
 {
+  pkgs,
+  pkgsStable,
+  ...
+}: {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraCompatPackages = [ pkgs.proton-ge-bin ];
+    extraCompatPackages = [pkgs.proton-ge-bin];
   };
 
   nixpkgs.config.allowUnfreePredicate = import ../unfreePredicate.nix;

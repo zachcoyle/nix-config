@@ -1,4 +1,8 @@
-{ stdenvNoCC, fetchzip, ... }:
+{
+  stdenvNoCC,
+  fetchzip,
+  ...
+}:
 stdenvNoCC.mkDerivation rec {
   pname = "ezra-sil";
   version = "2.51";

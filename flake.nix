@@ -291,9 +291,8 @@
     };
   };
 
-  outputs =
-    inputs@{ self, ... }:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs @ {self, ...}:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.devshell.flakeModule
         inputs.pre-commit-hooks.flakeModule
@@ -301,288 +300,287 @@
 
       systems = (import inputs.systems-darwin) ++ (import inputs.systems-linux);
 
-      flake =
-        let
-          registryModule.nix.registry.nixpkgs.flake = inputs.nixpkgs;
+      flake = let
+        registryModule.nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
-          common-overlays = {
-            nixpkgs.overlays = [
-              inputs.telescope-just.overlays.default
-              inputs.nix-vscode-extensions.overlays.default
-              inputs.nur.overlay
-              inputs.neovim-nightly-overlay.overlays.default
-              inputs.neovim-plugins-nightly-overlay.overlays.default
-              inputs.nil.overlays.default
-              (_: prev: {
-                inherit (inputs.zls.packages.${prev.system}) zls;
-                inherit (inputs.ghostty.packages.${prev.system}) ghostty;
-                lazyjj = prev.callPackage ./packages/lazyjj.nix { };
-              })
-            ];
-          };
+        common-overlays = {
+          nixpkgs.overlays = [
+            inputs.telescope-just.overlays.default
+            inputs.nix-vscode-extensions.overlays.default
+            inputs.nur.overlay
+            inputs.neovim-nightly-overlay.overlays.default
+            inputs.neovim-plugins-nightly-overlay.overlays.default
+            inputs.nil.overlays.default
+            (_: prev: {
+              inherit (inputs.zls.packages.${prev.system}) zls;
+              inherit (inputs.ghostty.packages.${prev.system}) ghostty;
+              lazyjj = prev.callPackage ./packages/lazyjj.nix {};
+            })
+          ];
+        };
 
-          nixos-overlays = {
-            nixpkgs.overlays = [
-              inputs.hyprland.overlays.default
-              inputs.icon-themes-nightly-overlay.overlays.default
-              inputs.xremap-flake.overlays.default
-              (_: prev: {
-                inherit (inputs.ags.packages.${prev.system}) ags;
-                inherit (inputs.hypridle.packages.${prev.system}) hypridle;
-                inherit (inputs.hyprlock.packages.${prev.system}) hyprlock;
-                inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
-                inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
-                inherit (inputs.niqspkgs.packages.${prev.system}) bibata-hyprcursor;
-                logos = inputs.logos.packages.${prev.system}.default;
-                rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
-              })
-            ];
-          };
+        nixos-overlays = {
+          nixpkgs.overlays = [
+            inputs.hyprland.overlays.default
+            inputs.icon-themes-nightly-overlay.overlays.default
+            inputs.xremap-flake.overlays.default
+            (_: prev: {
+              inherit (inputs.ags.packages.${prev.system}) ags;
+              inherit (inputs.hypridle.packages.${prev.system}) hypridle;
+              inherit (inputs.hyprlock.packages.${prev.system}) hyprlock;
+              inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
+              inherit (inputs.hyprpaper.packages.${prev.system}) hyprpaper;
+              inherit (inputs.niqspkgs.packages.${prev.system}) bibata-hyprcursor;
+              logos = inputs.logos.packages.${prev.system}.default;
+              rofi-calc = prev.rofi-calc.override {rofi-unwrapped = prev.rofi-wayland-unwrapped;};
+            })
+          ];
+        };
 
-          darwin-overlays = {
-            nixpkgs.overlays = [
-              inputs.nixpkgs-firefox-darwin.overlay
-              (_: prev: { inherit (inputs.nixpkgs-23-05-darwin.legacyPackages.${prev.system}) neovide; })
-            ];
-          };
+        darwin-overlays = {
+          nixpkgs.overlays = [
+            inputs.nixpkgs-firefox-darwin.overlay
+            (_: prev: {inherit (inputs.nixpkgs-23-05-darwin.legacyPackages.${prev.system}) neovide;})
+          ];
+        };
 
-          common-nixos-config =
-            { extraModules }:
-            rec {
-              system = "x86_64-linux";
-              specialArgs = {
-                inherit inputs system self;
-                std = inputs.nix-std.lib;
-                pkgsStable = import inputs.nixpkgs-stable {
-                  inherit system;
-                  config.allowUnfreePredicate = import ./unfreePredicate.nix;
-                };
-              };
-              modules = [
-                nixos-overlays
-                common-overlays
-                ./common-system.nix
-                ./modules/nix.nix
-                ./modules/fonts.nix
-                inputs.home-manager.nixosModules.home-manager
-                inputs.stylix.nixosModules.stylix
-                registryModule
-                { nixpkgs.config.rocmSupport = true; }
-                (
-                  { pkgs, ... }:
-                  {
-                    home-manager = {
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      users.zcoyle = import ./home.nix;
-                      extraSpecialArgs = {
-                        inherit (inputs) nixvim;
-                        std = inputs.nix-std.lib;
-                        pkgsStable = import inputs.nixpkgs-stable { inherit (pkgs) system; };
-                      };
-                    };
-                  }
-                )
-                {
-                  home-manager.users.zcoyle.imports = [
-                    inputs.ags.homeManagerModules.default
-                    inputs.xremap-flake.homeManagerModules.default
-                    ./home-linux.nix
-                  ];
-                }
-              ] ++ extraModules;
+        common-nixos-config = {extraModules}: rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs system self;
+            std = inputs.nix-std.lib;
+            pkgsStable = import inputs.nixpkgs-stable {
+              inherit system;
+              config.allowUnfreePredicate = import ./unfreePredicate.nix;
             };
-
-          common-darwin-config = {
-            specialArgs = {
-              inherit inputs;
-              std = inputs.nix-std.lib;
-              pkgsStable = import inputs.nixpkgs-stable {
-                system = "x86_64-darwin";
-                config.allowUnfreePredicate = import ./unfreePredicate.nix;
-              };
-            };
-            modules = [
-              darwin-overlays
+          };
+          modules =
+            [
+              nixos-overlays
               common-overlays
               ./common-system.nix
               ./modules/nix.nix
               ./modules/fonts.nix
-              ./hosts/darwin/common-configuration.nix
-              inputs.darwin-modules.darwinModule
-              inputs.home-manager.darwinModules.home-manager
-              inputs.stylix.darwinModules.stylix
-              "${inputs.dustinlyons-modules}/modules/darwin/dock"
+              inputs.home-manager.nixosModules.home-manager
+              inputs.stylix.nixosModules.stylix
               registryModule
+              {nixpkgs.config.rocmSupport = true;}
+              (
+                {pkgs, ...}: {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    users.zcoyle = import ./home.nix;
+                    extraSpecialArgs = {
+                      inherit (inputs) nixvim;
+                      std = inputs.nix-std.lib;
+                      pkgsStable = import inputs.nixpkgs-stable {inherit (pkgs) system;};
+                    };
+                  };
+                }
+              )
               {
-                system.configurationRevision = self.rev or self.dirtyRef or null;
-                nixpkgs = {
-                  config = {
-                    allowUnfree = true;
-                  };
-                };
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  users.zcoyle = import ./home.nix;
-                  extraSpecialArgs = {
-                    inherit (inputs) nixvim;
-                    std = inputs.nix-std.lib;
-                    pkgsStable = import inputs.nixpkgs-stable {
-                      system = "x86_64-darwin";
-                      config.allowUnfreePredicate = import ./unfreePredicate.nix;
-                    };
-                  };
-                };
+                home-manager.users.zcoyle.imports = [
+                  inputs.ags.homeManagerModules.default
+                  inputs.xremap-flake.homeManagerModules.default
+                  ./home-linux.nix
+                ];
               }
-              { home-manager.users.zcoyle.imports = [ ./home-darwin.nix ]; }
-            ];
-          };
+            ]
+            ++ extraModules;
+        };
 
-          common-iso-config =
-            { extraModules }:
-            {
-              modules = [
-                "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
-                (
-                  { pkgs, lib, ... }:
-                  {
-                    nixpkgs.hostPlatform = "x86_64-linux";
-                    nix = {
-                      settings = {
-                        experimental-features = "nix-command flakes";
-                        auto-optimise-store = true;
-                        use-xdg-base-directories = true;
-                        substituters = [
-                          "https://crane.cachix.org"
-                          "https://devenv.cachix.org"
-                          "https://hyprland.cachix.org"
-                          "https://nix-community.cachix.org"
-                          "https://zachcoyle.cachix.org"
-                        ];
-                        trusted-public-keys = [
-                          "crane.cachix.org-1:8Scfpmn9w+hGdXH/Q9tTLiYAE/2dnJYRJP7kl80GuRk="
-                          "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-                          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-                          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                          "zachcoyle.cachix.org-1:Zgr8u70LueWgpbSPM4E8JqxpQcGISxivplq1I9qogGg="
-                        ];
-                      };
-                    };
-                    boot = {
-                      supportedFilesystems = {
-                        bcachefs = true;
-                        exfat = true;
-                        ext4 = true;
-                        fat = true;
-                        zfs = lib.mkForce false;
-                      };
-                    };
-
-                    environment.systemPackages = with pkgs; [
-                      alacritty
-                      git
-                      neovim
-                    ];
-                  }
-                )
-              ] ++ extraModules;
+        common-darwin-config = {
+          specialArgs = {
+            inherit inputs;
+            std = inputs.nix-std.lib;
+            pkgsStable = import inputs.nixpkgs-stable {
+              system = "x86_64-darwin";
+              config.allowUnfreePredicate = import ./unfreePredicate.nix;
             };
-
-        in
-        {
-          inherit self;
-          darwinConfigurations = {
-            mbp13 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
-            mbp15 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
           };
-          nixosConfigurations = {
-            nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common-nixos-config {
-              extraModules = [
-                ./hosts/nixos/nixos-desktop/configuration.nix
-                ./hosts/nixos/nixos-desktop/home.nix
-                ./modules/gaming.nix
-              ];
-            });
-            nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common-nixos-config {
-              extraModules = [
-                ./hosts/nixos/nixos-laptop/configuration.nix
-                ./hosts/nixos/nixos-laptop/home.nix
-                ./modules/gaming.nix
-              ];
-            });
-            iso = inputs.nixpkgs.lib.nixosSystem (common-iso-config {
-              extraModules = [
-                (
-                  { pkgs, ... }:
-                  {
-                    boot.kernelPackages = pkgs.linuxPackages_latest;
-                  }
-                )
-              ];
-            });
-            iso-t2 = inputs.nixpkgs.lib.nixosSystem (common-iso-config {
-              extraModules = [
-                inputs.nixos-hardware.nixosModules.apple-t2
-                (
-                  { pkgs, ... }:
-                  {
-                    hardware = {
-                      apple-t2.enableAppleSetOsLoader = true;
-                      firmware = [
-                        (pkgs.stdenvNoCC.mkDerivation {
-                          name = "brcm-firmware";
-                          buildCommand = ''
-                            dir="$out/lib/firmware"
-                            mkdir -p "$dir"
-                            cp -r ${inputs.apple-firmware}/lib/firmware/* "$dir"
-                          '';
-                        })
+          modules = [
+            darwin-overlays
+            common-overlays
+            ./common-system.nix
+            ./modules/nix.nix
+            ./modules/fonts.nix
+            ./hosts/darwin/common-configuration.nix
+            inputs.darwin-modules.darwinModule
+            inputs.home-manager.darwinModules.home-manager
+            inputs.stylix.darwinModules.stylix
+            "${inputs.dustinlyons-modules}/modules/darwin/dock"
+            registryModule
+            {
+              system.configurationRevision = self.rev or self.dirtyRef or null;
+              nixpkgs = {
+                config = {
+                  allowUnfree = true;
+                };
+              };
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.zcoyle = import ./home.nix;
+                extraSpecialArgs = {
+                  inherit (inputs) nixvim;
+                  std = inputs.nix-std.lib;
+                  pkgsStable = import inputs.nixpkgs-stable {
+                    system = "x86_64-darwin";
+                    config.allowUnfreePredicate = import ./unfreePredicate.nix;
+                  };
+                };
+              };
+            }
+            {home-manager.users.zcoyle.imports = [./home-darwin.nix];}
+          ];
+        };
+
+        common-iso-config = {extraModules}: {
+          modules =
+            [
+              "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
+              (
+                {
+                  pkgs,
+                  lib,
+                  ...
+                }: {
+                  nixpkgs.hostPlatform = "x86_64-linux";
+                  nix = {
+                    settings = {
+                      experimental-features = "nix-command flakes";
+                      auto-optimise-store = true;
+                      use-xdg-base-directories = true;
+                      substituters = [
+                        "https://crane.cachix.org"
+                        "https://devenv.cachix.org"
+                        "https://hyprland.cachix.org"
+                        "https://nix-community.cachix.org"
+                        "https://zachcoyle.cachix.org"
+                      ];
+                      trusted-public-keys = [
+                        "crane.cachix.org-1:8Scfpmn9w+hGdXH/Q9tTLiYAE/2dnJYRJP7kl80GuRk="
+                        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+                        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+                        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                        "zachcoyle.cachix.org-1:Zgr8u70LueWgpbSPM4E8JqxpQcGISxivplq1I9qogGg="
                       ];
                     };
-                  }
-                )
-              ];
-            });
-          };
+                  };
+                  boot = {
+                    supportedFilesystems = {
+                      bcachefs = true;
+                      exfat = true;
+                      ext4 = true;
+                      fat = true;
+                      zfs = lib.mkForce false;
+                    };
+                  };
+
+                  environment.systemPackages = with pkgs; [
+                    alacritty
+                    git
+                    neovim
+                  ];
+                }
+              )
+            ]
+            ++ extraModules;
         };
+      in {
+        inherit self;
+        darwinConfigurations = {
+          mbp13 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
+          mbp15 = inputs.nix-darwin.lib.darwinSystem common-darwin-config;
+        };
+        nixosConfigurations = {
+          nixos-desktop = inputs.nixpkgs.lib.nixosSystem (common-nixos-config {
+            extraModules = [
+              ./hosts/nixos/nixos-desktop/configuration.nix
+              ./hosts/nixos/nixos-desktop/home.nix
+              ./modules/gaming.nix
+            ];
+          });
+          nixos-laptop = inputs.nixpkgs.lib.nixosSystem (common-nixos-config {
+            extraModules = [
+              ./hosts/nixos/nixos-laptop/configuration.nix
+              ./hosts/nixos/nixos-laptop/home.nix
+              ./modules/gaming.nix
+            ];
+          });
+          iso = inputs.nixpkgs.lib.nixosSystem (common-iso-config {
+            extraModules = [
+              (
+                {pkgs, ...}: {
+                  boot.kernelPackages = pkgs.linuxPackages_latest;
+                }
+              )
+            ];
+          });
+          iso-t2 = inputs.nixpkgs.lib.nixosSystem (common-iso-config {
+            extraModules = [
+              inputs.nixos-hardware.nixosModules.apple-t2
+              (
+                {pkgs, ...}: {
+                  hardware = {
+                    apple-t2.enableAppleSetOsLoader = true;
+                    firmware = [
+                      (pkgs.stdenvNoCC.mkDerivation {
+                        name = "brcm-firmware";
+                        buildCommand = ''
+                          dir="$out/lib/firmware"
+                          mkdir -p "$dir"
+                          cp -r ${inputs.apple-firmware}/lib/firmware/* "$dir"
+                        '';
+                      })
+                    ];
+                  };
+                }
+              )
+            ];
+          });
+        };
+      };
 
-      perSystem =
-        { config, pkgs, ... }:
-        {
-          formatter = pkgs.alejandra;
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        formatter = pkgs.alejandra;
 
-          pre-commit = {
-            settings = {
-              hooks = {
-                deadnix.enable = true;
-                nil.enable = true;
-                statix.enable = true;
-                treefmt.enable = true;
-              };
+        pre-commit = {
+          settings = {
+            hooks = {
+              deadnix.enable = true;
+              nil.enable = true;
+              statix.enable = true;
+              treefmt.enable = true;
             };
           };
-
-          devshells.default = {
-            name = "system-flake";
-            env = [ ];
-            devshell.startup.pre-commit-hooks.text = ''
-              ${config.pre-commit.installationScript}
-            '';
-            packages = with pkgs; [
-              alejandra
-              dart-sass
-              just
-              deadnix
-              statix
-              treefmt
-              nodePackages.prettier
-              yamlfix
-              taplo
-              beautysh
-              mdformat
-            ];
-          };
         };
+
+        devshells.default = {
+          name = "system-flake";
+          env = [];
+          devshell.startup.pre-commit-hooks.text = ''
+            ${config.pre-commit.installationScript}
+          '';
+          packages = with pkgs; [
+            alejandra
+            dart-sass
+            just
+            deadnix
+            statix
+            treefmt
+            nodePackages.prettier
+            yamlfix
+            taplo
+            beautysh
+            mdformat
+          ];
+        };
+      };
     };
 }

@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nix = {
     package = pkgs.nixVersions.latest;
     settings = {
       experimental-features = "nix-command flakes";
-      trusted-users = [ "zcoyle" ];
+      trusted-users = ["zcoyle"];
       auto-optimise-store = true;
       use-xdg-base-directories = true;
       download-attempts = 20;

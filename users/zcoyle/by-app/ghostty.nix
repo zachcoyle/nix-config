@@ -2,8 +2,7 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   leader = "ctrl+space";
 
   sequence = keyseq: builtins.concatStringsSep ">" keyseq;
@@ -89,21 +88,20 @@ let
       )
     ];
   };
-in
-{
+in {
   home.file.".config/ghostty/config".text = builtins.concatStringsSep "\n" (
     lib.mapAttrsToList (
       name: value:
-      if name == "palette" then
-        (builtins.concatStringsSep "\n" (builtins.map (x: "palette = ${x}") value))
-      else if name == "font-feature" then
-        (builtins.concatStringsSep "\n" (builtins.map (x: "font-feature = ${x}") value))
-      else if name == "keybind" then
-        (builtins.concatStringsSep "\n" (builtins.map (x: "keybind = ${x}") value))
-      else if name == "custom-shader" then
-        (builtins.concatStringsSep "\n" (builtins.map (x: "custom-shader = ${x}") value))
-      else
-        "${name} = ${builtins.toString value}"
-    ) ghostty_config
+        if name == "palette"
+        then (builtins.concatStringsSep "\n" (builtins.map (x: "palette = ${x}") value))
+        else if name == "font-feature"
+        then (builtins.concatStringsSep "\n" (builtins.map (x: "font-feature = ${x}") value))
+        else if name == "keybind"
+        then (builtins.concatStringsSep "\n" (builtins.map (x: "keybind = ${x}") value))
+        else if name == "custom-shader"
+        then (builtins.concatStringsSep "\n" (builtins.map (x: "custom-shader = ${x}") value))
+        else "${name} = ${builtins.toString value}"
+    )
+    ghostty_config
   );
 }

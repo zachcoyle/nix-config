@@ -3,12 +3,11 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   gradient_border = "rgb(${config.lib.stylix.colors.base0C}) rgb(${config.lib.stylix.colors.base0D}) 45deg";
   toggle-fakefullscreen = pkgs.writeShellApplication {
     name = "toggle-fakefullscreen";
-    runtimeInputs = with pkgs; [ jq ];
+    runtimeInputs = with pkgs; [jq];
     text = ''
       FFS_STATE="$(hyprctl activewindow -j | jq '.fullscreenClient')"
       case $FFS_STATE in
@@ -37,8 +36,7 @@ let
       fi
     '';
   };
-in
-{
+in {
   # TODO: finish moving pkgs
   home.packages = with pkgs; [
     grim
@@ -264,7 +262,7 @@ in
         ", XF86Eject, exec, eject"
       ];
 
-      workspace = [ "special:scratchpad, on-created-empty:ghostty" ];
+      workspace = ["special:scratchpad, on-created-empty:ghostty"];
 
       layerrule = [
         "blur, ags"

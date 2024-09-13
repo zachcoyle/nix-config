@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   programs.nixvim.plugins = {
     barbar.enable = true;
     cmp-emoji.enable = true;
@@ -21,7 +20,7 @@
         sort = true;
         run_on_every_keystroke = true;
         snippet_placeholder = "..";
-        ignored_file_types = { };
+        ignored_file_types = {};
         show_prediction_strength = true;
       };
     };
@@ -30,7 +29,8 @@
       enable = true;
       settings = {
         timeout_ms = 2000;
-        format_on_save = # lua
+        format_on_save =
+          # lua
           ''
             -- TODO: tighten this up
             function(bufnr)
@@ -56,37 +56,37 @@
             # "codespell"
             "injected"
           ];
-          "_" = [ "trim_whitespace" ];
-          css = [ "prettierd" ];
-          dart = [ "dart_format" ];
-          go = [ "gofumpt" ];
-          graphql = [ "prettierd" ];
-          haskell = [ "ormolu" ];
-          html = [ "prettierd" ];
-          javascript = [ "prettierd" ];
-          javascriptreact = [ "prettierd" ];
+          "_" = ["trim_whitespace"];
+          css = ["prettierd"];
+          dart = ["dart_format"];
+          go = ["gofumpt"];
+          graphql = ["prettierd"];
+          haskell = ["ormolu"];
+          html = ["prettierd"];
+          javascript = ["prettierd"];
+          javascriptreact = ["prettierd"];
           json = [
             "fix_json"
             "prettierd"
           ];
-          just = [ "just" ];
-          kotlin = [ "ktlint" ];
-          lua = [ "stylua" ];
-          md = [ "mdformat" ];
-          nix = [ "alejandra" ];
+          just = ["just"];
+          kotlin = ["ktlint"];
+          lua = ["stylua"];
+          md = ["mdformat"];
+          nix = ["alejandra"];
           python = [
             "ruff_fix"
             "ruff_format"
           ];
-          rust = [ "rustfmt" ];
-          swift = [ "swift_format" ];
-          sh = [ "beautysh" ];
-          sql = [ "sql_formatter" ];
-          toml = [ "taplo" ];
-          typescript = [ "prettierd" ];
-          typescriptreact = [ "prettierd" ];
-          vala = [ "uncrustify" ];
-          vue = [ "prettierd" ];
+          rust = ["rustfmt"];
+          swift = ["swift_format"];
+          sh = ["beautysh"];
+          sql = ["sql_formatter"];
+          toml = ["taplo"];
+          typescript = ["prettierd"];
+          typescriptreact = ["prettierd"];
+          vala = ["uncrustify"];
+          vue = ["prettierd"];
           yaml = [
             "yamlfix"
             "yamlfmt"
@@ -118,7 +118,8 @@
             type = "lldb";
             request = "launch";
             program = {
-              __raw = # lua
+              __raw =
+                # lua
                 ''
                   function()
                     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
@@ -127,9 +128,10 @@
             };
             cwd = ''''${workspaceFolder}'';
             stopOnEntry = false;
-            args = { };
+            args = {};
             initCommands = {
-              __raw = # lua
+              __raw =
+                # lua
                 ''
                   function()
                     -- Find out where to look for the pretty printer Python module
@@ -153,7 +155,8 @@
                 '';
             };
             env = {
-              __raw = # lua
+              __raw =
+                # lua
                 ''
                   function()
                       local variables = {}
@@ -172,7 +175,7 @@
     emmet.enable = true;
     firenvim = {
       enable = true;
-      # TODO: 
+      # TODO:
       # settings = {
       #   globalSettings = { };
       #   localSettings = { };
@@ -309,14 +312,14 @@
         lua-ls = {
           enable = true;
           settings = {
-            diagnostics.globals = [ "vim" ];
+            diagnostics.globals = ["vim"];
             workspace = {
               ignoreDir = [
                 ".vscode"
                 ".direnv"
                 ".devenv"
               ];
-              library = [ { __raw = ''vim.api.nvim_get_runtime_file("", true)''; } ];
+              library = [{__raw = ''vim.api.nvim_get_runtime_file("", true)'';}];
             };
           };
         };
@@ -357,7 +360,7 @@
     lsp-lines.enable = true;
     luasnip = {
       enable = true;
-      fromVscode = [ { } ];
+      fromVscode = [{}];
     };
     lspkind.enable = true;
     lspsaga = {
@@ -419,7 +422,8 @@
         experimental = {
           ghost_text = true;
         };
-        snippet.expand = # lua
+        snippet.expand =
+          # lua
           ''
             function(args)
               require('luasnip').lsp_expand(args.body)
@@ -448,32 +452,39 @@
           ];
         };
         mapping = {
-          "<C-Space>" = # lua
+          "<C-Space>" =
+            # lua
             "cmp.mapping.complete()";
-          "<C-d>" = # lua
+          "<C-d>" =
+            # lua
             "cmp.mapping.scroll_docs(-4)";
-          "<C-e>" = # lua
+          "<C-e>" =
+            # lua
             "cmp.mapping.close()";
-          "<C-f>" = # lua
+          "<C-f>" =
+            # lua
             "cmp.mapping.scroll_docs(4)";
-          "<CR>" = # lua
+          "<CR>" =
+            # lua
             "cmp.mapping.confirm({ select = true })";
-          "<S-Tab>" = # lua
+          "<S-Tab>" =
+            # lua
             ''cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" })'';
-          "<Tab>" = # lua
+          "<Tab>" =
+            # lua
             ''cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" })'';
         };
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "otter"; }
-          { name = "nvim_lsp_signature_help"; }
-          { name = "nvim_lsp_document_symbol"; }
-          { name = "nvim_lua"; }
-          { name = "cmp_tabnine"; }
-          { name = "luasnip"; }
-          { name = "path"; }
-          { name = "buffer"; }
-          { name = "emoji"; }
+          {name = "nvim_lsp";}
+          {name = "otter";}
+          {name = "nvim_lsp_signature_help";}
+          {name = "nvim_lsp_document_symbol";}
+          {name = "nvim_lua";}
+          {name = "cmp_tabnine";}
+          {name = "luasnip";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "emoji";}
         ];
       };
     };
@@ -482,19 +493,19 @@
       data = "${config.xdg.cacheHome}/jdtls/workspace/";
       configuration = "${config.xdg.cacheHome}/jdtls/config";
       initOptions = {
-        bundles =
-          let
-            base_path = "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug";
-            package_json = builtins.fromJSON (builtins.readFile "${base_path}/package.json");
-            jar_paths = builtins.map (e: "${base_path}/${e}") package_json.contributes.javaExtensions;
-          in
+        bundles = let
+          base_path = "${pkgs.vscode-marketplace.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug";
+          package_json = builtins.fromJSON (builtins.readFile "${base_path}/package.json");
+          jar_paths = builtins.map (e: "${base_path}/${e}") package_json.contributes.javaExtensions;
+        in
           jar_paths;
       };
     };
     nvim-ufo = {
       enable = true;
       enableGetFoldVirtText = true;
-      providerSelector = # lua
+      providerSelector =
+        # lua
         ''
           function(bufnr, filetype, buftype)
             return {'treesitter', 'indent'}
@@ -517,7 +528,7 @@
           set_filetype = true;
           write_to_disk = true;
         };
-        lsp.diagnostic_update_events = [ "BufWritePost" ];
+        lsp.diagnostic_update_events = ["BufWritePost"];
       };
     };
     project-nvim = {
@@ -616,7 +627,7 @@
       lspInterop = {
         enable = true;
         border = "double";
-        floatingPreviewOpts = { };
+        floatingPreviewOpts = {};
         peekDefinitionCode = {
           "<leader>df" = "@function.outer";
           "<leader>dF" = "@class.outer";

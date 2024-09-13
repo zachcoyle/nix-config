@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-{
-
-  imports = [ ../../theme/stylix.nix ];
+{pkgs, ...}: {
+  imports = [../../theme/stylix.nix];
 
   nix = {
     linux-builder = {
@@ -49,7 +47,7 @@
         IconType = 6;
       };
 
-      CustomUserPreferences = { };
+      CustomUserPreferences = {};
 
       dock = {
         autohide = false;
@@ -125,20 +123,20 @@
   local.dock = {
     enable = true;
     entries = [
-      { path = "/System/Applications/Utilities/Activity\ Monitor.app"; }
-      { path = "/Applications/Safari.app"; }
-      { path = "${pkgs.firefox-bin}/Applications/Firefox.app"; }
-      { path = "/System/Applications/Messages.app"; }
-      { path = "/System/Applications/Mail.app"; }
-      { path = "/System/Applications/Freeform.app"; }
-      { path = "/System/Applications/Notes.app"; }
-      { path = "/Applications/Xcode-beta.app"; }
+      {path = "/System/Applications/Utilities/Activity\ Monitor.app";}
+      {path = "/Applications/Safari.app";}
+      {path = "${pkgs.firefox-bin}/Applications/Firefox.app";}
+      {path = "/System/Applications/Messages.app";}
+      {path = "/System/Applications/Mail.app";}
+      {path = "/System/Applications/Freeform.app";}
+      {path = "/System/Applications/Notes.app";}
+      {path = "/Applications/Xcode-beta.app";}
       # { path = "${pkgs.alacritty}/Applications/Alacritty.app"; }
-      { path = "/Applications/Ghostty.app"; }
-      { path = "/Applications/Fork.app"; }
-      { path = "/Applications/Neovide.app"; }
-      { path = "/Applications/Logos.app"; }
-      { path = "/System/Applications/System\ Settings.app"; }
+      {path = "/Applications/Ghostty.app";}
+      {path = "/Applications/Fork.app";}
+      {path = "/Applications/Neovide.app";}
+      {path = "/Applications/Logos.app";}
+      {path = "/System/Applications/System\ Settings.app";}
       {
         path = "/Applications";
         section = "others";

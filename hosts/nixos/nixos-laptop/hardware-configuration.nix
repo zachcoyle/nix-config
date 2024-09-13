@@ -4,13 +4,10 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
-}:
-
-{
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot = {
     initrd = {
@@ -21,14 +18,14 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = [ ];
+      kernelModules = [];
       luks.devices."luks-f4e18b91-5cec-4b40-ac1e-5683056b4572".device = "/dev/disk/by-uuid/f4e18b91-5cec-4b40-ac1e-5683056b4572";
     };
     kernelModules = [
       "kvm-intel"
       "sg"
     ];
-    extraModulePackages = [ ];
+    extraModulePackages = [];
   };
 
   fileSystems = {
@@ -47,7 +44,7 @@
     };
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/3b1bc5d1-a381-417b-91ea-32ef568814b5"; } ];
+  swapDevices = [{device = "/dev/disk/by-uuid/3b1bc5d1-a381-417b-91ea-32ef568814b5";}];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

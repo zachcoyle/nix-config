@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   stylix = {
     enable = true;
     image = ./wallpapers/platform.png;
@@ -26,7 +25,10 @@
         applications = 12;
         desktop = 10;
         popups = 14;
-        terminal = if pkgs.stdenv.isDarwin then 13 else 10;
+        terminal =
+          if pkgs.stdenv.isDarwin
+          then 13
+          else 10;
       };
     };
     targets = {

@@ -3,12 +3,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   inherit (config.lib.stylix.colors) withHashtag;
-in
-{
-
+in {
   imports = [
     ./plugins.nix
     ./keymaps.nix
@@ -34,7 +31,8 @@ in
     };
 
     extraFiles = {
-      "queries/rust/injections.scm".text = # scheme
+      "queries/rust/injections.scm".text =
+        # scheme
         ''
           ;; extends
 
@@ -51,11 +49,11 @@ in
           ; sqlx - sqlx::query(r#"<sql here>");
           (call_expression
             function: (scoped_identifier
-                        path: (identifier) @p 
+                        path: (identifier) @p
                         name: (identifier) @n)
             arguments: (arguments
                          (raw_string_literal
-                           (string_content) @injection.content 
+                           (string_content) @injection.content
                            (#set! injection.language "sql")))
             (#match? @p "sqlx")
             (#match? @n "query"))
@@ -65,9 +63,9 @@ in
           (call_expression function:
             (field_expression value:
               (macro_invocation macro:
-                (scoped_identifier 
-                  path: (identifier) @p 
-                  name: (identifier) @n) 
+                (scoped_identifier
+                  path: (identifier) @p
+                  name: (identifier) @n)
                  (token_tree
                    (raw_string_literal
                      (string_content) @injection.content
@@ -77,8 +75,7 @@ in
         '';
     };
 
-    extraPackages =
-      with pkgs;
+    extraPackages = with pkgs;
       [
         # utility
         fd
@@ -113,7 +110,7 @@ in
         yamlfmt
       ]
       # FIXME: this should also work on darwin
-      ++ (lib.optionals pkgs.stdenv.isLinux [ pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter ]);
+      ++ (lib.optionals pkgs.stdenv.isLinux [pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter]);
 
     extraPlugins = with pkgs.vimPlugins; [
       dropbar-nvim
@@ -124,7 +121,8 @@ in
       tint-nvim
     ];
 
-    extraConfigLua = # lua
+    extraConfigLua =
+      # lua
       ''
         vim.cmd [[ aunmenu PopUp.How-to\ disable\ mouse ]]
         vim.cmd [[ aunmenu PopUp.-1- ]]
@@ -206,7 +204,7 @@ in
 
         -- FIXME: temp junky fix for neovide theme on darwin
 
-        local alpha = function() 
+        local alpha = function()
           return string.format("%x", math.floor((255 * vim.g.transparency) or 0.8))
         end
 
@@ -224,7 +222,8 @@ in
         end
       '';
 
-    extraConfigLuaPre = # lua
+    extraConfigLuaPre =
+      # lua
       ''
         local Terminal = require("toggleterm.terminal").Terminal
 
@@ -257,15 +256,14 @@ in
         scrolloff = 4;
         shada = "!,'100,<50,s10";
         signcolumn = "yes:2";
-        undodir = [ "${config.xdg.stateHome}/nvim/.undo//" ];
+        undodir = ["${config.xdg.stateHome}/nvim/.undo//"];
         undofile = true;
         wrap = false;
       }
       // (
-        if pkgs.stdenv.isDarwin then
-          { guifont = "FiraCode Nerd Font:h13"; }
-        else
-          { guifont = "FiraCode Nerd Font:h10"; }
+        if pkgs.stdenv.isDarwin
+        then {guifont = "FiraCode Nerd Font:h13";}
+        else {guifont = "FiraCode Nerd Font:h10";}
       );
 
     globals = {

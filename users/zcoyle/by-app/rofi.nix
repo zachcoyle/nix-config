@@ -4,18 +4,16 @@
   std,
   config,
   ...
-}:
-let
+}: let
   inherit (config.lib.formats.rasi) mkLiteral;
   inherit (config.lib.stylix) colors;
 
-  rgba =
-    { color, alpha }:
-    let
-      channel =
-        c: builtins.toString (builtins.floor ((std.num.parseFloat colors."${color}-dec-${c}") * 255));
-    in
-    "rgba(${channel "r"}, ${channel "g"}, ${channel "b"}, ${builtins.toString alpha}%)";
+  rgba = {
+    color,
+    alpha,
+  }: let
+    channel = c: builtins.toString (builtins.floor ((std.num.parseFloat colors."${color}-dec-${c}") * 255));
+  in "rgba(${channel "r"}, ${channel "g"}, ${channel "b"}, ${builtins.toString alpha}%)";
 
   # backgrounds
   base00_100 = rgba {
@@ -63,8 +61,7 @@ let
   selected_bg = mkLiteral base07_20;
   text = mkLiteral base07_100;
   selected_text = mkLiteral base00_100;
-in
-{
+in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;

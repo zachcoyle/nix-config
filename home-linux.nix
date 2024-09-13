@@ -5,13 +5,11 @@
   # std,
   config,
   ...
-}:
-let
+}: let
   # inherit (config.lib.stylix) colors;
   inherit (config.lib.stylix.colors) withHashtag;
-  random-emoji = pkgs.callPackage ./packages/random-emoji.nix { };
-in
-{
+  random-emoji = pkgs.callPackage ./packages/random-emoji.nix {};
+in {
   imports = [
     ./users/zcoyle/by-app/Hyprland
     ./users/zcoyle/by-app/rofi.nix
@@ -86,8 +84,8 @@ in
     mimeApps = {
       enable = true;
       associations = {
-        added = { };
-        removed = { };
+        added = {};
+        removed = {};
       };
       defaultApplications = import ./mimetypes.nix;
     };
@@ -100,16 +98,15 @@ in
             "Hyprland"
             "gtk"
           ];
-          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
         };
       };
       xdgOpenUsePortal = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
   };
   home = {
-    packages =
-      with pkgs;
+    packages = with pkgs;
       [
         # android-studio
         apostrophe
@@ -402,7 +399,7 @@ in
         keymap = [
           {
             name = "Global";
-            remap = { };
+            remap = {};
           }
         ];
       };
@@ -414,7 +411,7 @@ in
       enable = true;
       package = pkgs.ags;
       configDir = ./users/zcoyle/dots/ags;
-      extraPackages = [ ];
+      extraPackages = [];
     };
 
     firefox.package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
@@ -495,7 +492,7 @@ in
             valign = "center";
           }
         ];
-        image = [ ];
+        image = [];
         shape = [
           {
             size = "320, 55";
@@ -510,7 +507,7 @@ in
             valign = "center";
           }
         ];
-        input-field = [ ];
+        input-field = [];
       };
     };
 
@@ -530,7 +527,5 @@ in
     #     wlrobs
     #   ];
     # };
-
   };
-
 }

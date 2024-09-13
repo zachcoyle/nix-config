@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home = {
     file = {
       "Library/Application\ Support/neovide/neovide-settings.json".text = import ./users/zcoyle/by-app/neovide.nix;
@@ -46,7 +45,7 @@
                       from = {
                         key_code = "caps_lock";
                         modifiers = {
-                          optional = [ "any" ];
+                          optional = ["any"];
                         };
                       };
                       to = [
@@ -55,7 +54,7 @@
                           lazy = true;
                         }
                       ];
-                      to_if_alone = [ { key_code = "escape"; } ];
+                      to_if_alone = [{key_code = "escape";}];
                       type = "basic";
                     }
                   ];
@@ -64,55 +63,55 @@
               ];
             };
 
-            devices = [ ];
+            devices = [];
             fn_function_keys = [
               {
                 from.key_code = "f1";
-                to = [ { consumer_key_code = "display_brightness_decrement"; } ];
+                to = [{consumer_key_code = "display_brightness_decrement";}];
               }
               {
                 from.key_code = "f2";
-                to = [ { consumer_key_code = "display_brightness_increment"; } ];
+                to = [{consumer_key_code = "display_brightness_increment";}];
               }
               {
                 from.key_code = "f3";
-                to = [ { apple_vendor_keyboard_key_code = "mission_control"; } ];
+                to = [{apple_vendor_keyboard_key_code = "mission_control";}];
               }
               {
                 from.key_code = "f4";
-                to = [ { apple_vendor_keyboard_key_code = "spotlight"; } ];
+                to = [{apple_vendor_keyboard_key_code = "spotlight";}];
               }
               {
                 from.key_code = "f5";
-                to = [ { consumer_key_code = "dictation"; } ];
+                to = [{consumer_key_code = "dictation";}];
               }
               {
                 from.key_code = "f6";
-                to = [ { key_code = "f6"; } ];
+                to = [{key_code = "f6";}];
               }
               {
                 from.key_code = "f7";
-                to = [ { consumer_key_code = "rewind"; } ];
+                to = [{consumer_key_code = "rewind";}];
               }
               {
                 from.key_code = "f8";
-                to = [ { consumer_key_code = "play_or_pause"; } ];
+                to = [{consumer_key_code = "play_or_pause";}];
               }
               {
                 from.key_code = "f9";
-                to = [ { consumer_key_code = "fast_forward"; } ];
+                to = [{consumer_key_code = "fast_forward";}];
               }
               {
                 from.key_code = "f10";
-                to = [ { consumer_key_code = "mute"; } ];
+                to = [{consumer_key_code = "mute";}];
               }
               {
                 from.key_code = "f11";
-                to = [ { consumer_key_code = "volume_decrement"; } ];
+                to = [{consumer_key_code = "volume_decrement";}];
               }
               {
                 from.key_code = "f12";
-                to = [ { consumer_key_code = "volume_increment"; } ];
+                to = [{consumer_key_code = "volume_increment";}];
               }
             ];
 
@@ -123,7 +122,7 @@
             };
 
             selected = true;
-            simple_modifications = [ ];
+            simple_modifications = [];
             virtual_hid_keyboard = {
               country_code = 0;
               indicate_sticky_modifier_keys_state = true;
@@ -134,7 +133,7 @@
       };
     };
 
-    packages = with pkgs; [ karabiner-elements ];
+    packages = with pkgs; [karabiner-elements];
   };
 
   programs = {

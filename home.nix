@@ -4,17 +4,15 @@
   nixvim,
   config,
   ...
-}:
-let
+}: let
   lf-previewer = pkgs.writeShellApplication {
     name = "lf-previewer";
-    runtimeInputs = with pkgs; [ bat ];
+    runtimeInputs = with pkgs; [bat];
     text = ''
       bat --color=always --theme=gruvbox-dark "$1"
     '';
   };
-in
-{
+in {
   imports = [
     nixvim.homeManagerModules.nixvim
     ./users/zcoyle/by-app/alacritty.nix
@@ -159,11 +157,9 @@ in
       W3M_DIR = "${config.xdg.dataHome}/w3m";
       XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
     };
-
   };
 
   programs = {
-
     atuin = {
       enable = true;
       settings = {
@@ -200,7 +196,8 @@ in
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
-      stdlib = # sh
+      stdlib =
+        # sh
         ''
           layout_poetry() {
             if [[ ! -f pyproject.toml ]]; then
@@ -240,7 +237,7 @@ in
           name = "Zach Coyle";
           email = "zach.coyle@gmail.com";
         };
-        ui.default-command = [ "log" ];
+        ui.default-command = ["log"];
       };
     };
 
@@ -248,9 +245,9 @@ in
 
     lf = {
       enable = true;
-      cmdKeybindings = { };
-      commands = { };
-      keybindings = { };
+      cmdKeybindings = {};
+      commands = {};
+      keybindings = {};
       previewer = {
         keybinding = "i";
         source = ''${lf-previewer}/bin/lf-previewer "$@"'';
@@ -296,18 +293,16 @@ in
     #   };
     # };
 
-    starship =
-      let
-        nerdfontPreset = pkgs.runCommand "nerdfont.toml" { } ''
-          mkdir $out
-          ${lib.getExe pkgs.starship} preset nerd-font-symbols -o $out/nerdfont.toml
-        '';
-      in
-      {
-        enable = true;
-        enableZshIntegration = true;
-        settings = { } // (builtins.fromTOML (builtins.readFile "${nerdfontPreset}/nerdfont.toml"));
-      };
+    starship = let
+      nerdfontPreset = pkgs.runCommand "nerdfont.toml" {} ''
+        mkdir $out
+        ${lib.getExe pkgs.starship} preset nerd-font-symbols -o $out/nerdfont.toml
+      '';
+    in {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {} // (builtins.fromTOML (builtins.readFile "${nerdfontPreset}/nerdfont.toml"));
+    };
 
     tmux = {
       enable = true;
@@ -316,11 +311,12 @@ in
       keyMode = "vi";
       prefix = "C-b";
       plugins = with pkgs.tmuxPlugins; [
-        { plugin = sensible; }
-        { plugin = battery; }
-        { plugin = mode-indicator; }
+        {plugin = sensible;}
+        {plugin = battery;}
+        {plugin = mode-indicator;}
       ];
-      extraConfig = # sh
+      extraConfig =
+        # sh
         ''
           # Smart pane switching with awareness of Vim splits.
           # INFO: See: https://github.com/christoomey/vim-tmux-navigator
@@ -377,14 +373,13 @@ in
 
       oh-my-zsh = {
         enable = true;
-        plugins = [ "vi-mode" ];
+        plugins = ["vi-mode"];
       };
 
       history = {
         save = 100000;
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
-
     };
 
     # FIXME: broken on darwin currently
@@ -405,7 +400,7 @@ in
       # FIXME: when tray enabled it throws an error message.
       # need to figure out how to pass --wait to the tray program
       # tray.enable = true;
-      extraOptions = [ ];
+      extraOptions = [];
     };
   };
 }
