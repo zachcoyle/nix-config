@@ -248,7 +248,6 @@
       };
     };
     hmts.enable = false;
-    image.enable = true;
     indent-blankline.enable = true;
     lualine = {
       enable = true;
