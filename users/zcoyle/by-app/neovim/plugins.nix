@@ -348,7 +348,7 @@
           };
         };
         sourcekit.enable = false;
-        tsserver.enable = true;
+        ts-ls.enable = true;
         vala-ls.enable = pkgs.stdenv.isLinux;
         volar.enable = true;
         vuels.enable = true;
