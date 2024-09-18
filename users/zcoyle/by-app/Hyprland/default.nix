@@ -36,6 +36,38 @@
       fi
     '';
   };
+  # TODO: try to redo this simpler
+  toggle-mouse = pkgs.writeShellApplication {
+    name = "toggle-mouse";
+    runtimeInputs = [];
+    text = ''
+      STATUS_FILE="$XDG_RUNTIME_DIR/mouse.status"
+
+      enable_mouse() {
+        printf "true" >"$STATUS_FILE"
+        notify-send -u normal "Enabling Mouse"
+        # shellcheck disable=SC2016
+        hyprctl keyword '$MOUSE_ENABLED' "true" -r
+      }
+
+      disable_mouse() {
+        printf "false" >"$STATUS_FILE"
+        notify-send -u normal "Disabling Mouse"
+        # shellcheck disable=SC2016
+        hyprctl keyword '$MOUSE_ENABLED' "false" -r
+      }
+
+      if ! [ -f "$STATUS_FILE" ]; then
+        enable_mouse
+      else
+        if [ "$(cat "$STATUS_FILE")" = "true" ]; then
+          disable_mouse
+        elif [ "$(cat "$STATUS_FILE")" = "false" ]; then
+          enable_mouse
+        fi
+      fi
+    '';
+  };
 in {
   # TODO: finish moving pkgs
   home.packages = with pkgs; [
@@ -50,6 +82,15 @@ in {
     enable = pkgs.stdenv.isLinux;
 
     settings = {
+      "$MOUSE_ENABLED" = true;
+
+      device = [
+        {
+          name = "bcm5974";
+          enabled = "$MOUSE_ENABLED";
+        }
+      ];
+
       general = {
         gaps_out = "8,20,20,20";
         layout = "dwindle";
@@ -157,6 +198,7 @@ in {
         "SUPER, Return, exec, ghostty"
         "SUPER, Q, killactive"
         "SUPER, F, fullscreen, 0"
+        "SUPER, D, exec, ${lib.getExe toggle-mouse}"
         "SUPER SHIFT, F, exec, ${lib.getExe toggle-fakefullscreen}"
         "SUPER, T, togglefloating"
         "SUPER, SPACE, exec, rofi -opacity 0 -show drun -show-icons -display-drun '' -display-ssh '󰣀' -display-run '' -display-window ''"
