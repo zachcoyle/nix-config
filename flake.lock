@@ -501,11 +501,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1726687063,
-        "narHash": "sha256-L8dL4pCY9l/WHu1OiwlJXQSnvR5bneG/0s889AHLnCw=",
+        "lastModified": 1726694275,
+        "narHash": "sha256-wd4tyvKGwZg6CgXNbU5lOVASpSQxfuHQDk9elyUlLkM=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "7b7bd5e364b34cdf4f724e023d880d4e926abc07",
+        "rev": "a423a1cee68a260eaedb57b6c5860c89e8f49106",
         "type": "github"
       },
       "original": {
@@ -1033,11 +1033,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1726690748,
-        "narHash": "sha256-O7Pn99OFV7nqXv3epWS7Xv7ebGXHzcrpMNjiPwvsoSw=",
+        "lastModified": 1726695106,
+        "narHash": "sha256-c+YAX61XUrxanIbLorJGJgod0MQegw9028IYal1ulqg=",
         "owner": "zachcoyle",
         "repo": "neovim-plugins-nightly-overlay",
-        "rev": "a2c985a854e84413d3605296619de9753b2578f8",
+        "rev": "19704de72eb6d59e64000b3a05616ef7bdaa342a",
         "type": "github"
       },
       "original": {
@@ -1759,11 +1759,11 @@
         "xremap": "xremap"
       },
       "locked": {
-        "lastModified": 1726517155,
-        "narHash": "sha256-xXgpTX1R2Mx+dWhXs7pupkXz1tgdWyNsGnjt2wsJCLk=",
+        "lastModified": 1726694144,
+        "narHash": "sha256-CYmbQPmxVmlR+/3VekZcGR65vyq0BrSubTcTUiV+uTc=",
         "owner": "xremap",
         "repo": "nix-flake",
-        "rev": "4b70d925f2b0a9b805c7935ae7b20a2156139509",
+        "rev": "792be05dac0801c5836feab3a55d9b7f4844442f",
         "type": "github"
       },
       "original": {
