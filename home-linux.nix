@@ -118,7 +118,6 @@ in {
         # bottles
         brightnessctl
         buildah
-        cider
         d-spy
         evince
         ghostty
