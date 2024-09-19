@@ -6,6 +6,78 @@
 }: {
   programs.nixvim.plugins = {
     barbar.enable = true;
+    cmp = {
+      enable = true;
+      settings = {
+        experimental = {
+          ghost_text = true;
+        };
+        snippet.expand =
+          # lua
+          ''
+            function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
+          '';
+        widow = {
+          completion.border = [
+            "╔"
+            "═"
+            "╗"
+            "║"
+            "╝"
+            "═"
+            "╚"
+            "║"
+          ];
+          documentation.border = [
+            "╔"
+            "═"
+            "╗"
+            "║"
+            "╝"
+            "═"
+            "╚"
+            "║"
+          ];
+        };
+        mapping = {
+          "<C-Space>" =
+            # lua
+            "cmp.mapping.complete()";
+          "<C-d>" =
+            # lua
+            "cmp.mapping.scroll_docs(-4)";
+          "<C-e>" =
+            # lua
+            "cmp.mapping.close()";
+          "<C-f>" =
+            # lua
+            "cmp.mapping.scroll_docs(4)";
+          "<CR>" =
+            # lua
+            "cmp.mapping.confirm({ select = true })";
+          "<S-Tab>" =
+            # lua
+            ''cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" })'';
+          "<Tab>" =
+            # lua
+            ''cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" })'';
+        };
+        sources = [
+          {name = "nvim_lsp";}
+          {name = "otter";}
+          {name = "nvim_lsp_signature_help";}
+          {name = "nvim_lsp_document_symbol";}
+          {name = "nvim_lua";}
+          {name = "cmp_tabnine";}
+          {name = "luasnip";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "emoji";}
+        ];
+      };
+    };
     cmp-emoji.enable = true;
     cmp-nvim-lsp.enable = true;
     cmp-nvim-lsp-document-symbol.enable = true;
@@ -416,78 +488,6 @@
         virtualtext = "virtualtext";
       };
     };
-    cmp = {
-      enable = true;
-      settings = {
-        experimental = {
-          ghost_text = true;
-        };
-        snippet.expand =
-          # lua
-          ''
-            function(args)
-              require('luasnip').lsp_expand(args.body)
-            end
-          '';
-        widow = {
-          completion.border = [
-            "╔"
-            "═"
-            "╗"
-            "║"
-            "╝"
-            "═"
-            "╚"
-            "║"
-          ];
-          documentation.border = [
-            "╔"
-            "═"
-            "╗"
-            "║"
-            "╝"
-            "═"
-            "╚"
-            "║"
-          ];
-        };
-        mapping = {
-          "<C-Space>" =
-            # lua
-            "cmp.mapping.complete()";
-          "<C-d>" =
-            # lua
-            "cmp.mapping.scroll_docs(-4)";
-          "<C-e>" =
-            # lua
-            "cmp.mapping.close()";
-          "<C-f>" =
-            # lua
-            "cmp.mapping.scroll_docs(4)";
-          "<CR>" =
-            # lua
-            "cmp.mapping.confirm({ select = true })";
-          "<S-Tab>" =
-            # lua
-            ''cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" })'';
-          "<Tab>" =
-            # lua
-            ''cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" })'';
-        };
-        sources = [
-          {name = "nvim_lsp";}
-          {name = "otter";}
-          {name = "nvim_lsp_signature_help";}
-          {name = "nvim_lsp_document_symbol";}
-          {name = "nvim_lua";}
-          {name = "cmp_tabnine";}
-          {name = "luasnip";}
-          {name = "path";}
-          {name = "buffer";}
-          {name = "emoji";}
-        ];
-      };
-    };
     nvim-jdtls = {
       enable = true;
       data = "${config.xdg.cacheHome}/jdtls/workspace/";
@@ -501,6 +501,7 @@
           jar_paths;
       };
     };
+    nvim-surround.enable = true;
     nvim-ufo = {
       enable = true;
       enableGetFoldVirtText = true;
@@ -537,7 +538,6 @@
     };
     rainbow-delimiters.enable = true;
     refactoring.enable = true;
-    surround.enable = true;
     telescope = {
       enable = true;
       settings.defaults = {
