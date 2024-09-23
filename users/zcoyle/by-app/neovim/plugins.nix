@@ -319,6 +319,7 @@
         };
       };
     };
+    helpview.enable = true;
     hmts.enable = false;
     indent-blankline.enable = true;
     lualine = {
@@ -589,6 +590,7 @@
         media-files.enable = true;
         ui-select.enable = true;
         undo.enable = true;
+        manix.enable = true;
       };
     };
     tmux-navigator.enable = true;
