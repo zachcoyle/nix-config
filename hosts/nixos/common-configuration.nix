@@ -265,7 +265,7 @@ in {
     openssh.enable = true;
 
     ollama = {
-      enable = true;
+      enable = false;
       acceleration = "rocm";
     };
 
