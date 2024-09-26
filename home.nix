@@ -43,7 +43,7 @@ in {
       cool-retro-term
       coreutils-full
       curlFull
-      dart-sass
+      # dart-sass
       dasel
       dos2unix
       dsq

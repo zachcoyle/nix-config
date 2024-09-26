@@ -92,7 +92,7 @@ in {
         beautysh
         prettierd
         codespell
-        dart
+        # dart
         gofumpt
         just
         ktlint
