@@ -36,4 +36,6 @@
       openFirewall = true;
     };
   };
+
+  fonts.fontconfig.hinting.style = "full"; # non-hidpi
 }

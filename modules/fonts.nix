@@ -43,14 +43,6 @@
       if pkgs.stdenv.isLinux
       then {
         fontDir.enable = true;
-        # fontconfig = {
-        #   defaultFonts = {
-        #     emoji = with pkgs; [ ];
-        #     monospace = with pkgs; [];
-        #     sansSerif = with pkgs; [];
-        #     serif = with pkgs; [];
-        #   };
-        # };
       }
       else {}
     );
