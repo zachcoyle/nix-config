@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [zed-editor];
-  xdg.configFile."zed/settings.json".text = builtins.toJSON {
+  home.file.".config/zed/settings.json".text = builtins.toJSON {
     vim_mode = true;
     ui_font_size = 14;
     buffer_font_size = 14;

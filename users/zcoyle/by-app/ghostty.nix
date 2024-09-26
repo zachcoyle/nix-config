@@ -89,7 +89,7 @@
     ];
   };
 in {
-  xdg.configFile."ghostty/config".text = builtins.concatStringsSep "\n" (
+  home.file.".config/ghostty/config".text = builtins.concatStringsSep "\n" (
     lib.mapAttrsToList (
       name: value:
         if name == "palette"
