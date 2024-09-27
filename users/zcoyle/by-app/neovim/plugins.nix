@@ -319,7 +319,7 @@
       };
     };
     helpview.enable = true;
-    hmts.enable = false;
+    hmts.enable = true;
     indent-blankline.enable = true;
     lualine = {
       enable = true;
@@ -605,7 +605,7 @@
     treesitter = {
       enable = true;
       nixGrammars = true;
-      nixvimInjections = false;
+      nixvimInjections = true;
       folding = true;
       settings = {
         highlight.enable = true;
