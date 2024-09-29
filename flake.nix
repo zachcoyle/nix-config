@@ -569,7 +569,7 @@
           '';
           packages = with pkgs; [
             alejandra
-            # dart-sass
+            dart-sass
             just
             deadnix
             statix

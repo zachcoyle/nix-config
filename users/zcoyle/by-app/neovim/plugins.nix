@@ -373,7 +373,7 @@
         biome.enable = true;
         clangd.enable = true;
         cssls.enable = true;
-        # dartls.enable = true;
+        dartls.enable = true;
         eslint.enable = true;
         gopls.enable = true;
         hls.enable = true;
