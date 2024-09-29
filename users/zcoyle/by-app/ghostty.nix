@@ -11,7 +11,6 @@
     background-opacity = 0.8;
     background-blur-radius = 20;
     cursor-style = "block";
-    adjust-underline-position = 20;
     font-family = config.stylix.fonts.monospace.name;
     font-size = config.stylix.fonts.sizes.terminal;
     gtk-titlebar = "false";
