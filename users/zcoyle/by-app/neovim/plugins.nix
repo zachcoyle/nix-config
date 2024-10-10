@@ -379,8 +379,8 @@
         hls.enable = true;
         html.enable = true;
         jsonls.enable = true;
-        kotlin-language-server.enable = true;
-        lua-ls = {
+        kotlin_language_server.enable = true;
+        lua_ls = {
           enable = true;
           settings = {
             diagnostics.globals = ["vim"];
@@ -395,9 +395,9 @@
           };
         };
         marksman.enable = true;
-        nil-ls.enable = true;
-        ruff-lsp.enable = true;
-        rust-analyzer = {
+        nil_ls.enable = true;
+        ruff_lsp.enable = true;
+        rust_analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
@@ -421,10 +421,9 @@
         };
         sourcekit.enable = false;
         tailwindcss.enable = true;
-        ts-ls.enable = true;
-        vala-ls.enable = pkgs.stdenv.isLinux;
+        ts_ls.enable = true;
+        vala_ls.enable = pkgs.stdenv.isLinux;
         volar.enable = true;
-        vuels.enable = true;
         yamlls.enable = true;
         zls.enable = true;
       };
