@@ -111,7 +111,7 @@ in {
         # android-studio
         apostrophe
         appimage-run
-        armcord
+        legcord
         aseprite
         audio-recorder
         blender

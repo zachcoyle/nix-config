@@ -148,10 +148,7 @@
 
     ags = {
       url = "github:Aylur/ags";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems-linux";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     xremap-flake = {
@@ -307,7 +304,7 @@
           nixpkgs.overlays = [
             inputs.telescope-just.overlays.default
             inputs.nix-vscode-extensions.overlays.default
-            inputs.nur.overlay
+            inputs.nur.overlays.default
             inputs.neovim-nightly-overlay.overlays.default
             inputs.neovim-plugins-nightly-overlay.overlays.default
             inputs.nil.overlays.default

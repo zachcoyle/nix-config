@@ -477,7 +477,7 @@
       enable = true;
       userDefaultOptions = {
         AARRGGBB = true;
-        css = true;
+        # css = true;
         hsl_fn = true;
         names = true;
         RGB = true;
