@@ -117,7 +117,7 @@ in {
       neorepl-nvim
       nvim-autopairs
       statuscol-nvim
-      telescope_just
+      # telescope_just
       tint-nvim
     ];
 

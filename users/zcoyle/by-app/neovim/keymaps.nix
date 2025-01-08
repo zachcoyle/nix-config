@@ -142,14 +142,14 @@
         desc = "Telecope File Browser";
       };
     }
-    {
-      action.__raw = "require('just').just";
-      key = "<leader>tj";
-      options = {
-        silent = true;
-        desc = "Telescope Just";
-      };
-    }
+    #{
+    #  action.__raw = "require('just').just";
+    #  key = "<leader>tj";
+    #  options = {
+    #    silent = true;
+    #    desc = "Telescope Just";
+    #  };
+    #}
     {
       key = "<leader>tl";
       action.__raw = "require('trouble.sources.telescope').open";

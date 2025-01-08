@@ -85,7 +85,7 @@
     cmp-path.enable = true;
     cmp-tabnine = {
       enable = true;
-      extraOptions = {
+      settings = {
         max_lines = 1000;
         max_num_results = 2;
         sort = true;
@@ -165,7 +165,7 @@
         };
       };
     };
-    crates-nvim.enable = true;
+    crates.enable = true;
     cursorline.enable = true;
     dap = {
       enable = true;
@@ -340,20 +340,20 @@
       inlayHints = true;
       preConfig = ''
         vim.fn.sign_define(
-        "DiagnosticSignError",
-        { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" }
+            "DiagnosticSignError",
+            { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" }
         )
         vim.fn.sign_define(
-        "DiagnosticSignWarn",
-        { texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn" }
+            "DiagnosticSignWarn",
+            { texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn" }
         )
         vim.fn.sign_define(
-        "DiagnosticSignHint",
-        { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" }
+            "DiagnosticSignHint",
+            { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" }
         )
         vim.fn.sign_define(
-        "DiagnosticSignInfo",
-        { texthl = "DiagnosticSignInfo", text = "", numhl = "DiagnosticSignInfo" }
+            "DiagnosticSignInfo",
+            { texthl = "DiagnosticSignInfo", text = "", numhl = "DiagnosticSignInfo" }
         )
       '';
       keymaps = {
@@ -376,7 +376,10 @@
         dartls.enable = true;
         eslint.enable = true;
         gopls.enable = true;
-        hls.enable = true;
+        hls = {
+          enable = true;
+          installGhc = true;
+        };
         html.enable = true;
         jsonls.enable = true;
         kotlin_language_server.enable = true;
@@ -396,7 +399,7 @@
         };
         marksman.enable = true;
         nil_ls.enable = true;
-        ruff_lsp.enable = true;
+        ruff.enable = true;
         rust_analyzer = {
           enable = true;
           installRustc = true;
@@ -470,12 +473,12 @@
     # };
     noice = {
       enable = true;
-      notify.enabled = false;
+      settings.notify.enabled = false;
     };
     nix.enable = true;
-    nvim-colorizer = {
+    colorizer = {
       enable = true;
-      userDefaultOptions = {
+      settings.userDefaultOptions = {
         AARRGGBB = true;
         # css = true;
         hsl_fn = true;
@@ -503,14 +506,16 @@
     nvim-surround.enable = true;
     nvim-ufo = {
       enable = true;
-      enableGetFoldVirtText = true;
-      providerSelector =
-        # lua
-        ''
-          function(bufnr, filetype, buftype)
-            return {'treesitter', 'indent'}
-          end
-        '';
+      settings = {
+        enable_get_fold_virt_text = true;
+        provider_selector =
+          # lua
+          ''
+            function(bufnr, filetype, buftype)
+              return {'treesitter', 'indent'}
+            end
+          '';
+      };
     };
     ollama = {
       enable = true;
@@ -710,8 +715,8 @@
     ts-context-commentstring.enable = true;
     vim-matchup = {
       enable = true;
-      enableSurround = true;
-      treesitterIntegration.enable = true;
+      settings.surround_enabled = true;
+      treesitter.enable = true;
     };
     web-devicons.enable = true;
     which-key.enable = true;

@@ -11,12 +11,12 @@
     text = ''
       FFS_STATE="$(hyprctl activewindow -j | jq '.fullscreenClient')"
       case $FFS_STATE in
-      "0")
-      hyprctl dispatch fullscreenstate "0 2"
-      ;;
-      *)
-      hyprctl dispatch fullscreenstate "0 0"
-      ;;
+          "0")
+              hyprctl dispatch fullscreenstate "0 2"
+              ;;
+          *)
+              hyprctl dispatch fullscreenstate "0 0"
+              ;;
       esac
     '';
   };
@@ -44,27 +44,27 @@
       STATUS_FILE="$XDG_RUNTIME_DIR/mouse.status"
 
       enable_mouse() {
-        printf "true" >"$STATUS_FILE"
-        notify-send -u normal "Enabling Mouse"
-        # shellcheck disable=SC2016
-        hyprctl keyword '$MOUSE_ENABLED' "true" -r
+          printf "true" >"$STATUS_FILE"
+          notify-send -u normal "Enabling Mouse"
+          # shellcheck disable=SC2016
+          hyprctl keyword '$MOUSE_ENABLED' "true" -r
       }
 
       disable_mouse() {
-        printf "false" >"$STATUS_FILE"
-        notify-send -u normal "Disabling Mouse"
-        # shellcheck disable=SC2016
-        hyprctl keyword '$MOUSE_ENABLED' "false" -r
+          printf "false" >"$STATUS_FILE"
+          notify-send -u normal "Disabling Mouse"
+          # shellcheck disable=SC2016
+          hyprctl keyword '$MOUSE_ENABLED' "false" -r
       }
 
       if ! [ -f "$STATUS_FILE" ]; then
-        enable_mouse
-      else
-        if [ "$(cat "$STATUS_FILE")" = "true" ]; then
-          disable_mouse
-        elif [ "$(cat "$STATUS_FILE")" = "false" ]; then
           enable_mouse
-        fi
+      else
+          if [ "$(cat "$STATUS_FILE")" = "true" ]; then
+              disable_mouse
+          elif [ "$(cat "$STATUS_FILE")" = "false" ]; then
+              enable_mouse
+          fi
       fi
     '';
   };
@@ -130,10 +130,12 @@ in {
       };
       decoration = {
         active_opacity = 1.0;
-        drop_shadow = true;
+        shadow = {
+          enabled = true;
+          offset = "0 5";
+        };
         inactive_opacity = 0.8;
         rounding = 10;
-        shadow_offset = "0 5";
         dim_inactive = true;
         blur = {
           size = 4;
